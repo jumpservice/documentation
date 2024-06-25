@@ -1,7 +1,7 @@
 {
-  "name": "nextra-docs-template",
+  "name": "jumpserver-documentation",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "JumpServer Documentation",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/ibuler/jumpserver-documentation.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "ibuler <ibuler@fit2cloud.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/ibuler/jumpserver-documentation/issues"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://github.com/ibuler/jumpserver-documentation#readme",
   "dependencies": {
     "next": "^13.0.6",
     "nextra": "latest",
