@@ -1,32 +1,22 @@
 {
-  "name": "jumpserver-documentation",
+  "name": "docs",
   "version": "0.0.1",
   "description": "JumpServer Documentation",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ibuler/jumpserver-documentation.git"
-  },
-  "author": "ibuler <ibuler@fit2cloud.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ibuler/jumpserver-documentation/issues"
-  },
-  "homepage": "https://github.com/ibuler/jumpserver-documentation#readme",
   "dependencies": {
-    "next": "^13.0.6",
-    "nextra": "latest",
-    "nextra-theme-docs": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "title": "^3.5.3"
+    "next": "^14.2.4",
+    "nextra": "^2.13.4",
+    "nextra-theme-docs": "^2.13.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/node": "18.11.10",
-    "typescript": "^4.9.3"
+    "@types/node": "20.14.9",
+    "typescript": "^5.5.2"
   }
 }
