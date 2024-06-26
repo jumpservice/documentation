@@ -2,8 +2,59 @@
 
 This guide show you how to upgrade JumpServer to a more recent version.
 
+Before proceeding with the following steps, please ensure to back up your database.
+
 ## Linux
+
 ### One-line installation script
+
+_Using version `v3.10.11` as an example._
+
+1. Change directory to `/opt`.
+
+```sh
+cd /opt
+```
+
+2. Download the latest installation package.
+```sh
+wget https://github.com/jumpserver/installer/releases/download/v3.10.11/jumpserver-installer-v3.10.11.tar.gz
+```
+
+3. Extract the installation package.
+```sh
+tar -xf jumpserver-installer-v3.10.11.tar.gz
+```
+
+4. Change directory to `jumpserver-installer-v3.10.11`.
+```sh
+cd jumpserver-installer-v3.10.11
+```
+
+5. Upgrade JumpServer.
+```sh
+./jmsctl.sh upgrade
+```
+
+6. Start JumpServer.
+```sh
+./jmsctl.sh start
+```
+
 
 ## Helm
 
+1. Download the latest JumpServer `values.yaml`.
+```sh
+https://github.com/jumpserver/helm-charts/blob/main/charts/jumpserver/values.yaml
+```
+
+2. Update repository.
+```sh
+helm repo update
+```
+
+3. Upgrade JumpServer.
+```sh
+helm upgrade jms-k8s jumpserver/jumpserver -n default -f values.yaml
+```

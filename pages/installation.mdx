@@ -14,21 +14,21 @@ curl -sSL https://github.com/jumpserver/jumpserver/releases/latest/download/quic
 ```
 
 After completing the installation, access JumpServer in your browser at: <br/>
-```md
+```sh
 http://your-jumpserver-ip/
 
-# username: admin
-# password: admin
+# Username: admin
+# Password: admin
 ```
 
 ## Helm
 
-Set up the JumpServer Helm repository.
+1. Set up the JumpServer Helm repository.
 ```sh
 helm repo add jumpserver https://jumpserver.github.io/helm-charts
 ```
 
-Edit the `values.yaml` file for JumpServer
+2. Edit the `values.yaml` file for JumpServer.
 <details>
 
 <summary>values.yaml</summary>
@@ -907,12 +907,12 @@ web:
 ```
 </details>
 
-Install JumpServer
+3. Install JumpServer.
 ```sh
 helm install jms-k8s jumpserver/jumpserver -n default -f values.yaml
 ```
 
-Uninstall JumpServer
+4. Uninstall JumpServer.
 ```sh
 helm uninstall jms-k8s -n default
 ```
