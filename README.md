@@ -1,13 +1,3 @@
-# JumpServer Document
+# JumpServer Documents
 
-Use [`Nextra Docs Template`](https://github.com/shuding/nextra-docs-template).
-
-## Local Development
-
-First, run `pnpm i` to install the dependencies.
-
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
+JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, K9s, Remote Apps and Database endpoints through a web browser.
