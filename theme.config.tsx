@@ -6,6 +6,9 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/jumpserver/jumpserver',
   },
+  sidebar: {
+    defaultMenuCollapseLevel: 1
+  },
   chat: {
     link: 'https://discord.com/invite/jcM5tKWJ',
   },

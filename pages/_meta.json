@@ -1,3 +1,30 @@
 {
-  "index": "Introduction"
+  "index": "Introduction",
+
+  "-- getting-started": {
+    "type": "separator",
+    "title": "Getting Started"
+  },
+
+  "quick-start": "Quick Start",
+  "installation": "Installation",
+  "configuration": "Configuration",
+
+  "-- Guides": {
+    "type": "separator",
+    "title": "Guides"
+  },
+
+  "administrator": "Administrator",
+  "auditor": "Auditor",
+  "user": "User",
+  "developer": "Developer",
+
+  "-- Others": {
+    "type": "separator",
+    "title": "Others"
+  },
+
+  "faq": "FAQ",
+  "cve": "CVE"
 }
