@@ -1,4 +1,9 @@
 {
+  "-- overview": {
+    "type": "separator",
+    "title": "Overview"
+  },
+
   "index": "Introduction",
 
   "-- getting-started": {
@@ -8,6 +13,7 @@
 
   "quick-start": "Quick Start",
   "installation": "Installation",
+  "upgrading": "Upgrading",
   "configuration": "Configuration",
 
   "-- Guides": {
