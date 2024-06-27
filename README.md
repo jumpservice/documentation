@@ -8,7 +8,7 @@ Please read [`CONTRIBUTING.md`](https://github.com/ibuler/jumpserver-documentati
 
 ## Local Setup
 
-This project is built on [Next.js](https://nextra.site/). You can run it on your machine, provided you have [Node 16+](https://nodejs.org/en/) and [`pnpm`](https://pnpm.io) installed.
+This project is built on [Next.js](https://nextra.site/). You can run it on your machine, provided you have [Node 20+](https://nodejs.org/en/) and [`pnpm`](https://pnpm.io) installed.
 
 First, clone the repo:
 
