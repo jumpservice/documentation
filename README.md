@@ -1,5 +1,5 @@
 # The JumpServer Docs
-This is the source code for The JumpServer’s documentation, accessible at [dev-documentation/](https://jumpserver-documentation-git-dev-ibulers-projects.vercel.app/)
+This is the source code for The JumpServer’s documentation, accessible at [documentation-dev](https://jumpserver-documentation-git-dev-ibulers-projects.vercel.app/)
 
 ## Contributing
 
