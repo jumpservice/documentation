@@ -43,7 +43,7 @@ export default {
     const { asPath } = useRouter()
     if (asPath == '/') {
       return {
-        titleTemplate: 'JumpServer'
+        titleTemplate: 'JumpServer | An open-source PAM tool'
       }
     } else {
       return {
