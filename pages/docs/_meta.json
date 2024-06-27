@@ -5,12 +5,11 @@
     "type": "separator",
     "title": "Getting Started"
   },
-  "installation": "Installation",
-  "upgrading": "Upgrading",
+  "installation": "",
+  "upgrading": "",
 
   "-- guides": {
     "type": "separator",
     "title": "Guides"
-  },
-  "administration": "Administration"
+  }
 }

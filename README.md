@@ -1,11 +1,39 @@
 <img src="public/logo.svg" alt="Logo" width="258" height="228" align="right" />
 
-# JumpServer Docs
+# The JumpServer Docs
+This is the source code for The JumpServer’s documentation, accessible at [dev-documentation/](https://jumpserver-documentation-git-dev-ibulers-projects.vercel.app/)
 
-JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, K9s, Remote Apps and Database endpoints through a web browser.
+## Contributing
 
-## Quick Start
+Please read [`CONTRIBUTING.md`](https://github.com/ibuler/jumpserver-documentation/blob/dev/CONTRIBUTING.md). Thank you ❤️
 
-First, run `pnpm i` to install the dependencies.
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+## Local Setup
+
+This project is built on [Next.js](https://nextra.site/). You can run it on your machine, provided you have [Node 16+](https://nodejs.org/en/) and [`pnpm`](https://pnpm.io) installed.
+
+First, clone the repo:
+
+```bash
+git clone https://github.com/ibuler/jumpserver-documentation/
+```
+
+Make sure you are inside the folder:
+
+```bash
+cd jumpserver-documentation
+```
+
+Install the dependencies:
+
+```bash
+pnpm i
+```
+
+Then, run the project:
+
+```bash
+pnpm dev
+```
+
+That’s it! Go to http://localhost:3000 to see it in action. Any change you make to a file in `pages` should be refreshed automatically in your browser.
