@@ -94,9 +94,5 @@ export default {
   },
   toc: {
     backToTop: true
-  },
-  i18n: [
-    { locale: 'en-US', text: 'English' },
-    // { locale: 'zh-CN', text: '中文简体' },
-  ]
+  }
 }
