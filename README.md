@@ -1,6 +1,6 @@
-<img src="public/logo.svg" alt="Logo" width="118" height="128" align="right" />
+<img src="public/logo.svg" alt="Logo" width="258" height="228" align="right" />
 
-# JumpServer Documents
+# JumpServer Docs
 
 JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, K9s, Remote Apps and Database endpoints through a web browser.
 
