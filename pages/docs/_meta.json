@@ -1,0 +1,16 @@
+{
+  "index": "Introduction",
+
+  "-- getting-started": {
+    "type": "separator",
+    "title": "Getting Started"
+  },
+  "installation": "Installation",
+  "upgrading": "Upgrading",
+
+  "-- guides": {
+    "type": "separator",
+    "title": "Guides"
+  },
+  "administration": "Administration"
+}
