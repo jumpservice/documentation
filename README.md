@@ -1,5 +1,3 @@
-<img src="public/logo.svg" alt="Logo" width="258" height="228" align="right" />
-
 # The JumpServer Docs
 This is the source code for The JumpServer’s documentation, accessible at [dev-documentation/](https://jumpserver-documentation-git-dev-ibulers-projects.vercel.app/)
 
