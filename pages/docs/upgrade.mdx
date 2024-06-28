@@ -1,0 +1,71 @@
+import { Callout, Steps } from 'nextra/components'
+import { DownloadIcon, LinkExternalIcon } from '@primer/octicons-react';
+
+# Upgrading
+
+<Callout type="warning">
+**Please back up your database first before proceeding with the upgrade!**
+</Callout>
+
+This guide show you how to upgrade JumpServer to a more recent version.
+
+## One-line installation script
+
+_Using version `v4.0.1` as an example._
+
+<Steps>
+
+### Download package
+Change to the `/opt` directory, download and extract the latest installation package.
+
+```sh
+cd /opt
+```
+
+```sh
+wget https://github.com/jumpserver/installer/releases/download/v4.0.1/jumpserver-installer-v4.0.1.tar.gz
+```
+
+```sh
+tar -xf jumpserver-installer-v4.0.1.tar.gz
+```
+
+### Upgrade
+Enter the `jumpserver-installer-v4.0.1` directory, execute the upgrade, and start the service.
+
+```sh
+cd jumpserver-installer-v4.0.1
+```
+
+```sh
+./jmsctl.sh upgrade
+```
+
+```sh
+./jmsctl.sh start
+```
+
+</Steps>
+
+## Helm
+<Steps>
+### Download file
+
+Open the following link in a browser [<LinkExternalIcon size={16} />](https://github.com/jumpserver/helm-charts/blob/main/charts/jumpserver/values.yaml) , and click the (<DownloadIcon size={16} />) button to download the latest version of file `values.yaml`.
+
+```sh
+https://github.com/jumpserver/helm-charts/blob/main/charts/jumpserver/values.yaml 
+```
+
+### Upgrade
+Update the Helm repository, and upgrade using the downloaded `values.yml` file.
+
+```sh
+helm repo update
+```
+
+```sh copy
+helm upgrade jms-k8s jumpserver/jumpserver -n default -f values.yaml
+```
+
+</Steps>
