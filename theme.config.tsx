@@ -56,7 +56,7 @@ export default {
       <img 
         src="/logo.svg" 
         style={{ 
-          height: '32px',
+          height: '36px',
           maskImage: 'linear-gradient(60deg, black 25%, rgba(0, 0, 0, 0.2) 50%, black 75%)',
           maskSize: '500%',
           maskPosition: '0%',
