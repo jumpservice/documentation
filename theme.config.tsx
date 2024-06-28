@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import React from 'react'
 
 const capitalizeFirstLetter = (string) => {
   const words = string.split('-')
