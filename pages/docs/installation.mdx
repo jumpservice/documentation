@@ -35,17 +35,17 @@ http://your-jumpserver-ip/
 <Steps>
 ### Set repository
 Set up the JumpServer Helm repository.
-```sh copy
+```sh
 helm repo add jumpserver https://jumpserver.github.io/helm-charts
 ```
 
-### Edit `values.yaml` file
+### Edit file
 Edit the `values.yaml` file for JumpServer.
 <details>
 
 <summary>values.yaml</summary>
 
-```yaml copy
+```yaml
 # Template https://github.com/jumpserver/helm-charts/blob/main/charts/jumpserver/values.yaml
 # Default values for jumpserver.
 # This is a YAML-formatted file.
@@ -920,15 +920,12 @@ web:
 </details>
 
 ### Install
-Install JumpServer.
-```sh copy
+```sh
 helm install jms-k8s jumpserver/jumpserver -n default -f values.yaml
 ```
 
 ### Uninstall
-
-Uninstall JumpServer.
-```sh copy
+```sh
 helm uninstall jms-k8s -n default
 ```
 </Steps>
