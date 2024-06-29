@@ -8,6 +8,10 @@
     "type": "page",
     "title": "Docs"
   },
+  "faq": {
+    "type": "page",
+    "title": "FAQ"
+  },
   "developers": {
     "type": "page",
     "title": "Developers"

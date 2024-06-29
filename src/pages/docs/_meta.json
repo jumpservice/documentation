@@ -11,5 +11,13 @@
   "-- guides": {
     "type": "separator",
     "title": "Guides"
-  }
+  },
+  "administration": "Administration",
+
+  "-- best-practices": {
+    "type": "separator",
+    "title": "Best Practices"
+  },
+  "best-practices": "Overview",
+  "connect-remoteapp": "Connect RemoteApp"
 }
