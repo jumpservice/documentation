@@ -51,7 +51,7 @@ const Footer = () => (
             { title: "Introduction", url: "/docs" },
             { title: "Best Practices", url: "/docs/best-practices" },
             { title: "Frequently Asked Questions", url: "/faq" },
-            { title: "Developers", url: "/developers" }
+            { title: "Developers", url: "/developers" },
           ]}
         />
         <List
@@ -59,16 +59,16 @@ const Footer = () => (
           items={[
             { title: "Organization", url: "https://github.com/JumpServer" },
             { title: "Release Notes", url: "https://github.com/jumpserver/jumpserver/releases" },
-            { title: "Contribute to JumpServer", url: "https://github.com/jumpserver/jumpserver/blob/dev/CONTRIBUTING.md" },
+            { title: "Contribute", url: "https://github.com/jumpserver/jumpserver/blob/dev/CONTRIBUTING.md" },
           ]}
         />
         <List
           title="Resources"
           items={[
-            { title: "Community", url: "https://community.fit2cloud.com/#/products/jumpserver/information" },
-            { title: "Blog", url: "https://blog.fit2cloud.com/categories/jumpserver" },
             { title: "BBS", url: "https://bbs.fit2cloud.com/c/js/5"},
+            { title: "Blog", url: "https://blog.fit2cloud.com/categories/jumpserver" },
             { title: "Knowledge", url: "https://kb.fit2cloud.com/categories/jumpserver"},
+            { title: "Community", url: "https://community.fit2cloud.com/#/products/jumpserver/information" },
           ]}
         />
         <List 
