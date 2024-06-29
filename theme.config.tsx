@@ -109,7 +109,7 @@ const Footer = () => (
             ))}
 
           </ul>
-          {/* <a
+          <a
             href="https://nextra.site"
             target="_blank"
             rel="noreferrer"
@@ -128,7 +128,7 @@ const Footer = () => (
                 strokeWidth="2"
               />
             </svg>
-          </a> */}
+          </a>
         </div>
       </div>
     </div>
