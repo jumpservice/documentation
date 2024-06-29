@@ -1,5 +1,28 @@
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router'
+import NextLink from 'next/link'
+import { 
+  JumpServerWordmarkLogoIcon 
+} from './src/icons'
+
+
+const JumpServerLogo = (
+  <JumpServerWordmarkLogoIcon className="h-8 nextra-logo" title="JumpServer" />
+)
+
+const Footer = () => (
+  <> 
+    <div className='w-full'>
+      <div className="flex justify-between items-start mb-24 flex-wrap gap-10">
+        <NextLink href="/" className='max-lg:w-full'>
+          {JumpServerLogo}
+        </NextLink>
+        top
+      </div>
+      <div>bottom</div>
+    </div>
+  </>
+)
 
 const capitalizeFirstLetter = (string) => {
   const words = string.split('-')
@@ -9,7 +32,7 @@ const capitalizeFirstLetter = (string) => {
   return capitalizedWords.join(' ')
 }
 
-const banner = {
+const Banner = {
   key: '4.0-release',
   text: (
     <a href="https://github.com/jumpserver/jumpserver" target="_blank">
@@ -17,23 +40,6 @@ const banner = {
     </a>
   )
 }
-
-const logo = (
-  <>
-    <img 
-      src="/logo.svg" 
-      style={{ 
-        height: '36px',
-        maskImage: 'linear-gradient(60deg, black 25%, rgba(0, 0, 0, 0.2) 50%, black 75%)',
-        maskSize: '500%',
-        maskPosition: '0%',
-        transition: 'mask-position 1s ease'
-      }}
-      onMouseOver={(e) => e.currentTarget.style.maskPosition = '100%'}
-      onMouseOut={(e) => e.currentTarget.style.maskPosition = '0%'}
-    />
-  </>
-)
 
 const config: DocsThemeConfig = {
   head: (
@@ -44,8 +50,8 @@ const config: DocsThemeConfig = {
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     </>
   ),
-  banner: banner,
-  logo: logo,
+  banner: Banner,
+  logo: JumpServerLogo,
   project: {
     link: 'https://github.com/jumpserver/jumpserver',
   },
@@ -91,14 +97,16 @@ const config: DocsThemeConfig = {
     backToTop: true
   },
   footer: {
-    text: (
-      <div className="flex w-full flex-col items-center sm:items-start">
-        <p className="mt-6 text-xs">
-          © {new Date().getFullYear()} The JumpServer Project.
-        </p>
-      </div>
-    )
+    text: Footer
   },
 }
 
 export default config
+
+// text: (
+//   <div className="flex w-full flex-col items-center sm:items-start">
+//     <p className="mt-6 text-xs">
+//       © {new Date().getFullYear()} The JumpServer Project.
+//     </p>
+//   </div>
+// )
