@@ -54,3 +54,7 @@
   line-height: 20px;
   position: absolute;
 }
+
+::selection {
+  @apply bg-primary/50 dark:bg-primary;
+}
