@@ -1,14 +1,14 @@
-import { DocsThemeConfig } from 'nextra-theme-docs';
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import { 
+  JumpServerWordmarkLogoIcon,
   GitHubIcon,
   DiscordIcon,
-  JumpServerWordmarkLogoIcon 
 } from './src/icons'
 
 
-const JumpServerLogo = (
+const Logo = (
   <JumpServerWordmarkLogoIcon className="h-8 nextra-logo" title="JumpServer" />
 )
 
@@ -28,7 +28,7 @@ function List({
     <ul className='text-sm flex flex-col gap-4 max-lg:w-[46%]'>
       <h3 className='text-lg font-bold'>{title}</h3>
       {items.map(item => (
-        <li key='item.title'>
+        <li key={item.title}>
           <NextLink href={item.url} target="_blank" className={classes.link}>
             {item.title}
           </NextLink>
@@ -43,7 +43,7 @@ const Footer = () => (
     <div className='w-full'>
       <div className="flex justify-between items-start mb-24 flex-wrap gap-10">
         <NextLink href="/" target="_blank" className='max-lg:w-full'>
-          {JumpServerLogo}
+          {Logo}
         </NextLink>
         <List
           title="Learn"
@@ -154,7 +154,7 @@ const config: DocsThemeConfig = {
     </>
   ),
   banner: Banner,
-  logo: JumpServerLogo,
+  logo: Logo,
   project: {
     link: 'https://github.com/jumpserver/jumpserver',
   },
