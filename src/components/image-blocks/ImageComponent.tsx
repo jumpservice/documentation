@@ -1,6 +1,3 @@
-import _Image1 from './image1.mdx'
-
-
 import Image from 'next/image'
 
 interface ImageProps {
