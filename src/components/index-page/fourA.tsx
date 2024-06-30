@@ -3,10 +3,10 @@ import { StaticImageData } from 'next/image';
 import { Anchor, Image } from '@theguild/components';
 import { Description }  from './description';
 import { Heading } from './heading';
-import consulting from '/public/favicon.svg';
-import engineering from '/public/favicon.svg';
-import openSource from '/public/favicon.svg';
-import training from '/public/favicon.svg';
+import FourAAuthenticationIcon from '/public/fourA-authentication.svg';
+import FourAAccountingIcon from '/public/fourA-accounting.svg';
+import FourAAuditingIcon from '/public/fourA-auditing.svg';
+import FourAAuthorizationIcon from '/public/fourA-authorization.svg';
 
 export const FourA = (): ReactElement => {
   return (
@@ -73,7 +73,7 @@ export const SERVICES: {
     name: 'Authentication',
     description: 'Verifies the identity of users.',
     longDescription: "Authentication is the process of verifying the identity of a user or system. It ensures that the entity attempting to access a resource is who or what it claims to be. Common methods include passwords, biometrics, and multi-factor authentication.",
-    icon: consulting,
+    icon: FourAAuthenticationIcon,
     url: '/#',
     list: [
       'Current state assessment',
@@ -84,24 +84,24 @@ export const SERVICES: {
     ],
   },
   {
-    name: 'Authorization',
-    description: 'Determines user permissions and access levels.',
-    icon: training,
-    url: '/#',
-    longDescription: "Authorization determines what an authenticated user is allowed to do. It sets the permissions and access levels for various resources within a system, ensuring that users can only access the data and functions that they are permitted to.",
-  },
-  {
     name: 'Accounting',
     description: 'Logs user activities and resource usage.',
-    icon: engineering,
+    icon: FourAAccountingIcon,
     url: '/#',
     longDescription: "Accounting  involves monitoring and recording the activities of users who access the system. This includes logging details such as login times, commands executed, files accessed, and duration of sessions. These records are essential for tracking user behavior, ensuring compliance with security policies, and providing data for auditing and forensic analysis.",
     list: ['Integral part of your team', 'Coding practical tasks', 'Code reviews', 'Mentorship'],
   },
   {
+    name: 'Authorization',
+    description: 'Determines user permissions and access levels.',
+    icon: FourAAuthorizationIcon,
+    url: '/#',
+    longDescription: "Authorization determines what an authenticated user is allowed to do. It sets the permissions and access levels for various resources within a system, ensuring that users can only access the data and functions that they are permitted to.",
+  },
+  {
     name: 'Auditing',
     description: 'Reviews and analyzes logs to ensure compliance and detect anomalies.',
-    icon: openSource,
+    icon: FourAAuditingIcon,
     url: '/#',
     longDescription: "Auditing involves systematically reviewing and analyzing the recorded logs of user activities and system events. This process ensures that all actions are in compliance with security policies and regulatory requirements. It helps in identifying any unauthorized access or suspicious activities, providing a basis for investigating security incidents and ensuring the overall integrity and security of the system.",
     list: ['Technical support', 'Covers the entire stack', 'Part of decision making process'],

@@ -3,9 +3,7 @@ import { Anchor, Image } from '@theguild/components';
 import { Tooltip } from './tooltip';
 import { Description }  from './description';
 import { Heading } from './heading';
-import jsIcon from '/public/favicon.svg';
-
-<Image src={jsIcon} alt={'illustration'} placeholder="empty" />
+import XPACKOrgIcon from '/public/xpack-org.svg';
 
 const PRODUCTS: Array<{
   name: string;
@@ -16,11 +14,11 @@ const PRODUCTS: Array<{
   }) => ReactElement;
 }> = [
   {
-    name: 'JS',
-    title: 'JS Logo',
+    name: 'Organization',
+    title: 'Organization',
     href: '/#',
     // logo: ({ className = '' }) => <div className={className}>LogoA</div>, // Placeholder for actual logo component
-    logo: ({ className = '' }) => <Image className={className} src={jsIcon} alt={'illustration'} placeholder="empty" />,
+    logo: ({ className = '' }) => <Image className={className} src={XPACKOrgIcon} alt={`illustration`} placeholder="empty" />,
   },
 ];
 
