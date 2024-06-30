@@ -1,5 +1,6 @@
 import { Hero } from "./hero"
 import { InfiniteMovingCards } from "./infinite-moving-cards"
+import { ImageComponent } from "../image-blocks"
 
 export function IndexPage() {
   return (
@@ -18,10 +19,10 @@ export function IndexPage() {
         speed="normal"
         className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
       >
-        <img src="/img/demo-moving.png" alt="" />
-        <img src="/img/demo-moving.png" alt="" />
-        <img src="/img/demo-moving.png" alt="" />
-        <img src="/img/demo-moving.png" alt="" />
+        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
+        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
+        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
+        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
       </InfiniteMovingCards>
     </div>
   )
