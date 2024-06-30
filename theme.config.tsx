@@ -200,6 +200,13 @@ const config: DocsThemeConfig = {
   footer: {
     text: Footer
   },
+  nextThemes: {
+    defaultTheme: 'dark',
+    // forcedTheme: 'dark',
+  },
+  // themeSwitch: {
+  //   component: null,
+  // },
 }
 
 export default config
