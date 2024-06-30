@@ -24,7 +24,7 @@
   @apply py-14 lg:py-24;
 }
 
-.index {
+.index .what-jumsperver {
   p {
     @apply text-lg lg:text-xl/9 mb-5 max-w-2xl;
   }
@@ -45,6 +45,7 @@
     @apply bg-primary border-transparent text-white;
   }
 }
+
 
 .apiIndex li a:hover::before {
   @apply text-primary;

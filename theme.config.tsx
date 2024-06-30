@@ -7,7 +7,6 @@ import {
   DiscordIcon,
 } from './src/icons'
 
-
 const Logo = (
   <JumpServerWordmarkLogoIcon className="h-8 nextra-logo" title="JumpServer" />
 )
@@ -204,11 +203,3 @@ const config: DocsThemeConfig = {
 }
 
 export default config
-
-// text: (
-//   <div className="flex w-full flex-col items-center sm:items-start">
-//     <p className="mt-6 text-xs">
-//       © {new Date().getFullYear()} The JumpServer Project.
-//     </p>
-//   </div>
-// )

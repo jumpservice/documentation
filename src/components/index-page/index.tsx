@@ -1,12 +1,14 @@
 import { Hero } from "./hero"
 import { InfiniteMovingCards } from "./infinite-moving-cards"
 import { ImageComponent } from "../image-blocks"
+import { FourA } from "./fourA"
+import { XPACKFeature } from "./xpack-feature"
 
 export function IndexPage() {
   return (
     <div className="index">
       <Hero />
-      <section className="text-center flex flex-col container items-center conf-block max-w-3xl">
+      <section className="what-jumsperver text-center flex flex-col container items-center conf-block max-w-3xl">
         <h2>What's is JumpServer?</h2>
         <p>
           JumpServer is an open-source Privileged Access Management (PAM) tool 
@@ -24,6 +26,8 @@ export function IndexPage() {
         <ImageComponent src="/img/moving-assets.png" alt="Asset" />
         <ImageComponent src="/img/moving-ssh.png" alt="SSH" />
       </InfiniteMovingCards>
+      <FourA />
+      <XPACKFeature />
     </div>
   )
 }
