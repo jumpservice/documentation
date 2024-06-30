@@ -19,10 +19,10 @@ export function IndexPage() {
         speed="normal"
         className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
       >
-        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
-        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
-        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
-        <ImageComponent src="/img/demo-moving.png" alt="Demo" />
+        <ImageComponent src="/img/moving-audits.png" alt="Audits" />
+        <ImageComponent src="/img/moving-rdp.png" alt="RDP" />
+        <ImageComponent src="/img/moving-assets.png" alt="Asset" />
+        <ImageComponent src="/img/moving-ssh.png" alt="SSH" />
       </InfiniteMovingCards>
     </div>
   )
