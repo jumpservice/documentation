@@ -5,7 +5,7 @@ export function IndexPage() {
     <div className="index">
       <Hero />
       <section className="text-center flex flex-col container items-center conf-block max-w-3xl">
-        <h2>An open-source PAM tool</h2>
+        <h2>What's is JumpServer?</h2>
         <p>
           JumpServer is an open-source Privileged Access Management (PAM) tool 
           that provides DevOps and IT teams with on-demand and secure access to 

@@ -18,6 +18,8 @@ export function Hero() {
           <div className="max-md:grow max-xl:w-full flex flex-col items-center gap-2">
             <JumpServerLogo className="w-24" />
             <h1 className="text-primary text-3xl">JumpServer</h1>
+            <br />
+            <h4 className="text-white text-2xl">An open-source PAM tool, and alternative to CyberArk.</h4>
           </div>
         </section>
         <Link
