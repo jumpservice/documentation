@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .nextra-logo {
   mask-image: linear-gradient(
     60deg,
@@ -18,4 +19,38 @@
       mask-position 1s ease,
       -webkit-mask-position 1s ease;
   }
+}
+.conf-block {
+  @apply py-14 lg:py-24;
+}
+
+.index {
+  p {
+    @apply text-lg lg:text-xl/9 mb-5 max-w-2xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-5xl font-bold mb-10 text-balance;
+  }
+
+  pre {
+    @apply bg-white;
+  }
+}
+.index-button {
+  @apply border border-current rounded-md transition-colors py-2.5 px-6;
+
+  &:hover,
+  &:focus {
+    @apply bg-primary border-transparent text-white;
+  }
+}
+
+.apiIndex li a:hover::before {
+  @apply text-primary;
+  content: "#";
+  font-size: 16px;
+  left: -2em;
+  line-height: 20px;
+  position: absolute;
 }
