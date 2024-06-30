@@ -4,7 +4,7 @@ import { clsx } from "clsx"
 
 export function Hero() {
   return (
-    <div className="[background:url('/img/graph-wash.png'),#171e26_repeat_center_center] xl:py-20">
+    <div className="[background:url('/img/jumpserver-banner.png'),#171e26_repeat_center_center] xl:py-20">
       <div className="container conf-block">
         <section 
           className={clsx(

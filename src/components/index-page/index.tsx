@@ -1,4 +1,5 @@
 import { Hero } from "./hero"
+import { InfiniteMovingCards } from "./infinite-moving-cards"
 
 export function IndexPage() {
   return (
@@ -12,6 +13,16 @@ export function IndexPage() {
           SSH, RDP, K8s, Remote Apps and Database endpoints through a web browser.
         </p>
       </section>
+      <InfiniteMovingCards 
+        direction="right"
+        speed="normal"
+        className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
+      >
+        <img src="/img/demo-moving.png" alt="" />
+        <img src="/img/demo-moving.png" alt="" />
+        <img src="/img/demo-moving.png" alt="" />
+        <img src="/img/demo-moving.png" alt="" />
+      </InfiniteMovingCards>
     </div>
   )
 }
