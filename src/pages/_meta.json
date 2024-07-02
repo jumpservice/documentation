@@ -1,8 +1,7 @@
 {
   "index": {
-    "title": "Homepage",
+    "title": "Home",
     "type": "page",
-    "display": "hidden",
     "theme": {
       "layout": "raw"
     }
@@ -10,21 +9,5 @@
   "docs": {
     "type": "page",
     "title": "Docs"
-  },
-  "faq": {
-    "type": "page",
-    "title": "FAQ"
-  },
-  "developers": {
-    "type": "page",
-    "title": "Developers"
-  },
-  "security": {
-    "type": "page",
-    "title": "Security"
-  },
-  "about": {
-    "type": "page",
-    "title": "About"
   }
 }
