@@ -9,6 +9,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.1",
+    "@heroicons/react": "^2.1.4",
     "@primer/octicons-react": "^19.10.0",
     "@radix-ui/react-tooltip": "1.0.7",
     "@stitches/react": "^1.2.8",

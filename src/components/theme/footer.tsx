@@ -24,7 +24,7 @@ function List({
 }
 
 
-export default function Footer() {
+function Footer() {
   return (
     <> 
       <div className='w-full'>
@@ -122,3 +122,5 @@ export default function Footer() {
     </>
   )
 }
+
+export default Footer

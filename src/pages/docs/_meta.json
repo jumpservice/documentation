@@ -1,23 +1,10 @@
 {
   "index": "Introduction",
-
   "-- getting-started": {
     "type": "separator",
     "title": "Getting Started"
   },
+  "quick-start": "Quickstart",
   "installation": "",
-  "upgrade": "",
-
-  "-- guides": {
-    "type": "separator",
-    "title": "Guides"
-  },
-  "administration": "Administration",
-
-  "-- best-practices": {
-    "type": "separator",
-    "title": "Best Practices"
-  },
-  "best-practices": "Overview",
-  "connect-remoteapp": "Connect RemoteApp"
+  "upgrading": ""
 }

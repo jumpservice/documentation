@@ -1,11 +1,12 @@
-import InfiniteMovingCards from "./infinite-moving-cards"
-import ImageComponent from "./image-blocks"
+import Image from 'next/image'
+import { InfiniteMovingCards } from "@/components/home"
+import { ImageComponent } from "@/components/public"
 import exp from "constants"
 
-function WhatJumpServer() {
+function WhatsJumpServer() {
   return (
     <>
-      <section className="what-jumsperver text-center flex flex-col container items-center conf-block max-w-3xl">
+      <section className="text-center flex flex-col container items-center conf-block max-w-3xl">
         <h2>What's is JumpServer?</h2>
         <p>
           JumpServer is an open-source Privileged Access Management (PAM) tool 
@@ -13,6 +14,7 @@ function WhatJumpServer() {
           SSH, RDP, K8s, Remote Apps and Database endpoints through a web browser.
         </p>
       </section>
+      <ImageComponent src="/images/jumpserver-overview.png" alt="jumpserver-overview" width={800} height={600}/>
       <InfiniteMovingCards 
         direction="right"
         speed="normal"
@@ -27,4 +29,4 @@ function WhatJumpServer() {
   )
 }
 
-export default WhatJumpServer
+export default WhatsJumpServer
