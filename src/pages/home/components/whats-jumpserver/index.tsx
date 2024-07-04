@@ -1,7 +1,8 @@
-import { InfiniteMovingCards } from "./infinite-moving-cards"
-import { ImageComponent } from "./image-blocks"
+import InfiniteMovingCards from "./infinite-moving-cards"
+import ImageComponent from "./image-blocks"
+import exp from "constants"
 
-export default function WhatsJumpServer() {
+function WhatJumpServer() {
   return (
     <>
       <section className="what-jumsperver text-center flex flex-col container items-center conf-block max-w-3xl">
@@ -25,3 +26,5 @@ export default function WhatsJumpServer() {
     </>
   )
 }
+
+export default WhatJumpServer

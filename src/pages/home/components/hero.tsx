@@ -2,7 +2,7 @@ import Link from "next/link"
 import { JumpServerLogo } from "@/icons"
 import { clsx } from "clsx"
 
-export default function Hero() {
+function Hero() {
   return (
     <div className="[background:url('/images/home-/banner.png'),#171e26_repeat_center_center] xl:py-20">
       <div className="container conf-block">
@@ -32,3 +32,5 @@ export default function Hero() {
     </div>
   )
 }
+
+export default Hero

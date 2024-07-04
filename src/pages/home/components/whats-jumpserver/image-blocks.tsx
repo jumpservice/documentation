@@ -8,7 +8,7 @@ interface ImageProps {
   height?: number;
 }
 
-export const ImageComponent: React.FC<ImageProps> = ({ src, alt, caption='', width = 600, height = 600 }) => {
+const ImageComponent: React.FC<ImageProps> = ({ src, alt, caption='', width = 600, height = 600 }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div>
@@ -18,3 +18,5 @@ export const ImageComponent: React.FC<ImageProps> = ({ src, alt, caption='', wid
     </div>
   )
 }
+
+export default ImageComponent

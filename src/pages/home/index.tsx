@@ -1,6 +1,8 @@
-import { Hero, WhatsJumpServer } from "./components"
+import Hero from "./components/hero"
+import WhatsJumpServer from "./components/hero"
 
-export function HomePage() {
+
+function HomePage() {
   return (
     <div className="index">
       <Hero />
@@ -8,3 +10,4 @@ export function HomePage() {
     </div>
   )
 }
+export default HomePage

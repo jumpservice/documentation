@@ -7,7 +7,7 @@ const TimeToSeconds = {
   slow: "80s",
 }
 
-export function InfiniteMovingCards({
+export default function InfiniteMovingCards({
   children,
   direction = "left",
   speed = "fast",
