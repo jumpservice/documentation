@@ -20,32 +20,17 @@
       -webkit-mask-position 1s ease;
   }
 }
-.conf-block {
-  @apply py-14 lg:py-24;
+
+::selection {
+  @apply bg-primary/50 dark:bg-primary;
 }
 
-.index {
-  p {
-    @apply text-lg lg:text-xl/9 mb-5 max-w-2xl;
-  }
 
-  h2 {
-    @apply text-3xl lg:text-5xl font-bold mb-10 text-balance;
-  }
-
-  pre {
-    @apply bg-white;
-  }
-}
-.index-button {
-  @apply border border-current rounded-md transition-colors py-2.5 px-6;
+.hero-button {
+  @apply border border-current rounded-md transition-colors py-2.5 px-6 w-fit text-white border-white ;
 
   &:hover,
   &:focus {
     @apply bg-primary border-transparent text-white;
   }
-}
-
-::selection {
-  @apply bg-primary/50 dark:bg-primary;
 }

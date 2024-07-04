@@ -1,7 +1,22 @@
-export { default as Hero } from './hero'
-export { default as WhatsJumpServer } from './whats-jumpserver'
-export { default as Advantages } from './advantages'
-export { default as XPack } from './x-pack'
-export { default as Support } from './support'
-export { default as Edition } from './edition'
-export { default as ContactUs } from './contact-us'
+import Hero from "./hero"
+import WhatsJumpServer from './whats'
+import Advantages from './advantages'
+import XPack from './x-pack'
+import Support from "./support"
+import Edition from "./edition"
+import ContactUs from "./contact-us"
+
+function HomePage() {
+  return (
+    <div className="index">
+      <Hero />
+      <WhatsJumpServer />
+      <Advantages />
+      <XPack />
+      <Support />
+      <Edition />
+      <ContactUs />
+    </div>
+  )
+}
+export default HomePage
