@@ -24,12 +24,15 @@
 
 /* Home */
 .home {
+  section {
+    @apply text-center flex flex-col container mt-20 items-center max-w-6xl;
+
+  }
+  h2 {
+    @apply text-2xl lg:text-4xl font-bold mb-8 text-balance;
+  }
   p {
     @apply text-lg lg:text-xl/9 mb-5 text-slate-500 w-full;
-  }
-
-  h2 {
-    @apply text-3xl lg:text-5xl font-bold mt-3 mb-8 text-balance;
   }
 
 }
@@ -41,7 +44,7 @@
       @apply bg-primary border-transparent text-white;
     }
 
-  }
+}
 
 /* Docs */
 ::selection {

@@ -3,7 +3,7 @@ import { ImageComponent } from "@/components/public"
 function WhatsJumpServer() {
   return (
     <>
-      <section className="text-center flex flex-col container items-center conf-block max-w-6xl">
+      <section className="hero-section-block">
         <h2>What's is JumpServer?</h2>
         <p>
           JumpServer is an open-source Privileged Access Management (PAM) tool 

@@ -7,7 +7,7 @@ export default function FlowingCard() {
       <InfiniteMovingCards 
         direction="right"
         speed="normal"
-        className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
+        className="mt-10 mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
       >
         <ImageComponent src="/images/home/assets.png" alt="Asset" />
         <ImageComponent src="/images/home/audits.png" alt="Audits" />

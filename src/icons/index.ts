@@ -3,3 +3,4 @@ export { default as JumpServerWordmarkLogoIcon } from './jumpserver-wordmark.svg
 export { default as DiscordIcon } from "./discord.svg"
 export { default as GitHubIcon } from "./github.svg"
 export { default as GitHubStarIcon } from "./github-star.svg"
+export { default as NoPluginsIcon } from "./no-plugins.svg"
