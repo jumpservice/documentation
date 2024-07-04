@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-.home-logo {
+.theme-logo {
   mask-image: linear-gradient(
     60deg,
     black 25%,

@@ -1,12 +1,12 @@
 import Link from "next/link"
-import { JumpServerLogo, GitHubIcon } from "@/icons"
+import { JumpServerLogo, GitHubStarIcon } from "@/icons"
 import { clsx } from "clsx"
-
+ 
 export default function Hero() {
   return (
     // <div className="[background:url('/images/home/banner.jpg')] xl:py-20">
-    <div className="bg-gray-900 xl:py-20">
-      <div className="container py-16 lg:py-24">
+    <div className="bg-gray-900 xl:py-12">
+      <div className="container py-8 lg:py-12">
         <section 
           className={clsx(
             "flex-wrap gap-14 justify-center items-center flex max-sm:flex-col",
@@ -24,11 +24,14 @@ export default function Hero() {
           </div>
         </section>
         <div className="flex justify-center mt-10">
-          <div className="inline-grid grid-cols-2 gap-4 items-center">
+          <div className="inline-flex gap-4 items-center">
             <Link className="hero-button" href="/docs">Get Started</Link>
             <Link className="hero-button" target="_blank" href="https://github.com/jumpserver/jumpserver/">
-              {/* <GitHubIcon className="inline-grid w-5 h-1"/> */}
-              GitHub Star
+              <div className="inline-flex gap-2">
+                <span>GitHub</span>
+                <span>24K+</span>
+                <GitHubStarIcon className="w-5 h-5" />
+              </div>
             </Link>
           </div>
         </div>

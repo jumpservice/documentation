@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 
-.home-logo {
+/* Theme */
+.theme-logo {
   mask-image: linear-gradient(
     60deg,
     black 25%,
@@ -21,16 +22,30 @@
   }
 }
 
+/* Home */
+.home {
+  p {
+    @apply text-lg lg:text-xl/9 mb-5 text-slate-500 w-full;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-5xl font-bold mt-3 mb-8 text-balance;
+  }
+
+}
+.hero-button {
+    @apply border border-current rounded-md transition-colors py-2.5 px-6 text-white border-white w-fit mx-auto mt-10;
+
+    &:hover,
+    &:focus {
+      @apply bg-primary border-transparent text-white;
+    }
+
+  }
+
+/* Docs */
 ::selection {
   @apply bg-primary/50 dark:bg-primary;
 }
 
-
-.hero-button {
-  @apply border border-current rounded-md transition-colors py-2.5 px-6 w-fit text-white border-white ;
-
-  &:hover,
-  &:focus {
-    @apply bg-primary border-transparent text-white;
-  }
-}
+/* Global */
