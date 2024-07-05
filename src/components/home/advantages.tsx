@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { 
   AdvOpenSourceIcon,
   AdvNoPluginsIcon,
@@ -9,6 +7,15 @@ import {
   AdvMultiTenantIcon,
 
 } from "@/icons/"
+
+const cardData = [
+  { icon: AdvOpenSourceIcon, text: "Rich Protocols & Resources Supported" },
+  { icon: AdvDistributedIcon, text: "Distributed Deployment Supported" },
+  { icon: AdvNoPluginsIcon, text: "No Browser Plugin Required" },
+  { icon: AdvCloudStorageIcon, text: "Auditing Record Synced to Cloud" },
+  { icon: AdvCloudSupportIcon, text: "Multi-Clouds Supported" },
+  { icon: AdvMultiTenantIcon, text: "Multi-Organizations Supported" }
+];
 
 const Card = ({ icon: IconComponent, text }) => {
   return (
@@ -20,15 +27,6 @@ const Card = ({ icon: IconComponent, text }) => {
     </>
   )
 }
-
-const cardData = [
-  { icon: AdvOpenSourceIcon, text: "Rich Protocols & Resources Supported" },
-  { icon: AdvDistributedIcon, text: "Distributed Deployment Supported" },
-  { icon: AdvNoPluginsIcon, text: "No Browser Plugin Required" },
-  { icon: AdvCloudStorageIcon, text: "Auditing Record Synced to Cloud" },
-  { icon: AdvCloudSupportIcon, text: "Multi-Clouds Supported" },
-  { icon: AdvMultiTenantIcon, text: "Multi-Organizations Supported" }
-];
 
 export default function Advantages() {
   return (

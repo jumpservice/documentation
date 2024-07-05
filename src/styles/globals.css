@@ -28,10 +28,10 @@
     @apply text-center flex flex-col container p-20 items-center max-w-6xl;
   }
   h2 {
-    @apply text-3xl lg:text-4xl mb-8 text-balance font-normal;
+    @apply text-2xl lg:text-3xl mb-8 text-balance font-normal;
   }
   p {
-    @apply text-lg lg:text-xl/8 text-slate-500 w-full;
+    @apply text-base lg:text-lg/8 text-slate-500 w-full;
   }
 }
 .hero-button {
