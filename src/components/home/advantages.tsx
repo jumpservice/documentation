@@ -1,23 +1,47 @@
-import { NoPluginsIcon } from "@/icons/"
+import React from 'react';
 
-const Card = () => {
+import { 
+  AdvOpenSourceIcon,
+  AdvNoPluginsIcon,
+  AdvCloudStorageIcon,
+  AdvCloudSupportIcon,
+  AdvDistributedIcon,
+  AdvMultiTenantIcon,
+
+} from "@/icons/"
+
+const Card = ({ icon: IconComponent, text }) => {
   return (
     <>
-      <div className="bg-white items-center rounded-lg shadow-2xl border-2 border-green-300">
-        <div> <NoPluginsIcon className="w-10" /> </div>
-        <div className="w-20 text-sm text-slate-500">No Browser Plugin Required</div>
+      <div className="flex flex-col items-center justify-center">
+        <div><IconComponent className="h-16" /></div>
+        <div className="mt-3 w-22 text-sm text-slate-500">{text}</div>
       </div>
     </>
   )
 }
 
+const cardData = [
+  { icon: AdvOpenSourceIcon, text: "Rich Protocols & Resources Supported" },
+  { icon: AdvDistributedIcon, text: "Distributed Deployment Supported" },
+  { icon: AdvNoPluginsIcon, text: "No Browser Plugin Required" },
+  { icon: AdvCloudStorageIcon, text: "Auditing Record Synced to Cloud" },
+  { icon: AdvCloudSupportIcon, text: "Multi-Clouds Supported" },
+  { icon: AdvMultiTenantIcon, text: "Multi-Organizations Supported" }
+];
 
 export default function Advantages() {
   return (
     <>
-      <section className="hero-section-block">
+      <section>
         <h2>Advantages of JumpServer</h2>
-        <Card />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 mt-5">
+          {
+            cardData.map((card, index) => (
+              <Card key={index} icon={card.icon} text={card.text} />
+            ))
+          }
+        </div>
       </section>
     </>
   )

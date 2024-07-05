@@ -29,6 +29,7 @@ export default function Hero() {
             <Link className="hero-button" target="_blank" href="https://github.com/jumpserver/jumpserver/">
               <div className="inline-flex gap-2">
                 <span>GitHub</span>
+                {/* Todo: Get the number of stars dynamically */}
                 <span>24K+</span>
                 <GitHubStarIcon className="w-5 h-5" />
               </div>

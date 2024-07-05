@@ -3,8 +3,8 @@ import { ImageComponent } from "@/components/public"
 function WhatsJumpServer() {
   return (
     <>
-      <section className="hero-section-block">
-        <h2>What's is JumpServer?</h2>
+      <section>
+        <h2>What is JumpServer?</h2>
         <p>
           JumpServer is an open-source Privileged Access Management (PAM) tool 
           that provides DevOps and IT teams with on-demand and secure access to 

@@ -25,16 +25,14 @@
 /* Home */
 .home {
   section {
-    @apply text-center flex flex-col container mt-20 items-center max-w-6xl;
-
+    @apply text-center flex flex-col container p-20 items-center max-w-6xl;
   }
   h2 {
-    @apply text-2xl lg:text-4xl font-bold mb-8 text-balance;
+    @apply text-3xl lg:text-4xl mb-8 text-balance font-normal;
   }
   p {
-    @apply text-lg lg:text-xl/9 mb-5 text-slate-500 w-full;
+    @apply text-lg lg:text-xl/8 text-slate-500 w-full;
   }
-
 }
 .hero-button {
     @apply border border-current rounded-md transition-colors py-2.5 px-6 text-white border-white w-fit mx-auto mt-10;
