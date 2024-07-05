@@ -33,6 +33,15 @@
   p {
     @apply text-base lg:text-lg/8 text-slate-500 w-full;
   }
+  table {
+    @apply border-collapse border border-slate-500 text-left mt-6
+  }
+  th {
+    @apply bg-primary text-white font-normal text-lg/8 border border-slate-600 px-4 py-2
+  }
+  td {
+    @apply border border-slate-700 px-4 py-2 min-w-60
+  }
 }
 .hero-button {
     @apply border border-current rounded-md transition-colors py-2.5 px-6 text-white border-white w-fit mx-auto mt-10;
@@ -46,7 +55,7 @@
 
 /* Docs */
 ::selection {
-  @apply bg-primary/50 dark:bg-primary;
+  @apply bg-primary/60 dark:bg-primary;
 }
 
 /* Global */
