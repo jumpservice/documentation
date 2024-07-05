@@ -1,24 +1,7 @@
-import * as React from 'react';
-
-function createData(
-  name: string,
-  content: string,
-) {
-  return { name, content };
-}
-
-const rows = [
-  createData('Customer Support ', '8x5 ticket and telephone support, tickets responding in 4 hours. After receiving the fault report, the engineer assists the customer in software faults troubleshooting in time through telephone support, remote access, etc.'),
-  createData('Installation and Training', 'Professional support (such as installation, emergency assistance, software troubleshooting, training, etc.)'),
-  createData('Emergency', ''),
-  createData('Software Upgrade', 'Provide patches and enhanced function packages to upgrade seamlessly, etc.'),
-  createData('Online Self-service', 'The customer support portal keeps customers posted with the latest software features, maintenance experience, use skills, and any other related knowledge.'),
-];
-
 function TableSupport() {
   return (
     <>
-      <table>
+      <table className="home-table">
         <thead>
           <tr>
             <th>Item</th>

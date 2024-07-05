@@ -33,16 +33,9 @@
   p {
     @apply text-base lg:text-lg/8 text-slate-500 w-full;
   }
-  table {
-    @apply border-collapse border border-slate-500 text-left mt-6
-  }
-  th {
-    @apply bg-primary text-white font-normal text-lg/8 border border-slate-600 px-4 py-2
-  }
-  td {
-    @apply border border-slate-700 px-4 py-2 min-w-60
-  }
+
 }
+
 .hero-button {
     @apply border border-current rounded-md transition-colors py-2.5 px-6 text-white border-white w-fit mx-auto mt-10;
 
@@ -51,6 +44,24 @@
       @apply bg-primary border-transparent text-white;
     }
 
+}
+
+.home-table {
+  table {
+    @apply border-collapse border border-slate-500 mt-6 text-center
+  }
+  th {
+    @apply bg-primary text-white font-normal text-base/8 border border-slate-600 px-4 py-2
+  }
+  td {
+    @apply border border-slate-700 px-4 py-2 min-w-60 text-gray-600 text-left
+  }
+}
+
+.edition-table {
+  td {
+    @apply border border-slate-700 px-4 py-2 text-gray-600 text-center
+  }
 }
 
 /* Docs */
