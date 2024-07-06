@@ -1,8 +1,12 @@
 {
-  "index": "Introduction",
-  "-- getting-started": {
+  "-- overview": {
     "type": "separator",
-    "title": "Getting Started"
+    "title": "Overview"
+  },
+  "index": "Introduction",
+  "-- get-started": {
+    "type": "separator",
+    "title": "Get Started"
   },
   "quick-start": "Quickstart",
   "installation": "",
