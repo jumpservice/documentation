@@ -36,7 +36,7 @@ function Footer() {
             items={[
               { title: "Introduction", url: "/docs" },
               { title: "Quick Start", url: "/docs/quick-start" },
-              { title: "Installation & Upgrading", url: "/docs/Installation" },
+              { title: "Installation & Upgrading", url: "/docs/installation" },
             ]}
           />
           <List
