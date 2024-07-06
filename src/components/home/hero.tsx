@@ -1,5 +1,4 @@
-import GitHubStars from './fetch-github-stars';
-import Link from "next/link"
+import { GitHubStars } from '../public/'
 import { HeroGitHubStarIcon, HeroDocsIcon } from "@/icons"
 
 
@@ -15,9 +14,6 @@ export default function Hero() {
                 <span className="pl-2 hidden md:inline underline after:content-['_→'] after:font-sans">
                   Read more
                 </span>
-                {/* <span className="pl-2 underline after:content-['_→'] after:font-sans">
-                  Read more 
-                </span> */}
               </span> 
           </a>
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">

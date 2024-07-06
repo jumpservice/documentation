@@ -12,7 +12,9 @@ const ImageComponent: React.FC<ImageProps> = ({ src, alt, caption='', width = 60
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div>
-        <Image src={src} alt={alt} width={width} height={height} />
+        <a href={src} target='_blank'>
+          <Image src={src} alt={alt} width={width} height={height} />
+        </a>
       </div>
       {/* {caption && <div style={{ marginBottom: '10px' }}>{caption}</div>} */}
     </div>

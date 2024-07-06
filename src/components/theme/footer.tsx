@@ -23,7 +23,6 @@ function List({
   )
 }
 
-
 function Footer() {
   return (
     <> 
@@ -36,9 +35,8 @@ function Footer() {
             title="Learn"
             items={[
               { title: "Introduction", url: "/docs" },
-              { title: "Best Practices", url: "#" },
-              { title: "Frequently Asked Questions", url: "#" },
-              { title: "Developers", url: "/" },
+              { title: "Quick Start", url: "/docs/quick-start" },
+              { title: "Installation & Upgrading", url: "/docs/Installation" },
             ]}
           />
           <List
