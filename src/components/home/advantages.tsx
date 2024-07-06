@@ -22,7 +22,7 @@ const Card = ({ icon: IconComponent, text }) => {
     <>
       <div className="flex flex-col items-center justify-center">
         <div><IconComponent className="h-16" /></div>
-        <div className="mt-3 w-22 text-sm text-slate-500">{text}</div>
+        <div className="mt-3 w-22 text-sm font-semibold text-slate-500 dark:text-slate-50">{text}</div>
       </div>
     </>
   )

@@ -18,7 +18,7 @@ const cardData = [
   },
   { 
     icon: XPackRBACIcon, 
-    title: "Role-Based Access Control (RBAC)",
+    title: "Role-Based Access Control",
     description: "Assigning permissions to users based on their role within an organization."
   },
   { 
@@ -63,9 +63,9 @@ const Card = ({ icon: IconComponent, title, description }) => {
     <>
       <div className="box-border border-spacing-1 hover:border-primary flex flex-col border rounded-lg shadow-md p-4">
         <div className="flex justify-start "><IconComponent className="w-8 h-8 object-contain" /></div>
-        <div className="hover:text-primary">
-          <div className="mt-3 font-sans text-left">{title}</div>
-          <div className="mt-3 w-22 text-sm text-slate-500 text-left">{description}</div>
+        <div className="">
+          <div className="mt-3 font-bold text-left dark:text-primary">{title}</div>
+          <div className="mt-3 w-22 font-semibold text-sm text-slate-500 text-left dark:text-slate-50">{description}</div>
         </div>
       </div>
     </>

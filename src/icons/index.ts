@@ -2,8 +2,10 @@ export { default as JumpServerLogo } from './jumpserver.svg'
 export { default as JumpServerWordmarkLogoIcon } from './jumpserver-wordmark.svg'
 export { default as DiscordIcon } from "./discord.svg"
 export { default as GitHubIcon } from "./github.svg"
+
 export { default as HeroGitHubStarIcon } from "./hero-github-star.svg"
 export { default as HeroDocsIcon } from "./hero-docs.svg"
+export { default as HeroLinkIcon } from "./hero-link.svg"
 
 export { default as AdvOpenSourceIcon } from "./adv-open-source.svg"
 export { default as AdvDistributedIcon } from "./adv-distributed.svg"
