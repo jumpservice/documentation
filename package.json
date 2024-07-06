@@ -16,6 +16,7 @@
     "@stitches/react": "^1.2.8",
     "@tailwindcss/typography": "^0.5.13",
     "@theguild/components": "^6.5.3",
+    "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
     "next": "^14.2.4",

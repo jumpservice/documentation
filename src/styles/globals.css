@@ -36,15 +36,6 @@
 
 }
 
-.hero-button {
-    @apply border border-current rounded-md transition-colors py-2.5 px-6 text-white border-white w-fit mx-auto mt-10;
-
-    &:hover,
-    &:focus {
-      @apply bg-primary border-transparent text-white;
-    }
-
-}
 
 .home-table {
   table {

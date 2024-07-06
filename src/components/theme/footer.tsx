@@ -75,7 +75,7 @@ function Footer() {
         </div>
         <div className='flex justify-between flex-wrap gap-10'>
           <p className='text-sm'>
-            Copyright © 2014-{new Date().getFullYear()} JumpServer. All rights reserved.
+            Copyright © 2014-{new Date().getFullYear()} FIT2CLOUD, Inc. All rights reserved.
           </p>
           <div className="flex flex-col gap-4 lg:items-end">
             <ul className="flex gap-5">

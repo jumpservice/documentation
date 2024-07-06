@@ -56,17 +56,31 @@ const cardData = [
     title: "Custom Theme",
     description: "Supports customization of theme colors, product logo, login titles, website icons, etc."
   },
-];
+]
 
 const Card = ({ icon: IconComponent, title, description }) => {
   return (
     <>
       <div className="box-border border-spacing-1 hover:border-primary flex flex-col border rounded-lg shadow-md p-4">
-        <div className="flex justify-start"><IconComponent className="w-12 h-12 object-contain" /></div>
+        <div className="flex justify-start "><IconComponent className="w-8 h-8 object-contain" /></div>
         <div className="hover:text-primary">
           <div className="mt-3 font-sans text-left">{title}</div>
           <div className="mt-3 w-22 text-sm text-slate-500 text-left">{description}</div>
         </div>
+      </div>
+    </>
+  )
+}
+
+const FeatureList = () => {
+  return (
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-10">
+        {
+          cardData.map((card, index) => (
+            <Card key={index} icon={card.icon} title={card.title} description={card.description}/>
+          ))
+        }
       </div>
     </>
   )
@@ -82,13 +96,7 @@ export default function XPack() {
           <span className="pl-3 pr-3 font-bold text-primary">JumpServer Enterprise Edition</span> 
           provides X-Pack enhancement packages and enterprise support services.  
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-10">
-          {
-            cardData.map((card, index) => (
-              <Card key={index} icon={card.icon} title={card.title} description={card.description}/>
-            ))
-          }
-        </div>
+        <FeatureList />
       </section>
     </>
   )
