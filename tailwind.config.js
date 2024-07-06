@@ -3,7 +3,6 @@
 import typography from '@tailwindcss/typography'
 
 module.exports = {
-  darkMode: 'class',
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./theme.config.tsx"],
   theme: {
     container: {
@@ -28,5 +27,6 @@ module.exports = {
     },
   },
   plugins: [typography],
+  darkMode: ["class", 'html[class~="dark"]'],
 }
 
