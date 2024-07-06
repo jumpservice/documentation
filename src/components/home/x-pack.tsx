@@ -61,10 +61,10 @@ const cardData = [
 const Card = ({ icon: IconComponent, title, description }) => {
   return (
     <>
-      <div className="box-border border-spacing-1 hover:border-primary flex flex-col border rounded-lg shadow-md p-4">
+      <div className="box-border border-spacing-1 dark:bg-gray-800 hover:border-primary flex flex-col border rounded-lg shadow-md p-4">
         <div className="flex justify-start "><IconComponent className="w-8 h-8 object-contain" /></div>
         <div className="">
-          <div className="mt-3 font-bold text-left dark:text-primary">{title}</div>
+          <div className="mt-3 font-bold text-left text-primary">{title}</div>
           <div className="mt-3 w-22 font-semibold text-sm text-slate-500 text-left dark:text-slate-50">{description}</div>
         </div>
       </div>

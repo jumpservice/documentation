@@ -14,12 +14,12 @@ const cardData = [
 const Card = ({icon: IconComponent, text, link}) => {
   return (
     <>
-      <a href={link} className="border w-full sm:w-auto bg-text hover:bg-primary hover:text-white focus:ring-4 focus:outline-none focus:ring-gray-300 text-slate-500 rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:text-white dark:bg-gray-800 dark:hover:text-primary dark:hover:border-primary  dark:focus:ring-gray-700">
-          <IconComponent className="me-3 w-7 h-7" />
-          <div className="text-left rtl:text-right">
-              <div className="-mt-1 text-sm font-semibold">{text}</div>
-          </div>
-      </a>
+      <div className="border px-4 py-2 flex rounded-md items-center hover:shadow-lg hover:border-primary hover:text-primary">
+        <IconComponent className="w-8 h-8 mr-2" />
+        <div className="text-center">
+          <a href={link}>{text}</a>
+        </div>
+      </div>
     </>
   )
 }
@@ -27,7 +27,7 @@ const Card = ({icon: IconComponent, text, link}) => {
 const Contact = () => {
   return (
     <>
-      <div className="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
         {
           cardData.map((card, index) => (
             <Card key={index} icon={card.icon} text={card.text} link={card.link}/>
@@ -37,7 +37,6 @@ const Contact = () => {
     </>
   )
 }
-
 
 export default function ContactUs() {
   return (

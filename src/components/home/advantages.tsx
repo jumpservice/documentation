@@ -20,8 +20,8 @@ const cardData = [
 const Card = ({ icon: IconComponent, text }) => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center">
-        <div><IconComponent className="h-16" /></div>
+      <div className="box-border justify-items-center border-spacing-1 dark:bg-gray-800 hover:border-primary flex flex-col border rounded-lg shadow-md p-4">
+        <div className="flex justify-center items-center text-center"><IconComponent className="h-16" /></div>
         <div className="mt-3 w-22 text-sm font-semibold text-slate-500 dark:text-slate-50">{text}</div>
       </div>
     </>

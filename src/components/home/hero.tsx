@@ -11,7 +11,10 @@ export default function Hero() {
           <a href="https://github.com/jumpserver/jumpserver/releases/v4.0.0" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
               <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3">New</span> 
               <span className="text-sm font-medium">
-                JumpServer v4.0 is released ! 
+                JumpServer v4.0 is released !
+                <span className="pl-2 hidden md:inline underline after:content-['_→'] after:font-sans">
+                  Read more
+                </span>
                 {/* <span className="pl-2 underline after:content-['_→'] after:font-sans">
                   Read more 
                 </span> */}
