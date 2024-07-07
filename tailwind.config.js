@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       colors: {
         "primary": "#148f76",
+        "primary-light": "#1fab89"
       },
       animation: {
         scroll:

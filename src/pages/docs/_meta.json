@@ -4,11 +4,20 @@
     "title": "Overview"
   },
   "index": "Introduction",
+
   "-- get-started": {
     "type": "separator",
     "title": "Get Started"
   },
-  "quick-start": "Quickstart",
-  "installation": "",
-  "upgrading": ""
+  "quickstart": "Quickstart",
+  "installation": "Installation",
+  "upgrading": "Upgrading",
+
+  "-- releases": {
+    "type": "separator",
+    "title": "Releases"
+  },
+  "release-v4.0": {
+    "title": "v4.0"
+  }
 }

@@ -1,5 +1,5 @@
 import { GitHubStars } from '../public/'
-import { HeroGitHubStarIcon, HeroDocsIcon } from "@/icons"
+import { HeroGitHubStarIcon, HeroDocsIcon, HeroLinkIcon } from "@/icons"
 
 
 export default function Hero() {
@@ -23,14 +23,14 @@ export default function Hero() {
             JumpServer is an open-source Privileged Access Management (PAM) tool that provides DevOps and IT teams with on-demand and secure access to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a web browser.
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 mt-20">
-            <div className="inline-flex gap-4 items-center">
-              <a className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary hover:bg-primary focus:ring-4 focus:ring-primary dark:focus:ring-primary" href="/docs">
+            <div className="inline-flex gap-4 items-center w-1/3 ">
+              <a className="flex-1 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary hover:bg-primary-light focus:ring-4 focus:ring-primary dark:focus:ring-primary" href="/docs/quickstart">
                 <div className="inline-flex gap-2">
-                  <span>Get Started</span>
-                  <HeroDocsIcon className="w-5 h-5" />
+                  <span>Quickstart</span>
+                  <HeroLinkIcon className="w-5 h-5" />
                 </div>
               </a>
-              <a className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" target="_blank" href="https://github.com/jumpserver/jumpserver/">
+              <a className="flex-1 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800" target="_blank" href="https://github.com/jumpserver/jumpserver/">
                 <div className="inline-flex gap-2">
                   <span>GitHub</span>
                   <GitHubStars owner="jumpserver" repo="jumpserver" />
