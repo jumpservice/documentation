@@ -1,1 +1,113 @@
-# Quickstart
+# Quickstart Guide
+
+Try out the features of JumpServer in 10 minutes or less.
+
+## Introduction
+
+JumpServer is an open-source PAM tool (Bastion Host) that provides efficient and secure asset management and operation auditing capabilities. This guide will walk you through the quick installation and deployment of JumpServer, as well as basic operations such as creating users, assets, and authorizations, user login, connecting to assets, and auditing sessions and login logs.
+
+
+
+## Installing and Deploying
+
+How to Install Please Refer to the Installation [Documentation](/docs/installation).
+
+
+## Administrator Login
+
+You have successfully installed JumpServer. You can now access the JumpServer service using your web browser by navigating to `http://your-jumpserver-ip/`. For the best experience, we recommend using Google Chrome.
+
+Please log in using the default administrator credentials:
+- Username: `admin`
+- Password: `ChangeMe`
+
+_[Screenshots...]_
+
+## Administrator Create User
+
+After logging in to JumpServer, let's create a user first:
+
+follow these steps to create a user:
+
+1. Navigate to the console and access the User Management page.
+
+2. Click the `+Create` button.
+
+3. Fill in the user information (e.g., Name, Username, Email, Password).
+
+> `Name`, `Username`, and `Email` are required. <br/>
+> Choose "Set Password" for the password policy, then enter the user's login password, for example: `pwd@123`. 
+
+4. Click "Submit" to complete the user creation.
+
+
+## Administrator Create Asset
+
+Next, let's create an Linux asset:
+
+1. Navigate to the Asset Management page.
+
+2. Switch to the `Host` tab, and click the `+Create` button. In the popup window, select the built-in `Linux` platform to open the host creation page.
+
+3. Fill in the asset information.
+
+> `Name`, `IP/Host`, and `Nodes` are required. <br/>
+> Click the `Add` button to add an account, and fill in the account information (e.g., Name, Username, Password) and save.
+
+4. Click "Submit" to complete the asset creation.
+
+
+## Adminstrator Create Authorization
+
+Finally, let's create an authorization.
+
+1. Navigate to the Authorization Management page.
+
+2. Click the `+Create` button.
+
+3. Fill in the authorization information.
+
+> Enter the asset name, select the user created earlier, choose the asset created just now.
+
+4. Click "Submit" to complete the authorization creation.
+
+Great, currently, we have created a user, created an asset, and authorized the asset for the user.
+
+## User Login
+
+After logging in as the previously created user on JumpServer, you can navigate to the `Workbench > Access assets` page to view the assets you have access to. 
+
+From there, simply click the connect button to access them.
+
+## User Access Asset
+
+1. In the opened `Web Terminal`, a window will appear prompting you to enter asset connection information.
+
+2. Select the account you created earlier, choose "Web > Web CLI" as the connection method. 
+
+3. Click the `CONNECT` button to log in to the asset.
+
+Congratulations, you have successfully accessed the assets you have permission to use.
+
+## Auditor Audit
+
+Next, let's switch to the administrator account and review the actions taken by the user.
+
+1. Navigate to the `Audit` page.
+
+2. On the `Asset sessions` page, you can see the current asset sessions the user is connected to.
+
+3. Check the `Session commands` page to view all commands executed by the user on the assets.
+
+4. View the `Login logs` to see all user login activities.
+
+
+## Congratulations
+
+You're awesome! By following this guide, you should have successfully installed and configured JumpServer, created users, assets, and authorizations, and learned how to connect to assets and audit logs.
+
+## Next Steps
+
+Regarding more advanced features of JumpServer, it's your turn to explore!
+
+JumpServer's documentation is continuously being updated. Stay tuned for more details on advanced functionalities.
