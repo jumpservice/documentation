@@ -9,10 +9,10 @@ const Moving = () => {
           speed="normal"
           className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
         >
-          <ImageComponent src="/images/home/assets.png" alt="Asset" />
+          <ImageComponent src="/images/home/system-settings.png" alt="SystemSettings" />
+          <ImageComponent src="/images/home/workbench.png" alt="Workbench" />
           <ImageComponent src="/images/home/audits.png" alt="Audits" />
-          <ImageComponent src="/images/home/assets.png" alt="Asset" />
-          <ImageComponent src="/images/home/audits.png" alt="Audits" />
+          <ImageComponent src="/images/home/console.png" alt="Console" />
         </InfiniteMovingCards>
       </div>
     </>
