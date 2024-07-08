@@ -35,8 +35,8 @@ function Footer() {
             title="Learn"
             items={[
               { title: "Introduction", url: "/docs" },
-              { title: "Quick Start", url: "/docs/quick-start" },
-              { title: "Installation & Upgrading", url: "/docs/installation" },
+              { title: "Quickstart", url: "/docs/quickstart" },
+              { title: "Installation", url: "/docs/installation" },
             ]}
           />
           <List
@@ -47,27 +47,11 @@ function Footer() {
               { title: "Contribute", url: "https://github.com/jumpserver/jumpserver/blob/dev/CONTRIBUTING.md" },
             ]}
           />
-          <List
-            title="Resources"
-            items={[
-              { title: "BBS", url: "https://bbs.fit2cloud.com/c/js/5"},
-              { title: "Blog", url: "https://blog.fit2cloud.com/categories/jumpserver" },
-              { title: "Knowledge", url: "https://kb.fit2cloud.com/categories/jumpserver"},
-              { title: "Community", url: "https://community.fit2cloud.com/#/products/jumpserver/information" },
-            ]}
-          />
           <List 
             title="Support"
             items={[
               { title: "Issues", url: "https://github.com/jumpserver/jumpserver/issues" },
               { title: "Discord", url: "https://discord.gg/W6vYXmAQG2" },
-              { title: "Concat Us", url: "https://jinshuju.net/f/sQ91MK" },
-            ]}
-          />
-          <List
-            title="& More"
-            items={[
-              { title: "RemoteApp Store", url: "https://apps.fit2cloud.com/jumpserver" },
             ]}
           />
         </div>

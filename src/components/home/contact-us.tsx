@@ -5,7 +5,7 @@ import {
 } from "@/icons/"
 
 const cardData = [
-  {icon: ContactLinkIcon, text: "Quick Start Guide", link: "/docs/quick-start"},
+  {icon: ContactLinkIcon, text: "Quickstart Guide", link: "/docs/quickstart"},
   {icon: ContactEmailIcon, text: "support@fit2cloud.com", link: "mailto:support@fit2cloud.com"},
   {icon: ContactTelIcon, text: "+86 400 052 0755", link: "tel:400-052-0755"  },
 ]
