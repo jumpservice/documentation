@@ -12,7 +12,7 @@ const config: DocsThemeConfig = {
     </>
   ),
   logo: Logo,
-  banner: Banner,
+  // banner: Banner,
   project: {
     link: 'https://github.com/jumpserver/jumpserver',
   },

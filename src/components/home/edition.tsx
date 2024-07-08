@@ -87,7 +87,12 @@ export default function Edition() {
   return (
     <>
       <section>
-        <h2>JumpServer Enterprise Edition SKUs</h2>
+        <h2>JumpServer Enterprise Edition</h2>
+        <p className="mb-10">
+          Compared with the Community Edition,
+          <span className="pl-3 pr-3 font-bold text-primary">JumpServer Enterprise Edition</span> 
+          provides X-Pack enhancement packages and enterprise support services.  
+        </p>
         <TableSupport />
       </section>
     </>

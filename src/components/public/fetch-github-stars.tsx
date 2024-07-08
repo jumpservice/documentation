@@ -20,7 +20,7 @@ const GitHubStars = ({ owner, repo }) => {
   }, [owner, repo]);
 
   return (
-    <div>{(stars/1000).toFixed(1) + 'K+'}</div>
+    <div>{(stars/1000).toFixed(1) + 'k+'}</div>
   );
 };
 

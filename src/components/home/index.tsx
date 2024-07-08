@@ -13,11 +13,9 @@ function HomePage() {
       <Hero />
       <FlowingCard />
       <WhatsJumpServer />
-      <Advantages />
+      <Edition />
       <XPack />
       <Support />
-      <Edition />
-      <ContactUs />
     </div>
   )
 }
