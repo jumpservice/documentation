@@ -19,7 +19,7 @@ function TableSupport() {
                         Customer Support
                       </th>
                       <td>
-                        8x5 ticket and telephone support, tickets responding in 4 hours. After receiving the fault report, the engineer assists the customer in software faults troubleshooting in time through telephone support, emergency assistance, etc.
+                        8x5 ticket and telephone support, tickets responding in 4 hours. After receiving the fault report, the engineer assists the customer in software faults troubleshooting in time through telephone support, remote assistance, etc.
                       </td>
                   </tr>
                   <tr>
