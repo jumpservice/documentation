@@ -53,6 +53,16 @@ function Footer() {
           </p>
           <div className="flex flex-col gap-4 lg:items-end">
             <ul className="flex gap-5">
+                <li key="">
+                  <a
+                    href="https://jumpserver.org"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-primary transition-colors block"
+                  >
+                    <span className="h-5 w-auto *:fill-current text-sm" >中文</span>
+                  </a>
+                </li>
             {[
                 { url: "https://github.com/jumpserver", icon: GitHubIcon },
                 { url: "https://discord.gg/W6vYXmAQG2", icon: DiscordIcon },
