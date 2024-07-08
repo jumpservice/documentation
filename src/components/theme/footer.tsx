@@ -60,7 +60,7 @@ function Footer() {
             title="Support"
             items={[
               { title: "Issues", url: "https://github.com/jumpserver/jumpserver/issues" },
-              { title: "Discord", url: "https://discord.com/invite/jcM5tKWJ" },
+              { title: "Discord", url: "https://discord.gg/W6vYXmAQG2" },
               { title: "Concat Us", url: "https://jinshuju.net/f/sQ91MK" },
             ]}
           />
@@ -79,7 +79,7 @@ function Footer() {
             <ul className="flex gap-5">
             {[
                 { url: "https://github.com/jumpserver", icon: GitHubIcon },
-                { url: "https://discord.graphql.org", icon: DiscordIcon },
+                { url: "https://discord.gg/W6vYXmAQG2", icon: DiscordIcon },
               ].map(({ url, icon: Icon }) => (
                 <li key={url}>
                   <a
