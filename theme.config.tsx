@@ -1,6 +1,6 @@
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router'
-import { Banner, Logo, Footer } from '@/components/theme'
+import { Logo, Footer } from '@/components/theme'
 
 const config: DocsThemeConfig = {
   head: (
@@ -12,7 +12,6 @@ const config: DocsThemeConfig = {
     </>
   ),
   logo: Logo,
-  // banner: Banner,
   project: {
     link: 'https://github.com/jumpserver/jumpserver',
   },
@@ -57,14 +56,7 @@ const config: DocsThemeConfig = {
   },
   footer: {
     text: Footer
-  },
-  // nextThemes: {
-    // defaultTheme: 'dark',
-    // forcedTheme: 'dark',
-  // },
-  // themeSwitch: {
-  //   component: null,
-  // },
+  }
 }
 
 export default config
