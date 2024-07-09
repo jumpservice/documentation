@@ -3,7 +3,7 @@ This is the source code for The JumpServer’s documentation, accessible at [Doc
 
 ## Contributing
 
-Please read [`CONTRIBUTING.md`](https://github.com/ibuler/jumpserver-documentation/blob/dev/CONTRIBUTING.md). Thank you ❤️
+Please read [`CONTRIBUTING.md`](https://github.com/jumpservice/documentation/blob/dev/CONTRIBUTING.md). Thank you ❤️
 
 
 ## Local Setup
@@ -13,13 +13,13 @@ This project is built on [Next.js](https://nextra.site/). You can run it on your
 First, clone the repo:
 
 ```bash
-git clone https://github.com/ibuler/jumpserver-documentation/
+git clone https://github.com/jumpservice/documentation/
 ```
 
 Make sure you are inside the folder:
 
 ```bash
-cd jumpserver-documentation
+cd documentation
 ```
 
 Install the dependencies:
