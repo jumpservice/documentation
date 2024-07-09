@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
-import { GitHubIcon, DiscordIcon } from '@/icons'
 import Logo from './logo'
+import PublicNavbar from './navbar'
 
 function List({
   title,
@@ -52,34 +52,7 @@ function Footer() {
             Copyright © {new Date().getFullYear()} FIT2CLOUD, Inc. All rights reserved.
           </p>
           <div className="flex flex-col gap-4 lg:items-end">
-            <ul className="flex gap-5">
-                <li key="">
-                  <a
-                    href="https://jumpserver.org"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-primary transition-colors block"
-                  >
-                    <span className="h-5 w-auto *:fill-current text-sm" >中文</span>
-                  </a>
-                </li>
-            {[
-                { url: "https://github.com/jumpserver", icon: GitHubIcon },
-                { url: "https://discord.gg/W6vYXmAQG2", icon: DiscordIcon },
-              ].map(({ url, icon: Icon }) => (
-                <li key={url}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-primary transition-colors block"
-                  >
-                    <Icon className="h-5 w-auto *:fill-current" />
-                  </a>
-                </li>
-              ))}
-
-            </ul>
+            <PublicNavbar hasThemeSwitch={false} />
             <a
               href="https://nextra.site"
               target="_blank"

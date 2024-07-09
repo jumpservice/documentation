@@ -1,6 +1,6 @@
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router'
-import { Logo, Footer } from '@/components/theme'
+import { Logo, Footer, PublicNavbar } from '@/components/theme'
 
 const config: DocsThemeConfig = {
   head: (
@@ -12,12 +12,6 @@ const config: DocsThemeConfig = {
     </>
   ),
   logo: Logo,
-  project: {
-    link: 'https://github.com/jumpserver/jumpserver',
-  },
-  chat: {
-    link: 'https://discord.gg/W6vYXmAQG2',
-  },
   feedback: {
     useLink: () => 'https://github.com/jumpserver/jumpserver/issues/new?labels=%F0%9F%A4%94+Question&projects=&template=3_question.yml&title=%5BQuestion%5D+'
   },
@@ -26,6 +20,7 @@ const config: DocsThemeConfig = {
     placeholder: 'Search',
   },
   navbar: {
+    extraContent: PublicNavbar
   },
   sidebar: {
     toggleButton: true,
