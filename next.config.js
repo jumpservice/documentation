@@ -33,5 +33,3 @@ module.exports = withLess(
 
   })
 )
-
-// module.exports = withNextra({})
