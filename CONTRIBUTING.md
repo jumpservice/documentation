@@ -1,6 +1,6 @@
 # Contributing to The JumpServer Docs
 
-Welcome to the JumpServer Protocol! Thanks so much for helping us improve our documentation. Any contribution to this project, when it’s approved and merged, will eventually be visible on [https://github.com/ibuler/jumpserver-documentation/](https://github.com/ibuler/jumpserver-documentation/).
+Welcome to the JumpServer Protocol! Thanks so much for helping us improve our documentation. Any contribution to this project, when it’s approved and merged, will eventually be visible on [https://github.com/jumpservice/documentation/](https://github.com/jumpservice/documentation/).
 
 Please read and follow our [Code of Conduct](https://github.com/jumpserver/jumpserver/blob/dev/CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
@@ -16,7 +16,7 @@ Once you located the file that you want to update, click on “Edit” which wil
 
 Tag `ibuler/jumpserver-documentation-reviewers` in your PR to get the reviewers’ attention. Once we review it, we’ll likely provide feedback and might ask you for improvements. Once the review process is finalized and at least 2 people approve, the PR will be merged. We aim to provide a meaningful response to all PRs and issues from external contributors within 5 business days.
 
-You can optionally [run the application locally](https://github.com/ibuler/jumpserver-documentation/blob/dev/README.md) to review your changes.
+You can optionally [run the application locally](https://github.com/jumpservice/documentation/blob/dev/README.md) to review your changes.
 
 ## Creating an issue
 
