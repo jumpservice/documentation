@@ -13,7 +13,7 @@ This project is built on [Next.js](https://nextra.site/). You can run it on your
 First, clone the repo:
 
 ```bash
-git clone https://github.com/jumpservice/documentation/
+git clone git@github.com:jumpservice/documentation.git
 ```
 
 Make sure you are inside the folder:
