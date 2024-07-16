@@ -1,21 +1,26 @@
-import { ImageComponent } from "../public"
+import { ImageComponent } from "../public";
 
 function WhatsJumpServer() {
   return (
     <>
       <div className="">
-          <section>
-            <h2>What is JumpServer?</h2>
-            {/* <p>
+        <section>
+          <h2>What is JumpServer?</h2>
+          {/* <p>
               JumpServer is an open-source Privileged Access Management (PAM) tool 
               that provides DevOps and IT teams with on-demand and secure access to 
               SSH, RDP, K8s, Remote Apps and Database endpoints through a web browser.
             </p> */}
-            <ImageComponent src="/images/jumpserver-overview.png" alt="jumpserver-overview" width={1000} height={800}/>
-          </section>
+          <ImageComponent
+            src="/images/jumpserver-overview.png"
+            alt="jumpserver-overview"
+            width={1000}
+            height={800}
+          />
+        </section>
       </div>
     </>
-  )
+  );
 }
 
-export default WhatsJumpServer
+export default WhatsJumpServer;

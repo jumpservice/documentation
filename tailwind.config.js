@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import typography from '@tailwindcss/typography'
+import typography from "@tailwindcss/typography";
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./theme.config.tsx"],
@@ -11,8 +11,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        "primary": "#148f76",
-        "primary-light": "#1fab89"
+        primary: "#148f76",
+        "primary-light": "#1fab89",
       },
       animation: {
         scroll:
@@ -29,5 +29,4 @@ module.exports = {
   },
   plugins: [typography],
   darkMode: ["class", 'html[class~="dark"]'],
-}
-
+};

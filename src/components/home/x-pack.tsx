@@ -1,4 +1,4 @@
-import { 
+import {
   XPackAccountAutomationIcon,
   XPackAssetSyncIcon,
   XPackDBIcon,
@@ -7,84 +7,97 @@ import {
   XPackRemoteAppIcon,
   XPackSSOIcon,
   XPackThemeIcon,
-  XPackTicketIcon
-} from "@/icons/"
+  XPackTicketIcon,
+} from "@/icons/";
 
 const cardData = [
-  { 
-    icon: XPackOrgIcon, 
+  {
+    icon: XPackOrgIcon,
     title: "Multi-Organizations",
-    description: "Supports resource isolation with multi-tenant architecture."
+    description: "Supports resource isolation with multi-tenant architecture.",
   },
-  { 
-    icon: XPackRBACIcon, 
+  {
+    icon: XPackRBACIcon,
     title: "Role-Based Access Control",
-    description: "Assigning permissions to users based on their role within an organization."
+    description:
+      "Assigning permissions to users based on their role within an organization.",
   },
-  { 
-    icon: XPackSSOIcon, 
+  {
+    icon: XPackSSOIcon,
     title: "Single Sign-On (SSO)",
-    description: "Supports Active Directory / LDAP, SAML2, OAuth2 and OAuth/OpenID Connect.",
+    description:
+      "Supports Active Directory / LDAP, SAML2, OAuth2 and OAuth/OpenID Connect.",
   },
-  { 
-    icon: XPackAssetSyncIcon, 
+  {
+    icon: XPackAssetSyncIcon,
     title: "Multi-Cloud Asset Synchronization",
-    description: "Supports AWS, Azure, Google Cloud Platform (GCP) and other platforms.",
+    description:
+      "Supports AWS, Azure, Google Cloud Platform (GCP) and other platforms.",
   },
-  { 
-    icon: XPackAccountAutomationIcon, 
+  {
+    icon: XPackAccountAutomationIcon,
     title: "Account automation",
-    description: "Supports automatic discovery and collection, automatic credentials updates."
+    description:
+      "Supports automatic discovery and collection, automatic credentials updates.",
   },
-  { 
-    icon: XPackDBIcon, 
+  {
+    icon: XPackDBIcon,
     title: "More Databases Support",
-    description: "Supports Oracle and SQL Server, etc."
+    description: "Supports Oracle and SQL Server, etc.",
   },
-  { 
-    icon: XPackRemoteAppIcon, 
+  {
+    icon: XPackRemoteAppIcon,
     title: "Remote Application Access",
-    description: "Supports connecting assets using various Microsoft Remote Applications."
+    description:
+      "Supports connecting assets using various Microsoft Remote Applications.",
   },
-  { 
-    icon: XPackTicketIcon, 
+  {
+    icon: XPackTicketIcon,
     title: "Ticket Management",
-    description: "Support using Ticket for approval of user login, asset access requests."
+    description:
+      "Support using Ticket for approval of user login, asset access requests.",
   },
-  { 
-    icon: XPackThemeIcon, 
+  {
+    icon: XPackThemeIcon,
     title: "Custom Theme",
-    description: "Supports customization of theme colors, product logo, etc."
+    description: "Supports customization of theme colors, product logo, etc.",
   },
-]
+];
 
 const Card = ({ icon: IconComponent, title, description }) => {
   return (
     <>
-      <div className="box-border border-spacing-1 dark:bg-gray-800 hover:border-primary flex flex-col border rounded-lg shadow-md p-4">
-        <div className="flex justify-start "><IconComponent className="w-8 h-8 object-contain" /></div>
+      <div className="box-border flex border-spacing-1 flex-col rounded-lg border p-4 shadow-md hover:border-primary dark:bg-gray-800">
+        <div className="flex justify-start ">
+          <IconComponent className="h-8 w-8 object-contain" />
+        </div>
         <div className="">
-          <div className="mt-3 font-bold text-left text-primary">{title}</div>
-          <div className="mt-3 w-22 font-semibold text-sm text-slate-500 text-left dark:text-slate-50">{description}</div>
+          <div className="mt-3 text-left font-bold text-primary">{title}</div>
+          <div className="w-22 mt-3 text-left text-sm font-semibold text-slate-500 dark:text-slate-50">
+            {description}
+          </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 const FeatureList = () => {
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-10">
-        {
-          cardData.map((card, index) => (
-            <Card key={index} icon={card.icon} title={card.title} description={card.description}/>
-          ))
-        }
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {cardData.map((card, index) => (
+          <Card
+            key={index}
+            icon={card.icon}
+            title={card.title}
+            description={card.description}
+          />
+        ))}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default function XPack() {
   return (
@@ -94,5 +107,5 @@ export default function XPack() {
         <FeatureList />
       </section>
     </>
-  )
+  );
 }

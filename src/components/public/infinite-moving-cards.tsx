@@ -1,12 +1,11 @@
-import { ReactElement, CSSProperties, Children, ReactNode } from "react"
-import { clsx } from "clsx"
+import { ReactElement, CSSProperties, Children, ReactNode } from "react";
+import { clsx } from "clsx";
 
 const TimeToSeconds = {
   fast: "20s",
   normal: "40s",
   slow: "80s",
-}
-
+};
 
 export default function InfiniteMovingCards({
   children,
@@ -15,17 +14,17 @@ export default function InfiniteMovingCards({
   pauseOnHover = true,
   className,
 }: {
-  children: ReactNode
-  direction?: "left" | "right"
-  speed?: "fast" | "normal" | "slow"
-  pauseOnHover?: boolean
-  className?: string
+  children: ReactNode;
+  direction?: "left" | "right";
+  speed?: "fast" | "normal" | "slow";
+  pauseOnHover?: boolean;
+  className?: string;
 }): ReactElement {
   const content = Children.map(children, (child, index) => (
     <li key={index} className="w-[350px] max-w-full shrink-0 md:w-[450px]">
       {child}
     </li>
-  ))
+  ));
 
   return (
     <div
@@ -43,7 +42,7 @@ export default function InfiniteMovingCards({
     >
       <ul
         className={clsx(
-          "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
           "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
@@ -52,6 +51,5 @@ export default function InfiniteMovingCards({
         {content}
       </ul>
     </div>
-  )
+  );
 }
-

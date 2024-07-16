@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Theme */
 .theme-logo {
   mask-image: linear-gradient(
@@ -25,46 +24,44 @@
 /* Home */
 .home {
   section {
-    @apply text-center flex flex-col container p-20 items-center max-w-6xl;
+    @apply container flex max-w-6xl flex-col items-center p-20 text-center;
   }
   h2 {
-    @apply text-3xl lg:text-4xl mb-8 text-balance font-extrabold;
+    @apply mb-8 text-balance text-3xl font-extrabold lg:text-4xl;
   }
   p {
-    @apply text-base lg:text-lg/8 text-slate-500 font-normal w-full dark:text-slate-50;
+    @apply w-full text-base font-normal text-slate-500 dark:text-slate-50 lg:text-lg/8;
   }
-
 }
 
 .home-table {
-  @apply relative overflow-x-auto mx-auto shadow-md sm:rounded-lg
+  @apply relative mx-auto overflow-x-auto shadow-md sm:rounded-lg;
 }
 
 .home-table {
   table {
-    @apply w-full min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400
+    @apply w-full min-w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right;
   }
   thead {
-    @apply text-xs text-white uppercase bg-primary dark:bg-primary
+    @apply bg-primary text-xs uppercase text-white dark:bg-primary;
   }
   thead > tr > th {
-   @apply px-6 py-3 text-sm
+    @apply px-6 py-3 text-sm;
   }
   tbody > tr {
-    @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700
-
+    @apply border-b bg-white dark:border-gray-700 dark:bg-gray-800;
   }
   tbody > tr > th {
-    @apply text-base px-6 py-4 font-medium text-gray-800 whitespace-nowrap dark:text-white
+    @apply whitespace-nowrap px-6 py-4 text-base font-medium text-gray-800 dark:text-white;
   }
   tbody > tr > td {
-    @apply px-6 py-4 dark:text-slate-300 text-gray-600 text-base
+    @apply px-6 py-4 text-base text-gray-600 dark:text-slate-300;
   }
 }
 
 .edition-table {
   td {
-    @apply border border-slate-700 px-4 py-2 text-gray-600 text-center
+    @apply border border-slate-700 px-4 py-2 text-center text-gray-600;
   }
 }
 

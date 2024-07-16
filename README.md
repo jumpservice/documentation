@@ -1,10 +1,10 @@
 # The JumpServer Docs
+
 This is the source code for The JumpServer’s documentation, accessible at [Docs dev](https://documentation-git-dev-jumpserversites-projects.vercel.app/)
 
 ## Contributing
 
 Please read [`CONTRIBUTING.md`](https://github.com/jumpservice/documentation/blob/dev/CONTRIBUTING.md). Thank you ❤️
-
 
 ## Local Setup
 
