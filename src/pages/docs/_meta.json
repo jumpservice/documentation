@@ -11,6 +11,7 @@
   },
   "quickstart": "Quickstart",
   "installation": "Installation",
+  "upgrade": "Upgrade",
 
   "-- releases": {
     "type": "separator",
