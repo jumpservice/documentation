@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 interface ImageProps {
   src: string;
@@ -8,17 +8,25 @@ interface ImageProps {
   height?: number;
 }
 
-const ImageComponent: React.FC<ImageProps> = ({ src, alt, caption='', width = 600, height = 600 }) => {
+const ImageComponent: React.FC<ImageProps> = ({
+  src,
+  alt,
+  caption = "",
+  width = 600,
+  height = 600,
+}) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <div>
-        <a href={src} target='_blank'>
+        <a href={src} target="_blank">
           <Image src={src} alt={alt} width={width} height={height} />
         </a>
       </div>
       {/* {caption && <div style={{ marginBottom: '10px' }}>{caption}</div>} */}
     </div>
-  )
-}
+  );
+};
 
-export default ImageComponent
+export default ImageComponent;

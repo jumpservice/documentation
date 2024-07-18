@@ -6,17 +6,16 @@ Try out the features of JumpServer in 10 minutes or less.
 
 JumpServer is an open-source PAM tool (Bastion Host) that provides efficient and secure asset management and operation auditing capabilities. This guide will walk you through the quick installation and deployment of JumpServer, as well as basic operations such as creating users, assets, and authorizations, user login, connecting to assets, and auditing sessions and login logs.
 
-
 ## Installing and Deploying
 
 How to install JumpServer please refer to the [Installation Docs](/docs/installation).
-
 
 ## Administrator Login
 
 You have successfully installed JumpServer. You can now access the JumpServer service using your web browser by navigating to `http://your-jumpserver-ip/`. For the best experience, we recommend using Google Chrome.
 
 Please log in using the default administrator credentials:
+
 - Username: `admin`
 - Password: `ChangeMe`
 
@@ -48,7 +47,6 @@ Please keep the other information at their default values.
 
 4. Click "Submit" to complete the user creation.
 
-
 ## Create Asset
 
 Next, let's create an Linux asset:
@@ -73,7 +71,7 @@ To Ensure Successful Connection in the Following Steps, please enter the correct
 
 4. Add an account to the asset.
 
-Click the `Add` button in the `Accounts` section to add an account. In the popup window, enter the correct Name, Username, and Password. Keep the other information as default.  Click `Confirm` to complete the account addition.
+Click the `Add` button in the `Accounts` section to add an account. In the popup window, enter the correct Name, Username, and Password. Keep the other information as default. Click `Confirm` to complete the account addition.
 
 > - Name: root
 > - Username: root
@@ -103,7 +101,6 @@ Keep the other information as default.
 
 ![Create Authorization](/images/docs/quickstart/create-authorization.png)
 
-
 4. Click "Submit" to complete the authorization creation.
 
 ## User Login
@@ -118,7 +115,7 @@ Excellent, we have successfully created one user and one asset, and authorized t
 
 ![Complete Personal Info](/images/docs/quickstart/complete-personal-info.png)
 
-4. Navigate to the `Workbench > Access assets` page, where you can view the assets authorized to you. Here, you will see that the asset named `First Linux` has been authorized to you. 
+4. Navigate to the `Workbench > Access assets` page, where you can view the assets authorized to you. Here, you will see that the asset named `First Linux` has been authorized to you.
 
 ![Workbench Asset](/images/docs/quickstart/workbench-assets.png)
 
@@ -148,7 +145,6 @@ We observe that there is a session where the `First User` is connected to the `F
 
 ![Asset sessions](/images/docs/quickstart/asset-sessions.png)
 
-
 2. Navigate to the `Audits > Session commands` page, we can view the commands executed by the user.
 
 ![Session commands](/images/docs/quickstart/session-commands.png)
@@ -164,3 +160,4 @@ Congratulations! Following this guide, you should have successfully installed Ju
 Regarding more advanced features of JumpServer, it's your turn to explore!
 
 JumpServer documentation is continually being updated. Please stay tuned for more details.
+

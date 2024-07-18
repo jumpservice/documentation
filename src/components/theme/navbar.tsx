@@ -1,14 +1,16 @@
-import React from 'react';
-import { ThemeSwitch } from 'nextra-theme-docs';
-import { GitHubIcon, DiscordIcon } from '@/icons';
+import React from "react";
+import { ThemeSwitch } from "nextra-theme-docs";
+import { GitHubIcon, DiscordIcon } from "@/icons";
 
 interface PublicNavbarProps {
   hasThemeSwitch?: boolean;
 }
 
-const PublicNavbar: React.FC<PublicNavbarProps> = ({ hasThemeSwitch = true }) => {
+const PublicNavbar: React.FC<PublicNavbarProps> = ({
+  hasThemeSwitch = true,
+}) => {
   return (
-    <ul className="ml-2 flex gap-5 justify-center text-center items-center">
+    <ul className="ml-2 flex items-center justify-center gap-5 text-center">
       {[
         { url: "https://github.com/jumpserver/jumpserver", icon: GitHubIcon },
         { url: "https://discord.gg/W6vYXmAQG2", icon: DiscordIcon },
@@ -18,7 +20,7 @@ const PublicNavbar: React.FC<PublicNavbarProps> = ({ hasThemeSwitch = true }) =>
             href={url}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-primary transition-colors block"
+            className="block transition-colors hover:text-primary"
           >
             <Icon className="h-5 w-auto fill-current" />
           </a>
@@ -29,7 +31,7 @@ const PublicNavbar: React.FC<PublicNavbarProps> = ({ hasThemeSwitch = true }) =>
           href="https://jumpserver.org"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-primary transition-colors block"
+          className="block transition-colors hover:text-primary"
         >
           <span className="h-5 w-auto fill-current text-sm">中文</span>
         </a>

@@ -1,7 +1,7 @@
-import { JumpServerWordmarkLogoIcon } from '@/icons'
+import { JumpServerWordmarkLogoIcon } from "@/icons";
 
 const Logo = (
-  <JumpServerWordmarkLogoIcon className="h-9 theme-logo" title="JumpServer" />
-)
+  <JumpServerWordmarkLogoIcon className="theme-logo h-9" title="JumpServer" />
+);
 
-export default Logo
+export default Logo;
