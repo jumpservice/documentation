@@ -11,7 +11,6 @@ interface ImageProps {
 const ImageComponent: React.FC<ImageProps> = ({
   src,
   alt,
-  caption = "",
   width = 600,
   height = 600,
 }) => {
@@ -24,7 +23,6 @@ const ImageComponent: React.FC<ImageProps> = ({
           <Image src={src} alt={alt} width={width} height={height} />
         </a>
       </div>
-      {/* {caption && <div style={{ marginBottom: '10px' }}>{caption}</div>} */}
     </div>
   );
 };

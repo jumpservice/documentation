@@ -24,7 +24,8 @@
 /* Home */
 .home {
   section {
-    @apply container flex max-w-6xl flex-col items-center p-20 text-center;
+    @apply container flex-1 max-w-6xl flex-col items-center p-20 text-center;
+    /* @apply container flex max-w-6xl flex-col items-center p-20 text-center; */
   }
   h2 {
     @apply mb-8 text-balance text-3xl font-extrabold lg:text-4xl;
@@ -35,27 +36,27 @@
 }
 
 .home-table {
-  @apply relative mx-auto overflow-x-auto shadow-md sm:rounded-lg;
+  @apply relative overflow-x-auto shadow-md rounded-lg;
 }
 
 .home-table {
   table {
-    @apply w-full min-w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right;
+    @apply w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400;
   }
   thead {
-    @apply bg-primary text-xs uppercase text-white dark:bg-primary;
+    @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
   }
   thead > tr > th {
-    @apply px-6 py-3 text-sm;
+    @apply px-6 py-3 text-primary;
   }
   tbody > tr {
-    @apply border-b bg-white dark:border-gray-700 dark:bg-gray-800;
+    @apply odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700;
   }
   tbody > tr > th {
-    @apply whitespace-nowrap px-6 py-4 text-base font-medium text-gray-800 dark:text-white;
+    @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white;
   }
   tbody > tr > td {
-    @apply px-6 py-4 text-base text-gray-600 dark:text-slate-300;
+    @apply px-6 py-4;
   }
 }
 
