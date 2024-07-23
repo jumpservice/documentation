@@ -2,13 +2,7 @@ import React from "react";
 import { ThemeSwitch } from "nextra-theme-docs";
 import { GitHubIcon, DiscordIcon } from "@/icons";
 
-interface PublicNavbarProps {
-  hasThemeSwitch?: boolean;
-}
-
-const PublicNavbar: React.FC<PublicNavbarProps> = ({
-  hasThemeSwitch = true,
-}) => {
+const NavbarExtra = () => {
   return (
     <ul className="ml-2 flex items-center justify-center gap-5 text-center">
       {[
@@ -36,13 +30,11 @@ const PublicNavbar: React.FC<PublicNavbarProps> = ({
           <span className="h-5 w-auto fill-current text-sm">中文</span>
         </a>
       </li>
-      {hasThemeSwitch && (
-        <li className="hidden sm:block" key="theme-switch">
-          <ThemeSwitch lite className="[&_span]:hidden" />
-        </li>
-      )}
+      <li className="hidden sm:block" key="theme-switch">
+        <ThemeSwitch lite className="[&_span]:hidden" />
+      </li>
     </ul>
   );
 };
 
-export default PublicNavbar;
+export default NavbarExtra;
