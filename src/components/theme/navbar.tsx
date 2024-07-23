@@ -26,7 +26,7 @@ const PublicNavbar: React.FC<PublicNavbarProps> = ({
           </a>
         </li>
       ))}
-      <li key="https://jumpserver.org">
+      <li className="hidden sm:block" key="https://jumpserver.org">
         <a
           href="https://jumpserver.org"
           target="_blank"
@@ -37,7 +37,7 @@ const PublicNavbar: React.FC<PublicNavbarProps> = ({
         </a>
       </li>
       {hasThemeSwitch && (
-        <li key="theme-switch">
+        <li className="hidden sm:block" key="theme-switch">
           <ThemeSwitch lite className="[&_span]:hidden" />
         </li>
       )}
