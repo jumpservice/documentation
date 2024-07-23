@@ -1,6 +1,6 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
-import { Logo, Footer, PublicNavbar } from "@/components/theme";
+import { Logo, Footer, NavbarExtra } from "@/components/theme";
 
 const config: DocsThemeConfig = {
   head: (
@@ -28,7 +28,7 @@ const config: DocsThemeConfig = {
     placeholder: "Search",
   },
   navbar: {
-    extraContent: PublicNavbar,
+    extraContent: NavbarExtra,
   },
   sidebar: {
     toggleButton: true,
