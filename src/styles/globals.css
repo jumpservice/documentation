@@ -66,9 +66,6 @@
   }
 }
 
-/* Docs */
 ::selection {
-  @apply bg-primary/60 dark:bg-primary;
+  @apply bg-primary/60
 }
-
-/* Global */
