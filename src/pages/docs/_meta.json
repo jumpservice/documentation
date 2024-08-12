@@ -13,6 +13,16 @@
   "installation": "Installation",
   "upgrade": "Upgrade",
 
+  "-- console": {
+    "type": "separator",
+    "title": "Console"
+  },
+  "console-users": "Users",
+  "assets": "Assets",
+  "accounts": "Accounts",
+  "automations": "Automations",
+  "polices": "Polices",
+  "tags": "Tags",
   "-- releases": {
     "type": "separator",
     "title": "Release Notes"

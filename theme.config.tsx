@@ -23,7 +23,7 @@ const config: DocsThemeConfig = {
       "https://github.com/jumpserver/jumpserver/issues/new?labels=%F0%9F%A4%94+Question&projects=&template=3_question.yml&title=%5BQuestion%5D+",
   },
   docsRepositoryBase:
-    "https://github.com/ibuler/jumpserver-documentation/tree/dev",
+    "https://github.com/jumpservice/documentation/tree/dev",
   search: {
     placeholder: "Search",
   },
