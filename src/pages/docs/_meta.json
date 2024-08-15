@@ -17,6 +17,9 @@
     "type": "separator",
     "title": "Release Notes"
   },
+  "release-v4.1.0": {
+    "title": "v4.1.0 (2024-08-15)"
+  },
   "release-v4.0.2": {
     "title": "v4.0.2 (2024-08-01)"
   },
