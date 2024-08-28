@@ -13,16 +13,22 @@
   "installation": "Installation",
   "upgrade": "Upgrade",
 
-  "-- console": {
+  "-- administrator": {
     "type": "separator",
-    "title": "Console"
+    "title": "Administrator Guides"
   },
-  "console-users": "Users",
-  "assets": "Assets",
-  "accounts": "Accounts",
-  "automations": "Automations",
-  "polices": "Polices",
-  "tags": "Tags",
+  "-- end-user": {
+    "type": "separator",
+    "title": "End User Guides"
+  },
+  "-- auditor": {
+    "type": "separator",
+    "title": "Auditor Guides"
+  },
+  "-- configuration": {
+    "type": "separator",
+    "title": "Configuration"
+  },
   "-- releases": {
     "type": "separator",
     "title": "Release Notes"
