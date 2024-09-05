@@ -13,6 +13,12 @@
   "installation": "Installation",
   "upgrade": "Upgrade",
 
+  "-- administrator": {
+    "type": "separator",
+    "title": "Administrator Guides"
+  },
+  "users-management": "User Management",
+
   "-- releases": {
     "type": "separator",
     "title": "Release Notes"
