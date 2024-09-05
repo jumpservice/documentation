@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const GitHubStars = ({ owner, repo }) => {
-  const [stars, setStars] = useState(24000);
+  const [stars, setStars] = useState(25000);
 
   useEffect(() => {
     const fetchStars = async () => {
@@ -14,7 +14,7 @@ const GitHubStars = ({ owner, repo }) => {
         setStars(response.data.stargazers_count);
       } catch (err) {
         console.error(err);
-        setStars(24000); // Return the default value on error
+        setStars(25000); // Return the default value on error
       }
     };
 
