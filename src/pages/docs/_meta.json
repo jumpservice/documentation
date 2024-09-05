@@ -13,26 +13,6 @@
   "installation": "Installation",
   "upgrade": "Upgrade",
 
-  "-- administrator": {
-    "type": "separator",
-    "title": "Administrator Guides"
-  },
-
-  "-- end-user": {
-    "type": "separator",
-    "title": "End User Guides"
-  },
-
-  "-- auditor": {
-    "type": "separator",
-    "title": "Auditor Guides"
-  },
-
-  "-- configuration": {
-    "type": "separator",
-    "title": "Configuration"
-  },
-
   "-- releases": {
     "type": "separator",
     "title": "Release Notes"
