@@ -1,0 +1,49 @@
+{
+  "-- overview": {
+    "type": "separator",
+    "title": "Overview"
+  },
+  "index": "Introduction",
+
+  "-- get-started": {
+    "type": "separator",
+    "title": "Get Started"
+  },
+  "quickstart": "Quickstart",
+  "installation": "Installation",
+  "upgrade": "Upgrade",
+
+  "-- administrator": {
+    "type": "separator",
+    "title": "Administrator Guides"
+  },
+
+  "-- end-user": {
+    "type": "separator",
+    "title": "End User Guides"
+  },
+
+  "-- auditor": {
+    "type": "separator",
+    "title": "Auditor Guides"
+  },
+
+  "-- configuration": {
+    "type": "separator",
+    "title": "Configuration"
+  },
+
+  "-- releases": {
+    "type": "separator",
+    "title": "Release Notes"
+  },
+  "release-v4.0.2": {
+    "title": "v4.0.2 (2024-08-01)"
+  },
+  "release-v4.0.1": {
+    "title": "v4.0.1 (2024-07-18)"
+  },
+  "release-v4.0.0": {
+    "title": "v4.0.0 (2024-07-04)"
+  }
+}
