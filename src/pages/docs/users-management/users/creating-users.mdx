@@ -1,5 +1,60 @@
+import { Callout } from "nextra/components";
+
 # Creating users
+Users can be created in multiple ways, so you can choose the most convenient method for your specific scenario.
 
 ## Creating a new user
+1. On JumpServer, navigate to `Console > Users` page.
+
+2. Click the `+ Create` button in the upper-left corner of the user table.
+![Create User By Button](/images/docs/users/create-user-by-button.png)
+
+3. Type the required information such as Name, Username, and Email.
+`Name` refers to the user's full name, which can be duplicated across different users.
+However, `Username` is used for login purposes and must be unique.
+`Email` serves both as a login identifier and for receiving notifications, so it must also be unique.
+![Create User Basic](/images/docs/users/create-user-basic.png)
+
+4. If you want to categorize and manage different users, you can place them into one or more `Groups`.
+
+5. There are two ways to set a user's password,
+`Reset link will be generated and sent to the user` After the user is created, a reset password link will be sent to the user's email, allowing them to set a new password via the link.
+To use this method, make sure the Email service is configured in `System settings > Notifications`.
+![Create User Password Email](/images/docs/users/create-user-password-email.png)
+`Set password` The administrator can set a password directly for the user and choose whether the user must change their password upon their next login.
+Password complexity rules can be configured in `System settings > Security > User password`.
+![Create User Password Set](/images/docs/users/create-user-password-set.png)
+_**Note**: Password setting is only allowed for users with a Local source, as passwords for users from other sources are not stored in the JumpServer database and do not require configuration._
+
+6. `MFA` options support three policies,
+`Disabled` MFA is off by default, but users can choose to enable it for two-factor authentication.
+`Enabled` MFA is on by default. Users will be prompted to set it up during their first login but can choose to disable it later.
+`Force enabled` Users must set up MFA during their first login and cannot disable it themselves; only an administrator can turn it off.
+![Create User Auth](/images/docs/users/create-user-authentication.png)
+
+7. The `Source` option identifies the user's authentication source and is set to Local by default.
+Since JumpServer supports multiple authentication services, it can be configured to use `Only from source login` in `System settings > Security > Login restriction`.
+When a user logs in, authentication will only be performed based on the specified Source.
+By default, the system checks all configured authentication services, and once one service succeeds, the login is successful.
+If all services fail, only then will an authentication failure be displayed.
+
+8. `System roles` define a user's identity in the system, with each role having different permissions.
+Available roles include `User`, `System Admin` and `System Auditor`.
+When creating a user, the appropriate role can be selected based on specific needs.
+![Create User System Roles](/images/docs/users/create-user-system-roles.png)
+
+9. `Active` indicates the user’s status, and is enabled by default. If disabled, the user will not be able to log in to the system.
+![Create User Active](/images/docs/users/create-user-active.png)
+
+10. `Date expired` indicates the user’s validity period. After this period expires, the user will not be able to log in to the system.
+
+11. Type the `Phone` and `Description`.
+
+12. Click the `Submit` button to complete user creation.
+Alternatively, click `Save & Continue` to create the current user while keeping the form open to create additional users.
+This is useful when most of the information for the new users is similar.
+![Create User Other](/images/docs/users/create-user-other.png)
+
 ## Duplicating a user
 ## Importing users
+
