@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme */
+/* ------------ Theme ------------ */
 .theme-logo {
   mask-image: linear-gradient(
     60deg,
@@ -21,7 +21,7 @@
   }
 }
 
-/* Home */
+/* ------------ Home ------------ */
 .home {
   section {
     @apply container max-w-6xl flex-1 flex-col items-center p-20 text-center;
@@ -65,6 +65,40 @@
     @apply border border-slate-700 px-4 py-2 text-center text-gray-600;
   }
 }
+
+/* ------------ Docs ------------ */
+
+.changelog {
+  h1 {
+    @apply text-4xl font-bold text-gray-900 mt-10 mb-10
+  }
+  a {
+    @apply hover:text-primary hover:underline
+  }
+}
+
+.changelog-table {
+  table {
+    @apply w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right mt-10;
+  }
+  thead {
+    @apply bg-gray-50 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-400;
+  }
+  thead > tr > th {
+    @apply px-6 py-3 text-primary text-sm;
+  }
+  tbody > tr {
+    @apply border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800;
+  }
+  tbody > tr > th {
+    @apply whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white;
+  }
+  tbody > tr > td {
+    @apply px-6 py-4;
+  }
+}
+
+/* ------------ Public ------------ */
 
 ::selection {
   @apply bg-primary/60
