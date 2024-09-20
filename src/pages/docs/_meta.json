@@ -13,20 +13,9 @@
   "installation": "Installation",
   "upgrade": "Upgrade",
 
-  "-- releases": {
+  "-- more": {
     "type": "separator",
-    "title": "Release Notes"
+    "title": "More"
   },
-  "release-v4.1.0": {
-    "title": "v4.1.0 (2024-08-15)"
-  },
-  "release-v4.0.2": {
-    "title": "v4.0.2 (2024-08-01)"
-  },
-  "release-v4.0.1": {
-    "title": "v4.0.1 (2024-07-18)"
-  },
-  "release-v4.0.0": {
-    "title": "v4.0.0 (2024-07-04)"
-  }
+  "changelog": "Changelogs"
 }
