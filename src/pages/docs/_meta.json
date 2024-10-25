@@ -13,9 +13,52 @@
   "installation": "Installation",
   "upgrade": "Upgrade",
 
+  "-- administrator-guides": {
+    "type": "separator",
+    "title": "Administrator Guides"
+  },
+  "console-dashboard": "Dashboard",
+  "user-management": "User Management",
+  "asset-management": "Asset Management",
+  "account-management": "Account Management",
+  "authorization-management": "Authorization",
+  "acls-management": "ACLs Management",
+  "tags-management": "Tags Management",
+
+  "-- auditor-guides": {
+    "type": "separator",
+    "title": "Auditor Guides"
+  },
+  "audits-dashboard": "Dashboard",
+  "session-audit": "Session Audit",
+  "activity-audit": "Activity Audit",
+
+  "-- user-guides": {
+    "type": "separator",
+    "title": "User Guides"
+  },
+  "user-overview": "Overview",
+  "workbench": "Workbench",
+  "personal-settings": "Personal Settings",
+  "web-terminal": "Web Terminal",
+  "web-sftp": "Web SFTP",
+  "cli-terminal": "CLI Terminal",
+  "notification": "Notification",
+
+  "-- configuration-guides": {
+    "type": "separator",
+    "title": "Configuration Guides"
+  },
+
   "-- more": {
     "type": "separator",
     "title": "More"
   },
+  "faqs": "FAQs",
+  "best-practices": "Best Practices",
+  "enterprise-edition": "Enterprise Edition",
+  "client-application": "Client Application",
+  "product-terminology": "Product Terminology",
+  "video-center": "Video Center",
   "changelog": "Changelogs"
 }
