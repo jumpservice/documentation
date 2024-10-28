@@ -18,37 +18,51 @@
     "title": "Administrator Guides"
   },
   "console-dashboard": "Dashboard",
-  "user-management": "User Management",
-  "asset-management": "Asset Management",
-  "account-management": "Account Management",
-  "authorization-management": "Authorization",
-  "acls-management": "ACLs Management",
-  "tags-management": "Tags Management",
+  "users": "Users",
+  "assets": "Assets",
+  "accounts": "Accounts",
+  "automations": "Automations",
+  "authorizations": "Authorizations",
+  "acls": "ACLs",
+  "tags": "Tags",
 
   "-- auditor-guides": {
     "type": "separator",
     "title": "Auditor Guides"
   },
   "audits-dashboard": "Dashboard",
-  "session-audit": "Session Audit",
-  "activity-audit": "Activity Audit",
+  "sessions": "Sessions",
+  "activities": "Activities",
 
-  "-- user-guides": {
+  "-- standard-user-guides": {
     "type": "separator",
-    "title": "User Guides"
+    "title": "Standard User Guides"
   },
-  "user-overview": "Overview",
-  "workbench": "Workbench",
-  "personal-settings": "Personal Settings",
+  "standard-user-overview": "Overview",
+  "my-assets": "My Assets",
+  "job-center": "Job Center",
   "web-terminal": "Web Terminal",
-  "web-sftp": "Web SFTP",
   "cli-terminal": "CLI Terminal",
-  "notification": "Notification",
+  "personal-settings": "Personal Settings",
 
-  "-- configuration-guides": {
+  "-- configuration": {
     "type": "separator",
-    "title": "Configuration Guides"
+    "title": "Configuration"
   },
+  "general": "General",
+  "organizations": "Organizations",
+  "notifications": "Notifications",
+  "features": "Features",
+  "authentication": "Authentication",
+  "storage": "Storage",
+  "components": "Components",
+  "remote-app": "RemoteApp",
+  "security": "Security",
+  "appearance": "Appearance",
+  "tools": "Tools",
+  "tasks": "Tasks",
+  "license": "License",
+  "configuration-file" : "Configuration File",
 
   "-- more": {
     "type": "separator",
