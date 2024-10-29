@@ -4,6 +4,7 @@
     "title": "Overview"
   },
   "index": "Introduction",
+  "changelog": "Changelogs",
 
   "-- get-started": {
     "type": "separator",
@@ -41,9 +42,12 @@
   "standard-user-overview": "Overview",
   "my-assets": "My Assets",
   "job-center": "Job Center",
+  "user-notifications": "Notifications",
   "web-terminal": "Web Terminal",
-  "cli-terminal": "CLI Terminal",
+  "user-help": "Help",
+  "user-language": "Language",
   "personal-settings": "Personal Settings",
+  "cli-terminal": "CLI Terminal",
 
   "-- configuration": {
     "type": "separator",
@@ -64,15 +68,28 @@
   "license": "License",
   "configuration-file" : "Configuration File",
 
+  "-- tickets": {
+    "type": "separator",
+    "title": "Tickets"
+  },
+  "submitted": "Submitted",
+  "Assigned": "Assigned",
+  "flow-setup": "Flow Setup",
+  "ticket-usage-scenario": "Usage Scenario",
+
+  "-- other": {
+    "type": "separator",
+    "title": "Other"
+  },
+  "enterprise-edition": "Enterprise",
+  "client-applications": "Client Applications",
+
   "-- more": {
     "type": "separator",
     "title": "More"
   },
   "faqs": "FAQs",
   "best-practices": "Best Practices",
-  "enterprise-edition": "Enterprise Edition",
-  "client-application": "Client Application",
-  "product-terminology": "Product Terminology",
   "video-center": "Video Center",
-  "changelog": "Changelogs"
+  "product-terminology": "Product Terminology"
 }
