@@ -1,0 +1,65 @@
+# Managing Zones
+
+JumpServer supports the domain feature, which is designed to address network connectivity issues between JumpServer and certain assets. The principle involves using a gateway server to establish SSH tunnels for traffic forwarding.
+
+To access the domain functionality, click on the `Zones` Tab on the left-hand side of the page. This will navigate to the zone list interface, where you can perform actions such as adding, deleting, modifying, and viewing zones related to JumpServer.
+
+![managing-zones](/images/docs/assets/managing-zones/managing-zones.png)
+
+## Create Zone
+
+Click the `Create` button on the `zone List` page to enter the domain list information setting page.
+
+![create-zone](/images/docs/assets/managing-zones/create-zone.png)
+
+Detailed Parameter Explanation:
+| Parameter | Description |
+| --- | --- |
+| Name | Zone Identification Name. |
+| Assets | The asset option is used for assets that need to communicate with JumpServer using the zone. |
+
+## Zone Details
+
+Clicking on the `Zone name` on the domain list page will take you to the zone details page, which mainly includes the zone details, gateway list, and activity record pages.
+
+![zone-details](/images/docs/assets/managing-zones/zone-details.png)
+
+Detailed Parameter Explanation:
+| Parameter       | Description                                                                                         |
+|--------------|-----------------------------------------------------------------------------------------------------|
+| Basic    | This module mainly includes detailed information about the zone, such as its name, creation date, etc. |
+| Gateways | This module is used to add, delete, update, and query gateways.                                     |
+| Assets   | Displays the list of assets in the zone.                                                           |
+| Activities | This module primarily logs activities related to the domain.                                     |
+
+## Update Zone
+
+When there's a need to update information for a specific zone, you can click the `edit` button next to the domain to enter the zone information update page and update the relevant information.
+
+![update-zone](/images/docs/assets/managing-zones/update-zone.png)
+
+If you need to change the information for the gateway corresponding to that zone, click the `zone Name` button to enter the zone details page and update the gateway information in the gateway module.
+
+![update-zone-gateway](/images/docs/assets/managing-zones/update-zone-gateway.png)
+
+## Delete Zone
+
+To delete a specific zone, click the `More` button next to the respective domain, choose the `Delete` option, and then confirm the deletion by clicking "Delete."
+
+![delete-zone](/images/docs/assets/managing-zones/delete-zone.png)
+
+## Duplicate Zone
+
+To duplicate a specific zone, click the `More` button next to the respective domain, and choose the `Duplicate` option.
+
+![duplicate-zone](/images/docs/assets/managing-zones/duplicate-zone.png)
+
+## Test Connection
+
+To test a specific zone’s connectivity, click the `More` button next to the respective zone, and choose the `Test connection` option.
+
+![test-connection](/images/docs/assets/managing-zones/test-connection.png)
+
+Then select port to test connectivity.
+
+![test-connection-select-port](/images/docs/assets/managing-zones/test-connection-select-port.png)

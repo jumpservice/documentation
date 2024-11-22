@@ -1,0 +1,56 @@
+# Managing Platforms
+
+JumpServer supports user-defined platforms, which are available for selection when creating assets. Users can choose from various system types, such as Linux, Windows, etc., during asset creation. Additionally, users can create a custom platform type by selecting a base platform. This allows them to specify the newly created platform type when adding assets. The platform type also determines the password change script used in the password change plan.
+
+![managing-platforms](/images/docs/assets/managing-platforms/managing-platforms.png)
+
+## Create Platform
+
+Select the base type of the platform that needs to be created on the page, Click the `Create` button on the platform list page, and fill in the information for the system platform to create a new system platform
+
+![create-platform](/images/docs/assets/managing-platforms/create-platform.png)
+
+Detailed Parameter Explanation:
+| Parameter                          | Description                                                                                                                                                                                                                                         |
+|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                               | Platform name: Enter the name of the system platform.                                                                                                                                                                                             |
+| Type                               | Platform type: Choose the type of system platform, which determines the encoding and automation method.                                                                                                                                           |
+| Protocols                          | Set the supported protocols for the platform. Default protocols cannot be deleted. You can modify default port numbers by clicking the settings button for each protocol. For example, customize SFTP directories or the AD domain of RDP.         |
+| Charset                            | Encoding: Configure the encoding method within either "UTF8" or "GBK" for the platform.                                                                                                                                                           |
+| Enable Gateway                     | Enable domain: Check this option if the platform supports domain usage. If the option is disabled, the platform does not support domain usage.                                                                                                                                           |
+| Switch Account Enable              | Enable: Enable account switching by checking this option. Configure the switching method. ; Disable: Specify the method for switching accounts. If this option cannot be selected, it means the system platform does not support account switching. | |
+
+We also provide some parameter configurations for platform automation.
+
+![create-platform-automation](/images/docs/assets/managing-platforms/create-platform-automation.png)
+
+Automation Parameter Explanation:
+| Parameter                                | Description                                                                                                                                                      |
+|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ansible Config                           | Ansible connection details: Normally, no modifications are needed.                                                                                              |
+| Ping Enabled                             | Enable asset detection: Check this option to detect asset connectivity.                                                                                         |
+| Method of Asset Detection                | Asset detection method: Set the method for asset detection.                                                                                                     |
+| Enable Asset Information Retrieval       | Enable asset information retrieval: Check this option to retrieve asset hardware information.                                                                   |
+| Method of Asset Information Retrieval    | Asset information retrieval method: Specify how asset information should be collected.                                                                          |
+| Enable Account Password Change           | Enable account password change: Check this option to enable account password change.                                                                            |
+| Method of Account Password Changing      | Set the method for account password changing.                                                                                                                   |
+| Enable Account Push                      | Enable account push: Check this option to enable account push.                                                                                                  |
+| Method of Account Push                   | Account push method: Specify the method for pushing accounts. You can modify default parameters for account push.                                               |
+| Enable Account Validation                | Enable account validation: Check this option to enable account validation.                                                                                      |
+| Method of Account Validation             | Account validation method: Specify the method for validating the account.                                                                                       |
+| Enable Account Collection                | Enable account collection: Check this option to enable account collection.                                                                                      |
+| Method of Account Collection             | Account collection method: Specify the method for collecting accounts.                                                                                          |
+| Remove Accounts Enabled                  | Disable automation tasks: Uncheck this option if you do not want to enable automation tasks.                                                                     |
+| Remove Accounts Method                   | Specify the method for removing the account.                                                                                                                    |
+
+## Delete Platform
+
+To delete a specific platform, click the `More` button next to the respective domain, choose the `Delete` option, and then confirm the deletion by clicking "Delete."
+
+![delete-platform](/images/docs/assets/managing-platforms/delete-platform.png)
+
+## Duplicate Platform
+
+To duplicate a specific platform, click the `More` button next to the respective domain, and choose the `Duplicate` option.
+
+![duplicate-platform](/images/docs/assets/managing-platforms/duplicate-platform.png)

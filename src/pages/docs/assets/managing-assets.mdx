@@ -1,0 +1,197 @@
+# Managing Assets
+
+## Asset Tree and Type Tree
+
+The asset tree is a hierarchical categorization of assets. Each asset can be classified according to different dimensions, and the same asset can have multiple dimensional classifications. For example, assets can be classified by organization, project, protocol, and so on. After categorizing nodes, user permissions can be flexibly allocated to efficiently manage hosts.
+
+The root node of the asset tree cannot have duplicate names. Right-clicking on a node allows you to add, delete, and rename nodes, as well as perform related operations on assets.
+
+![asset-tree](/images/docs/assets/managing-assets/asset-tree.png)
+
+Detailed Parameter Explanation:
+| Parameter                                      | Description                                                                                                      |
+|------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Create Node                                    | Create a new child node under the current node.                                                                  |
+| Rename Node                                    | Rename the current node; the root node cannot be renamed.                                                       |
+| Delete Node                                    | Delete the current node.                                                                                         |
+| Add assets to Node                             | Add assets from other nodes to the current node; assets from the original node will not be removed.              |
+| Move assets to Node                            | Move assets from other nodes to the current node; assets from the original node will be removed.                |
+| Remove assets from node                        | Remove assets from the current node; assets will be removed from the node.                                        |
+| Update node assets hardware Information        | Trigger an automation task to batch update hardware information for assets under the current node. Note: This requires the assets under the current node to have automation tasks enabled and correctly configured privileged users. This feature only supports the SSH, RDP and WinRM protocol. |
+| Test assets connectivity of node               | Trigger an automation task to batch update connectivity for assets under the current node. Note: This requires the assets under the current node to have automation tasks enabled and correctly configured privileged users. This feature only supports the SSH, RDP and WinRM protocol. |
+| Only show current node assets                  | Display only assets under the current node, excluding assets from child nodes.                                  |
+| Show all sub-nodes assets                      | Display assets from the current node and all its child nodes, regardless of how many layers of child nodes there are. |
+| Check asset quantity                           | Verify the number of assets under the current node.                                                              |
+| Show node details                              | Display detailed information for the current node, including node ID, name, and full name.                       |
+
+The type tree serves as an alternative classification of assets. JumpServer categorizes hosts, network devices, databases, and more under its asset framework. The type tree primarily facilitates a more intuitive overview of asset distribution by enumerating the quantity of each asset type.
+
+![asset-type-tree](/images/docs/assets/managing-assets/asset-type-tree.png)
+
+## Asset Category
+
+JumpServer categorizes hosts, network devices, databases, and more under JumpServer assets. Administrators can customize platform types in the platform list as needed.
+
+Default host types include Linux, Windows, Unix, and more.
+
+![host-type](/images/docs/assets/managing-assets/host-type.png)
+
+The network device types typically include General, Cisco, and other options by default.
+
+![device-type](/images/docs/assets/managing-assets/device-type.png)
+
+The database types typically include MySQL, Oracle, Redis, and other options by default.
+
+![database-type](/images/docs/assets/managing-assets/database-type.png)
+
+The cloud types typically include Kubernetes and private cloud. Administrators can configure the sync information for assets management.
+
+![cloud-type](/images/docs/assets/managing-assets/cloud-type.png)
+
+The Web type typically includes websites by default. Additional websites can be customized within the remote applications.
+
+![web-type](/images/docs/assets/managing-assets/web-type.png)
+
+
+## Create Asset
+
+JumpServer supports various methods for asset creation. For example, you can manually create individual assets, clone assets, import assets in bulk using spreadsheets, or synchronize assets in bulk through cloud integration.
+
+### Manual creation of individual assets
+
+JumpServer supports the manual creation of assets. Creating an asset involves filling in essential information such as asset details, login user information, node information, etc. To create an asset, navigate to the specific asset category page (e.g., hosts). Click on the `Create` button at the top left corner of the page to enter the asset creation page and fill in the detailed asset information.
+
+![create-asset](/images/docs/assets/managing-assets/create-asset.png)
+
+Detailed Parameter Explanation:
+| Parameter   | Description                                                                                         |
+|-------------|-----------------------------------------------------------------------------------------------------|
+| Name        | Required: The name of the asset in JumpServer, unrelated to the asset's actual computer name. Names must be unique. |
+| IP/Host     | Required: The real IP, VIP, or domain name of the asset. Names can be duplicated.                  |
+| Platform    | Default: The system platform of the asset, where different character encodings and connection parameters can be set. |
+| Nodes       | Required: The node to which the asset belongs.                                                     |
+| Protocols   | Required: The protocols used to access the asset, with the option to choose one or more. The default protocol group is set in the system platform. |
+| Accounts    | Required: The login user for the asset, with the ability to create multiple accounts. Accounts are tied to assets. |
+| Zone        | Optional: For assets across different network segments, access may require a domain gateway (sshpass) as a proxy. |
+| Tags        | Optional: Add tags to the asset for easier management.                                              |
+| Active      | Required: Whether the asset is usable or not.                                                      |
+
+### Batch import of assets through Excel
+
+JumpServer supports batch creation and updating of assets through Excel spreadsheet import. JumpServer provides two template formats, CSV and XLSX. For the initial asset import, you can click the `Import` button at the top right corner of the asset list to download the template. Follow the template instructions to fill in the required information for import or update. Once completed, import the file on the import page to create or update assets accordingly.
+
+![import-assets](/images/docs/assets/managing-assets/import-assets.png)
+
+### Cloud Provider
+
+JumpServer supports cloud host synchronization. The cloud sync feature enables cloud asset synchronization with JumpServer. By creating cloud accounts and sync instances, assets from Alibaba Cloud, Tencent Cloud, Tencent Cloud (Lighthouse), Huawei Cloud, Baidu Cloud, JD Cloud, Kingsoft Cloud, AWS (China), AWS (International), Azure (China), Azure (International), Google Cloud, UCloud uhost, Volcengine, VMware, Qingyun Private Cloud, Huawei Private Cloud, State Private, OpenStack, ZStack, Nutanix, Fusion Compute, Sangfor Cloud Platform, Alibaba Private Cloud, LAN, and other cloud platforms can be synchronized to JumpServer's asset list.
+
+Click on the `Assets` button on the left side of the page to enter the Assets List page. Click on the Host tab on the Assets List page, then click on the `Cloud Provider` button to access the Cloud Sync page.
+
+![cloud-provider](/images/docs/assets/managing-assets/cloud-provider.png)
+
+Select Public Cloud, Private Cloud, or Lan to create, and navigate to the cloud select page.
+
+![cloud-sync-setting](/images/docs/assets/managing-assets/cloud-sync-setting.png)
+
+Then fill in the cloud account. Let's take Tencent Cloud as an example (obtain the relevant Tencent Cloud keys from the Tencent Cloud account page):
+
+![cloud-sync-setting-auth](/images/docs/assets/managing-assets/cloud-sync-setting-auth.png)
+
+After creating the cloud account successfully, it will be displayed on page of Cloud Provider. Administrators of JumpServer can create multiple cloud accounts of various types to synchronize cloud hosts.
+
+![cloud-sync-accounts](/images/docs/assets/managing-assets/cloud-sync-accounts.png)
+
+Select `Online Sync` to sync the cloud resources on the page.
+
+![cloud-sync-online](/images/docs/assets/managing-assets/cloud-sync-online.png)
+
+Start to sync and wait for the task to finish, select the hosts, and click to import.
+
+![cloud-sync-online-asset](/images/docs/assets/managing-assets/cloud-sync-online-asset.png)
+
+Check importing results in the assets list. If the imported assets can be found in the asset list, it indicates that the asset synchronization for that cloud account is functioning properly.
+
+![cloud-sync-asset-list](/images/docs/assets/managing-assets/cloud-sync-asset-list.png)
+
+Should users require the establishment of specific synchronization rules during the cloud synchronization process, they can achieve this by defining synchronization policies.
+
+The steps for creating sync policy is as follows:
+Click on the `Sync Policy` tab on the Cloud Sync page to create a synchronization policy on this page.
+
+![cloud-sync-policy](/images/docs/assets/managing-assets/cloud-sync-policy.png)
+
+Fill in the informations and click `Submit` to create the policy.
+
+![cloud-sync-create-policy](/images/docs/assets/managing-assets/cloud-sync-create-policy.png)
+
+Detailed Parameter Explanation:
+| Parameter            | Description                                                                                              |
+|----------------------|----------------------------------------------------------------------------------------------------------|
+| Name                 | The name of the Sync Policy.                                                                              |
+| Priority             | The priority of this Sync Policy. 1-100, the smaller the number, the higher the priority.                |
+| Relationship conditions | `And`: The action will be executed only when all conditions are matched; `Or`: The action will be executed when at least one condition is matched. |
+| Strategy rule        | Strategy rules serve as the criteria for matching assets on the cloud platform. For example, instance name, platform name, and address. |
+| Strategy action      | Strategy actions are the specific operations executed on JumpServer upon successful asset matching. It can set platform, node, zone, and account templates to the assets that are successfully synced. |
+
+### Clone Asset
+
+In cases where most of the asset information is the same, you can quickly add assets using the clone function. Click on the asset, then the `More` button, and select `Clone`. This will take you to the asset information page, where you can make the necessary modifications before submitting.
+
+![clone-asset](/images/docs/assets/managing-assets/clone-asset.png)
+
+## Bulk Operation
+
+The `Actions` button is used for batch operations on assets. When there's a need to perform batch operations on assets, select the checkboxes next to the assets, click on the `Actions` button, and then choose the corresponding action for the assets.
+
+![bulk-operation](/images/docs/assets/managing-assets/bulk-operation.png)
+
+## Display Setting
+
+Clicking on the `gear` icon at the top right corner of the asset list page allows you to adjust the page display settings, providing a more detailed view of asset-related information such as asset protocol groups, asset nodes, and the organization to which the assets belong.
+
+![display-setting](/images/docs/assets/managing-assets/display-setting.png)
+
+## Asset Export
+
+Assets support exporting existing asset information in both XLSX and CSV formats. Simply click on the `Export` button located at the top right corner of the page to export the desired asset information.
+
+![export-asset](/images/docs/assets/managing-assets/export-asset.png)
+
+## Asset Update
+
+When there's a need to update information for a particular asset, you can click on the `Edit` button next to the asset. This will take you to the asset information update page, where you can make the necessary changes. If you need to update the information for the account associated with that asset, click on the `Asset Name` button to enter the asset details page. From there, you can update the account information in the account list module.
+
+![asset-update](/images/docs/assets/managing-assets/asset-update.png)
+
+## Asset Details
+
+Click on the `Asset Name` in the asset list page to access the asset details page. The asset details page contains information such as basic asset information, asset account list, authorized users, and asset activity records.
+
+![asset-details](/images/docs/assets/managing-assets/asset-details.png)
+
+Detailed Parameter Explanation:
+| Parameter           | Description                                                                                                                     |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Basic               | The basic information module primarily provides details about the asset, including its name, protocol, and system platform.      |
+| Hardware Information| The hardware information module is used to view the hardware details of the asset, such as CPU information, memory, and disk details. This information is obtained through automated tasks that retrieve hardware information. |
+| Quick update        | The quick update module is used for executing automated tasks related to the asset, such as updating hardware information and connectivity status. |
+| Node                | The node module allows for adjusting the asset's belonging node.                                                                |
+| Tags                | The tag module displays the tags associated with the asset.                                                                     |
+| Accounts            | The account list module primarily contains information about the system accounts bound to the asset. Actions such as adding, deleting, viewing, and modifying accounts can be performed in this module. |
+| Authorized users    | The authorized user's module displays the users and user groups authorized to access the asset. This page also shows the authorization rules associated with the asset. |
+| Asset sessions      | The session records module logs the sessions related to the asset, including connected users and connection times.             |
+| Commands            | The command records module primarily records the commands executed on the asset.                                                |
+| Activities          | The activity records module provides a view of the asset's recent 30. |
+
+## Delete Asset
+
+To delete an asset, click the `More` button next to it and select `Delete`.
+
+![delete-asset](/images/docs/assets/managing-assets/delete-asset.png)
+
+## Duplicate Asset
+
+To clone an asset, click the `More` button next to the asset and select `Duplicate`.
+
+![duplicate-asset](/images/docs/assets/managing-assets/duplicate-asset.png)

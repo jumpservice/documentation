@@ -1,0 +1,96 @@
+# Managing Users
+
+Click on the `Users` tab on the left side of the console page and go to the User List page. This page allows you to manage JumpServer users, including functions for adding, deleting, updating, and viewing user information.
+![managing-users](/images/docs/users/managing-users/managing-users.png)
+
+## Create User
+
+Click on the `Create` button on the user list page to navigate to the user details creation page.
+
+![create-user](/images/docs/users/managing-users/create-user.png)
+
+Detailed Parameter Explanation:
+| Parameter | Description                                                                                           |
+|--------------------|-------------------------------------------------------------------------------------------------------|
+| Name               | User identification names can be duplicated.                                                           |
+| Username           | Login accounts for accessing JumpServer, cannot be duplicated.                                         |
+| Email              | The email address associated with the login account must be unique.                                    |
+| Groups             | Users are organized into groups for asset authorization. When an asset is authorized to a group, all users in that group are granted the corresponding permissions. |
+| Password Setting   | During the user creation process, administrators can either set passwords manually or generate password links to be sent to users via email. Upon successful submission of user information, JumpServer will send an email titled "Set User Password" to the specified user email address. |
+| MFA                | Multi-factor authentication (MFA) adds an extra layer of security to JumpServer. After enabling MFA, users logging into the system will be required to enter their username and password (first security factor), followed by inputting a dynamic verification code from their MFA device (second security factor). This two-factor authentication significantly enhances the security of user accounts. |
+| User Source        | Specify the user's source, such as 'Database' for manually created users or 'LDAP' for users imported from LDAP. |
+| System Role        | System roles determine the permissions a user has at the system level (System Administrator, Auditor, User/Other Custom Roles). |
+| Organizational Role| Organization roles determine the permissions a user has at the organization level (Organization Administrator, Auditor, User/Other Custom Roles). |
+| Active             | The activation status indicates whether a user is in a normal state and can log in. Users in a non-activated status cannot log in. |
+| Expiration Date    | The expiration date refers to the last date until which a user can log in. After this time, the user cannot log in. |
+| Phone              | Optional field: Configure the user's mobile phone number, which is used for receiving "MFA" SMS messages. |
+| Description        | Optional field: The administrator adds the description of the user.                                    |
+
+## Inviting Users
+
+Click on the `Invite` button on the "Users " page to use the invite user feature. This feature is used when a JumpServer user exists in the system but is not yet part of the current organization. Click the `Invite` button to invite the user join the organizatoin, then in the pop-up window, enter the user you want to invite and set their organization role in the current organization. Finally, click the `Submit` button to save the invitation.
+
+![inviting-user](/images/docs/users/managing-users/inviting-user.png)
+
+## Batch operation
+
+The `Actions` button primarily facilitates batch operations on users. It includes actions like removing selected users, disabling selected users, activating selected users, deleting selected users, and modifying selected users. You can perform these batch operations by selecting the checkboxes next to the user details.
+
+![batch-operation](/images/docs/users/managing-users/batch-operation.png)
+
+## Display Setting
+
+Clicking the `Gear` icon at the top right of the "Users" page allows you to customize the display settings of the page. You can choose to show more detailed information about users, such as their last login time, expiration date, creation date, and more.
+
+![display-setting](/images/docs/users/managing-users/display-setting.png)
+
+## User Import and Export
+
+Users can be imported, updated, or exported using supported table formats like ‘xlsx’ and ‘csv’. For the first import, you can click the `Import` button to download a template. After filling in the information according to the instructions, you can then import it back into the system.
+
+![user-import-export](/images/docs/users/managing-users/user-import-export.png)
+
+## User Details
+
+Clicking the `User Name`  on the "Users" page takes you to the user details page.
+
+![click-username](/images/docs/users/managing-users/click-username.png)
+
+This page includes basic information, Authorized assets, Authorization rules, Login ACLs, Asset sessions, and activity records.
+
+![user-details](/images/docs/users/managing-users/user-details.png)
+
+Detailed Parameter Explanation:
+| Parameter         | Description                                                                                                      |
+|-------------------|------------------------------------------------------------------------------------------------------------------|
+| Basic             | The basic information page displays detailed information about the user, including ID, name, username, email, role, creator, and more. |
+| Authorized assets | Display the list of assets authorized to this user within the current organization.                             |
+| Authorization rules| Display the list of asset authorization rules that include this user.                                           |
+| Login ACLs        | The detailed configuration of login policies for this user is displayed. You can restrict the user's login based on specific criteria such as time of day or IP address. |
+| Asset Sessions    | Display the session information for this user that is currently active within the organization.                 |
+| Activities        | The user's login and operation records.                                                                          |
+| Active            | The quick action button allows enabling or disabling login for this user.                                        |
+| Reset MFA         | The quick action button restores the user's MFA to its initial state, requiring the user to bind again during the next login. |
+| Reset Password    | The quick action button sends a password reset email to the user's email address.                               |
+| Reset SSH Key     | The quick action button sends an email to the user's email address to reset the user's SSH Key.                 |
+| Unlock User       | The quick action button lets you unlock the account if the user is locked due to multiple incorrect password attempts. |
+| Groups            | The quick action button enables you to add the user to a selected user group by choosing a group from the input box or remove the user from the list of added user groups by clicking the delete button next to the group in the list. |
+
+## Update User Information
+
+When you need to update information for a user, you can click on the `Edit` button next to the user's name on the "Users" page to update their information. For detailed parameter explanations, you can refer to the detailed instructions for creating users.
+
+![update-user-information](/images/docs/users/managing-users/update-user-information.png)
+
+## Duplicate User
+
+For cases where user information is the same or mostly the same, you can click on the `More` button next to the user's name and then select `Duplicate`. This will take you to the user information editing interface where you can modify the relevant information. After making the changes, submit the form to save the updated information.
+
+![duplicate-user](/images/docs/users/managing-users/duplicate-user.png)
+
+## User Delete/Remove
+
+To delete a user from the entire JumpServer system, click on the `More` button next to the user's name and then select `Delete`. Please note that this action will permanently delete the user's data from the database and cannot be reversed.
+To remove a user from the  organization, click on the `More` button next to the user's name and then select `Remove`. You can reverse this action by re-inviting the user to the organization.
+
+![user-delete-remove](/images/docs/users/managing-users/user-delete-remove.png)

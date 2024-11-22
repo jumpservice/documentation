@@ -1,0 +1,59 @@
+# Managing User Roles
+
+Roles in the JumpServer system can be categorized into system roles and organization roles. System roles include System Administrator, System Auditor, User, and System Component by default, while organization roles include Organization Administrator, Organization Auditor, and Organization User by default. Default roles cannot be deleted, updated, or modified.
+
+![managing-user-roles](/images/docs/users/managing-user-roles/managing-user-roles.png)
+
+## Create Role
+
+Both system roles and organization roles can be created. Click on the `Create` button at the top left of the page to enter the role creation page.
+After successfully filling in the information for the role, click the `Submit` button to submit.
+
+![create-role](/images/docs/users/managing-user-roles/create-role.png)
+
+Click the role name and navigate to the details page of the newly created role, where you can set permissions for that role. As shown in the image below, the right side displays the role's permission settings.
+
+![role-permission](/images/docs/users/managing-user-roles/role-permission.png)
+
+## Display Setting
+
+Click on the `Gear` button at the top right corner of the role list page to access the page display settings. Here, you can display more detailed information about roles, such as the role creator, creation date, and other relevant details.
+
+![display-setting](/images/docs/users/managing-user-roles/display-setting.png)
+
+## Role Import and Export
+
+Roles support import creation and exporting of existing role information, in formats such as ‘xlsx’ and ‘csv’. To import roles for the first time, click on the `Import` button to download the template. After downloading, follow the prompts to fill in the information and import the roles.
+
+![role-import-export](/images/docs/users/managing-user-roles/role-import-export.png)
+
+## Role Details
+
+In the "Role" list page, click on the ‘Role Name’ to enter the role details page.  The role details page includes information such as role basic information, role permissions, authorized users, and role activity records.
+
+![role-details](/images/docs/users/managing-user-roles/role-details.png)
+
+Detailed Parameter Explanation:
+| Parameter       | Description                                                                                                        |
+|-----------------|--------------------------------------------------------------------------------------------------------------------|
+| Basic           | The basic information page displays detailed information about the role, including its name, whether it's built-in, creator, and other relevant details. |
+| Authorized users| This page is used to associate roles with users, effectively granting specific role permissions to a user.        |
+| Activities      | This page displays the activity log for the current role.                                                          |
+
+## Update Role
+
+When there's a need to modify role information, you can update the relevant details. To update role permissions, click on the ‘role name’ to access the role details page, then update the role's permissions in the permissions module on the right side. If there's a need to update the role name or other information, click the `Update` button next to the respective role, modify the relevant information, and submit the changes.
+
+![update-role](/images/docs/users/managing-user-roles/update-role.png)
+
+## Duplicate Role
+
+All roles support cloning. After cloning, you can choose to modify the permissions of the cloned role on the role details page. Click the `More` button next to the role and select `Duplicate`. This will take you to the role creation interface, where you can modify the relevant information. Submitting the changes will complete the cloning process with modified role permissions.
+
+![duplicate-role](/images/docs/users/managing-user-roles/duplicate-role.png)
+
+## Delete Role
+
+System default roles cannot be deleted, while non-built-in roles can be deleted. Click the `Delete` button next to the role to delete it.
+
+![delete-role](/images/docs/users/managing-user-roles/delete-role.png)
