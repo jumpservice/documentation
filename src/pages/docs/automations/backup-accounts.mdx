@@ -1,0 +1,38 @@
+# Backup Accounts
+
+To mitigate the risk of server corruption, asset account loss, and other issues that may disrupt normal operation, JumpServer supports an account backup feature. This functionality allows for the backup of all asset accounts on JumpServer. Users can choose between immediate backups and scheduled backups as part of the backup strategy.
+
+## Account Backup
+
+Click on the `Create` button on the account backup page to create an automated task for account backup.
+
+![backup-accounts](/images/docs/automations/backup-accounts/backup-accounts.png)
+
+Full fill in the information of the account backup task and confirm the setting to create.
+
+![create-account-backup](/images/docs/automations/backup-accounts/create-account-backup.png)
+
+Detailed Parameter Explanation:
+| Parameter              | Description                                                                                                        |
+|------------------------|--------------------------------------------------------------------------------------------------------------------|
+| Name                   | Name of the account backup task.                                                                                   |
+| Type                   | Types of accounts to be backed up, allowing for the creation of backup tasks based on account types.               |
+| Backup Type            | JumpServer supports backing up accounts either to an email address via a table format or through SFTP.             |
+| Password divided       | Whether to split the account keys for security purposes.                                                           |
+| Recipient A            | After the backup, an email containing the backed-up accounts will be sent to the specified user. The account keys will be split into two parts, ensuring security. |
+| Recipient B            | Set the recipient user for receiving the backup email after the backup task is completed. The account keys will be split into two parts. |
+| Scheduled Execution    | Set whether this backup task is a scheduled task. Backup tasks can be scheduled for regular execution or manually executed. |
+
+Click on the `More` button next to the account backup task, then select the `Execute` button to immediately execute the account backup task.
+
+![execute-account-backup](/images/docs/automations/backup-accounts/execute-account-backup.png)
+
+Task execution log is as follows:
+
+![execute-account-backup-log](/images/docs/automations/backup-accounts/execute-account-backup-log.png)
+
+## Execution List
+
+This page primarily displays the historical records of account backup task execution, execution logs, and detailed information about the account backups.
+
+![execute-list-log](/images/docs/automations/backup-accounts/execute-list-log.png)

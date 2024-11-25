@@ -1,0 +1,50 @@
+# Push Accounts
+
+JumpServer supports automated user provisioning to managed assets. It includes push accounts, change account secrets, gather accounts, and backup accounts.
+
+![push-accounts](/images/docs/automations/push-accounts/push-accounts.png)
+
+## Account Push
+
+Click on the `Create` button on the Account Push page to create an account push task.
+
+![create-push-account](/images/docs/automations/push-accounts/create-push-account.png)
+
+Detailed Parameter Explanation:
+| Parameter          | Description                                                                                                                                                                                                                     |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name               | Task Name for the Account Push Task.                                                                                                                                                                                          |
+| Assets             | Assets where the account needs to be pushed.                                                                                                                                                                                  |
+| Nodes              | Asset nodes where the account needs to be pushed.                                                                                                                                                                             |
+| Accounts           | Account name to be pushed to the assets.                                                                                                                                                                                      |
+| Secret Strategy    | Password strategy for the pushed user: *Specific secret* (admin manually inputs the password) or *Random generate* (JumpServer generates the password).                                                                        |
+| Secret Type        | Type of ciphertext for the pushed user's password. Includes Password and SSH key.                                                                                                                                             |
+| Password           | If the secret strategy is specific, the admin user inputs the password. If the secret strategy is random, the admin user sets the password generation rules, such as password length and strength rules.                       |
+| Parameter Push     | For Windows OS, account push supports configuring user groups. For UNIX-like OS, it supports configuring Sudo, Shell, and user groups. Secret parameter settings only apply to assets of the host type.                        |
+| Periodic           | Selection of whether this automated task is scheduled to run, with options to set the schedule using Interval or Crontab settings.                                                                                            |
+
+## Update push account
+
+Select the `Edit` function to update the settings of the push account function.
+
+![update-push-account](/images/docs/automations/push-accounts/update-push-account.png)
+
+## Execute account push
+
+Select the `Execute` function to execute the push account function.
+
+![execute-account-push](/images/docs/automations/push-accounts/execute-account-push.png)
+
+View the result.
+
+![view-execute-plan](/images/docs/automations/push-accounts/view-execute-plan.png)
+
+## Execution List
+
+This page mainly views the execution logs and task details of account push plan tasks.
+
+![execution-list](/images/docs/automations/push-accounts/execution-list.png)
+
+Click on `Log` option at page of execution list, and view the detailed log information of account push task.
+
+![execution-list-log](/images/docs/automations/push-accounts/execution-list-log.png)

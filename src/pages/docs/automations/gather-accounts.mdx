@@ -1,0 +1,37 @@
+# Gather Accounts
+
+The account collection function can collect accounts on assets managed by JumpServer and collect asset account information by executing tasks. JumpServer supports binding collected account information with assets managed by JumpServer, reducing manual operations.
+
+## Gather Accounts List
+
+The account collection page allows you to view all relevant users who have been synchronized after executing the account collection task.
+
+![gather-accounts](/images/docs/automations/gather-accounts/gather-accounts.png)
+
+Clicking the `Sync` button next to a gather accounts allows you to bind the collected user with the corresponding asset. Clicking the `Sync Delete` button next to a collected account will delete that account from the server.
+
+![sync-syncdelete-account](/images/docs/automations/gather-accounts/sync-syncdelete-account.png)
+
+## Gather Accounts Tasks
+
+Click the `Create` button in the `Gather Tasks` tab of the Account Collection page to create a user collection task.
+
+![gather-accounts-task](/images/docs/automations/gather-accounts/gather-accounts-task.png)
+
+Fill in the information of the task. Collect users based on nodes that manage assets. JumpServer supports automatically synchronizing collected users to corresponding asset accounts. When creating a collection task, open the "Sync to Assets" option.
+
+![create-gather-accounts-task](/images/docs/automations/gather-accounts/create-gather-accounts-task.png)
+
+After successful creation, click the dropdown menu next to the collection user task and select the `Execute` button to execute the collection user task.
+
+![execute-gather-accounts-task](/images/docs/automations/gather-accounts/execute-gather-accounts-task.png)
+
+Execute process is displayed following:
+
+![execute-gather-accounts-task-log](/images/docs/automations/gather-accounts/execute-gather-accounts-task-log.png)
+
+## Execute List
+
+The execution list page primarily displays detailed information and logs of executed collection user tasks. Click on the `Log` button or `Details` button next to the corresponding executed log to view the detailed information of the task execution.
+
+![execute-list-log](/images/docs/automations/gather-accounts/execute-list-log.png)

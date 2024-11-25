@@ -1,0 +1,46 @@
+# Managing Accounts
+
+Click on the `Accounts` tab on the left side of the page to open the dropdown menu and select the Account Management page. The Asset Management page primarily focuses on managing asset accounts in JumpServer, including account viewing, account templates, account pushing, account collection, account password changes, and account backups.
+
+![managing-accounts](/images/docs/accounts/managing-accounts/managing-accounts.png)
+
+## General Accounts
+
+JumpServer supports managing accounts for assets. Click on the asset tree or type tree on the left side of the page to select the asset you want to view. You can then check the related account information for the asset (requires checking the MFA of administrator accounts), and export account information in bulk. JumpServer supports exporting detailed information and passwords for all associated accounts of assets.
+
+![export-accounts](/images/docs/accounts/managing-accounts/export-accounts.png)
+
+To view detailed account information such as account passwords, verification of the user's MFA is required in JumpServer.
+
+![export-accounts-mfa](/images/docs/accounts/managing-accounts/export-accounts-mfa.png)
+
+JumpServer enhances security by default, requiring MFA verification to view passwords. If you wish to disable MFA verification, you can add a configuration item in JumpServer's configuration file. After making the changes, restart the JumpServer service for the changes to take effect.
+
+> **Tip**
+> - The JumpServer configuration file is typically located at: `/opt/jumpserver/config/config.txt`
+>
+> - To disable MFA verification for viewing account information, add the following configuration item: `SECURITY_VIEW_AUTH_NEED_MFA=False`
+
+![account-detail](/images/docs/accounts/managing-accounts/account-detail.png)
+
+- Add Account
+
+JumpServer supports associating a single account with multiple assets in bulk, known as the account addition feature. Click on the `Create` button on the account list page, choose the assets to associate the account with, fill in the relevant account information, and you can then associate the account with the assets in bulk.
+
+![create-acoount](/images/docs/accounts/managing-accounts/create-acoount.png)
+
+Fill in and confirm the information and then finish creating the account.
+
+![add-account](/images/docs/accounts/managing-accounts/add-account.png)
+
+- Add Account Template
+
+JumpServer supports bulk associating account templates with multiple assets, known as the account template addition feature. Click on the `Add from Templates` tab on the account list page, choose the assets to associate the account templates with, select the account templates you wish to manage, and you can then bulk associate the account templates with the assets.Then fill in the information and confirm to add the account from the template.
+
+![add-from-template](/images/docs/accounts/managing-accounts/add-from-template.png)
+
+## Virtual Accounts
+
+Virtual accounts are specialized accounts with specific purposes when connecting assets. When creating authorization rules, in certain scenarios, virtual accounts are used to log in to assets. The virtual account page supports viewing details of virtual accounts. JumpServer supports AD/LDAP users’ login to assets using JumpServer user passwords when the authorization rule authorizes accounts with the same name.
+
+![virtual-accounts](/images/docs/accounts/managing-accounts/virtual-accounts.png)
