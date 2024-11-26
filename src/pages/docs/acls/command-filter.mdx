@@ -1,0 +1,47 @@
+# Command filter
+
+JumpServer supports filtering commands used during sessions by setting command filtering rules. Command filters can be bound to JumpServer users, assets, and the users used to connect to assets. A command filter can be bound to multiple command groups. When a user bound to an asset-bound account connects to a bound asset to execute a command, the command needs to be matched by all command groups bound to the filter, with higher-priority groups being matched first. When a rule is matched, the action specified in that rule is executed. If no corresponding rule is matched, the command proceeds with normal execution.
+
+![command-filter](/images/docs/acls/command-filter/command-filter.png)
+
+## Command Filtering
+
+The page allows for the creation, deletion, updating, and viewing of command filters.
+
+Click on the `Command Filter` tab on the command filtering page to enter the command filter settings page.
+
+Click on the `Create` button at the top left corner of this page to create a command filter.
+
+![command-filtering](/images/docs/acls/command-filter/command-filtering.png)
+
+Fill in the information of the command filter and click submit to create.
+
+![create-command-filter](/images/docs/acls/command-filter/create-command-filter.png)
+
+Detailed Parameter Explanation:
+| Parameter        | Description                                                                                                                                                                                                                                       |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name             | Command Filter Name.                                                                                                                                                                                                                              |
+| Priority         | Priority of the Command Filter, ranging from 1 to 100. The smaller the number, the higher the priority. The default is 50.                                                                                                                       |
+| User             | JumpServer user(s) matched by this command filter: **All Users**: This command filter matches all JumpServer users. **Specific Users**: This command filter matches specified JumpServer users. **Filter by attribute**: This command filter matches users based on attribute filtering rules. |
+| Asset            | Asset information matched by this command filter: **All Assets**: This command filter matches all assets. **Specific Assets**: This command filter matches specified assets. **Filter by attribute**: This command filter matches assets based on attribute filtering rules. |
+| Account          | Asset account(s) matched by this command filter: **All existing accounts**: This command filter matches all accounts for the matched assets. **Specified accounts**: This command filter matches specific accounts for the matched assets. **Virtual accounts**: Virtual accounts are specialized accounts with specific purposes when connecting assets. |
+| Command Group    | Command group(s) associated with this command filter. The specified action is executed when a matched JumpServer user uses a matched account to log in to a matched asset and execute these commands. |
+| Action           | Action taken when this command filter rule is matched: **Reject**: Deny the execution of the command. **Accept**: Allow the execution of the command. **Review**: After approval by the set approver, allow or deny the command. **Warn**: Send an alert message to specified personnel when the command is matched. |
+
+## Command Group
+
+Commands can be grouped and bound to command filters. Two types of command groups can be created: regular expressions and commands.
+
+To create a command group, click on the `Create` button at the top left corner of the page.
+
+![create-command-group](/images/docs/acls/command-filter/create-command-group.png)
+
+Detailed Parameter Explanation:
+| Parameter        | Description                                                                                          |
+|------------------|------------------------------------------------------------------------------------------------------|
+| Name             | Command Group Name.                                                                                  |
+| Type             | Regular Expression represents command matching using regular expressions, while Command represents filtering a specific command. |
+| Content          | The content can be multiline text, with each line representing a matching rule. Note: one command per line. |
+| Ignore case      | Specify that the filled-in command, regardless of case sensitivity, should be filtered according to the rules. |
+

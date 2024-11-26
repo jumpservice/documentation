@@ -1,0 +1,84 @@
+# Authorizations
+
+The authorization rules for assets determine which protocols users can use, which accounts can access which assets, and what permissions they have through the following dimensions. The dimensions are as follows:
+
+- **User Dimension**: The user dimension primarily includes individual users and user groups (representing all users within that group).
+- **Asset Dimension**: The asset dimension primarily includes assets, nodes (a concept representing all assets under a node), and accounts (login credentials for assets).
+- **Account Dimension**: The account dimension primarily distinguishes which accounts users can use to log in to assets.
+- **Protocol Dimension**: The protocol dimension primarily distinguishes the protocols users can use when logging in to assets.
+- **Action Dimension**: The action dimension primarily includes connection permissions, upload, download, delete permissions, and copy-paste permissions (supported only for RDP and VNC protocols).
+
+Clicking the `Create` button on the Asset Authorization page will lead you to the Asset Authorization creation page.
+
+![authorizations](/images/docs/authorizations/authorizations.png)
+
+Fill in the information of the authorization rule and submit to create.
+
+![create-asset-authorization-rule](/images/docs/authorizations/create-asset-authorization-rule.png)
+
+Detailed Parameter Explanation:
+| Parameter       | Description                                                                                                      |
+|-----------------|------------------------------------------------------------------------------------------------------------------|
+| Name            | Authorization Rule Name.                                                                                         |
+| Users           | Authorized Asset for JumpServer logged-in user, granting connection or other permissions.                       |
+| Groups          | Authorized Asset for JumpServer logged-in user group, granting connection or other permissions.                 |
+| Assets          | The asset being authorized, which the user needs to connect to.                                                  |
+| Nodes           | The nodes being authorized represents the asset group the user needs to connect to.                             |
+| Account         | Authorized account for asset login.  All existing accounts: Authorize all accounts added to the asset. **Specified accounts**: Manually enter the account name to be authorized. It can be added from the template. Virtual accounts include some types of accounts: **Manual account**: Allow users to input their username/password when connecting. **Same account**: Use the account with the same name as the JumpServer logged-in user when connecting. **Anonymous account**: Allow users to connect without entering any credentials, only launch the application itself. (Applicable to Web and custom asset types) |
+| Protocol        | Protocols authorized for the user. **All**: Allow the user to use any protocol supported by the JumpServer to login to the asset. **Specific protocol**: Allow the user to use a specified protocol to log in to the asset. |
+| Action          | Actions authorized for the user on the asset. Clipboard permissions control is currently only available for RDP/VNC protocol connections. |
+| Date start      | Start time of the authorization rule, defaulting to the time the authorization rule is created.                  |
+| Date expired    | Expiration time of the authorization rule.                                                                       |
+
+
+Each time a new authorization rule is created in the following example, the original authorization rule is deleted, and the original rule has no impact on the newly created authorization rule.
+
+## Authorize a Specific Asset for a User Only
+
+When you only need to authorize a specific asset for a user:
+
+- In the `User` module, select the desired user in the "User" option for authorization, and leave the "User Group" option empty.
+- In the `Asset` module, select the asset you want the user to log in to in the "Asset" option, leave the "Node" option empty, and choose the authorized account in the "Account" option. For example, select "All Accounts."
+
+The authorization rules are as follows：
+
+![specific-asset-for-user-only](/images/docs/authorizations/specific-asset-for-user-only.png)
+
+## Authorize an Asset for a Specific User Group
+
+When authorizing a specific user group to access an asset:
+
+- In the `User` module, select the desired user group in the "User Group" option for authorization, and leave the "User" option empty.
+- In the `Asset` module, select the asset you want the user group to log in to in the "Asset" option, leave the "Node" option empty, and choose the authorized account in the "Account" option. For example, select "All Accounts."
+
+The authorization rules are as follows：
+
+![asset-for-specific-user-group](/images/docs/authorizations/asset-for-specific-user-group.png)
+
+## Authorize a Specific Node for a User
+
+When authorizing a specific user to access a group of assets:
+
+- In the `User` module, select the desired user in the "User" option for authorization, and leave the "User Group" option empty.
+- In the `Asset` module, select the node that represents the group of assets the user needs to access in the "Node" option, leave the "Asset" option empty, and choose the authorized account in the "Account" option. For example, select "All Accounts."
+
+The authorization rules are as follows：
+
+![specific-node-for-user](/images/docs/authorizations/specific-node-for-user.png)
+
+## Authorize a Specific Node for a User Group
+
+When allowing a specific user group to access a group of assets：
+
+- In the `User` module, select the desired user group in the "User Group" option for authorization, and leave the "User" option empty.
+- In the `Asset` module, select the node that represents the group of assets the user group needs to access in the "Node" option, leave the "Asset" option empty, and choose the authorized account in the "Account" option. For example, select "All Accounts."
+
+The authorization rules are as follows：
+
+![specific-node-for-user-group](/images/docs/authorizations/specific-node-for-user-group.png)
+
+## Other
+
+- If all options in the authorization rule module are empty, the authorization rule will have no effect.
+- If any option in the authorization rule module is empty, the authorization rule will have no effect.
+- The authorization rule cannot use "*" for wildcard matching.

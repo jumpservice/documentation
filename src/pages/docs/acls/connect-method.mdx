@@ -1,0 +1,14 @@
+# Connect Method
+
+JumpServer provides multiple connection methods for different types of assets, such as command-line (Web CLI), graphical interface (Web GUI), client-based, and remote application methods. JumpServer supports controlling which connection method users can use to log in to assets
+
+![connect-method](/images/docs/acls/connect-method/connect-method.png)
+
+Detailed Parameter Explanation:
+| Parameter         | Description                                                                                                                                                                            |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name              | Control Connection Method Rule Name.                                                                                                                                                    |
+| Priority          | Priority of the control connection method rule, ranging from 1 to 100. A smaller number indicates higher priority. The default is 50.                                                |
+| User              | User information matched by this rule: **All Users**: This rule applies to all users. **Specific Users**: This rule applies to specified users. **Filter by attribute**: This rule applies to users who meet the attribute filtering criteria. |
+| Connection Methods| Select the asset connection method that matches this rule.                                                                                                                                 |
+| Action            | Action of "Reject" when this rule is matched for asset login.                                                                                                                                |
