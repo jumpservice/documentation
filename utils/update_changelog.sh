@@ -2,7 +2,7 @@
 # TAG_NAME
 
 DATE=$(date +%Y-%m-%d)
-CONTENT="    { date: '$DATE', version: '$TAG_NAME' },"
+CONTENT="    { date: '$DATE', version: '$TAG_NAME'},"
 FILE_PATH="../src/components/docs/changelog.tsx"
 
 sed -i "2i\\${CONTENT}" "${FILE_PATH}"
