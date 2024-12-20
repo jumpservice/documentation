@@ -13,6 +13,10 @@ VERSION_CONTENT="const LatestVersion = '$TAG_NAME'"
 VERSION_FILE_PATH="../src/components/public/version.tsx"
 sed -i "1s/.*/${VERSION_CONTENT}/" "${VERSION_FILE_PATH}"
 
+# upgrade
+UPGRADE_FILE_PATH="../src/pages/docs/upgrade.mdx"
+sed -i "s/v4\.[0-9]\+\.[0-9]\+/${TAG_NAME}/g" "${UPGRADE_FILE_PATH}"
+
 git add ${CHANGELOG_FILE_PATH}
 git add ${VERSION_FILE_PATH}
 git commit -m "add $TAG_NAME to changelogs"
