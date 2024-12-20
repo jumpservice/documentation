@@ -9,7 +9,7 @@ CHANGELOG_FILE_PATH="../src/components/docs/changelog.tsx"
 sed -i "2i\\${CHANGELOG_CONTENT}" "${CHANGELOG_FILE_PATH}"
 
 # last version
-VERSION_CONTENT="const LatestVersion = '$TAG_NAME';"
+VERSION_CONTENT="const LatestVersion = '$TAG_NAME'"
 VERSION_FILE_PATH="../src/components/public/version.tsx"
 sed -i "1s/.*/${VERSION_CONTENT}/" "${VERSION_FILE_PATH}"
 
