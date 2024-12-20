@@ -1,4 +1,5 @@
 const changelogData = [
+    { date: '2024-12-20', version: 'v4.4.0'},
     { date: '2024-12-19', version: 'v4.5.0'},
     { date: "2024-11-21", version: "v4.4.0"},
     { date: "2024-10-17", version: "v4.3.0"},
