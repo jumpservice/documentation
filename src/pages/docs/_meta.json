@@ -1,21 +1,72 @@
 {
-  "-- overview": {
-    "type": "separator",
-    "title": "Overview"
-  },
   "index": "Introduction",
 
-  "-- get-started": {
+  "-- getting-started": {
     "type": "separator",
-    "title": "Get Started"
+    "title": "Getting Started"
   },
   "quickstart": "Quickstart",
   "installation": "Installation",
   "upgrade": "Upgrade",
 
+  "-- admin-guides": {
+    "type": "separator",
+    "title": "Admin Guides"
+  },
+
+  "users-roles": "Users & Roles",
+  "assets-platforms": "Assets & Platforms",
+  "accounts-templates": "Accounts & Templates",
+  "account-automations": "Account Automations",
+  "authorizations": "Authorization",
+  "acls": "ACLs",
+  "tags": "Tags",
+  "system-settings": "System Settings",
+
+  "-- user-guides": {
+    "type": "separator",
+    "title": "User Guides"
+  },
+  "workbench": "Workbench",
+  "personal-settings": "Personal Settings",
+  "using-web-terminal": "Using Web Terminal",
+  "using-web-sftp": "Using Web SFTP",
+  "using-native-terminal": "Using Native Terminal",
+  "using-native-client": "Using Native Client",
+  "using-jumpserver-client": "Using Jumpserver Client",
+
+  "-- auditor-guides": {
+    "type": "separator",
+    "title": "Auditor Guides"
+  },
+  "sessions": "Sessions",
+  "activities": "Activities",
+  "job-audits": "Job Audits",
+
+  "-- other-guides": {
+    "type": "separator",
+    "title": "Other Guides"
+  },
+  "tickets": "Tickets",
+  "notifications": "Notifications",
+
+  "-- configuration": {
+    "type": "separator",
+    "title": "Configuration"
+  },
+  "config-txt": "config.txt",
+
+  "-- enterprise-edition": {
+    "type": "separator",
+    "title": "Enterprise Edition"
+  },
+
   "-- more": {
     "type": "separator",
     "title": "More"
   },
+  "faqs": "FAQs",
+  "best-practices": "Best Practices",
+  "clients": "Clients",
   "changelog": "Changelogs"
 }
