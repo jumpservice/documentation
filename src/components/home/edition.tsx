@@ -1,3 +1,5 @@
+import NextLink from "next/link";
+
 function TableSupport() {
   return (
     <>
@@ -56,6 +58,12 @@ export default function Edition() {
           provides X-Pack enhancement packages and enterprise support services.
         </p>
         <TableSupport />
+        <p className="mt-10">
+          <span className="text-lg">
+            Note: To apply for a 14-day trial license of the JumpServer Enterprise Edition, please email
+            <NextLink className="underline ml-1 text-primary" href="mailto:support@fit2cloud.com">support@fit2cloud.com</NextLink>
+          </span>
+        </p>
       </section>
     </>
   );
