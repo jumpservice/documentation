@@ -14,12 +14,21 @@
     "title": "Admin Guides"
   },
 
-  "users-roles": "Users & Roles",
-  "assets-platforms": "Assets & Platforms",
-  "accounts-templates": "Accounts & Templates",
+  "users": "Users",
+  "user-groups": "User Groups",
+  "roles": "Roles",
+
+  "assets": "Assets",
+  "zones": "Zones",
+  "platforms": "Platforms",
+
+  "accounts": "Accounts",
+  "account-templates": "Account Templates",
   "account-automations": "Account Automations",
-  "authorizations": "Authorization",
+
+  "authorizations": "Authorizations",
   "acls": "ACLs",
+
   "tags": "Tags",
   "system-settings": "System Settings",
 
@@ -39,9 +48,17 @@
     "type": "separator",
     "title": "Auditor Guides"
   },
-  "sessions": "Sessions",
-  "activities": "Activities",
+  "asset-sessions": "Asset Sessions",
+  "session-commands": "Session Commands",
+  "files-transfer": "Files Transfer",
+  "online-devices": "Online Devices",
+
+  "login-logs": "Login Logs",
+  "password-change-logs": "Password Change Logs",
+  "operate-logs": "Operate Logs",
+
   "job-audits": "Job Audits",
+  "job-execution-audits": "Job Execution Audits",
 
   "-- other-guides": {
     "type": "separator",
