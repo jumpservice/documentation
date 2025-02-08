@@ -1,8 +1,8 @@
 {
-  "access-asset": "Access Asset",
+  "access-assets": "Access Assets",
   "file-transfer": "File Transfer",
-  "adhoc": "Adhoc",
-  "Job": "Job",
-  "Job Template": "Job Template",
-  "Job Execution": "Job Execution"
+  "adhocs": "Adhocs",
+  "jobs": "Jobs",
+  "job-templates": "Job Templates",
+  "job-executions": "Job Executions"
 }

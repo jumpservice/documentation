@@ -32,7 +32,7 @@ const config: DocsThemeConfig = {
   },
   sidebar: {
     toggleButton: true,
-    defaultMenuCollapseLevel: 2,
+    defaultMenuCollapseLevel: 1,
     titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
       if (type === "separator") {
