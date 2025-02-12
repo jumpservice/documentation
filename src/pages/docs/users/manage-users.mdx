@@ -1,0 +1,48 @@
+# Manage Users
+
+## Update Users
+1. Navigate to the `Console`
+2. Select `User` > `Users`,locate the relevant user in the list then click `Edit`.
+3. Modify user's information.
+5. Click `submit` to confirm modification or `reset` to undo.
+## Delete Users
+1. Navigate to the `Console`.
+2. Select `User` > `Users`, locate the relevant user in the list then click `...` for more options.
+3. Click `Delete` to delete relevant user.(`This action is irreversible.`)
+ 
+## Remove Users (Enterprise Editon's Feature)
+1. Navigate to the `Console`.
+2. Select `User > Users`,locate the relevant user in the list then click '...' for more options.
+3. Click `Remove` to remove relevant user from current organization.
+4. Later, you can locate this user in global organization and could invite them to join other organization.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="⚠️">
+`Delete` and `remove`, these two actions are `different`. Delete means delete users from JumpServer while remove means remove user from current organization.
+Delete is irreversible, please proceed with caution to avoid losing user data.
+</Callout>
+
+## Invite Users(Enterprise Editon's Feature)
+1. Navigate to the `Console`.
+2. Select `User > Users`, then click 'invite' above the list.
+3. locate the relevant users you want to invite and assign a organizational role to the users to set their permission level in this organization.
+4. Click '`Confirm`' to invite.
+
+<Callout type="info" emoji="ℹ️">
+For security purposes, only a subset of users is displayed. You can search for additional users.
+</Callout>
+
+
+## User Details
+
+1. Navigate to the `Console`
+2. Select `User > Users`, then click `Name` of a user.
+3. You can find user's Basic Information, Authorized Assets, Authorization Rules, Login ACLS, Asset Sessions and Activities here.
+    - Basic information: User's detailed information. You can also reset user's MFA, Password, SSH Key and unlock user here.
+    - Authorized assets: All assets that the user has access to.
+    - Authorization rules: Authorization rules related to the user.
+    - Login ACLS: Login ACLS related to the user.
+    - Asset sessions: Session infos related to the user.
+    - Users Activities: User's activity logs in JumpServer.
+

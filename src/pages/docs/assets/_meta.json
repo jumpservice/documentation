@@ -1,7 +1,6 @@
 {
   "about-assets": "About assets",
-  "create-asset": "Creating assets",
-  "manage-assets": "Managing assets",
-  "view-assets": "Viewing assets",
-  "manage-nodes": "Managing nodes"
+  "create-asset": "Create assets",
+  "manage-assets": "Manage assets",
+  "manage-nodes": "Manage nodes"
 }
