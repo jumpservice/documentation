@@ -1,56 +1,24 @@
-# Create Users
+# Create users
 
-This section describes how to create users through JumpServer web console.
+This topic describes how to create users.
 
-1. Navigate to the `Console`
-![navigate-console](/images/docs/users/navigate-console.png)
-<br>
-</br>
+1. Navigate to **Console > Users** and click the **+ Create** button.
+  
+  <img src="/images/docs/admin-guides/users/create-user.png" alt="user-create-button" width="600"/>
 
-2. Select `User > Users`, then click `+Create`.
-![create-user](/images/docs/users/users-create.png)
-<br>
-</br>
-
-3. Enter the new user's basic information
-![basic info](/images/docs/users/basic-info.png)
->  - `Name`**(required)**: User identification names. 
->  - `Username`**(required and unique)**: Username is used for logging into JumpServer.
->  - `Email`**(required and unique)**: User's e-mail, used to recieve system message. 
->  - `Groups`: User's group. Groups help administrators manage users assign permissions in batches.
-<br>
-</br>
-
-4. Enter the new user's authentication strategy.
-![auth settings](/images/docs/users/auth-settings.png)
->  - `Password settings`: Either set passwords manually or generate password reset email (please configure email server in system settings first) to user. 
->  - `MFA`: Multi-factor authentication strategy. A Dynamic MFA code will be required after login.(Support SMS or virtual MFA authenticator)  
->  - `Source`: Specify the user's source, such as ’Database’ for manually created users or ‘LDAP’ for users imported from LDAP.
-<br>
-</br>
-
-5. Enter the new user's Security strategy.
-![security settings](/images/docs/users/security-settings.png)
->  - `System roles`: Determine the users's permissions level in JumpServer. (System Administrator, System Auditor, User).
->  - `Organizational roles`**(required)**: Determine the users's permissions level in current organization. (System Administrator, System Auditor, User), ***enterprise editon's feature***.
->  - `Active`: The activation status indicates whether a user is in a normal state and can log in. Users in a non-activated status cannot log in.
->  - `Date expired`: Date expired refers to the last date until which a user can log in. After this time, the user cannot log in. 
-
-import { Callout } from 'nextra/components'
- 
-<Callout type="info" emoji="ℹ️">
-Organization control is an enterprise edition's feature. If you're using community editon, only System Roles(required) is visible.
-</Callout>
-<br>
-</br>
-
-6. Enter other informations.
-![other settings](/images/docs/users/other-settings.png)
->  - `Phone`: User's mobile phone, used to receive system SMS messages.
->  - `Description`: Description of the user 
-
-7. Click `Submit` to confirm or `Save & Continue` to create next user.  
-
+2. In the **Name** field, enter the user’s name.
+3. In the **Username** field, enter a unique username for logging into JumpServer.
+4. In the  **Email** field, enter the user’s email address in the **Email** field to receive system messages. Make sure the email address is not shared by other users.
+5. Optionally, in the **group** field, select user's group. Grouping users simplifies permission management and batch assignments.
+6. In the **Password settings** field, choose between setting a manual password or generating a password reset email. Ensure the email server is configured in System Settings first if using the latter option.
+7. Optionally, in the **MFA** field, select **Disabled**, **Enabled**, or **Force Enabled**.
+8. Optionally, in the **Source**, specify the user's source (e.g., Database for manual creation, LDAP for imports).
+9. In the **System Roles** field, assign user's system role to to define permissions in JumpServer (e.g., System Administrator, System Auditor, User).
+10. In the **Organizational Roles** field, assign user's Organizational role to to define permissions under current organization (e.g., Org. Administrator, Org. Auditor, Org. User).
+11. In the **Active** field, enable or disable the user.
+12. In the **Date expired** field, set the user's validation period.
+13. Optionally, in **Other** section, enter the user’s mobile phone number and description.
+14. Click **Submit** to create the user, or **Save & Continue** to create and add more.
 
 
 
