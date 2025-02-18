@@ -1,54 +1,65 @@
 # Manage users
 
-## Update users
-1. Navigate to **Console > Users** and locate the relevant user in the users list then click `Edit`.
+This topic describes how to manage users.
 
-  <img src="/images/docs/admin-guides/users/edit-user.png" alt="user-create-button" width="800"/>
+## View user details 
 
-2. Update user's information.
-3. Click **Submit** to confirm modification or **Reset** to undo.
+1. In JumpServer, navigate to **Console > Users**.
 
-## Delete users
-1. Navigate to **Console > Users** and locate the relevant user in the users list. Then click **...** for more options.
+2. In the users list, locate the relevant user and click the username to open the details page.
 
-  <img src="/images/docs/admin-guides/users/more-options.png" alt="user-create-button" width="800"/>
+3. On the `Basic` page (default), where you can view user's Basic information, Authorization rules, Authorized assets, Login ACLs, Asset sessions and Activities.
 
-2. Click *Delete* to delete relevant user. (**This action is irreversible.**)
+<img src="/images/docs/admin-guides/users/user-detail.png" alt="user-detail" width="600"/>
 
-  <img src="/images/docs/admin-guides/users/delete-user.png" alt="user-create-button" width="200"/>
+## Edit user properties and information 
 
-## Remove users
+1.In JumpServer, navigate to **Console > Users**.
 
-1. Navigate to **Console > Users** and locate the relevant user in the users list. Then click **...** for more options.
+2. In the Users list, locate the relevant user and click the Edit in the `Actions` column. Alternatively, in the top-right corner of the user details page, click Edit.
 
-  <img src="/images/docs/admin-guides/users/more-options.png" alt="user-create-button" width="800"/>
+3. Change the properties or information that you want, and then click **Submit**.
 
-2. Click *Remove* to remove relevant user from current organization.
+## Delete a user
+1. In JumpServer, navigate to **Console > Users**.
+2. In the Users list, locate the relevant user and select the **···** dropdown menu in the Actions column, then click **Delete**. Alternatively, in the top-right corner of the user details page, click **Delete**.
+3. Confirm the information to be deleted in the popup, and then click **OK**.
 
-  <img src="/images/docs/admin-guides/users/remove-user.png" alt="user-create-button" width="200"/>
-
-3. Later, you can find this user in global organization and could invite him again.
+## Remove users from current organization
+1. In JumpServer, navigate to **Console > Users**.
+2. In the Users list, locate the relevant user and select the **···** dropdown menu in the Actions column, then click **Remove**.
+3. Confirm the information to be deleted in the popup, and then click **OK**.
+4. You can find the user you removed in global organization.
 
 ## Invite users
-1. Navigate to the `Console > Users`, then click 'invite' above the users list.
+1. In JumpServer, navigate to **Console > Users**, then click 'invite' above the users list.
 
-  <img src="/images/docs/admin-guides/users/invite-user.png" alt="user-create-button" width="500"/>
+<img src="/images/docs/admin-guides/users/invite-user.png" alt="user-create-button" width="500"/>
 
 3. Select the relevant users you want to invite and assign a organizational role to the users to set their permission level in this organization.
   
-  <img src="/images/docs/admin-guides/users/invite-user-page.png" alt="user-create-button" width="700"/>
+<img src="/images/docs/admin-guides/users/invite-user-page.png" alt="user-create-button" width="700"/>
 
-4. Click **Confirm** to invite.
+4. Click **Confirm** to invite the users.
 
-## User details
+## Unlock user
+1. In JumpServer, navigate to **Console > Users**.
 
-1. Navigate to the `Console`
-2. Select `User > Users`, then click `Name` of a user.
-3. You can find user's Basic Information, Authorized Assets, Authorization Rules, Login ACLS, Asset Sessions and Activities here.
-    - Basic information: User's detailed information. You can also reset user's MFA, Password, SSH Key and unlock user here.
-    - Authorized assets: All assets that the user has access to.
-    - Authorization rules: Authorization rules related to the user.
-    - Login ACLS: Login ACLS related to the user.
-    - Asset sessions: Session infos related to the user.
-    - Users Activities: User's activity logs in JumpServer.
+2. In the users list, locate the relevant user and click the username to open the details page.
 
+3. Click the **Unlock user > Unlock** button in **Quick update**.
+
+## Reset user's password
+
+1. In JumpServer, navigate to **Console > Users**.
+
+2. In the users list, locate the relevant user and click the username to open the details page.
+
+3. Click the **Reset password > Send** button in **Quick update** panel, a password reset email will be sent to this user.
+
+## Reset use's MFA
+1. In JumpServer, navigate to **Console > Users**.
+
+2. In the users list, locate the relevant user and click the username to open the details page.
+
+3. Click the **Reset mfa > Send** button in **Quick update** panel.
