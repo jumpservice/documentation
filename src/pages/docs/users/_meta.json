@@ -1,5 +1,6 @@
 {
-  "create-users": "Create users",
-  "manage-users": "Manage users"
+  "create-users-groups": "Create users and groups",
+  "manage-users": "Manage users",
+  "manage-groups": "Manage groups"
 }
 
