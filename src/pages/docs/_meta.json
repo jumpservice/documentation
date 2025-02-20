@@ -19,71 +19,10 @@
   "roles": "Roles",
 
   "assets": "Assets",
-  "zones": "Zones",
-  "platforms": "Platforms",
-
-  "accounts": "Accounts",
-  "account-templates": "Account Templates",
-  "account-automations": "Account Automations",
-
-  "authorizations": "Authorizations",
-  "acls": "ACLs",
-
-  "tags": "Tags",
-  "system-settings": "System Settings",
-
-  "-- user-guides": {
-    "type": "separator",
-    "title": "User Guides"
-  },
-  "workbench": "Workbench",
-  "personal-settings": "Personal Settings",
-  "using-web-terminal": "Using Web Terminal",
-  "using-web-sftp": "Using Web SFTP",
-  "using-native-terminal": "Using Native Terminal",
-  "using-native-client": "Using Native Client",
-  "using-jumpserver-client": "Using Jumpserver Client",
-
-  "-- auditor-guides": {
-    "type": "separator",
-    "title": "Auditor Guides"
-  },
-  "asset-sessions": "Asset Sessions",
-  "session-commands": "Session Commands",
-  "files-transfer": "Files Transfer",
-  "online-devices": "Online Devices",
-
-  "login-logs": "Login Logs",
-  "password-change-logs": "Password Change Logs",
-  "operate-logs": "Operate Logs",
-
-  "job-audits": "Job Audits",
-  "job-execution-audits": "Job Execution Audits",
-
-  "-- other-guides": {
-    "type": "separator",
-    "title": "Other Guides"
-  },
-  "tickets": "Tickets",
-  "notifications": "Notifications",
-
-  "-- configuration": {
-    "type": "separator",
-    "title": "Configuration"
-  },
-  "config-txt": "config.txt",
-
-  "-- enterprise-edition": {
-    "type": "separator",
-    "title": "Enterprise Edition"
-  },
 
   "-- more": {
     "type": "separator",
     "title": "More"
   },
-  "faqs": "FAQs",
-  "best-practices": "Best Practices",
-  "clients": "Clients",
   "changelog": "Changelogs"
 }
