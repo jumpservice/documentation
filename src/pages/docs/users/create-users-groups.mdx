@@ -4,32 +4,39 @@ This topic describes how to create users and groups.
 
 ## Create a user
 
-1. Navigate to **Console > Users** and click the **+ Create** button.
+1. In JumpServer, navigate to **Console > Users** and click the **+ Create** button.
   
 <img src="/images/docs/admin-guides/users/create-user.png" alt="user-create-button" width="310"/>
 
-2. In the **Name** field, enter the user’s name.
+2. In the **Name** field, enter the user name.
 3. In the **Username** field, enter a unique username for logging into JumpServer.
-4. In the  **Email** field, enter the user’s email address to receive system messages. Make sure the email address is not shared by other users.
-5. Optionally, in the **group** field, select user's group. Grouping users simplifies permission management and batch assignments.
-6. In the **Password settings** field, choose between setting a manual password or generating a password reset email. Ensure the email server is configured in System Settings first if using the latter option.
-7. Optionally, in the **MFA** field, select **Disabled**, **Enabled**, or **Force Enabled**.
-8. Optionally, in the **Source**, specify the user's source (e.g., Database for manual creation).
-9. In the **System Roles** field, assign user's system role to to define permissions in JumpServer (e.g., System Administrator, System Auditor, User).
-10. In the **Organizational Roles** field, assign user's Organizational role to to define permissions under current organization (e.g., Org. Administrator, Org. Auditor, Org. User).
-11. In the **Active** field, enable or disable the user.
-12. In the **Date expired** field, set the user's validation period.
-13. Optionally, in **Other** section, enter the user’s mobile phone number and description.
-14. Click **Submit** to create the user, or **Save & Continue** to create and add more.
+4. In the  **Email** field, enter the user email address to receive system messages. Make sure the email address is not shared by other users.
+5. Optionally, in the **group** field, select user group. Grouping users simplifies permission management and batch assignments.
 
+6. In the **Password settings** field, choose between **Set password** or **Reset link will be generated and sent to the user**. 
+
+    <img src="/images/docs/admin-guides/users/password-setting.png" alt="password-setting" width="500"/>
+
+    - **Reset link will be generated and sent to the user**: A password reset email will be sent to user, user can set the password himself. Ensure the email server is configured in System Settings first.
+    - **Set Password**: Administrator can set the password for the user.
+
+7. In the **MFA** field, select **Disabled**, **Enabled**, or **Force Enabled**.
+8. In the **Source**, specify the user source (e.g., Database for manual creation).
+9. In the **System Roles** field, assign user system role to to define permissions (e.g., System Administrator, System Auditor, User).
+10. In the **Organizational Roles** field, assign user Organizational role to to define permissions under current organization (e.g., Org. Administrator, Org. Auditor, Org. User).
+11. In the **Active** field, enable or disable the user.
+12. In the **Date expired** field, set the user validation period.
+13. Optionally, enter the user mobile phone number.
+13. Optionally, enter the user description.
+15. Click **Submit** to create the user, or **Save & Continue** to create and add more.
 
 ## Create a group
 
-1. Navigate to **Console > Groups** and click the **+ Create** button.
+1. In JumpServer, navigate to **Console > Groups** and click the **+ Create** button.
   
 <img src="/images/docs/admin-guides/users/create-group.png" alt="group-create-button" width="325"/>
 
-2. In the **Name** field, enter the group’s name.
+2. In the **Name** field, enter the group name.
 3. Optionally, in the **Users** field, you can assign existed users to this group.
 4. Optionally, in the **Description** field, enter a description of this group.
 5. Click **Submit** to create the group, or **Save & Continue** to create and add more.
