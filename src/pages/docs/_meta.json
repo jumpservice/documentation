@@ -1,17 +1,23 @@
 {
-  "-- overview": {
-    "type": "separator",
-    "title": "Overview"
-  },
   "index": "Introduction",
 
-  "-- get-started": {
+  "-- getting-started": {
     "type": "separator",
-    "title": "Get Started"
+    "title": "Getting Started"
   },
   "quickstart": "Quickstart",
   "installation": "Installation",
   "upgrade": "Upgrade",
+
+  "-- admin-guides": {
+    "type": "separator",
+    "title": "Admin Guides"
+  },
+
+  "users": "Users",
+  "roles": "Roles",
+
+  "assets": "Assets",
 
   "-- more": {
     "type": "separator",

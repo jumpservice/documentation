@@ -1,0 +1,127 @@
+# Create assets
+
+This topic describes how to create various types of assets, such as hosts, network devices, databases, cloud, and web assets.
+
+## Create a host
+1. In JumpServer, navigate to **Console > Assets > Host**, and click the **+ Create** button.
+<img src="/images/docs/admin-guides/assets/host-create-button.png" alt="host-create-button" width="350"/>
+
+2. In the **Select Provider** popup, choose a host platform.
+<img src="/images/docs/admin-guides/assets/select-provider-host.png" alt="select-provider-host" width="550"/>
+
+3. In the **Name** field, enter a unique name for all asset types in the organization.
+4. In the **IP/Host** field, enter the IP address or hostname of the host.
+5. In the **Platform** field, the default is selected in `Step 2`, but you can choose another host platform of the same type.
+6. In the **Nodes** field, select one or more nodes.
+7. In the **Protocols** field, add or remove protocols and modify ports. The platform determines the available protocols.
+<img src="/images/docs/admin-guides/assets/protocols-host.png" alt="protocols-host" width="550"/>
+
+8. Optionally, in the **Accounts** field, add multiple accounts, either directly or from a template. 
+9. Optionally, in the **Zone** field, select only one zone.
+10. Optionally, in the **Tags** field, select one or more tags.
+11. In the **Active** field, enable or disable the host.
+12. Optionally, in the **Description** field, enter a description of the host.
+13. Click **Submit** to create the host, or **Save & Continue** to create and add more.
+
+## Create a device
+1. In JumpServer, navigate to **Console > Assets > Device**, and click the **+ Create** button.
+<img src="/images/docs/admin-guides/assets/device-create-button.png" alt="device-create-button" width="350"/>
+
+2. In the **Select Provider** popup, choose a device platform.
+<img src="/images/docs/admin-guides/assets/select-provider-device.png" alt="select-provider-device" width="550"/>
+
+3. In the **Name** field, enter a unique name for all asset types in the organization.
+4. In the **IP/Host** field, enter the IP address or hostname of the device.
+5. In the **Platform** field, the default is selected in `Step 2`, but you can choose another device platform of the same type.
+6. In the **Nodes** field, select one or more nodes.
+7. In the **Protocols** field, add or remove protocols and modify ports. The platform determines the available protocols.
+<img src="/images/docs/admin-guides/assets/protocols-device.png" alt="protocols-device" width="550"/>
+  
+8. Optionally, in the **Accounts** field, add multiple accounts, either directly or from a template. 
+9. Optionally, in the **Zone** field, select only one zone.
+10. Optionally, in the **Tags** field, select one or more tags.
+11. In the **Active** field, enable or disable the device.
+12. Optionally, in the **Description** field, enter a description of the device.
+13. Click **Submit** to create the device, or **Save & Continue** to create and add more.
+
+## Create a database
+1. In JumpServer, navigate to **Console > Assets > Database**, and click the **+ Create** button.
+<img src="/images/docs/admin-guides/assets/db-create-button.png" alt="db-create-button" width="350"/>
+
+2. In the **Select Provider** popup, choose a database platform.
+<img src="/images/docs/admin-guides/assets/select-provider-db.png" alt="select-provider-db" width="550"/>
+
+3. In the **Name** field, enter a unique name for all asset types in the organization.
+4. In the **Address** field, enter the database address.
+5. In the **Platform** field, the default is selected in `Step 2`, but you can choose another database platform of the same type.
+6. In the **Nodes** field, select one or more nodes.
+7. Optionally, In the **Default database** field, enter the default database name. This will be the default database the user connects to.
+8. In the **Protocols** field, modify the port.
+<img src="/images/docs/admin-guides/assets/protocols-db.png" alt="protocols-db" width="550"/>
+
+9. Optionally, In the **Security** section, enter the following information:
+    <img src="/images/docs/admin-guides/assets/db-create-security-fields.png" alt="security-db" width="400"/>
+    * In the **Use ssl/tls** field, enable or disable SSL/TLS.
+    * In the **Ca certificate** field, upload the CA certificate.
+    * In the **Client certificate** field, upload the client certificate.
+    * In the **Client key** field, upload the client key.
+    * In the **Ignore certificate check** field, enable or disable certificate verification.
+
+10. Optionally, in the **Accounts** field, add multiple accounts, either directly or from a template. 
+11. Optionally, in the **Zone** field, select only one zone.
+12. Optionally, in the **Tags** field, select one or more tags.
+13. In the **Active** field, enable or disable the database.
+14. Optionally, in the **Description** field, enter a description of the database.
+15. Click **Submit** to create the database, or **Save & Continue** to create and add more.
+
+## Create a cloud
+1. In JumpServer, navigate to **Console > Assets > Cloud**, and click the **+ Create** button.
+<img src="/images/docs/admin-guides/assets/cloud-create-button.png" alt="cloud-create-button" width="350"/>
+
+2. In the **Select Provider** popup, choose a cloud platform.
+<img src="/images/docs/admin-guides/assets/select-provider-cloud.png" alt="select-provider-cloud" width="550"/>
+
+3. In the **Name** field, enter a unique name for all asset types in the organization.
+4. In the **URL** field, enter the cloud URL.
+5. In the **Platform** field, the default is selected in `Step 2`, but you can choose another cloud platform of the same type.
+6. In the **Nodes** field, select one or more nodes.
+8. In the **Protocols** field, modify the port.
+<img src="/images/docs/admin-guides/assets/protocols-cloud.png" alt="protocols-cloud" width="550"/>
+
+9. Optionally, in the **Accounts** field, add multiple accounts, either directly or from a template. 
+10. Optionally, in the **Tags** field, select one or more tags.
+11. In the **Active** field, enable or disable the cloud.
+12. Optionally, in the **Description** field, enter a description of the cloud.
+13. Click **Submit** to create the cloud, or **Save & Continue** to create and add more.
+
+## Create a web
+1. In JumpServer, navigate to **Console > Assets > Web**, and click the **+ Create** button.
+<img src="/images/docs/admin-guides/assets/web-create-button.png" alt="web-create-button" width="350"/>
+
+2. In the **Select Provider** popup, choose a web platform.
+<img src="/images/docs/admin-guides/assets/select-provider-web.png" alt="select-provider-web" width="550"/>
+
+3. In the **Name** field, enter a unique name for all asset types in the organization.
+4. In the **URL** field, enter the website URL.
+5. In the **Platform** field, the default is selected in `Step 2`, but you can choose another web platform of the same type.
+6. In the **Nodes** field, select one or more nodes.
+7. In the **Autofill** field, select either **Disabled**, **Basic** or **Script**.
+    * **Disabled**: Disable autofill, when users connect to the web, they can access the site directly without entering any information.
+      <img src="/images/docs/admin-guides/assets/web-autofill-disabled.png" alt="web-autofill-disabled" width="500"/>
+
+    * **Basic**: Enables simple autofill, automatically filling in login credentials when users access the site. The default selector uses element attributes, but you can also use other selectors (like tag name, class) or XPath expressions.
+      <img src="/images/docs/admin-guides/assets/web-autofill-basic.png" alt="web-autofill-basic" width="500"/>
+
+    * **Script**: Allows custom scripts to handle autofill, providing more flexibility for complex login scenarios.
+      <img src="/images/docs/admin-guides/assets/web-autofill-script.png" alt="web-autofill-script" width="500"/>
+      * **Step**: Script execution order, type as numbers.
+      * **value**: Type value, can use built-in variables like **`{USERNAME}`**(Account username), **`{SECRET}`**(Account secret), or other strings.
+      * **target**: The element to be filled in, which can use an element selector.
+      * **command**: The supported options are **type**, **sleep**, and **click**.
+
+8. In the **Protocols** field, modify the port.
+9. Optionally, in the **Accounts** field, add multiple accounts, either directly or from a template. 
+10. Optionally, in the **Tags** field, select one or more tags.
+11. In the **Active** field, enable or disable the web.
+12. Optionally, in the **Description** field, enter a description of the web.
+13. Click **Submit** to create the web, or **Save & Continue** to create and add more.
