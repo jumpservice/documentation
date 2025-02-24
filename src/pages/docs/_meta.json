@@ -19,6 +19,8 @@
 
   "assets": "Assets",
 
+  "system-settings": "System Settings",
+
   "-- more": {
     "type": "separator",
     "title": "More"
