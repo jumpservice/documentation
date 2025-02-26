@@ -1,8 +1,8 @@
 {
   "general": "General",
-  "organization": "Organization",
+  "organizations": "Organization",
   "notifications": "Notifications",
-  "feature": "Feature",
+  "features": "Features",
   "authentication": "Authentication",
   "storage": "Storage",
   "component": "Component",
