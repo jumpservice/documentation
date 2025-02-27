@@ -6,8 +6,13 @@
       "layout": "raw"
     }
   },
-  "docs": {
+  "pricing": {
+    "title": "Pricing",
     "type": "page",
-    "title": "Docs"
+    "route": "/#section-edition"
+  },
+  "docs": {
+    "title": "Docs",
+    "type": "page"
   }
 }

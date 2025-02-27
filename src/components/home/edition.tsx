@@ -48,7 +48,7 @@ function TableSupport() {
 export default function Edition() {
   return (
     <>
-      <section>
+      <section id="section-edition">
         <h2>JumpServer Enterprise Edition</h2>
         <p className="mb-10">
           Compared with the Community Edition,
