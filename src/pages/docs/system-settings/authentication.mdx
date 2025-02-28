@@ -1,29 +1,81 @@
+import { JMSNavSetting } from '@/icons'
+
 # Authentication
 
+
+This topic describes how to configure third-party authentication services and related user authentication settings.
+
 ## Basic
+### Configure email suffix
+
+If the user from the third-party authentication does not have an email field configured, the **email suffix** is used to automatically generate the user email address by combining the username with the suffix.
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+
+1. In JumpServer, navigate to **System settings > Authentication > Basic**.
+2. In the **Email suffix** field, enter the email suffix (such as `example.com`).
+3. Click **Submit**.
+
+### Modify the forgot password URL
+
+When the user clicks the **Forgot password?** link on the login page, they will be redirected to this URL.
+
+1. In JumpServer, navigate to **System settings > Authentication > Basic**.
+2. In the **Forgot password URL** field, enter the URL for the forgot password link.
+3. Click **Submit**.
+
+### Enable or disable user login redirection
+If enabled, when an unauthenticated user accesses JumpServer, they will be redirected to a prompt page where they can choose to `Cancel` or `Confirm` the redirection. 
+
+If disabled, the user will be directly redirected to the third-party authentication page.
+
+1. In JumpServer, navigate to **System settings > Authentication > Basic**.
+2. In the **Login redirection** field, enable or disable the user login redirection.
+3. Click **Submit**.
 
 ## LDAP
+### Configure LDAP server
+### Test LDAP connection
+### Test LDAP user login
+### Import LDAP users
+### Set up LDAP user sync
 
 ## LDAP HA
+### Configure LDAP HA server
+### Test LDAP HA connection
+### Test LDAP HA user login
+### Import LDAP HA users
+### Set up LDAP HA user sync
 
 ## CAS
+### Configure CAS server
 
 ## Passkey
+### Configure Passkey server
 
 ## OIDC
+### Configure OIDC server
 
 ## SAML2
+### Configure SAML2 server
 
 ## OAuth2
+### Configure OAuth2 server
 
 ## WeCOM
+### Configure WeCOM server
 
 ## Dingtalk
+### Configure Dingtalk server
 
 ## FeiShu
+### Configure FeiShu server
 
 ## Lark
+### Configure Lark server
 
 ## Slack
+### Configure Slack server
 
 ## Radius
+### Configure Radius server
