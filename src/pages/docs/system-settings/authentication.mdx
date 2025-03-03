@@ -58,12 +58,52 @@ If disabled, the user will be directly redirected to the third-party authenticat
 12. In the **User DN cache timeout (s)** field, enter the cache duration for user DN (seconds) to improve login authentication speed. Submit the form to clear the cache if any user DN changes.
 13. Click **Submit**.
 
-
-
 ### Test LDAP connection
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > LDAP**.
+3. Scroll to the bottom of the page and click the **Test connection** button.
+4. If the connection is successful, a popup at the top of the page will display the number of matched users.
+<img src="/images/docs/admin-guides/system-settings/auth/ldap-test-success.png" alt="image" width="450"/>
+5. If the connection fails, please adjust the configuration parameters based on the error message and try again.
+
 ### Test LDAP user login
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > LDAP**.
+3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
+4. Scroll to the bottom of the page and click the **Test login** button.
+5. In the popup, enter the LDAP username and password, then click **Confirm**.
+<img src="/images/docs/admin-guides/system-settings/auth/ldap-test-login-popup.png" alt="image" width="650"/>
+
 ### Import LDAP users
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > LDAP**.
+3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
+4. Scroll to the bottom of the page and click the **User import** button.
+5. In the popup, you can perform the following actions:
+    <img src="/images/docs/admin-guides/system-settings/auth/ldap-import-user.png" alt="image" width="650"/>
+    1. At the bottom of the table, click the **Sync users** button to sync LDAP users to the current table.
+    2. At the bottom left of the table, in the **Import organization** field, select one or more organizations to be imported.
+    3. In the table, select the users you want to import, then click the **Import** button at the bottom to proceed.
+    4. At the bottom of the table, click **Import all** to import all users in the table.
+    5. At the bottom of the table, click **Cancel** to close the popup.
+
 ### Set up LDAP user sync
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > LDAP**.
+3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
+4. Scroll to the bottom of the page and click the **Sync settings** button.
+5. In the popup, you can perform the following actions:
+    <img src="/images/docs/admin-guides/system-settings/auth/ldap-sync-settings.png" alt="image" width="550"/>
+    1. In the **Organization** field, Select one or more organizations, and the users will be synced to these organizations.
+    2. In the **Periodic** field, enable or disable the periodic sync.
+    3. Optionally, In the **Crontab** field, enter the crontab expression for the periodic sync. (If empty, `Interval` will be used.)
+    4. Optionally, in the **Interval** field, enter the sync interval in hour. (If `Crontab` has a value, prefer using crontab.)
+    5. In the **Recipients** fields, select one or more users to receive the sync result.
+    6. Click **Submit** to save the settings.
 
 ## Configure LDAP HA server
 ### Test LDAP HA connection
