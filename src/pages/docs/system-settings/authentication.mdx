@@ -1,4 +1,6 @@
 import { JMSNavSetting } from '@/icons'
+import { Callout } from 'nextra/components'
+ 
 
 # Authentication
 
@@ -41,45 +43,57 @@ If disabled, the user will be directly redirected to the third-party authenticat
 <img src="/images/docs/admin-guides/system-settings/auth/login-redirection.png" alt="image" width="450"/>
 4. Click **Submit**.
 
-## Configure LDAP server
+## Configure LDAP (HA) server
+**LDAP (HA)** refers to either **LDAP** or **LDAP HA** (High Availability).
+
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > LDAP**.
-3. In the **LDAP** field, enable or disable the LDAP authentication.
-4. In the **Server** field, enter the LDAP server URI, such as `ldap://example.com:389` or `ldaps://example.com:636`. If you need to configure a TLS certificate, upload the `ldap_ca.pem`, `ldap_cert.pem`, and `ldap_cert.key` files to the default directory `/data/jumpserver/core/data/certs`, then restart the service.
-5. In the **Bind DN** field, enter the distinguished name for binding to the LDAP server, such as `cn=admin,dc=example,dc=com`.
+2. Navigate to **System settings > Authentication > LDAP (HA)**.
+3. In the **LDAP (HA)** field, enable or disable the LDAP authentication.
+4. In the **Server** field, enter the LDAP server URI (such as `ldap://example.com:389` or `ldaps://example.com:636`). 
+<Callout type="info" emoji="️💡"> 
+  Configure the LDAP TLS certificates
+
+  Upload the following files to the default directory `/data/jumpserver/core/data/certs`:
+    * `ldap_ca.pem` or `ldap_ha_ca.pem`
+    * `ldap_cert.pem` or `ldap_ha_cert.pem`
+    * `ldap_cert.key` or `ldap_ha_cert.key`
+
+  After configuration, restart the service.
+</Callout>
+5. In the **Bind DN** field, enter the distinguished name for binding to the LDAP server (such as `cn=admin,dc=example,dc=com`).
 6. In the **Password** field, enter the bind user password, used with `Bind DN` for authentication.
-7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values. Such as `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`.
+7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values (such as `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`).
 <img src="/images/docs/admin-guides/system-settings/auth/ldap-search.png" alt="image" width="550"/>
-8. In the **Search filter** field, enter the filter expression for searching LDAP users. Such as `(cn=%(user)s)`, `(uid=%(user)s)`, or `(sAMAccountName=%(user)s)`.
+8. In the **Search filter** field, enter the filter expression for searching LDAP users (such as `(cn=%(user)s)`, `(uid=%(user)s)`, or `(sAMAccountName=%(user)s)`).
 9. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (Available keys: `name`, `username`, `email`, `groups`), and the value is the LDAP user attribute name.
 10. In the **Connect timeout (s)** field, enter the LDAP connection timeout in seconds.
 11. In the **Search paged size (piece)** field, enter the page size for searching users.
 12. In the **User DN cache timeout (s)** field, enter the cache duration for user DN (seconds) to improve login authentication speed. Submit the form to clear the cache if any user DN changes.
 13. Click **Submit**.
 
-### Test LDAP connection
+### Test LDAP (HA) connection
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > LDAP**.
+2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. Scroll to the bottom of the page and click the **Test connection** button.
 4. If the connection is successful, a popup at the top of the page will display the number of matched users.
 <img src="/images/docs/admin-guides/system-settings/auth/ldap-test-success.png" alt="image" width="450"/>
 5. If the connection fails, please adjust the configuration parameters based on the error message and try again.
 
-### Test LDAP user login
+### Test LDAP (HA) user login
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > LDAP**.
+2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
 4. Scroll to the bottom of the page and click the **Test login** button.
 5. In the popup, enter the LDAP username and password, then click **Confirm**.
 <img src="/images/docs/admin-guides/system-settings/auth/ldap-test-login-popup.png" alt="image" width="650"/>
 
-### Import LDAP users
+### Import LDAP (HA) users
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > LDAP**.
+2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
 4. Scroll to the bottom of the page and click the **User import** button.
 5. In the popup, you can perform the following actions:
@@ -90,10 +104,10 @@ If disabled, the user will be directly redirected to the third-party authenticat
     4. At the bottom of the table, click **Import all** to import all users in the table.
     5. At the bottom of the table, click **Cancel** to close the popup.
 
-### Set up LDAP user sync
+### Set up LDAP (HA) user sync
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > LDAP**.
+2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
 4. Scroll to the bottom of the page and click the **Sync settings** button.
 5. In the popup, you can perform the following actions:
@@ -105,18 +119,12 @@ If disabled, the user will be directly redirected to the third-party authenticat
     5. In the **Recipients** fields, select one or more users to receive the sync result.
     6. Click **Submit** to save the settings.
 
-## Configure LDAP HA server
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > LDAP HA**.
-3. LDAP HA configuration and other operations, please refer to the [Configure LDAP Server](/docs/system-settings/authentication#configure-ldap-server).
-
 ## Configure CAS server
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > CAS**.
 3. In the **CAS** field, enable or disable the CAS authentication.
-4. In the **Server** field, enter the CAS server URI, such as `https://example.com/cas`.
+4. In the **Server** field, enter the CAS server URI (such as `https://example.com/cas`).
 5. In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on `http://foo.bar:8080` but requests use `https://foo.bar:8443`, enter `https://foo.bar:8443`.
 6. In the **Version** field, enter the CAS protocol version (Supported versions: `1`, `2`, `3`, `CAS_2_SAML_1_0`).
 7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
@@ -136,6 +144,11 @@ If disabled, the user will be directly redirected to the third-party authenticat
 5. In the **FIDO server name** field, enter the server name, the default value is `JumpServer`.
 
 ## Configure OIDC server
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > OIDC**.
+3. In the **OIDC** field, enable or disable the OIDC authentication.
+4. In the **Base site URL** field, enter the full domain name of JumpServer, which is used to construct the callback URL.
 
 ## Configure SAML2 server
 
