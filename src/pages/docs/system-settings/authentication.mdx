@@ -52,7 +52,7 @@ If disabled, the user will be directly redirected to the third-party authenticat
 7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values. Such as `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`.
 <img src="/images/docs/admin-guides/system-settings/auth/ldap-search.png" alt="image" width="550"/>
 8. In the **Search filter** field, enter the filter expression for searching LDAP users. Such as `(cn=%(user)s)`, `(uid=%(user)s)`, or `(sAMAccountName=%(user)s)`.
-9. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (options: `name`, `username`, `email`, `groups`), and the value is the LDAP user attribute name.
+9. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (Available keys: `name`, `username`, `email`, `groups`), and the value is the LDAP user attribute name.
 10. In the **Connect timeout (s)** field, enter the LDAP connection timeout in seconds.
 11. In the **Search paged size (piece)** field, enter the page size for searching users.
 12. In the **User DN cache timeout (s)** field, enter the cache duration for user DN (seconds) to improve login authentication speed. Submit the form to clear the cache if any user DN changes.
@@ -112,6 +112,21 @@ If disabled, the user will be directly redirected to the third-party authenticat
 3. LDAP HA configuration and other operations, please refer to the [Configure LDAP Server](/docs/system-settings/authentication#configure-ldap-server).
 
 ## Configure CAS server
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > CAS**.
+3. In the **CAS** field, enable or disable the CAS authentication.
+4. In the **Server** field, enter the CAS server URI, such as `https://example.com/cas`.
+5. In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on `http://foo.bar:8080` but requests use `https://foo.bar:8443`, enter `https://foo.bar:8443`.
+6. In the **Version** field, enter the CAS protocol version (Supported versions: `1`, `2`, `3`, `CAS_2_SAML_1_0`).
+7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
+<img src="/images/docs/admin-guides/system-settings/auth/cas-user-attribute.png" alt="image" width="550"/>
+8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+9. In the **Create user** field, enable or disable user creation on CAS authentication success. If disabled and the user does not exist, authentication will fail.
+10. In the **Logout completely** field, if disabled, logging out of the application won’t log the user out of CAS as well.
+
+
+11. Click **Submit**.
 
 ## Configure Passkey server
 
