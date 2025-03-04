@@ -46,7 +46,7 @@ If disabled, the user will be directly redirected to the third-party authenticat
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > LDAP**.
 3. In the **LDAP** field, enable or disable the LDAP authentication.
-4. In the **Server** field, enter the LDAP server URI, such as `ldap://example.com:389` or `ldaps://example.com:636`.
+4. In the **Server** field, enter the LDAP server URI, such as `ldap://example.com:389` or `ldaps://example.com:636`. If you need to configure a TLS certificate, upload the `ldap_ca.pem`, `ldap_cert.pem`, and `ldap_cert.key` files to the default directory `/data/jumpserver/core/data/certs`, then restart the service.
 5. In the **Bind DN** field, enter the distinguished name for binding to the LDAP server, such as `cn=admin,dc=example,dc=com`.
 6. In the **Password** field, enter the bind user password, used with `Bind DN` for authentication.
 7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values. Such as `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`.
