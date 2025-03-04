@@ -124,11 +124,16 @@ If disabled, the user will be directly redirected to the third-party authenticat
 8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 9. In the **Create user** field, enable or disable user creation on CAS authentication success. If disabled and the user does not exist, authentication will fail.
 10. In the **Logout completely** field, if disabled, logging out of the application won’t log the user out of CAS as well.
-
-
 11. Click **Submit**.
 
 ## Configure Passkey server
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > Passkey**.
+3. In the **Passkey** field, enable or disable the Passkey authentication.
+4. In the **FIDO server ID** field, enter the full domain name of JumpServer. If not set, it defaults to the request host and matches domains in `DOMAINS` from `config.txt` file. If there are multiple domains, separate them with commas.
+5. In the **FIDO server name** field, enter the server name, the default value is `JumpServer`.
 
 ## Configure OIDC server
 
