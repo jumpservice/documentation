@@ -52,14 +52,9 @@ If disabled, the user will be directly redirected to the third-party authenticat
 3. In the **LDAP (HA)** field, enable or disable the LDAP authentication.
 4. In the **Server** field, enter the LDAP server URI (such as `ldap://example.com:389` or `ldaps://example.com:636`). 
 <Callout type="info" emoji="️💡"> 
-  Configure the LDAP TLS certificates
-
-  Upload the following files to the default directory `/data/jumpserver/core/data/certs`:
-    * `ldap_ca.pem` or `ldap_ha_ca.pem`
-    * `ldap_cert.pem` or `ldap_ha_cert.pem`
-    * `ldap_cert.key` or `ldap_ha_cert.key`
-
-  After configuration, restart the service.
+  To configure LDAP TLS certificates, you need upload the following files to the default directory `/data/jumpserver/core/data/certs`, then restart the service:
+    * **LDAP**: `ldap_ca.pem`, `ldap_cert.pem`, `ldap_cert.key`
+    * **LDAP HA**: `ldap_ha_ca.pem`, `ldap_ha_cert.pem`, `ldap_ha_cert.key`
 </Callout>
 5. In the **Bind DN** field, enter the distinguished name for binding to the LDAP server (such as `cn=admin,dc=example,dc=com`).
 6. In the **Password** field, enter the bind user password, used with `Bind DN` for authentication.
@@ -130,8 +125,8 @@ If disabled, the user will be directly redirected to the third-party authenticat
 7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
 <img src="/images/docs/admin-guides/system-settings/auth/cas-user-attribute.png" alt="image" width="550"/>
 8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-9. In the **Create user** field, enable or disable user creation on CAS authentication success. If disabled and the user does not exist, authentication will fail.
-10. In the **Logout completely** field, if disabled, logging out of the application won’t log the user out of CAS as well.
+9. In the **Create user** field, when enabled, a user will be created upon successful authentication. When disabled and the user does not exist, authentication will fail.
+10. In the **Logout completely** field, When enabled, logging out will also log the user out from the CAS service.
 11. Click **Submit**.
 
 ## Configure Passkey server
@@ -149,6 +144,44 @@ If disabled, the user will be directly redirected to the third-party authenticat
 2. Navigate to **System settings > Authentication > OIDC**.
 3. In the **OIDC** field, enable or disable the OIDC authentication.
 4. In the **Base site URL** field, enter the full domain name of JumpServer, which is used to construct the callback URL.
+5. In the **Client id** field, enter the client id provided by the OIDC server.
+6. In the **Client secret** field, enter the client secret provided by the OIDC server.
+7. In the **Request method** field, select a method to obtain a token:
+    <img src="/images/docs/admin-guides/system-settings/auth/oidc-request-method.png" alt="image" width="550"/>
+    * **Client Secret Basic**: The `Client id` and `Client secret` are sent in the request headers.
+    * **Client Secret Post**: The `Client id` and `Client secret` are sent in the request body.
+8. In the **Use keycloak** field, when enabled, Keycloak configuration will be used. The following fields must be provided:
+    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-keycloak.png" alt="image" width="550"/>
+    * **Server**: Enter the Keycloak server URI.
+    * **Realm name**: Enter the Keycloak realm name.
+9. In the **Use keycloak** field, when disabled, native OIDC configuration will be used for better compatibility with other OIDC providers. The following fields must be provided:
+    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-native.png" alt="image" width="700"/>
+    * **Provider endpoint**: Enter the OIDC provider endpoint (such as: `https://oidc.example.com`).
+    * **Authorization endpoint**: Enter the OIDC authorization endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/auth/`).
+    * **Token endpoint**: Enter the OIDC token endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/token/`).
+    * **JWKS endpoint**: Enter the OIDC JWKS endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/certs/`).
+    * **Userinfo endpoint**: Enter the OIDC userinfo endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/userinfo/`).
+    * **End session endpoint**: Enter the OIDC end session endpoint, when the user logs out, this endpoint will be called. (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/logout/`).
+    * **Signature algorithm**: Enter the OIDC signature algorithm, valid options are `HS256` and `RS256`.
+        * **HS256**: Uses the **Client id** as the shared key.
+        * **RS256**: Uses the **Signing Key** as the shared key.
+        <Callout type="info" emoji="️💡"> 
+          The **shared key** in this function is used for HMAC (Hash-based Message Authentication Code) signatures when verifying ID tokens in an OpenID Connect (OIDC) authentication flow.
+        </Callout>
+    * **Signing key**: When the **Signature Algorithm** is `RS256`, the signing key will be used for HMAC (Hash-based Message Authentication Code) signature verification or JWT (JSON Web Token) decryption to ensure the security of OIDC authentication.
+    * **Enable PKCE**: Enable PKCE (Proof Key for Code Exchange) protects the authorization code flow to prevent authorization code interception attacks.
+    * **Scopes**: Defines the range of user information that the client requests access to from the Identity Provider (IdP) in an authorization request. Multiple pieces of information are separated by spaces (such as: `openid profile email`).
+    * **ID token max age (s)**: The maximum age of the ID Token, in seconds. After it expires, a new one will be automatically obtained using the refresh token.
+    * **ID token include claims**: When enabled, the ID Token includes the userinfo scope and claims. When disabled, claims will be retrieved from the userinfo endpoint provided by the OP (OpenID Provider). Refer to the [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+    * **Use state**: Recommend to enable, state can prevent Cross-Site Request Forgery (CSRF) attacks and ensure consistency between the request and the callback.
+    * **Use nonce**: Recommend to enable too, nonce can prevent replay attacks.
+    * **Always update user**: When enabled, after OIDC user authentication, user information (only including: `name`, `username`, and `email`) will be checked and updated each time.
+10. In the **Ignore SSL verification** field, when enabled, SSL certificate verification is ignored when sending requests to the OP (OIDC Provider).
+11. In the **Share session** field, when enabled, the session will be logged out simultaneously when a user logs out from other applications.
+12. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name, and the value is the OIDC user attribute name (Available values: `name`, `username`, `email`, `groups`).
+<img src="/images/docs/admin-guides/system-settings/auth/oidc-user-attribute.png" alt="image" width="550"/>
+13. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+
 
 ## Configure SAML2 server
 
