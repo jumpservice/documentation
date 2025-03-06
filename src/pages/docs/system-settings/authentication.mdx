@@ -140,22 +140,28 @@ If disabled, the user will be directly redirected to the third-party authenticat
 
 ## Configure OIDC server
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
 2. Navigate to **System settings > Authentication > OIDC**.
 3. In the **OIDC** field, enable or disable the OIDC authentication.
 4. In the **Base site URL** field, enter the full domain name of JumpServer, which is used to construct the callback URL.
 5. In the **Client id** field, enter the client id provided by the OIDC server.
 6. In the **Client secret** field, enter the client secret provided by the OIDC server.
-7. In the **Request method** field, select a method to obtain a token:
-    <img src="/images/docs/admin-guides/system-settings/auth/oidc-request-method.png" alt="image" width="550"/>
+7. In the **Request method** field, select a method to obtain a token.
+
     * **Client Secret Basic**: The `Client id` and `Client secret` are sent in the request headers.
     * **Client Secret Post**: The `Client id` and `Client secret` are sent in the request body.
+    <img src="/images/docs/admin-guides/system-settings/auth/oidc-request-method.png" alt="image" width="550"/>
+
 8. In the **Use keycloak** field, when enabled, Keycloak configuration will be used. The following fields must be provided:
-    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-keycloak.png" alt="image" width="550"/>
+
     * **Server**: Enter the Keycloak server URI.
     * **Realm name**: Enter the Keycloak realm name.
+    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-keycloak.png" alt="image" width="550"/>
+
 9. In the **Use keycloak** field, when disabled, native OIDC configuration will be used for better compatibility with other OIDC providers. The following fields must be provided:
-    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-native.png" alt="image" width="700"/>
+
     * **Provider endpoint**: Enter the OIDC provider endpoint (such as: `https://oidc.example.com`).
     * **Authorization endpoint**: Enter the OIDC authorization endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/auth/`).
     * **Token endpoint**: Enter the OIDC token endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/token/`).
@@ -168,7 +174,7 @@ If disabled, the user will be directly redirected to the third-party authenticat
         <Callout type="info" emoji="️💡"> 
           The **shared key** in this function is used for HMAC (Hash-based Message Authentication Code) signatures when verifying ID tokens in an OpenID Connect (OIDC) authentication flow.
         </Callout>
-    * **Signing key**: When the **Signature Algorithm** is `RS256`, the signing key will be used for HMAC (Hash-based Message Authentication Code) signature verification or JWT (JSON Web Token) decryption to ensure the security of OIDC authentication.
+    * **Signing key**: When the **Signature algorithm** is `RS256`, the signing key will be used for HMAC (Hash-based Message Authentication Code) signature verification or JWT (JSON Web Token) decryption to ensure the security of OIDC authentication.
     * **Enable PKCE**: Enable PKCE (Proof Key for Code Exchange) protects the authorization code flow to prevent authorization code interception attacks.
     * **Scopes**: Defines the range of user information that the client requests access to from the Identity Provider (IdP) in an authorization request. Multiple pieces of information are separated by spaces (such as: `openid profile email`).
     * **ID token max age (s)**: The maximum age of the ID Token, in seconds. After it expires, a new one will be automatically obtained using the refresh token.
@@ -176,14 +182,78 @@ If disabled, the user will be directly redirected to the third-party authenticat
     * **Use state**: Recommend to enable, state can prevent Cross-Site Request Forgery (CSRF) attacks and ensure consistency between the request and the callback.
     * **Use nonce**: Recommend to enable too, nonce can prevent replay attacks.
     * **Always update user**: When enabled, after OIDC user authentication, user information (only including: `name`, `username`, and `email`) will be checked and updated each time.
+    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-native.png" alt="image" width="700"/>
+
 10. In the **Ignore SSL verification** field, when enabled, SSL certificate verification is ignored when sending requests to the OP (OIDC Provider).
 11. In the **Share session** field, when enabled, the session will be logged out simultaneously when a user logs out from other applications.
 12. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name, and the value is the OIDC user attribute name (Available values: `name`, `username`, `email`, `groups`).
-<img src="/images/docs/admin-guides/system-settings/auth/oidc-user-attribute.png" alt="image" width="550"/>
+
+    <img src="/images/docs/admin-guides/system-settings/auth/oidc-user-attribute.png" alt="image" width="550"/>
 13. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 
-
 ## Configure SAML2 server
+
+**Security Assertion Markup Language 2.0 (SAML2)** is an open standard for exchanging authentication and authorization data between parties, particularly between an Identity Provider and a Service Provider. It allows users to authenticate once with the IdP and access multiple services (SPs) without needing to re-enter credentials.
+
+**Identity Provider (IdP)** is a system that authenticates users and provides their identity information to service providers.
+
+**Service Provider (SP)** is a system or application that relies on an IdP to authenticate users and grant access to its services based on the user identity.
+
+In this case, JumpServer acts only as the SP.
+
+<Callout type="info" emoji="️💡"> 
+Below is the JumpServer URL information required for IdP SAML2 setup.  
+  * **Login**: `https://jumpserver.example.com/core/auth/saml2/login/`
+  * **Logout**: `https://jumpserver.example.com/core/auth/saml2/logout/`
+  * **Login success callback**: `https://jumpserver.example.com/core/auth/saml2/callback/`
+  * **SP metadata**: `https://jumpserver.example.com/core/auth/saml2/metadata/`
+</Callout>
+
+
+**Please follow the steps below to configure SAML2 service authentication.**
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
+2. Navigate to **System settings > Authentication > SAML2**.
+3. In the **SAML2** field, enable or disable the SAML2 authentication.
+4. In the **SP private key** field, upload the SP private key file.
+5. In the **SP cert** field, upload the SP certificate file. 
+
+    <Callout type="info" emoji="️💡"> 
+      SP Private Key and SP Certificate are closely linked and work together for secure communication and data protection in SAML2 authentication:
+        * **SP Private Key**: Used to sign SAML requests, decrypt encrypted SAML responses from the IdP, and ensure data integrity.
+        * **SP Certificate**: Generated from the SP Private Key and provided to the IdP to verify signed requests from the SP. It is also used to encrypt SAML response data, ensuring secure transmission.
+
+      In simple terms, SP Private Key handles singing and decryption, while SP Certificate handles verification and encryption.
+    </Callout>
+
+6. In the **IDP metadata URL** field, enter the IdP metadata URL (such as: `https://saml2.example.com/realms/JumpServer/protocol/saml/descriptor`).
+7. In the **IDP metadata XML** field, you can manually enter the IdP Metadata XML. In practice, you only need to provide either the **IDP metadata URL** or the **IDP metadata XML**. If both are present, the **IDP metadata URL** takes precedence.
+8. In the **SP advanced settings** field, enter the information you want to configure. For detailed configuration parameters, please refer to [SP advanced settings](https://github.com/SAML-Toolkits/python3-saml/tree/master?tab=readme-ov-file#settings).
+
+    <img src="/images/docs/admin-guides/system-settings/auth/saml2-sp-ad-settings.png" alt="image" width="550"/>
+
+
+    We will generate SP Metadata based on this configuration for IdP use. 
+    <Callout type="info" emoji="️💡"> 
+      **SP Metadata** is used to provide essential configuration information about the service provider, including entity ID, endpoint URLs, public certificates, and supported bindings, to facilitate secure communication with the identity provider in SAML authentication.
+    </Callout>
+    
+    You can click **View** in the help information below the **SP cert** field to see the SP metadata.
+    <img src="/images/docs/admin-guides/system-settings/auth/saml2-sp-metadata.png" alt="image" width="550"/>
+
+
+9. In the **User attribute** field, enter the user attribute mapping. The key is the SAML2 user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
+
+    <img src="/images/docs/admin-guides/system-settings/auth/saml2-user-attribute.png" alt="image" width="500"/>
+
+10. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+11. In the **Always update user** field, when enabled, after SAML2 user authentication, user information (only including: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time.
+12. In the **Logout completely** field, when enabled, logging out will also log the user out from the SAML2 service.
+
+
 
 ## Configure OAuth2 server
 
