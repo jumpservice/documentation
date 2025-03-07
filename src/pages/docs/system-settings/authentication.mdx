@@ -11,17 +11,21 @@ This topic describes how to configure third-party authentication services and re
 
 If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
 
+**Please follow the steps below to configure email suffix.**
+
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Basic**.
-3. In the **Email suffix** field, enter the email suffix (such as `example.com`).
+3. In the **Email suffix** field, enter the email suffix (such as: `example.com`).
 <img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
 4. Click **Submit**.
 
 ## Modify the forgot password URL
 
-When the user clicks the **Forgot password?** link on the login page, they will be redirected to this URL.
+When the user clicks the **Forgot password?** on the login page, they will be redirected to this URL.
 <img src="/images/docs/admin-guides/system-settings/auth/login-page-forgot-password.png" alt="image" width="350"/>
+
+**Please follow the steps below to modify the forgot password URL.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
@@ -31,40 +35,60 @@ When the user clicks the **Forgot password?** link on the login page, they will 
 4. Click **Submit**.
 
 ## Enable or disable user login redirection
-If enabled, when an unauthenticated user accesses JumpServer, they will be redirected to a prompt page where they can choose to **Cancel** or **Confirm** the redirection. 
+When enabled, when an unauthenticated user accesses JumpServer, they will be redirected to a prompt page where they can choose to **Cancel** or **Confirm** the redirection. 
+
+When disabled, the user will be directly redirected to the third-party authentication page.
+
 <img src="/images/docs/admin-guides/system-settings/auth/redirecting.png" alt="image" width="450"/>
 
-If disabled, the user will be directly redirected to the third-party authentication page.
+**Please follow the steps below to enable or disable login redirection.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Basic**.
 3. In the **Login redirection** field, enable or disable the user login redirection.
-<img src="/images/docs/admin-guides/system-settings/auth/login-redirection.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/auth/login-redirection.png" alt="image" width="450"/>
 4. Click **Submit**.
 
 ## Configure LDAP (HA) server
-**LDAP (HA)** refers to either **LDAP** or **LDAP HA** (High Availability).
+
+**Lightweight Directory Access Protocol (LDAP)** is an open protocol used for accessing and managing distributed directory information. It is commonly used for centralized authentication and directory services, such as storing user accounts, permissions, and organizational structure information. LDAP is widely applied in enterprise identity management, single sign-on (SSO), and access control systems.
+
+**Distinguished Name (DN)** is unique identifier for each entry in an LDAP directory, similar to a file path in a filesystem (such as: `cn=admin,ou=Users,dc=example,dc=com`).
+
+**Organizational Unit (OU)** is used to organize and manage objects in an LDAP directory, similar to folders in a file system. For example, an organization may have multiple OUs (such as: `ou=HR` and `ou=IT`), to distinguish users and resources of different departments.
+
+**LDAP (HA)** refers to the authentication setup for **LDAP** and **LDAP HA (High Availability)**, merged into one guide due to their similarity.
+
+**Please follow the steps below to configure LDAP or LDAP HA service authentication.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
 2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. In the **LDAP (HA)** field, enable or disable the LDAP authentication.
-4. In the **Server** field, enter the LDAP server URI (such as `ldap://example.com:389` or `ldaps://example.com:636`). 
-<Callout type="info" emoji="️💡"> 
-  To configure LDAP TLS certificates, you need upload the following files to the default directory `/data/jumpserver/core/data/certs`, then restart the service:
-    * **LDAP**: `ldap_ca.pem`, `ldap_cert.pem`, `ldap_cert.key`
-    * **LDAP HA**: `ldap_ha_ca.pem`, `ldap_ha_cert.pem`, `ldap_ha_cert.key`
-</Callout>
-5. In the **Bind DN** field, enter the distinguished name for binding to the LDAP server (such as `cn=admin,dc=example,dc=com`).
-6. In the **Password** field, enter the bind user password, used with `Bind DN` for authentication.
-7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values (such as `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`).
-<img src="/images/docs/admin-guides/system-settings/auth/ldap-search.png" alt="image" width="550"/>
-8. In the **Search filter** field, enter the filter expression for searching LDAP users (such as `(cn=%(user)s)`, `(uid=%(user)s)`, or `(sAMAccountName=%(user)s)`).
-9. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (Available keys: `name`, `username`, `email`, `groups`), and the value is the LDAP user attribute name.
+4. In the **Server** field, enter the LDAP server URI (such as: `ldap://example.com:389`, `ldaps://example.com:636`). 
+
+    <Callout type="info" emoji="️💡"> 
+      To configure LDAP TLS certificates, you need upload the following files to the default directory `/data/jumpserver/core/data/certs`, then restart the service:
+        * **LDAP**: `ldap_ca.pem`, `ldap_cert.pem`, `ldap_cert.key`
+        * **LDAP HA**: `ldap_ha_ca.pem`, `ldap_ha_cert.pem`, `ldap_ha_cert.key`
+    </Callout>
+
+5. In the **Bind DN** field, enter a user DN with at least query permissions, which will be used to query and filter users. (such as: `cn=admin,dc=example,dc=com`).
+6. In the **Password** field, enter the password for the **Bind DN** user.
+7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values (such as:  `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`).
+    <img src="/images/docs/admin-guides/system-settings/auth/ldap-search.png" alt="image" width="550"/>
+
+8. In the **Search filter** field, enter the filter expression to search for LDAP users. By default, the expression is **(cn=%(user)s)**, where **%(user)s** is the placeholder syntax in Python. During filtering, it is replaced with **\***, resulting in **(cn=\*)**, which searches for all users. You can also replace **cn** with the actual username field, such as **uid** or **sAMAccountName**.
+
+9. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (Available keys: `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the LDAP user attribute name.
+
 10. In the **Connect timeout (s)** field, enter the LDAP connection timeout in seconds.
 11. In the **Search paged size (piece)** field, enter the page size for searching users.
-12. In the **User DN cache timeout (s)** field, enter the cache duration for user DN (seconds) to improve login authentication speed. Submit the form to clear the cache if any user DN changes.
+
+12. In the **User DN cache timeout (s)** field, enter the cache duration for user DN (in seconds) to improve login authentication speed. Submit the form to clear the cache if the user DN is changed, otherwise, authentication will fail.
+
 13. Click **Submit**.
 
 ### Test LDAP (HA) connection
@@ -92,12 +116,12 @@ If disabled, the user will be directly redirected to the third-party authenticat
 3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
 4. Scroll to the bottom of the page and click the **User import** button.
 5. In the popup, you can perform the following actions:
+    * Click the **Sync users** button at the bottom of the table to sync LDAP users to the current table.
+    * In the **Import organization** field at the bottom left of the table, select one or more organizations to import.
+    * Select the users you want to import in the table, then click the **Import** button at the bottom to continue.
+    * Click **Import all** at the bottom of the table to import all users.
+    * Click **Cancel** at the bottom of the table to close the popup
     <img src="/images/docs/admin-guides/system-settings/auth/ldap-import-user.png" alt="image" width="650"/>
-    1. At the bottom of the table, click the **Sync users** button to sync LDAP users to the current table.
-    2. At the bottom left of the table, in the **Import organization** field, select one or more organizations to be imported.
-    3. In the table, select the users you want to import, then click the **Import** button at the bottom to proceed.
-    4. At the bottom of the table, click **Import all** to import all users in the table.
-    5. At the bottom of the table, click **Cancel** to close the popup.
 
 ### Set up LDAP (HA) user sync
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
@@ -106,20 +130,25 @@ If disabled, the user will be directly redirected to the third-party authenticat
 3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
 4. Scroll to the bottom of the page and click the **Sync settings** button.
 5. In the popup, you can perform the following actions:
+    * In the **Organization** field, Select one or more organizations, and the users will be synced to these organizations.
+    * In the **Periodic** field, enable or disable the periodic sync.
+    * Optionally, in the **Crontab** field, enter the crontab expression for the periodic sync. If empty, **Interval** will be used.
+    * Optionally, in the **Interval** field, enter the sync interval in hour. If **Crontab** has a value, prefer using crontab.
+    * In the **Recipients** fields, select one or more users to receive the sync result.
+    * Click **Confirm** to save the settings.
     <img src="/images/docs/admin-guides/system-settings/auth/ldap-sync-settings.png" alt="image" width="550"/>
-    1. In the **Organization** field, Select one or more organizations, and the users will be synced to these organizations.
-    2. In the **Periodic** field, enable or disable the periodic sync.
-    3. Optionally, In the **Crontab** field, enter the crontab expression for the periodic sync. (If empty, `Interval` will be used.)
-    4. Optionally, in the **Interval** field, enter the sync interval in hour. (If `Crontab` has a value, prefer using crontab.)
-    5. In the **Recipients** fields, select one or more users to receive the sync result.
-    6. Click **Submit** to save the settings.
 
 ## Configure CAS server
+
+**Central Authentication Service (CAS)** is a Single Sign-On (SSO) protocol designed to provide centralized authentication for multiple applications. Developed by Yale University, CAS allows users to access multiple protected services with a single login, eliminating the need to re-enter credentials. It implements authentication through a **ticket** mechanism and supports various identity providers, such as databases, LDAP, and OAuth.
+
+**Please follow the steps below to configure Passkey service authentication.**
+
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > CAS**.
 3. In the **CAS** field, enable or disable the CAS authentication.
-4. In the **Server** field, enter the CAS server URI (such as `https://example.com/cas`).
+4. In the **Server** field, enter the CAS server URI (such as: `https://example.com/cas`).
 5. In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on `http://foo.bar:8080` but requests use `https://foo.bar:8443`, enter `https://foo.bar:8443`.
 6. In the **Version** field, enter the CAS protocol version (Supported versions: `1`, `2`, `3`, `CAS_2_SAML_1_0`).
 7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
@@ -130,6 +159,12 @@ If disabled, the user will be directly redirected to the third-party authenticat
 11. Click **Submit**.
 
 ## Configure Passkey server
+
+**Passkey** is a passwordless authentication technology based on public-key cryptography. It replaces traditional passwords to enhance security and user experience. Passkey is supported by the FIDO2 standard (including WebAuthn and CTAP) and allows users to authenticate using biometrics (fingerprint or facial recognition), a PIN, or a security key without entering a password.
+
+**Fast Identity Online (FIDO)** is an open standard designed to provide a more secure, passwordless authentication method. It is developed by the FIDO Alliance and primarily includes FIDO UAF (Universal Authentication Framework) and FIDO2 (which consists of the WebAuthn and CTAP protocols).
+
+**Please follow the steps below to configure Passkey service authentication.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
@@ -267,8 +302,6 @@ In this case, JumpServer acts only as the SP.
 10. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 11. In the **Always update user** field, when enabled, after SAML2 user authentication, user information (only includes: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time, `groups` are only synchronized when the user is created.
 12. In the **Logout completely** field, when enabled, logging out will also log the user out from the SAML2 service.
-
-
 
 ## Configure OAuth2 server
 
