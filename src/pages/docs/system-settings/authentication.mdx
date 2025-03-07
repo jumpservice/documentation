@@ -1,20 +1,37 @@
 import { JMSNavSetting } from '@/icons'
 import { Callout } from 'nextra/components'
 
+import { Steps } from '@/components/docs/steps'
+
+
+
 # Authentication
 
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
-## Integrate email suffix
+## Configure email suffix
 
 If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Basic**.
-3. In the **Email suffix** field, enter the email suffix (such as `example.com`).
-    <img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
-4. Click **Submit**.
+<Steps>
+<div>
+In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Basic**.
+</div>
+
+<div>
+In the **Email suffix** field, enter the email suffix (such as `example.com`).
+<img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
+</div>
+
+<div>
+    Click **Submit**.
+</div>
+</Steps>
 
 ## Modify the forgot password URL
 
