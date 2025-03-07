@@ -381,7 +381,7 @@ In this case, JumpServer acts only as the SP.
 18. Click **Submit**.
 
 ## Integrate WeCOM auth
-**WeCom** authentication is an identity verification method based on WeCom (Enterprise WeChat), supporting OAuth2 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
+**WeCom** authentication is an identity verification method based on WeCom (Enterprise WeChat), supporting OAuth 2.0 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
 
 ```json copy=true filename="Below is the JumpServer URL information required for WeCom setup"
 {
@@ -422,7 +422,7 @@ In this case, JumpServer acts only as the SP.
 
 ## Integrate DingTalk auth
 
-**DingTalk** authentication is an identity verification method based on DingTalk, supporting OAuth2 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
+**DingTalk** authentication is an identity verification method based on DingTalk, supporting OAuth 2.0 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
 
 ```json copy=true filename="Below is the JumpServer URL information required for DingTalk setup"
 {
@@ -462,9 +462,117 @@ In this case, JumpServer acts only as the SP.
 3. Scroll to the bottom of the page and click the **Test** button.
 
 ## Integrate FeiShu auth
+**FeiShu** authentication is an identity verification mechanism based on the FeiShu platform, allowing enterprises and third-party applications to authenticate and authorize users through FeiShu.
+
+```json copy=true filename="Below is the JumpServer URL information required for FeiShu setup"
+{
+  "QR login": "https://jumpserver.example.com/core/auth/feishu/qr/login/",
+  "QR login callback": "https://jumpserver.example.com/core/auth/feishu/qr/login/callback/",
+}
+```
+
+**Please follow the steps below to configure FeiShu authentication.**
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
+2. Navigate to **System settings > Authentication > FeiShu**.
+3. In the **FeiShu** field, enable or disable the FeiShu authentication.
+4. In the **App ID** field, enter the FeiShu app ID, a unique identifier for the application.
+5. In the **App secret** field, enter the FeiShu app secret, used to obtain an access token for calling the FeiShu API.
+6. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the FeiShu user attribute name.
+    ```json copy=true filename="User attribute"
+    {
+      "name": "nickname",
+      "username": "user_id",
+      "email": "email"
+    }
+    ```
+7. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+8. Click **Submit**.
+
+### Test FeiShu connection
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > FeiShu**.
+3. Scroll to the bottom of the page and click the **Test** button.
+
 
 ## Integrate Lark auth
 
+**Lark** authentication is an identity verification mechanism provided by Lark (the international version of Feishu), enabling enterprises and third-party applications to authenticate and authorize users through Lark. 
+
+```json copy=true filename="Below is the JumpServer URL information required for Lark setup"
+{
+  "QR login": "https://jumpserver.example.com/core/auth/lark/qr/login/",
+  "QR login callback": "https://jumpserver.example.com/core/auth/lark/qr/login/callback/",
+}
+```
+**Please follow the steps below to configure Lark authentication.**
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > Lark**.
+3. In the **Lark** field, enable or disable the Lark authentication.
+4. In the **App ID** field, enter the Lark app ID, a unique identifier for the application.
+5. In the **App secret** field, enter the Lark app secret, used to obtain an access token for calling the Lark API.
+6. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the Lark user attribute name.
+    ```json copy=true filename="User attribute"
+    {
+      "name": "nickname",
+      "username": "user_id",
+      "email": "email"
+    }
+    ```
+7. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+8. Click **Submit**.
+
+
 ## Integrate Slack auth
+**Slack** authentication is an identity verification mechanism based on the Slack platform, allowing users to log in to enterprise applications or third-party services using their Slack accounts for secure authentication and authorization. 
+
+```json copy=true filename="Below is the JumpServer URL information required for Slack setup"
+{
+  "QR login": "https://jumpserver.example.com/core/auth/slack/qr/login/",
+  "QR login callback": "https://jumpserver.example.com/core/auth/slack/qr/login/callback/",
+}
+```
+**Please follow the steps below to configure Slack authentication.**
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > Slack**.
+3. In the **Slack** field, enable or disable the Slack authentication.
+4. In the **Client ID** field, enter the Slack client ID, a unique identifier for your Slack application, used to identify the app during the OAuth2.0 authorization process.
+5. In the **Client secret** field, enter the Slack client secret, a confidential string associated with your Slack application, used to authenticate the app during the OAuth2.0 token exchange process.
+6. In the **Client bot token** field, enter the Slack client bot token, an access token granted to your Slack bot, allowing it to interact with the Slack workspace and perform tasks like sending messages or managing channels.
+7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the Slack user attribute name.
+    ```json copy=true filename="User attribute"
+    {
+      "name": "real_name",
+      "username": "name",
+      "email": "profile.email"
+    }
+    ```
+8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+9. Click **Submit**.
+
+### Test Slack connection
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > Slack**.
+3. Scroll to the bottom of the page and click the **Test** button.
+
 
 ## Integrate RADIUS auth
+**Remote authentication Dial-In User Service (RADIUS)** is a remote authentication mechanism based on the RADIUS protocol, primarily used for network access control. It provides Authentication, Authorization, and Accounting (AAA) functionalities.
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > Radius**.
+3. In the **Radius** field, enable or disable the RADIUS authentication.
+4. In the **Host** field, enter the RADIUS server IP address or domain name.
+5. In the **Port** field, enter the RADIUS server port number (default is `1812`).
+6. In the **Secret** field, enter the shared secret key between the JumpServer and the RADIUS server.
+7. In the **OTP in RADIUS** field, when enabled, RADIUS authentication can be used as an MFA method, and users can choose RADIUS when enabling MFA.
+8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+9. Click **Submit**.
