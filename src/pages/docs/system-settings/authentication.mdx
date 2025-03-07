@@ -1,13 +1,11 @@
 import { JMSNavSetting } from '@/icons'
 import { Callout } from 'nextra/components'
- 
 
 # Authentication
 
-
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
-## Configure email suffix
+## Integrate email suffix
 
 If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
 
@@ -44,7 +42,7 @@ When disabled, the user will be directly redirected to the third-party authentic
     <img src="/images/docs/admin-guides/system-settings/auth/login-redirection.png" alt="image" width="450"/>
 4. Click **Submit**.
 
-## Configure LDAP (HA) server
+## Integrate LDAP (HA) auth
 
 **Lightweight Directory Access Protocol (LDAP)** is an open protocol used for accessing and managing distributed directory information. It is commonly used for centralized authentication and directory services, such as storing user accounts, permissions, and organizational structure information. LDAP is widely applied in enterprise identity management, single sign-on (SSO), and access control systems.
 
@@ -62,7 +60,6 @@ When disabled, the user will be directly redirected to the third-party authentic
 2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. In the **LDAP (HA)** field, enable or disable the LDAP authentication.
 4. In the **Server** field, enter the LDAP server URI (such as `ldap://example.com:389`, `ldaps://example.com:636`). 
-
     <Callout type="info" emoji="️💡"> 
       To configure LDAP TLS certificates, you need upload the following files to the default directory `/data/jumpserver/core/data/certs`, then restart the service:
         * **LDAP**: `ldap_ca.pem`, `ldap_cert.pem`, `ldap_cert.key`
@@ -72,11 +69,17 @@ When disabled, the user will be directly redirected to the third-party authentic
 5. In the **Bind DN** field, enter a user DN with at least query permissions, which will be used to query and filter users. (such as `cn=admin,dc=example,dc=com`).
 6. In the **Password** field, enter the password for the **Bind DN** user.
 7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values (such as  `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`).
-    <img src="/images/docs/admin-guides/system-settings/auth/ldap-search.png" alt="image" width="550"/>
-
 8. In the **Search filter** field, enter the filter expression to search for LDAP users. By default, the expression is **(cn=%(user)s)**, where **%(user)s** is the placeholder syntax in Python. During filtering, it is replaced with **\***, resulting in **(cn=\*)**, which searches for all users. You can also replace **cn** with the actual username field, such as **uid** or **sAMAccountName**.
 
 9. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (Available keys: `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the LDAP user attribute name.
+    ```json copy=true filename="User attribute"
+    {
+     "name": "cn",
+     "email": "mail",
+     "username": "cn",
+     "groups": "memberOf"
+    }
+    ```
 
 10. In the **Connect timeout (s)** field, enter the LDAP connection timeout in seconds.
 11. In the **Search paged size (piece)** field, enter the page size for searching users.
@@ -133,9 +136,17 @@ When disabled, the user will be directly redirected to the third-party authentic
     * Click **Confirm** to save the settings.
     <img src="/images/docs/admin-guides/system-settings/auth/ldap-sync-settings.png" alt="image" width="550"/>
 
-## Configure CAS server
+## Integrate CAS auth
 
 **Central Authentication Service (CAS)** is a Single Sign-On (SSO) protocol designed to provide centralized authentication for multiple applications. Developed by Yale University, CAS allows users to access multiple protected services with a single login, eliminating the need to re-enter credentials. It implements authentication through a **ticket** mechanism and supports various identity providers, such as databases, LDAP, and OAuth.
+
+```json copy=true filename="Below is the JumpServer URL information required for CAS setup"
+{
+  "Login": "https://jumpserver.example.com/core/auth/cas/login/",
+  "Login success callback": "https://jumpserver.example.com/core/auth/cas/callback/",
+  "Logout": "https://jumpserver.example.com/core/auth/cas/logout/",
+}
+```
 
 **Please follow the steps below to configure Passkey service authentication.**
 
@@ -147,13 +158,20 @@ When disabled, the user will be directly redirected to the third-party authentic
 5. In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on `http://foo.bar:8080` but requests use `https://foo.bar:8443`, enter `https://foo.bar:8443`.
 6. In the **Version** field, enter the CAS protocol version (Supported versions: `1`, `2`, `3`, `CAS_2_SAML_1_0`).
 7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
-    <img src="/images/docs/admin-guides/system-settings/auth/cas-user-attribute.png" alt="image" width="550"/>
+    ```json copy=true filename="User attribute"
+    {
+      "cas:user": "username",
+      "cas:fullname": "name",
+      "cas:mail": "email",
+    }
+    ```
+
 8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 9. In the **Create user** field, when enabled, a user will be created upon successful authentication. When disabled and the user does not exist, authentication will fail.
 10. In the **Logout completely** field, When enabled, logging out will also log the user out from the CAS service.
 11. Click **Submit**.
 
-## Configure Passkey server
+## Integrate Passkey auth
 
 **Passkey** is a passwordless authentication technology based on public-key cryptography. It replaces traditional passwords to enhance security and user experience. Passkey is supported by the FIDO2 standard (including WebAuthn and CTAP) and allows users to authenticate using biometrics (fingerprint or facial recognition), a PIN, or a security key without entering a password.
 
@@ -168,7 +186,7 @@ When disabled, the user will be directly redirected to the third-party authentic
 4. In the **FIDO server ID** field, enter the full domain name of JumpServer. If not set, it defaults to the request host and matches domains in `DOMAINS` from `config.txt` file. If there are multiple domains, separate them with commas.
 5. In the **FIDO server name** field, enter the server name, the default value is `JumpServer`.
 
-## Configure OIDC server
+## Integrate OIDC auth
 
 **OpenID Connect (OIDC)** is an identity authentication protocol based on **OAuth 2.0**. It allows applications to verify a user’s identity through an **authorization server** and obtain basic user information (such as username and email). It adds an identity layer on top of OAuth 2.0, using an **ID Token** to transmit user identity information, and is widely used for Single Sign-On (SSO) and identity authentication systems.
 
@@ -176,12 +194,13 @@ When disabled, the user will be directly redirected to the third-party authentic
 
 **OpenID Provider (OP)** is the server responsible for verifying the user’s identity and providing identity information to the RP.
 
-<Callout type="info" emoji="️💡"> 
-  Below is the JumpServer URL information required for OpenID Provider setup.  
-    * **Login**: `https://jumpserver.example.com/core/auth/openid/login/`
-    * **Logout**: `https://jumpserver.example.com/core/auth/openid/logout/`
-    * **Login success callback**: `https://jumpserver.example.com/core/auth/openid/callback/`
-</Callout>
+```json copy=true filename="Below is the JumpServer URL information required for OpenID Provider setup"
+{
+  "Login": "https://jumpserver.example.com/core/auth/openid/login/",
+  "Login success callback": "https://jumpserver.example.com/core/auth/openid/callback/",
+  "Logout": "https://jumpserver.example.com/core/auth/openid/logout/",
+}
+```
 
 **Please follow the steps below to configure OIDC service authentication.**
 
@@ -233,12 +252,18 @@ When disabled, the user will be directly redirected to the third-party authentic
 11. In the **Ignore SSL verification** field, when enabled, SSL certificate verification is ignored when sending requests to the OP.
 12. In the **Share session** field, when enabled, the session will be logged out simultaneously when a user logs out from other applications.
 13. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the OIDC user attribute name.
-
-    <img src="/images/docs/admin-guides/system-settings/auth/oidc-user-attribute.png" alt="image" width="550"/>
+    ```json copy=true filename="User attribute"
+    {
+      "name": "name",
+      "username": "preferred_username",
+      "email": "email",
+      "groups": "groups"
+    }
+    ```
 
 14. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 
-## Configure SAML2 server
+## Integrate SAML2 auth
 
 **Security Assertion Markup Language 2.0 (SAML2)** is an open standard for exchanging authentication and authorization data between parties, particularly between an Identity Provider and a Service Provider. It allows users to authenticate once with the IdP and access multiple services (SPs) without needing to re-enter credentials.
 
@@ -248,14 +273,14 @@ When disabled, the user will be directly redirected to the third-party authentic
 
 In this case, JumpServer acts only as the SP.
 
-<Callout type="info" emoji="️💡"> 
-  Below is the JumpServer URL information required for IdP SAML2 setup.  
-    * **Login**: `https://jumpserver.example.com/core/auth/saml2/login/`
-    * **Logout**: `https://jumpserver.example.com/core/auth/saml2/logout/`
-    * **Login success callback**: `https://jumpserver.example.com/core/auth/saml2/callback/`
-    * **SP metadata**: `https://jumpserver.example.com/core/auth/saml2/metadata/`
-</Callout>
-
+```json copy=true filename="Below is the JumpServer URL information required for IdP SAML2 setup"
+{
+  "Login": "https://jumpserver.example.com/core/auth/saml2/login/",
+  "Login success callback": "https://jumpserver.example.com/core/auth/saml2/callback/",
+  "Logout": "https://jumpserver.example.com/core/auth/saml2/logout/",
+  "SP metadata": "https://jumpserver.example.com/core/auth/saml2/metadata/"
+}
+```
 
 **Please follow the steps below to configure SAML2 service authentication.**
 
@@ -291,16 +316,29 @@ In this case, JumpServer acts only as the SP.
     <img src="/images/docs/admin-guides/system-settings/auth/saml2-sp-metadata.png" alt="image" width="550"/>
 
 9. In the **User attribute** field, enter the user attribute mapping. The key is the SAML2 user attribute name, and the value is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`).
-
-    <img src="/images/docs/admin-guides/system-settings/auth/saml2-user-attribute.png" alt="image" width="500"/>
+    ```json copy=true filename="User attribute"
+    {
+      "uid": "username",
+      "email": "email",
+      "member": "groups"
+    }
+    ```
 
 10. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 11. In the **Always update user** field, when enabled, after SAML2 user authentication, user information (only includes: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time, `groups` are only synchronized when the user is created.
 12. In the **Logout completely** field, when enabled, logging out will also log the user out from the SAML2 service.
 
-## Configure OAuth2 server
+## Integrate OAuth2 auth
 
 **Open Authorization 2.0 (OAuth2)** is an open authorization protocol that allows third-party applications to access user resources stored on other service providers (such as Google, Facebook, GitHub, etc.) without exposing the user’s password. OAuth2 enables users to grant third-party applications specific resource permissions without sharing their login credentials.
+
+```json copy=true filename="Below is the JumpServer URL information required for OAuth2 setup"
+{
+  "Login": "https://jumpserver.example.com/core/auth/oauth2/login/",
+  "Login success callback": "https://jumpserver.example.com/core/auth/oauth2/callback/",
+  "Logout": "https://jumpserver.example.com/core/auth/oauth2/logout/"
+}
+```
 
 **Please follow the steps below to configure OAuth2 service authentication.**
 
@@ -329,15 +367,32 @@ In this case, JumpServer acts only as the SP.
 12. In the **Userinfo endpoint** field, enter the OAuth2 userinfo endpoint (such as `https://api.github.com/user`).
 13. In the **End session endpoint** field, enter the OAuth2 end session endpoint, when the user logs out, this endpoint will be called (such as `https://github.com/logout`).
 14. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the OAuth2 user attribute name.
-    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-user-attribute.png" alt="image" width="400"/>
+    ```json copy=true filename="User attribute"
+    {
+      "name": "user",
+      "username": "name",
+      "email": "user:email"
+    }
+    ```
 
 15. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 16. In the **Always update user** field, when enabled, after OAuth2 user authentication, user information (only includes: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time, `groups` are only synchronized when the user is created.
 17. In the **Logout completely** field, when enabled, the user will be logged out from the OAuth2 service by calling the **End session endpoint** upon logging out.
 18. Click **Submit**.
 
-## Configure WeCOM server
+## Integrate WeCOM auth
 **WeCom** authentication is an identity verification method based on WeCom (Enterprise WeChat), supporting OAuth2 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
+
+```json copy=true filename="Below is the JumpServer URL information required for WeCom setup"
+{
+  "QR login": "https://jumpserver.example.com/core/auth/wecom/qr/login/",
+  "QR login callback": "https://jumpserver.example.com/core/auth/wecom/qr/login/callback/",
+  "OAuth login": "https://jumpserver.example.com/core/auth/wecom/oauth/login/",
+  "OAuth login callback": "https://jumpserver.example.com/core/auth/wecom/oauth/login/callback/"
+}
+```
+
+**Please follow the steps below to configure WeCom authentication.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
     <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
@@ -348,7 +403,13 @@ In this case, JumpServer acts only as the SP.
 5. In the **App agent ID** field, enter the WeCom app agent ID. Used to identify a specific application in WeCom, with each application having a unique Agent ID.
 6. In the **App secret** field, enter the WeCom app secret. Used to authenticate the application and obtain an access token for calling the WeCom API.
 7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the WeCom user attribute name.
-    <img src="/images/docs/admin-guides/system-settings/auth/wecom-user-attribute.png" alt="image" width="400"/>
+    ```json copy=true filename="User attribute"
+    {
+      "name": "alias",
+      "username": "userid",
+      "email": "extattr.attrs[2].value"
+    }
+    ```
 
 8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 9. Click **Submit**.
@@ -359,40 +420,51 @@ In this case, JumpServer acts only as the SP.
 2. Navigate to **System settings > Authentication > WeCOM**.
 3. Scroll to the bottom of the page and click the **Test** button.
 
-## Configure Dingtalk server
+## Integrate DingTalk auth
 
 **DingTalk** authentication is an identity verification method based on DingTalk, supporting OAuth2 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
+
+```json copy=true filename="Below is the JumpServer URL information required for DingTalk setup"
+{
+  "QR login": "https://jumpserver.example.com/core/auth/dingtalk/qr/login/",
+  "QR login callback": "https://jumpserver.example.com/core/auth/dingtalk/qr/login/callback/",
+  "OAuth login": "https://jumpserver.example.com/core/auth/dingtalk/oauth/login/",
+  "OAuth login callback": "https://jumpserver.example.com/core/auth/dingtalk/oauth/login/callback/"
+}
+```
+
+**Please follow the steps below to configure DingTalk authentication.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
     <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 
 2. Navigate to **System settings > Authentication > Dingtalk**.
-3. In the **Dingtalk** field, enable or disable the Dingtalk authentication.
-4. In the **Agent ID** field, enter the Dingtalk agent ID. 
-5. In the **App key** field, enter the Dingtalk app key.
-6. In the **App secret** field, enter the Dingtalk app secret.
-7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the Dingtalk user attribute name.
-    ```md copy=false filename="User attribute"
-        {
-            "name": "name",
-            "username": "mobile",
-            "email": "email"
-        }
+3. In the **Dingtalk** field, enable or disable the DingTalk authentication.
+4. In the **Agent ID** field, enter the DingTalk agent ID, which uniquely identifies a micro-application within the enterprise and is primarily used for sending work notifications.
+5. In the **App key** field, enter the DingTalk app key, a unique identifier for the application, similar to a `username` for API access.
+6. In the **App secret** field, enter the DingTalk app secret, similar to a `password` for API access, used to obtain AccessToken for calling APIs.
+7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the DingTalk user attribute name.
+    ```json copy=true filename="User attribute"
+    {
+      "name": "name",
+      "username": "name",
+      "email": "email"
+    }
     ```
 
 8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 9. Click **Submit**.
 
-### Test WeCom connection
+### Test DingTalk connection
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
     <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Dingtalk**.
 3. Scroll to the bottom of the page and click the **Test** button.
 
-## Configure FeiShu server
+## Integrate FeiShu auth
 
-## Configure Lark server
+## Integrate Lark auth
 
-## Configure Slack server
+## Integrate Slack auth
 
-## Configure RADIUS server
+## Integrate RADIUS auth
