@@ -12,10 +12,10 @@ This topic describes how to configure third-party authentication services and re
 If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Basic**.
 3. In the **Email suffix** field, enter the email suffix (such as `example.com`).
-<img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
 4. Click **Submit**.
 
 ## Modify the forgot password URL
@@ -24,10 +24,10 @@ When the user clicks the **Forgot password?** on the login page, they will be re
 <img src="/images/docs/admin-guides/system-settings/auth/login-page-forgot-password.png" alt="image" width="350"/>
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Basic**.
 3. In the **Forgot password URL** field, enter the URL for the forgot password link.
-<img src="/images/docs/admin-guides/system-settings/auth/forgot-password-url.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/auth/forgot-password-url.png" alt="image" width="450"/>
 4. Click **Submit**.
 
 ## Enable or disable user login redirection
@@ -87,25 +87,26 @@ When disabled, the user will be directly redirected to the third-party authentic
 
 ### Test LDAP (HA) connection
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. Scroll to the bottom of the page and click the **Test connection** button.
 4. If the connection is successful, a popup at the top of the page will display the number of matched users.
-<img src="/images/docs/admin-guides/system-settings/auth/ldap-test-success.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/auth/ldap-test-success.png" alt="image" width="450"/>
 5. If the connection fails, please adjust the configuration parameters based on the error message and try again.
 
 ### Test LDAP (HA) user login
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
 2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
 4. Scroll to the bottom of the page and click the **Test login** button.
 5. In the popup, enter the LDAP username and password, then click **Confirm**.
-<img src="/images/docs/admin-guides/system-settings/auth/ldap-test-login-popup.png" alt="image" width="650"/>
+    <img src="/images/docs/admin-guides/system-settings/auth/ldap-test-login-popup.png" alt="image" width="650"/>
 
 ### Import LDAP (HA) users
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. Complete the LDAP configuration and click **Submit**, then test the connection successfully.
 4. Scroll to the bottom of the page and click the **User import** button.
@@ -139,14 +140,14 @@ When disabled, the user will be directly redirected to the third-party authentic
 **Please follow the steps below to configure Passkey service authentication.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > CAS**.
 3. In the **CAS** field, enable or disable the CAS authentication.
 4. In the **Server** field, enter the CAS server URI (such as `https://example.com/cas`).
 5. In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on `http://foo.bar:8080` but requests use `https://foo.bar:8443`, enter `https://foo.bar:8443`.
 6. In the **Version** field, enter the CAS protocol version (Supported versions: `1`, `2`, `3`, `CAS_2_SAML_1_0`).
 7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
-<img src="/images/docs/admin-guides/system-settings/auth/cas-user-attribute.png" alt="image" width="550"/>
+    <img src="/images/docs/admin-guides/system-settings/auth/cas-user-attribute.png" alt="image" width="550"/>
 8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 9. In the **Create user** field, when enabled, a user will be created upon successful authentication. When disabled and the user does not exist, authentication will fail.
 10. In the **Logout completely** field, When enabled, logging out will also log the user out from the CAS service.
@@ -161,7 +162,7 @@ When disabled, the user will be directly redirected to the third-party authentic
 **Please follow the steps below to configure Passkey service authentication.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Passkey**.
 3. In the **Passkey** field, enable or disable the Passkey authentication.
 4. In the **FIDO server ID** field, enter the full domain name of JumpServer. If not set, it defaults to the request host and matches domains in `DOMAINS` from `config.txt` file. If there are multiple domains, separate them with commas.
@@ -333,10 +334,60 @@ In this case, JumpServer acts only as the SP.
 15. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 16. In the **Always update user** field, when enabled, after OAuth2 user authentication, user information (only includes: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time, `groups` are only synchronized when the user is created.
 17. In the **Logout completely** field, when enabled, the user will be logged out from the OAuth2 service by calling the **End session endpoint** upon logging out.
+18. Click **Submit**.
 
 ## Configure WeCOM server
+**WeCom** authentication is an identity verification method based on WeCom (Enterprise WeChat), supporting OAuth2 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
+2. Navigate to **System settings > Authentication > WeCom**.
+3. In the **WeCom** field, enable or disable the WeCom authentication.
+4. In the **Corporation ID** field, enter the WeCom corporation ID. Uniquely identifies the enterprise in WeCom, and all API requests must include this ID.
+5. In the **App agent ID** field, enter the WeCom app agent ID. Used to identify a specific application in WeCom, with each application having a unique Agent ID.
+6. In the **App secret** field, enter the WeCom app secret. Used to authenticate the application and obtain an access token for calling the WeCom API.
+7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the WeCom user attribute name.
+    <img src="/images/docs/admin-guides/system-settings/auth/wecom-user-attribute.png" alt="image" width="400"/>
+
+8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+9. Click **Submit**.
+
+### Test WeCom connection
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > WeCOM**.
+3. Scroll to the bottom of the page and click the **Test** button.
 
 ## Configure Dingtalk server
+
+**DingTalk** authentication is an identity verification method based on DingTalk, supporting OAuth2 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
+2. Navigate to **System settings > Authentication > Dingtalk**.
+3. In the **Dingtalk** field, enable or disable the Dingtalk authentication.
+4. In the **Agent ID** field, enter the Dingtalk agent ID. 
+5. In the **App key** field, enter the Dingtalk app key.
+6. In the **App secret** field, enter the Dingtalk app secret.
+7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the Dingtalk user attribute name.
+    ```md copy=false filename="User attribute"
+        {
+            "name": "name",
+            "username": "mobile",
+            "email": "email"
+        }
+    ```
+
+8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+9. Click **Submit**.
+
+### Test WeCom connection
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+2. Navigate to **System settings > Authentication > Dingtalk**.
+3. Scroll to the bottom of the page and click the **Test** button.
 
 ## Configure FeiShu server
 
