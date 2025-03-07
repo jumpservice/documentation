@@ -11,12 +11,10 @@ This topic describes how to configure third-party authentication services and re
 
 If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
 
-**Please follow the steps below to configure email suffix.**
-
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Basic**.
-3. In the **Email suffix** field, enter the email suffix (such as: `example.com`).
+3. In the **Email suffix** field, enter the email suffix (such as `example.com`).
 <img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
 4. Click **Submit**.
 
@@ -24,8 +22,6 @@ If the user from the third-party authentication does not have an email field con
 
 When the user clicks the **Forgot password?** on the login page, they will be redirected to this URL.
 <img src="/images/docs/admin-guides/system-settings/auth/login-page-forgot-password.png" alt="image" width="350"/>
-
-**Please follow the steps below to modify the forgot password URL.**
 
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
@@ -41,8 +37,6 @@ When disabled, the user will be directly redirected to the third-party authentic
 
 <img src="/images/docs/admin-guides/system-settings/auth/redirecting.png" alt="image" width="450"/>
 
-**Please follow the steps below to enable or disable login redirection.**
-
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
     <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > Basic**.
@@ -54,9 +48,9 @@ When disabled, the user will be directly redirected to the third-party authentic
 
 **Lightweight Directory Access Protocol (LDAP)** is an open protocol used for accessing and managing distributed directory information. It is commonly used for centralized authentication and directory services, such as storing user accounts, permissions, and organizational structure information. LDAP is widely applied in enterprise identity management, single sign-on (SSO), and access control systems.
 
-**Distinguished Name (DN)** is unique identifier for each entry in an LDAP directory, similar to a file path in a filesystem (such as: `cn=admin,ou=Users,dc=example,dc=com`).
+**Distinguished Name (DN)** is unique identifier for each entry in an LDAP directory, similar to a file path in a filesystem (such as `cn=admin,ou=Users,dc=example,dc=com`).
 
-**Organizational Unit (OU)** is used to organize and manage objects in an LDAP directory, similar to folders in a file system. For example, an organization may have multiple OUs (such as: `ou=HR` and `ou=IT`), to distinguish users and resources of different departments.
+**Organizational Unit (OU)** is used to organize and manage objects in an LDAP directory, similar to folders in a file system. For example, an organization may have multiple OUs (such as `ou=HR` and `ou=IT`), to distinguish users and resources of different departments.
 
 **LDAP (HA)** refers to the authentication setup for **LDAP** and **LDAP HA (High Availability)**, merged into one guide due to their similarity.
 
@@ -67,7 +61,7 @@ When disabled, the user will be directly redirected to the third-party authentic
 
 2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. In the **LDAP (HA)** field, enable or disable the LDAP authentication.
-4. In the **Server** field, enter the LDAP server URI (such as: `ldap://example.com:389`, `ldaps://example.com:636`). 
+4. In the **Server** field, enter the LDAP server URI (such as `ldap://example.com:389`, `ldaps://example.com:636`). 
 
     <Callout type="info" emoji="️💡"> 
       To configure LDAP TLS certificates, you need upload the following files to the default directory `/data/jumpserver/core/data/certs`, then restart the service:
@@ -75,9 +69,9 @@ When disabled, the user will be directly redirected to the third-party authentic
         * **LDAP HA**: `ldap_ha_ca.pem`, `ldap_ha_cert.pem`, `ldap_ha_cert.key`
     </Callout>
 
-5. In the **Bind DN** field, enter a user DN with at least query permissions, which will be used to query and filter users. (such as: `cn=admin,dc=example,dc=com`).
+5. In the **Bind DN** field, enter a user DN with at least query permissions, which will be used to query and filter users. (such as `cn=admin,dc=example,dc=com`).
 6. In the **Password** field, enter the password for the **Bind DN** user.
-7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values (such as:  `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`).
+7. In the **Search OU** field, enter the search OU to specify where to start searching for users, use `|` to separate multiple values (such as  `ou=users,dc=example,dc=com | ou=tech,dc=example,dc=com`).
     <img src="/images/docs/admin-guides/system-settings/auth/ldap-search.png" alt="image" width="550"/>
 
 8. In the **Search filter** field, enter the filter expression to search for LDAP users. By default, the expression is **(cn=%(user)s)**, where **%(user)s** is the placeholder syntax in Python. During filtering, it is replaced with **\***, resulting in **(cn=\*)**, which searches for all users. You can also replace **cn** with the actual username field, such as **uid** or **sAMAccountName**.
@@ -148,7 +142,7 @@ When disabled, the user will be directly redirected to the third-party authentic
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 2. Navigate to **System settings > Authentication > CAS**.
 3. In the **CAS** field, enable or disable the CAS authentication.
-4. In the **Server** field, enter the CAS server URI (such as: `https://example.com/cas`).
+4. In the **Server** field, enter the CAS server URI (such as `https://example.com/cas`).
 5. In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on `http://foo.bar:8080` but requests use `https://foo.bar:8443`, enter `https://foo.bar:8443`.
 6. In the **Version** field, enter the CAS protocol version (Supported versions: `1`, `2`, `3`, `CAS_2_SAML_1_0`).
 7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
@@ -201,8 +195,8 @@ When disabled, the user will be directly redirected to the third-party authentic
 6. In the **Client secret** field, enter the client secret provided by the OIDC server.
 7. In the **Request method** field, select a method to obtain a token.
 
-    * **Client Secret Basic**: The `Client id` and `Client secret` are sent in the request headers.
-    * **Client Secret Post**: The `Client id` and `Client secret` are sent in the request body.
+    * **Client Secret Basic**: Use the POST method to obtain the token, with the `Client ID` and `Client secret` included in the **headers**.
+    * **Client Secret Post**: Use the POST method to obtain a token, with `Client ID` and `Client secret` included as raw data in the **request body**.
     <img src="/images/docs/admin-guides/system-settings/auth/oidc-request-method.png" alt="image" width="550"/>
 
 8. In the **Use keycloak** field, when enabled, Keycloak configuration will be used. The following fields must be provided:
@@ -213,12 +207,12 @@ When disabled, the user will be directly redirected to the third-party authentic
 
 9. In the **Use keycloak** field, when disabled, native OIDC configuration will be used for better compatibility with other OIDC providers. The following fields must be provided:
 
-    * **Provider endpoint**: Enter the OIDC provider endpoint (such as: `https://oidc.example.com`).
-    * **Authorization endpoint**: Enter the OIDC authorization endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/auth/`).
-    * **Token endpoint**: Enter the OIDC token endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/token/`).
-    * **JWKS endpoint**: Enter the OIDC JSON Web Key Set (JWKS) endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/certs/`).
-    * **Userinfo endpoint**: Enter the OIDC userinfo endpoint (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/userinfo/`).
-    * **End session endpoint**: Enter the OIDC end session endpoint, when the user logs out, this endpoint will be called. (such as: `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/logout/`).
+    * **Provider endpoint**: Enter the OIDC provider endpoint (such as `https://oidc.example.com`).
+    * **Authorization endpoint**: Enter the OIDC authorization endpoint (such as `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/auth/`).
+    * **Token endpoint**: Enter the OIDC token endpoint (such as `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/token/`).
+    * **JWKS endpoint**: Enter the OIDC JSON Web Key Set (JWKS) endpoint (such as `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/certs/`).
+    * **Userinfo endpoint**: Enter the OIDC userinfo endpoint (such as `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/userinfo/`).
+    * **End session endpoint**: Enter the OIDC end session endpoint, when the user logs out, this endpoint will be called. (such as `https://oidc.example.com/realms/JumpServer/protocol/openid-connect/logout/`).
     * **Signature algorithm**: Enter the OIDC signature algorithm, valid options are `HS256` and `RS256`.
         * **HS256**: Uses the **Client id** as the shared key.
         * **RS256**: Uses the **Signing Key** as the shared key.
@@ -227,7 +221,7 @@ When disabled, the user will be directly redirected to the third-party authentic
         </Callout>
     * **Signing key**: When the **Signature algorithm** is `RS256`, the signing key will be used for HMAC signature verification or JSON Web Token (JWK) decryption to ensure the security of OIDC authentication.
     * **Enable PKCE**: Enable Proof Key for Code Exchange (PKCE) protects the authorization code flow to prevent authorization code interception attacks.
-    * **Scopes**: Defines the range of user information that the client requests access to from the OP in an authorization request. Multiple pieces of information are separated by spaces (such as: `openid profile email`).
+    * **Scopes**: Defines the range of user information that the client requests access to from the OP in an authorization request. Multiple pieces of information are separated by spaces (such as `openid profile email`).
     * **ID token max age (s)**: The maximum age of the ID token, in seconds. After it expires, a new one will be automatically obtained using the refresh token.
     * **ID token include claims**: When enabled, the ID token includes the userinfo scope and claims. When disabled, claims will be retrieved from the userinfo endpoint provided by the OP. Refer to the [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
     * **Use state**: Recommend to enable, state can prevent Cross-Site Request Forgery (CSRF) attacks and ensure consistency between the request and the callback.
@@ -237,7 +231,7 @@ When disabled, the user will be directly redirected to the third-party authentic
 10. In the **Always update user** field, when enabled, after OIDC user authentication, user information (only includes: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time, `groups` are only synchronized when the user is created..
 11. In the **Ignore SSL verification** field, when enabled, SSL certificate verification is ignored when sending requests to the OP.
 12. In the **Share session** field, when enabled, the session will be logged out simultaneously when a user logs out from other applications.
-13. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as: `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the OIDC user attribute name.
+13. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the OIDC user attribute name.
 
     <img src="/images/docs/admin-guides/system-settings/auth/oidc-user-attribute.png" alt="image" width="550"/>
 
@@ -281,7 +275,7 @@ In this case, JumpServer acts only as the SP.
       In simple terms, SP Private Key handles singing and decryption, while SP Certificate handles verification and encryption.
     </Callout>
 
-6. In the **IDP metadata URL** field, enter the IdP metadata URL (such as: `https://saml2.example.com/realms/JumpServer/protocol/saml/descriptor`).
+6. In the **IDP metadata URL** field, enter the IdP metadata URL (such as `https://saml2.example.com/realms/JumpServer/protocol/saml/descriptor`).
 7. In the **IDP metadata XML** field, you can manually enter the IdP Metadata XML. In practice, you only need to provide either the **IDP metadata URL** or the **IDP metadata XML**. If both are present, the **IDP metadata URL** takes precedence.
 8. In the **SP advanced settings** field, enter the information you want to configure. For detailed configuration parameters, please refer to [SP advanced settings](https://github.com/SAML-Toolkits/python3-saml/tree/master?tab=readme-ov-file#settings).
 
@@ -295,7 +289,7 @@ In this case, JumpServer acts only as the SP.
     You can click **View** in the help information below the **SP cert** field to see the SP metadata.
     <img src="/images/docs/admin-guides/system-settings/auth/saml2-sp-metadata.png" alt="image" width="550"/>
 
-9. In the **User attribute** field, enter the user attribute mapping. The key is the SAML2 user attribute name, and the value is the JumpServer user attribute name (such as: `name`, `username`, `email`, `groups`, `phone`, `comment`).
+9. In the **User attribute** field, enter the user attribute mapping. The key is the SAML2 user attribute name, and the value is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`).
 
     <img src="/images/docs/admin-guides/system-settings/auth/saml2-user-attribute.png" alt="image" width="500"/>
 
@@ -304,6 +298,41 @@ In this case, JumpServer acts only as the SP.
 12. In the **Logout completely** field, when enabled, logging out will also log the user out from the SAML2 service.
 
 ## Configure OAuth2 server
+
+**Open Authorization 2.0 (OAuth2)** is an open authorization protocol that allows third-party applications to access user resources stored on other service providers (such as Google, Facebook, GitHub, etc.) without exposing the user’s password. OAuth2 enables users to grant third-party applications specific resource permissions without sharing their login credentials.
+
+**Please follow the steps below to configure OAuth2 service authentication.**
+
+1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+
+2. Navigate to **System settings > Authentication > OAuth2**.
+3. In the **OAuth2** field, enable or disable the OAuth2 authentication.
+4. In the **Service provider** field, enter the OAuth2 service provider name (such as `GitHub`, `Google`, `Facebook`, etc.).
+5. In the **Logo** field, upload the OAuth2 service provider logo, recommended to use a size of `64px * 64px`.
+    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-logo.png" alt="image" width="600"/>
+    The **Service provider** and **Logo** will be displayed on the login page.
+    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-login-page.png" alt="image" width="400"/>
+
+6. In the **Client ID** field, enter the client ID provided by the OAuth2 service provider.
+7. In the **Client secret** field, enter the client secret provided by the OAuth2 service provider.
+8. In the **Request method** field, select a method to obtain a token.
+    * **GET**: Use the GET method to obtain the token, with the `Client ID` and `Client secret` included in the headers.
+    * **POST-DATA**: Use the POST method to obtain a token, with `Client ID` and `Client secret` included as **raw** data in the request body.
+    * **POST-JSON**: Use the POST method to obtain a token, with `Client ID` and `Client secret` included as **JSON** data in the request body.
+    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-req-method.png" alt="image" width="400"/>
+
+9. In the **Scope** field, Defines the range of user information that the client requests access to in an authorization request. Multiple pieces of information are separated by spaces (such as `user user:email user:login`).
+10. In the **Authorization endpoint** field, enter the OAuth2 authorization endpoint (such as `https://github.com/login/oauth/authorize`).
+11. In the **Token endpoint** field, enter the OAuth2 token endpoint (such as `https://github.com/login/oauth/access_token`).
+12. In the **Userinfo endpoint** field, enter the OAuth2 userinfo endpoint (such as `https://api.github.com/user`).
+13. In the **End session endpoint** field, enter the OAuth2 end session endpoint, when the user logs out, this endpoint will be called (such as `https://github.com/logout`).
+14. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the OAuth2 user attribute name.
+    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-user-attribute.png" alt="image" width="400"/>
+
+15. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+16. In the **Always update user** field, when enabled, after OAuth2 user authentication, user information (only includes: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time, `groups` are only synchronized when the user is created.
+17. In the **Logout completely** field, when enabled, the user will be logged out from the OAuth2 service by calling the **End session endpoint** upon logging out.
 
 ## Configure WeCOM server
 
