@@ -9,8 +9,6 @@ This topic describes how to configure third-party authentication services and re
 
 
 
-## Integrate LDAP (HA) auth
-
 ## Integrate CAS auth
 
 **Central Authentication Service (CAS)** is a Single Sign-On (SSO) protocol designed to provide centralized authentication for multiple applications. Developed by Yale University, CAS allows users to access multiple protected services with a single login, eliminating the need to re-enter credentials. It implements authentication through a **ticket** mechanism and supports various identity providers, such as databases, LDAP, and OAuth.
@@ -23,28 +21,6 @@ This topic describes how to configure third-party authentication services and re
 }
 ```
 
-**Please follow the steps below to configure Passkey service authentication.**
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > CAS**.
-3. In the **CAS** field, enable or disable the CAS authentication.
-4. In the **Server** field, enter the CAS server URI (such as `https://example.com/cas`).
-5. In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on `http://foo.bar:8080` but requests use `https://foo.bar:8443`, enter `https://foo.bar:8443`.
-6. In the **Version** field, enter the CAS protocol version (Supported versions: `1`, `2`, `3`, `CAS_2_SAML_1_0`).
-7. In the **User attribute** field, enter the user attribute mapping. The key is the CAS user attribute name, and the value is the JumpServer user attribute name (Available values: `name`, `username`, `email`, `groups`).
-    ```json copy=true filename="User attribute"
-    {
-      "cas:user": "username",
-      "cas:fullname": "name",
-      "cas:mail": "email",
-    }
-    ```
-
-8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-9. In the **Create user** field, when enabled, a user will be created upon successful authentication. When disabled and the user does not exist, authentication will fail.
-10. In the **Logout completely** field, When enabled, logging out will also log the user out from the CAS service.
-11. Click **Submit**.
 
 ## Integrate Passkey auth
 

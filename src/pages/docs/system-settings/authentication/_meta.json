@@ -6,6 +6,7 @@
   "passkey": "Integrate Passkey auth",
   "oidc": "Integrate OIDC auth",
   "saml2": "Integrate SAML2 auth",
+  "oauth2": "Integrate OAuth2 auth",
   "wecom": "Integrate WeCom auth",
   "dingtalk": "Integrate DingTalk",
   "feishu": "Integrate Feishu auth",

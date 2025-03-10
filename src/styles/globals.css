@@ -117,5 +117,8 @@
     pre {
       @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
     }
+    p {
+      @apply mt-0;
+    }
   }
 }
