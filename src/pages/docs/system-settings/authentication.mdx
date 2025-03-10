@@ -7,55 +7,7 @@ import { Icon } from '@/components/docs/icons'
 
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
-## Configure email suffix
 
-If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
-
-<Steps>
-<div>
-In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
-<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-</div>
-
-<div>
-Navigate to **System settings > Authentication > Basic**.
-</div>
-
-<div>
-In the **Email suffix** field, enter the email suffix (such as `example.com`).
-<img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
-</div>
-
-<div>
-    Click **Submit**.
-</div>
-</Steps>
-
-## Modify the forgot password URL
-
-When the user clicks the **Forgot password?** on the login page, they will be redirected to this URL.
-<img src="/images/docs/admin-guides/system-settings/auth/login-page-forgot-password.png" alt="image" width="350"/>
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Basic**.
-3. In the **Forgot password URL** field, enter the URL for the forgot password link.
-    <img src="/images/docs/admin-guides/system-settings/auth/forgot-password-url.png" alt="image" width="450"/>
-4. Click **Submit**.
-
-## Enable or disable user login redirection
-When enabled, when an unauthenticated user accesses JumpServer, they will be redirected to a prompt page where they can choose to **Cancel** or **Confirm** the redirection. 
-
-When disabled, the user will be directly redirected to the third-party authentication page.
-
-<img src="/images/docs/admin-guides/system-settings/auth/redirecting.png" alt="image" width="450"/>
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Basic**.
-3. In the **Login redirection** field, enable or disable the user login redirection.
-    <img src="/images/docs/admin-guides/system-settings/auth/login-redirection.png" alt="image" width="450"/>
-4. Click **Submit**.
 
 ## Integrate LDAP (HA) auth
 

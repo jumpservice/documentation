@@ -1,14 +1,20 @@
 import "tailwindcss/tailwind.css";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-
+import { useRouter } from "next/router";
 
 // This default export is required in a new `pages/_app.js` file.
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  // 检查当前路径是否以 "/docs" 开头
+  const isDocsPage = router.pathname.startsWith("/docs");
+
   return (
     <>
       <GoogleAnalytics gaId="G-QJE3MCHN3H"/>
-      <Component {...pageProps} />
+      <div className={isDocsPage ? "docs" : ""}>
+        <Component {...pageProps} />
+      </div>
     </>
   );
 }

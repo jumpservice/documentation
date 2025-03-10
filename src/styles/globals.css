@@ -103,3 +103,10 @@
 ::selection {
   @apply bg-primary/60
 }
+
+
+.docs {
+  img {
+    @apply mt-2
+  }
+}

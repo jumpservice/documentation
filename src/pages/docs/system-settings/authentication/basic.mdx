@@ -1,0 +1,104 @@
+import { Steps } from '@/components/docs/steps'
+import { Alert } from '@/components/docs/alert'
+import { Icon } from '@/components/docs/icons'
+
+# Basic authentication settings
+
+This topic describes some basic authentication-related configurations.
+
+## Email suffix
+
+### How to configure
+
+<Steps>
+
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Basic**.
+</div>
+
+<div>
+In the **Email suffix** field, enter the email suffix, such as `example.com`.
+<img src="/images/docs/admin-guides/system-settings/auth/email-suffix.png" alt="image" width="450"/>
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+### Usage scenarios
+
+If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
+
+
+## Forgot password URL
+
+### How to configure
+
+<Steps>
+
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Basic**.
+</div>
+
+<div>
+In the **Forgot password URL** field, enter the URL for the forgot password link.
+<img src="/images/docs/admin-guides/system-settings/auth/forgot-password.png" alt="image" width="450"/>
+</div>
+
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+### Usage scenarios
+
+When the user clicks the _`Forgot password?`_ on the login page, they will be redirected to this URL.
+<img src="/images/docs/admin-guides/system-settings/auth/login-page-forgot-password.png" alt="image" width="350"/>
+
+
+
+## Login redirection
+### How to configure
+
+<Steps>
+
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Basic**.
+</div>
+
+
+<div>
+In the **Login redirection** field, enable or disable the user login redirection.
+<img src="/images/docs/admin-guides/system-settings/auth/login-redirection.png" alt="image" width="450"/>
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+### Usage scenarios
+When an unauthenticated user accesses JumpServer:
+  * **Enabled**, they will be redirected to a prompt page where they can choose `Cancel` to return to the default login page or `Confirm` to proceed to the third-party authentication page.
+    <img src="/images/docs/admin-guides/system-settings/auth/redirection-page.png" alt="image" width="450"/>
+  * **Disabled**, they will be directly redirected to the third-party authentication page.
