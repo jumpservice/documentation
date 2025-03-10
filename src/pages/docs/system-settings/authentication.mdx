@@ -1,9 +1,7 @@
 import { JMSNavSetting } from '@/icons'
-import { Callout } from 'nextra/components'
-
 import { Steps } from '@/components/docs/steps'
-
-
+import { Alert } from '@/components/docs/alert'
+import { Icon } from '@/components/docs/icons'
 
 # Authentication
 
@@ -15,7 +13,7 @@ If the user from the third-party authentication does not have an email field con
 
 <Steps>
 <div>
-In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
 <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
 </div>
 
@@ -77,11 +75,11 @@ When disabled, the user will be directly redirected to the third-party authentic
 2. Navigate to **System settings > Authentication > LDAP (HA)**.
 3. In the **LDAP (HA)** field, enable or disable the LDAP authentication.
 4. In the **Server** field, enter the LDAP server URI (such as `ldap://example.com:389`, `ldaps://example.com:636`). 
-    <Callout type="info" emoji="️💡"> 
+    <Alert type="tip">
       To configure LDAP TLS certificates, you need upload the following files to the default directory `/data/jumpserver/core/data/certs`, then restart the service:
         * **LDAP**: `ldap_ca.pem`, `ldap_cert.pem`, `ldap_cert.key`
         * **LDAP HA**: `ldap_ha_ca.pem`, `ldap_ha_cert.pem`, `ldap_ha_cert.key`
-    </Callout>
+    </Alert>
 
 5. In the **Bind DN** field, enter a user DN with at least query permissions, which will be used to query and filter users. (such as `cn=admin,dc=example,dc=com`).
 6. In the **Password** field, enter the password for the **Bind DN** user.
@@ -253,9 +251,9 @@ When disabled, the user will be directly redirected to the third-party authentic
     * **Signature algorithm**: Enter the OIDC signature algorithm, valid options are `HS256` and `RS256`.
         * **HS256**: Uses the **Client id** as the shared key.
         * **RS256**: Uses the **Signing Key** as the shared key.
-        <Callout type="info" emoji="️💡"> 
+        <Alert type="note">
           The **shared key** in this function is used for Hash-based Message Authentication Code (HMAC) signatures when verifying ID token in an OIDC authentication flow.
-        </Callout>
+        </Alert>
     * **Signing key**: When the **Signature algorithm** is `RS256`, the signing key will be used for HMAC signature verification or JSON Web Token (JWK) decryption to ensure the security of OIDC authentication.
     * **Enable PKCE**: Enable Proof Key for Code Exchange (PKCE) protects the authorization code flow to prevent authorization code interception attacks.
     * **Scopes**: Defines the range of user information that the client requests access to from the OP in an authorization request. Multiple pieces of information are separated by spaces (such as `openid profile email`).
@@ -309,14 +307,13 @@ In this case, JumpServer acts only as the SP.
 3. In the **SAML2** field, enable or disable the SAML2 authentication.
 4. In the **SP private key** field, upload the SP private key file.
 5. In the **SP cert** field, upload the SP certificate file. 
-
-    <Callout type="info" emoji="️💡"> 
+    <Alert type="note">
       SP Private Key and SP Certificate are closely linked and work together for secure communication and data protection in SAML2 authentication:
         * **SP Private Key**: Used to sign SAML requests, decrypt encrypted SAML responses from the IdP, and ensure data integrity.
         * **SP Certificate**: Generated from the SP Private Key and provided to the IdP to verify signed requests from the SP. It is also used to encrypt SAML response data, ensuring secure transmission.
 
       In simple terms, SP Private Key handles singing and decryption, while SP Certificate handles verification and encryption.
-    </Callout>
+    </Alert>
 
 6. In the **IDP metadata URL** field, enter the IdP metadata URL (such as `https://saml2.example.com/realms/JumpServer/protocol/saml/descriptor`).
 7. In the **IDP metadata XML** field, you can manually enter the IdP Metadata XML. In practice, you only need to provide either the **IDP metadata URL** or the **IDP metadata XML**. If both are present, the **IDP metadata URL** takes precedence.
@@ -325,9 +322,9 @@ In this case, JumpServer acts only as the SP.
     <img src="/images/docs/admin-guides/system-settings/auth/saml2-sp-ad-settings.png" alt="image" width="550"/>
 
     We will generate SP Metadata based on this configuration for IdP use. 
-    <Callout type="info" emoji="️💡"> 
+    <Alert type="note">
       **SP Metadata** is used to provide essential configuration information about the service provider, including entity ID, endpoint URLs, public certificates, and supported bindings, to facilitate secure communication with the identity provider in SAML authentication.
-    </Callout>
+    </Alert>
     
     You can click **View** in the help information below the **SP cert** field to see the SP metadata.
     <img src="/images/docs/admin-guides/system-settings/auth/saml2-sp-metadata.png" alt="image" width="550"/>
