@@ -6,7 +6,7 @@ import { Icon } from '@/components/docs/icons'
 
 ## About CAS
 
-**Central Authentication Service (CAS)** is a Single Sign-On (SSO) protocol designed to provide centralized authentication for multiple applications. Developed by Yale University, CAS allows users to access multiple protected services with a single login, eliminating the need to re-enter credentials. It implements authentication through a **ticket** mechanism and supports various identity providers, such as databases, LDAP, and OAuth.
+**Central Authentication Service (CAS)** is a Single Sign-On (SSO) protocol designed to provide centralized authentication for multiple applications. Developed by Yale University, CAS allows users to access multiple protected services with a single login, eliminating the need to re-enter credentials. It implements authentication through a "ticket" mechanism and supports various identity providers, such as databases, LDAP, and OAuth.
 
 
 ## How to configure
@@ -69,3 +69,16 @@ Click **Submit**.
 </div>
 
 </Steps>
+
+## JumpServer CAS URLs
+```md filename="Login URL"
+https://jumpserver.example.com/core/auth/cas/login/
+```
+
+```md filename="Login Success Callback URL"
+https://jumpserver.example.com/core/auth/cas/callback/
+```
+
+```md filename="Logout URL"
+https://jumpserver.example.com/core/auth/cas/logout/
+```

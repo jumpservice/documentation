@@ -8,20 +8,6 @@ import { Icon } from '@/components/docs/icons'
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
 
-
-## Integrate CAS auth
-
-**Central Authentication Service (CAS)** is a Single Sign-On (SSO) protocol designed to provide centralized authentication for multiple applications. Developed by Yale University, CAS allows users to access multiple protected services with a single login, eliminating the need to re-enter credentials. It implements authentication through a **ticket** mechanism and supports various identity providers, such as databases, LDAP, and OAuth.
-
-```json copy=true filename="Below is the JumpServer URL information required for CAS setup"
-{
-  "Login": "https://jumpserver.example.com/core/auth/cas/login/",
-  "Login success callback": "https://jumpserver.example.com/core/auth/cas/callback/",
-  "Logout": "https://jumpserver.example.com/core/auth/cas/logout/",
-}
-```
-
-
 ## Integrate Passkey auth
 
 **Passkey** is a passwordless authentication technology based on public-key cryptography. It replaces traditional passwords to enhance security and user experience. Passkey is supported by the FIDO2 standard (including WebAuthn and CTAP) and allows users to authenticate using biometrics (fingerprint or facial recognition), a PIN, or a security key without entering a password.
