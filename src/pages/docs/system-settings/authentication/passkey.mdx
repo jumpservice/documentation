@@ -1,1 +1,43 @@
+import { Steps } from '@/components/docs/steps'
+import { Alert } from '@/components/docs/alert'
+import { Icon } from '@/components/docs/icons'
+
 # Integrate Passkey authentication
+
+## About Passkey
+
+**Passkey** is a passwordless authentication technology based on public-key cryptography. It replaces traditional passwords to enhance security and user experience. Passkey is supported by the FIDO2 standard (including WebAuthn and CTAP) and allows users to authenticate using biometrics (fingerprint or facial recognition), a PIN, or a security key without entering a password.
+
+**Fast Identity Online (FIDO)** is an open standard designed to provide a more secure, passwordless authentication method. It is developed by the FIDO Alliance and primarily includes FIDO UAF (Universal Authentication Framework) and FIDO2 (which consists of the WebAuthn and CTAP protocols).
+
+
+## How to configure
+<Steps>
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Passkey**.
+</div>
+
+<div>
+In the **Passkey** field, enable or disable the Passkey authentication.
+</div>
+
+<div>
+In the **FIDO server ID** field, enter the full domain name of JumpServer, such as "jumpserver.example.com".  If there are multiple domains, separate them with commas.
+<Alert type="tip">
+If not set, it defaults to the request host and matches domains in `DOMAINS` from "config.txt" file.
+</Alert>
+</div>
+
+<div>
+In the **FIDO server name** field, enter the server name. 
+
+The default is "JumpServer".
+</div>
+
+</Steps>

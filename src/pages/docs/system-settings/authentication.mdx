@@ -8,21 +8,6 @@ import { Icon } from '@/components/docs/icons'
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
 
-## Integrate Passkey auth
-
-**Passkey** is a passwordless authentication technology based on public-key cryptography. It replaces traditional passwords to enhance security and user experience. Passkey is supported by the FIDO2 standard (including WebAuthn and CTAP) and allows users to authenticate using biometrics (fingerprint or facial recognition), a PIN, or a security key without entering a password.
-
-**Fast Identity Online (FIDO)** is an open standard designed to provide a more secure, passwordless authentication method. It is developed by the FIDO Alliance and primarily includes FIDO UAF (Universal Authentication Framework) and FIDO2 (which consists of the WebAuthn and CTAP protocols).
-
-**Please follow the steps below to configure Passkey service authentication.**
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Passkey**.
-3. In the **Passkey** field, enable or disable the Passkey authentication.
-4. In the **FIDO server ID** field, enter the full domain name of JumpServer. If not set, it defaults to the request host and matches domains in `DOMAINS` from `config.txt` file. If there are multiple domains, separate them with commas.
-5. In the **FIDO server name** field, enter the server name, the default value is `JumpServer`.
-
 ## Integrate OIDC auth
 
 **OpenID Connect (OIDC)** is an identity authentication protocol based on **OAuth 2.0**. It allows applications to verify a user’s identity through an **authorization server** and obtain basic user information (such as username and email). It adds an identity layer on top of OAuth 2.0, using an **ID Token** to transmit user identity information, and is widely used for Single Sign-On (SSO) and identity authentication systems.
