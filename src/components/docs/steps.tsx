@@ -2,7 +2,7 @@ import React from "react";
 
 export const Steps = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="steps flex flex-col gap-1">
       {React.Children.map(children, (child, index) => (
         <div className="flex gap-2 mt-3">
           <div className="w-5 h-5 flex items-center justify-center rounded-full bg-primary text-white font-bold text-sm mt-1">

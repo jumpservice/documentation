@@ -24,7 +24,7 @@ export const Alert: React.FC<AlertProps> = ({ type = "note", children }) => {
           <Icon className={cn(`${textColor}`)} size={18} />
           <span className={cn("font-bold", `${textColor}`)}>{title}</span>
         </div>
-        <div className="text-gray-800">{children}</div>
+        <div className="text-gray-800 dark:text-white">{children}</div>
       </div>
     </div>
   );

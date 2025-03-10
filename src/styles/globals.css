@@ -106,7 +106,16 @@
 
 
 .docs {
-  img {
-    @apply mt-2
+  .steps {
+    img {
+      @apply mt-2;
+    }
+    ul {
+      @apply mt-3;
+      list-style-type: circle;
+    }
+    pre {
+      @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
+    }
   }
 }
