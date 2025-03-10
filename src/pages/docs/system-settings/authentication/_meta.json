@@ -1,16 +1,16 @@
 {
   "basic": "Basic settings",
-  "ldap": "Integrate LDAP auth",
+  "ldap": "Integrate LDAP",
   "ldap_ha": "Integrate LDAP HA",
-  "cas": "Integrate CAS auth",
-  "passkey": "Integrate Passkey auth",
-  "oidc": "Integrate OIDC auth",
-  "saml2": "Integrate SAML2 auth",
-  "oauth2": "Integrate OAuth2 auth",
-  "wecom": "Integrate WeCom auth",
+  "cas": "Integrate CAS",
+  "passkey": "Integrate Passkey",
+  "oidc": "Integrate OIDC",
+  "saml2": "Integrate SAML2",
+  "oauth2": "Integrate OAuth2",
+  "wecom": "Integrate WeCom",
   "dingtalk": "Integrate DingTalk",
-  "feishu": "Integrate Feishu auth",
-  "lark": "Integrate Lark auth",
-  "slack": "Integrate Slack auth",
-  "radius": "Integrate Radius auth"
+  "feishu": "Integrate Feishu",
+  "lark": "Integrate Lark",
+  "slack": "Integrate Slack",
+  "radius": "Integrate RADIUS"
 }
