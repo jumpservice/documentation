@@ -1,0 +1,70 @@
+import { Steps } from '@/components/docs/steps'
+import { Alert } from '@/components/docs/alert'
+import { Icon } from '@/components/docs/icons'
+
+
+# Integrate RADIUS authentication
+
+## About RADIUS
+**Remote authentication Dial-In User Service (RADIUS)** is a remote authentication mechanism based on the RADIUS protocol, primarily used for network access control. It provides Authentication, Authorization, and Accounting (AAA) functionalities.
+
+## How to configure
+
+<Steps>
+
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Radius**.
+</div>
+
+<div>
+In the **Radius** field, check to use RADIUS authentication.
+</div>
+
+<div>
+In the **Host** field, enter the RADIUS server IP address or domain name, such as "172.16.10.180".
+</div>
+
+<div>
+In the **Port** field, enter the RADIUS server port number. The default is "1812".
+</div>
+
+<div>
+In the **Secret** field, enter the shared secret key between the JumpServer and the RADIUS server. It functions like a password, encrypting sensitive information in RADIUS requests and responses to ensure secure communication.
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## Enable RADIUS MFA backend
+
+This section describes how to configure RADIUS authentication as one of the MFA backends.
+
+<Steps>
+<div>
+Configure RADIUS authentication by following the [Integrate RADIUS authentication](/docs/system-settings/authentication/radius#how-to-configure) guide.
+</div>
+
+<div>
+In the **OTP in RADIUS** field, check to use RADIUS as the MFA backend.
+<Alert type="tip">
+When MFA is enabled, users can select the RADIUS authentication type during authentication.
+</Alert>
+<img src="/images/docs/admin-guides/system-settings/auth/radius-mfa.png" alt="image" width="600"/>
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>

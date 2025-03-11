@@ -106,6 +106,9 @@
 
 
 .docs {
+  main > p {
+    @apply mb-2;
+  }
   .steps {
     img {
       @apply mt-2 mb-2;

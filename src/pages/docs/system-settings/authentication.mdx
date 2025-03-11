@@ -8,26 +8,6 @@ import { Icon } from '@/components/docs/icons'
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
 
-## Integrate Lark auth
-
-
-### Test Slack connection
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Slack**.
-3. Scroll to the bottom of the page and click the **Test** button.
-
-
 ## Integrate RADIUS auth
-**Remote authentication Dial-In User Service (RADIUS)** is a remote authentication mechanism based on the RADIUS protocol, primarily used for network access control. It provides Authentication, Authorization, and Accounting (AAA) functionalities.
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Radius**.
-3. In the **Radius** field, enable or disable the RADIUS authentication.
-4. In the **Host** field, enter the RADIUS server IP address or domain name.
-5. In the **Port** field, enter the RADIUS server port number (default is `1812`).
-6. In the **Secret** field, enter the shared secret key between the JumpServer and the RADIUS server.
 7. In the **OTP in RADIUS** field, when enabled, RADIUS authentication can be used as an MFA method, and users can choose RADIUS when enabling MFA.
-8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-9. Click **Submit**.
