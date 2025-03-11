@@ -1,16 +1,16 @@
 {
   "basic": "Basic settings",
   "ldap": "Integrate LDAP",
-  "ldap_ha": "Integrate LDAP HA",
+  "ldap-ha": "xpack.Integrate LDAP HA",
   "cas": "Integrate CAS",
   "passkey": "Integrate Passkey",
-  "oidc": "Integrate OIDC",
-  "saml2": "Integrate SAML2",
-  "oauth2": "Integrate OAuth2",
-  "wecom": "Integrate WeCom",
-  "dingtalk": "Integrate DingTalk",
-  "feishu": "Integrate Feishu",
-  "lark": "Integrate Lark",
-  "slack": "Integrate Slack",
-  "radius": "Integrate RADIUS"
+  "oidc": "xpack.Integrate OIDC",
+  "saml2": "xpack.Integrate SAML2",
+  "oauth2": "xpack.Integrate OAuth2",
+  "wecom": "xpack.Integrate WeCom",
+  "dingtalk": "xpack.Integrate DingTalk",
+  "feishu": "xpack.Integrate Feishu",
+  "lark": "xpack.Integrate Lark",
+  "slack": "xpack.Integrate Slack",
+  "radius": "xpack.Integrate RADIUS"
 }

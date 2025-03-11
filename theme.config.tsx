@@ -1,6 +1,7 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
+import { Icon } from "@/components/docs/icons";
 
 const config: DocsThemeConfig = {
   head: (
@@ -37,6 +38,14 @@ const config: DocsThemeConfig = {
       let titleComponent = <>{title}</>;
       if (type === "separator") {
         titleComponent = <span className="nx-cursor-default">{title}</span>;
+      }
+      if (title.startsWith("xpack.")) {
+        titleComponent = (
+          <div className="flex items-center gap-1">
+            <Icon name="xpack"/>
+            {title.replace("xpack.", "")}
+          </div>
+        );
       }
       return titleComponent;
     },

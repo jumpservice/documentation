@@ -1,13 +1,97 @@
-import { JMSNavSetting } from '@/icons'
 import { Steps } from '@/components/docs/steps'
 import { Alert } from '@/components/docs/alert'
 import { Icon } from '@/components/docs/icons'
-
+import { Cards, Card } from '@/components/docs/cards'
+ 
 # Authentication
 
-This topic describes how to configure third-party authentication services and related user authentication settings.
+This section describes how to configure third-party authentication services and related user authentication settings.
 
+<Cards>
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Basic settings"
+    href="/docs/system-settings/authentication/basic"
+  />
+</Cards>
 
-## Integrate RADIUS auth
+<Cards>
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate LDAP"
+    href="/docs/system-settings/authentication/ldap"
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate CAS"
+    href="/docs/system-settings/authentication/cas"
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate Passkey"
+    href="/docs/system-settings/authentication/passkey"
+  />
+</Cards>
 
-7. In the **OTP in RADIUS** field, when enabled, RADIUS authentication can be used as an MFA method, and users can choose RADIUS when enabling MFA.
+<Cards>
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate LDAP HA"
+    href="/docs/system-settings/authentication/ldap-ha"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate OIDC"
+    href="/docs/system-settings/authentication/oidc"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate SAML2"
+    href="/docs/system-settings/authentication/saml2"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate OAuth2"
+    href="/docs/system-settings/authentication/oauth2"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate WeCom"
+    href="/docs/system-settings/authentication/wecom"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate DingTalk"
+    href="/docs/system-settings/authentication/dingtalk"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate FeiShu"
+    href="/docs/system-settings/authentication/feishu"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate Lark"
+    href="/docs/system-settings/authentication/lark"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate Slack"
+    href="/docs/system-settings/authentication/slack"
+    xpack={true}
+  />
+  <Card
+    icon={<Icon name="settings"/>}
+    title="Integrate RADIUS"
+    href="/docs/system-settings/authentication/radius"
+    xpack={true}
+  />
+</Cards>
