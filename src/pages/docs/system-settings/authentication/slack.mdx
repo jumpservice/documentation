@@ -1,0 +1,87 @@
+import { Steps } from '@/components/docs/steps'
+import { Alert } from '@/components/docs/alert'
+import { Icon } from '@/components/docs/icons'
+
+# Integrate Slack authentication
+
+## About Slack
+**Slack** authentication is an identity verification mechanism based on the Slack platform, allowing users to log in to enterprise applications or third-party services using their Slack accounts for secure authentication and authorization. 
+
+## How to configure
+
+<Steps>
+
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Slack**.
+</div>
+
+<div>
+In the **Slack** field, check to use Slack authentication.
+</div>
+
+<div>
+In the **Client ID** field, enter the Slack client ID, a unique identifier for your Slack application, used to identify the app during the OAuth 2.0 authorization process.
+</div>
+
+<div>
+In the **Client secret** field, enter the Slack client secret, a confidential string associated with your Slack application, used to authenticate the app during the OAuth 2.0 token exchange process.
+</div>
+
+<div>
+In the **Client bot token** field, enter the Slack client bot token, an access token granted to your Slack bot, allowing it to interact with the Slack workspace and perform tasks like sending messages or managing channels.
+</div>
+
+<div>
+In the **User attribute** field, enter the user attribute mapping. The key represents the JumpServer user attribute name (available options: name, username, email, phone, comment), while the value corresponds to the Slack user attribute name.
+```json copy=true filename="Slack User Attribute Example"
+{
+  "name": "real_name",
+  "username": "name",
+  "email": "profile.email"
+}
+```
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## Test Slack connection
+
+<Steps>
+
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Slack**.
+</div>
+
+<div>
+Scroll to the bottom of the page and click the **Test** button.
+</div>
+
+</Steps>
+
+## JumpServer Slack URLs
+
+```md filename="QR Login URL"
+https://jumpserver.example.com/core/auth/slack/qr/login/
+```
+
+```md filename="QR Login Success Callback URL"
+https://jumpserver.example.com/core/auth/slack/qr/login/callback/
+```

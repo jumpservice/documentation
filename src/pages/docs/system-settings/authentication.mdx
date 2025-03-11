@@ -11,34 +11,6 @@ This topic describes how to configure third-party authentication services and re
 ## Integrate Lark auth
 
 
-## Integrate Slack auth
-**Slack** authentication is an identity verification mechanism based on the Slack platform, allowing users to log in to enterprise applications or third-party services using their Slack accounts for secure authentication and authorization. 
-
-```json copy=true filename="Below is the JumpServer URL information required for Slack setup"
-{
-  "QR login": "https://jumpserver.example.com/core/auth/slack/qr/login/",
-  "QR login callback": "https://jumpserver.example.com/core/auth/slack/qr/login/callback/",
-}
-```
-**Please follow the steps below to configure Slack authentication.**
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Slack**.
-3. In the **Slack** field, enable or disable the Slack authentication.
-4. In the **Client ID** field, enter the Slack client ID, a unique identifier for your Slack application, used to identify the app during the OAuth2.0 authorization process.
-5. In the **Client secret** field, enter the Slack client secret, a confidential string associated with your Slack application, used to authenticate the app during the OAuth2.0 token exchange process.
-6. In the **Client bot token** field, enter the Slack client bot token, an access token granted to your Slack bot, allowing it to interact with the Slack workspace and perform tasks like sending messages or managing channels.
-7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the Slack user attribute name.
-    ```json copy=true filename="User attribute"
-    {
-      "name": "real_name",
-      "username": "name",
-      "email": "profile.email"
-    }
-    ```
-8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-9. Click **Submit**.
-
 ### Test Slack connection
 1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
     <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
