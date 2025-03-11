@@ -8,46 +8,6 @@ import { Icon } from '@/components/docs/icons'
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
 
-## Integrate DingTalk auth
-
-
-## Integrate FeiShu auth
-**FeiShu** authentication is an identity verification mechanism based on the FeiShu platform, allowing enterprises and third-party applications to authenticate and authorize users through FeiShu.
-
-```json copy=true filename="Below is the JumpServer URL information required for FeiShu setup"
-{
-  "QR login": "https://jumpserver.example.com/core/auth/feishu/qr/login/",
-  "QR login callback": "https://jumpserver.example.com/core/auth/feishu/qr/login/callback/",
-}
-```
-
-**Please follow the steps below to configure FeiShu authentication.**
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-
-2. Navigate to **System settings > Authentication > FeiShu**.
-3. In the **FeiShu** field, enable or disable the FeiShu authentication.
-4. In the **App ID** field, enter the FeiShu app ID, a unique identifier for the application.
-5. In the **App secret** field, enter the FeiShu app secret, used to obtain an access token for calling the FeiShu API.
-6. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the FeiShu user attribute name.
-    ```json copy=true filename="User attribute"
-    {
-      "name": "nickname",
-      "username": "user_id",
-      "email": "email"
-    }
-    ```
-7. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-8. Click **Submit**.
-
-### Test FeiShu connection
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > FeiShu**.
-3. Scroll to the bottom of the page and click the **Test** button.
-
-
 ## Integrate Lark auth
 
 **Lark** authentication is an identity verification mechanism provided by Lark (the international version of Feishu), enabling enterprises and third-party applications to authenticate and authorize users through Lark. 
