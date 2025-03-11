@@ -8,52 +8,8 @@ import { Icon } from '@/components/docs/icons'
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
 
-### Test WeCom connection
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > WeCOM**.
-3. Scroll to the bottom of the page and click the **Test** button.
-
 ## Integrate DingTalk auth
 
-**DingTalk** authentication is an identity verification method based on DingTalk, supporting OAuth 2.0 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
-
-```json copy=true filename="Below is the JumpServer URL information required for DingTalk setup"
-{
-  "QR login": "https://jumpserver.example.com/core/auth/dingtalk/qr/login/",
-  "QR login callback": "https://jumpserver.example.com/core/auth/dingtalk/qr/login/callback/",
-  "OAuth login": "https://jumpserver.example.com/core/auth/dingtalk/oauth/login/",
-  "OAuth login callback": "https://jumpserver.example.com/core/auth/dingtalk/oauth/login/callback/"
-}
-```
-
-**Please follow the steps below to configure DingTalk authentication.**
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-
-2. Navigate to **System settings > Authentication > Dingtalk**.
-3. In the **Dingtalk** field, enable or disable the DingTalk authentication.
-4. In the **Agent ID** field, enter the DingTalk agent ID, which uniquely identifies a micro-application within the enterprise and is primarily used for sending work notifications.
-5. In the **App key** field, enter the DingTalk app key, a unique identifier for the application, similar to a `username` for API access.
-6. In the **App secret** field, enter the DingTalk app secret, similar to a `password` for API access, used to obtain AccessToken for calling APIs.
-7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the DingTalk user attribute name.
-    ```json copy=true filename="User attribute"
-    {
-      "name": "name",
-      "username": "name",
-      "email": "email"
-    }
-    ```
-
-8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-9. Click **Submit**.
-
-### Test DingTalk connection
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Dingtalk**.
-3. Scroll to the bottom of the page and click the **Test** button.
 
 ## Integrate FeiShu auth
 **FeiShu** authentication is an identity verification mechanism based on the FeiShu platform, allowing enterprises and third-party applications to authenticate and authorize users through FeiShu.
