@@ -9,37 +9,7 @@ This topic describes how to configure third-party authentication services and re
 
 
 ## Integrate WeCOM auth
-**WeCom** authentication is an identity verification method based on WeCom (Enterprise WeChat), supporting OAuth 2.0 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
 
-```json copy=true filename="Below is the JumpServer URL information required for WeCom setup"
-{
-  "QR login": "https://jumpserver.example.com/core/auth/wecom/qr/login/",
-  "QR login callback": "https://jumpserver.example.com/core/auth/wecom/qr/login/callback/",
-  "OAuth login": "https://jumpserver.example.com/core/auth/wecom/oauth/login/",
-  "OAuth login callback": "https://jumpserver.example.com/core/auth/wecom/oauth/login/callback/"
-}
-```
-
-**Please follow the steps below to configure WeCom authentication.**
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-
-2. Navigate to **System settings > Authentication > WeCom**.
-3. In the **WeCom** field, enable or disable the WeCom authentication.
-4. In the **Corporation ID** field, enter the WeCom corporation ID. Uniquely identifies the enterprise in WeCom, and all API requests must include this ID.
-5. In the **App agent ID** field, enter the WeCom app agent ID. Used to identify a specific application in WeCom, with each application having a unique Agent ID.
-6. In the **App secret** field, enter the WeCom app secret. Used to authenticate the application and obtain an access token for calling the WeCom API.
-7. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the WeCom user attribute name.
-    ```json copy=true filename="User attribute"
-    {
-      "name": "alias",
-      "username": "userid",
-      "email": "extattr.attrs[2].value"
-    }
-    ```
-
-8. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
 9. Click **Submit**.
 
 ### Test WeCom connection
