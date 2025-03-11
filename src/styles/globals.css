@@ -108,7 +108,7 @@
 .docs {
   .steps {
     img {
-      @apply mt-2;
+      @apply mt-2 mb-2;
     }
     ul {
       @apply mt-3;

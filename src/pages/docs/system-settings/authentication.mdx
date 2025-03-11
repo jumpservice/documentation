@@ -8,58 +8,6 @@ import { Icon } from '@/components/docs/icons'
 This topic describes how to configure third-party authentication services and related user authentication settings.
 
 
-## Integrate OAuth2 auth
-
-**Open Authorization 2.0 (OAuth2)** is an open authorization protocol that allows third-party applications to access user resources stored on other service providers (such as Google, Facebook, GitHub, etc.) without exposing the user’s password. OAuth2 enables users to grant third-party applications specific resource permissions without sharing their login credentials.
-
-```json copy=true filename="Below is the JumpServer URL information required for OAuth2 setup"
-{
-  "Login": "https://jumpserver.example.com/core/auth/oauth2/login/",
-  "Login success callback": "https://jumpserver.example.com/core/auth/oauth2/callback/",
-  "Logout": "https://jumpserver.example.com/core/auth/oauth2/logout/"
-}
-```
-
-**Please follow the steps below to configure OAuth2 service authentication.**
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-
-2. Navigate to **System settings > Authentication > OAuth2**.
-3. In the **OAuth2** field, enable or disable the OAuth2 authentication.
-4. In the **Service provider** field, enter the OAuth2 service provider name (such as `GitHub`, `Google`, `Facebook`, etc.).
-5. In the **Logo** field, upload the OAuth2 service provider logo, recommended to use a size of `64px * 64px`.
-    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-logo.png" alt="image" width="600"/>
-    The **Service provider** and **Logo** will be displayed on the login page.
-    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-login-page.png" alt="image" width="400"/>
-
-6. In the **Client ID** field, enter the client ID provided by the OAuth2 service provider.
-7. In the **Client secret** field, enter the client secret provided by the OAuth2 service provider.
-8. In the **Request method** field, select a method to obtain a token.
-    * **GET**: Use the GET method to obtain the token, with the `Client ID` and `Client secret` included in the headers.
-    * **POST-DATA**: Use the POST method to obtain a token, with `Client ID` and `Client secret` included as **raw** data in the request body.
-    * **POST-JSON**: Use the POST method to obtain a token, with `Client ID` and `Client secret` included as **JSON** data in the request body.
-    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-req-method.png" alt="image" width="400"/>
-
-9. In the **Scope** field, Defines the range of user information that the client requests access to in an authorization request. Multiple pieces of information are separated by spaces (such as `user user:email user:login`).
-10. In the **Authorization endpoint** field, enter the OAuth2 authorization endpoint (such as `https://github.com/login/oauth/authorize`).
-11. In the **Token endpoint** field, enter the OAuth2 token endpoint (such as `https://github.com/login/oauth/access_token`).
-12. In the **Userinfo endpoint** field, enter the OAuth2 userinfo endpoint (such as `https://api.github.com/user`).
-13. In the **End session endpoint** field, enter the OAuth2 end session endpoint, when the user logs out, this endpoint will be called (such as `https://github.com/logout`).
-14. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the OAuth2 user attribute name.
-    ```json copy=true filename="User attribute"
-    {
-      "name": "user",
-      "username": "name",
-      "email": "user:email"
-    }
-    ```
-
-15. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-16. In the **Always update user** field, when enabled, after OAuth2 user authentication, user information (only includes: `name`, `username`, `email`, `phone`, `comment`) will be checked and updated each time, `groups` are only synchronized when the user is created.
-17. In the **Logout completely** field, when enabled, the user will be logged out from the OAuth2 service by calling the **End session endpoint** upon logging out.
-18. Click **Submit**.
-
 ## Integrate WeCOM auth
 **WeCom** authentication is an identity verification method based on WeCom (Enterprise WeChat), supporting OAuth 2.0 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
 
