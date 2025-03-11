@@ -10,33 +10,6 @@ This topic describes how to configure third-party authentication services and re
 
 ## Integrate Lark auth
 
-**Lark** authentication is an identity verification mechanism provided by Lark (the international version of Feishu), enabling enterprises and third-party applications to authenticate and authorize users through Lark. 
-
-```json copy=true filename="Below is the JumpServer URL information required for Lark setup"
-{
-  "QR login": "https://jumpserver.example.com/core/auth/lark/qr/login/",
-  "QR login callback": "https://jumpserver.example.com/core/auth/lark/qr/login/callback/",
-}
-```
-**Please follow the steps below to configure Lark authentication.**
-
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-    <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
-2. Navigate to **System settings > Authentication > Lark**.
-3. In the **Lark** field, enable or disable the Lark authentication.
-4. In the **App ID** field, enter the Lark app ID, a unique identifier for the application.
-5. In the **App secret** field, enter the Lark app secret, used to obtain an access token for calling the Lark API.
-6. In the **User attribute** field, enter the user attribute mapping. The key is the JumpServer user attribute name (such as `name`, `username`, `email`, `groups`, `phone`, `comment`), and the value is the Lark user attribute name.
-    ```json copy=true filename="User attribute"
-    {
-      "name": "nickname",
-      "username": "user_id",
-      "email": "email"
-    }
-    ```
-7. In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
-8. Click **Submit**.
-
 
 ## Integrate Slack auth
 **Slack** authentication is an identity verification mechanism based on the Slack platform, allowing users to log in to enterprise applications or third-party services using their Slack accounts for secure authentication and authorization. 
