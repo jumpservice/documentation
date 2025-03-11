@@ -9,7 +9,7 @@ import { Icon } from '@/components/docs/icons'
 
 In JumpServer, the integration of LDAP HA typically ensures that if the primary LDAP server fails, the system can automatically switch to a backup LDAP HA server, ensuring the continuity of authentication services. This way, even if an LDAP server experiences issues, JumpServer can continue processing user authentication requests without causing downtime or service interruptions.
 
-<Alert type="note">
+<Alert type="tip">
 Configure LDAP before setting up LDAP HA. See [Integrate LDAP auth](/docs/system-settings/authentication/ldap.mdx)
 </Alert>
 
@@ -34,7 +34,7 @@ In the **LDAP HA** field, enable or disable the LDAP HA authentication.
 <div>
 In the **Server** field, enter the LDAP HA server URI, such as "ldap://example.com:389" and "ldaps://example.com:636". 
 
-<Alert type="tip">
+<Alert type="note">
 To configure LDAP HA TLS certificates, you can upload the files "ldap_ha_ca.pem, ldap_ha_cert.pem, ldap_ha_cert.key" to the directory "/data/jumpserver/core/data/certs", then restart the service.
 </Alert>
 </div>
