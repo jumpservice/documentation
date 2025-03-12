@@ -1,7 +1,4 @@
 {
-  "index": {
-    "display": "hidden"
-  },
   "create-host": "Create a host asset",
   "create-device": "Create a device asset",
   "create-database": "Create a database asset",
