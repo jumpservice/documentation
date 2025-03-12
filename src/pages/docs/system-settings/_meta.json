@@ -1,15 +1,7 @@
 {
   "general": "General",
   "organizations": "Organization",
-  "notifications": "Notifications",
+  "roles": "Roles",
   "features": "Features",
-  "authentication": "Authentication",
-  "storage": "Storage",
-  "component": "Component",
-  "remote-app": "RemoteApp",
-  "security": "Security",
-  "appearance": "Appearance",
-  "tool": "Tool",
-  "task": "Task",
-  "license": "License"
+  "authentication": "Authentication"
 }
