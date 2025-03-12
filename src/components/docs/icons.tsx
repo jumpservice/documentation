@@ -25,7 +25,7 @@ const iconConfig = {
   settings: <Settings className="w-4 inline-block"/>,
   xpack: <IconTips Icon={Crown} iconColor={"text-yellow-500 fill-yellow-500"}/>,
   xpackTip: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"text-yellow-500 fill-yellow-500"}/>,
-  help:<CircleHelp className="w-4 inline-block"/>,
+  help: <CircleHelp className="w-4 inline-block"/>,
 }
 
 export const Icon: React.FC<IconProps> = ({ name }) => {
