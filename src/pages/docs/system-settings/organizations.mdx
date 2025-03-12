@@ -1,88 +1,189 @@
-# Organizations
+import { Steps } from '@/components/docs/steps'
+import { Alert } from '@/components/docs/alert'
+import { Icon } from '@/components/docs/icons'
+
+# Organizations <Icon name="xpackTip"/>
 
 This topic describes about Organiztions settings of JumpServer.
 
+## About Organizations
+
+JumpServer supports **Organizations management**, where users, assets, and permissions are isolated from different organizations. 
+This makes it convenient for administrators to manage and view information within different Org. based on the company's real Org. structure.
+
+User can switch **Oraganiztion** through Org. selector in the upper-left corner in JumpServer.
+<img src="/images/docs/admin-guides/system-settings/organizations/organization.png" alt="image" width="350"/>
+
 ## Create an organization
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-  <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+<Steps>
 
-2. Navigate to **System settings > Organizations**.
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
 
-3. Click the **+ Create** button above the Org. list.
-  
-  <img src="/images/docs/admin-guides/system-settings/organizations/create-organization.png" alt="org-create-button" width="325"/>
+<div>
+Navigate to **System settings > Organizations**.
+</div>
 
+<div>
+Click the **+ Create** button above the Org. list.
+<img src="/images/docs/admin-guides/system-settings/organizations/create-organization.png" alt="org-create-button" width="325"/>
 - Alternatively, Click **Create Oraganiztion** in **Org. Selecter** on navbar.
+<img src="/images/docs/admin-guides/system-settings/organizations/create-organization-nav.png" alt="org-create-button" width="325"/>
+</div>
 
-  <img src="/images/docs/admin-guides/system-settings/organizations/create-organization-nav.png" alt="org-create-button-nav" width="325"/>
+<div>
+In the **Name** field, enter the organization name.
+</div>
 
-4. In the **Name** field, enter the organization name.
-5. Optionally, in the **Description** field, enter a description of the organization.
-6. Click **Submit** to create the organization.
+<div>
+Optionally, in the **Description** field, enter a description of the organization.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
 
 ## View Organization details 
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-  <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+<Steps>
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
 
-2. Navigate to **System settings > organizations**.
-3. In the Organiztions list, locate the relevant org and click the Org. name to open the details page.
-4. On the `Basic` page (default), where you can view `Basic information` and Activities.
+<div>
+Navigate to **System settings > Organizations**.
+</div>
 
+<div>
+In the Organiztions list, locate the relevant org and click the Org. name to open the details page.
+</div>
+
+<div>
+On the Basic page (default), where you can view "Basic information" and "Activities".
 <img src="/images/docs/admin-guides/system-settings/organizations/organization-detail.png" alt="org-detail" width="550"/>
+</div>
+</Steps>
+
+
 
 ## Edit organization properties and information 
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-  <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+<Steps>
 
-2. Navigate to **System settings > organizations**.
-3. In the Organizations list, locate the relevant Org. and click the **Edit** in the `Actions` column. Alternatively, in the top-right corner of the Org. details page, click **Edit**.
-4. Change the properties or information that you want, and then click **Submit**.
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
+
+<div>
+Navigate to **System settings > Organizations**.
+</div>
+
+<div>
+In the Organizations list, locate the relevant Org. and click the **Edit** in the `Actions` column. Alternatively, in the top-right corner of the Org. details page, click **Edit**.
+</div>
+
+<div>
+Change the properties or information that you want, and then click **Submit**.
+</div> 
+
+</Steps>
+
 
 ## Delete an organization
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-  <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+<Steps>
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
 
-2. Navigate to **System settings > organizations**.
-3. In the Orgnaizations list, locate the relevant Org. and select the **···** dropdown menu in the Actions column, then click **Delete**. **Make sure User, User group, Asset, Node, Label, Zone, Authorization within the Org. have been deleted first**.
-4. Confirm the information to be deleted in the popup, and then click **OK**.
+<div>
+Navigate to **System settings > Organizations**.
+</div>
+
+<div>
+In the Orgnaizations list, locate the relevant Org. and select the **···** dropdown menu in the Actions column, then click **Delete**. **Make sure User, User group, Asset, Node, Label, Zone, Authorization within the Org. have been deleted first**.
+</div>
+
+<div>
+Confirm the information to be deleted in the popup, and then click **OK**.
+</div>
+</Steps>
 
 ## Duplicate an organization
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-  <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+<Steps>
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
 
-2. Navigate to **System settings > organizations**.
-3. In the Organizations list, locate the relevant Org. and select the **···** dropdown menu in the Actions column, then click **Duplicate**.
-4. Modify the user properties and information and Then click **Submit**.
+<div>
+Navigate to **System settings > Organizations**.
+</div>
+
+<div>
+In the Organizations list, locate the relevant Org. and select the **···** dropdown menu in the Actions column, then click **Duplicate**.
+</div>
+
+<div>
+Modify the orgnization properties and information and Then click **Submit**.
+</div>
+</Steps>
 
 ##  View Organization activities
 
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-  <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+<Steps>
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
 
-2. Navigate to **System settings > organizations**.
+<div>
+Navigate to **System settings > Organizations**.
+</div>
 
-3. In the Organizations list, locate the relevant Org. and click the Org. name to open the details page.
+<div>
+In the Organizations list, locate the relevant Org. and click the Org. name to open the details page.
+</div>
 
-4. On the `Activities` page, you can view the last 30 activity logs of the Org..
+<div>
+On the `Activities` page, you can view the last 30 activity logs of the Org..
+</div>
+</Steps>
 
 ## Rename Global organization
-1. In the upper-right corner of any page in JumpServer, click <img src="/images/docs/svg/nav-setting.svg" alt="x" width="15" style={{ display: "inline-block" }}/>.
-  <img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="450"/>
+<Steps>
+<div>
+In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+<img src="/images/docs/admin-guides/system-settings/nav-settings.png" alt="image" width="350"/>
+</div>
 
-2. Navigate to **System settings > organizations**.
+<div>
+Navigate to **System settings > Organizations**.
+</div>
 
-3. Click the **Settings** button above the Organizations list.
-  
+<div>
+Click the **Settings** button above the Organizations list.
 <img src="/images/docs/admin-guides/system-settings/organizations/rename-global-organization.png" alt="rename-global-org" width="320"/>
 
-4. In the **Global organization** field, enter the organization name.
+</div>
 
-5. Click **Submit** to rename the global organization.
+<div>
+In the **Global organization** field, enter the organization name.
+</div>
 
+<div>
+Click **Submit** to rename the global organization.
+</div>
+
+</Steps>
 
 
