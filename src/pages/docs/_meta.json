@@ -16,10 +16,9 @@
 
   "users": "Users",
 
-  "assets": {
-    "title": "Create & Manage Assets",
-    "route": "/docs/assets/index"
-  },
+  "assets": "Assets",
+
+  "asset-nodes": "Asset Nodes",
 
   "system-settings": "System Settings",
 

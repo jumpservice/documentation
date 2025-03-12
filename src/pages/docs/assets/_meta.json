@@ -1,26 +1,33 @@
 {
-  "create-host": "Create a host asset",
-  "create-device": "Create a device asset",
-  "create-database": "Create a database asset",
-  "create-cloud": "Create a cloud asset",
-  "create-web": "Create a web asset",
-  "create-custom": "Create a custom asset",
+  "create-host": "Create host",
+  "create-device": "Create device",
+  "create-database": "Create database",
+  "create-cloud": "Create cloud",
+  "create-web": "Create web",
+  "create-custom": "Create custom",
+
   "edit-assets": "Edit assets",
   "delete-assets": "Delete assets",
   "duplicate-asset": "Duplicate an asset",
   "search-assets": "Search for assets",
-  "manage-asset-status": "Manage asset status",
-  "manage-asset-tags": "Manage asset tags",
-  "manage-asset-nodes": "Manage assets nodes",
-  "manage-asset-table-settings": "Manage asset table settings",
-  "change-asset-platform": "Change the asset platform",
-  "view-asset-details": "View asset details",
-  "manage-asset-accounts": "View and manage asset accounts",
-  "view-authorized-users": "View authorized users for the asset",
-  "view-asset-sessions": "View sessions of the asset",
-  "view-asset-commands": "View commands executed on the asset",
-  "view-asset-activity": "View asset activity log",
-  "test-asset-connectivity": "Test assets connectivity",
-  "refresh-asset-hardware": "Refresh asset hardware information",
-  "import-export-assets": "Import and export assets"
+  "change-platform": "Change asset platform",
+
+  "manage-status": "Manage asset status",
+  "manage-tags": "Manage asset tags",
+  "manage-nodes": "Manage asset nodes",
+  "manage-accounts": "Manage asset accounts",
+  "manage-table-settings": "Manage table settings",
+
+  "view-details": "View asset details",
+  "view-authorized-users": "View authorized users",
+  "view-sessions": "View connected sessions",
+  "view-commands": "View executed commands",
+  "view-activity": "View activity log",
+
+  "test-connectivity": "Test connectivity",
+  "refresh-hardware": "Refresh hardware info",
+
+  "import-export-assets": "Import and export",
+
+  "cloud": "Sync from clouds"
 }

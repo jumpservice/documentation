@@ -1,0 +1,13 @@
+{
+  "create-node": "Create node",
+  "rename-node": "Rename node",
+  "delete-node": "Delete node",
+  "drag-node": "Drag node",
+  "add-assets-to-node": "Add assets to node",
+  "move-assets-to-node": "Move assets to node",
+  "remove-assets-from-node": "Remove assets from node",
+  "refresh-node-assets-hardware": "Refresh assets hardware in node",
+  "test-node-assets-connectivity": "Test assets connectivity in node",
+  "view-node-assets": "View node assets",
+  "view-type-tree": "View type tree"
+}
