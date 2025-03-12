@@ -34,4 +34,11 @@ Then, run the project:
 pnpm dev
 ```
 
+If an error occurs during startup, try the following steps:
+```bash
+rm -rf .next/ node_modules/
+pnpm install
+pnpm dev
+```
+
 That’s it! Go to http://localhost:3000 to see it in action. Any change you make to a file in `pages` should be refreshed automatically in your browser.
