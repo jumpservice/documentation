@@ -16,7 +16,10 @@
 
   "users": "Users",
 
-  "assets": "Assets",
+  "assets": {
+    "title": "Create & Manage Assets",
+    "route": "/docs/assets/index"
+  },
 
   "system-settings": "System Settings",
 
@@ -24,5 +27,9 @@
     "type": "separator",
     "title": "More"
   },
-  "changelog": "Changelogs"
+  "changelog": "Changelogs",
+
+  "wait-for-completion": {
+    "display": "hidden"
+  }
 }

@@ -1,5 +1,29 @@
 {
-  "create-assets": "Create assets",
-  "manage-assets": "Manage assets",
-  "manage-nodes": "Manage nodes"
+  "index": {
+    "display": "hidden"
+  },
+  "create-host": "Create a host asset",
+  "create-device": "Create a device asset",
+  "create-database": "Create a database asset",
+  "create-cloud": "Create a cloud asset",
+  "create-web": "Create a web asset",
+  "create-custom": "Create a custom asset",
+  "edit-assets": "Edit assets",
+  "delete-assets": "Delete assets",
+  "duplicate-asset": "Duplicate an asset",
+  "search-assets": "Search for assets",
+  "manage-asset-status": "Manage asset status",
+  "manage-asset-tags": "Manage asset tags",
+  "manage-asset-nodes": "Manage assets nodes",
+  "manage-asset-table-settings": "Manage asset table settings",
+  "change-asset-platform": "Change the asset platform",
+  "view-asset-details": "View asset details",
+  "manage-asset-accounts": "View and manage asset accounts",
+  "view-authorized-users": "View authorized users for the asset",
+  "view-asset-sessions": "View sessions of the asset",
+  "view-asset-commands": "View commands executed on the asset",
+  "view-asset-activity": "View asset activity log",
+  "test-asset-connectivity": "Test assets connectivity",
+  "refresh-asset-hardware": "Refresh asset hardware information",
+  "import-export-assets": "Import and export assets"
 }
