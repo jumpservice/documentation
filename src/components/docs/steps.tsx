@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Steps = ({ children }: { children: React.ReactNode }) => {
+const Steps = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="steps flex flex-col gap-1">
       {React.Children.map(children, (child, index) => (
@@ -14,3 +14,6 @@ export const Steps = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
+
+
+export default Steps;

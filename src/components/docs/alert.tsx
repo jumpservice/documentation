@@ -14,7 +14,7 @@ const typeConfig = {
   important: { title: "Important", borderColor: "border-purple-500", textColor: "text-purple-500", icon: MessageSquareWarning },
 };
 
-export const Alert: React.FC<AlertProps> = ({ type = "tip", children }) => {
+const Alert: React.FC<AlertProps> = ({ type = "tip", children }) => {
   const { title, borderColor, textColor, icon: Icon } = typeConfig[type];
 
   return (
@@ -29,3 +29,5 @@ export const Alert: React.FC<AlertProps> = ({ type = "tip", children }) => {
     </div>
   );
 };
+
+export default Alert;

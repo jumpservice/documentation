@@ -1,4 +1,4 @@
-import { Icon } from '@/components/docs/icons';
+import Icon from './icons';
 
 // Cards 组件
 const Cards = ({ children }) => {

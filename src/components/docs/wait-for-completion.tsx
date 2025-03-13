@@ -1,7 +1,7 @@
-import { Alert } from '@/components/docs/alert'
+import Alert from './alert'
 
 
-export const WaitForCompletion = () => {
+const WaitForCompletion = () => {
   return (
     <>
       <Alert type="tip">
@@ -12,3 +12,5 @@ export const WaitForCompletion = () => {
     </>
   )
 }
+
+export default WaitForCompletion;

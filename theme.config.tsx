@@ -1,21 +1,15 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
-import { Icon } from "@/components/docs/icons";
-import { Steps } from "@/components/docs/steps";
-import { Alert } from "@/components/docs/alert";
-import { Cards, Card } from "@/components/docs/cards";
-import { WaitForCompletion } from "@/components/docs/wait-for-completion";
+import { 
+  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav 
+} from "@/components/docs";
 
 
 const config: DocsThemeConfig = {
   components: { 
-    WaitForCompletion, 
-    Icon, 
-    Alert,
-    Cards, 
-    Card, 
-    Steps,
+    Icon, Alert, Cards, Card, 
+    Steps, Nav, WaitForCompletion, 
   },
   head: (
     <>

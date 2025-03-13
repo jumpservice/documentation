@@ -28,6 +28,8 @@ const iconConfig = {
   help: <CircleHelp className="w-4 inline-block"/>,
 }
 
-export const Icon: React.FC<IconProps> = ({ name }) => {
+const Icon: React.FC<IconProps> = ({ name }) => {
   return iconConfig[name];
 }
+
+export default Icon;
