@@ -1,4 +1,4 @@
-{
+export default {
   "create-node": "Create node",
   "rename-node": "Rename node",
   "delete-node": "Delete node",

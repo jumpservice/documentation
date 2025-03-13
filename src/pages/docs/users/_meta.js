@@ -1,6 +1,5 @@
-{
+export default {
   "create-users-groups": "Create users and groups",
   "manage-users": "Manage users",
   "manage-groups": "Manage groups"
 }
-

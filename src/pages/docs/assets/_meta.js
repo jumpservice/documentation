@@ -1,4 +1,5 @@
-{
+export default {
+  index: { display: "hidden" },
   "create-host": "Create host",
   "create-device": "Create device",
   "create-database": "Create database",
@@ -29,5 +30,5 @@
 
   "import-export-assets": "Import and export",
 
-  "cloud": "Sync from clouds"
+  cloud: "Sync from clouds"
 }
