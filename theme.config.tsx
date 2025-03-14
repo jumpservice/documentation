@@ -43,6 +43,9 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1,
     titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
+      if (type === "divider") {
+        titleComponent = <span className="nx-cursor-default">--------------</span>;
+      }
       if (type === "separator") {
         titleComponent = <span className="nx-cursor-default">{title}</span>;
       }

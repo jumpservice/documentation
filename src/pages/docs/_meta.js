@@ -1,31 +1,29 @@
-import { sideMenuDisplayHidden } from './docs-config.js'
-
-
 export default {
 
-  index: "Introduction",
+  index: { title: "Introduction" },
 
   "-- getting-started": { "type": "separator", "title": "Getting Started" },
 
-  "quickstart": "Quickstart",
+  quickstart: { title: "Quickstart" },
 
-  "installation": "Installation",
+  installation: { title: "Installation" },
 
-  "upgrade": "Upgrade",
+  upgrade: { title: "Upgrade" },
 
   "-- admin-guides": { type: "separator", title: "Admin Guides" },
 
   users: { title: "Users" },
 
+  groups: { title: "Groups"},
+
   assets: { title: "Assets" },
 
-  "asset-nodes": { title: "Asset Nodes" },
+  nodes: { title: "Nodes" },
 
   "system-settings": { title: "System Settings" },
 
   "-- more": { type: "separator", title: "More" },
 
-  changelog: "Changelogs",
+  changelog: { title: "Changelogs" },
 
-  "wait-for-completion": { display: "hidden" }
 }
