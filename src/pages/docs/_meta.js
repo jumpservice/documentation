@@ -22,5 +22,5 @@ export default {
 
   "-- more": { type: "separator", title: "More" },
   changelog: { title: "Changelogs" },
-
+  troubleshooting: { title: "Troubleshooting", display: "children" },
 }
