@@ -12,7 +12,7 @@ export default {
 
   "-- admin-guides": { type: "separator", title: "Admin Guides" },
 
-  users: { title: "Users" },
+  users: { title: "Create & Manage Users" },
 
   groups: { title: "Groups"},
 

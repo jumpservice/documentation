@@ -1,23 +1,12 @@
 export default {
-  "create-user": { title: "Create user" },
-  "duplicate-user": { title: "Duplicate a user" },
-  "delete-users": { title: "Delete users" },
-  "disable-users": { title: "Disable users" },
-  "invite-users": { title: "Invite users to org" },
-  "remove-users": { title: "Remove users from org" },
+  "add-users": { title: "Add users", display: "normal" },
+  "manage-users": { title: "Manage users", display: "normal" },
 
-  "reset-user-password": { title: "Reset user password" },
-  "reset-user-ssh-key": { title: "Reset user SSH key" },
-  "reset-user-mfa": { title: "Reset user MFA" }, 
-  "unlock-user": { title: "Unlock user" },
+  "user-details": { title: "User details" },
 
-  "view-details": { title: "View details" },
-
-  "view-authorized-assets": { title: "View authorized assets" },
-  "view-authorizations": { title: "View authorizations" },
-  "view-connected-sessions": { title: "View connected sessions" },
-  "view-activities": { title: "View activities" },
-
-  "manage-login-acls": { title: "Manage login ACLs" },
+  "user-authorized-assets": { title: "User authorized assets" },
+  "user-authorizations": { title: "User authorizations" },
+  "user-connected-sessions": { title: "User connected sessions" },
+  "user-activity-log": { title: "User activity logs" },
 
 }
