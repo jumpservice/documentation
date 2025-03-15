@@ -4,7 +4,7 @@ export default {
 
 
 
-  "-- getting-started": { "type": "separator", "title": "Getting Started" },
+  "-- get-started": { "type": "separator", "title": "Get Started" },
   quickstart: { title: "Quickstart" },
   installation: { title: "Installation" },
   upgrade: { title: "Upgrade" },
