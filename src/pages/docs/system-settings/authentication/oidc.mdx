@@ -38,7 +38,7 @@ In the **Client secret** field, enter the client secret provided by the OIDC ser
 <div>
 In the **Request method** field, select a method to obtain a token.
 <HorizontalTable 
-  headers={['Request Method', 'Describes']} 
+  headers={['Method', 'Description']} 
   rows={[
     ["Client Secret Basic", "Use the POST method to obtain the token, with the client ID and client secret included in the request headers."], 
     ["Client Secret Post", "Use the POST method to obtain a token, with client ID and client secret included as raw data in the request body."],
@@ -99,7 +99,7 @@ In the **Use keycloak** field, check the box to use the Keycloak configuration, 
       <div>
       In the **Signature algorithm** field, enter the OIDC signature algorithm, valid options are "HS256" and "RS256". The default is "HS256".
       <HorizontalTable 
-        headers={['Name', 'Describes']} 
+        headers={['Name', 'Description']} 
         rows={[
           ["HS256", "Uses the \"Client ID\" as the shared key."], 
           ["RS256", "Uses the \"Signing key\" as the shared key."],
