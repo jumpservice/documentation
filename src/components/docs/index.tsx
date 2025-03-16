@@ -4,3 +4,4 @@ export { default as Steps } from "./steps";
 export { default as Alert } from "./alert";
 export { Cards, Card } from "./cards";
 export { default as WaitForCompletion } from "./wait-for-completion";
+export { Tabs, Tab } from "./tabs";
