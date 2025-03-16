@@ -5,7 +5,7 @@ export function Tabs({ titlesMap, children }: { titlesMap: Record<string, string
 
   return (
     <div>
-      <div className="flex border-b dark:border-gray-700 gap-4 pl-2">
+      <div className="flex mt-5 border-b dark:border-gray-700 gap-4">
         {Object.entries(titlesMap).map(([key, title]) => (
           <button
             key={key}
@@ -16,7 +16,7 @@ export function Tabs({ titlesMap, children }: { titlesMap: Record<string, string
           </button>
         ))}
       </div>
-      <div className="p-4">  
+      <div className="pt-2">  
         {children &&
           Array.isArray(children) &&
           children.find((child: any) => child.props.titleKey === activeTab)}

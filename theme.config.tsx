@@ -2,7 +2,7 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
 import { 
-  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, Tab
+  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, Tab, HorizontalTable
 } from "@/components/docs";
 
 
@@ -10,7 +10,7 @@ const config: DocsThemeConfig = {
   components: { 
     Icon, Alert, Cards, Card,
     Steps, Nav, WaitForCompletion, 
-    Tabs, Tab,
+    Tabs, Tab, HorizontalTable
   },
   head: (
     <>
