@@ -1,5 +1,7 @@
 import React from "react";
-import { Settings, Crown, CircleHelp } from 'lucide-react';
+import { 
+  Settings, Crown, CircleHelp, ArrowRightLeft, Plus
+} from 'lucide-react';
 
 function IconTips({ Icon, tooltip = "", iconColor = "" }) {
   if (tooltip === "") {
@@ -18,7 +20,7 @@ function IconTips({ Icon, tooltip = "", iconColor = "" }) {
 }
 
 interface IconProps {
-  name: "settings"| "help" ;
+  name: "settings"| "help" | "xpack" | "xpackTip" | "switch";
 }
 
 const iconConfig = {
@@ -26,6 +28,8 @@ const iconConfig = {
   xpack: <IconTips Icon={Crown} iconColor={"text-yellow-500 fill-yellow-500"}/>,
   xpackTip: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"text-yellow-500 fill-yellow-500"}/>,
   help: <CircleHelp className="w-4 inline-block"/>,
+  switch: <ArrowRightLeft className="w-4 inline-block"/>,
+  plus: <Plus className="w-4 inline-block"/>,
 }
 
 const Icon: React.FC<IconProps> = ({ name }) => {

@@ -43,30 +43,51 @@ In the **Request method** field, select a method to obtain a token.
 </div>
 
 <div>
-In the **Use keycloak** field, check the box to use the Keycloak configuration. The following fields are required:
+In the **Use keycloak** field, check the box to use the Keycloak configuration.
+  <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-keycloak.png" alt="image" width="550"/>
+  <Steps stepLevel="2">
 
-  * **Server**: Enter the Keycloak server URI, such as "https://&#8203;keycloak.example.com".
-  * **Realm name**: Enter the Keycloak realm name, such as "JumpServer".
-    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-keycloak.png" alt="image" width="550"/>
+  <div>
+  In the **Server** field, enter the Keycloak server URI, such as "https://&#8203;keycloak.example.com".
+  </div>
 
+  <div>
+  In the **Realm name** field, enter the Keycloak realm name, such as "JumpServer".
+  </div>
+
+  </Steps>
 </div> 
 
 <div>
-In the **Use keycloak** field, clear the box to use the native OIDC configuration. The following fields are required:
+In the **Use keycloak** field, clear the box to use the native OIDC configuration.
+  <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-native.png" alt="image" width="700"/>
+  <Steps stepLevel="2">
+  <div>
+  In the **Provider endpoint** field, enter the OIDC provider endpoint, such as "https://&#8203;oidc.example.com".
+  </div>
 
-  * **Provider endpoint**: Enter the OIDC provider endpoint, such as "https://&#8203;oidc.example.com".
+  <div>
+  In the **Authorization endpoint** field, enter the OIDC authorization endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/auth/".
+  </div>
 
-  * **Authorization endpoint**: Enter the OIDC authorization endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/auth/".
+  <div>
+  In the **Token endpoint** field, enter the OIDC token endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/token/".
+  </div>
 
-  * **Token endpoint**: Enter the OIDC token endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/token/".
+  <div>
+  In the **JWKS endpoint** field, enter the OIDC JSON Web Key Set (JWKS) endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/certs/.
+  </div>
 
-  * **JWKS endpoint**: Enter the OIDC JSON Web Key Set (JWKS) endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/certs/.
+  <div>
+  In the **Userinfo endpoint** field, enter the OIDC userinfo endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/userinfo/".
+  </div>
 
-  * **Userinfo endpoint**: Enter the OIDC userinfo endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/userinfo/".
+  <div>
+  In the **End session endpoint** field, enter the OIDC end session endpoint, when the user logs out, this endpoint will be called, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/logout/".
+  </div>
 
-  * **End session endpoint**: Enter the OIDC end session endpoint, when the user logs out, this endpoint will be called, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/logout/".
-
-  * **Signature algorithm**: Enter the OIDC signature algorithm, valid options are "HS256" and "RS256". The default is "HS256".
+  <div>
+  In the **Signature algorithm** field, enter the OIDC signature algorithm, valid options are "HS256" and "RS256". The default is "HS256".
 
     * **HS256**: Uses the "Client ID" as the shared key.
     * **RS256**: Uses the "Signing key" as the shared key.
@@ -74,26 +95,42 @@ In the **Use keycloak** field, clear the box to use the native OIDC configuratio
       <Alert type="note">
         The **shared key** in this function is used for Hash-based Message Authentication Code (HMAC) signatures when verifying ID token in an OIDC authentication flow.
       </Alert>
+  </div>
 
-  * **Signing key**: When the "Signature algorithm" field value is "RS256", the signing key will be used for HMAC signature verification or JSON Web Token (JWK) decryption to ensure the security of OIDC authentication.
+  <div>
+  In the **Signing key** field, when the "Signature algorithm" field value is "RS256", the signing key will be used for HMAC signature verification or JSON Web Token (JWK) decryption to ensure the security of OIDC authentication.
+  </div>
 
-  * **Enable PKCE**: Recommended for use. Proof Key for Code Exchange (PKCE) protects the authorization code flow and prevents authorization code interception attacks.
+  <div>
+  In the **Enable PKCE** field, recommended for use. Proof Key for Code Exchange (PKCE) protects the authorization code flow and prevents authorization code interception attacks.
+  </div>
 
-  * **Code challenge method**: The method used to generate the code challenge from the code verifier in the PKCE process. This option appears when "Enable PKCE" is checked. The default is "S256".
+  <div>
+  in the **Code challenge method** field, the method used to generate the code challenge from the code verifier in the PKCE process. This option appears when "Enable PKCE" is checked. The default is "S256".
       * **S256**: Recommended for use, apply the SHA-256 hash algorithm to the code verifier, then Base64 URL encode the result (removing the padding "=") to generate the code challenge.
       * **Plain**: Directly use the code verifier itself as the code challenge without any processing.
+  </div>
 
-  * **Scopes**: Defines the range of user information that the client requests access to from the OP in an authorization request. Multiple pieces of information are separated by spaces, such as "openid profile email". For more information, see [OpenID Connect Scopes](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
+  <div>
+  In the **Scopes** field, defines the range of user information that the client requests access to from the OP in an authorization request. Multiple pieces of information are separated by spaces, such as "openid profile email". For more information, see [OpenID Connect Scopes](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
+  </div>
 
-  * **ID token max age (s)**: The maximum age of the ID token, in seconds. After it expires, a new one will be automatically obtained using the refresh token.
+  <div>
+  In the **ID token max age (s)** field, the maximum age of the ID token, in seconds. After it expires, a new one will be automatically obtained using the refresh token.
+  </div>
 
-  * **ID token include claims**: When checked, the ID token includes the userinfo scope and claims. When unchecked, claims will be retrieved from the userinfo endpoint provided by the OP. For more information, see [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+  <div>
+  In the **ID token include claims** field, when checked, the ID token includes the userinfo scope and claims. When unchecked, claims will be retrieved from the userinfo endpoint provided by the OP. For more information, see [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+  </div>
 
-  * **Use state**: Recommended for use, as it helps prevent Cross-Site Request Forgery (CSRF) attacks and ensures consistency between the request and the callback.
+  <div>
+  In the **Use state** field, recommended for use, as it helps prevent Cross-Site Request Forgery (CSRF) attacks and ensures consistency between the request and the callback.
+  </div>
 
-  * **Use nonce**: Recommended for use, as it helps prevent replay attacks.
-    <img src="/images/docs/admin-guides/system-settings/auth/oidc-use-native.png" alt="image" width="700"/>
-
+  <div>
+  In the **Use nonce** field, recommended for use, as it helps prevent replay attacks.
+  </div>
+  </Steps>
 </div>
 
 <div>

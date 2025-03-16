@@ -1,8 +1,14 @@
 # Quickstart for JumpServer
 
-Try out the features of JumpServer in 10 minutes or less.
+This topic walks you through JumpServer’s features quickly and efficiently, helping you try them out in 10 minutes or less.
 
-<br/>
+## Introduction
+
+For more information about JumpServer, see [Introduction to JumpServer](/docs).
+
+Next, we will complete the following steps: prerequisites, creating an asset, authorizing the asset to the Administrator, connecting to the asset via the web as the Administrator, and auditing sessions and commands.
+
+You can watch the video below or follow the steps to quickly get started.
 
 <iframe
     className="aspect-video w-full"
@@ -11,29 +17,91 @@ Try out the features of JumpServer in 10 minutes or less.
     allowFullScreen
 />
 
-
-## Introduction
-
-JumpServer is an open-source PAM tool (Bastion Host) that offers efficient and secure asset management and operation auditing capabilities.
-
-This guide covers quick installation and deployment of JumpServer, as well as basic operations such as creating users, assets, and authorizations, logging in as a user and connecting to assets, auditing sessions and login logs.
-
-
 ## Prerequisites
 
 Before starting, please install JumpServer, and log in as an Administrator. For more information, see [JumpServer installation guide](/docs/installation).
 
+## Creating an asset
+<Steps>
 
-## Create an asset
+<div>
+<Nav name="console" />
+</div>
 
-## Authorize asset for user
+<div>
+Navigate to **Console > Assets > Host**, and click **Create** button.
+</div>
 
-## Connect to asset via web
+<div>
+On the right-side page, select the **Linux** platform and go to the asset creation page.
+</div>
 
-## Audit sessions and commands
+<div>
+In the **Name** field, type a name for the asset, such as "Demo Linux".
+</div>
+
+<div>
+In the **IP/Host** field, type the IP address of the asset, such as "172.16.10.110".
+</div>
+
+<div>
+In the **Linux** field, keep the "Linux" platform selected.
+</div>
+
+<div>
+In the **Nodes** field, select the "/DEFAULT" node.
+</div>
+
+<div>
+In the **Accounts** field, click the **Add** button to add an account.
+    <Steps stepLevel="2">
+    <div>
+    In the **Name** field, type a name for the account, such as "root".
+    </div>
+
+    <div>
+    In the **Username** field, type the username for the account, such as "root".
+    </div>
+
+    <div>
+    In the **Secret type** field, select "Password".
+    </div>
+
+    <div>
+    In the **Password** field, type the password for the account.
+    </div>
+
+    <div>
+    Other account fields keep the default values, and click **Confirm**.
+    </div>
+    </Steps>
+</div>
+
+<div>
+Other asset fields keep the default values, and click **Submit**.
+</div>
+
+</Steps>
+
+## Authorizing asset for user
+
+## Connecting to asset via web
+
+## Auditing sessions & commands
 
 
 ---
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
 
 ## Old content to delete
 
