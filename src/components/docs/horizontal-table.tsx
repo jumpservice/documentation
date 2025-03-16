@@ -8,7 +8,7 @@ interface HorizontalTableProps {
 const HorizontalTable: React.FC<HorizontalTableProps> = ({ headers, rows }) => {
   return (
     <div className="overflow-x-auto w-full mt-4 pr-20">
-      {/* Headers 行 */}
+      {/* Headers */}
       <div
         className="grid border-b-2 dark:border-gray-700"
         style={{ gridTemplateColumns: `repeat(${headers.length}, 1fr)` }}
@@ -20,7 +20,7 @@ const HorizontalTable: React.FC<HorizontalTableProps> = ({ headers, rows }) => {
         ))}
       </div>
 
-      {/* Rows 行 */}
+      {/* Rows */}
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
