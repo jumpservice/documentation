@@ -18,6 +18,16 @@ const NavConsole = () => {
   );
 
 }
+
+const NavWebTerminal = () => {
+  return (
+    <div>
+      In the upper-right corner of any page in JumpServer, click <Icon name="square-terminal"/>.
+      <img src="/images/docs/navs/nav-web-terminal.png" alt="image" width="350"/>
+    </div>
+  )
+
+}
 interface NavProps {
   name: "system-settings" | "console";
 }
@@ -25,6 +35,7 @@ interface NavProps {
 const navConfig = {
   'system-settings': <NavSystemSettings />,
   'console': <NavConsole />,
+  "web-terminal": <NavWebTerminal />,
 }
 
 const Nav: React.FC<NavProps> = ({ name }) => {
