@@ -19,7 +19,7 @@ You can watch the video below or follow the steps to quickly get started.
 
 ## Prerequisites
 
-Before starting, please install JumpServer, and log in as an Administrator. For more information, see [JumpServer installation guide](/docs/installation).
+Before starting, please install JumpServer, and **log in as an Administrator**. For more information, see [JumpServer installation guide](/docs/installation).
 
 ## Creating an asset
 <Steps>
@@ -58,7 +58,7 @@ In the **Nodes** field, select the "/DEFAULT" node.
 </div>
 
 <div>
-In the **Accounts** field, click the **Add** button to add an account.
+In the **Accounts** field, click the **Add** and follow the steps in the pop-up to complete the account creation. 
     <Steps stepLevel="2">
     <div>
     In the **Name** field, type a name for the account, such as "root".
@@ -146,11 +146,13 @@ Click **Submit**.
 </div>
 
 <div>
-At this point, you should have the Web Terminal page open in a new browser tab. locate the "Demo Linux" asset in the authorization tree on the left-side page, and click it.
+At this point, the Web Terminal page should be open in a new browser tab.
+
+In the authorization tree on the left side, search for and click the "Demo Linux" asset.
 </div>
 
 <div>
-In the popup, select the following options.
+An asset connection pop-up will appear, you can follow the guide to connect the asset.
 
     <Steps stepLevel="2">
     <div>
@@ -166,176 +168,71 @@ In the popup, select the following options.
     </div>
 
     <div>
-    Click "CONNECT".
+    Click **CONNECT**.
     </div>
     </Steps>
 
 </div>
 
 <div>
-At this point, you should have successfully connected to the asset.
+By this time, you should have successfully connected to the asset.
 </div>
 
 <div>
-You can try executing commands such as `ls -al`, `whoami` or `pwd`, etc.
+Next, you can try executing commands such as `ls -al`, `whoami` or `pwd`, etc.
 </div>
 
 <div>
-Run `exit` to end the current session.
+Finally, run `exit` to end the current session.
 </div>
 
 </Steps>
 
 
-## Auditing sessions & commands
+## Auditing connected sessions
+<Steps>
 
+<div>
+<Nav name="audits" />
+</div>
+
+<div>
+Navigate to **Audits > Asset sessions > Historical sessions** tab.
+</div>
+
+<div>
+You can view the history of asset connection sessions. 
+<Alert>
+In the **Actions** column, click "Playback" to watch the recording online or "Download" to save it.
+</Alert>
+</div>
+
+</Steps>
+
+
+## Auditing executed commands
+<Steps>
+
+<div>
+<Nav name="audits" />
+</div>
+
+<div>
+Navigate to **Audits > Session commands** page.
+</div>
+
+<div>
+You can view all executed commands.
+
+<Alert>
+Click the <Icon name="chevron-down"/> at the end of the row to view the command result.
+</Alert>
+</div>
+
+</Steps>
 
 ---
-##
-##
-##
-##
-##
-##
-##
-##
-##
-##
-##
+## Next steps
+Now that you’ve completed the quickstart guide, it’s time to explore more advanced features of JumpServer!
 
-## Old content to delete
-
-After logging in to JumpServer, let's create a user first:
-
-1. Navigate to the `Console` and access the `User Management` page.
-
-![Console User](/images/docs/quickstart/console-user.png)
-
-2. Click the `+Create` button.
-
-3. Fill in the user information.
-
-> - Name: First User
-> - Username: first_user
-> - Email: first-user@example.com
-> - Password setting: Set Password, and enter `pwd@123`
-
-Please keep the other information at their default values.
-
-![Create User](/images/docs/quickstart/create-user.png)
-
-4. Click "Submit" to complete the user creation.
-
-## Create Asset
-
-Next, let's create an Linux asset:
-
-1. Navigate to the `Asset Management` page.
-
-2. Switch to the `Host` tab, and click the `+Create` button. In the popup window, select the built-in `Linux` platform to open the host creation page.
-
-![Nav Asset](/images/docs/quickstart/nav-assets.png)
-
-3. Fill in the asset information.
-
-> - Name: First Asset
-> - IP/Host: 172.17.200.27
-> - Platform: Linux
-> - Nodes: /Default
-> - Protocols: ssh/22, sftp/22
-
-To Ensure Successful Connection in the Following Steps, please enter the correct `IP/Host` and SSH protocol `port`.
-
-![Create Asset](/images/docs/quickstart/create-asset.png)
-
-4. Add an account to the asset.
-
-Click the `Add` button in the `Accounts` section to add an account. In the popup window, enter the correct Name, Username, and Password. Keep the other information as default. Click `Confirm` to complete the account addition.
-
-> - Name: root
-> - Username: root
-> - Password: `your-password`
-
-![Create Asset](/images/docs/quickstart/create-asset-add-account.png)
-
-4. Click `Submit` to complete the asset creation.
-
-## Create Authorization
-
-Finally, let's create an authorization.
-
-1. Navigate to the `Authorization Management` page.
-
-![Nav Authorization](/images/docs/quickstart/nav-authorization.png)
-
-2. Click the `+Create` button.
-
-3. Fill in the authorization information.
-
-> - Name: First Authorization
-> - Users: Select `First User`
-> - Assets: Select `First Linux`
-
-Keep the other information as default.
-
-![Create Authorization](/images/docs/quickstart/create-authorization.png)
-
-4. Click "Submit" to complete the authorization creation.
-
-## User Login
-
-Excellent, we have successfully created one user and one asset, and authorized the asset for the user. Next, let's proceed to log in to JumpServer using the user `First User`.
-
-1. To log in simultaneously with both the `Administrator` and `First User`, please open a new browser window in incognito mode.
-
-2. After logging in with the username `first_user` and password `pwd@123`, you will be prompted to reset your password. Simply follow the steps to reset your password, and then log in again using the new password.
-
-3. After successfully logging in, you will see a page to `complete personal information`. Check "I agree" and click `Submit`.
-
-![Complete Personal Info](/images/docs/quickstart/complete-personal-info.png)
-
-4. Navigate to the `Workbench > Access assets` page, where you can view the assets authorized to you. Here, you will see that the asset named `First Linux` has been authorized to you.
-
-![Workbench Asset](/images/docs/quickstart/workbench-assets.png)
-
-Simply click the Connect button here to access the asset.
-
-## Access Asset
-
-After clicking the asset connection button, a new tab (Web Terminal) will open in your current browser, and the connection information for logging into the asset will also be displayed.
-
-1. Confirm the connection information: select `root` as the account and choose "Web CLI" as the connection method.
-
-![Connect Asset](/images/docs/quickstart/connect-asset.png)
-
-2. Click the `CONNECT` button to log in to the asset.
-
-3. Congratulations, you have successfully accessed the assets you have permission to use.
-
-![Connect Asset Finished](/images/docs/quickstart/connect-asset-finished.png)
-
-## Audit logs
-
-Next, while keeping the current user's asset session active, let's switch to the `Administrator` page. Navigate to the `Audits` to review the actions performed by the current user.
-
-1. Navigate to the `Audits > Asset sessions` page.
-
-We observe that there is a session where the `First User` is connected to the `First Linux` asset using the root account.
-
-![Asset sessions](/images/docs/quickstart/asset-sessions.png)
-
-2. Navigate to the `Audits > Session commands` page, we can view the commands executed by the user.
-
-![Session commands](/images/docs/quickstart/session-commands.png)
-
-3. Navigate to the `Audits > Login logs` page, We can view detailed login logs for the user.
-
-![Login Logs](/images/docs/quickstart/login-logs.png)
-
-Congratulations! Following this guide, you should have successfully installed JumpServer, created users and assets, authorized access, and learned to connect to assets and audit logs.
-
-## Next Steps
-
-Regarding more advanced features of JumpServer, it's your turn to explore!
-
-JumpServer documentation is continually being updated. Please stay tuned for more details.
+Please note, the documentation is still being updated, and we’ll continue to add more details. Stay tuned for future updates!

@@ -1,6 +1,6 @@
 import React from "react";
 import { 
-  Settings, Crown, CircleHelp, ArrowRightLeft, Plus, SquareTerminal
+  Settings, Crown, CircleHelp, ArrowRightLeft, Plus, SquareTerminal, ChevronDown
 } from 'lucide-react';
 
 function IconTips({ Icon, tooltip = "", iconColor = "" }) {
@@ -31,6 +31,7 @@ const iconConfig = {
   switch: <ArrowRightLeft className="w-4 pb-1 inline-block" />,
   plus: <Plus className="w-4 pb-1 inline-block" />,
   "square-terminal": <SquareTerminal className="w-4 pb-1 inline-block" />,
+  "chevron-down": <ChevronDown className="w-4 inline-block" />,
 }
 
 const Icon: React.FC<IconProps> = ({ name }) => {

@@ -1,14 +1,5 @@
 import Icon from './icons'
 
-const NavSystemSettings = () => {
-  return (
-    <div>
-      In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
-      <img src="/images/docs/navs/nav-settings.png" alt="image" width="350"/>
-    </div>
-  );
-}
-
 const NavConsole = () => {
   return (
     <div>
@@ -16,7 +7,15 @@ const NavConsole = () => {
       <img src="/images/docs/navs/nav-console.png" alt="image" width="300"/>
     </div>
   );
+}
 
+const NavAudits = () => {
+  return (
+    <div>
+      On the left side of the page, hover over the <Icon name="switch" /> , and click <b>Audits</b>.
+      <img src="/images/docs/navs/nav-audits.png" alt="image" width="300"/>
+    </div>
+  );
 }
 
 const NavWebTerminal = () => {
@@ -28,14 +27,25 @@ const NavWebTerminal = () => {
   )
 
 }
+
+const NavSystemSettings = () => {
+  return (
+    <div>
+      In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+      <img src="/images/docs/navs/nav-settings.png" alt="image" width="350"/>
+    </div>
+  );
+}
+
 interface NavProps {
   name: "system-settings" | "console";
 }
 
 const navConfig = {
-  'system-settings': <NavSystemSettings />,
   'console': <NavConsole />,
+  'audits': <NavAudits />,
   "web-terminal": <NavWebTerminal />,
+  'system-settings': <NavSystemSettings />,
 }
 
 const Nav: React.FC<NavProps> = ({ name }) => {
