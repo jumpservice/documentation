@@ -12,7 +12,7 @@ const NavSystemSettings = () => {
 const NavConsole = () => {
   return (
     <div>
-      On the left side of the page, hover over the <Icon name="switch" /> , and click on the <b>Console</b> option.
+      On the left side of the page, hover over the <Icon name="switch" /> , and click <b>Console</b>.
       <img src="/images/docs/navs/nav-console.png" alt="image" width="300"/>
     </div>
   );
