@@ -80,7 +80,7 @@ Navigate to **System settings > Authentication > Basic**.
 
 
 <div>
-In the **Login redirection** field, check the box to enable user login redirection.
+In the **Login redirection** field, check to enable user login redirection.
 <img src="/images/docs/admin-guides/system-settings/auth/basic-login-redirection.png" alt="image" width="450"/>
 </div>
 
@@ -91,8 +91,5 @@ Click **Submit**.
 </Steps>
 
 ### Usage scenarios
-When an unauthenticated user accesses JumpServer:
-  * `Enabled` They will be prompted to either **Cancel** and return to the default login page or **Confirm** to proceed with third-party authentication.
-  * `Disabled` They will be directly redirected to the third-party authentication page.
-
-  <img src="/images/docs/admin-guides/system-settings/auth/redirection-page.png" alt="image" width="450"/>
+When an unauthenticated user accesses JumpServer, if checked, they will be prompted to either **Cancel** and return to the default login page or **Confirm** to proceed with third-party authentication. If unchecked, they will be directly redirected to the third-party authentication page.
+<img src="/images/docs/admin-guides/system-settings/auth/redirection-page.png" alt="image" width="450"/>
