@@ -6,8 +6,8 @@ interface HorizontalTableProps {
   firstColumnRatio?: number; // 控制第一列占比，默认 1/3
 }
 
-const HorizontalTable: React.FC<HorizontalTableProps> = ({ headers, rows, firstColumnRatio = "1/3" }) => {
-  const firstColumnClass = `basis-${firstColumnRatio}`;
+const HorizontalTable: React.FC<HorizontalTableProps> = ({ headers, rows }) => {
+  const firstColumnClass = `basis-1/3`;
 
   return (
     <div className="overflow-x-auto w-full mt-4 pr-20">
@@ -16,12 +16,7 @@ const HorizontalTable: React.FC<HorizontalTableProps> = ({ headers, rows, firstC
         {headers.map((header, index) => (
           <div
             key={index}
-            className={
-              `
-                py-2 px-4 text-left text-sm font-semibold 
-                ${index === 0 ? firstColumnClass : 'flex-1'}
-              `
-            }
+            className={ `py-2 px-4 text-left text-sm font-semibold ${index === 0 ? firstColumnClass : 'flex-1'}` }
           >
             {header}
           </div>
@@ -34,11 +29,7 @@ const HorizontalTable: React.FC<HorizontalTableProps> = ({ headers, rows, firstC
           {row.map((cell, cellIndex) => (
             <div
               key={cellIndex}
-              className={
-                `
-                  py-4 px-4 text-left text-sm 
-                  ${cellIndex === 0 ? `font-bold ${firstColumnClass}` : 'flex-1'}
-                `
+              className={ `py-4 px-4 text-left text-sm ${cellIndex === 0 ? `font-bold ${firstColumnClass}` : 'flex-1'} `
               }
             >
               {cell}
