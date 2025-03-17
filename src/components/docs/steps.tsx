@@ -14,7 +14,7 @@ const Steps = ({ children, stepLevel = "1"}: { children: React.ReactNode, stepLe
     black: "border-black dark:border-white",
   }
   const theme = stepLevelThemeMap[stepLevel];
-  const indexTheme = `w-5 h-5 flex items-center justify-center rounded-full ${indexThemeMap[theme]} font-bold text-sm mt-1 select-none`
+  const indexTheme = `w-5 h-5 flex items-center justify-center rounded-full ${indexThemeMap[theme]} font-bold text-sm mt-1 select-none flex-shrink-0`
   const haveBorder = stepLevel === "2";
   const borderTheme = haveBorder ? `border-2 px-3 border-t-2 border-b-2 mt-3 pb-3 border-dashed ${borderThemeMap[theme]}` : "";
 
