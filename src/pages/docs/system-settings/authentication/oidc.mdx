@@ -1,0 +1,205 @@
+# Integrate OIDC authentication <Icon name="xpackTip"/>
+
+## About OIDC
+
+**OpenID Connect (OIDC)** is an identity authentication protocol based on "OAuth 2.0". It allows applications to verify a user's identity through an "authorization server" and obtain basic user information, such as "username" and "email". It adds an identity layer on top of OAuth 2.0, using an "ID Token" to transmit user identity information, and is widely used for Single Sign-On (SSO) and identity authentication systems.
+
+**Relying Party (RP)** is an application or client that uses authentication services and relies on the OpenID provider to authenticate the user and provide identity information.
+
+**OpenID Provider (OP)** is the server responsible for verifying the user's identity and providing identity information to the RP.
+
+
+## How to configure
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > OIDC**.
+</div>
+
+<div>
+In the **OIDC** field, check to enable OIDC authentication.
+</div>
+
+<div>
+In the **Base site URL** field, type the full domain name of JumpServer, such as "https://&#8203;jumsperver.example.com/", which is used to construct the callback URL.
+</div>
+
+<div>
+In the **Client id** field, type the client id provided by the OIDC server.
+</div>
+
+<div>
+In the **Client secret** field, type the client secret provided by the OIDC server.
+</div>
+
+<div>
+In the **Request method** field, select a method to obtain a token.
+<HorizontalTable 
+  headers={['Request Method', 'Description']} 
+  rows={[
+    ["Client Secret Basic", "Use the POST method to obtain the token, with the client ID and client secret included in the request headers."], 
+    ["Client Secret Post", "Use the POST method to obtain a token, with client ID and client secret included as raw data in the request body."],
+  ]}
+/>
+</div>
+
+<div>
+In the **Use keycloak** field, check to use the Keycloak configuration, or uncheck to use the native OIDC configuration.
+  <Tabs
+    titlesMap={{
+      useKeycloak: "Use Keycloak",
+      useNativeOIDC: "Use Native OIDC",
+    }}
+  >
+    <Tab titleKey="useKeycloak">
+      <Steps stepLevel="2">
+
+      <div>
+      In the **Server** field, type the Keycloak server URI, such as "https://&#8203;keycloak.example.com".
+      </div>
+
+      <div>
+      In the **Realm name** field, type the Keycloak realm name, such as "JumpServer".
+      </div>
+
+      </Steps>
+    
+    </Tab>
+
+    <Tab titleKey="useNativeOIDC">
+      <Steps stepLevel="2">
+
+      <div>
+      In the **Provider endpoint** field, type the OIDC provider endpoint, such as "https://&#8203;oidc.example.com".
+      </div>
+
+      <div>
+      In the **Authorization endpoint** field, type the OIDC authorization endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/auth/".
+      </div>
+
+      <div>
+      In the **Token endpoint** field, type the OIDC token endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/token/".
+      </div>
+
+      <div>
+      In the **JWKS endpoint** field, type the OIDC JSON Web Key Set (JWKS) endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/certs/.
+      </div>
+
+      <div>
+      In the **Userinfo endpoint** field, type the OIDC userinfo endpoint, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/userinfo/".
+      </div>
+
+      <div>
+      In the **End session endpoint** field, type the OIDC end session endpoint, when the user logs out, this endpoint will be called, such as "https://&#8203;oidc.example.com/realms/JumpServer/protocol/openid-connect/logout/".
+      </div>
+
+      <div>
+      In the **Signature algorithm** field, type the OIDC signature algorithm, valid options are "HS256" and "RS256". The default is "HS256".
+      <HorizontalTable 
+        headers={['Algorithm', 'Description']} 
+        rows={[
+          ["HS256", "Uses the \"Client ID\" as the shared key."], 
+          ["RS256", "Uses the \"Signing key\" as the shared key."],
+        ]}
+      />
+      <Alert type="note">
+        The **shared key** in this function is used for Hash-based Message Authentication Code (HMAC) signatures when verifying ID token in an OIDC authentication flow.
+      </Alert>
+      </div>
+
+      <div>
+      In the **Signing key** field, when the "Signature algorithm" field value is "RS256", the signing key will be used for HMAC signature verification or JSON Web Token (JWK) decryption to ensure the security of OIDC authentication.
+      </div>
+
+      <div>
+      In the **Enable PKCE** field, recommended for use. Proof Key for Code Exchange (PKCE) protects the authorization code flow and prevents authorization code interception attacks.
+      </div>
+
+      <div>
+      in the **Code challenge method** field, the method used to generate the code challenge from the code verifier in the PKCE process. This option appears when "Enable PKCE" is checked. The default is "S256".
+      <HorizontalTable 
+        headers={['Challenge Method', 'Description']} 
+        rows={[
+          ["S256", "Recommended for use, apply the SHA-256 hash algorithm to the code verifier, then Base64 URL encode the result (removing the padding \"=\") to generate the code challenge."],
+          ["Plain", "Directly use the code verifier itself as the code challenge without any processing."]
+        ]}
+      />
+      </div>
+
+      <div>
+      In the **Scopes** field, defines the range of user information that the client requests access to from the OP in an authorization request. Multiple pieces of information are separated by spaces, such as "openid profile email". For more information, see [OpenID Connect Scopes](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
+      </div>
+
+      <div>
+      In the **ID token max age (s)** field, the maximum age of the ID token, in seconds. After it expires, a new one will be automatically obtained using the refresh token.
+      </div>
+
+      <div>
+      In the **ID token include claims** field, when checked, the ID token includes the userinfo scope and claims. When unchecked, claims will be retrieved from the userinfo endpoint provided by the OP. For more information, see [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
+      </div>
+
+      <div>
+      In the **Use state** field, recommended for use, as it helps prevent Cross-Site Request Forgery (CSRF) attacks and ensures consistency between the request and the callback.
+      </div>
+
+      <div>
+      In the **Use nonce** field, recommended for use, as it helps prevent replay attacks.
+      </div>
+
+      </Steps>
+    
+    </Tab>
+
+  </Tabs>
+</div> 
+
+<div>
+In the **Always update user** field, when checked, after OIDC user authentication, user information (only includes: name, username, email, phone, comment) will be updated each time, "groups" are only synchronized when the user is created.
+</div>
+
+<div>
+In the **Ignore SSL verification** field, when checked, SSL certificate verification is ignored when sending requests to the OP.
+</div>
+
+<div>
+In the **Share session** field, when checked, the session will be logged out simultaneously when a user logs out from other applications.
+</div>
+
+<div>
+In the **User attribute** field, type the user attribute mapping. The key represents the JumpServer user attribute name (available options: name, username, email, groups, phone, comment), while the value corresponds to the OIDC user attribute name.
+```json copy=true filename="OIDC User Attribute Example"
+{
+  "name": "name",
+  "username": "preferred_username",
+  "email": "email",
+  "groups": "groups"
+}
+```
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+
+## JumpServer OIDC URLs
+```md filename="Login URL"
+https://jumpserver.example.com/core/auth/openid/login/
+```
+
+```md filename="Login Success Callback URL"
+https://jumpserver.example.com/core/auth/openid/callback/
+```
+
+```md filename="Logout URL"
+https://jumpserver.example.com/core/auth/openid/logout/
+```

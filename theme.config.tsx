@@ -1,8 +1,17 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
+import { 
+  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, Tab, HorizontalTable, DataTable
+} from "@/components/docs";
+
 
 const config: DocsThemeConfig = {
+  components: { 
+    Icon, Alert, Cards, Card,
+    Steps, Nav, WaitForCompletion, 
+    Tabs, Tab, HorizontalTable, DataTable
+  },
   head: (
     <>
       <meta
@@ -22,8 +31,7 @@ const config: DocsThemeConfig = {
     useLink: () =>
       "https://github.com/jumpserver/jumpserver/issues/new?labels=%F0%9F%A4%94+Question&projects=&template=3_question.yml&title=%5BQuestion%5D+",
   },
-  docsRepositoryBase:
-    "https://github.com/jumpservice/documentation/tree/dev",
+  docsRepositoryBase: "https://github.com/jumpservice/documentation/tree/dev",
   search: {
     placeholder: "Search",
   },
@@ -35,8 +43,19 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1,
     titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
+      if (type === "divider") {
+        titleComponent = <span className="nx-cursor-default">--------------</span>;
+      }
       if (type === "separator") {
         titleComponent = <span className="nx-cursor-default">{title}</span>;
+      }
+      if (title.startsWith("xpack.")) {
+        titleComponent = (
+          <div className="flex items-center gap-1">
+            <Icon name="xpack"/>
+            {title.replace("xpack.", "")}
+          </div>
+        );
       }
       return titleComponent;
     },

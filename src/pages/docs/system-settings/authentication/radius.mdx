@@ -1,0 +1,67 @@
+# Integrate RADIUS authentication <Icon name="xpackTip"/>
+
+## About RADIUS
+**Remote authentication Dial-In User Service (RADIUS)** is a remote authentication mechanism based on the RADIUS protocol, primarily used for network access control. It provides Authentication, Authorization, and Accounting (AAA) functionalities.
+
+## How to configure
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > Radius**.
+</div>
+
+<div>
+In the **Radius** field, check to enable RADIUS authentication.
+</div>
+
+<div>
+In the **Host** field, type the RADIUS server IP address or domain name, such as "172.16.10.180".
+</div>
+
+<div>
+In the **Port** field, type the RADIUS server port number. The default is "1812".
+</div>
+
+<div>
+In the **Secret** field, type the shared secret key between the JumpServer and the RADIUS server. It functions like a password, encrypting sensitive information in RADIUS requests and responses to ensure secure communication.
+</div>
+
+<div>
+Optionally, In the **OTP in RADIUS** field, check to enable RADIUS as the MFA backend. For more information, see [Enable RADIUS MFA backend](/docs/system-settings/authentication/radius#enable-radius-mfa-backend).
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## Enable RADIUS MFA backend
+
+This subsection describes how to configure RADIUS authentication as one of the MFA backends.
+
+<Steps>
+<div>
+Configure RADIUS authentication by following the [Integrate RADIUS authentication](/docs/system-settings/authentication/radius#how-to-configure) guide.
+</div>
+
+<div>
+In the **OTP in RADIUS** field, check to enable RADIUS as the MFA backend.
+
+When a user’s MFA is enabled, they can choose RADIUS authentication type during login.
+<img src="/images/docs/admin-guides/system-settings/auth/radius-mfa.png" alt="image" width="600"/>
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>

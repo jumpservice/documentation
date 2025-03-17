@@ -1,7 +1,14 @@
-# Quickstart Guide
+# Quickstart for JumpServer
 
-Try out the features of JumpServer in 10 minutes or less.
-<br/>
+This topic walks you through JumpServer’s features quickly and efficiently, helping you try them out in 10 minutes or less.
+
+## Introduction
+
+For more information about JumpServer, see [Introduction to JumpServer](/docs).
+
+Next, we will complete the following steps: prerequisites, creating an asset, authorizing the asset to the Administrator, connecting to the asset via the web as the Administrator, and auditing sessions and commands.
+
+You can watch the video below or follow the steps to quickly get started.
 
 <iframe
     className="aspect-video w-full"
@@ -10,160 +17,223 @@ Try out the features of JumpServer in 10 minutes or less.
     allowFullScreen
 />
 
-## Introduction
+## Prerequisites
 
-JumpServer is an open-source PAM tool (Bastion Host) that provides efficient and secure asset management and operation auditing capabilities. This guide will walk you through the quick installation and deployment of JumpServer, as well as basic operations such as creating users, assets, and authorizations, user login, connecting to assets, and auditing sessions and login logs.
+Before starting, please install JumpServer, and **log in as an Administrator**. For more information, see [JumpServer installation guide](/docs/installation).
 
-## Installing and Deploying
+## Creating an asset
+<Steps>
 
-How to install JumpServer please refer to the [Installation Docs](/docs/installation).
+<div>
+<Nav name="console" />
+</div>
 
-## Administrator Login
+<div>
+Navigate to **Console > Assets > Host** tab.
+</div>
 
-You have successfully installed JumpServer. You can now access the JumpServer service using your web browser by navigating to `http://your-jumpserver-ip/`. For the best experience, we recommend using Google Chrome.
+<div>
+Click **Create** to open the platform selection page on the right side.
+</div>
 
-Please log in using the default administrator credentials:
 
-- Username: `admin`
-- Password: `ChangeMe`
+<div>
+Select the **Linux** platform and open the asset creation page.
+</div>
 
-![Login](/images/docs/quickstart/login.png)
+<div>
+In the **Name** field, type a name for the asset, such as "Demo Linux".
+</div>
 
-Upon your first login, you will be prompted to change your password. Simply make the change and log in again.
+<div>
+In the **IP/Host** field, type the IP address of the asset, such as "172.16.10.110".
+</div>
 
-## Create User
+<div>
+In the **Linux** field, keep the "Linux" platform selected.
+</div>
 
-After logging in to JumpServer, let's create a user first:
+<div>
+In the **Nodes** field, select the "/DEFAULT" node.
+</div>
 
-1. Navigate to the `Console` and access the `User Management` page.
+<div>
+In the **Accounts** field, click the **Add** and follow the steps in the pop-up to complete the account creation. 
+    <Steps stepLevel="2">
+    <div>
+    In the **Name** field, type a name for the account, such as "root".
+    </div>
 
-![Console User](/images/docs/quickstart/console-user.png)
+    <div>
+    In the **Username** field, type the username for the account, such as "root".
+    </div>
 
-2. Click the `+Create` button.
+    <div>
+    In the **Secret type** field, select "Password".
+    </div>
 
-3. Fill in the user information.
+    <div>
+    In the **Password** field, type the password for the account.
+    </div>
 
-> - Name: First User
-> - Username: first_user
-> - Email: first-user@example.com
-> - Password setting: Set Password, and enter `pwd@123`
+    <div>
+    For other fields, keep the default values.
+    </div>
 
-Please keep the other information at their default values.
+    <div>
+    click **Confirm**.
+    </div>
 
-![Create User](/images/docs/quickstart/create-user.png)
+    </Steps>
+</div>
 
-4. Click "Submit" to complete the user creation.
+<div>
+For other fields, keep the default values.
+</div>
 
-## Create Asset
+<div>
+Click **Submit**.
+</div>
 
-Next, let's create an Linux asset:
+</Steps>
 
-1. Navigate to the `Asset Management` page.
+## Authorizing asset for admin
+<Steps>
 
-2. Switch to the `Host` tab, and click the `+Create` button. In the popup window, select the built-in `Linux` platform to open the host creation page.
+<div>
+<Nav name="console" />
+</div>
 
-![Nav Asset](/images/docs/quickstart/nav-assets.png)
+<div>
+Navigate to **Console > Authorization** page.
+</div>
 
-3. Fill in the asset information.
+<div>
+Click <Icon name="plus" />**Create** to open the authorization creation form on the right-side page.
+</div>
 
-> - Name: First Asset
-> - IP/Host: 172.17.200.27
-> - Platform: Linux
-> - Nodes: /Default
-> - Protocols: ssh/22, sftp/22
+<div>
+In the **Name** field, type a name for the authorization, such as "Authorize Demo Linux to Administrator".
+</div>
 
-To Ensure Successful Connection in the Following Steps, please enter the correct `IP/Host` and SSH protocol `port`.
+<div>
+In the **Users** field, select the "Administrator(admin)".
+</div>
 
-![Create Asset](/images/docs/quickstart/create-asset.png)
+<div>
+In the **Assets** field, select the "Demo Linux".
+</div>
 
-4. Add an account to the asset.
+<div>
+In the **Accounts** field, check only the box for "All existing accounts".
+</div>
 
-Click the `Add` button in the `Accounts` section to add an account. In the popup window, enter the correct Name, Username, and Password. Keep the other information as default. Click `Confirm` to complete the account addition.
+<div>
+For other fields, keep the default values.
+</div>
 
-> - Name: root
-> - Username: root
-> - Password: `your-password`
+<div>
+Click **Submit**.
+</div>
 
-![Create Asset](/images/docs/quickstart/create-asset-add-account.png)
+</Steps>
 
-4. Click `Submit` to complete the asset creation.
+## Connecting to asset via web
+<Steps>
 
-## Create Authorization
+<div>
+<Nav name="web-terminal" />
+</div>
 
-Finally, let's create an authorization.
+<div>
+At this point, the Web Terminal page should be open in a new browser tab.
 
-1. Navigate to the `Authorization Management` page.
+In the authorization tree on the left side, search for and click the "Demo Linux" asset.
+</div>
 
-![Nav Authorization](/images/docs/quickstart/nav-authorization.png)
+<div>
+An asset connection pop-up will appear, select connection parameters and establish the connection.
 
-2. Click the `+Create` button.
+    <Steps stepLevel="2">
+    <div>
+    Select the "SSH" tab, under the "Connect - Demo Linux".
+    </div>
 
-3. Fill in the authorization information.
+    <div>
+    In the **Select account** section, Select "root".
+    </div>
 
-> - Name: First Authorization
-> - Users: Select `First User`
-> - Assets: Select `First Linux`
+    <div>
+    In the **Connect method** section, Select "Web > Web CLI".
+    </div>
 
-Keep the other information as default.
+    <div>
+    Click **CONNECT**.
+    </div>
+    </Steps>
 
-![Create Authorization](/images/docs/quickstart/create-authorization.png)
+</div>
 
-4. Click "Submit" to complete the authorization creation.
+<div>
+By this time, you should have successfully connected to the asset.
+</div>
 
-## User Login
+<div>
+Next, you can try executing commands such as `ls -al`, `whoami` or `pwd`, etc.
+</div>
 
-Excellent, we have successfully created one user and one asset, and authorized the asset for the user. Next, let's proceed to log in to JumpServer using the user `First User`.
+<div>
+Finally, run `exit` to end the current session.
+</div>
 
-1. To log in simultaneously with both the `Administrator` and `First User`, please open a new browser window in incognito mode.
+</Steps>
 
-2. After logging in with the username `first_user` and password `pwd@123`, you will be prompted to reset your password. Simply follow the steps to reset your password, and then log in again using the new password.
 
-3. After successfully logging in, you will see a page to `complete personal information`. Check "I agree" and click `Submit`.
+## Auditing connected sessions
+<Steps>
 
-![Complete Personal Info](/images/docs/quickstart/complete-personal-info.png)
+<div>
+<Nav name="audits" />
+</div>
 
-4. Navigate to the `Workbench > Access assets` page, where you can view the assets authorized to you. Here, you will see that the asset named `First Linux` has been authorized to you.
+<div>
+Navigate to **Audits > Asset sessions > Historical sessions** tab.
+</div>
 
-![Workbench Asset](/images/docs/quickstart/workbench-assets.png)
+<div>
+You can view the history of asset connection sessions. 
+</div>
 
-Simply click the Connect button here to access the asset.
+<div>
+In the **Actions** column, click "Playback" to watch the recording online or "Download" to save it.
+</div>
 
-## Access Asset
+</Steps>
 
-After clicking the asset connection button, a new tab (Web Terminal) will open in your current browser, and the connection information for logging into the asset will also be displayed.
 
-1. Confirm the connection information: select `root` as the account and choose "Web CLI" as the connection method.
+## Auditing executed commands
+<Steps>
 
-![Connect Asset](/images/docs/quickstart/connect-asset.png)
+<div>
+<Nav name="audits" />
+</div>
 
-2. Click the `CONNECT` button to log in to the asset.
+<div>
+Navigate to **Audits > Session commands** page.
+</div>
 
-3. Congratulations, you have successfully accessed the assets you have permission to use.
+<div>
+You can view all executed commands.
+</div>
 
-![Connect Asset Finished](/images/docs/quickstart/connect-asset-finished.png)
+<div>
+Click <Icon name="chevron-down"/> at the end of the row to view the command result.
+</div>
 
-## Audit logs
+</Steps>
 
-Next, while keeping the current user's asset session active, let's switch to the `Administrator` page. Navigate to the `Audits` to review the actions performed by the current user.
+---
+## Next steps
+Now that you’ve completed the quickstart guide, it’s time to explore more advanced features of JumpServer!
 
-1. Navigate to the `Audits > Asset sessions` page.
-
-We observe that there is a session where the `First User` is connected to the `First Linux` asset using the root account.
-
-![Asset sessions](/images/docs/quickstart/asset-sessions.png)
-
-2. Navigate to the `Audits > Session commands` page, we can view the commands executed by the user.
-
-![Session commands](/images/docs/quickstart/session-commands.png)
-
-3. Navigate to the `Audits > Login logs` page, We can view detailed login logs for the user.
-
-![Login Logs](/images/docs/quickstart/login-logs.png)
-
-Congratulations! Following this guide, you should have successfully installed JumpServer, created users and assets, authorized access, and learned to connect to assets and audit logs.
-
-## Next Steps
-
-Regarding more advanced features of JumpServer, it's your turn to explore!
-
-JumpServer documentation is continually being updated. Please stay tuned for more details.
+Please note, the documentation is still being updated, and we’ll continue to add more details. Stay tuned for future updates!

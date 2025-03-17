@@ -1,22 +1,50 @@
-import { Steps } from 'nextra/components'
- 
-# Installation
+# Installation guide for JumpServer
 
-This guide shows you how to install JumpServer on your platform.
+This topic describes how to install JumpServer.
 
-## One-line installation script
+## Install with a one-line command
 
-You can run a one-line command to install JumpServer on a Linux server.
+<Steps>
 
-1. Prepare a clean Linux Server ( 64bit, >= 4c8g ), download and run the installation script on the server where you want to install JumpServer:
+<div>
+Prepare a clean Linux server ( 64bit, >= 4c8g ).
+</div>
+
+<div>
+Log in to the Linux server using the "root" or another user with superuser privileges.
+</div>
+
+<div>
+Change to the `/opt` directory.
+</div>
+
+<div>
+Run the following command to install the latest version of JumpServer.
 
 ```sh
 curl -sSL https://github.com/jumpserver/jumpserver/releases/latest/download/quick_start.sh | bash
 ```
+</div>
 
-2. You have successfully installed JumpServer. You can now access the JumpServer service using your web browser by navigating to `http://your-jumpserver-ip/`. For the best experience, we recommend using Google Chrome.
+<div>
+Wait for a moment ... ☕️ At this point, you have successfully installed JumpServer.
+</div>
 
-Please log in using the default administrator credentials:
+<div>
+Please open your Chrome browser, enter "http://\<your-server-ip\>" in the address bar.
+<Alert type="note">
+Please replace "\<your-server-ip\>" with your actual server IP address.
+</Alert>
+</div>
 
-- Username: `admin`
-- Password: `ChangeMe`
+<div>
+Log in as an Administrator using the following default credentials.
+* username: `admin`
+* password: `ChangeMe`
+</div>
+
+<div>
+For security, you will be prompted to change your password after logging in. Once you've changed it and logged in again, you can start your JumpServer journey.
+</div>
+
+</Steps>

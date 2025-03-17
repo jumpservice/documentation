@@ -1,27 +1,19 @@
 {
-  "index": "Introduction",
+  "index": { "title": "Introduction" },
 
-  "-- getting-started": {
-    "type": "separator",
-    "title": "Getting Started"
-  },
-  "quickstart": "Quickstart",
-  "installation": "Installation",
-  "upgrade": "Upgrade",
+  "-- get-started": { "type": "separator", "title": "Get Started" },
+  "quickstart": { "title": "Quickstart" },
+  "installation": { "title": "Installation" },
+  "upgrade": { "title": "Upgrade" },
 
-  "-- admin-guides": {
-    "type": "separator",
-    "title": "Admin Guides"
-  },
+  "-- admin-guides": { "type": "separator", "title": "Admin Guides" },
+  "users": { "title": "Create & Manage Users", "display": "children" },
+  "groups": { "title": "Groups", "display": "hidden"},
+  "assets": { "title": "Assets", "display": "hidden" }, 
+  "nodes": { "title": "Nodes", "display": "hidden" },
+  "system-settings": { "title": "System Settings" },
 
-  "users": "Users",
-  "roles": "Roles",
-
-  "assets": "Assets",
-
-  "-- more": {
-    "type": "separator",
-    "title": "More"
-  },
-  "changelog": "Changelogs"
+  "-- more": { "type": "separator", "title": "More" },
+  "changelog": { "title": "Changelogs" },
+  "troubleshooting": { "title": "Troubleshooting", "display": "children" }
 }

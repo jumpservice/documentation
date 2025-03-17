@@ -1,0 +1,79 @@
+# Integrate CAS authentication
+
+## About CAS
+
+**Central Authentication Service (CAS)** is a Single Sign-On (SSO) protocol designed to provide centralized authentication for multiple applications. Developed by Yale University, CAS allows users to access multiple protected services with a single login, eliminating the need to re-enter credentials. It implements authentication through a "ticket" mechanism and supports various identity providers, such as databases, LDAP, and OAuth.
+
+
+## How to configure
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > CAS**.
+</div>
+
+<div>
+In the **CAS** field, check to enable CAS authentication.
+</div>
+
+<div>
+In the **Server** field,  type the CAS server URI, such as "https://&#8203;example.com/cas".
+</div>
+
+<div>
+In the **Proxy server** field,  type the CAS proxy server URI if behind a proxy. For example, if the host listens on "http://&#8203;foo.bar:8080" but requests use "https://&#8203;foo.bar:8443", enter "https://&#8203;foo.bar:8443", For more information, see [Django CAS configuration](https://djangocas.dev/docs/latest/configuration.html#cas-root-proxied-as-optional).
+</div>
+
+<div>
+In the **Version** field, type the CAS protocol version: 1, 2, 3, or CAS_2_SAML_1_0.
+
+The default is "3".
+</div>
+
+<div>
+In the **User attribute** field, type the user attribute mapping. The key represents the CAS user attribute name, while the value corresponds to the JumpServer user attribute name (available options: name, username, email, groups, phone, comment).
+```json copy=true filename="CAS User Attribute Example"
+{
+  "cas:user": "username",
+  "cas:fullname": "name",
+  "cas:mail": "email",
+}
+```
+</div>
+
+<div>
+<Icon name="xpack"/> In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+In the **Create user** field, when checked, a user will be created upon successful authentication.
+<Alert type="warning">
+When unchecked and the user does not exist, authentication will fail.
+</Alert>
+</div>
+
+<div>
+In the **Logout completely** field, when checked, logging out will also log the user out from the CAS service.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## JumpServer CAS URLs
+```md filename="Login URL"
+https://jumpserver.example.com/core/auth/cas/login/
+```
+
+```md filename="Login Success Callback URL"
+https://jumpserver.example.com/core/auth/cas/callback/
+```
+
+```md filename="Logout URL"
+https://jumpserver.example.com/core/auth/cas/logout/
+```

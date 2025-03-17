@@ -1,0 +1,77 @@
+# Integrate FeiShu authentication <Icon name="xpackTip"/>
+
+## About FeiShu
+**FeiShu** authentication is an identity verification mechanism based on the FeiShu platform, allowing enterprises and third-party applications to authenticate and authorize users through FeiShu.
+
+## How to configure
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > FeiShu**.
+</div>
+
+<div>
+In the **FeiShu** field, check to enable FeiShu authentication.
+</div>
+
+<div>
+In the **App ID** field, type the FeiShu app ID, a unique identifier for the application.
+</div>
+
+<div>
+In the **App secret** field, type the FeiShu app secret, used to obtain an access token for calling the FeiShu API.
+</div>
+
+<div>
+In the **User attribute** field, type the user attribute mapping. The key represents the JumpServer user attribute name (available options: name, username, email, phone, comment), while the value corresponds to the FeiShu user attribute name.
+```json copy=true filename="FeiShu User Attribute Example"
+{
+  "name": "nickname",
+  "username": "user_id",
+  "email": "email"
+}
+```
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## Test FeiShu connection
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > FeiShu**.
+</div>
+
+<div>
+Scroll to the bottom of the page
+</div>
+
+<div>
+Click **Test**.
+</div>
+</Steps>
+
+## JumpServer FeiShu URLs
+
+```md filename="QR Login URL"
+https://jumpserver.example.com/core/auth/feishu/qr/login/
+```
+
+```md filename="QR Login Success Callback URL"
+https://jumpserver.example.com/core/auth/feishu/qr/login/callback/
+```

@@ -1,0 +1,89 @@
+# Integrate WeCom authentication <Icon name="xpackTip"/>
+
+## About WeCom
+
+**WeCom** authentication is an identity verification method based on WeCom (Enterprise WeChat), supporting OAuth 2.0 authorization, QR code login, and enterprise identity binding, enabling secure and convenient enterprise user login and management.
+
+## How to configure
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > WeCom**.
+</div>
+
+<div>
+In the **WeCom** field, check to enable WeCom authentication.
+</div>
+
+<div>
+In the **Corporation ID** field, type the WeCom corporation ID. Uniquely identifies the enterprise in WeCom, and all API requests must include this ID.
+</div>
+
+<div>
+In the **App agent ID** field, type the WeCom app agent ID. Used to identify a specific application in WeCom, with each application having a unique Agent ID.
+</div>
+
+<div>
+In the **App secret** field, type the WeCom app secret. Used to authenticate the application and obtain an access token for calling the WeCom API.
+</div>
+
+<div>
+In the **User attribute** field, type the user attribute mapping. The key represents the JumpServer user attribute name (available options: name, username, email, phone, comment), while the value corresponds to the WeCom user attribute name.
+```json copy=true filename="WeCom User Attribute Example"
+{
+  "name": "alias",
+  "username": "userid",
+  "email": "extattr.attrs[2].value"
+}
+```
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+## Test WeCom connection
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > WeCom**.
+</div>
+
+<div>
+Scroll to the bottom of the page.
+</div>
+
+<div>
+Click **Test**.
+</div>
+
+</Steps>
+
+## JumpServer WeCom URLs
+
+```md filename="QR Login URL"
+https://jumpserver.example.com/core/auth/wecom/qr/login/
+```
+
+```md filename="QR Login Success Callback URL"
+https://jumpserver.example.com/core/auth/wecom/qr/login/callback/
+```
+
+```md filename="OAuth Login URL"
+https://jumpserver.example.com/core/auth/wecom/oauth/login/
+```
+
+```md filename="OAuth Login Success Callback URL"
+https://jumpserver.example.com/core/auth/wecom/oauth/login/callback/
+```

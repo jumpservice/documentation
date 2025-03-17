@@ -1,3 +1,12 @@
-import Changelog from '@/components/docs/changelog'
+import { changelogData } from '@/components/docs/changelog'
 
-export default Changelog;
+# Changelogs
+
+<DataTable
+  headers={['Version', 'Date', 'Release Note']}
+  rows={changelogData.map((row) => [
+    { content: row['version'] },
+    { content: row['date'] },
+    { content: 'Read More', link: `https://github.com/jumpserver/jumpserver/releases/${row.version}` }
+  ])}
+/>
