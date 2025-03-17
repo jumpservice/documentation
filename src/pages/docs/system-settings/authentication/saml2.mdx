@@ -1,0 +1,114 @@
+# Integrate SAML2 authentication <Icon name="xpackTip"/>
+
+## About SAML2
+
+**Security Assertion Markup Language 2.0 (SAML2)** is an open standard for exchanging authentication and authorization data between parties, particularly between an Identity Provider and a Service Provider. It allows users to authenticate once with the IdP and access multiple services (SPs) without needing to re-enter credentials.
+
+**Identity Provider (IdP)** is a system that authenticates users and provides their identity information to service providers.
+
+**Service Provider (SP)** is a system or application that relies on an IdP to authenticate users and grant access to its services based on the user identity. In this case, JumpServer acts only as the SP.
+
+## How to configure
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > SAML2**.
+</div>
+
+<div>
+In the **SAML2** field, check to enable SAML2 authentication.
+</div>
+
+<div>
+In the **SP private key** field, upload the SP private key file. It is used to sign SAML requests, decrypt encrypted SAML responses from the IdP, and ensure data integrity.
+</div>
+
+<div>
+In the **SP cert** field, upload the SP certificate file. It is generated from the SP private key and provided to the IdP to verify signed requests from the SP. Additionally, it encrypts SAML response data to ensure secure transmission.
+
+<Alert type="note">
+The SP private key and SP certificate work together to ensure secure communication and data protection in SAML2 authentication. In simple terms, SP private key handles signing and decryption, while the SP certificate handles verification and encryption.
+</Alert>
+</div>
+
+<div>
+In the **IDP metadata URL** field, type the IdP metadata URL, such as "https://&#8203;saml2.example.com/realms/JumpServer/protocol/saml/descriptor".
+</div>
+
+<div>
+In the **IDP metadata XML** field, you can manually type the IdP Metadata XML. In practice, you only need to provide either the "IDP metadata URL" or the "IDP metadata XML". If both are present, the "IDP metadata URL" takes precedence.
+</div>
+
+<div>
+In the **SP advanced settings** field, type the information you want to configure. We will generate SP Metadata based on this configuration for IdP use. For more information, see [SP advanced settings](https://github.com/SAML-Toolkits/python3-saml/tree/master?tab=readme-ov-file#settings). 
+```json filename="SAML2 SP Advanced Settings Example"
+{
+  "organization": {
+    "en": {
+      "name": "JumpServer",
+      "displayname": "JumpServer",
+      "url": "https://jumpserver.com/"
+    }
+  },
+  "strict": true,
+  "security": {}
+}
+```
+<Alert type="note">
+  **SP Metadata** is used to provide essential configuration information about the service provider, including entity ID, endpoint URLs, public certificates, and supported bindings, to facilitate secure communication with the identity provider in SAML authentication.
+</Alert>
+
+You can click _[View]()_ in the help information below the "SP cert" field to see the SP metadata.
+<img src="/images/docs/admin-guides/system-settings/auth/saml2-sp-metadata.png" alt="image" width="550"/>
+</div>
+
+<div>
+In the **User attribute** field, type the user attribute mapping. The key represents the SAML2 user attribute name, while the value corresponds to the JumpServer user attribute name (available options: name, username, email, groups, phone, comment).
+
+```json filename="SAML2 User Attribute Example"
+{
+  "uid": "username",
+  "email": "email",
+  "member": "groups"
+}
+```
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+In the **Always update user** field, when checked, after SAML2 user authentication, user information (only includes: name, username, email, phone, comment) will be updated each time, "groups" are only synchronized when the user is created.
+</div>
+
+<div>
+In the **Logout completely** field, when checked, logging out will also log the user out from the SAML2 service.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## JumpServer SAML2 URLs
+
+```md filename="Login URL"
+https://jumpserver.example.com/core/auth/saml2/login/
+```
+
+```md filename="Login Success Callback URL"
+https://jumpserver.example.com/core/auth/saml2/callback/
+```
+
+```md filename="Logout URL"
+https://jumpserver.example.com/core/auth/saml2/logout/
+```
+
+```md filename="SP Metadata URL"
+https://jumpserver.example.com/core/auth/saml2/metadata/
+```

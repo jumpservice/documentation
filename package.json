@@ -10,7 +10,7 @@
     "pretty": "npx prettier . --write"
   },
   "dependencies": {
-    "@headlessui/react": "^2.1.1",
+    "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.4",
     "@next/third-parties": "^14.2.5",
     "@primer/octicons-react": "^19.10.0",
@@ -21,6 +21,7 @@
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
+    "lucide-react": "^0.479.0",
     "next": "^14.2.4",
     "next-with-less": "^3.0.1",
     "nextra": "^2.13.4",
@@ -37,11 +38,12 @@
     "autoprefixer": "^10.4.19",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.39",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "storybook": "^8.1.11",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2"
-  }
+    "typescript": "^5.5.3"
+  },
+  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b"
 }

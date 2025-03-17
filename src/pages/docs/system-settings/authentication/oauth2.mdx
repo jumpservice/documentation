@@ -1,0 +1,125 @@
+# Integrate OAuth2 authentication <Icon name="xpackTip"/>
+
+## About OAuth2
+**Open Authorization 2.0 (OAuth2)** is an open authorization protocol that allows third-party applications to access user resources stored on other service providers (such as Google, Facebook, GitHub, etc.) without exposing the user's password. OAuth2 enables users to grant third-party applications specific resource permissions without sharing their login credentials.
+
+## How to configure
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Authentication > OAuth2**.
+</div>
+
+<div>
+In the **OAuth2** field, check to enable OAuth2 authentication.
+</div>
+
+<div>
+In the **Service provider** field, type the OAuth2 service provider name, such as GitHub, Google, Facebook, etc.
+</div>
+
+<div>
+In the **Logo** field, upload the OAuth2 service provider logo, recommended to use a size of _64px * 64px_.
+
+The Service provider and logo will be displayed on the login page.
+
+<img src="/images/docs/admin-guides/system-settings/auth/oauth2-login-page.png" alt="image" width="300"/>
+</div>
+
+<div>
+In the **Client ID** field, type the client ID provided by the OAuth2 service provider.
+</div>
+
+<div>
+In the **Client secret** field, type the client secret provided by the OAuth2 service provider.
+</div>
+
+<div>
+In the **Request method** field, select a method to obtain a token.
+    <img src="/images/docs/admin-guides/system-settings/auth/oauth2-request-method.png" alt="image" width="430"/>
+    <HorizontalTable 
+      headers={['Request Method', 'Description']} 
+      rows={[
+        [
+          "GET", 
+          "Use the GET method to obtain the token, with the client ID and client secret included in the request headers."
+        ],
+        [
+          "POST-DATA", 
+          "Use the POST method to obtain a token, with client ID and client secret included as \"raw data\" in the request body."
+        ],
+        [
+          "POST-JSON", 
+          "Use the POST method to obtain a token, with client ID and client secret included as \"JSON data\" in the request body."
+        ],
+      ]}
+    />
+</div>
+
+<div>
+In the **Scope** field, defines the range of user information that the client requests access to in an authorization request. Multiple pieces of information are separated by spaces, such as "user user:email user:login".
+</div>
+
+<div>
+In the **Authorization endpoint** field, type the OAuth2 authorization endpoint, such as "https://&#8203;github.com/login/oauth/authorize".
+</div>
+
+<div>
+In the **Token endpoint** field, type the OAuth2 token endpoint, such as "https://&#8203;github.com/login/oauth/access_token".
+</div>
+
+<div>
+In the **Userinfo endpoint** field, type the OAuth2 userinfo endpoint, such as "https://&#8203;api.github.com/user".
+</div>
+
+<div>
+In the **End session endpoint** field, type the OAuth2 end session endpoint, such as "https://&#8203;github.com/logout", when the user logs out, this endpoint will be called.
+</div>
+
+<div>
+In the **User attribute** field, type the user attribute mapping. The key represents the JumpServer user attribute name (available options: name, username, email, groups, phone, comment), while the value corresponds to the OAuth2 user attribute name.
+
+```json copy=true filename="OAuth2 User Attribute Example"
+{
+  "name": "user",
+  "username": "name",
+  "email": "user:email"
+}
+```
+</div>
+
+<div>
+In the **Organization** field, after authentication and creation, the user will be added to the selected organization.
+</div>
+
+<div>
+In the **Always update user** field, when checked, after OAuth2 user authentication, user information (only includes: name, username, email, phone, comment) will be updated each time, "groups" are only synchronized when the user is created.
+</div>
+
+<div>
+In the **Logout completely** field, when checked, the user will be logged out from the OAuth2 service by calling the "End session endpoint" upon logging out.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## JumpServer OAuth2 URLs
+
+```md filename="Login URL"
+https://jumpserver.example.com/core/auth/oauth2/login/
+```
+
+```md filename="Login Success Callback URL"
+https://jumpserver.example.com/core/auth/oauth2/callback/
+```
+
+```md filename="Logout URL"
+https://jumpserver.example.com/core/auth/oauth2/logout/
+```
