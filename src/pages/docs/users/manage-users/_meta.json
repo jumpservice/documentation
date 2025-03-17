@@ -1,13 +1,13 @@
 {
-  "edit-users": { "title": "Edit users" },
-  "delete-users": { "title": "Delete users" },
-  "disable-users": { "title": "Disable users" },
-  "remove-users-from-org": { "title": "Remove users" },
-  "unlock-users": { "title": "Unlock users" },
-  "reset-password": { "title": "Reset password" },
-  "reset-ssh-key": { "title": "Reset SSH key" },
-  "reset-mfa": { "title": "Reset MFA" }, 
-  "manage-groups": { "title": "Manage groups" },
-  "manage-login-acls": { "title": "Manage login ACLs" },
-  "export-users": { "title": "Export users" }
+  "edit-users": { "title": "Edit users", "display": "hidden" },
+  "delete-users": { "title": "Delete users", "display": "hidden" },
+  "disable-users": { "title": "Disable users", "display": "hidden" },
+  "remove-users-from-org": { "title": "Remove users", "display": "hidden" },
+  "unlock-users": { "title": "Unlock users", "display": "hidden" },
+  "reset-password": { "title": "Reset password", "display": "hidden" },
+  "reset-ssh-key": { "title": "Reset SSH key", "display": "hidden" },
+  "reset-mfa": { "title": "Reset MFA", "display": "hidden" }, 
+  "manage-groups": { "title": "Manage groups", "display": "hidden" },
+  "manage-login-acls": { "title": "Manage login ACLs", "display": "hidden" },
+  "export-users": { "title": "Export users", "display": "hidden" }
 }

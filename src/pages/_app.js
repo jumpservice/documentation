@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 // This default export is required in a new `pages/_app.js` file.
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  // 检查当前路径是否以 "/docs" 开头
+  // check current path: "/docs"
   const isDocsPage = router.pathname.startsWith("/docs");
 
   return (

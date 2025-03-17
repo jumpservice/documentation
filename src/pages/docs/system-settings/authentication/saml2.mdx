@@ -19,7 +19,7 @@ Navigate to **System settings > Authentication > SAML2**.
 </div>
 
 <div>
-In the **SAML2** field, check the box to enable SAML2 authentication.
+In the **SAML2** field, check to enable SAML2 authentication.
 </div>
 
 <div>
@@ -35,15 +35,15 @@ The SP private key and SP certificate work together to ensure secure communicati
 </div>
 
 <div>
-In the **IDP metadata URL** field, enter the IdP metadata URL, such as "https://&#8203;saml2.example.com/realms/JumpServer/protocol/saml/descriptor".
+In the **IDP metadata URL** field, type the IdP metadata URL, such as "https://&#8203;saml2.example.com/realms/JumpServer/protocol/saml/descriptor".
 </div>
 
 <div>
-In the **IDP metadata XML** field, you can manually enter the IdP Metadata XML. In practice, you only need to provide either the "IDP metadata URL" or the "IDP metadata XML". If both are present, the "IDP metadata URL" takes precedence.
+In the **IDP metadata XML** field, you can manually type the IdP Metadata XML. In practice, you only need to provide either the "IDP metadata URL" or the "IDP metadata XML". If both are present, the "IDP metadata URL" takes precedence.
 </div>
 
 <div>
-In the **SP advanced settings** field, enter the information you want to configure. We will generate SP Metadata based on this configuration for IdP use. For more information, see [SP advanced settings](https://github.com/SAML-Toolkits/python3-saml/tree/master?tab=readme-ov-file#settings). 
+In the **SP advanced settings** field, type the information you want to configure. We will generate SP Metadata based on this configuration for IdP use. For more information, see [SP advanced settings](https://github.com/SAML-Toolkits/python3-saml/tree/master?tab=readme-ov-file#settings). 
 ```json filename="SAML2 SP Advanced Settings Example"
 {
   "organization": {
@@ -66,7 +66,7 @@ You can click _[View]()_ in the help information below the "SP cert" field to se
 </div>
 
 <div>
-In the **User attribute** field, enter the user attribute mapping. The key represents the SAML2 user attribute name, while the value corresponds to the JumpServer user attribute name (available options: name, username, email, groups, phone, comment).
+In the **User attribute** field, type the user attribute mapping. The key represents the SAML2 user attribute name, while the value corresponds to the JumpServer user attribute name (available options: name, username, email, groups, phone, comment).
 
 ```json filename="SAML2 User Attribute Example"
 {

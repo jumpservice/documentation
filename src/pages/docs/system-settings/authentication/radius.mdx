@@ -16,19 +16,23 @@ Navigate to **System settings > Authentication > Radius**.
 </div>
 
 <div>
-In the **Radius** field, check the box to enable RADIUS authentication.
+In the **Radius** field, check to enable RADIUS authentication.
 </div>
 
 <div>
-In the **Host** field, enter the RADIUS server IP address or domain name, such as "172.16.10.180".
+In the **Host** field, type the RADIUS server IP address or domain name, such as "172.16.10.180".
 </div>
 
 <div>
-In the **Port** field, enter the RADIUS server port number. The default is "1812".
+In the **Port** field, type the RADIUS server port number. The default is "1812".
 </div>
 
 <div>
-In the **Secret** field, enter the shared secret key between the JumpServer and the RADIUS server. It functions like a password, encrypting sensitive information in RADIUS requests and responses to ensure secure communication.
+In the **Secret** field, type the shared secret key between the JumpServer and the RADIUS server. It functions like a password, encrypting sensitive information in RADIUS requests and responses to ensure secure communication.
+</div>
+
+<div>
+Optionally, In the **OTP in RADIUS** field, check to enable RADIUS as the MFA backend. For more information, see [Enable RADIUS MFA backend](/docs/system-settings/authentication/radius#enable-radius-mfa-backend).
 </div>
 
 <div>
@@ -51,10 +55,9 @@ Configure RADIUS authentication by following the [Integrate RADIUS authenticatio
 </div>
 
 <div>
-In the **OTP in RADIUS** field, check the box to enable RADIUS as the MFA backend.
-<Alert type="tip">
-When MFA is enabled, users can select the RADIUS authentication type during authentication.
-</Alert>
+In the **OTP in RADIUS** field, check to enable RADIUS as the MFA backend.
+
+When a user’s MFA is enabled, they can choose RADIUS authentication type during login.
 <img src="/images/docs/admin-guides/system-settings/auth/radius-mfa.png" alt="image" width="600"/>
 </div>
 

@@ -1,10 +1,9 @@
 {
-  "add-users": { "title": "Add users", "display": "normal" },
-  "manage-users": { "title": "Manage users", "display": "normal" },
-
-  "user-details": { "title": "User details" },
-  "user-authorized-assets": { "title": "User authorized assets" },
-  "user-authorizations": { "title": "User authorizations" },
-  "user-connected-sessions": { "title": "User connected sessions" },
-  "user-activity-log": { "title": "User activity logs" }
+  "add-users": { "title": "Add users", "display": "children" },
+  "manage-users": { "title": "Manage users", "display": "children" },
+  "user-details": { "title": "User details", "display": "hidden" },
+  "user-authorized-assets": { "title": "User authorized assets", "display": "hidden" },
+  "user-authorizations": { "title": "User authorizations", "display": "hidden" },
+  "user-connected-sessions": { "title": "User connected sessions", "display": "hidden" },
+  "user-activity-log": { "title": "User activity logs", "display": "hidden" }
 }

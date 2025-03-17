@@ -16,25 +16,25 @@ Navigate to **System settings > Authentication > CAS**.
 </div>
 
 <div>
-In the **CAS** field, check the box to enable CAS authentication.
+In the **CAS** field, check to enable CAS authentication.
 </div>
 
 <div>
-In the **Server** field, enter the CAS server URI, such as "https://&#8203;example.com/cas".
+In the **Server** field,  type the CAS server URI, such as "https://&#8203;example.com/cas".
 </div>
 
 <div>
-In the **Proxy server** field,  enter the CAS proxy server URI if behind a proxy. For example, if the host listens on "http://&#8203;foo.bar:8080" but requests use "https://&#8203;foo.bar:8443", enter "https://&#8203;foo.bar:8443", For more information, see [Django CAS configuration](https://djangocas.dev/docs/latest/configuration.html#cas-root-proxied-as-optional).
+In the **Proxy server** field,  type the CAS proxy server URI if behind a proxy. For example, if the host listens on "http://&#8203;foo.bar:8080" but requests use "https://&#8203;foo.bar:8443", enter "https://&#8203;foo.bar:8443", For more information, see [Django CAS configuration](https://djangocas.dev/docs/latest/configuration.html#cas-root-proxied-as-optional).
 </div>
 
 <div>
-In the **Version** field, specify the CAS protocol version: 1, 2, 3, or CAS_2_SAML_1_0.
+In the **Version** field, type the CAS protocol version: 1, 2, 3, or CAS_2_SAML_1_0.
 
 The default is "3".
 </div>
 
 <div>
-In the **User attribute** field, enter the user attribute mapping. The key represents the CAS user attribute name, while the value corresponds to the JumpServer user attribute name (available options: name, username, email, groups, phone, comment).
+In the **User attribute** field, type the user attribute mapping. The key represents the CAS user attribute name, while the value corresponds to the JumpServer user attribute name (available options: name, username, email, groups, phone, comment).
 ```json copy=true filename="CAS User Attribute Example"
 {
   "cas:user": "username",
@@ -49,14 +49,14 @@ In the **User attribute** field, enter the user attribute mapping. The key repre
 </div>
 
 <div>
-In the **Create user** field, when enabled, a user will be created upon successful authentication.
+In the **Create user** field, when checked, a user will be created upon successful authentication.
 <Alert type="warning">
-When disabled and the user does not exist, authentication will fail.
+When unchecked and the user does not exist, authentication will fail.
 </Alert>
 </div>
 
 <div>
-In the **Logout completely** field, when enabled, logging out will also log the user out from the CAS service.
+In the **Logout completely** field, when checked, logging out will also log the user out from the CAS service.
 </div>
 
 <div>
