@@ -1,33 +1,59 @@
-import React from "react";
+# Upgrade guide for JumpServer
 
-# Upgrade
+This topic describes how to upgrade JumpServer.
 
-This guide shows you how to upgrade JumpServer on your platform.
+We recommend upgrading JumpServer regularly to access the latest designs and features.
 
-We recommend that you upgrade JumpServer often to stay current with the latest fixes and enhancements.
+## Upgrade guide for one-line installation
 
-## One-line installation script
+<Alert>
+If you have installed JumpServer using the [Install with a one-line command](/docs/installation#install-with-a-one-line-command) guide, you can upgrade JumpServer by running the following command.
+</Alert>
 
-1. Change to the `/opt` directory and download the `v4.7.0` installation package.
+<Steps>
 
+
+<div>
+Log in to the JumpServer deployment server using the "root" or another user with superuser privileges.
+</div>
+
+<div>
+Change to the `/opt` directory.
+</div>
+
+<div>
+Download the latest installation package.
 ```sh
-cd /opt && wget https://github.com/jumpserver/installer/releases/download/v4.7.0/jumpserver-installer-v4.7.0.tar.gz
+wget https://github.com/jumpserver/installer/releases/download/v4.7.0/jumpserver-installer-v4.7.0.tar.gz
 ```
+</div>
 
-2. Extract the installation package and change into the directory.
-
+<div>
+Extract the installation package.
 ```sh
-tar -xf jumpserver-installer-v4.7.0.tar.gz && cd jumpserver-installer-v4.7.0
+tar -xf jumpserver-installer-v4.7.0.tar.gz
 ```
+</div>
 
-3. Perform the upgrade. After running the upgrade command, databases and configuration files will be automatically backed up during the process.
+<div>
+Change to the extracted directory.
+```sh
+cd jumpserver-installer-v4.7.0
+```
+</div>
 
+<div>
+Perform the upgrade. You may need to wait a moment ☕️ ...
 ```sh
 ./jmsctl.sh upgrade
 ```
+</div>
 
-4. After the upgrade is completed, the service will not start automatically. You need to execute the following command to start the service.
-
+<div>
+Start the JumpServer service.
 ```sh
 ./jmsctl.sh start
 ```
+</div>
+
+</Steps>
