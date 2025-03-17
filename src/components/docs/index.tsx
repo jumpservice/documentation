@@ -6,3 +6,4 @@ export { Cards, Card } from "./cards";
 export { default as WaitForCompletion } from "./wait-for-completion";
 export { Tabs, Tab } from "./tabs";
 export { default as HorizontalTable } from "./horizontal-table"
+export { default as DataTable } from "./datatable"
