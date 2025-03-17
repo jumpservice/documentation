@@ -9,6 +9,7 @@
     "start": "next start",
     "pretty": "npx prettier . --write"
   },
+  "type": "module",
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.4",
