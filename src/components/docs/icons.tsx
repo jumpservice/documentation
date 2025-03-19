@@ -1,7 +1,7 @@
 import React from "react";
 import { 
   Settings, Crown, CircleHelp, ArrowRightLeft, Plus, SquareTerminal, ChevronDown,
-  ExternalLink
+  ExternalLink, Upload, X
 } from 'lucide-react';
 
 function IconTips({ Icon, tooltip = "", iconColor = "" }) {
@@ -21,7 +21,7 @@ function IconTips({ Icon, tooltip = "", iconColor = "" }) {
 }
 
 interface IconProps {
-  name: "settings"| "help" | "xpack" | "xpackTip" | "switch";
+  name: "settings"| "help" | "xpack" | "xpackTip" | "switch"| "Upload" | "X";
 }
 
 const iconConfig = {
@@ -34,6 +34,8 @@ const iconConfig = {
   "square-terminal": <SquareTerminal className="w-4 pb-1 inline-block" />,
   "chevron-down": <ChevronDown className="w-4 inline-block" />,
   link: <ExternalLink className="w-3 mb-2 inline-block" />,
+  upload: <Upload className="w-4 mb-1 inline-block" />,
+  X: <X className="w-5 mb-1 inline-block" />,
 }
 
 const Icon: React.FC<IconProps> = ({ name }) => {
