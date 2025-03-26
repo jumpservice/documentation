@@ -81,7 +81,7 @@ function Footer() {
           <List
             title="Support"
             items={[
-              { title: "Email", url: "mailto:support@fit2cloud.com" },
+              { title: "Email", url: "mailto:support@lxware.hk" },
               { title: "Discord", url: "https://discord.gg/W6vYXmAQG2" },
               {
                 title: "GitHub Issues",
@@ -92,7 +92,7 @@ function Footer() {
         </div>
         <div className="flex flex-wrap justify-between gap-10">
           <p className="text-sm">
-            Copyright © {new Date().getFullYear()} FIT2CLOUD, Inc. All rights
+            Copyright © {new Date().getFullYear()} <a className="underline hover:text-primary" href="https://lxware.hk" target="_blank">LXware</a>, Inc. All rights
             reserved.
           </p>
           <div className="flex flex-col gap-4 lg:items-end">

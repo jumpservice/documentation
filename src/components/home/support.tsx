@@ -5,25 +5,21 @@ function TableSupport() {
         <table>
           <thead>
             <tr>
-              <th scope="col">Item</th>
-              <th scope="col">Service Content</th>
+              <th scope="col">Service</th>
+              <th scope="col">Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Customer Support</th>
               <td>
-                8x5 ticket and telephone support, tickets responding in 4 hours.
-                After receiving the fault report, the engineer assists the
-                customer in software faults troubleshooting in time through
-                telephone support, remote assistance, etc.
+                Provides 8×5 email support. Upon receiving a fault report, engineers promptly assist customers in troubleshooting to ensure stable product operation.
               </td>
             </tr>
             <tr>
               <th scope="row">Software Upgrade</th>
               <td>
-                Provide patches and enhanced function packages to upgrade
-                seamlessly, etc.
+                Provides the latest version of the Enterprise Edition offline installation package and enhanced features package <span className="text-nowrap">(X-Pack)</span>.
               </td>
             </tr>
           </tbody>
