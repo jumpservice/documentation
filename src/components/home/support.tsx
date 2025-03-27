@@ -6,7 +6,7 @@ function TableSupport() {
           <thead>
             <tr>
               <th scope="col">Service</th>
-              <th scope="col">Description</th>
+              <th scope="col" className="text-center">Description</th>
             </tr>
           </thead>
           <tbody>
