@@ -30,13 +30,13 @@ const logos = [
 
 const CustomerLogos = () => {
   return (
-    <div className="py-10">
+    <div className="pt-10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-5 gap-6">
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-4 bg-white shadow rounded-lg"
+              className="flex items-center justify-center p-2 bg-white rounded-lg border shadow-md hover:border-primary"
             >
               <img src={logo} alt={`Client Logo ${index + 1}`} className="h-16" />
             </div>
