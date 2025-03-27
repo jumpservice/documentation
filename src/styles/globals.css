@@ -25,7 +25,6 @@
 .home {
   section {
     @apply container max-w-6xl flex-1 flex-col items-center p-20 text-center;
-    /* @apply container flex max-w-6xl flex-col items-center p-20 text-center; */
   }
   h2 {
     @apply mb-8 text-balance text-2xl font-extrabold lg:text-3xl;

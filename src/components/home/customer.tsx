@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { clsx } from "clsx";
 
 const logos = [
   "/images/home/customer-logos/cosco.jpg",
@@ -80,16 +81,16 @@ const ScrollRow = ({ logos, speed = 0.5, reverse = false }: { logos: string[]; s
 
 function Customer() {
   return (
-    <section>
-      <div className="py-20">
-        <h2> Trusted by Global Industry Leaders </h2>
-        <div className="space-y-10">
+    <div>
+      <h2 className="text-center mt-20 text-balance text-2xl font-extrabold lg:text-3xl;">Trusted by Global Industry Leaders</h2>
+      <div className="container text-center py-20 max-w-7xl">
+        <div className={clsx("space-y-10 [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]")}>
           {rows.map((row, index) => (
             <ScrollRow key={index} logos={row} speed={0.5 + index * 0.2} reverse={index % 2 === 1} />
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
