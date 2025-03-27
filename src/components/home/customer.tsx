@@ -26,7 +26,7 @@ const logos = [
   "/images/home/customer-logos/versace.jpg",
   "/images/home/customer-logos/vw.jpg",
   "/images/home/customer-logos/fuji-xerox.png",
-  "/images/home/customer-logos/mihoyo.png",
+  // "/images/home/customer-logos/mihoyo.png",
 ];
 
 // 将 logos 分成三行交错排列
@@ -79,10 +79,38 @@ const ScrollRow = ({ logos, speed = 0.5, reverse = false }: { logos: string[]; s
   );
 };
 
-function Customer() {
+const title = "Trusted by Global Industry Leaders";
+
+const CustomerLogosGrid = () => {
+  return (
+    <section>
+      <h2>{title}</h2>
+      <div className="pt-10">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {logos.map((logo, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center p-3 bg-white rounded-lg border shadow-md min-h-[80px]"
+              >
+                <img
+                  src={logo}
+                  alt={`Client Logo ${index + 1}`}
+                  className="h-16 max-h-20 max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CustomerLogosScroll = () => {
   return (
     <div>
-      <h2 className="text-center mt-20 text-balance text-2xl font-extrabold lg:text-3xl;">Trusted by Global Industry Leaders</h2>
+      <h2 className="text-center mt-20 text-balance text-2xl font-extrabold lg:text-3xl;">{title}</h2>
       <div className="container text-center py-20 max-w-7xl">
         <div className={clsx("space-y-10 [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]")}>
           {rows.map((row, index) => (
@@ -91,6 +119,20 @@ function Customer() {
         </div>
       </div>
     </div>
+  );
+};
+
+function Customer() {
+  return (
+    <>
+      <div className="block md:hidden">
+        <CustomerLogosGrid />
+      </div>
+
+      <div className="hidden md:block">
+        <CustomerLogosScroll />
+      </div>
+    </>
   );
 }
 

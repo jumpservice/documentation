@@ -77,7 +77,7 @@ const Card = ({ icon: IconComponent, title, description, href }) => {
         <div className="relative flex justify-start">
           <IconComponent className="h-8 w-8 object-contain" />
           { href &&
-            <div className="absolute top-0 right-0 hidden group-hover:block group-hover:text-primary">
+            <div className="absolute top-0 right-0 opacity-100 hidden group-hover:block group-hover:text-primary">
               <Icon name="link-square" />
             </div>
           }
