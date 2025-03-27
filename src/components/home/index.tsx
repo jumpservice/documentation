@@ -1,6 +1,6 @@
 import Hero from "./hero";
 import FlowingCard from "./flowing-card";
-import WhatsJumpServer from "./whats";
+import Architecture from "./architecture";
 import XPack from "./x-pack";
 import Support from "./support";
 import Edition from "./edition";
@@ -13,7 +13,7 @@ function HomePage() {
       <Hero />
       <FlowingCard />
       <Customer />
-      <WhatsJumpServer />
+      <Architecture />
       <Edition />
       <XPack />
       <Support />

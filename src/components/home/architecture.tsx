@@ -1,6 +1,6 @@
 import { ImageComponent } from "../public";
 
-function WhatsJumpServer() {
+function Architecture() {
   return (
     <>
       <div className="">
@@ -18,4 +18,4 @@ function WhatsJumpServer() {
   );
 }
 
-export default WhatsJumpServer;
+export default Architecture;
