@@ -4,8 +4,8 @@ import WhatsJumpServer from "./whats";
 import XPack from "./x-pack";
 import Support from "./support";
 import Edition from "./edition";
-// import Customer from "./customer";
-import Customer from "./customer-grid";
+import Customer from "./customer";
+// import Customer from "./customer-grid";
 
 function HomePage() {
   return (
