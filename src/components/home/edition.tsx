@@ -23,7 +23,7 @@ function TableSupport() {
               <td>Annual Subscription</td>
               <td className="border-l dark:border-l dark:border-gray-700">
                 {/* TODO: add link to purchase page */}
-                <a href="https://www.lxware.hk/" target="_blank" className="underline hover:text-primary">
+                <a href="https://www.lxware.hk/" target="_blank" className="font-serif underline hover:text-primary">
                   Buy Now <Icon name="link" />
                 </a>
               </td>
@@ -34,7 +34,7 @@ function TableSupport() {
               <td>Standalone | Active-Standby</td>
               <td>Annual Subscription</td>
               <td rowSpan={3} className="border-l dark:border-l dark:border-gray-700">
-                <a href="mailto:support@lxware.hk" className="underline hover:text-primary">Contact Sales <Icon name="send-email" /></a>
+                <a href="mailto:support@lxware.hk" className="font-serif underline hover:text-primary">Contact Sales <Icon name="send-email" /></a>
               </td>
             </tr>
             <tr>
@@ -62,17 +62,13 @@ export default function Edition() {
       <section id="section-edition">
         <h2>JumpServer Enterprise Edition</h2>
         <p className="mb-10">
-          Compared with the Community Edition,
-          <span className="pl-3 pr-3 font-bold text-primary">
-            JumpServer Enterprise Edition
-          </span>
-          provides X-Pack enhancement packages and enterprise support services.
+          JumpServer EE provides  <a href="/#section-x-pack" className="font-serif text-primary hover:underline">Advanced X-Pack features</a> and <a href="/#section-support" className="font-serif text-primary hover:underline"> Enterprise support </a> for enhanced scalability, security, and reliability.
         </p>
         <TableSupport />
         <p className="mt-10">
           <span className="text-lg">
             Note: To apply for a 14-day trial license of the JumpServer Enterprise Edition, please email
-            <NextLink className="underline ml-1 text-primary" href="mailto:support@lxware.hk">support@lxware.hk</NextLink>
+            <NextLink className="hover:underline ml-1 font-serif text-primary" href="mailto:support@lxware.hk">support@lxware.hk <Icon name="send" /></NextLink> .
           </span>
         </p>
       </section>

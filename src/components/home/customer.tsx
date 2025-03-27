@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const logos = [
   "/images/home/customer-logos/cosco.jpg",
   "/images/home/customer-logos/oppo.png",
-  "/images/home/customer-logos/tencent-games.png",
+  "/images/home/customer-logos/tencent.png",
   "/images/home/customer-logos/decathlon.png",
-  "/images/home/customer-logos/ikea.svg",
+  "/images/home/customer-logos/ikea.webp",
   "/images/home/customer-logos/uniqlo.png",
   "/images/home/customer-logos/daimler.png",
   "/images/home/customer-logos/deloitte.jpg",
@@ -28,35 +28,68 @@ const logos = [
   "/images/home/customer-logos/mihoyo.png",
 ];
 
-const CustomerLogos = () => {
+// 将 logos 分成三行交错排列
+const rowCount = 3;
+const rows = Array.from({ length: rowCount }, (_, i) =>
+  logos.filter((_, idx) => idx % rowCount === i)
+);
+
+const ScrollRow = ({ logos, speed = 0.5, reverse = false }: { logos: string[]; speed?: number; reverse?: boolean }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let requestId: number;
+    const scroll = () => {
+      if (!container) return;
+      container.scrollLeft += reverse ? -speed : speed;
+
+      // 如果滚动到一半，就重置 scrollLeft 实现循环
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      } else if (container.scrollLeft <= 0 && reverse) {
+        container.scrollLeft = container.scrollWidth / 2;
+      }
+
+      requestId = requestAnimationFrame(scroll);
+    };
+
+    requestId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(requestId);
+  }, [speed, reverse]);
+
   return (
-    <div className="pt-10">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-5 gap-6">
-          {logos.map((logo, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center p-2 bg-white rounded-lg border shadow-md hover:border-primary"
-            >
-              <img src={logo} alt={`Client Logo ${index + 1}`} className="h-16" />
-            </div>
-          ))}
+    <div
+      ref={containerRef}
+      className="flex overflow-hidden whitespace-nowrap no-scrollbar"
+    >
+      {/* 双份 logo 实现无缝滚动 */}
+      {[...logos, ...logos].map((logo, idx) => (
+        <div
+          key={idx}
+          className="flex items-center justify-center p-2 min-w-[160px] bg-white rounded-lg border shadow-md mx-2"
+        >
+          <img src={logo} alt={`Client Logo ${idx}`} className="h-16" />
         </div>
-      </div>
+      ))}
     </div>
   );
 };
 
 function Customer() {
   return (
-    <>
-      <div className="">
-        <section>
-          <div className="text-center text-2xl font-bold">Trusted By Global Leaders</div>
-          <CustomerLogos />
-        </section>
+    <section>
+      <div className="py-20">
+        <h2> Trusted by Global Industry Leaders </h2>
+        <div className="space-y-10">
+          {rows.map((row, index) => (
+            <ScrollRow key={index} logos={row} speed={0.5 + index * 0.2} reverse={index % 2 === 1} />
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 }
 

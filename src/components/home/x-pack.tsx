@@ -102,7 +102,7 @@ const FeatureList = () => {
 export default function XPack() {
   return (
     <>
-      <section>
+      <section id="section-x-pack">
         <h2>X-Pack Enhancement Packages</h2>
         <FeatureList />
       </section>

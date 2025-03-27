@@ -5,7 +5,7 @@ function WhatsJumpServer() {
     <>
       <div className="">
         <section>
-          <h2>What is JumpServer?</h2>
+          <h2>JumpServer Architecture</h2>
           <ImageComponent
             src="/images/jumpserver-overview.png"
             alt="jumpserver-overview"

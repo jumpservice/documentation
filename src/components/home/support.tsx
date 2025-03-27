@@ -32,7 +32,7 @@ function TableSupport() {
 export default function Support() {
   return (
     <>
-      <section>
+      <section id="section-support">
         <h2>Enterprise Support Services</h2>
         <TableSupport />
       </section>
