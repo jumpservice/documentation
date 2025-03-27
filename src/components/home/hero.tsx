@@ -4,7 +4,7 @@ import { HeroGitHubStarIcon, HeroDocsIcon, HeroLinkIcon } from "@/icons";
 export default function Hero() {
   return (
     <>
-      <div className="bg-white dark:bg-gray-900">
+      <div className="">
         <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-12 lg:py-16">
           <a
             href={`https://github.com/jumpserver/jumpserver/releases/${LatestVersion}`}
