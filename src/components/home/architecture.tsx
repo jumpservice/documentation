@@ -17,14 +17,14 @@ const securityLayers = [
 ];
 
 const users = [
-  { name: "System Admin", logo: "/svgs/system-admin.svg" },
+  { name: "Admin", logo: "/svgs/system-admin.svg" },
   { name: "DBA", logo: "/svgs/dba.svg" },
   { name: "Developer", logo: "/svgs/developer.svg" },
   { name: "QA", logo: "/svgs/qa.svg" },
   { name: "Other...", logo: "/svgs/more.svg" },
 ];
 
-const ArchitectureDiagram = () => {
+export const ArchitectureDiagram = () => {
   return (
     <div className="max-w-6xl mx-auto p-6 rounded-lg shadow-md shadow-primary/90">
 
