@@ -71,8 +71,6 @@ export default function Edition() {
             </div>
             <div>
               Note: To apply for a 14-day trial license of the JumpServer Enterprise Edition, please email
-            </div>
-            <div className="pl-2">
               <NextLink className="hover:underline ml-1 font-serif text-primary" href="mailto:support@lxware.hk">support@lxware.hk <Icon name="send" /></NextLink> .
             </div>
           </div>

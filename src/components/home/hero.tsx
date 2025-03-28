@@ -33,7 +33,7 @@ export default function Hero() {
             web browser.
           </p>
           <div className="mb-8 mt-20 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0 lg:mb-16">
-            <div className="inline-flex w-1/3 items-center gap-4 ">
+            <div className="items-center grid grid-cols-2 gap-4 ">
               <a
                 className="inline-flex flex-1 items-center justify-center rounded-lg bg-primary px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-light focus:ring-4 focus:ring-primary dark:focus:ring-primary"
                 href="/docs/quickstart"
