@@ -8,18 +8,20 @@ export default function Hero() {
         <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-12 lg:py-16">
           <a
             href={`https://github.com/jumpserver/jumpserver/releases/${LatestVersion}`}
-            className="mb-7 inline-flex items-center justify-between rounded-full bg-gray-100 px-1 py-1 pr-4 text-sm text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-            role="alert"
+            className="mb-7 inline-flex items-center justify-between rounded-full bg-gray-100 px-1 py-1 pr-4 text-sm text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 glow-effect"
+            role="alert" target="_blank"
           >
-            <span className="mr-3 rounded-full bg-primary px-4 py-1.5 text-xs text-white">
-              New
-            </span>
-            <span className="text-sm font-medium">
-              JumpServer {LatestVersion} is released !
-              <span className="hidden pl-2 underline after:font-sans after:content-['_→'] md:inline">
-                Read more
+            <div className="flex items-center justify-between theme-logo">
+              <span className="mr-3 rounded-full bg-primary px-4 py-1.5 text-xs text-white">
+                New
               </span>
-            </span>
+              <span className="text-sm font-medium">
+                JumpServer {LatestVersion} is released !
+                <span className="hidden pl-2 underline after:font-sans after:content-['_→'] md:inline">
+                  Read more
+                </span>
+              </span>
+            </div>
           </a>
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
             An open-source PAM tool alternative to CyberArk
