@@ -66,12 +66,10 @@ export default function Edition() {
         <TableSupport />
         <div className="mt-16 p-2 rounded-lg shadow-xl shadow-primary glow-effect">
           <div className="flex text-center justify-center text-lg theme-logo">
-            <div className="px-4">
-              <Icon name="xpack" />
-            </div>
-            <div>
-              Note: To apply for a 14-day trial license of the JumpServer Enterprise Edition, please email
-              <NextLink className="hover:underline ml-1 font-serif text-primary" href="mailto:support@lxware.hk">support@lxware.hk <Icon name="send" /></NextLink> .
+            <Icon name="xpack" />
+            <div className="pl-4">
+              Note: To apply for a <span className="text-nowrap">14-day</span> trial license of the JumpServer Enterprise Edition, please email
+              <NextLink className="hover:underline text-nowrap ml-1 font-serif text-primary" href="mailto:support@lxware.hk">support@lxware.hk <Icon name="send" /></NextLink>.
             </div>
           </div>
         </div>
