@@ -1,6 +1,7 @@
 import React from "react";
 import { JumpServerWordmarkLogoIcon } from "@/icons";
 import { ImageComponent } from "../public";
+import ArrowLine from "../public/arrow-line";
 
 const assets = [
   { name: "SSH", logo: "/svgs/linux.svg" },
@@ -25,11 +26,12 @@ const users = [
   { name: "...", logo: "/svgs/more.svg" },
 ];
 
+
 const ArchitectureDiagram = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg shadow-primary">
 
-      <div className="border border-gray-500 dark:border-gray-600 rounded-lg p-4 mb-4">
+      <div className="border border-gray-500 dark:border-gray-600 rounded-lg p-4">
         <div className="text-2xl font-semibold text-center mb-10">IT Assets</div>
         <div className="grid grid-cols-5 gap-4 text-center">
           {assets.map((item) => (
@@ -43,7 +45,20 @@ const ArchitectureDiagram = () => {
         </div>
       </div>
 
-      <div className="border border-primary rounded-lg p-4 mb-4 mt-14">
+      <div className="relative flex h-20 justify-center items-center">
+        <svg width="300" height="200" className="text-black dark:text-white">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="7" refY="3.5" orient="auto" >
+              <polygon points="0 0, 10 3.5, 0 7" fill="black" className="dark:fill-gray-400 dark:stroke-gray-400" />
+            </marker>
+          </defs>
+          <line x1="150" y1="135" x2="150" y2="70" stroke="black" stroke-width="1" stroke-dasharray="5,5" className="dark:stroke-gray-400" markerEnd="url(#arrowhead)" />
+          <line x1="150" y1="135" x2="20" y2="70" stroke="black" strokeWidth="1" stroke-dasharray="5,5" className="dark:stroke-gray-400" markerEnd="url(#arrowhead)" />
+          <line x1="150" y1="135" x2="280" y2="70" stroke="black" strokeWidth="1" stroke-dasharray="5,5" className="dark:stroke-gray-400" markerEnd="url(#arrowhead)" />
+        </svg>
+      </div>
+
+      <div className="border border-primary rounded-lg p-4">
         <div className="flex w-full">
           <div className="flex flex-1 justify-end pr-4">
             <JumpServerWordmarkLogoIcon className="theme-logo h-9" />
@@ -68,14 +83,27 @@ const ArchitectureDiagram = () => {
         </div>
       </div>
 
-      <div className="p-4 mt-14">
+      <div className="p-4 pt-0">
         <div className="grid grid-cols-5 gap-4 text-center">
           {users.map((item) => (
-            <div key={item.name} className="flex flex-col items-center p-4 border border-gray-500 dark:border-gray-600 rounded-lg shadow">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <img src={item.logo} alt="x" className=""/>
+            <div>
+              <div className="relative flex h-20 justify-center items-center">
+                <svg width="100" height="200" className="text-black dark:text-white">
+                  <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="7" refY="3.5" orient="auto" >
+                      <polygon points="0 0, 10 3.5, 0 7" fill="black" className="dark:fill-gray-400 dark:stroke-gray-400" />
+                    </marker>
+                  </defs>
+                  <line x1="50" y1="135" x2="50" y2="70" stroke="black" stroke-width="1" stroke-dasharray="5,5" className="dark:stroke-gray-400" markerEnd="url(#arrowhead)" />
+                </svg>
               </div>
-              <div className="mt-2 text-sm font-semibold">{item.name}</div>
+
+              <div key={item.name} className="flex flex-col items-center p-4 border border-gray-500 dark:border-gray-600 rounded-lg shadow">
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <img src={item.logo} alt="x" className=""/>
+                </div>
+                <div className="mt-2 text-sm font-semibold">{item.name}</div>
+              </div>
             </div>
           ))}
         </div>
