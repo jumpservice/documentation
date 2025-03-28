@@ -22,8 +22,7 @@ function TableSupport() {
               <td>Standalone</td>
               <td>Annual Subscription</td>
               <td className="border-l dark:border-l dark:border-gray-700">
-                {/* TODO: add link to purchase page */}
-                <a href="https://www.lxware.hk/" target="_blank" className="font-serif underline hover:text-primary">
+                <a href="https://www.lxware.hk/products/jumpserver-enterprise-edition-basic-plan" target="_blank" className="font-serif underline hover:text-primary">
                   Buy Now <Icon name="link" />
                 </a>
               </td>
@@ -61,16 +60,23 @@ export default function Edition() {
     <>
       <section id="section-edition">
         <h2>JumpServer Enterprise Edition</h2>
-        <p className="mb-10">
+        <div className="mb-10 text-md">
           JumpServer EE provides  <a href="/#section-x-pack" className="font-serif text-primary hover:underline">Advanced X-Pack features</a> and <a href="/#section-support" className="font-serif text-primary hover:underline"> Enterprise support </a> for enhanced scalability, security, and reliability.
-        </p>
+        </div>
         <TableSupport />
-        <p className="mt-10">
-          <span className="text-lg">
-            Note: To apply for a 14-day trial license of the JumpServer Enterprise Edition, please email
-            <NextLink className="hover:underline ml-1 font-serif text-primary" href="mailto:support@lxware.hk">support@lxware.hk <Icon name="send" /></NextLink> .
-          </span>
-        </p>
+        <div className="mt-16 p-2 rounded-lg shadow-xl shadow-primary glow-effect">
+          <div className="flex text-center justify-center text-lg theme-logo">
+            <div className="px-4">
+              <Icon name="xpack" />
+            </div>
+            <div>
+              Note: To apply for a 14-day trial license of the JumpServer Enterprise Edition, please email
+            </div>
+            <div className="pl-2">
+              <NextLink className="hover:underline ml-1 font-serif text-primary" href="mailto:support@lxware.hk">support@lxware.hk <Icon name="send" /></NextLink> .
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

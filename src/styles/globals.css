@@ -39,26 +39,27 @@
 }
 
 .home-table {
+  @apply shadow-md shadow-primary;
   table {
     @apply w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right;
   }
   thead {
-    @apply bg-gray-50 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-400;
+    @apply text-xs text-gray-700  dark:text-gray-400;
   }
   thead > tr > th {
-    @apply px-6 py-3 text-primary text-sm;
+    @apply px-6 py-3 text-primary text-sm border-b dark:border-gray-700;
   }
   tbody > tr {
-    @apply border-b bg-white dark:border-gray-700 dark:bg-gray-900;
+    @apply border-b;
   }
   tbody > tr {
-    @apply  bg-white dark:border-gray-700 dark:bg-gray-900;
+    @apply dark:border-gray-700;
   }
   tbody > tr > th {
     @apply whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white;
   }
   tbody > tr > td {
-    @apply px-6 py-4;
+    @apply px-6 py-4 text-gray-800 dark:text-gray-300;
   }
 }
 
@@ -66,6 +67,19 @@
   td {
     @apply border border-slate-700 px-4 py-2 text-center text-gray-600;
   }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px 8px theme(colors.indigo.500 / 0.8);
+  }
+  100% {
+    box-shadow: 0 0 15px 5px theme(colors.primary / 0.9);
+  }
+}
+
+.glow-effect {
+  animation: glow 2s infinite alternate;
 }
 
 /* ------------ Docs ------------ */

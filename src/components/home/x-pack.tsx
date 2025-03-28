@@ -72,7 +72,7 @@ const Card = ({ icon: IconComponent, title, description, href }) => {
       <a href={href} 
         target="_blank"
         onClick={(e) => { if (!href) e.preventDefault(); }}
-        className="box-border flex border-spacing-1 flex-col rounded-lg border p-4 shadow-md hover:border-primary dark:bg-gray-900 group"
+        className="box-border flex border-spacing-1 flex-col rounded-lg border p-4 shadow-md shadow-primary hover:border-primary group"
       >
         <div className="relative flex justify-start">
           <IconComponent className="h-8 w-8 object-contain" />
