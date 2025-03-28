@@ -30,7 +30,7 @@
     @apply mb-8 text-balance text-2xl font-extrabold lg:text-3xl;
   }
   p {
-    @apply w-full text-base font-normal text-slate-500 dark:text-slate-50 lg:text-lg/8;
+    @apply w-full text-base font-normal text-slate-700 dark:text-slate-50 lg:text-lg/8;
   }
 }
 

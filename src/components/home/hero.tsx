@@ -24,7 +24,7 @@ export default function Hero() {
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
             An open-source PAM tool alternative to CyberArk
           </h1>
-          <p className="mb-8 mt-6 text-lg font-normal text-gray-500 dark:text-gray-400 sm:px-16 lg:text-xl xl:px-48">
+          <p className="mb-8 mt-6 text-lg font-normal dark:text-gray-400 sm:px-16 lg:text-xl xl:px-48">
             JumpServer is an open-source Privileged Access Management (PAM) tool
             that provides DevOps and IT teams with on-demand and secure access
             to SSH, RDP, Kubernetes, Database and RemoteApp endpoints through a
