@@ -7,7 +7,7 @@ const images = [
   { src: "/images/home/moving-console.png", alt: "Console" },
 ];
 
-const ProductShowcase = () => (
+const ProductShow = () => (
   <InfiniteMovingCards
     direction="right"
     speed="normal"
@@ -20,4 +20,4 @@ const ProductShowcase = () => (
   </InfiniteMovingCards>
 );
 
-export default ProductShowcase;
+export default ProductShow;

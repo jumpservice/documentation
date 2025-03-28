@@ -1,5 +1,5 @@
 import Hero from "./hero";
-import ProductShowcase from "./showcase";
+import ProductShow from "./product-show";
 import Architecture from "./architecture";
 import XPack from "./x-pack";
 import Support from "./support";
@@ -10,7 +10,7 @@ function HomePage() {
   return (
     <div className="home">
       <Hero />
-      <ProductShowcase />
+      <ProductShow />
       <Customer />
       <Architecture />
       <Edition />
