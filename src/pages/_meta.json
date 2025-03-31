@@ -16,7 +16,7 @@
     "type": "page"
   },
   "about": {
-    "title": "About Us",
+    "title": "About",
     "type": "page",
     "route": "https://www.lxware.hk/pages/about"
   }
