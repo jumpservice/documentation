@@ -10,6 +10,8 @@ import {
   XPackTicketIcon,
 } from "@/icons/";
 
+import Icon from "../docs/icons";
+
 const cardData = [
   {
     icon: XPackOrgIcon,
@@ -25,8 +27,8 @@ const cardData = [
   {
     icon: XPackSSOIcon,
     title: "Single Sign-On (SSO)",
-    description:
-      "Supports Active Directory / LDAP, SAML2, OAuth2 and OAuth/OpenID Connect.",
+    description: "Supports Active Directory / LDAP, SAML2, OAuth2 and OAuth/OpenID Connect.",
+    href: "/docs/system-settings/authentication",
   },
   {
     icon: XPackAssetSyncIcon,
@@ -64,12 +66,21 @@ const cardData = [
   },
 ];
 
-const Card = ({ icon: IconComponent, title, description }) => {
+const Card = ({ icon: IconComponent, title, description, href }) => {
   return (
     <>
-      <div className="box-border flex border-spacing-1 flex-col rounded-lg border p-4 shadow-md hover:border-primary dark:bg-gray-800">
-        <div className="flex justify-start ">
+      <a href={href} 
+        target="_blank"
+        onClick={(e) => { if (!href) e.preventDefault(); }}
+        className="box-border flex border-spacing-1 flex-col rounded-lg border p-4 shadow-md shadow-primary hover:border-primary group"
+      >
+        <div className="relative flex justify-start">
           <IconComponent className="h-8 w-8 object-contain" />
+          { href &&
+            <div className="absolute top-0 right-0 opacity-100 hidden group-hover:block group-hover:text-primary">
+              <Icon name="link-square" />
+            </div>
+          }
         </div>
         <div className="">
           <div className="mt-3 text-left font-bold text-primary">{title}</div>
@@ -77,7 +88,7 @@ const Card = ({ icon: IconComponent, title, description }) => {
             {description}
           </div>
         </div>
-      </div>
+      </a>
     </>
   );
 };
@@ -91,6 +102,7 @@ const FeatureList = () => {
             key={index}
             icon={card.icon}
             title={card.title}
+            href={card.href || ""}
             description={card.description}
           />
         ))}
@@ -102,7 +114,7 @@ const FeatureList = () => {
 export default function XPack() {
   return (
     <>
-      <section>
+      <section id="section-x-pack">
         <h2>X-Pack Enhancement Packages</h2>
         <FeatureList />
       </section>

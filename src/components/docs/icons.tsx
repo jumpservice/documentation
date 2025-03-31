@@ -1,7 +1,7 @@
 import React from "react";
 import { 
   Settings, Crown, CircleHelp, ArrowRightLeft, Plus, SquareTerminal, ChevronDown,
-  ExternalLink, Download
+  ExternalLink, Download, Mail, Send, SquareArrowOutUpRight
 } from 'lucide-react';
 
 function IconTips({ Icon, tooltip = "", iconColor = "" }) {
@@ -35,6 +35,9 @@ const iconConfig = {
   "chevron-down": <ChevronDown className="w-4 inline-block" />,
   link: <ExternalLink className="w-3 mb-2 inline-block" />,
   download: <Download className="w-4 pb-1 inline-block" />,
+  "send-email": <Mail className="w-3 mb-2 inline-block" />,
+  send: <Send className="w-3 mb-2 inline-block" />,
+  "link-square": <SquareArrowOutUpRight className="w-4 pb-1 inline-block" />,
 }
 
 const Icon: React.FC<IconProps> = ({ name }) => {

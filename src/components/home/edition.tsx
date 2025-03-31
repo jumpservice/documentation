@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import Icon from "../docs/icons";
 
 function TableSupport() {
   return (
@@ -8,9 +9,10 @@ function TableSupport() {
           <thead>
             <tr>
               <th scope="col">SKU</th>
-              <th scope="col">Number of IT assets</th>
-              <th scope="col">Deployment Methods Supported</th>
-              <th scope="col">How to Order</th>
+              <th scope="col">Maximum IT Assets</th>
+              <th scope="col">Deployment</th>
+              <th scope="col">Subscription</th>
+              <th scope="col">Purchase</th>
             </tr>
           </thead>
           <tbody>
@@ -18,24 +20,32 @@ function TableSupport() {
               <th scope="row">Basic</th>
               <td>50</td>
               <td>Standalone</td>
-              <td>3 years Subscription</td>
+              <td>Annual Subscription</td>
+              <td className="border-l dark:border-l dark:border-gray-700">
+                <a href="https://www.lxware.hk/products/jumpserver-enterprise-edition-basic-plan" target="_blank" className="font-serif underline hover:text-primary">
+                  Buy Now <Icon name="link" />
+                </a>
+              </td>
             </tr>
             <tr>
               <th scope="row">Standard</th>
               <td>500</td>
-              <td>Standalone / Active-standby</td>
+              <td>Standalone | Active-Standby</td>
               <td>Annual Subscription</td>
+              <td rowSpan={3} className="border-l dark:border-l dark:border-gray-700">
+                <a href="mailto:sales@lxware.hk" className="font-serif underline hover:text-primary">Contact Sales <Icon name="send-email" /></a>
+              </td>
             </tr>
             <tr>
               <th scope="row">Professional</th>
               <td>5000</td>
-              <td>Standalone / Active-standby</td>
+              <td>Standalone | Active-Standby</td>
               <td>Annual Subscription</td>
             </tr>
             <tr>
               <th scope="row">Ultimate</th>
               <td>Unlimited</td>
-              <td>Standalone / Active-standby / High availability</td>
+              <td>Standalone | Active-Standby | High Availability</td>
               <td>Annual Subscription</td>
             </tr>
           </tbody>
@@ -50,20 +60,19 @@ export default function Edition() {
     <>
       <section id="section-edition">
         <h2>JumpServer Enterprise Edition</h2>
-        <p className="mb-10">
-          Compared with the Community Edition,
-          <span className="pl-3 pr-3 font-bold text-primary">
-            JumpServer Enterprise Edition
-          </span>
-          provides X-Pack enhancement packages and enterprise support services.
-        </p>
+        <div className="mb-10 text-md">
+          JumpServer EE provides  <a href="/#section-x-pack" className="font-serif text-primary hover:underline">Advanced X-Pack features</a> and <a href="/#section-support" className="font-serif text-primary hover:underline"> Enterprise support </a> for enhanced scalability, security, and reliability.
+        </div>
         <TableSupport />
-        <p className="mt-10">
-          <span className="text-lg">
-            Note: To apply for a 14-day trial license of the JumpServer Enterprise Edition, please email
-            <NextLink className="underline ml-1 text-primary" href="mailto:support@fit2cloud.com">support@fit2cloud.com</NextLink>
-          </span>
-        </p>
+        <div className="mt-16 p-2 rounded-lg shadow-xl shadow-primary glow-effect">
+          <div className="flex text-center justify-center text-lg theme-logo">
+            <Icon name="xpack" />
+            <div className="pl-4">
+              Note: To apply for a <span className="text-nowrap">14-day</span> trial license of the JumpServer Enterprise Edition, please email
+              <NextLink className="hover:underline text-nowrap ml-1 font-serif text-primary" href="mailto:sales@lxware.hk">sales@lxware.hk <Icon name="send" /></NextLink>.
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

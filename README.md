@@ -42,3 +42,11 @@ pnpm dev
 ```
 
 That’s it! Go to http://localhost:3000 to see it in action. Any change you make to a file in `pages` should be refreshed automatically in your browser.
+
+## License & Attribution
+
+The icon used in this project is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.  
+Original icon by [Iconduck - HfG Schwäbisch Gmünd](https://iconduck.com/designers/hff-schwabisch-gmund).
+
+The icons used in this project are licensed under the [GNU General Public License v2.0 (GPL-2.0)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).  
+Original icons from [Iconduck - Ardis](https://iconduck.com/sets/ardis-icon-theme).
