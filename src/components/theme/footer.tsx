@@ -53,7 +53,7 @@ function List({
           <NextLink
             href={item.url}
             target="_blank"
-            className="decoration-from-font [text-underline-position:from-font] hover:underline"
+            className="decoration-from-font [text-underline-position:from-font] hover:underline hover:text-primary"
           >
             {item.title}
           </NextLink>
@@ -67,7 +67,7 @@ function Footer() {
   return (
     <>
       <div className="w-full">
-        <div className="mb-24 flex flex-wrap items-start justify-between gap-10">
+        <div className="mb-24 grid lg:grid-cols-4 sm:grid-cols-1 items-start justify-between gap-10">
           <NextLink href="/" target="_blank" className="max-lg:w-full">
             {Logo}
           </NextLink>
@@ -76,6 +76,7 @@ function Footer() {
             items={[
               { title: "Introduction", url: "/docs" },
               { title: "Quickstart", url: "/docs/quickstart" },
+              { title: "Changelog", url: "/docs/changelog" },
             ]}
           />
           <List
@@ -87,6 +88,12 @@ function Footer() {
                 title: "GitHub Issues",
                 url: "https://github.com/jumpserver/jumpserver/issues",
               },
+            ]}
+          />
+          <List
+            title="Company"
+            items={[
+              { title: "About Us", url: "https://www.lxware.hk/pages/about" },
             ]}
           />
         </div>
