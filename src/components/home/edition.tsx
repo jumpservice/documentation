@@ -33,7 +33,7 @@ function TableSupport() {
               <td>Standalone | Active-Standby</td>
               <td>Annual Subscription</td>
               <td rowSpan={3} className="border-l dark:border-l dark:border-gray-700">
-                <a href="mailto:support@lxware.hk" className="font-serif underline hover:text-primary">Contact Sales <Icon name="send-email" /></a>
+                <a href="mailto:sales@lxware.hk" className="font-serif underline hover:text-primary">Contact Sales <Icon name="send-email" /></a>
               </td>
             </tr>
             <tr>
@@ -69,7 +69,7 @@ export default function Edition() {
             <Icon name="xpack" />
             <div className="pl-4">
               Note: To apply for a <span className="text-nowrap">14-day</span> trial license of the JumpServer Enterprise Edition, please email
-              <NextLink className="hover:underline text-nowrap ml-1 font-serif text-primary" href="mailto:support@lxware.hk">support@lxware.hk <Icon name="send" /></NextLink>.
+              <NextLink className="hover:underline text-nowrap ml-1 font-serif text-primary" href="mailto:sales@lxware.hk">sales@lxware.hk <Icon name="send" /></NextLink>.
             </div>
           </div>
         </div>
