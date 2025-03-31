@@ -12,7 +12,12 @@
     "route": "/#section-edition"
   },
   "docs": {
-    "title": "Guides",
+    "title": "Docs",
     "type": "page"
+  },
+  "about": {
+    "title": "About Us",
+    "type": "page",
+    "route": "https://www.lxware.hk/pages/about"
   }
 }
