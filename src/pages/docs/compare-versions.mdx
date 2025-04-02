@@ -1,0 +1,91 @@
+import { 
+  ResourceManagement, 
+  AssetType, 
+  UserAuthentication,
+  AssetConnectionMethod,
+  AccountManagement,
+  ACLsManagement,
+  AdditionalFeatures,
+  AuditManagement,
+  OtherFeatures,
+} from '@/components/docs/compare-versions-data'
+import CompareVersionsDataTable from '@/components/docs/compare-versions-datatable'
+
+# Compare Versions
+
+### Resource & Access Management
+
+<CompareVersionsDataTable
+  headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
+  rows={ResourceManagement.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? "❌" : "✅" },
+    { content: "✅" },
+  ])}
+/>
+
+### User Authentication Methods
+
+<CompareVersionsDataTable
+  headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
+  rows={UserAuthentication.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? "❌" : "✅" },
+    { content: "✅" },
+  ])}
+/>
+
+### Available Asset Types
+
+<CompareVersionsDataTable
+  headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
+  rows={AssetType.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? "❌" : "✅" },
+    { content: "✅" },
+  ])}
+/>
+
+### Asset Connection Methods
+
+<CompareVersionsDataTable
+  headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
+  rows={AssetConnectionMethod.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? "❌" : "✅" },
+    { content: "✅" },
+  ])}
+/>
+
+### Access Control Policies (ACLs)
+
+<CompareVersionsDataTable
+  headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
+  rows={ACLsManagement.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? "❌" : "✅" },
+    { content: "✅" },
+  ])}
+/>
+
+### Audit & Monitoring Capabilities
+
+<CompareVersionsDataTable
+  headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
+  rows={AuditManagement.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? "❌" : "✅" },
+    { content: "✅" },
+  ])}
+/>
+
+### Additional Features & Integrations
+
+<CompareVersionsDataTable
+  headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
+  rows={OtherFeatures.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? "❌" : "✅" },
+    { content: "✅" },
+  ])}
+/>
