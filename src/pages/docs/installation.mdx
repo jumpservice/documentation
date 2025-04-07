@@ -33,7 +33,92 @@ Wait for a moment ... ☕️ At this point, you have successfully installed Jump
 <div>
 Please open your Chrome browser, enter "http://\<your-server-ip\>" in the address bar.
 <Alert type="note">
-Please replace "\<your-server-ip\>" with your actual server IP address.
+Please replace `<your-server-ip>` with your actual server IP address.
+</Alert>
+</div>
+
+<div>
+Log in as an Administrator using the following default credentials.
+* username: `admin`
+* password: `ChangeMe`
+</div>
+
+<div>
+For security, you will be prompted to change your password after logging in. Once you've changed it and logged in again, you can start your JumpServer journey.
+</div>
+
+</Steps>
+
+## Install with an offline package
+This section describes how to install the Enterprise Edition of JumpServer using an offline package. 
+
+The offline package contains all the necessary components, including the core system, dependencies, and required Docker images. 
+Follow the steps below to ensure a successful installation.
+
+<Steps>
+
+<div>
+Prepare a clean Linux server ( 64bit, >= 4c8g ).
+</div>
+
+<div>
+Download the JumpServer offline package. 
+<Alert>
+It is recommended to place the offline installation package under the `/opt` directory for consistency and ease of maintenance.
+</Alert>
+Use the "username" and "password" provided by the support team to access https://download-pkgs.jumpserver.com, download the offline installation package for the required version, and upload it to the deployment server.
+<br/>
+Alternatively, you can run the `wget` command directly on the deployment server to download the package:
+```sh
+cd /opt && wget -O jumpserver-ee-v4.8.1-x86_64.tar.gz https://{username}:{password}@download-pkgs.jumpserver.com/download?file=jumpserver-ee-v4.8.1-x86_64.tar.gz
+```
+<Alert type="note">
+Please replace `{username}` and `{password}` with the actual username and password provided by the support team.
+</Alert>
+</div>
+
+<div>
+Extract the offline installation package.
+```sh 
+tar -zxvf jumpserver-ee-v4.8.1-x86_64.tar.gz
+```
+</div>
+
+<div>
+Change to the extracted directory.
+```sh
+cd jumpserver-ee-v4.8.1-x86_64
+```
+</div>
+
+<div>
+Run the installation script.
+```sh
+./jmsctl.sh install
+```
+<Alert type="tip">
+The installation process can proceed with all default options. After the installation is complete, you can adjust the settings by modifying the configuration files.
+</Alert>
+</div>
+
+<div>
+Wait for a moment ... ☕️ At this point, running `docker ps` will show the following three containers running:
+* jms_core
+* jms_postgresql
+* jms_redis
+</div>
+
+<div>
+Next, start all services.
+```sh
+./jmsctl.sh start
+```
+</div>
+
+<div>
+Please open your Chrome browser, enter "http://\<your-server-ip\>" in the address bar.
+<Alert type="note">
+Please replace `<your-server-ip>` with your actual server IP address.
 </Alert>
 </div>
 
