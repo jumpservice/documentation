@@ -64,7 +64,7 @@ export default function Edition() {
           JumpServer EE provides  <a href="/#section-x-pack" className="font-serif text-primary hover:underline">Advanced X-Pack features</a> and <a href="/#section-support" className="font-serif text-primary hover:underline"> Enterprise support </a> for enhanced scalability, security, and reliability.
         </div>
         <TableSupport />
-        <div className="grid grid-cols-[5%_auto] mt-16 p-2 items-start justify-start rounded-lg shadow-xl shadow-primary glow-effect">
+        <div className="grid grid-cols-[4%_auto] mt-16 p-2 items-start justify-start rounded-lg shadow-xl shadow-primary glow-effect">
           <div className="">
             <Icon name="xpack" />
           </div>
