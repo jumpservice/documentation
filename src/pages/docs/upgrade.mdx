@@ -40,7 +40,7 @@ cd jumpserver-installer-v4.8.1
 </div>
 
 <div>
-Perform the upgrade. You may need to wait a moment ☕️ ...
+Perform the upgrade.
 ```sh
 ./jmsctl.sh upgrade
 ```
@@ -77,6 +77,7 @@ Change to the `/opt` directory.
 <div>
 Download the JumpServer Enterprise offline installation package.
 
+
 <Tabs
   titlesMap={{
     web: "Web",
@@ -110,12 +111,12 @@ Download the JumpServer Enterprise offline installation package.
       </div>
 
       <div>
-      Run the following command to download the offline installation package.
+      Replace the download link and run the following command to download the offline installation package.
       ```sh
       cd /opt && wget --user={username} --password={password} -O jumpserver-ee-v4.8.1-x86_64.tar.gz "https://download-pkgs.jumpserver.com/download?file=jumpserver-ee-v4.8.1-x86_64.tar.gz"
       ```
       <Alert type="note">
-      Please replace `{username}` and `{password}` with the actual username and password provided by the support team.
+      Replace `{username}` and `{password}` with the actual username and password provided by the support team.
       </Alert>
       </div>
     </Steps>
@@ -138,7 +139,7 @@ cd jumpserver-ee-v4.8.1-x86_64
 </div>
 
 <div>
-Perform the upgrade, the upgrade process can be completed using all default options. Now, you may need to wait a moment ☕️ ... 
+Perform the upgrade, the upgrade process can be completed using all default options.
 
 ```sh
 ./jmsctl.sh upgrade

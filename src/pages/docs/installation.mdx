@@ -21,16 +21,16 @@ Change to the `/opt` directory.
 </div>
 
 <div>
-Run the command to install the latest open-source version of JumpServer. Please wait a moment ☕️…
+Run the command to install the latest open-source version of JumpServer.
 ```sh
 curl -sSL https://github.com/jumpserver/jumpserver/releases/latest/download/quick_start.sh | bash
 ```
 </div>
 
 <div>
-Please open your Chrome browser, enter "http://\<your-server-ip\>" in the address bar.
+After the installation is complete, open your Chrome browser and enter "http://\<your-server-ip\>" in the address bar.
 <Alert type="note">
-Please replace `<your-server-ip>` with your actual server IP address.
+Replace `<your-server-ip>` with your actual server IP address.
 </Alert>
 </div>
 
@@ -103,12 +103,12 @@ Download the JumpServer Enterprise offline installation package.
       </div>
 
       <div>
-      Run the following command to download the offline installation package.
+      Replace the download link and run the following command to download the offline installation package.
       ```sh
       cd /opt && wget --user={username} --password={password} -O jumpserver-ee-v4.8.1-x86_64.tar.gz "https://download-pkgs.jumpserver.com/download?file=jumpserver-ee-v4.8.1-x86_64.tar.gz"
       ```
       <Alert type="note">
-      Please replace `{username}` and `{password}` with the actual username and password provided by the support team.
+      Replace `{username}` and `{password}` with the actual username and password provided by the support team.
       </Alert>
       </div>
     </Steps>
@@ -132,14 +132,14 @@ cd jumpserver-ee-v4.8.1-x86_64
 </div>
 
 <div>
-Perform the installation, the installation process can be completed using all default options. After the installation is complete, you can adjust the settings by modifying the configuration files. Now, you may need to wait a moment ☕️ ...
+Perform the installation, the installation process can be completed using all default options. After the installation is complete, you can adjust the settings by modifying the configuration files.
 ```sh
 ./jmsctl.sh install
 ```
 </div>
 
 <div>
-At this point, running `docker ps` will show the following three containers running:
+After the installation is complete, running `docker ps` will show the following three containers running:
 * jms_core
 * jms_postgresql
 * jms_redis
@@ -153,9 +153,9 @@ Start all services.
 </div>
 
 <div>
-Please open your Chrome browser, enter "http://\<your-server-ip\>" in the address bar.
+Open your Chrome browser, enter "http://\<your-server-ip\>" in the address bar.
 <Alert type="note">
-Please replace `<your-server-ip>` with your actual server IP address.
+Replace `<your-server-ip>` with your actual server IP address.
 </Alert>
 </div>
 
