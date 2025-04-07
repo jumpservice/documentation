@@ -10,7 +10,7 @@ const ApplyTrialLicense = () => {
         <Icon name="xpack" />
       </div>
       <div className="text-md">
-        Experience the full features of the JumpServer enterprise edition with a 14-day free trial — <NextLink className="underline text-nowrap ml-1 font-normal text-primary" target="_blank" href="https://www.lxware.hk/pages/about">Contact us</NextLink> today to get started and explore all the benefits!
+        Experience the full features of the JumpServer enterprise edition with a 14-day free trial — <NextLink className="underline text-nowrap ml-1 font-normal text-primary" target="_blank" href="mailto:sales@lxware.hk">Contact us</NextLink> today to get started and explore all the benefits!
       </div>
     </div>
  );
