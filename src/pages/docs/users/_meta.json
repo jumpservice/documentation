@@ -1,6 +1,6 @@
 {
   "add-users": { "title": "Add users", "display": "children" },
-  "manage-users": { "title": "Manage users", "display": "children" },
+  "manage-users": { "title": "Manage users", "display": "normal" },
   "user-details": { "title": "User details", "display": "hidden" },
   "user-authorized-assets": { "title": "User authorized assets", "display": "hidden" },
   "user-authorizations": { "title": "User authorizations", "display": "hidden" },
