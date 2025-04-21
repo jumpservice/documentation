@@ -8,7 +8,6 @@
 
 <div>
 Navigate to **Users** and click the **+ Create** button. 
-<img src="/images/docs/admin-guides/users/create-user.png" alt="user-create-button" width="310"/>
 </div>
 
 <div>
@@ -28,16 +27,18 @@ Optionally, in the **group** field, select user group. Grouping users simplifies
 </div>
 
 <div>
-In the **Password settings** field, choose between **Reset link will be generated and sent to the user** and **Set password**. 
-<img src="/images/docs/admin-guides/users/password-setting.png" alt="password-setting" width="500"/>
-    <Alert type="note">
-    - **Reset link will be generated and sent to the user**: A password reset email will be sent to user, the user can set the password themselves. Ensure that the email server is configured in System Settings first.
-    - **Set Password**: Administrator can set the password for the the user.
-    </Alert>
+In the **Password settings** field, choose between "Reset link will be generated and sent to the user" or "Set password". 
+<HorizontalTable 
+headers={['Option', 'Description']} 
+rows={[
+    ["Reset link will be generated and sent to the user", "A password reset email will be sent to user, the user can set the password themselves. Ensure that the email server is configured in System Settings first."], 
+    ["Set password", "Administrator can set the password for the the user."],
+]}
+/>
 </div>
 
 <div>
-In the **MFA** field, select **Disabled**, **Enabled**, or **Force Enabled**.
+In the **MFA** field, select "Disabled", "Enabled", or "Force Enabled".
 </div>
 
 <div>
@@ -49,7 +50,7 @@ In the **System Roles** field, assign user system role to to define permissions 
 </div>
 
 <div>
-In the **Organizational Roles** field, assign user Organizational role to define permissions under current organization (e.g., Org. Administrator, Org. Auditor, Org. User).
+<Icon name="xpack"/> In the **Organizational Roles** field, assign user Organizational role to define permissions under current organization.
 </div>
 
 <div>

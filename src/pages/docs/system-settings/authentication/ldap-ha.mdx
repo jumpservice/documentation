@@ -51,13 +51,14 @@ In the **Search filter** field, type the filter expression to search for LDAP HA
 </div>
 
 <div>
-In the **User attribute** field, type the user attribute mapping. The key represents the JumpServer user attribute name (available options: name, username, email, groups, phone, comment), while the value corresponds to the LDAP HA user attribute name.
+In the **User attribute** field, type the user attribute mapping. The key represents the JumpServer user attribute name (available options: name, username, email, is_active, groups, phone, comment), while the value corresponds to the LDAP HA user attribute name.
 
 ```json copy=true filename="LDAP HA User Attribute Example"
 {
   "name": "cn",
   "email": "mail",
   "username": "cn",
+  "is_active": "useraccountcontrol",
   "groups": "memberOf"
 }
 ```

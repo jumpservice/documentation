@@ -37,6 +37,15 @@ const NavSystemSettings = () => {
   );
 }
 
+const ChangeOrg = () => {
+  return (
+    <div>
+      In the upper-left corner of any page in JumpServer, click the dropdown menu to switch the organization.
+      <img src="/images/docs/navs/change-org.png" alt="image" width="350"/>
+    </div>
+  )
+}
+
 interface NavProps {
   name: "system-settings" | "console";
 }
@@ -46,6 +55,7 @@ const navConfig = {
   'audits': <NavAudits />,
   "web-terminal": <NavWebTerminal />,
   'system-settings': <NavSystemSettings />,
+  'change-org': <ChangeOrg />,
 }
 
 const Nav: React.FC<NavProps> = ({ name }) => {
