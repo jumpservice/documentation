@@ -1,7 +1,8 @@
 export { default as JumpServerLogo } from "./jumpserver.svg";
 export { default as JumpServerWordmarkLogoIcon } from "./jumpserver-wordmark.svg";
-export { default as DiscordIcon } from "./discord.svg";
-export { default as GitHubIcon } from "./github.svg";
+export { default as DiscordIcon } from "./icons8-discord.svg";
+export { default as GitHubIcon } from "./icons8-github.svg";
+export { default as XIcon } from "./icons8-x.svg";
 
 export { default as HeroGitHubStarIcon } from "./hero-github-star.svg";
 export { default as HeroDocsIcon } from "./hero-docs.svg";
