@@ -7,13 +7,16 @@
   "upgrade": { "title": "Upgrade" },
 
   "-- admin-guides": { "type": "separator", "title": "Admin Guides" },
-  "users": { "title": "Create & Manage Users", "display": "children" },
+  "users": { "title": "Create & Manage Users", "display": "normal" },
   "groups": { "title": "Groups", "display": "hidden"},
   "assets": { "title": "Assets", "display": "hidden" }, 
   "nodes": { "title": "Nodes", "display": "hidden" },
   "system-settings": { "title": "System Settings" },
 
+  "-- enterprise-edition": { "type": "separator", "title": "Enterprise Edition" },
+  "compare-versions": { "title": "Compare Versions" },
+
   "-- more": { "type": "separator", "title": "More" },
-  "changelog": { "title": "Changelogs" },
+  "changelog": { "title": "Changelog" },
   "troubleshooting": { "title": "Troubleshooting", "display": "children" }
 }

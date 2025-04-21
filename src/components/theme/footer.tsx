@@ -2,15 +2,16 @@ import NextLink from "next/link";
 import Logo from "./logo";
 
 import React from "react";
-import { GitHubIcon, DiscordIcon } from "@/icons";
+import { GitHubIcon, DiscordIcon, XIcon } from "@/icons";
 
 
 const FooterNavbar = () => {
   return (
-    <ul className="flex items-center justify-start gap-5 text-center">
+    <ul className="flex items-center justify-start gap-4 text-center">
       {[
         { url: "https://github.com/jumpserver/jumpserver", icon: GitHubIcon },
         { url: "https://discord.gg/W6vYXmAQG2", icon: DiscordIcon },
+        { url: "https://x.com/lxware_x", icon: XIcon },
       ].map(({ url, icon: Icon }) => (
         <li key={url}>
           <a
@@ -19,7 +20,7 @@ const FooterNavbar = () => {
             rel="noreferrer"
             className="block transition-colors hover:text-primary"
           >
-            <Icon className="h-5 w-auto fill-current" />
+            <Icon className="h-6 w-auto fill-current" />
           </a>
         </li>
       ))}
@@ -30,7 +31,7 @@ const FooterNavbar = () => {
           rel="noreferrer"
           className="block transition-colors hover:text-primary"
         >
-          <span className="h-5 w-auto fill-current text-sm">中文</span>
+          <span className="h-6 w-auto fill-current text-sm">中文</span>
         </a>
       </li>
     </ul>
@@ -53,7 +54,7 @@ function List({
           <NextLink
             href={item.url}
             target="_blank"
-            className="decoration-from-font [text-underline-position:from-font] hover:underline"
+            className="decoration-from-font [text-underline-position:from-font] hover:underline hover:text-primary"
           >
             {item.title}
           </NextLink>
@@ -67,7 +68,7 @@ function Footer() {
   return (
     <>
       <div className="w-full">
-        <div className="mb-24 flex flex-wrap items-start justify-between gap-10">
+        <div className="mb-24 grid lg:grid-cols-4 sm:grid-cols-1 items-start justify-between gap-10">
           <NextLink href="/" target="_blank" className="max-lg:w-full">
             {Logo}
           </NextLink>
@@ -76,12 +77,13 @@ function Footer() {
             items={[
               { title: "Introduction", url: "/docs" },
               { title: "Quickstart", url: "/docs/quickstart" },
+              { title: "Changelog", url: "/docs/changelog" },
             ]}
           />
           <List
             title="Support"
             items={[
-              { title: "Email", url: "mailto:support@fit2cloud.com" },
+              { title: "Email", url: "mailto:support@lxware.hk" },
               { title: "Discord", url: "https://discord.gg/W6vYXmAQG2" },
               {
                 title: "GitHub Issues",
@@ -89,10 +91,16 @@ function Footer() {
               },
             ]}
           />
+          <List
+            title="Company"
+            items={[
+              { title: "About Us", url: "https://www.lxware.hk/pages/about" },
+            ]}
+          />
         </div>
         <div className="flex flex-wrap justify-between gap-10">
           <p className="text-sm">
-            Copyright © {new Date().getFullYear()} FIT2CLOUD, Inc. All rights
+            Copyright © {new Date().getFullYear()} <a className="underline hover:text-primary" href="https://lxware.hk" target="_blank">LXware</a>, Inc. All rights
             reserved.
           </p>
           <div className="flex flex-col gap-4 lg:items-end">
