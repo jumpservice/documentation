@@ -1,0 +1,50 @@
+# Enable HTTPS
+
+This topic explains how to configure HTTPS for the JumpServer service to ensure encrypted and secure communication.
+
+<Steps>
+
+<div>
+Log in to the JumpServer deployment server using the "root" or another user with superuser privileges.
+</div>
+
+<div>
+Place your certificate files in the following directory:
+```sh
+/opt/jumpserver/config/nginx/cert
+```
+Ensure the certificate files are named as follows:
+* server.crt
+* server.key
+</div>
+
+<div>
+Edit the `config.txt` file and modify the following configuration settings.
+```sh
+vi /opt/jumpserver/config/config.txt
+```
+
+Change "demo.example.com" to your actual domain name.
+```sh
+HTTPS_PORT=443
+SERVER_NAME=demo.example.com
+SSL_CERTIFICATE=secret.crt
+SSL_CERTIFICATE_KEY=secret.key
+```
+
+</div>
+
+<div>
+Change to the "JumpServer offline package" directory and run the command to restart the service.
+
+```sh
+./jmsctl.sh restart
+```
+
+</div>
+
+<div>
+Completed.
+</div>
+
+</Steps>

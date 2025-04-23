@@ -9,6 +9,6 @@
   "reset-mfa": { "title": "Reset MFA", "display": "hidden" }, 
   "manage-groups": { "title": "Manage groups", "display": "hidden" },
   "manage-login-acls": { "title": "Manage login ACLs", "display": "hidden" },
-  "export-users": { "title": "Export users", "display": "hidden" },
+  "export-users": { "title": "Export users", "display": "normal" },
   "update-users-from-file": { "title": "Update users from file", "display": "hidden" }
 }

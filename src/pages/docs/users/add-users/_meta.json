@@ -1,9 +1,9 @@
 {
-  "create-user": { "title": "Create a user", "display": "hidden" },
-  "duplicate-user": { "title": "Duplicate a user", "display": "hidden" },
-  "invite-users-to-org": { "title": "Invite users to org", "display": "hidden" },
-  "import-users-from-file": { "title": "Import users from file", "display": "hidden" },
+  "create-user": { "title": "Create a user", "display": "normal" },
+  "duplicate-user": { "title": "Duplicate a user", "display": "normal" },
+  "invite-users-to-org": { "title": "Invite users to org", "display": "normal" },
+  "import-users-from-file": { "title": "Import users from file", "display": "normal" },
   "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
-  "sync-users-from-ldap": { "title": "Sync from LDAP", "display": "hidden" },
+  "sync-users-from-ldap": { "title": "Sync from LDAP", "display": "normal" },
   "create-users-via-api": { "title": "Create users via API", "display": "hidden" }
 }
