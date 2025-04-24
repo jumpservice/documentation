@@ -3,7 +3,7 @@
   "manage-users": { "title": "Manage users", "display": "children" },
   "user-details": { "title": "User details", "display": "hidden" },
   "user-authorized-assets": { "title": "User authorized assets", "display": "hidden" },
-  "user-authorizations": { "title": "User authorizations", "display": "hidden" },
+  "user-authorizations": { "title": "User authorizations", "display": "normal" },
   "user-connected-sessions": { "title": "User connected sessions", "display": "hidden" },
   "user-activity-log": { "title": "User activity logs", "display": "hidden" }
 }
