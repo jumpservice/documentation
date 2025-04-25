@@ -11,10 +11,14 @@
   "groups": { "title": "Groups", "display": "hidden"},
   "assets": { "title": "Assets", "display": "normal" }, 
   "nodes": { "title": "Nodes", "display": "hidden" },
-  "system-settings": { "title": "System Settings" },
+
+  "-- system-settings": { "type": "separator", "title": "System Settings" },
+  "authentication": { "title": "Authentication", "display": "normal" },
+  "remoteapp": { "title": "RemoteApp", "display": "normal" },
+  "license": { "title": "License", "display": "normal" },
 
   "-- user-guides": { "type": "separator", "title": "User Guides" },
-  "connect-assets": { "title": "Connect Assets", "display": "normal"},
+  "connect-web": { "title": "Connect a web asset", "display": "normal" },
 
   "-- Configuration": { "type": "separator", "title": "Configuration" },
   "enable-https": { "title": "Enable HTTPS" },

@@ -5,12 +5,12 @@ import NextLink from "next/link";
 const ApplyTrialLicense = () => {
 
   return (
-    <div className="grid grid-cols-[3%_auto] gap-2 my-5 p-2 border-2 border-primary items-start justify-start rounded-lg">
+    <div className="grid grid-cols-[3%_auto] gap-2 my-5 p-2 border border-primary items-center justify-center rounded-lg">
       <div className="">
         <Icon name="xpack" />
       </div>
       <div className="text-md">
-        Experience the full features of the JumpServer enterprise edition with a 14-day free trial — <NextLink className="underline text-nowrap ml-1 font-normal text-primary" target="_blank" href="mailto:sales@lxware.hk">Contact us</NextLink> today to get started and explore all the benefits!
+        Try JumpServer Enterprise free for 14 days — <NextLink className="underline text-nowrap ml-1 font-normal text-primary" target="_blank" href="mailto:sales@lxware.hk">Contact us</NextLink> to get started!
       </div>
     </div>
  );
