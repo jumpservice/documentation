@@ -31,8 +31,9 @@ const HorizontalTable: React.FC<HorizontalTableProps> = ({ headers, rows }) => {
               key={cellIndex}
               className={ `py-4 px-4 text-left text-sm ${cellIndex === 0 ? `font-bold ${firstColumnClass}` : 'flex-1'} `
               }
+              dangerouslySetInnerHTML={{ __html: cell }}
             >
-              {cell}
+              {/* {cell} */}
             </div>
           ))}
         </div>
