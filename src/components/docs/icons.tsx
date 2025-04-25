@@ -40,7 +40,7 @@ const iconConfig = {
   "send-email": <Mail className="w-3 mb-2 inline-block" />,
   send: <Send className="w-3 mb-2 inline-block" />,
   "link-square": <SquareArrowOutUpRight className="w-4 pb-1 inline-block" />,
-  "...": <Ellipsis className="w-4 h-3 inline-block text-primary border border-primary"/>,
+  "...": <Ellipsis className="w-5 h-4 inline-block text-primary border border-primary"/>,
 }
 
 const Icon: React.FC<IconProps> = ({ name }) => {
