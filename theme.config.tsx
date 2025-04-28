@@ -1,6 +1,7 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
+import NextLink from "next/link";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense
 } from "@/components/docs";
@@ -41,7 +42,7 @@ const config: DocsThemeConfig = {
   sidebar: {
     toggleButton: true,
     defaultMenuCollapseLevel: 1,
-    titleComponent({ title, type }) {
+    titleComponent({ title, type}) {
       let titleComponent = <>{title}</>;
       if (type === "divider") {
         titleComponent = <span className="nx-cursor-default">--------------</span>;
@@ -56,6 +57,14 @@ const config: DocsThemeConfig = {
             {title.replace("xpack.", "")}
           </div>
         );
+      }
+      if (title.startsWith("link.")) {
+        titleComponent = (
+          <div className="flex w-full items-center gap-2" onClick={() => {window.open('https://deepwiki.com/jumpserver/jumpserver/', '_blank')}} >
+            {title.replace("link.", "")}
+            <Icon name="link"/>
+          </div>
+        )
       }
       return titleComponent;
     },

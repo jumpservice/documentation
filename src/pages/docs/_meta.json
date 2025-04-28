@@ -20,6 +20,7 @@
   "enable-https": { "title": "Enable HTTPS" },
 
   "-- more": { "type": "separator", "title": "More" },
+  "wiki": { "title": "link.Wiki" },
   "changelog": { "title": "Changelog" },
   "troubleshooting": { "title": "Troubleshooting", "display": "children" }
 }
