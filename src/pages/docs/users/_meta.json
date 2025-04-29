@@ -1,8 +1,7 @@
 {
   "create-user": { "title": "Create a user", "display": "normal" },
   "duplicate-user": { "title": "Duplicate a user", "display": "normal" },
-  "invite-users-to-org": { "title": "Invite users", "display": "normal" },
-  "import-users-from-file": { "title": "Import users", "display": "normal" },
+  "invite-users": { "title": "Invite users", "display": "normal" },
   "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
   "sync-users-from-ldap": { "title": "Sync from LDAP", "display": "normal" },
   "create-users-via-api": { "title": "Create users via API", "display": "hidden" },
@@ -17,7 +16,6 @@
   "reset-mfa": { "title": "Reset MFA", "display": "hidden" }, 
   "manage-groups": { "title": "Manage groups", "display": "hidden" },
   "manage-login-acls": { "title": "Manage login ACLs", "display": "hidden" },
-  "export-users": { "title": "Export users", "display": "normal" },
   "update-users-from-file": { "title": "Update users from file", "display": "hidden" },
 
   "user-details": { "title": "User details", "display": "hidden" },
