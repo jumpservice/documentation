@@ -29,6 +29,7 @@ const iconConfig = {
   settings: <Settings className="w-4 pb-1 inline-block" />,
   xpack: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"text-yellow-500 fill-yellow-500"} />,
   xpackTip: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"text-yellow-500 fill-yellow-500"} />,
+  xpackMenu: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-2 pb-2 text-yellow-500 fill-yellow-500"} />,
   help: <CircleHelp className="w-4 pb-1 inline-block" />,
   switch: <ArrowRightLeft className="w-4 pb-1 inline-block" />,
   plus: <Plus className="w-4 pb-1 inline-block" />,

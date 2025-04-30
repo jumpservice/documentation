@@ -3,27 +3,27 @@
 
   "ldap": "Integrate LDAP",
 
-  "ldap-ha": "Integrate LDAP HA",
+  "ldap-ha": "Integrate LDAP HA (X-Pack)",
 
   "cas": "Integrate CAS",
 
   "passkey": "Integrate Passkey",
 
-  "oidc": "Integrate OIDC",
+  "oidc": "Integrate OIDC (X-Pack)",
 
-  "saml2": "Integrate SAML2",
+  "saml2": "Integrate SAML2 (X-Pack)",
 
-  "oauth2": "Integrate OAuth2",
+  "oauth2": "Integrate OAuth2 (X-Pack)",
 
-  "wecom": "Integrate WeCom",
+  "wecom": "Integrate WeCom (X-Pack)",
 
-  "dingtalk": "Integrate DingTalk",
+  "dingtalk": "Integrate DingTalk (X-Pack)",
 
-  "feishu": "Integrate Feishu",
+  "feishu": "Integrate Feishu (X-Pack)",
 
-  "lark": "Integrate Lark",
+  "lark": "Integrate Lark (X-Pack)",
 
-  "slack": "Integrate Slack",
+  "slack": "Integrate Slack (X-Pack)",
 
-  "radius": "Integrate RADIUS"
+  "radius": "Integrate RADIUS (X-Pack)"
 }

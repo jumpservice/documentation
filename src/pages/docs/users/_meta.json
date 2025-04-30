@@ -1,7 +1,7 @@
 {
   "create-user": { "title": "Create a user", "display": "normal" },
   "duplicate-user": { "title": "Duplicate a user", "display": "normal" },
-  "invite-users": { "title": "Invite users", "display": "normal" },
+  "invite-users": { "title": "Invite users (X-Pack)", "display": "normal" },
   "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
   "sync-users-from-ldap": { "title": "Sync from LDAP", "display": "normal" },
   "create-users-via-api": { "title": "Create users via API", "display": "hidden" },

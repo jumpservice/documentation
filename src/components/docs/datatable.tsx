@@ -16,10 +16,10 @@ const DataTable: React.FC<TableProps> = ({ headers, rows }) => {
   const resolvedRows = typeof rows === 'function' ? rows() : rows;
 
   return (
-    <div className="overflow-x-auto mt-5">
+    <div className="overflow-x-auto text-[14px] mt-5">
       <table className="min-w-full table-auto border-collapse rounded-lg">
         <thead>
-          <tr className="text-left text-sm font-bold text-primary">
+          <tr className="text-left font-bold text-primary">
             {headers.map((header, index) => (
               <th
                 key={index}
@@ -34,7 +34,7 @@ const DataTable: React.FC<TableProps> = ({ headers, rows }) => {
           {resolvedRows.map((row, rowIndex) => (
             <tr
               key={rowIndex}
-              className="hover:bg-gray-100 dark:hover:bg-gray-600"
+              className=""
             >
               {row.map((cell, cellIndex) => (
                 <td
@@ -44,7 +44,7 @@ const DataTable: React.FC<TableProps> = ({ headers, rows }) => {
                   {cell.link ? (
                     <a
                       href={cell.link}
-                      className="hover:underline hover:text-primary-light"
+                      className="underline hover:text-primary-light"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

@@ -50,11 +50,11 @@ const config: DocsThemeConfig = {
       if (type === "separator") {
         titleComponent = <span className="nx-cursor-default">{title}</span>;
       }
-      if (title.startsWith("xpack.")) {
+      if (title.endsWith(" (X-Pack)")) {
         titleComponent = (
           <div className="flex items-center gap-1">
-            <Icon name="xpack"/>
-            {title.replace("xpack.", "")}
+            {title.replace(" (X-Pack)", "")}
+            <Icon name="xpackMenu"/>
           </div>
         );
       }
