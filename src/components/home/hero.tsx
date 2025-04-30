@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-12 lg:py-16">
           <a
             href={`https://github.com/jumpserver/jumpserver/releases/${LatestVersion}`}
-            className="mb-7 inline-flex items-center justify-between rounded-full bg-gray-100 px-1 py-1 pr-4 text-sm text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 glow-effect"
+            className="mb-7 inline-flex items-center justify-between rounded-full  px-1 py-1 pr-4 text-sm text-gray-700  dark:text-white glow-effect"
             role="alert" target="_blank"
           >
             <div className="flex items-center justify-between theme-logo">
@@ -44,7 +44,7 @@ export default function Hero() {
                 </div>
               </a>
               <a
-                className="inline-flex flex-1 items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+                className="inline-flex flex-1 items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium text-gray-900 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white hover:border-primary dark:hover:border-primary dark:focus:ring-gray-800"
                 target="_blank"
                 href="https://github.com/jumpserver/jumpserver/"
               >

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+footer {
+  @apply bg-white dark:bg-[#111111] !important;
+}
+
+
 /* ------------ Theme ------------ */
 .theme-logo {
   mask-image: linear-gradient(
@@ -71,15 +76,15 @@
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 20px 8px theme(colors.indigo.500 / 0.8);
+    box-shadow: 0 0 4px 4px theme(colors.indigo.500 / 0.8);
   }
   100% {
-    box-shadow: 0 0 15px 5px theme(colors.primary / 0.9);
+    box-shadow: 0 0 3px 3px theme(colors.primary / 0.9);
   }
 }
 
 .glow-effect {
-  animation: glow 2s infinite alternate;
+  animation: glow 1s infinite alternate;
 }
 
 /* ------------ Docs ------------ */

@@ -28,7 +28,7 @@
   "compare-versions": { "title": "Compare Versions" },
 
   "-- more": { "type": "separator", "title": "More" },
-  "wiki": { "title": "link.DeepWiki" },
   "changelog": { "title": "Changelog" },
+  "wiki": { "title": "link.DeepWiki" },
   "troubleshooting": { "title": "Troubleshooting", "display": "children" }
 }

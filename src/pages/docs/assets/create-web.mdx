@@ -1,1 +1,188 @@
 # Create a web asset
+This topic describes how to create a web asset in JumpServer.
+
+## Prerequisites
+- You must have a deployed RemoteApp machine (or <Icon name="xpack"/>virtualApp provider ) first. For more information, see [RemoteApp machine](../../system-settings/remoteapp/remoteapp-machine).
+- Please make sure that the network policy is configured correctly. The web assets must be reachable from the RemoteApp machine.
+
+## Create a web asset
+
+<Steps>
+
+<div>
+<Nav name="console" />
+</div>
+
+<div>
+Navigate to **Assets** and click the **+ Create** button.
+</div>
+
+<div>
+In the popup, select a platform from the **Web** type. The default platform is **Website**.
+<img src="/images/docs/admin-guides/assets/select-provider-web.png" alt="website" width="400"/>
+</div>
+
+<div>
+In the **Name** field, type a unique name for the website.
+</div>
+
+<div>
+In the **URL** field, type the website URL.
+</div>
+
+<div>
+In the **Platform** field, select a platform from **Web**. The default is selected in the select platform popoup, but you can choose another web platform of the same type.
+</div>
+
+<div>
+In the **Nodes** field, select one or more nodes.
+</div>
+
+<div>
+In the **Autofill** field, select either **Disabled**, **Basic** or **Script**.
+<HorizontalTable 
+headers={['Option', 'Description']} 
+rows={[
+    ["Disabled", "Disable autofill, when users connect to the web, they can access the site directly without entering any information."], 
+    ["Basic", "Enables simple autofill, automatically filling in login credentials when users access the site. The default selector uses element attributes, but you can also use other selectors (like tag name, class) or XPath expressions."],
+    ["Script", "Allows custom scripts to handle autofill, providing more flexibility for complex login scenarios."],
+]}
+/>
+</div>
+
+<div>
+In the **Protocols** field, modify the port.
+</div>
+
+<div>
+Optionally, in the **Accounts** field, add multiple accounts, either directly or from a template. 
+</div>
+
+<div>
+Optionally, in the **Tags** field, select one or more tags.
+</div>
+
+<div>
+In the **Active** field, enable or disable the web.
+</div>
+
+<div>
+Optionally, in the **Description** field, type a description of the web.
+</div>
+
+<div>
+Click **Submit** to create the web, or **Save & Continue** to create and add more.
+</div>
+
+</Steps>
+
+## Examples of selector configuration
+
+### Basic
+The default selector uses element attributes, but you can also use other selectors (like tag name, class) or XPath expressions.
+**A complete configuration steps using xpath are as follows:**
+
+<Steps>
+
+<div>
+Open the target website in your browser and use the browser's developer tools to inspect the login page.
+</div>
+
+<div>
+Use element selectors to select the username field on the page.
+<img src="/images/docs/admin-guides/assets/developer-tool.png" alt="developer-tool" width="440"/>
+
+</div>
+
+<div>
+Right click the html element code in the developer tools and select **Copy** > **Copy XPath**.
+<img src="/images/docs/admin-guides/assets/copy-xpath.png" alt="copy-xpath" width="440"/>
+copy-xpath.png
+</div>
+
+<div>
+Type the "xpath=(Xpath you copied from the developer tools)" in the **Username selector** field.
+<img src="/images/docs/admin-guides/assets/user-selector.png" alt="user-selector" width="700"/>
+</div>
+
+<div>
+Same as above for the Password selector field and Submit selector field. 
+</div>
+
+</Steps>
+
+
+### Script
+Script selector provides flexibility for complex login scenarios.
+Script currently supports these command types:
+<HorizontalTable 
+headers={['Command types', 'Description']} 
+rows={[
+    ["type", "Type the value into the target element."],
+    ["click", "Click the target element."],
+    ["open", "Open the target URL."],
+    ["code", "Prompt a dialog to get the code string."],
+    ["select_frame", "Switching iframe frames."],
+    ["sleep", "Sleep for a specified time."],
+]}
+/>
+
+These commands are organized through a JSON-formatted sequence of browser operations, where each step object contains these execution parameters:
+
+<HorizontalTable 
+headers={['key', 'value']} 
+rows={[
+    ["step", "Step number, starting from 1."],
+    ["value", "The value to be typed into the target element.Now supports only the {USERNAME} and {SECRET}."],
+    ["target", "The target element selector."],
+    ["command", "The command type."],
+]}
+/>
+
+**A complete example is as follows:**
+
+```json
+[
+  {
+    "step": 1,
+    "value": "{USERNAME}",
+    "target": "name=username",
+    "command": "type"
+  },
+  {
+    "step": 2,
+    "value": "",
+    "target": "5",
+    "command": "sleep"
+  },
+  {
+    "step": 3,
+    "value": "",
+    "target": "xpath=/html/body/div[3]/div/span/div/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/div[3]/div[1]",
+    "command": "click"
+  },
+  {
+    "step": 4,
+    "value": "{SECRET}",
+    "target": "xpath=/html/body/div[3]/div/span/div/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/div[3]/div[2]",
+    "command": "type"
+  },
+  {
+    "step": 6,
+    "value": "",
+    "target": "5",
+    "command": "sleep"
+  },
+  {
+    "step": 7,
+    "value": "",
+    "target": "xpath=/html/body/div[3]/div/span/div/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/div[1]/div[4]/div[1]",
+    "command": "click"
+  }
+]
+```
+<Alert type="tip">
+Selenium IDE can help you better record the login process and generate the corresponding selector.
+https://www.selenium.dev/selenium-ide/
+</Alert>
+

@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Moon, Sun, Minus } from 'lucide-react';
 import { useTheme } from 'nextra-theme-docs';
 
-const ThemeSwitch = () => {
+const DarkLightSwitch = () => {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // 只在客户端 mounted 后再渲染，不然 SSR 初始不对
     setMounted(true);
   }, []);
 
@@ -17,7 +16,7 @@ const ThemeSwitch = () => {
   };
 
   if (!mounted) {
-    return null; // 防止 SSR 闪烁
+    return null; 
   }
 
   const currentTheme = resolvedTheme || theme;
@@ -44,4 +43,4 @@ const ThemeSwitch = () => {
   );
 };
 
-export default ThemeSwitch;
+export default DarkLightSwitch;
