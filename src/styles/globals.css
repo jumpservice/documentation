@@ -6,6 +6,10 @@ footer {
   @apply bg-white dark:bg-[#111111] !important;
 }
 
+pre {
+  @apply border dark:border-gray-700 bg-[#F6F8FA] dark:bg-[#161B22] !important;
+}
+
 
 /* ------------ Theme ------------ */
 .theme-logo {
