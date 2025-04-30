@@ -1,12 +1,4 @@
 # Create a web asset
-This topic describes how to create a web asset in JumpServer.
-
-## Prerequisites
-- You must have a deployed RemoteApp machine (or <Icon name="xpack"/>virtualApp provider ) first. For more information, see [RemoteApp machine](../../system-settings/remoteapp/remoteapp-machine).
-- Please make sure that the network policy is configured correctly. The web assets must be reachable from the RemoteApp machine.
-
-## Create a web asset
-
 <Steps>
 
 <div>
@@ -14,24 +6,27 @@ This topic describes how to create a web asset in JumpServer.
 </div>
 
 <div>
-Navigate to **Assets** and click the **+ Create** button.
+Navigate to the **Console > Assets > Web** tab.
 </div>
 
 <div>
-In the popup, select a platform from the **Web** type. The default platform is **Website**.
-<img src="/images/docs/admin-guides/assets/select-provider-web.png" alt="website" width="400"/>
+Click **Create** to open the platform selection panel on the right.
 </div>
 
 <div>
-In the **Name** field, type a unique name for the website.
+Choose the **Website** platform to open the creation form.
 </div>
 
 <div>
-In the **URL** field, type the website URL.
+In the **Name** field, type the website name.
 </div>
 
 <div>
-In the **Platform** field, select a platform from **Web**. The default is selected in the select platform popoup, but you can choose another web platform of the same type.
+In the **URL** field, type the full website address, including the port if it's different from 80 or 443.
+</div>
+
+<div>
+In the **Platform** field, select the "Web" platform.
 </div>
 
 <div>
@@ -39,7 +34,26 @@ In the **Nodes** field, select one or more nodes.
 </div>
 
 <div>
-In the **Autofill** field, select either **Disabled**, **Basic** or **Script**.
+In the **Autofill** field, choose the autofill method. This process is performed before the user opens the website and is invisible to the user.
+<Tabs
+  titlesMap={{
+    disabled: "Disabled",
+    basic: "Basic",
+    script: "Script",
+  }}
+>
+  <Tab titleKey="disabled">
+  This method is for when the user only needs to open the website, with no actions required before access.  
+  </Tab>
+  <Tab titleKey="basic">
+  This method is for websites that need login, with username, password, and login button on the same page.
+  </Tab>
+  <Tab titleKey="script">
+  This method is for when a series of complex actions must be performed before the user logs in.
+  </Tab>
+</Tabs>
+
+
 <HorizontalTable 
 headers={['Option', 'Description']} 
 rows={[
@@ -51,7 +65,7 @@ rows={[
 </div>
 
 <div>
-In the **Protocols** field, modify the port.
+In the **Protocols** field, the port is not the actual port of the website address but is used to identify the asset's protocol.
 </div>
 
 <div>
@@ -63,7 +77,7 @@ Optionally, in the **Tags** field, select one or more tags.
 </div>
 
 <div>
-In the **Active** field, enable or disable the web.
+In the **Active** field, check to activate the asset.
 </div>
 
 <div>
@@ -71,7 +85,7 @@ Optionally, in the **Description** field, type a description of the web.
 </div>
 
 <div>
-Click **Submit** to create the web, or **Save & Continue** to create and add more.
+Click **Submit** or **Save & Continue**.
 </div>
 
 </Steps>
