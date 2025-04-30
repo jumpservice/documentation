@@ -7,11 +7,11 @@ import {
 
 function IconTips({ Icon, tooltip = "", iconColor = "" }) {
   if (tooltip === "") {
-    return <Icon className={`w-4 inline-block ${iconColor}`} />;
+    return <Icon className={`${iconColor} inline-block`} />;
   } else {
     return (
       <span className="relative group inline-block">
-        <Icon className={`${iconColor} w-4 inline-block cursor-pointer`} />
+        <Icon className={`${iconColor} inline-block cursor-pointer`} />
         <span className="absolute bottom-full left-1/2 -translate-x-1/3 mb-1 hidden group-hover:block
                         bg-primary text-white text-xs rounded px-2 py-1 whitespace-nowrap">
           {tooltip}
@@ -27,9 +27,9 @@ interface IconProps {
 
 const iconConfig = {
   settings: <Settings className="w-4 pb-1 inline-block" />,
-  xpack: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"text-yellow-500 fill-yellow-500"} />,
-  xpackTip: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"text-yellow-500 fill-yellow-500"} />,
-  xpackMenu: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-2 pb-2 text-yellow-500 fill-yellow-500"} />,
+  xpack: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
+  xpackTip: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
+  xpackMenu: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-2 text-yellow-500 fill-yellow-500"} />,
   help: <CircleHelp className="w-4 pb-1 inline-block" />,
   switch: <ArrowRightLeft className="w-4 pb-1 inline-block" />,
   plus: <Plus className="w-4 pb-1 inline-block" />,
@@ -44,7 +44,7 @@ const iconConfig = {
   "link-square": <SquareArrowOutUpRight className="w-4 pb-1 inline-block" />,
   "...": <Ellipsis className="w-5 h-4 inline-block text-primary border border-primary"/>,
   user: <UserRound className="w-4 pb-1 inline-block" />,
-  "popup-window": <IconTips Icon={PictureInPicture2} tooltip={"In the pop-up window"} iconColor={"text-primary"} />,
+  "popup-window": <IconTips Icon={PictureInPicture2} tooltip={"In the pop-up window"} iconColor={"w-4 text-primary"} />,
   "*": <IconTips Icon={Asterisk} tooltip={"Required"} iconColor={"w-2 pb-1 inline-block text-red-500"} />
 }
 
