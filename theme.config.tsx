@@ -1,7 +1,6 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
-import NextLink from "next/link";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
   Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable

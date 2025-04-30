@@ -1,6 +1,5 @@
 import React from "react";
-// import { ThemeSwitch } from "nextra-theme-docs";
-import ThemeSwitch from "@/components/public/theme-switch";
+import DarkLightSwitch from "@/components/public/theme-switch";
 import { GitHubIcon, DiscordIcon, XIcon } from "@/icons";
 
 const NavbarExtra = () => {
@@ -32,8 +31,8 @@ const NavbarExtra = () => {
           <span className="h-6 w-auto fill-current text-sm font-serif">中文</span>
         </a>
       </li>
-      <li className="hidden sm:block" key="theme-switch">
-        <ThemeSwitch />
+      <li className="" key="theme-switch">
+        <DarkLightSwitch />
       </li>
     </ul>
   );
