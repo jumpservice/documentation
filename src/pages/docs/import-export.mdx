@@ -1,0 +1,200 @@
+# Import and export resources
+
+This topic describes how to import and export resources, currently supporting "CSV" and "Excel" formats.
+Resource import includes "Import for creation" and "Import for update".
+
+The steps for importing and exporting are the same, except for the field definitions of different resource types.
+For more information, see [Resource Attributes](#resource-attributes).
+
+## Create resources by importing
+
+<Steps>
+<div>
+<Nav name="console" />
+</div>
+
+<div>
+Navigate to the "Resources" page.
+</div>
+
+<div>
+In the top-right corner of the "Resources" table, click <Icon name="upload" />.
+<img src="/images/docs/navs/nav-import.png" alt="import-user-button" width="200" />
+</div>
+
+<div>
+At this point, a pop-up window <Icon name="popup-window" /> will appear.
+</div>
+
+<div>
+<Icon name="popup-window" /> In the **Import** section, choose "Create".
+</div>
+
+<div>
+<Icon name="popup-window" /> After the "Download creation template", click <span className='text-blue-500'>CSV</span> or <span className='text-blue-500'>XLSX</span> to download the template.
+</div>
+
+<div>
+Add the resources you want to create to the template.
+<Alert>
+For more information about resource field definitions, see [Resource Attributes](#resource-attributes).
+</Alert>
+</div>
+
+<div>
+<Icon name="popup-window" /> In the **Upload** section, click "Drag files here, or click to upload" to select the template you have edited.
+</div>
+
+<div>
+<Icon name="popup-window" /> The resource data will appear in the table. Double-click an entry to edit.
+</div>
+
+<div>
+<Icon name="popup-window" /> Click **Import** button to begin the import.
+<Alert type="warning">
+For import errors, see [Troubleshooting Import Failures](#import-failure).
+</Alert>
+</div>
+
+</Steps>
+
+## Update resources by importing
+
+<Steps>
+<div>
+<Nav name="console" />
+</div>
+
+<div>
+Navigate to the "Resources" page.
+</div>
+
+<div>
+In the top-right corner of the "Resources" table, click <Icon name="upload" />.
+<img src="/images/docs/navs/nav-import.png" alt="import-user-button" width="200" />
+</div>
+
+<div>
+At this point, a pop-up window <Icon name="popup-window" /> will appear.
+</div>
+
+<div>
+<Icon name="popup-window" /> In the **Import** section, choose "Update".
+</div>
+
+<div>
+<Icon name="popup-window" /> After the "Download update template", click <span className='text-blue-500'>CSV</span> or <span className='text-blue-500'>XLSX</span> to download the template.
+</div>
+
+<div>
+Add the resources you want to update to the template. Make sure each entry includes an "ID".
+<Alert type="note">
+We recommend exporting the resources you want to update, copying their information into the template, making the necessary changes, and then importing it to update.
+For export guides, see [Export resources](#export-resources).
+</Alert>
+<Alert>
+For more information about resource field definitions, see [Resource Attributes](#resource-attributes).
+</Alert>
+</div>
+
+<div>
+<Icon name="popup-window" /> In the **Upload** section, click "Drag files here, or click to upload" to select the template you have edited.
+</div>
+
+<div>
+<Icon name="popup-window" /> The resource data will appear in the table. Double-click an entry to edit.
+</div>
+
+<div>
+<Icon name="popup-window" /> Click **Import** button to start the import.
+<Alert type="warning">
+For import errors, see [Troubleshooting Import Failures](#import-failure).
+</Alert>
+</div>
+
+</Steps>
+## Export resources
+
+<Steps>
+<div>
+<Nav name="console" />
+</div>
+
+<div>
+Navigate to the "Resources" page.
+</div>
+
+<div>
+Perform the corresponding action based on the export scope you want.
+  <Tabs
+    titlesMap={{
+      exportAll: "Export all",
+      exportSelected: "Export selected items",
+      exportFiltered: "Export filtered items",
+    }}
+  >
+    <Tab titleKey="exportAll">
+      No action required, proceed directly to the next step.
+    </Tab>
+    <Tab titleKey="exportSelected">
+     In the resources table, check the resources you want to export, then proceed to the next step.
+    </Tab>
+    <Tab titleKey="exportFiltered">
+     In the resources table, search for the resources you want to export, then proceed to the next step.
+    </Tab>
+  </Tabs>
+</div>
+
+<div>
+In the top-right corner of the "Resources" table, click <Icon name="download" />.
+<img src="/images/docs/navs/nav-download.png" alt="import-user-button" width="200" />
+</div>
+
+<div>
+At this point, a pop-up window <Icon name="popup-window" /> will appear.
+</div>
+
+<div>
+<Icon name="popup-window" /> In the **File type** section, choose "CSV" or "Excel" as the export format.
+</div>
+
+<div>
+<Icon name="popup-window" /> In the **Export range** section, choose the scope you want to export.
+</div>
+
+<div>
+<Icon name="popup-window" /> Click **Confirm** button to start the export.
+</div>
+
+</Steps>
+
+## Troubleshooting
+
+### Import failure
+If there are import failures, follow the steps below to fix them and continue the import.
+
+<Steps>
+<div>
+<Icon name="popup-window" /> At the top left of the table, click **Failed** tab to show only the failed entries.
+</div>
+
+<div>
+<Icon name="popup-window" /> In the **Status** column, hover over the <Icon name="x" /> to check the failure reason.
+</div>
+
+<div>
+<Icon name="popup-window" /> After correcting all the erroneous fields, click **Continue**.
+</div>
+</Steps>
+
+## Resource attributes
+
+Click the cards below to view the field definitions for each resource, helping you add resources to the file more accurately.
+
+<Cards>
+  <Card
+    icon={<Icon name="user"/>}
+    title="Users"
+    href="/docs/import-export/users"
+  />
+</Cards>

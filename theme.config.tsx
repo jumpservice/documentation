@@ -1,8 +1,10 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
+import NextLink from "next/link";
 import { 
-  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense
+  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
+  Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
 } from "@/components/docs";
 
 
@@ -10,7 +12,7 @@ const config: DocsThemeConfig = {
   components: { 
     Icon, Alert, Cards, Card,
     Steps, Nav, WaitForCompletion, 
-    Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense
+    Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
   },
   head: (
     <>
@@ -41,7 +43,7 @@ const config: DocsThemeConfig = {
   sidebar: {
     toggleButton: true,
     defaultMenuCollapseLevel: 1,
-    titleComponent({ title, type }) {
+    titleComponent({ title, type}) {
       let titleComponent = <>{title}</>;
       if (type === "divider") {
         titleComponent = <span className="nx-cursor-default">--------------</span>;
@@ -49,13 +51,21 @@ const config: DocsThemeConfig = {
       if (type === "separator") {
         titleComponent = <span className="nx-cursor-default">{title}</span>;
       }
-      if (title.startsWith("xpack.")) {
+      if (title.endsWith(" (X-Pack)")) {
         titleComponent = (
           <div className="flex items-center gap-1">
-            <Icon name="xpack"/>
-            {title.replace("xpack.", "")}
+            <Icon name="xpackMenu"/>
+            {title.replace(" (X-Pack)", "")}
           </div>
         );
+      }
+      if (title.startsWith("link.")) {
+        titleComponent = (
+          <div className="flex w-full items-center gap-2" onClick={() => {window.open('https://deepwiki.com/jumpserver/jumpserver/', '_blank')}} >
+            {title.replace("link.", "")}
+            <Icon name="link"/>
+          </div>
+        )
       }
       return titleComponent;
     },

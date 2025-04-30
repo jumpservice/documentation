@@ -1,0 +1,85 @@
+# Create a user
+
+<Steps>
+
+<div>
+<Nav name="console" />
+</div>
+
+<div>
+Navigate to the **Users** page and click the **+ Create** button.
+</div>
+
+<div>
+In the **Name** field, type the user's name.
+</div>
+
+<div>
+In the **Username** field, type the username for JumpServer login (unique).
+</div>
+
+<div>
+In the **Email** field, type the email address (unique).
+</div>
+
+<div>
+Optionally, in the **Groups** field, select one or more groups.
+</div>
+
+<div>
+In the **Password setting** field, choose a method to set the password.
+<HorizontalTable 
+headers={['Option', 'Description']} 
+rows={[
+    ["Reset link will be generated and sent to the user", "After submitting the form, the user will receive a success email and can set their password through the link in the email."], 
+    ["Set password", 'The user can log in directly using this password.<br/><br/>At the same time, when "Password must be changed during next login" is checked, the user must change their password after a successful login.'],
+]}
+/>
+</div>
+
+<div>
+In the **MFA** field, choose one of the following options.
+<HorizontalTable 
+headers={['Option', 'Description']} 
+rows={[
+    ["Disabled", "MFA is disabled by default, but users can choose to enable it."],
+    ["Enabled", "MFA is enabled by default, but users can choose to disable it."],
+    ["Force enabled", "MFA is forced on and cannot be disabled by the user."]
+]}
+/>
+
+</div>
+
+<div>
+In the **Source** field, set the user source. "Local" is recommended for manually created users.
+</div>
+
+<div>
+In the **System role**s field, select one or more system roles.
+</div>
+
+<div>
+<Icon name="xpack"/> In the **Organizational roles** field, select one or more organizational roles. 
+</div>
+
+<div>
+In the **Active** field, check to enable the user (default). Uncheck to disable the user and prevent login.
+</div>
+
+<div>
+In the **Date expired** field, set the user's expiration date. After expiration, the user will be prevented from logging in.
+</div>
+
+<div>
+Optionally, in the **Phone** field, type the phone number.
+</div>
+
+<div>
+Optionally, in the **Description** field, provide any additional information about the user.
+</div>
+
+<div>
+Click **Submit** to create the user, or click **Save & Continue** to create the user and continuously add others.
+</div>
+
+</Steps>
