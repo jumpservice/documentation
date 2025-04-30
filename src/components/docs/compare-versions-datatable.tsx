@@ -17,7 +17,7 @@ const CompareVersionsDataTable: React.FC<TableProps> = ({ headers, rows, title }
   const resolvedRows = typeof rows === 'function' ? rows() : rows;
 
   return (
-    <div className="overflow-x-auto mt-10 mb-16">
+    <div className="overflow-x-auto text-[14px] mt-10 mb-16">
 
       {title && (
         <div className="text-lg text-center font-semibold mb-5"> {title} </div>
@@ -40,7 +40,7 @@ const CompareVersionsDataTable: React.FC<TableProps> = ({ headers, rows, title }
         {resolvedRows.map((row, rowIndex) => (
             <tr
               key={rowIndex}
-              className="hover:bg-gray-100 dark:hover:bg-gray-600"
+              className=""
             >
               {row.map((cell, cellIndex) => (
                 <td

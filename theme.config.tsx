@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra } from "@/components/theme";
 import NextLink from "next/link";
 import { 
-  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense
+  Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
+  Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
 } from "@/components/docs";
 
 
@@ -11,7 +12,7 @@ const config: DocsThemeConfig = {
   components: { 
     Icon, Alert, Cards, Card,
     Steps, Nav, WaitForCompletion, 
-    Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense
+    Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
   },
   head: (
     <>
@@ -50,11 +51,11 @@ const config: DocsThemeConfig = {
       if (type === "separator") {
         titleComponent = <span className="nx-cursor-default">{title}</span>;
       }
-      if (title.startsWith("xpack.")) {
+      if (title.endsWith(" (X-Pack)")) {
         titleComponent = (
           <div className="flex items-center gap-1">
-            <Icon name="xpack"/>
-            {title.replace("xpack.", "")}
+            {title.replace(" (X-Pack)", "")}
+            <Icon name="xpackMenu"/>
           </div>
         );
       }

@@ -3,7 +3,7 @@ import Icon from './icons'
 const NavConsole = () => {
   return (
     <div>
-      On the left side of the page, hover over the <Icon name="switch" /> , and click <b>Console</b>.
+      On the left side of the page, hover over the <Icon name="switch" /> , and select <b>Console</b>.
       <img src="/images/docs/navs/nav-console.png" alt="image" width="300"/>
     </div>
   );
@@ -12,7 +12,7 @@ const NavConsole = () => {
 const NavAudits = () => {
   return (
     <div>
-      On the left side of the page, hover over the <Icon name="switch" /> , and click <b>Audits</b>.
+      On the left side of the page, hover over the <Icon name="switch" /> , and select <b>Audits</b>.
       <img src="/images/docs/navs/nav-audits.png" alt="image" width="300"/>
     </div>
   );
@@ -21,7 +21,7 @@ const NavAudits = () => {
 const NavWebTerminal = () => {
   return (
     <div>
-      In the upper-right corner of any page in JumpServer, click <Icon name="square-terminal"/>.
+      In the upper-right corner of the page, click <Icon name="square-terminal"/>.
       <img src="/images/docs/navs/nav-web-terminal.png" alt="image" width="350"/>
     </div>
   )
@@ -31,7 +31,7 @@ const NavWebTerminal = () => {
 const NavSystemSettings = () => {
   return (
     <div>
-      In the upper-right corner of any page in JumpServer, click <Icon name="settings"/>.
+      In the upper-right corner of the page, click <Icon name="settings"/>.
       <img src="/images/docs/navs/nav-settings.png" alt="image" width="350"/>
     </div>
   );
@@ -40,8 +40,8 @@ const NavSystemSettings = () => {
 const ChangeOrg = () => {
   return (
     <div>
-      In the upper-left corner of any page in JumpServer, click the dropdown menu to switch the organization.
-      <img src="/images/docs/navs/change-org.png" alt="image" width="350"/>
+      In the upper-left corner of the page, click the current organization and switch from the dropdown.
+      <img src="/images/docs/navs/switch-org.png" alt="image" width="350"/>
     </div>
   )
 }

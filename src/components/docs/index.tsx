@@ -8,3 +8,4 @@ export { Tabs, Tab } from "./tabs";
 export { default as HorizontalTable } from "./horizontal-table"
 export { default as DataTable } from "./datatable"
 export { default as ApplyTrialLicense } from "./apply-trial-license"
+export { default as ResourceAttributeTable } from "./resource-attrs-table"
