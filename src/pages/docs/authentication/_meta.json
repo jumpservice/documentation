@@ -3,11 +3,11 @@
 
   "ldap": "Integrate LDAP",
 
-  "ldap-ha": "Integrate LDAP HA (X-Pack)",
-
   "cas": "Integrate CAS",
 
   "passkey": "Integrate Passkey",
+
+  "ldap-ha": "Integrate LDAP HA (X-Pack)",
 
   "oidc": "Integrate OIDC (X-Pack)",
 
