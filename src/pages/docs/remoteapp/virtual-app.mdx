@@ -1,0 +1,66 @@
+# VirtualApp <Icon name="xpack"/>
+This topic describes how to enable VirtaulApp and install the Apps.
+
+VirtualApp is a remote application that runs in a Linux container and is accessed through the VNC protocol, either via browser or VNC client.
+This is an enterprise feature and requires a license. For more information, please contact us for support.
+
+## Enable VirtualApp and install the Apps
+<Steps>
+
+<div>
+Add or modify the following configuration in the `/opt/jumpserver/config/config.txt` file:
+```bash
+VIRTUAL_APP_ENABLED=1
+PANDA_ENABLED=1
+PANDA_HOST=http://panda:9001
+PANDA_HOST_IP=<default_jumpserver_ip>
+```
+</div>
+
+<div>
+Restart JumpServer:
+```bash
+jmsctl restart
+```
+</div>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+Navigate to **System settings > Features > VirtualApp**.
+</div>
+
+<div>
+Enable the **VirtualApp** feature.
+</div>
+
+<div>
+Navigate back to **RemoteApp > RemoteApp**.
+</div>
+
+<div>
+Click **App Marketplace** to open the App Store page.
+<img src="/images/docs/admin-guides/system-settings/remote-app/appstore.png" alt="appstore" width="350"/>
+</div>
+
+<div>
+Download the apps in the **VirtualApp** section.
+</div>
+
+<div>
+Navigate back to **RemoteApp > VirtualApp**.
+</div>
+
+<div>
+Upload the VirtualApp packages you have just downloaded.
+<img src="/images/docs/admin-guides/system-settings/remote-app/upload-virtual-app.png" alt="upload-virtual-app" width="350"/>
+</div>
+
+<div>
+After a few minutes, the status of **Application provider** should be **Normal**.
+<img src="/images/docs/admin-guides/system-settings/remote-app/virtual-app-status.png" alt="virtual-app-status" width="450"/>
+</div>
+
+</Steps>
