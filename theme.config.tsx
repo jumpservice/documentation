@@ -53,7 +53,7 @@ const config: DocsThemeConfig = {
       if (title.endsWith(" (X-Pack)")) {
         titleComponent = (
           <div className="flex items-center gap-1">
-            <Icon name="xpackMenu"/>
+            {/* <Icon name="xpackMenu"/> */}
             {title.replace(" (X-Pack)", "")}
           </div>
         );
