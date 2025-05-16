@@ -28,7 +28,7 @@ const cardData = [
     icon: XPackSSOIcon,
     title: "Single Sign-On (SSO)",
     description: "Supports Active Directory / LDAP, SAML2, OAuth2 and OAuth/OpenID Connect.",
-    href: "/docs/system-settings/authentication",
+    href: "/docs/authentication",
   },
   {
     icon: XPackAssetSyncIcon,
@@ -72,7 +72,7 @@ const Card = ({ icon: IconComponent, title, description, href }) => {
       <a href={href} 
         target="_blank"
         onClick={(e) => { if (!href) e.preventDefault(); }}
-        className="box-border flex border-spacing-1 flex-col rounded-lg border p-4 shadow-md shadow-primary hover:border-primary group"
+        className="box-border flex border-spacing-1 flex-col rounded-lg border p-4 hover:border-primary border-gray-400 dark:border-gray-500; group"
       >
         <div className="relative flex justify-start">
           <IconComponent className="h-8 w-8 object-contain" />

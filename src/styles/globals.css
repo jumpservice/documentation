@@ -44,11 +44,11 @@ pre {
 }
 
 .home-table {
-  @apply relative overflow-x-auto rounded-lg shadow-md;
+  @apply relative overflow-x-auto rounded-lg;
 }
 
 .home-table {
-  @apply shadow-md shadow-primary;
+  @apply rounded-lg border border-gray-400 dark:border-gray-500;
   table {
     @apply w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right;
   }

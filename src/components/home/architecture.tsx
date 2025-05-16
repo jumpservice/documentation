@@ -26,13 +26,13 @@ const users = [
 
 export const ArchitectureDiagram = () => {
   return (
-    <div className="max-w-6xl mx-auto p-6 rounded-lg shadow-md shadow-primary/90">
+    <div className="max-w-6xl mx-auto p-6 rounded-lg border border-gray-400 dark:border-gray-500">
 
-      <div className="border border-gray-500 dark:border-gray-400 rounded-lg p-4">
+      <div className="border border-gray-400 dark:border-gray-500 rounded-lg p-4">
         <div className="text-xl font-serif text-center mb-6">IT Assets</div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 text-center">
           {assets.map((item) => (
-            <div key={item.name} className="flex flex-col items-center p-4 border border-black dark:border-gray-400 rounded-lg">
+            <div key={item.name} className="flex flex-col items-center p-4 border border-gray-400 dark:border-gray-500 rounded-lg">
               <div className="w-8 h-8">
                 <img src={item.logo} alt={item.name} className="max-w-full h-auto" />
               </div>
@@ -55,8 +55,8 @@ export const ArchitectureDiagram = () => {
         </svg>
       </div>
 
-      <div className="border border-primary rounded-lg p-4 shadow-[0_0_10px_3px] shadow-primary">
-        <div className="theme-logo">
+      <div className="border border-primary rounded-lg p-4 ">
+        <div className="">
           <div className="flex w-full flex-wrap justify-center gap-4">
             <JumpServerWordmarkLogoIcon className="h-9" />
             <div className="text-primary font-semibold text-md text-center">
