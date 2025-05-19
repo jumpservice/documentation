@@ -1,3 +1,3 @@
-const LatestVersion = 'v4.10.0'
+const LatestVersion = 'v4.10.1'
 
 export default LatestVersion
