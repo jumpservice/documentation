@@ -1,4 +1,14 @@
 # Create a web asset
+
+Web assets are a type of resource supported by JumpServer, designed for accessing web systems through remote applications. They are suitable for centrally managing internal systems, SaaS services, or other web-based applications.
+
+Web assets rely on remote application publishers, which can be deployed on either Windows or Linux systems.
+
+When a user connects to a web asset, the system automatically calls the publisher to launch a preconfigured browser that accesses the target system. This approach enables secure and controlled access, effectively preventing users from directly accessing the target address.
+
+
+## Create a web asset
+
 <Steps>
 
 <div>
@@ -6,82 +16,51 @@
 </div>
 
 <div>
-Navigate to the **Console > Assets > Web** tab.
+In the left menu, click **<Icon name="Assets" /> Assets**.
 </div>
 
 <div>
-Click **Create** to open the platform selection panel on the right.
+Under "<Icon name="arrow-left" /> Assets", click **<Icon name="Globe" /> Web**.
 </div>
 
 <div>
-Choose the **Website** platform to open the creation form.
+Click Create, or the <Icon name="ChevronDownWithBgColor" /> to its right.
 </div>
 
 <div>
-In the **Name** field, type the website name.
+Select the Website platform.
 </div>
 
 <div>
-In the **URL** field, type the full website address, including the port if it's different from 80 or 443.
+Type a name for the website.
 </div>
 
 <div>
-In the **Platform** field, select the "Web" platform.
+Type the website URL, include the port number if it is not 80 or 443.
 </div>
 
 <div>
-In the **Nodes** field, select one or more nodes.
+Select one or more nodes.
 </div>
 
 <div>
-In the **Autofill** field, choose the autofill method. This process is performed before the user opens the website and is invisible to the user.
-<Tabs
-  titlesMap={{
-    disabled: "Disabled",
-    basic: "Basic",
-    script: "Script",
-  }}
->
-  <Tab titleKey="disabled">
-  This method is for when the user only needs to open the website, with no actions required before access.  
-  </Tab>
-  <Tab titleKey="basic">
-  This method is for websites that need login, with username, password, and login button on the same page.
-  </Tab>
-  <Tab titleKey="script">
-  This method is for when a series of complex actions must be performed before the user logs in.
-  </Tab>
-</Tabs>
-
-
-<HorizontalTable 
-headers={['Option', 'Description']} 
-rows={[
-    ["Disabled", "Disable autofill, when users connect to the web, they can access the site directly without entering any information."], 
-    ["Basic", "Enables simple autofill, automatically filling in login credentials when users access the site. The default selector uses element attributes, but you can also use other selectors (like tag name, class) or XPath expressions."],
-    ["Script", "Allows custom scripts to handle autofill, providing more flexibility for complex login scenarios."],
-]}
-/>
+Choose a autofill method. For more information, see [About autofill](#about-autofill).
 </div>
 
 <div>
-In the **Protocols** field, the port is not the actual port of the website address but is used to identify the asset's protocol.
+Optionally, add accounts manually or from a template.
 </div>
 
 <div>
-Optionally, in the **Accounts** field, add multiple accounts, either directly or from a template. 
+Optionally, select a zone.
 </div>
 
 <div>
-Optionally, in the **Tags** field, select one or more tags.
+Optionally, select one or more tags.
 </div>
 
 <div>
-In the **Active** field, check to activate the asset.
-</div>
-
-<div>
-Optionally, in the **Description** field, type a description of the web.
+Optionally, type a description for the website.
 </div>
 
 <div>
@@ -90,113 +69,94 @@ Click **Submit** or **Save & Continue**.
 
 </Steps>
 
-## Examples of selector configuration
+
+## About autofill
+
+The autofill feature is mainly used for websites that require user authentication. Before the user accesses such a website, JumpServer automatically fills in the predefined username and password on the login page to complete authentication. This process is transparent to the user, requiring no manual input of credentials.
+
+
+### Disabled
+This disabled method is intended for websites that do not require authentication.
 
 ### Basic
-The default selector uses element attributes, but you can also use other selectors (like tag name, class) or XPath expressions.
-**A complete configuration steps using xpath are as follows:**
+The basic method is suitable for websites where the username, password, and login button are all on the same page. JumpServer automatically fills in the credentials and submits the form to authenticate the user.
 
-<Steps>
-
-<div>
-Open the target website in your browser and use the browser's developer tools to inspect the login page.
-</div>
-
-<div>
-Use element selectors to select the username field on the page.
-<img src="/images/docs/admin-guides/assets/developer-tool.png" alt="developer-tool" width="440"/>
-
-</div>
-
-<div>
-Right click the html element code in the developer tools and select **Copy** > **Copy XPath**.
-<img src="/images/docs/admin-guides/assets/copy-xpath.png" alt="copy-xpath" width="440"/>
-copy-xpath.png
-</div>
-
-<div>
-Type the "xpath=(Xpath you copied from the developer tools)" in the **Username selector** field.
-<img src="/images/docs/admin-guides/assets/user-selector.png" alt="user-selector" width="700"/>
-</div>
-
-<div>
-Same as above for the Password selector field and Submit selector field. 
-</div>
-
-</Steps>
+When auto-filling information, it is necessary to locate elements on the web page. The supported selector types include Name selectors, ID selectors, Class selectors, CSS selectors, and XPath selectors. For more information, see [Selenium Python: Locating Elements](https://selenium-python.readthedocs.io/locating-elements.html).
 
 
 ### Script
-Script selector provides flexibility for complex login scenarios.
-Script currently supports these command types:
+This script method is intended for websites with complex login procedures. It supports advanced automation, including multi-step authentication and interaction with dynamic page elements.
+
+The script here is an array, where each element is a dictionary, supports the following keys:
+
 <HorizontalTable 
-headers={['Command types', 'Description']} 
+headers={['Key', 'Description']} 
 rows={[
-    ["type", "Type the value into the target element."],
+    ["step", "Required.<br/>Integer.<br/>Indicates the execution order of the script, starting from 1 and increasing sequentially."],
+    ["value", "Required.<br/>String.<br/>Built-in variables supported: {USERNAME}, {SECRET}.<br/>If the command is not type, leave the value as an empty string."],
+    ["target", "Required.<br/>String.<br/>The target element to be operated on, which can be a selector or an XPath expression."],
+    ["command", "Required.<br/>String.<br/>The command to be executed, which can be one of the following: click, type, sleep, select_frame."],
+]}
+/>
+
+And the `command` support the following options:
+
+<HorizontalTable 
+headers={['Command', 'Description']} 
+rows={[
     ["click", "Click the target element."],
-    ["open", "Open the target URL."],
-    ["code", "Prompt a dialog to get the code string."],
-    ["select_frame", "Switching iframe frames."],
-    ["sleep", "Sleep for a specified time."],
+    ["type", "Type the value into the target element."],
+    ["sleep", "Pause the script for a specified duration, typically to allow page loading during navigation. <br/>The duration is specified by target, in seconds."],
+    ["select_frame", "Switch to the specified iframe for operations.<br/>The target supports options like id=iframe_id, name=iframe_name, or index=1 (if index < 0, it switches back to the default/main iframe)."]
 ]}
 />
 
-These commands are organized through a JSON-formatted sequence of browser operations, where each step object contains these execution parameters:
-
-<HorizontalTable 
-headers={['key', 'value']} 
-rows={[
-    ["step", "Step number, starting from 1."],
-    ["value", "The value to be typed into the target element.Now supports only the {USERNAME} and {SECRET}."],
-    ["target", "The target element selector."],
-    ["command", "The command type."],
-]}
-/>
-
-**A complete example is as follows:**
-
+Here is a complete example:
 ```json
 [
+  // Switch to the iframe with id=iframe_id.
   {
-    "step": 1,
-    "value": "{USERNAME}",
-    "target": "name=username",
-    "command": "type"
+      "step": 1,
+      "command": "select_frame",
+      "target": "id=iframe_id",
+      "value": ""
   },
+  // Type the username into the input field with name=username.
+  // The {USERNAME} variable will be replaced with the actual username when the script is executed.
   {
-    "step": 2,
-    "value": "",
-    "target": "5",
-    "command": "sleep"
+      "step": 2,
+      "command": "type",
+      "target": "name=username",
+      "value": "{USERNAME}"
   },
+  // Click the next button to proceed to the next step in the login process.
   {
-    "step": 3,
-    "value": "",
-    "target": "xpath=/html/body/div[3]/div/span/div/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/div[3]/div[1]",
-    "command": "click"
+      "step": 3,
+      "command": "click",
+      "target": "id=next_button",
+      "value": ""
   },
+  // Pause the script for 5 seconds to allow the next page to load.
   {
-    "step": 4,
-    "value": "{SECRET}",
-    "target": "xpath=/html/body/div[3]/div/span/div/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/div[3]/div[2]",
-    "command": "type"
+      "step": 4,
+      "command": "sleep",
+      "target": "5",
+      "value": ""
   },
+  // Type the password into the input field with name=password.
+  // The {SECRET} variable will be replaced with the actual password when the script is executed.
   {
-    "step": 6,
-    "value": "",
-    "target": "5",
-    "command": "sleep"
+      "step": 5,
+      "command": "type",
+      "target": "name=password",
+      "value": "{SECRET}"
   },
+  // Click the submit button to complete the login process.
   {
-    "step": 7,
-    "value": "",
-    "target": "xpath=/html/body/div[3]/div/span/div/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/div[1]/div[4]/div[1]",
-    "command": "click"
+      "step": 6,
+      "command": "click",
+      "target": "id=submit_button"
   }
 ]
 ```
-<Alert type="tip">
-Selenium IDE can help you better record the login process and generate the corresponding selector.
-https://www.selenium.dev/selenium-ide/
-</Alert>
 

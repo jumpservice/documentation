@@ -1,9 +1,6 @@
 import React from "react";
-import { 
-  Settings, Crown, CircleHelp, ArrowRightLeft, Plus, SquareTerminal, ChevronDown,
-  ExternalLink, Upload, X, Download, Mail, Send, SquareArrowOutUpRight, Ellipsis, UserRound,
-  PictureInPicture2, Asterisk
-} from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import * as SvgIcons from "@/icons/lina";
 
 function IconTips({ Icon, tooltip = "", iconColor = "" }) {
   if (tooltip === "") {
@@ -21,35 +18,51 @@ function IconTips({ Icon, tooltip = "", iconColor = "" }) {
   }
 }
 
+function SvgIcon({ Icon }) {
+  return (
+    <span>
+      <Icon className="w-4 pb-1 inline-block select-none pointer-events-none" />
+    </span>
+  )
+
+}
+
+const iconConfig = {
+  settings: <LucideIcons.Settings className="w-4 pb-1 inline-block" />,
+  xpack: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
+  xpackTip: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
+  xpackMenu: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-2 text-yellow-500 fill-yellow-500"} />,
+  help: <LucideIcons.CircleHelp className="w-4 pb-1 inline-block" />,
+  Switch: <LucideIcons.ArrowRightLeft className="w-4 pb-1 inline-block" />,
+  plus: <LucideIcons.Plus className="w-4 pb-1 inline-block" />,
+  "square-terminal": <LucideIcons.SquareTerminal className="w-4 pb-1 inline-block" />,
+  "chevron-down": <LucideIcons.ChevronDown className="w-4 inline-block" />,
+  link: <LucideIcons.ExternalLink className="w-3 mb-2 inline-block" />,
+  upload: <LucideIcons.Upload className="w-4 mb-1 inline-block" />,
+  x: <LucideIcons.X className="w-5 text-red-500 inline-block" />,
+  download: <LucideIcons.Download className="w-4 pb-1 inline-block" />,
+  "send-email": <LucideIcons.Mail className="w-3 mb-2 inline-block" />,
+  send: <LucideIcons.Send className="w-3 mb-2 inline-block" />,
+  "link-square": <LucideIcons.SquareArrowOutUpRight className="w-4 pb-1 inline-block" />,
+  "...": <LucideIcons.Ellipsis className="w-5 h-4 inline-block text-primary border border-primary"/>,
+  user: <LucideIcons.UserRound className="w-4 pb-1 inline-block" />,
+  "popup-window": <IconTips Icon={LucideIcons.PictureInPicture2} tooltip={"In the pop-up window"} iconColor={"w-4 text-primary"} />,
+  "*": <IconTips Icon={LucideIcons.Asterisk} tooltip={"Required"} iconColor={"w-2 pb-1 inline-block text-red-500"} />,
+  "arrow-left": <LucideIcons.ArrowLeft className="w-4 pb-1 inline-block" />,
+  ChevronDownWithBgColor: <LucideIcons.ChevronDown className="w-5 h-5 px-1 inline-block bg-primary text-white" />,
+
+  // svg icons
+  Console: <SvgIcon Icon={SvgIcons.Console} />,
+  Assets: <SvgIcon Icon={SvgIcons.Asset} />,
+  Globe: <SvgIcon Icon={SvgIcons.Globe} />,
+}
+
 interface IconProps {
   name: "";
 }
 
-const iconConfig = {
-  settings: <Settings className="w-4 pb-1 inline-block" />,
-  xpack: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
-  xpackTip: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
-  xpackMenu: <IconTips Icon={Crown} tooltip={"Enterprise"} iconColor={"w-2 text-yellow-500 fill-yellow-500"} />,
-  help: <CircleHelp className="w-4 pb-1 inline-block" />,
-  switch: <ArrowRightLeft className="w-4 pb-1 inline-block" />,
-  plus: <Plus className="w-4 pb-1 inline-block" />,
-  "square-terminal": <SquareTerminal className="w-4 pb-1 inline-block" />,
-  "chevron-down": <ChevronDown className="w-4 inline-block" />,
-  link: <ExternalLink className="w-3 mb-2 inline-block" />,
-  upload: <Upload className="w-4 mb-1 inline-block" />,
-  x: <X className="w-5 text-red-500 inline-block" />,
-  download: <Download className="w-4 pb-1 inline-block" />,
-  "send-email": <Mail className="w-3 mb-2 inline-block" />,
-  send: <Send className="w-3 mb-2 inline-block" />,
-  "link-square": <SquareArrowOutUpRight className="w-4 pb-1 inline-block" />,
-  "...": <Ellipsis className="w-5 h-4 inline-block text-primary border border-primary"/>,
-  user: <UserRound className="w-4 pb-1 inline-block" />,
-  "popup-window": <IconTips Icon={PictureInPicture2} tooltip={"In the pop-up window"} iconColor={"w-4 text-primary"} />,
-  "*": <IconTips Icon={Asterisk} tooltip={"Required"} iconColor={"w-2 pb-1 inline-block text-red-500"} />
-}
-
 const Icon: React.FC<IconProps> = ({ name }) => {
-  return iconConfig[name];
+  return iconConfig[name]
 }
 
 export default Icon;
