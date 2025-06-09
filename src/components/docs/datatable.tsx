@@ -44,7 +44,7 @@ const DataTable: React.FC<TableProps> = ({ headers, rows }) => {
                   {cell.link ? (
                     <a
                       href={cell.link}
-                      className="underline hover:text-primary-light"
+                      className="hover:text-primary-light hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
