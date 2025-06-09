@@ -6,7 +6,6 @@ Web assets rely on remote application publishers, which can be deployed on eithe
 
 When a user connects to a web asset, the system automatically calls the publisher to launch a preconfigured browser that accesses the target system. This approach enables secure and controlled access, effectively preventing users from directly accessing the target address.
 
-
 ## Create a web asset
 
 <Steps>
@@ -87,7 +86,11 @@ When auto-filling information, it is necessary to locate elements on the web pag
 ### Script
 This script method is intended for websites with complex login procedures. It supports advanced automation, including multi-step authentication and interaction with dynamic page elements.
 
-The script here is an array, where each element is a dictionary, supports the following keys:
+#### Script structure
+
+The script here is an array, where each element is a dictionary, representing a step in the script. 
+
+Each step contains the following keys:
 
 <HorizontalTable 
 headers={['Key', 'Description']} 
@@ -99,7 +102,7 @@ rows={[
 ]}
 />
 
-And the `command` support the following options:
+Command options:
 
 <HorizontalTable 
 headers={['Command', 'Description']} 
@@ -111,7 +114,7 @@ rows={[
 ]}
 />
 
-Here is a complete example:
+#### Script example
 ```json
 [
   // Switch to the iframe with id=iframe_id.
@@ -155,7 +158,8 @@ Here is a complete example:
   {
       "step": 6,
       "command": "click",
-      "target": "id=submit_button"
+      "target": "id=submit_button",
+      "value": ""
   }
 ]
 ```
