@@ -125,9 +125,9 @@ pre {
 
 /* ------------ Public ------------ */
 
-::selection {
-  @apply bg-primary/60
-}
+/* ::selection { */
+  /* @apply bg-primary/60 */
+/* } */
 
 
 .docs {
