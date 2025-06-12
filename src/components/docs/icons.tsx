@@ -33,7 +33,6 @@ const iconConfig = {
   xpackTip: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
   xpackMenu: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-2 text-yellow-500 fill-yellow-500"} />,
   help: <LucideIcons.CircleHelp className="w-4 pb-1 inline-block" />,
-  Switch: <LucideIcons.ArrowRightLeft className="w-4 pb-1 inline-block" />,
   plus: <LucideIcons.Plus className="w-4 pb-1 inline-block" />,
   "square-terminal": <LucideIcons.SquareTerminal className="w-4 pb-1 inline-block" />,
   "chevron-down": <LucideIcons.ChevronDown className="w-4 inline-block" />,
@@ -56,7 +55,8 @@ const iconConfig = {
   Assets: <SvgIcon Icon={SvgIcons.Asset} />,
   Globe: <SvgIcon Icon={SvgIcons.Globe} />,
   Application: <SvgIcon Icon={SvgIcons.Application} />,
-  SvgIcons: <SvgIcon Icon={SvgIcons.Platform} />
+  Platform: <SvgIcon Icon={SvgIcons.Platform} />,
+  Switch: <SvgIcon Icon={SvgIcons.Switch} />,
 }
 
 interface IconProps {
