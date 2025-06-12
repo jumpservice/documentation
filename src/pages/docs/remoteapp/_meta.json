@@ -1,3 +1,5 @@
 {
-  "remoteapp-machine": {"title": "RemoteApp machine", "display": "hidden"}
+  "remoteapp-machine": {"title": "RemoteApp machine", "display": "normal"},
+  "remote-app": {"title": "RemoteApp", "display": "hidden"},
+  "virtual-app": {"title": "Virtual App", "display": "hidden"}
 }

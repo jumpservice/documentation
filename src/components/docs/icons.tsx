@@ -55,6 +55,8 @@ const iconConfig = {
   Console: <SvgIcon Icon={SvgIcons.Console} />,
   Assets: <SvgIcon Icon={SvgIcons.Asset} />,
   Globe: <SvgIcon Icon={SvgIcons.Globe} />,
+  Application: <SvgIcon Icon={SvgIcons.Application} />,
+  SvgIcons: <SvgIcon Icon={SvgIcons.Platform} />
 }
 
 interface IconProps {
