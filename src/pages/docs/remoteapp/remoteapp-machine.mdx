@@ -48,7 +48,6 @@ In the **Protocols** field, set the protocol and port.
 - `winrm` requires the WinRM service to be installed on the machine.
 
 You must select either ssh or winrm, as JumpServer uses them to manage the RemoteApp machine, including initial deployment and RemoteApp publishing.
-By default, the system uses ssh. To use winrm, see [Use WinRM for RemoteApp machine](#use-winrm-for-remoteapp-machine-).
 
 </div>
 
@@ -137,72 +136,6 @@ Click **Submit** or **Save & Continue**.
 </div>
 
 </Steps>
-
-
-## Use WinRM for RemoteApp machine <Icon name="xpack" />
-<Steps>
-<div>
-Create a RemoteApp machine and select "winrm" and "rdp" protocols. For more information, see [Create a RemoteApp machine](#create-a-remoteapp-machine).
-</div>
-
-<div>
-<Nav name="system-settings" />
-
-<Steps stepLevel="2">
-  <div>
-  In the left menu, click **<Icon name="Platform" /> Platform**.
-  </div>
-
-  <div>
-  Duplicate the "RemoteAppHost" platform.
-  </div>
-
-  <div>
-  In the **Name** field, type a name, such as "RemoteAppHost-WinRM".
-  </div>
-
-  <div>
-  In the **Ansible config** field, change `ansible_connection` from `ssh` to `winrm`.
-  </div>
-
-  <div>
-  Click **Submit**.
-  </div>
-</Steps>
-
-</div>
-
-<div>
-<Nav name="console" />
-
-<Steps stepLevel="2">
-  <div>
-  Change to "SYSTEM" organization.
-  </div>
-
-  <div>
-  In the left menu, click **<Icon name="Assets" /> Assets**.
-  </div>
-
-  <div>
-  On the right page, find your created RemoteApp machine and click **Edit**.
-  </div>
-
-  <div>
-  In the **Platform** field, select the "RemoteAppHost-WinRM" platform.
-  </div>
-
-  <div>
-  Click **Submit**.
-  </div>
-</Steps>
-</div>
-
-<div>
-Finished.
-</div>
-</Steps>
-
 
 ## Deploy the RemoteApp machine
 
