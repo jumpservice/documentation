@@ -1,55 +1,85 @@
 # RemoteApp
-This topic describes how to publish and use RemoteApp applications.
 
-RemoteApp is a feature that allows users to access applications hosted on a remote server. It provides a seamless experience by delivering applications to users' devices without the need for full desktop virtualization. This guide will walk you through the process of setting up and managing RemoteApp in JumpServer.
+In JumpServer, **RemoteApp** is an application designed to run on a RemoteApp Machine, providing users with remote access to specific software without needing a full remote desktop session. It features auto-fill functionality to enhance user experience by automating input tasks.
 
-## Prerequisites
-- Ensure you have a RemoteApp machine set up and configured. For more information, see [RemoteApp machine](/docs/remoteapp/remoteapp-machine).
+By supporting various connection protocols, RemoteApp offers users flexible options to connect to assets securely and efficiently. This makes it an ideal solution for accessing business-critical applications remotely, while simplifying management and improving security.
 
-## Publish the RemoteApp
+The built-in RemoteApps include "Chrome" and "DBeaver Community". For more RemoteApps, see [App market](https://apps.fit2cloud.com/jumpserver).
+
+
+## Upload RemoteApp
 <Steps>
 <div>
 <Nav name="system-settings" />
 </div>
 
 <div>
-Navigate to **System settings > RemoteApp > RemoteApp**.
+In the left menu, click **<Icon name="Application" /> RemoteApp**.
 </div>
 
 <div>
-Click **App Marketplace** to open the App Store page.
-<img src="/images/docs/admin-guides/system-settings/remote-app/appstore.png" alt="appstore" width="350"/>
+On the right page, click **RemoteApp** tab.
 </div>
 
 <div>
-Download the apps under **Web**, **Database**, **Remote**, and **Tools**. Some applications are only available in the enterprise version.
+Click **App market** to open the App Store page and download the desired RemoteApp package (.zip).
 </div>
 
 <div>
-Navigate back to **RemoteApp > RemoteApp**.
+Click **+ Upload** to upload the RemoteApp package (.zip) you have just downloaded.
+</div>
+
+</Steps>
+
+
+## Deploy the RemoteApp
+<Steps>
+
+<div>
+<Nav name="system-settings" />
 </div>
 
 <div>
-Upload the RemoteApp packages you have just downloaded.
-<img src="/images/docs/admin-guides/system-settings/remote-app/upload-remote-app.png" alt="upload-remote-app" width="350"/>
+In the left menu, click **<Icon name="Application" /> RemoteApp**.
 </div>
 
 <div>
-Navigate back to **RemoteApp > RemoteApp machine**.
+On the right page, click **RemoteApp** tab.
 </div>
 
 <div>
-In the RemoteApp machine list, locate the relevant RemoteApp machine and click its **name** to open the details page.
+Click the RemoteApp card to open the RemoteApp detail page.
 </div>
 
 <div>
-On the `RemoteApp` page, locate the relevant Apps in the Apps list and click **Deployment**.
-<img src="/images/docs/admin-guides/system-settings/remote-app/remote-app-deployment.png" alt="remote-app-deployment" width="550"/>
+In the RemoteApp detail page, click **RemoteApp machine** tab.
 </div>
 
 <div>
-Wait for the task to complete. The **Release status** should be **Success** in the Apps list.
-<img src="/images/docs/admin-guides/system-settings/remote-app/remote-app-status.png" alt="remote-app-status" width="550"/>
+Find the RemoteApp machine you want to deploy, in the "Actions" column, click **Deploy**.
 </div>
 
+</Steps>
+
+## Delete RemoteApp
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Application" /> RemoteApp**.
+</div>
+
+<div>
+On the right page, click **RemoteApp** tab.
+</div>
+
+<div>
+Click RemoteApp card to open the RemoteApp detail page.
+</div>
+
+<div>
+In the upper-right corner of the RemoteApp detail page, click the **<Icon name="Trash2" /> Delete** button.
+</div>
 </Steps>
