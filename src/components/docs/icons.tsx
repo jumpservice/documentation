@@ -49,6 +49,7 @@ const iconConfig = {
   "*": <IconTips Icon={LucideIcons.Asterisk} tooltip={"Required"} iconColor={"w-2 pb-1 inline-block text-red-500"} />,
   "arrow-left": <LucideIcons.ArrowLeft className="w-4 pb-1 inline-block" />,
   ChevronDownWithBgColor: <LucideIcons.ChevronDown className="w-5 h-5 px-1 inline-block bg-primary text-white" />,
+  Trash2: <LucideIcons.Trash2 className="w-4 pb-1 inline-block" />,
 
   // svg icons
   Console: <SvgIcon Icon={SvgIcons.Console} />,
