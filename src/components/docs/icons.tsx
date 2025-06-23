@@ -28,6 +28,10 @@ function SvgIcon({ Icon }) {
 }
 
 const iconConfig = {
+  discover: <LucideIcons.Search className="w-4 pb-1 inline-block" />,
+  backup: <LucideIcons.Files className="w-4 pb-1 inline-block" />,
+  push: <LucideIcons.Send className="w-4 pb-1 inline-block" />,
+  pam: <LucideIcons.LockKeyhole className="w-4 pb-1 inline-block" />,
   settings: <LucideIcons.Settings className="w-4 pb-1 inline-block" />,
   xpack: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
   xpackTip: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,

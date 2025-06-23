@@ -1,0 +1,80 @@
+# Backup account
+
+## Create an account backup task
+
+<Steps>
+
+<div>
+<Nav name="pam" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="search" /> Backup accounts**.
+</div>
+
+<div>
+On the right page, click the **Account backup tasks** tab.
+</div>
+
+<div>
+Above the table, click **Create**.
+</div>
+
+<div>
+Type a **Name** for the task.
+</div>
+
+<div>
+Optionally, choose the asset **Type** for the task: **Email** or **SFTP**.
+<HorizontalTable 
+headers={['Type', 'Description']} 
+rows={[
+    ["Email", "The backup will be sent to the email address. If both recipients A and B are set, the account's ciphertext will be split into two parts; The file encryption password can be configured in the recipients' user preference settings."], 
+    ["SFTP", "The backup will be sent to the SFTP server. If both server A and B are set, the account's ciphertext will be split into two parts;"],
+]}
+/>
+<Alert type="note">
+SFTP server must be configured in the **system settings** first. For more information, see [Storage setting](/docs/).
+</Alert>
+</div>
+
+<div>
+Optionally, choose a **Recipient** for the notification. If enabled, the discovered accounts will be sent to the recipient.
+</div>
+
+<div>
+Optionally, disable or enable **Periodic**, where you can set the **Crontab** or **Interval** to schedule the task. 
+If both interval and crontab are set, crontab is prioritized.
+</div>
+
+<div>
+Optionally, type a **Description** for the task.
+</div>
+
+<div>
+Click **Submit** or **Save & Continue**.
+</div>
+
+</Steps>
+
+## View execution history
+
+<Steps>
+
+<div>
+<Nav name="pam" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="search" /> Backup accounts**.
+</div>
+
+<div>
+On the right side of the page, click the **Execution history** tab.
+</div>
+
+<div>
+In the **Execution history** tab, you can view the **Log** and **Report** of task execution history in the table.
+</div>
+
+</Steps>

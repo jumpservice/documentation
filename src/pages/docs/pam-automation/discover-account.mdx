@@ -1,0 +1,109 @@
+# Discover account
+
+## Prerequisites
+At least one account must be added to the asset before excuting discovery tasks.
+detailed account requirement are as follows:
+
+<HorizontalTable 
+headers={['Asset Type', 'Minimum Privilege Requirement', 'Others']} 
+rows={[
+    ["Linux", "User", "SSH protocol required"], 
+    ["Windows", "Account in Users group(Have acess using command 'net user')", "WinRM or SSH protocol required"], 
+    ["Windows Active Directory", "User with 'Read all user information' permission", "WinRM or LDAP protocol required"], 
+    ["Mongodb", "User with 'userAdmin' role", "Mongodb protocol required"], 
+    ["Mysql/MariaDB", "User with 'SELECT' privilege", "Mysql protocol required"], 
+    ["Postgresql", "User with 'pg_read_all_data' role", "Postgresql protocol required"], 
+    ["Redis", "User with 'keys' permission", "Redis protocol required"], 
+    ["Oracle", "User with 'SELECT ANY DICTIONARY' privilege", "Oracle protocol required"],
+    ["SQLServer", "User with 'VIEW SERVER STATE' permission", "SQLServer protocol required"]
+]}
+/>
+
+## Create an account discovery task
+
+<Steps>
+
+<div>
+<Nav name="pam" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="search" /> Discover accounts**.
+</div>
+
+<div>
+On the right page, click **Account discovery tasks** tab.
+</div>
+
+<div>
+Above the table, click **Create**.
+</div>
+
+<div>
+Type a **Name** for the task.
+</div>
+
+<div>
+Optionally, choose **Assets nodes** to discover accounts for. All assets under the selected nodes will be included.
+</div>
+
+<div>
+Optionally, choose **Assets** to discover accounts for.
+</div>
+
+<div>
+Optionally, enable **Sync to assets**. If enabled, the discovered accounts will be synced to the assets.
+</div>
+
+<div>
+Optionally, enable **Check risk**. If enabled, the discovered accounts will be checked for risk.  
+</div>
+
+<div>
+Optionally, Choose a **Recipient** for the notification. If enabled, the discovered accounts will be sent to the recipient.
+</div>
+
+<div>
+Optionally, set **Crontab** to schedule the task.
+</div>
+
+<div>
+Optionally, set **Interval** to run the task. If both interval and crontab are set, crontab is prioritized.
+</div>
+
+<div>
+Optionally, disable or enable **Active**, which determines whether the task is active or not.
+</div>
+
+<div>
+Optionally, type a **Description** for the website.
+</div>
+
+<div>
+Click **Submit** or **Save & Continue**.
+</div>
+
+</Steps>
+
+## View execution history and discovered accounts
+
+<Steps>
+
+<div>
+<Nav name="pam" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="search" /> Discover accounts**.
+</div>
+
+<div>
+On the right side of the page, switch between the **Execution history** and **Account discovered** tabs.
+</div>
+
+<div>
+In the **Execution history** tab, you can view the **Log** and **Report** of task execution history in the table.<br/>
+In the **Account discovered** tab, you can see the discovered accounts in the table.
+</div>
+
+</Steps>
