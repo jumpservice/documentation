@@ -16,6 +16,7 @@
   "-- system-settings": { "type": "separator", "title": "System Settings" },
   "authentication": { "title": "Authentication", "display": "normal" },
   "remoteapp": { "title": "RemoteApp", "display": "normal" },
+  "virtualapp": {"title": "VirtualApp", "display": "normal"},
   "license": { "title": "License", "display": "normal" },
 
   "-- user-guides": { "type": "separator", "title": "User Guides", "display": "hidden" },

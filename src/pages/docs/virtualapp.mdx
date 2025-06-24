@@ -1,0 +1,150 @@
+# VirtualApp <Icon name="xpack"/>
+
+In JumpServer, a **VirtualApp** is an application that includes an image address. When a user connects to an asset through a VirtualApp, Panda creates a corresponding VirtualApp container based on the image and establishes the connection through that container.
+
+**Panda**, also called the **Application provider**, is a component of JumpServer. It is used to fetch VirtualApp images and manage containers, including creating, starting, stopping, and deleting containers.
+
+
+## Enable VirtualApp feature
+
+### Configure PANDA_HOST_IP
+<Steps>
+
+<div>
+Log in to the Linux server using the "root" or another user with superuser privileges.
+</div>
+
+<div>
+Edit the config file and type the current host IP.
+
+```bash
+vi  /opt/jumpserver/config/config.txt
+```
+```bash
+PANDA_HOST_IP="Host IP"
+```
+</div>
+
+<div>
+Restart JumpServer.
+
+```bash
+jmsctl restart
+```
+</div>
+
+</Steps>
+
+### Enable VirtualApp
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Feature" /> Features**.
+</div>
+
+<div>
+On the right page, click **VirtualApp** tab.
+</div>
+
+<div>
+Check **Virtual app**.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+
+## Upload VirtualApp
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Application" /> RemoteApp**.
+</div>
+
+<div>
+On the right page, click **RemoteApp** tab.
+</div>
+
+<div>
+Click **App market** to open the App Store page and download the desired VirtualApp package (.zip).
+</div>
+
+<div>
+On the right page, click **VirtualApp** tab.
+</div>
+
+<div>
+Click **+ Upload** to upload the VirtualApp package (.zip) you have just downloaded.
+</div>
+
+</Steps>
+
+
+## Check VirtualApp status
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Application" /> RemoteApp**.
+</div>
+
+<div>
+On the right page, click **Application providers** tab.
+</div>
+
+<div>
+In the table, click the name of the application provider to open the details page.
+</div>
+
+<div>
+On the details page, click **VirtualApp** tab. 
+</div>
+
+<div>
+You can view the image names and release status of all VirtualApps.
+</div>
+</Steps>
+
+<Alert>
+Panda retrieves the uploaded Virtual Apps every 5 minutes.
+</Alert>
+
+## Check VirtualApp containers
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Application" /> RemoteApp**.
+</div>
+
+<div>
+On the right page, click **Application providers** tab.
+</div>
+
+<div>
+In the table, click the name of the application provider to open the details page.
+</div>
+
+<div>
+On the details page, click **Container** tab.
+</div>
+
+<div>
+You can view the created containers here when users connect to assets via Virtual Apps.
+</div>
+
+</Steps>

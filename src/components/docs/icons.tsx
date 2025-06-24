@@ -58,6 +58,7 @@ const iconConfig = {
   Application: <SvgIcon Icon={SvgIcons.Application} />,
   Platform: <SvgIcon Icon={SvgIcons.Platform} />,
   Switch: <SvgIcon Icon={SvgIcons.Switch} />,
+  Feature: <SvgIcon Icon={SvgIcons.Feature} />,
 }
 
 interface IconProps {
