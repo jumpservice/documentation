@@ -129,7 +129,6 @@ pre {
   /* @apply bg-primary/60 */
 /* } */
 
-
 .docs {
   main > p {
     @apply mb-2;
