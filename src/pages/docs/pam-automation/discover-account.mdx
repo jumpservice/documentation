@@ -1,21 +1,21 @@
 # Discover account
 
 ## Prerequisites
-At least one account must be added to the asset before excuting discovery tasks.
-detailed account requirement are as follows:
+At least one account must be added to the asset before executing discovery tasks. For automation tasks, it is recommended to select a privileged account first.
+Detailed account requirements are as follows:
 
 <HorizontalTable 
-headers={['Asset Type', 'Minimum Privilege Requirement', 'Others']} 
+headers={['Asset Type', 'Minimum Privilege Requirement']} 
 rows={[
-    ["Linux", "User", "SSH protocol required"], 
-    ["Windows", "Account in Users group(Have acess using command 'net user')", "WinRM or SSH protocol required"], 
-    ["Windows Active Directory", "User with 'Read all user information' permission", "WinRM or LDAP protocol required"], 
-    ["Mongodb", "User with 'userAdmin' role", "Mongodb protocol required"], 
-    ["Mysql/MariaDB", "User with 'SELECT' privilege", "Mysql protocol required"], 
-    ["Postgresql", "User with 'pg_read_all_data' role", "Postgresql protocol required"], 
-    ["Redis", "User with 'keys' permission", "Redis protocol required"], 
-    ["Oracle", "User with 'SELECT ANY DICTIONARY' privilege", "Oracle protocol required"],
-    ["SQLServer", "User with 'VIEW SERVER STATE' permission", "SQLServer protocol required"]
+    ["Linux", "Root or sudoers"], 
+    ["Windows", "Account in Users group or has access using command 'net user'"], 
+    ["Windows Active Directory", "User with 'Read all user information' permission"], 
+    ["Unix", "Root or sudoers"], 
+    ["Mongodb", "User with 'userAdminAnyDatabase' or 'userAdmin' role"], 
+    ["Mysql/MariaDB", "root or have access to 'mysql.user'"], 
+    ["Postgresql", "superuser or 'pg_read_all_data' role"], 
+    ["Oracle", "DBA or user with 'SELECT_CATALOG_ROLE' privilege"],
+    ["SQLServer", "Membership in 'sysadmin' role or have access to sys.dm_exec_sessions and sys.sql_logins"]
 ]}
 />
 
