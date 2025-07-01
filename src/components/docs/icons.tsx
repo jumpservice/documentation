@@ -52,6 +52,7 @@ export const iconConfig = {
   Trash2: <LucideIcons.Trash2 className="w-4 pb-1 inline-block" />,
   Ban: <LucideIcons.Ban className="w-4 pb-1 inline-block" />,
   CircleCheck: <LucideIcons.CircleCheck className="w-4 pb-1 inline-block" />,
+  CircleMinus: <LucideIcons.CircleMinus className="w-4 pb-1 inline-block" />,
 
   // svg icons
   Console: <SvgIcon Icon={SvgIcons.Console} />,
