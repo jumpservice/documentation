@@ -27,7 +27,7 @@ function SvgIcon({ Icon }) {
 
 }
 
-const iconConfig = {
+export const iconConfig = {
   settings: <LucideIcons.Settings className="w-4 pb-1 inline-block" />,
   xpack: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
   xpackTip: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
@@ -59,6 +59,7 @@ const iconConfig = {
   Platform: <SvgIcon Icon={SvgIcons.Platform} />,
   Switch: <SvgIcon Icon={SvgIcons.Switch} />,
   Feature: <SvgIcon Icon={SvgIcons.Feature} />,
+  UserO: <SvgIcon Icon={SvgIcons.UserO} />,
 }
 
 interface IconProps {
