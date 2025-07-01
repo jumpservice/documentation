@@ -1,4 +1,6 @@
 {
+  "docs-dev-guide": { "title": "Docs Development Guide", "display": "hidden" },
+
   "index": { "title": "Introduction" },
 
   "-- get-started": { "type": "separator", "title": "Get Started" },

@@ -2,13 +2,14 @@
   "create-user": { "title": "Create a user", "display": "normal" },
   "duplicate-user": { "title": "Duplicate a user", "display": "normal" },
   "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
-  "sync-users-from-ldap": { "title": "Sync from LDAP", "display": "normal" },
   "create-users-via-api": { "title": "Create users via API", "display": "hidden" },
+  "invite-users": { "title": "Invite users", "display": "normal" },
 
-  "edit-users": { "title": "Edit users", "display": "hidden" },
-  "delete-users": { "title": "Delete users", "display": "hidden" },
-  "disable-users": { "title": "Disable users", "display": "hidden" },
-  "remove-users-from-org": { "title": "Remove users", "display": "hidden" },
+  "delete-users": { "title": "Delete users", "display": "normal" },
+  "disable-users": { "title": "Disable users", "display": "normal" },
+  "activate-users": { "title": "Activate users", "display": "normal" },
+  "remove-users": { "title": "Remove users", "display": "normal" },
+
   "unlock-users": { "title": "Unlock users", "display": "hidden" },
   "reset-password": { "title": "Reset password", "display": "hidden" },
   "reset-ssh-key": { "title": "Reset SSH key", "display": "hidden" },
@@ -21,7 +22,5 @@
   "user-authorized-assets": { "title": "User authorized assets", "display": "hidden" },
   "user-authorizations": { "title": "User authorizations", "display": "hidden" },
   "user-connected-sessions": { "title": "User connected sessions", "display": "hidden" },
-  "user-activity-log": { "title": "User activity logs", "display": "hidden" },
-
-  "invite-users": { "title": "Invite users (X-Pack)", "display": "normal" }
+  "user-activity-log": { "title": "User activity logs", "display": "hidden" }
 }

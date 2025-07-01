@@ -27,7 +27,7 @@ function SvgIcon({ Icon }) {
 
 }
 
-const iconConfig = {
+export const iconConfig = {
   settings: <LucideIcons.Settings className="w-4 pb-1 inline-block" />,
   xpack: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
   xpackTip: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
@@ -50,6 +50,9 @@ const iconConfig = {
   "arrow-left": <LucideIcons.ArrowLeft className="w-4 pb-1 inline-block" />,
   ChevronDownWithBgColor: <LucideIcons.ChevronDown className="w-5 h-5 px-1 inline-block bg-primary text-white" />,
   Trash2: <LucideIcons.Trash2 className="w-4 pb-1 inline-block" />,
+  Ban: <LucideIcons.Ban className="w-4 pb-1 inline-block" />,
+  CircleCheck: <LucideIcons.CircleCheck className="w-4 pb-1 inline-block" />,
+  CircleMinus: <LucideIcons.CircleMinus className="w-4 pb-1 inline-block" />,
 
   // svg icons
   Console: <SvgIcon Icon={SvgIcons.Console} />,
@@ -59,6 +62,7 @@ const iconConfig = {
   Platform: <SvgIcon Icon={SvgIcons.Platform} />,
   Switch: <SvgIcon Icon={SvgIcons.Switch} />,
   Feature: <SvgIcon Icon={SvgIcons.Feature} />,
+  UserO: <SvgIcon Icon={SvgIcons.UserO} />,
 }
 
 interface IconProps {
