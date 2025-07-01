@@ -50,6 +50,8 @@ export const iconConfig = {
   "arrow-left": <LucideIcons.ArrowLeft className="w-4 pb-1 inline-block" />,
   ChevronDownWithBgColor: <LucideIcons.ChevronDown className="w-5 h-5 px-1 inline-block bg-primary text-white" />,
   Trash2: <LucideIcons.Trash2 className="w-4 pb-1 inline-block" />,
+  Ban: <LucideIcons.Ban className="w-4 pb-1 inline-block" />,
+  CircleCheck: <LucideIcons.CircleCheck className="w-4 pb-1 inline-block" />,
 
   // svg icons
   Console: <SvgIcon Icon={SvgIcons.Console} />,

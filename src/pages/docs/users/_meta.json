@@ -6,7 +6,9 @@
   "invite-users": { "title": "Invite users (X-Pack)", "display": "normal" },
 
   "delete-users": { "title": "Delete users", "display": "normal" },
-  "disable-users": { "title": "Disable users", "display": "hidden" },
+  "disable-users": { "title": "Disable users", "display": "normal" },
+  "activate-users": { "title": "Activate users", "display": "normal" },
+
   "remove-users-from-org": { "title": "Remove users", "display": "hidden" },
   "unlock-users": { "title": "Unlock users", "display": "hidden" },
   "reset-password": { "title": "Reset password", "display": "hidden" },
