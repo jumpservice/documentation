@@ -1,13 +1,13 @@
 {
-  "create-user": { "title": "Create a user", "display": "normal" },
-  "duplicate-user": { "title": "Duplicate a user", "display": "normal" },
+  "create-user": { "title": "Create user", "display": "normal" },
+  "duplicate-user": { "title": "Duplicate user", "display": "normal" },
   "delete-users": { "title": "Delete users", "display": "normal" },
   "disable-users": { "title": "Disable users", "display": "normal" },
   "activate-users": { "title": "Activate users", "display": "normal" },
   "remove-users": { "title": "Remove users", "display": "normal" },
-  "unlock-users": { "title": "Unlock users", "display": "normal" },
+  "unlock-user": { "title": "Unlock user", "display": "normal" },
+  "reset-password": { "title": "Reset password", "display": "normal" },
 
-  "reset-password": { "title": "Reset password", "display": "hidden" },
   "reset-ssh-key": { "title": "Reset SSH key", "display": "hidden" },
   "reset-mfa": { "title": "Reset MFA", "display": "hidden" }, 
   "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
