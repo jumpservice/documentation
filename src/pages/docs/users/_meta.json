@@ -7,8 +7,8 @@
   "remove-users": { "title": "Remove users", "display": "normal" },
   "unlock-user": { "title": "Unlock user", "display": "normal" },
   "reset-password": { "title": "Reset password", "display": "normal" },
+  "reset-ssh-key": { "title": "Reset SSH key", "display": "normal" },
 
-  "reset-ssh-key": { "title": "Reset SSH key", "display": "hidden" },
   "reset-mfa": { "title": "Reset MFA", "display": "hidden" }, 
   "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
   "create-users-via-api": { "title": "Create users via API", "display": "hidden" },
