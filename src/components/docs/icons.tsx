@@ -28,6 +28,11 @@ function SvgIcon({ Icon }) {
 }
 
 const iconConfig = {
+  greyBan: <LucideIcons.Ban className="w-4 pb-1 inline-block text-gray-500" />,
+  greenHook: <LucideIcons.Check className="w-4 pb-1 inline-block text-green-500" />,
+  application: <LucideIcons.LayoutGrid className="w-4 pb-1 inline-block" />,
+  riskDetection: <LucideIcons.GaugeCircleIcon className="w-4 pb-1 inline-block" />,
+  changeSecret: <LucideIcons.LockKeyholeOpen className="w-4 pb-1 inline-block" />,
   discover: <LucideIcons.Search className="w-4 pb-1 inline-block" />,
   backup: <LucideIcons.Files className="w-4 pb-1 inline-block" />,
   push: <LucideIcons.Send className="w-4 pb-1 inline-block" />,

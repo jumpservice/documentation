@@ -1,11 +1,13 @@
 # Discover account
 
+This topic describes discover account configurations.
+
 ## Prerequisites
-At least one account must be added to the asset before executing discovery tasks. For automation tasks, it is recommended to select a privileged account first.
-Detailed account requirements are as follows:
+At least one account must be added to the asset before executing discovery tasks. Automation tasks will prioritize accounts marked as privileged for execution.
+Recomanded account privilege requirement are as follows:
 
 <HorizontalTable 
-headers={['Asset Type', 'Minimum Privilege Requirement']} 
+headers={['Asset Type', 'Recomanded account privilege requirement']} 
 rows={[
     ["Linux", "Root or sudoers"], 
     ["Windows", "Account in Users group or has access using command 'net user'"], 
@@ -18,6 +20,9 @@ rows={[
     ["SQLServer", "Membership in 'sysadmin' role or have access to sys.dm_exec_sessions and sys.sql_logins"]
 ]}
 />
+
+For **Minimum account privilege requirement** of each automation template. See [Platform settings](/docs/platform-settings/automation-settings).
+
 
 ## Create an account discovery task
 
@@ -52,7 +57,7 @@ Optionally, choose **Assets** to discover accounts for.
 </div>
 
 <div>
-Optionally, enable **Sync to assets**. If enabled, the discovered accounts will be synced to the assets.
+Optionally, enable **Sync to assets**. If enabled, the discovered accounts will be stored in JumpServer.
 </div>
 
 <div>
@@ -76,7 +81,7 @@ Optionally, disable or enable **Active**, which determines whether the task is a
 </div>
 
 <div>
-Optionally, type a **Description** for the website.
+Optionally, type a **Description** for the task.
 </div>
 
 <div>

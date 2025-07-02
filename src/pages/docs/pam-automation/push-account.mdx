@@ -1,16 +1,26 @@
 # Push account
 
+This topic describes push account configurations.
+
 ## Prerequisites
-At least one account must be added to the asset before executing push tasks.
-The minimum privilege requirements are as follows:
+At least one account must be added to the asset before executing push account tasks. Automation tasks will prioritize accounts marked as privileged for execution.
+Recomanded account privilege requirement are as follows:
 
 <HorizontalTable 
-headers={['Asset Type', 'Minimum Privilege Requirement', 'Others']} 
+headers={['Asset Type', 'Recomanded account privilege requirement']} 
 rows={[
-    ["Linux", "Sudoers", "SSH protocol required"], 
-    ["Windows", "Account in Administrators group", "WinRM or SSH protocol required"], 
+    ["Linux", "Root or sudoers"], 
+    ["Windows", "Account in Administrator group"], 
+    ["Unix", "Root or user with ALL PRIVILEGES"], 
+    ["Mongodb", "User with 'userAdminAnyDatabase' or 'userAdmin' role"], 
+    ["Mysql/MariaDB", "Root or user with ALL PRIVILEGES'"], 
+    ["Postgresql", "Postgres or other superuser"], 
+    ["Oracle", "DBA"],
+    ["SQLServer", "Membership in 'sysadmin'"]
 ]}
 />
+
+For **Minimum account privilege requirement** of each automation template. See [Platform settings](/docs/platform-settings/automation-settings).
 
 ## Create a push account task
 
@@ -62,7 +72,15 @@ If using SSH Key, type the **SSH Key** in the field.
 </div>
 
 <div>
-If the target assets are host-type assets, you can set push parameters for the task.
+If the target assets are host-type assets, you can configure additional push parameters for the task.
+
+<HorizontalTable 
+headers={['Asset type', 'Settings']} 
+rows={[
+    ["Windows", "User's group."], 
+    ["Linux/MacOS/Unix/AIX/BSD", "Shell, Sudo permissions, Home directory, User Group, User ID"], 
+]}
+/>
 </div>
 
 <div>

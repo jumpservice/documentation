@@ -1,5 +1,5 @@
 {
   "discover-account": { "title": "Discover account", "display": "normal" },
-  "push-acoount": { "title": "Push acoount", "display": "normal" },
+  "push-account": { "title": "Push account", "display": "normal" },
   "backup-account": { "title": "Backup account", "display": "normal" }
 }
