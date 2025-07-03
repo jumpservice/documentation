@@ -1,8 +1,8 @@
 {
   "create-user": { "title": "Create user", "display": "normal" },
   "duplicate-user": { "title": "Duplicate user", "display": "normal" },
-  "invite-users": { "title": "Invite users", "display": "normal" },
   "delete-users": { "title": "Delete users", "display": "normal" },
+  "invite-users": { "title": "Invite users", "display": "normal" },
   "remove-users": { "title": "Remove users", "display": "normal" },
   "disable-users": { "title": "Disable users", "display": "normal" },
   "activate-users": { "title": "Activate users", "display": "normal" },
