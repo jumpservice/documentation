@@ -9,6 +9,15 @@ const NavConsole = () => {
   );
 }
 
+const NavPAM = () => {
+  return (
+    <div>
+      In the upper-left of the page, select <Icon name="Switch" />, then click <Icon name="pam" /> <b>PAM</b>.
+      <img src="/images/docs/navs/nav-pam.png" alt="image" width="300"/>
+    </div>
+  );
+}
+
 const NavAudits = () => {
   return (
     <div>
@@ -52,6 +61,7 @@ interface NavProps {
 
 const navConfig = {
   'console': <NavConsole />,
+  'pam': <NavPAM />,
   'audits': <NavAudits />,
   "web-terminal": <NavWebTerminal />,
   'system-settings': <NavSystemSettings />,
