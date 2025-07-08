@@ -6,3 +6,5 @@ export { default as Platform } from "./platform.svg";
 export { default as Switch } from "./switch.svg";
 export { default as Feature } from "./feature.svg";
 export { default as UserO } from "./user-o.svg";
+export { default as Discovery } from "./discovery.svg";
+export { default as Plus } from "./plus.svg";
