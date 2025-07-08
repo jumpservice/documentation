@@ -15,6 +15,11 @@
   "nodes": { "title": "Nodes", "display": "hidden" },
   "import-export": { "title": "Import & Export", "display": "normal" },
 
+  "-- pam": { "type": "separator", "title": "PAM" },
+  "pam-automation": { "title": "Automation", "display": "normal" },
+  "pam-intergration": { "title": "Intergration", "display": "normal"},
+  "pam-security": { "title": "Security", "display": "normal" }, 
+
   "-- system-settings": { "type": "separator", "title": "System Settings" },
   "authentication": { "title": "Authentication", "display": "normal" },
   "remoteapp": { "title": "RemoteApp", "display": "normal" },
