@@ -73,6 +73,7 @@ export const iconConfig = {
   Feature: <SvgIcon Icon={SvgIcons.Feature} />,
   UserO: <SvgIcon Icon={SvgIcons.UserO} />,
   Discovery: <SvgIcon Icon={SvgIcons.Discovery} />,
+  Push: <SvgIcon Icon={SvgIcons.Push} />,
 }
 
 interface IconProps {

@@ -8,3 +8,4 @@ export { default as Feature } from "./feature.svg";
 export { default as UserO } from "./user-o.svg";
 export { default as Discovery } from "./discovery.svg";
 export { default as Plus } from "./plus.svg";
+export { default as Push } from "./push.svg";
