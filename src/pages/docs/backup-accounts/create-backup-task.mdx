@@ -1,6 +1,6 @@
 # Create backup account task
 
-This topic describes backup account configurations.
+**Account backup** saves and stores local account information. Support unified backup management for different asset types. Storage available via "Email" or "SFTP".
 
 ## Create an account backup task
 
@@ -11,7 +11,7 @@ This topic describes backup account configurations.
 </div>
 
 <div>
-In the left menu, click **<Icon name="search" /> Backup accounts**.
+In the left menu, click **<Icon name="Backup" /> Backup accounts**.
 </div>
 
 <div>
@@ -19,64 +19,54 @@ On the right page, click the **Account backup tasks** tab.
 </div>
 
 <div>
-Above the table, click **Create**.
+Click **+ Create**.
 </div>
 
 <div>
-Type a **Name** for the task.
+In the **Name** field, type the task name.
 </div>
 
 <div>
-Optionally, choose the asset **Type** for the task: **Email** or **SFTP**.
-<HorizontalTable 
-headers={['Type', 'Description']} 
-rows={[
-    ["Email", "The backup will be sent to the email address. If both recipients A and B are set, the account's ciphertext will be split into two parts; The file encryption password can be configured in the recipients' user preference settings."], 
-    ["SFTP", "The backup will be sent to the SFTP server. If both server A and B are set, the account's ciphertext will be split into two parts;"],
-]}
-/>
-<Alert type="note">
-SFTP server must be configured in the **system settings** first. For more information, see [Storage setting](/docs/storage#SFTP).
-</Alert>
+In the **Type** field, check asset categories or asset types to be backed up.
+</div>
+
+
+<div>
+In the **Backup type** field, Select backup method.
+* Email: Send the backup file via email.
+* SFTP <Icon name="xpack" />: Send the backup file to the SFTP server.
 </div>
 
 <div>
-Optionally, choose a **Recipient** for the notification. If enabled, the discovered accounts will be sent to the recipient.
+In the **Password divided** field, check and enable password-splitting backup. The account password will be split into two parts and sent separately to two groups of recipients.
 </div>
 
 <div>
-Optionally, disable or enable **Periodic**, where you can set the **Crontab** or **Interval** to schedule the task. 
-If both interval and crontab are set, crontab is prioritized.
+In the *Recipient a/b*, select one or two recipient groups separately. The backup file will be encrypted using the file encryption password set in the personal settings by default (via email).
 </div>
 
 <div>
-Optionally, type a **Description** for the task.
+In the **Receiving server a/b** field, select one or two receiving servers. The backup file will be encrypted using the "Zip encrypt password" (via SFTP).
 </div>
 
 <div>
-Click **Submit** or **Save & Continue**.
-</div>
-
-</Steps>
-
-## Exucate tasks and View execution history
-
-<Steps>
-
-<div>
-<Nav name="pam" />
+In the **Zip encrypt password** field, type the password to encrypt the backup file (via SFTP).
 </div>
 
 <div>
-In the left menu, click **<Icon name="search" /> Backup accounts**.
+In the **Periodic** field, check to enable scheduled execution.
 </div>
 
 <div>
-On the right side of the page, click the **Execution history** tab.
+In the **Active** field, check to enable the task.
 </div>
 
 <div>
-In the **Execution history** tab, you can view the **Log** and **Report** of task execution history in the table.
+In the **Description** field, type the task description.
+</div>
+
+<div>
+Click **Submit**.
 </div>
 
 </Steps>

@@ -9,3 +9,4 @@ export { default as UserO } from "./user-o.svg";
 export { default as Discovery } from "./discovery.svg";
 export { default as Plus } from "./plus.svg";
 export { default as Push } from "./push.svg";
+export { default as Backup } from "./backup.svg";
