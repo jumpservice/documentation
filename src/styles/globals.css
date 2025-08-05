@@ -130,8 +130,17 @@ pre {
 /* } */
 
 .docs {
-  main > p {
-    @apply mb-2;
+  main {
+    p {
+      @apply mb-2;
+    }
+
+    ul {
+      @apply mt-2 text-sm;
+      li {
+        @apply py-2;
+      }
+    }
   }
   .steps {
     img {
