@@ -1,3 +1,4 @@
 {
-  "create-application": { "title": "Create application", "display": "normal" }
+  "create-application": { "title": "Create an application", "display": "normal" },
+  "view-integration-docs": { "title": "View integration docs", "display": "normal" }
 }
