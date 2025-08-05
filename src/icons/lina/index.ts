@@ -11,3 +11,4 @@ export { default as Plus } from "./plus.svg";
 export { default as Push } from "./push.svg";
 export { default as Backup } from "./backup.svg";
 export { default as ChangePassword } from "./change-password.svg";
+export { default as Scan } from "./scan.svg";

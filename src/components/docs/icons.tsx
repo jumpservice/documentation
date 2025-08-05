@@ -76,6 +76,7 @@ export const iconConfig = {
   Push: <SvgIcon Icon={SvgIcons.Push} />,
   Backup: <SvgIcon Icon={SvgIcons.Backup} />,
   ChangePassword: <SvgIcon Icon={SvgIcons.ChangePassword} />,
+  Scan: <SvgIcon Icon={SvgIcons.Scan} />,
 }
 
 interface IconProps {

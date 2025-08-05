@@ -1,28 +1,6 @@
-# create risk account detection task <Icon name="xpack" />
+# Create account risk detection task <Icon name="xpack" />
 
-This topic describes Risk detection configurations.
-
-## Prerequisites
-At least one account must be added to the asset before processing Risk detection result. Automation tasks will prioritize accounts marked as privileged for execution.
-Recomanded account privilege requirement are as follows:
-
-<HorizontalTable 
-headers={['Asset Type', 'Recomanded account privilege requirement']} 
-rows={[
-    ["Linux", "Root or sudoers"], 
-    ["Windows", "Account in Administrator group"], 
-    ["Unix", "Root or user with ALL PRIVILEGES"], 
-    ["Mongodb", "User with 'userAdminAnyDatabase' or 'userAdmin' role"], 
-    ["Mysql/MariaDB", "Root or user with ALL PRIVILEGES'"], 
-    ["Postgresql", "Postgres or other superuser"], 
-    ["Oracle", "DBA"],
-    ["SQLServer", "Membership in 'sysadmin'"]
-]}
-/>
-
-For **Minimum account privilege requirement** of each automation template. See [Platform settings](/docs/platform-settings/automation-settings).
-
-## Create a risk detection task
+**Account risk detection** checks password length, repeated passwords, and common weak passwords. Supports custom execution cycles for regular scanning of all accounts in JumpServer.
 
 <Steps>
 
@@ -31,103 +9,50 @@ For **Minimum account privilege requirement** of each automation template. See [
 </div>
 
 <div>
-In the left menu, click **<Icon name="riskDetection" /> Risk detection**.
+In the left menu, click **<Icon name="Scan" /> Risk detection**.
 </div>
 
 <div>
-On the right page, click **Detect tasks** tab.
+On the right page, click **Detection tasks** tab.
 </div>
 
 <div>
-Above the table, click **Create**.
+Click **+ Create**.
 </div>
 
 <div>
-Type a **Name** for the task.
+In the **Name** field, type the task name.
 </div>
 
 <div>
-Optionally, choose **Assets nodes** to discover accounts for. All assets under the selected nodes will be included.
+In the **Assets** field, select one or more assets. Detects accounts under the selected assets.
 </div>
 
 <div>
-Optionally, choose **Assets** to discover accounts for.
+In the **Nodes** field, select one or more nodes. Detects accounts under assets in the selected nodes and their subnodes.
 </div>
 
 <div>
-Optionally, select risk detect Engine for the task.
-<HorizontalTable 
-headers={['Engines', 'Descripition']} 
-rows={[
-    ["Check the discovered accounts", "Perform checks and analyses based on automatically discovered account results,including user groups, public keys, sudoers, and other information."], 
-    ["Check the strength of your account and password", "Perform checks and analyses based on the security of account passwords, includingpassword strength, leakage, etc."], 
-    ["Check if the account and password are repeated", "Check if the account is the same as other accounts."], 
-    ["Check whether the account password is a common password", "Check whether the account password is a commonly leaked password."]
-]}
-/>
+In the **Engines** field, select one or more check engines.
 </div>
 
 <div>
-Optionally, choose a **Recipient** for the notification. If enabled, the report will be sent to the recipient.
+In the **Recipients** field, select one or more recipients. Sends the detection result after task completion.
 </div>
 
 <div>
-Optionally, disable or enable **Periodic**, where you can set the **Crontab** or **Interval** to schedule the task. 
-If both interval and crontab are set, crontab is prioritized.
+In the **Periodic** field, check to enable scheduled execution.
 </div>
 
 <div>
-Optionally, disable or enable **Active**, which determines whether the task is active or not.
+In the **Active** field, check to enable the task.
 </div>
 
 <div>
-Optionally, type a **Description** for the task.
+In the **Description** field, type the task description.
 </div>
-
+    
 <div>
 Click **Submit**.
 </div>
-
 </Steps>
-
-## Review Detect results
-
-<Steps>
-
-<div>
-After the risk detection task is completed, go to the **Execution result** tab.
-</div>
-
-<div>
-In the table, locate the certain account. 
-</div>
-
-<div>
-In the Pending column, click the <Icon name="greenHook" /> button to handle the risk detection results or <Icon name="greyBan" /> to ignore the risk detection results.
-</div>
-
-</Steps>
-
-## View execution history and report
-
-<Steps>
-
-<div>
-<Nav name="pam" />
-</div>
-
-<div>
-In the left menu, click **<Icon name="riskDetection" /> Risk Detection**.
-</div>
-
-<div>
-On the right side of the page, switch between the **Execution history**.
-</div>
-
-<div>
-In the **Execution history** tab, you can view the **Log** and **Report** of task execution history in the table.<br/>
-</div>
-
-</Steps>
-
-
