@@ -1,0 +1,96 @@
+# Create push account task
+**Account push** means sending local account information from the JumpServer to remote hosts automatically.
+This helps create or update accounts on multiple hosts without manual login.
+Pushed content includes account name, password or private key.
+
+Before starting account push, create a high-privilege account for the asset. JumpServer uses this account to create other accounts during task execution.
+
+<Steps>
+
+<div>
+<Nav name="pam" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Push" /> Push accounts**.
+</div>
+
+<div>
+On the right page, click the **Account push tasks** tab.
+</div>
+
+<div>
+Click **+ Create**.
+</div>
+
+<div>
+In the **Name** field, type the task name.
+</div>
+
+<div>
+Optionally. In the **Nodes** field, select one or more nodes. The task will execute account push on all assets under the selected nodes and their subnodes.
+</div>
+
+<div>
+Optionally. In the **Assets** field, select one or more assets.
+</div>
+
+<div>
+In the **Accounts** field, type one or more account usernames to push to the assets.
+<Alert type="note">
+If the account exists on the asset, its secret will be used. Otherwise, the account will be created using the task's secret strategy and pushed.
+</Alert>
+</div>
+
+<div>
+In the **Secret strategy** field, you can choose "Specific secret" to set it manually, or "Random generate" to generate it randomly.
+</div>
+
+<div>
+In the **Secret type** field, you can choose either "Password" or "SSH key".
+</div>
+
+<div>
+In the **Password** field, type a password. (Specific secret & Password) 
+</div>
+
+<div>
+In the **Private key** field, paste your private key. (Specific secret & SSH key)
+</div>
+
+<div>
+In the **Key password** field, type the private key password. (Specific secret & SSH key)
+</div>
+
+<div>
+In the **Password rules** field, set password rules, including length, uppercase and lowercase letters, numbers, special characters, and excluded characters. (Random generate & Password) 
+</div>
+
+<div>
+In the **Push parameters** field, you can configure push parameters.
+<Alert type="note">
+You can configure push parameters only when a Host-type asset or a node containing Host-type assets is selected.
+</Alert>
+</div>
+
+<div>
+In the **Periodic** field, check to enable scheduled execution.
+</div>
+
+<div>
+In the **Check connection after change** field, check to verify the connection after the push task is completed.
+</div>
+
+<div>
+In the **Active** field, check to enable the task.
+</div>
+
+<div>
+In the **Description** field, type the task description.
+</div>
+    
+<div>
+Click **Submit**.
+</div>
+
+</Steps>

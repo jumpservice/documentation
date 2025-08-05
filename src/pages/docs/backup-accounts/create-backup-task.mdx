@@ -1,0 +1,72 @@
+# Create backup account task
+
+**Account backup** saves local account information and supports unified backup across different asset types. Backups can be stored via Email or SFTP, with optional scheduled backup and password splitting to separate recipients or SFTP servers.
+
+## Create an account backup task
+
+<Steps>
+
+<div>
+<Nav name="pam" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Backup" /> Backup accounts**.
+</div>
+
+<div>
+On the right page, click the **Account backup tasks** tab.
+</div>
+
+<div>
+Click **+ Create**.
+</div>
+
+<div>
+In the **Name** field, type the task name.
+</div>
+
+<div>
+In the **Type** field, check asset categories or asset types to be backed up.
+</div>
+
+
+<div>
+In the **Backup type** field, choose how to store the backup.
+* Email: Send the backup file via email.
+* SFTP:  Send the backup file to the SFTP server. <Icon name="xpack" /> 
+</div>
+
+<div>
+In the **Password divided** field, check and enable password-splitting backup. The account password will be split into two parts and sent separately to two groups of recipients.
+</div>
+
+<div>
+In the **Recipient a/b**, select one or two recipient groups separately. The backup file will be encrypted using the file encryption password set in the personal settings by default (via email).
+</div>
+
+<div>
+In the **Receiving server a/b** field, select one or two receiving servers. The backup file will be encrypted using the "Zip encrypt password" (via SFTP).
+</div>
+
+<div>
+In the **Zip encrypt password** field, type the password to encrypt the backup file (via SFTP).
+</div>
+
+<div>
+In the **Periodic** field, check to enable scheduled execution.
+</div>
+
+<div>
+In the **Active** field, check to enable the task.
+</div>
+
+<div>
+In the **Description** field, type the task description.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>

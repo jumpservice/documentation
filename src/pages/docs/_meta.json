@@ -15,6 +15,14 @@
   "nodes": { "title": "Nodes", "display": "hidden" },
   "import-export": { "title": "Import & Export", "display": "normal" },
 
+  "-- pam": { "type": "separator", "title": "PAM Guides" },
+  "discover-accounts": { "title": "Discover accounts", "display": "normal" },
+  "push-accounts": { "title": "Push accounts", "display": "normal" },
+  "backup-accounts": { "title": "Backup accounts", "display": "normal" },
+  "change-secrets": { "title": "Change secrets", "display": "normal" },
+  "risk-detection": { "title": "Risk detection", "display": "normal" },
+  "applications": { "title": "Applications", "display": "normal" },
+
   "-- system-settings": { "type": "separator", "title": "System Settings" },
   "authentication": { "title": "Authentication", "display": "normal" },
   "remoteapp": { "title": "RemoteApp", "display": "normal" },

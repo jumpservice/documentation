@@ -28,6 +28,15 @@ function SvgIcon({ Icon }) {
 }
 
 export const iconConfig = {
+  greyBan: <LucideIcons.Ban className="w-4 pb-1 inline-block text-gray-500" />,
+  greenHook: <LucideIcons.Check className="w-4 pb-1 inline-block text-green-500" />,
+  application: <LucideIcons.LayoutGrid className="w-4 pb-1 inline-block" />,
+  riskDetection: <LucideIcons.GaugeCircleIcon className="w-4 pb-1 inline-block" />,
+  changeSecret: <LucideIcons.LockKeyholeOpen className="w-4 pb-1 inline-block" />,
+  discover: <LucideIcons.Search className="w-4 pb-1 inline-block" />,
+  backup: <LucideIcons.Files className="w-4 pb-1 inline-block" />,
+  push: <LucideIcons.Send className="w-4 pb-1 inline-block" />,
+  pam: <LucideIcons.LockKeyhole className="w-4 pb-1 inline-block" />,
   settings: <LucideIcons.Settings className="w-4 pb-1 inline-block" />,
   xpack: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
   xpackTip: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
@@ -63,6 +72,12 @@ export const iconConfig = {
   Switch: <SvgIcon Icon={SvgIcons.Switch} />,
   Feature: <SvgIcon Icon={SvgIcons.Feature} />,
   UserO: <SvgIcon Icon={SvgIcons.UserO} />,
+  Discovery: <SvgIcon Icon={SvgIcons.Discovery} />,
+  Push: <SvgIcon Icon={SvgIcons.Push} />,
+  Backup: <SvgIcon Icon={SvgIcons.Backup} />,
+  ChangePassword: <SvgIcon Icon={SvgIcons.ChangePassword} />,
+  Scan: <SvgIcon Icon={SvgIcons.Scan} />,
+  Service: <SvgIcon Icon={SvgIcons.Service} />,
 }
 
 interface IconProps {

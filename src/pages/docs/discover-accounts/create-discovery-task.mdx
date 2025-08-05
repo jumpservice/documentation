@@ -1,0 +1,69 @@
+# Create account discovery task
+
+**Account Discovery** refers to the automatic identification of accounts on servers. The system supports syncing discovered accounts to JumpServer and associating accounts with corresponding assets. 
+
+Before starting account discovery, you need to create a **high-privilege** account for the asset, because JumpServer will use this account to retrieve other accounts during task execution.
+
+<Steps>
+
+<div>
+<Nav name="pam" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Discovery" /> Discover accounts**.
+</div>
+
+<div>
+On the right page, click **Account discovery tasks** tab.
+</div>
+
+<div>
+Click **+ Create**.
+</div>
+
+<div>
+In the **Name** field, type the task name.
+</div>
+
+<div>
+Optionally. In the **Nodes** field, select one or more nodes. The task will execute account discovery on all assets under the selected nodes and their subnodes.
+</div>
+
+<div>
+Optionally. In the **Assets** field, select one or more assets.
+</div>
+
+<div>
+Check **Sync to Assets** to synchronize the discovered accounts to the asset accounts.
+</div>
+
+<div>
+Check **Check risk** to scan discovered accounts for risks.
+</div>
+
+<div>
+Optionally. In the **Recipient** field, select one or more recipients. Upon completion of each execution, the task result will be delivered via email.
+</div>
+
+<div>
+Check **Periodic** to enable scheduled execution.
+</div>
+
+<div>
+Choose either **Crontab** or type **Interval** (in hours) to set the task execution schedule. Crontab has higher priority than Interval, so only one needs to be configured.
+</div>
+
+<div>
+In the **Active** field, check to enable the task.
+</div>
+
+<div>
+In the **Description** field, type the task description.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
