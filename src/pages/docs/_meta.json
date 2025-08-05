@@ -33,6 +33,7 @@
   "connect-web": { "title": "Connect a web asset", "display": "hidden" },
 
   "-- Configuration": { "type": "separator", "title": "Configuration" },
+  "configuration": { "title": "Configuration", "display": "normal" },
   "enable-https": { "title": "Enable HTTPS" },
 
   "-- enterprise-edition": { "type": "separator", "title": "Enterprise Edition" },
