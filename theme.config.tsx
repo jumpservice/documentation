@@ -1,6 +1,6 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
-import { Logo, Footer, NavbarExtra, TOC } from "@/components/theme";
+import { Logo, Footer, NavbarExtra } from "@/components/theme";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
   Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
@@ -70,7 +70,7 @@ const config: DocsThemeConfig = {
     },
   },
   toc: {
-    component: TOC,
+    backToTop: true,
   },
   primaryHue: 150,
   primarySaturation: 50,
