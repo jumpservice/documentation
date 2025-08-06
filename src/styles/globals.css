@@ -10,6 +10,38 @@ pre {
   @apply border dark:border-gray-700 bg-[#F6F8FA] dark:bg-[#161B22] !important;
 }
 
+/* 给滚动条轨道设置背景色和圆角 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;               /* 滚动条宽度 */
+  height: 8px;              /* 横向滚动条高度 */
+  border-radius: 8px;       /* 圆角 */
+  background: transparent;  /* 轨道背景（可换色） */
+}
+
+/* 滚动条滑块 */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4); /* 颜色 */
+  border-radius: 8px;      /* 圆角 */
+  border: 2px solid transparent; /* 内边距，制造悬浮感 */
+  background-clip: content-box;
+  transition: background-color 0.3s;
+}
+
+/* 滚动条滑块 hover 效果 */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.7);
+}
+
+/* Firefox 滚动条样式 */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+}
+
+.custom-scrollbar:hover {
+  scrollbar-color: rgba(100, 100, 100, 0.7) transparent;
+}
+
 
 /* ------------ Theme ------------ */
 .theme-logo {
@@ -130,19 +162,52 @@ pre {
 /* } */
 
 .docs {
-  main > p {
-    @apply mb-2;
+  aside {
+    @apply w-80 pl-2;
+
+    ul {
+      li.active > a {
+        @apply bg-menu-hover-light dark:bg-menu-hover-dark;
+
+      }
+      li {
+        span {
+          @apply font-bold;
+        }
+        a {
+          @apply text-black dark:text-white;
+        }
+        
+        button {
+          @apply text-black dark:text-white;
+        }
+      }
+    }
+  }
+  article {
+    @apply text-black;
+
+    p {
+      @apply mb-2;
+    }
+
+    ul {
+      /* @apply mt-2; */
+      li {
+        /* @apply py-1; */
+      }
+    }
+
+    pre {
+      @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
+    }
   }
   .steps {
     img {
       @apply mt-2 mb-2;
     }
     ul {
-      @apply mt-3;
-      list-style-type: circle;
-    }
-    pre {
-      @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
+      @apply mt-3 text-base;
     }
     p {
       @apply mt-0;
