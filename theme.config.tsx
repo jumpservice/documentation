@@ -40,28 +40,19 @@ const config: DocsThemeConfig = {
     extraContent: NavbarExtra,
   },
   sidebar: {
-    toggleButton: true,
+    // toggleButton: true,
     defaultMenuCollapseLevel: 1,
-    titleComponent({ title, type}) {
+    titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
-      if (type === "divider") {
-        titleComponent = <span className="nx-cursor-default">--------------</span>;
-      }
       if (type === "separator") {
-        titleComponent = <span className="nx-cursor-default font-semibold text-gray-400 dark:text-gray-600"> {title} </span>
-      }
-      if (title.endsWith(" (X-Pack)")) {
-        titleComponent = (
-          <div className="flex items-center gap-1">
-            {/* <Icon name="xpackMenu"/> */}
-            {title.replace(" (X-Pack)", "")}
-          </div>
-        );
+        titleComponent = <span className="nx-cursor-default font-semibold"> {title} </span>
       }
       if (title.startsWith("link.")) {
+        const [prefix, middle, ...url] = title.split(".");
+        const website = url.join(".");
         titleComponent = (
-          <div className="flex w-full items-center gap-2" onClick={() => {window.open('https://deepwiki.com/jumpserver/jumpserver/', '_blank')}} >
-            {title.replace("link.", "")}
+          <div className="flex w-full items-center gap-2" onClick={() => {window.open(website, '_blank')}} >
+            {middle}
             <Icon name="link"/>
           </div>
         )
