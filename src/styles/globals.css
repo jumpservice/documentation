@@ -182,7 +182,7 @@ pre {
     }
   }
   article p {
-    @apply text-black dark:text-white mb-2;
+    @apply text-black dark:text-white;
   }
 
   article pre {
