@@ -163,6 +163,8 @@ pre {
 
 .docs {
   aside {
+    @apply md:w-80;
+
     ul {
       li.active > a {
         @apply text-primary font-normal dark:text-primary dark:font-semibold bg-[#F4F5F7] dark:bg-[#1B1F23];
