@@ -163,11 +163,11 @@ pre {
 
 .docs {
   aside {
-    /* @apply w-80 pl-2; */
+    @apply w-80;
 
     ul {
       li.active > a {
-        @apply text-primary font-semibold;
+        @apply text-primary font-semibold dark:text-primary dark:font-semibold bg-[#F4F5F7] dark:bg-[#1B1F23];
 
       }
       li {
