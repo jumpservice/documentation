@@ -16,12 +16,12 @@
   "import-export": { "title": "Import & Export", "display": "normal" },
 
   "-- pam": { "type": "separator", "title": "PAM Guides" },
-  "discover-accounts": { "title": "Discover accounts", "display": "normal" },
-  "push-accounts": { "title": "Push accounts", "display": "normal" },
-  "backup-accounts": { "title": "Backup accounts", "display": "normal" },
-  "change-secrets": { "title": "Change secrets", "display": "normal" },
-  "risk-detection": { "title": "Risk detection", "display": "normal" },
-  "applications": { "title": "Applications", "display": "normal" },
+  "discover-accounts": { "title": "Discover Accounts", "display": "normal" },
+  "push-accounts": { "title": "Push Accounts", "display": "normal" },
+  "backup-accounts": { "title": "Backup Accounts", "display": "normal" },
+  "change-secrets": { "title": "Change Account Secrets", "display": "normal" },
+  "risk-detection": { "title": "Account Risk Detection", "display": "normal" },
+  "applications": { "title": "Application Integration", "display": "normal" },
 
   "-- system-settings": { "type": "separator", "title": "System Settings" },
   "authentication": { "title": "Authentication", "display": "normal" },
@@ -33,6 +33,7 @@
   "connect-web": { "title": "Connect a web asset", "display": "hidden" },
 
   "-- Configuration": { "type": "separator", "title": "Configuration" },
+  "configuration": { "title": "Configuration", "display": "normal" },
   "enable-https": { "title": "Enable HTTPS" },
 
   "-- enterprise-edition": { "type": "separator", "title": "Enterprise Edition" },
@@ -40,6 +41,6 @@
 
   "-- more": { "type": "separator", "title": "More" },
   "changelog": { "title": "Changelog" },
-  "wiki": { "title": "link.DeepWiki" },
+  "wiki": { "title": "link.DeepWiki.https://deepwiki.com/jumpserver/jumpserver/" },
   "troubleshooting": { "title": "Troubleshooting", "display": "children" }
 }

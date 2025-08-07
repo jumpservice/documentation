@@ -1,6 +1,6 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
-import { Logo, Footer, NavbarExtra } from "@/components/theme";
+import { Logo, Footer, NavbarExtra, TOC } from "@/components/theme";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
   Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
@@ -40,29 +40,27 @@ const config: DocsThemeConfig = {
     extraContent: NavbarExtra,
   },
   sidebar: {
-    toggleButton: true,
+    // toggleButton: true,
     defaultMenuCollapseLevel: 1,
-    titleComponent({ title, type}) {
+    titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
-      if (type === "divider") {
-        titleComponent = <span className="nx-cursor-default">--------------</span>;
-      }
       if (type === "separator") {
-        titleComponent = <span className="nx-cursor-default">{title}</span>;
-      }
-      if (title.endsWith(" (X-Pack)")) {
+        // titleComponent = <span className="nx-cursor-default font-semibold"> {title} </span>
         titleComponent = (
-          <div className="flex items-center gap-1">
-            {/* <Icon name="xpackMenu"/> */}
-            {title.replace(" (X-Pack)", "")}
+          <div className="w-full border-b pb-3 dark:border-[#262626]">
+            <span className="nx-cursor-default font-semibold">{title}</span>
           </div>
-        );
+        )
       }
       if (title.startsWith("link.")) {
+        const [prefix, middle, ...url] = title.split(".");
+        const website = url.join(".");
         titleComponent = (
-          <div className="flex w-full items-center gap-2" onClick={() => {window.open('https://deepwiki.com/jumpserver/jumpserver/', '_blank')}} >
-            {title.replace("link.", "")}
-            <Icon name="link"/>
+          <div className="flex w-full items-center gap-2" onClick={() => window.open(website, '_blank')}>
+            <span>{middle}</span>
+            <span className="ml-auto">
+              <Icon name="link-square" />
+            </span>
           </div>
         )
       }
@@ -70,11 +68,11 @@ const config: DocsThemeConfig = {
     },
   },
   toc: {
-    backToTop: true,
+    component: TOC,
   },
   primaryHue: 150,
   primarySaturation: 50,
-  darkMode: true,
+  darkMode: false,
   useNextSeoProps() {
     const { asPath } = useRouter();
     let titleTemplate = "%s - JumpServer";
