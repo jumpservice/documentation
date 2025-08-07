@@ -184,14 +184,12 @@ pre {
       }
     }
   }
-  article {
-    @apply text-black;
-    p {
-      @apply mb-2;
-    }
-    pre {
-      @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
-    }
+  article p {
+    @apply text-black dark:text-white mb-2;
+  }
+
+  article pre {
+    @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
   }
   .steps {
     img {
