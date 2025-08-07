@@ -45,15 +45,22 @@ const config: DocsThemeConfig = {
     titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
       if (type === "separator") {
-        titleComponent = <span className="nx-cursor-default font-semibold"> {title} </span>
+        // titleComponent = <span className="nx-cursor-default font-semibold"> {title} </span>
+        titleComponent = (
+          <div className="w-full border-b pb-3 dark:border-[#262626]">
+            <span className="nx-cursor-default font-semibold">{title}</span>
+          </div>
+        )
       }
       if (title.startsWith("link.")) {
         const [prefix, middle, ...url] = title.split(".");
         const website = url.join(".");
         titleComponent = (
-          <div className="flex w-full items-center gap-2" onClick={() => {window.open(website, '_blank')}} >
-            {middle}
-            <Icon name="link"/>
+          <div className="flex w-full items-center gap-2" onClick={() => window.open(website, '_blank')}>
+            <span>{middle}</span>
+            <span className="ml-auto">
+              <Icon name="link-square" />
+            </span>
           </div>
         )
       }

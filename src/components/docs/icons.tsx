@@ -51,7 +51,7 @@ export const iconConfig = {
   download: <LucideIcons.Download className="w-4 pb-1 inline-block" />,
   "send-email": <LucideIcons.Mail className="w-3 mb-2 inline-block" />,
   send: <LucideIcons.Send className="w-3 mb-2 inline-block" />,
-  "link-square": <LucideIcons.SquareArrowOutUpRight className="w-4 pb-1 inline-block" />,
+  "link-square": <LucideIcons.SquareArrowOutUpRight className="w-4 inline-block" />,
   "...": <LucideIcons.Ellipsis className="w-5 h-4 inline-block text-primary border border-primary"/>,
   user: <LucideIcons.UserRound className="w-4 pb-1 inline-block" />,
   "popup-window": <IconTips Icon={LucideIcons.PictureInPicture2} tooltip={"In the pop-up window"} iconColor={"w-4 text-primary"} />,

@@ -167,7 +167,7 @@ pre {
 
     ul {
       li.active > a {
-        @apply text-primary font-normal dark:text-primary dark:font-semibold bg-[#F4F5F7] dark:bg-[#1B1F23];
+        @apply text-primary font-normal dark:text-primary bg-[#F4F5F7] dark:bg-[#1B1F23];
 
       }
       li {
