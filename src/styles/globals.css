@@ -185,7 +185,7 @@ pre {
     }
   }
   article {
-    /* @apply text-black; */
+    @apply text-black;
     p {
       @apply mb-2;
     }
