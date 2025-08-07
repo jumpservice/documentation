@@ -163,11 +163,11 @@ pre {
 
 .docs {
   aside {
-    @apply w-80 pl-2;
+    /* @apply w-80 pl-2; */
 
     ul {
       li.active > a {
-        @apply bg-menu-hover-light dark:bg-menu-hover-dark;
+        @apply text-primary font-semibold;
 
       }
       li {
@@ -185,18 +185,11 @@ pre {
     }
   }
   article {
-    @apply text-black;
-
+    /* @apply text-black; */
     p {
       @apply mb-2;
     }
-
-    ul {
-      /* @apply mt-2; */
-      li {
-        /* @apply py-1; */
-      }
-    }
+  }
 
     pre {
       @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
