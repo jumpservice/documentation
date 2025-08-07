@@ -48,7 +48,7 @@ const config: DocsThemeConfig = {
         titleComponent = <span className="nx-cursor-default">--------------</span>;
       }
       if (type === "separator") {
-        titleComponent = <span className="nx-cursor-default">{title}</span>;
+        titleComponent = <span className="nx-cursor-default font-semibold text-gray-400 dark:text-gray-600"> {title} </span>
       }
       if (title.endsWith(" (X-Pack)")) {
         titleComponent = (
