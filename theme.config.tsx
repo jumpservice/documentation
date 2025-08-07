@@ -72,7 +72,7 @@ const config: DocsThemeConfig = {
   },
   primaryHue: 150,
   primarySaturation: 50,
-  darkMode: true,
+  darkMode: false,
   useNextSeoProps() {
     const { asPath } = useRouter();
     let titleTemplate = "%s - JumpServer";
