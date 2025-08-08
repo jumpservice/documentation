@@ -7,29 +7,19 @@ export type TOCProps = {
 }
 
 export default function TOC({ headings }: TOCProps): ReactElement | null {
-  // const items = useMemo(
-  //   () => headings.filter(h => h.depth !== 2),
-  //   [headings]
-  // )
-
   const items = useMemo(() => {
-    // 过滤掉一级标题
-    const filtered = headings.filter(h => h.depth !== 1)
-    // 找到剩余标题中最小的深度
-    const minDepth = Math.min(...filtered.map(h => h.depth))
-    // 只保留深度等于这个最小深度的标题
-    return filtered.filter(h => h.depth === minDepth)
+    // 过滤掉 depth 为 1 的标题（通常是页面主标题）
+    return headings.filter(h => h.depth > 1)
   }, [headings])
 
   const [activeId, setActiveId] = useState<string | null>(null)
 
-  // 监听 hash 变化（用户滚动或手动修改 URL 时）
   useEffect(() => {
     const updateActiveId = () => {
-      setActiveId(window.location.hash.slice(1)) // 移除 # 号
+      setActiveId(window.location.hash.slice(1))
     }
 
-    updateActiveId() // 初始化
+    updateActiveId()
     window.addEventListener('hashchange', updateActiveId)
 
     return () => {
@@ -39,12 +29,15 @@ export default function TOC({ headings }: TOCProps): ReactElement | null {
 
   if (items.length === 0) return null
 
+  const minDepth = Math.min(...items.map(h => h.depth))
+
   return (
     <div className="group sticky top-16 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-(100vh/3))] my-10 mb-10 pr-4 text-sm custom-scrollbar">
-      <p className="mb-4 font-semibold tracking-tight mt-8 text-sm">In this article</p>
-      <ul className="space-y-2">
-        {items.map(({ id, value }) => {
+      <p className="mb-6 font-semibold tracking-tight mt-8 text-sm">In this article</p>
+      <ul className="space-y-2 mt-3">
+        {items.map(({ id, value, depth }) => {
           const isActive = id === activeId
+          let indent = (depth - minDepth) * 10 // 每层 10px 缩进（可调大）
           return (
             <li key={id}>
               <a
@@ -54,6 +47,7 @@ export default function TOC({ headings }: TOCProps): ReactElement | null {
                     ? 'text-primary-600 font-semibold text-primary'
                     : 'text-black dark:text-white'
                 }`}
+                style={{ paddingLeft: `${indent}px` }}
               >
                 {value}
               </a>

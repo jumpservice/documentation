@@ -45,7 +45,6 @@ const config: DocsThemeConfig = {
     titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
       if (type === "separator") {
-        // titleComponent = <span className="nx-cursor-default font-semibold"> {title} </span>
         titleComponent = (
           <div className="w-full border-b pb-3 dark:border-[#262626]">
             <span className="nx-cursor-default font-semibold">{title}</span>
