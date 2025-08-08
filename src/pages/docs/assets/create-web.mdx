@@ -74,87 +74,80 @@ Click **Submit** or **Save & Continue**.
 The autofill feature is mainly used for websites that require user authentication. Before the user accesses such a website, JumpServer automatically fills in the predefined username and password on the login page to complete authentication. This process is transparent to the user, requiring no manual input of credentials.
 
 
-### Disabled
+#### Disabled
 This disabled method is intended for websites that do not require authentication.
 
-### Basic
+#### Basic
 The basic method is suitable for websites where the username, password, and login button are all on the same page. JumpServer automatically fills in the credentials and submits the form to authenticate the user.
 
 When auto-filling information, it is necessary to locate elements on the web page. The supported selector types include Name selectors, ID selectors, Class selectors, CSS selectors, and XPath selectors. For more information, see [Selenium Python: Locating Elements](https://selenium-python.readthedocs.io/locating-elements.html).
 
 
-### Script
+#### Script
 This script method is intended for websites with complex login procedures. It supports advanced automation, including multi-step authentication and interaction with dynamic page elements.
 
-#### Script structure
+##### Script structure
 
 The script here is an array, where each element is a dictionary, representing a step in the script. 
-
 Each step contains the following keys:
 
-<HorizontalTable 
-headers={['Key', 'Description']} 
-rows={[
-    ["step", "Required.<br/>Integer.<br/>Indicates the execution order of the script, starting from 1 and increasing sequentially."],
-    ["value", "Required.<br/>String.<br/>Built-in variables supported: {USERNAME}, {SECRET}.<br/>If the command is not type, leave the value as an empty string."],
-    ["target", "Required.<br/>String.<br/>The target element to be operated on, which can be a selector or an XPath expression."],
-    ["command", "Required.<br/>String.<br/>The command to be executed, which can be one of the following: click, type, sleep, select_frame."],
-]}
-/>
+|Key|Required|Type|Description|
+|:---|:---:|:---:|:---|
+|`step`|Yes|Integer|Indicates the execution order of the script, starting from 1 and increasing sequentially.|
+|`value`|Yes|String|Built-in variables supported: `{USERNAME}`, `{SECRET}`. If the command is not type, leave the value as an empty string.|
+|`target`|Yes|String|The target element to be operated on, which can be a selector or an XPath expression.|
+|`command`|Yes|String|The command to be executed, which can be one of the following: click, type, sleep, select_frame.|
 
-Command options:
+command options:
 
-<HorizontalTable 
-headers={['Command', 'Description']} 
-rows={[
-    ["click", "Click the target element."],
-    ["type", "Type the value into the target element."],
-    ["sleep", "Pause the script for a specified duration, typically to allow page loading during navigation. <br/>The duration is specified by target, in seconds."],
-    ["select_frame", "Switch to the specified iframe for operations.<br/>The target supports options like id=iframe_id, name=iframe_name, or index=1 (if index < 0, it switches back to the default/main iframe)."]
-]}
-/>
+|Command|Description|
+|:---|:---|
+|`click`|Click the target element.|
+|`type`|Type the value into the target element.|
+|`sleep`|Pause the script for a specified duration, typically to allow page loading during navigation. The duration is specified by target, in seconds.|
+|`select_frame`|Switch to the specified iframe for operations. The target supports options like `id=iframe_id`, `name=iframe_name`, or `index=1`. If `index < 0`, it switches back to the `default`/`main` iframe).|
 
-#### Script example
+##### Script example
+
+1. Switch to the iframe with `id=iframe_id`.
+2. Type the username into the input field with `name=username`. The `{USERNAME}` variable will be replaced with the actual username when the script is executed.
+3. Click the next button to proceed to the next step in the login process.
+4. Pause the script for 5 seconds to allow the next page to load.
+5. Type the password into the input field with `name=password`. The `{SECRET}` variable will be replaced with the actual password when the script is executed.
+6. Click the submit button to complete the login process.
+
 ```json
 [
-  // Switch to the iframe with id=iframe_id.
   {
       "step": 1,
       "command": "select_frame",
       "target": "id=iframe_id",
       "value": ""
   },
-  // Type the username into the input field with name=username.
-  // The {USERNAME} variable will be replaced with the actual username when the script is executed.
   {
       "step": 2,
       "command": "type",
       "target": "name=username",
       "value": "{USERNAME}"
   },
-  // Click the next button to proceed to the next step in the login process.
   {
       "step": 3,
       "command": "click",
       "target": "id=next_button",
       "value": ""
   },
-  // Pause the script for 5 seconds to allow the next page to load.
   {
       "step": 4,
       "command": "sleep",
       "target": "5",
       "value": ""
   },
-  // Type the password into the input field with name=password.
-  // The {SECRET} variable will be replaced with the actual password when the script is executed.
   {
       "step": 5,
       "command": "type",
       "target": "name=password",
       "value": "{SECRET}"
   },
-  // Click the submit button to complete the login process.
   {
       "step": 6,
       "command": "click",
@@ -163,4 +156,3 @@ rows={[
   }
 ]
 ```
-

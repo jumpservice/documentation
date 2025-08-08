@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra, TOC } from "@/components/theme";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
-  Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
+  Tab, DataTable, ApplyTrialLicense, ResourceAttributeTable
 } from "@/components/docs";
 
 
@@ -11,7 +11,7 @@ const config: DocsThemeConfig = {
   components: { 
     Icon, Alert, Cards, Card,
     Steps, Nav, WaitForCompletion, 
-    Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
+    Tabs, Tab, DataTable, ApplyTrialLicense, ResourceAttributeTable
   },
   head: (
     <>

@@ -164,7 +164,6 @@ pre {
 .docs {
   aside {
     @apply md:w-80;
-
     ul {
       li.active > a {
         @apply text-primary font-normal dark:text-primary bg-[#F4F5F7] dark:bg-[#1B1F23];
@@ -188,15 +187,41 @@ pre {
   article pre {
     @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
   }
+
+  ul {
+    @apply mt-2 text-base list-disc;
+
+    li {
+      @apply mt-0 mb-2;
+    }
+
+  }
   .steps {
     img {
       @apply mt-2 mb-2;
     }
-    ul {
-      @apply mt-3 text-base;
+    ul ul {
+      list-style-type: circle
     }
     p {
       @apply mt-0;
+    }
+  }
+  code {
+    @apply text-primary bg-white dark:bg-[#111111] border-[#E5E7EB] dark:border-[#292929];
+  }
+  table {
+    thead {
+      tr {
+        th {
+          @apply font-semibold text-sm;
+        }
+      }
+    }
+    tbody {
+      tr {
+        @apply bg-white odd:bg-white even:bg-white dark:odd:bg-[#111111] dark:even:bg-[#111111];
+      }
     }
   }
 }

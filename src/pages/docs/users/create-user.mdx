@@ -28,26 +28,17 @@ Optionally, in the **Groups** field, select one or more groups.
 
 <div>
 In the **Password setting** field, choose a method to set the password.
-<HorizontalTable 
-headers={['Option', 'Description']} 
-rows={[
-    ["Reset link will be generated and sent to the user", "After submitting the form, the user will receive a success email and can set their password through the link in the email."], 
-    ["Set password", 'The user can log in directly using this password.<br/><br/>At the same time, when "Password must be changed during next login" is checked, the user must change their password after a successful login.'],
-]}
-/>
+* `Reset link will be generated and sent to the user`: The user will receive a success email and can set their password through the link in the email.
+* `Set password`: The user can log in directly using this password.
+
+   `Password must be changed during next login`: When checked, the user must change their password after a successful login.
 </div>
 
 <div>
 In the **MFA** field, choose one of the following options.
-<HorizontalTable 
-headers={['Option', 'Description']} 
-rows={[
-    ["Disabled", "MFA is disabled by default, but users can choose to enable it."],
-    ["Enabled", "MFA is enabled by default, but users can choose to disable it."],
-    ["Force enabled", "MFA is forced on and cannot be disabled by the user."]
-]}
-/>
-
+* `Disabled`: MFA is disabled by default, but users can choose to enable it.
+* `Enabled`: MFA is enabled by default, but users can choose to disable it.
+* `Force enabled`: MFA is forced on and cannot be disabled by the user.
 </div>
 
 <div>
