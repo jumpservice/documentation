@@ -5,7 +5,7 @@ export function Tabs({ titlesMap, children }: { titlesMap: Record<string, string
 
   return (
     <div>
-      <div className="flex mt-5 border-b dark:border-gray-700 gap-4">
+      <div className="flex mt-5 border-b dark:border-[#262626] gap-4">
         {Object.entries(titlesMap).map(([key, title]) => (
           <button
             key={key}

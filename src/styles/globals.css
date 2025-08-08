@@ -188,7 +188,7 @@ pre {
     @apply overflow-x-auto whitespace-pre-wrap break-words max-w-full bg-gray-100 rounded-md;
   }
 
-  ul {
+  article ul {
     @apply mt-2 text-base list-disc;
 
     li {
