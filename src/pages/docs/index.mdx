@@ -1,5 +1,5 @@
 import { Callout } from "nextra/components";
-import { ArchitectureDiagram } from "@/components/home/architecture";
+import { SmartArchitectureDiagram } from "@/components/home/architecture";
 
 <ApplyTrialLicense />
 
@@ -14,75 +14,23 @@ Note: JumpServer documentation is continually being updated. Please stay tuned f
 
 <br/>
 
-<ArchitectureDiagram />
+<SmartArchitectureDiagram />
 
 ## About Components
 
 JumpServer is composed of multiple core components that work together to form its functional framework, providing users with comprehensive operation management and security control capabilities.
 
-<DataTable
-  headers={['Component', 'Status', 'Description']}
-  rows={[
-    [
-      { content: 'Core', link: 'https://github.com/jumpserver/jumpserver' },
-      { content: <img alt="Core" src="https://img.shields.io/github/release/jumpserver/jumpserver.svg" />, link: 'https://github.com/jumpserver/jumpserver/releases', linkIcon: false },
-      { content: 'JumpServer Core' }
-    ],
-    [
-      { content: 'Lina', link: 'https://github.com/jumpserver/lina' },
-      { content: <img alt="Lina" src="https://img.shields.io/github/release/jumpserver/lina.svg" />, link: 'https://github.com/jumpserver/lina/releases', linkIcon: false },
-      { content: 'JumpServer Web UI  ' }
-    ],
-    [
-      { content: 'Luna', link: 'https://github.com/jumpserver/luna' },
-      { content: <img alt="Luna" src="https://img.shields.io/github/release/jumpserver/luna.svg" />, link: 'https://github.com/jumpserver/luna/releases', linkIcon: false},
-      { content: 'JumpServer Web Terminal' }
-    ],
-    [
-      { content: 'KoKo', link: 'https://github.com/jumpserver/koko' },
-      { content: <img alt="Koko" src="https://img.shields.io/github/release/jumpserver/koko.svg" />, link: 'https://github.com/jumpserver/koko/releases', linkIcon: false },
-      { content: 'JumpServer Character Protocol Connector' }
-    ],    
-    [
-      { content: 'Lion', link: 'https://github.com/jumpserver/lion' },
-      { content: <img alt="Lion" src="https://img.shields.io/github/release/jumpserver/lion.svg" />, link: 'https://github.com/jumpserver/lion/releases', linkIcon: false },
-      { content: 'JumpServer Graphical Protocol Connector' }
-    ],
-    [
-      { content: 'Chen', link: 'https://github.com/jumpserver/chen' },
-      { content: <img alt="Chen" src="https://img.shields.io/github/release/jumpserver/chen.svg" />, link: 'https://github.com/jumpserver/chen/releases', linkIcon: false },
-      { content: 'JumpServer Web DB' }
-    ],
-    [
-      { content: 'Tinker' },
-      { content: <img alt="Tinker" src="https://img.shields.io/badge/release-private-red" /> },
-      { content: 'JumpServer Remote Application Connector (Windows)' }
-    ],
-    [
-      { content: <div>Panda</div> },
-      { content: <img alt="Panda" src="https://img.shields.io/badge/release-private-red" /> },
-      { content: <div><Icon name="xpack"/> JumpServer EE Remote Application Connector (Linux)</div> }
-    ],
-    [
-      { content: <div>Razor</div> },
-      { content: <img alt="Razor" src="https://img.shields.io/badge/release-private-red" />},
-      { content: <div><Icon name="xpack"/> JumpServer EE RDP Proxy Connector</div> }
-    ],
-
-    [
-      { content: <div> Magnus</div> },
-      { content: <img alt="Magnus" src="https://img.shields.io/badge/release-private-red" /> },
-      { content: <div><Icon name="xpack"/> JumpServer EE Database Proxy Connector</div> }
-    ],
-    [
-      { content: <div>Nec</div> },
-      { content: <img alt="Nec" src="https://img.shields.io/badge/release-private-red" /> },
-      { content: <div><Icon name="xpack"/> JumpServer EE VNC Proxy Connector</div> }
-    ],
-    [
-      { content: <div>Facelive</div> },
-      { content: <img alt="Facelive" src="https://img.shields.io/badge/release-private-red" /> },
-      { content: <div><Icon name="xpack"/> JumpServer EE Facial Recognition</div> }
-    ],
-  ]}
-/>
+|Component|Status|Description|
+|:---|:---|:---|
+|[Core <Icon name="link" />](https://github.com/jumpserver/jumpserver)|[![Core](https://img.shields.io/github/release/jumpserver/jumpserver.svg)](https://github.com/jumpserver/jumpserver/releases)|JumpServer Core|
+|[Lina <Icon name="link" />](https://github.com/jumpserver/lina)|[![Lina](https://img.shields.io/github/release/jumpserver/lina.svg)](https://github.com/jumpserver/lina/releases)|JumpServer Web UI|
+|[Luna <Icon name="link" />](https://github.com/jumpserver/luna)|[![Luna](https://img.shields.io/github/release/jumpserver/luna.svg)](https://github.com/jumpserver/luna/releases)|JumpServer Web Terminal|
+|[KoKo <Icon name="link" />](https://github.com/jumpserver/koko)|[![KoKo](https://img.shields.io/github/release/jumpserver/koko.svg)](https://github.com/jumpserver/koko/releases)|JumpServer Character Protocol Connector|
+|[Lion <Icon name="link" />](https://github.com/jumpserver/lion)|[![Lion](https://img.shields.io/github/release/jumpserver/lion.svg)](https://github.com/jumpserver/lion/releases)|JumpServer Graphical Protocol Connector|
+|[Chen <Icon name="link" />](https://github.com/jumpserver/chen)|[![Chen](https://img.shields.io/github/release/jumpserver/chen.svg)](https://github.com/jumpserver/chen/releases)|JumpServer Web DB|
+|Tinker|![Tinker](https://img.shields.io/badge/release-private-red)|JumpServer Remote Application Connector (Windows)|
+|Panda|![Panda](https://img.shields.io/badge/release-private-red)|<Icon name="xpack"/> JumpServer EE Remote Application Connector (Linux)|
+|Razor|![Razor](https://img.shields.io/badge/release-private-red)|<Icon name="xpack"/> JumpServer EE RDP Proxy Connector|
+|Magnus|![Magnus](https://img.shields.io/badge/release-private-red)|<Icon name="xpack"/> JumpServer EE Database Proxy Connector|
+|Nec|![Nec](https://img.shields.io/badge/release-private-red)|<Icon name="xpack"/> JumpServer EE VNC Proxy Connector|
+|Facelive|![Facelive](https://img.shields.io/badge/release-private-red)|<Icon name="xpack"/> JumpServer EE Facial Recognition|

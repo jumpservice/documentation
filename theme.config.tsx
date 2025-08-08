@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra, TOC } from "@/components/theme";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
-  Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
+  Tab, DataTable, ApplyTrialLicense, ResourceAttributeTable
 } from "@/components/docs";
 
 
@@ -11,7 +11,7 @@ const config: DocsThemeConfig = {
   components: { 
     Icon, Alert, Cards, Card,
     Steps, Nav, WaitForCompletion, 
-    Tabs, Tab, HorizontalTable, DataTable, ApplyTrialLicense, ResourceAttributeTable
+    Tabs, Tab, DataTable, ApplyTrialLicense, ResourceAttributeTable
   },
   head: (
     <>
@@ -45,7 +45,6 @@ const config: DocsThemeConfig = {
     titleComponent({ title, type }) {
       let titleComponent = <>{title}</>;
       if (type === "separator") {
-        // titleComponent = <span className="nx-cursor-default font-semibold"> {title} </span>
         titleComponent = (
           <div className="w-full border-b pb-3 dark:border-[#262626]">
             <span className="nx-cursor-default font-semibold">{title}</span>

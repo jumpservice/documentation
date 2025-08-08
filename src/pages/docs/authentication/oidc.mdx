@@ -1,4 +1,4 @@
-# Integrate OIDC authentication <Icon name="xpackTip"/>
+# Integrate OIDC authentication <Icon name="xpack"/>
 
 ## About OIDC
 
@@ -37,13 +37,8 @@ In the **Client secret** field, type the client secret provided by the OIDC serv
 
 <div>
 In the **Request method** field, select a method to obtain a token.
-<HorizontalTable 
-  headers={['Request Method', 'Description']} 
-  rows={[
-    ["Client Secret Basic", "Use the POST method to obtain the token, with the client ID and client secret included in the request headers."], 
-    ["Client Secret Post", "Use the POST method to obtain a token, with client ID and client secret included as raw data in the request body."],
-  ]}
-/>
+* `Client Secret Basic`: Use the POST method to obtain the token, with the client ID and client secret included in the request headers.
+* `Client Secret Post`: Use the POST method to obtain a token, with client ID and client secret included as "raw data" in the request body.
 </div>
 
 <div>
@@ -98,13 +93,8 @@ In the **Use keycloak** field, check to use the Keycloak configuration, or unche
 
       <div>
       In the **Signature algorithm** field, type the OIDC signature algorithm, valid options are "HS256" and "RS256". The default is "HS256".
-      <HorizontalTable 
-        headers={['Algorithm', 'Description']} 
-        rows={[
-          ["HS256", "Uses the \"Client ID\" as the shared key."], 
-          ["RS256", "Uses the \"Signing key\" as the shared key."],
-        ]}
-      />
+      * `HS256`: Uses the "Client ID" as the shared key.
+      * `RS256`: Uses the "Signing key" as the shared key.
       <Alert type="note">
         The **shared key** in this function is used for Hash-based Message Authentication Code (HMAC) signatures when verifying ID token in an OIDC authentication flow.
       </Alert>
@@ -120,13 +110,8 @@ In the **Use keycloak** field, check to use the Keycloak configuration, or unche
 
       <div>
       in the **Code challenge method** field, the method used to generate the code challenge from the code verifier in the PKCE process. This option appears when "Enable PKCE" is checked. The default is "S256".
-      <HorizontalTable 
-        headers={['Challenge Method', 'Description']} 
-        rows={[
-          ["S256", "Recommended for use, apply the SHA-256 hash algorithm to the code verifier, then Base64 URL encode the result (removing the padding \"=\") to generate the code challenge."],
-          ["Plain", "Directly use the code verifier itself as the code challenge without any processing."]
-        ]}
-      />
+      * `S256`: Recommended for use, applies the SHA-256 hash algorithm to the code verifier, then Base64 URL encodes the result (removing the padding "=") to generate the code challenge.
+      * `Plain`: Directly uses the code verifier itself as the code challenge without any processing
       </div>
 
       <div>

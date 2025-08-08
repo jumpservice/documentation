@@ -115,7 +115,7 @@ export default function XPack() {
   return (
     <>
       <section id="section-x-pack">
-        <h2>X-Pack Enhancement Packages</h2>
+        <h2>Enterprise X-Pack Enhancements</h2>
         <FeatureList />
       </section>
     </>

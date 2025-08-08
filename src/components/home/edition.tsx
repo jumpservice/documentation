@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import Icon from "../docs/icons";
+import ApplyTrialLicense from "../docs/apply-trial-license";
 
 function TableSupport() {
   return (
@@ -60,19 +61,8 @@ export default function Edition() {
     <>
       <section id="section-edition">
         <h2>JumpServer Enterprise Edition</h2>
-        <div className="mb-10 text-md">
-          JumpServer EE provides  <a href="/#section-x-pack" className="text-primary hover:underline">Advanced X-Pack features</a> and <a href="/#section-support" className="text-primary hover:underline"> Enterprise support </a> for enhanced scalability, security, and reliability.
-        </div>
         <TableSupport />
-        <div className="grid grid-cols-[4%_auto] mt-16 p-2 items-start justify-start">
-          <div className="">
-            <Icon name="xpack" />
-          </div>
-          <div className="text-lg">
-            Note: To apply for a <span className="text-nowrap">14-day</span> trial license of the JumpServer Enterprise Edition, please email
-            <NextLink className="hover:underline text-nowrap ml-1 text-primary hover" href="mailto:sales@lxware.hk">sales@lxware.hk <Icon name="send" /></NextLink>.
-          </div>
-        </div>
+        <ApplyTrialLicense />
       </section>
     </>
   );

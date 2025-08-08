@@ -2,22 +2,6 @@ import React from "react";
 import * as LucideIcons from 'lucide-react';
 import * as SvgIcons from "@/icons/lina";
 
-function IconTips({ Icon, tooltip = "", iconColor = "" }) {
-  if (tooltip === "") {
-    return <Icon className={`${iconColor} inline-block`} />;
-  } else {
-    return (
-      <span className="relative group inline-block">
-        <Icon className={`${iconColor} inline-block cursor-pointer`} />
-        <span className="absolute bottom-full left-1/2 -translate-x-1/3 mb-1 hidden group-hover:block
-                        bg-primary text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-          {tooltip}
-        </span>
-      </span>
-    );
-  }
-}
-
 function SvgIcon({ Icon }) {
   return (
     <span>
@@ -38,9 +22,7 @@ export const iconConfig = {
   push: <LucideIcons.Send className="w-4 pb-1 inline-block" />,
   pam: <LucideIcons.LockKeyhole className="w-4 pb-1 inline-block" />,
   settings: <LucideIcons.Settings className="w-4 pb-1 inline-block" />,
-  xpack: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
-  xpackTip: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-4 text-yellow-500 fill-yellow-500"} />,
-  xpackMenu: <IconTips Icon={LucideIcons.Crown} tooltip={"Enterprise"} iconColor={"w-2 text-yellow-500 fill-yellow-500"} />,
+  xpack: <LucideIcons.Crown className="w-4 pb-1 text-yellow-500 fill-yellow-500 select-none inline-block" />,
   help: <LucideIcons.CircleHelp className="w-4 pb-1 inline-block" />,
   plus: <LucideIcons.Plus className="w-4 pb-1 inline-block" />,
   "square-terminal": <LucideIcons.SquareTerminal className="w-4 pb-1 inline-block" />,
@@ -54,8 +36,7 @@ export const iconConfig = {
   "link-square": <LucideIcons.SquareArrowOutUpRight className="w-4 inline-block" />,
   "...": <LucideIcons.Ellipsis className="w-5 h-4 inline-block text-primary border border-primary"/>,
   user: <LucideIcons.UserRound className="w-4 pb-1 inline-block" />,
-  "popup-window": <IconTips Icon={LucideIcons.PictureInPicture2} tooltip={"In the pop-up window"} iconColor={"w-4 text-primary"} />,
-  "*": <IconTips Icon={LucideIcons.Asterisk} tooltip={"Required"} iconColor={"w-2 pb-1 inline-block text-red-500"} />,
+  "*": <LucideIcons.Asterisk className="w-3 pb-1 inline-block text-red-500" />,
   "arrow-left": <LucideIcons.ArrowLeft className="w-4 pb-1 inline-block" />,
   ChevronDownWithBgColor: <LucideIcons.ChevronDown className="w-5 h-5 px-1 inline-block bg-primary text-white" />,
   Trash2: <LucideIcons.Trash2 className="w-4 pb-1 inline-block" />,

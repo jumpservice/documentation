@@ -40,8 +40,8 @@ const ResourceAttributeTable: React.FC<TableProps> = ({ headers, rows }) => {
                     key={cellIdx}
                     className={`border dark:border-gray-600 px-4 py-2 align-top break-words ${cellIdx === 0 ? 'w-1/2' : 'w-1/2'}`}
                   >
-                    <span dangerouslySetInnerHTML={{ __html: display }} />
                     {isRequired && <Icon name="*" />}
+                    <span dangerouslySetInnerHTML={{ __html: display }} />
                   </td>
                 );
               })}
