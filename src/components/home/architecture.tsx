@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect, useState } from 'react'
+import { useTheme } from 'nextra-theme-docs';
 import { JumpServerWordmarkLogoIcon } from "@/icons";
 
 const assets = [
@@ -106,12 +108,46 @@ export const ArchitectureDiagram = () => {
   );
 };
 
+export const SmartArchitectureDiagram = () => {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
+  const imageSrc =
+    theme === 'dark'
+      ? '/images/jumpserver-arch-dark.png'
+      : '/images/jumpserver-arch-light.png'
+
+  return (
+    <div>
+      {/* 移动端：显示不同主题的图片 */}
+      <div className="block md:hidden">
+        <img
+          src={imageSrc}
+          alt="JumpServer Architecture Diagram"
+          className="w-full h-auto"
+        />
+      </div>
+
+      {/* 桌面端：显示架构图组件 */}
+      <div className="hidden md:block">
+        <ArchitectureDiagram />
+      </div>
+    </div>
+  )
+}
+
 function Architecture() {
   return (
     <div className="max-w-6xl mx-auto px-4">
       <section>
         <h2 className="text-xl font-bold text-center my-6">JumpServer Architecture</h2>
-        <ArchitectureDiagram />
+        <SmartArchitectureDiagram />
       </section>
     </div>
   );

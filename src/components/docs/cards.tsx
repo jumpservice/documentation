@@ -21,7 +21,7 @@ const Card = ({ title, icon, href, xpack = false }) => {
 
       {xpack && (
         <div className="absolute top-1 right-2">
-          <Icon name="xpackTip" />
+          <Icon name="xpack" />
         </div>
       )}
 
