@@ -25,11 +25,11 @@ const CompareVersionsDataTable: React.FC<TableProps> = ({ headers, rows, title }
 
       <table className="min-w-full table-auto border-collapse rounded-lg">
         <thead>
-          <tr className="text-center text-md font-semibold text-primary">
+          <tr className="text-center text-md font-semibold text-black dark:text-white">
             {headers.map((header, index) => (
               <th
                 key={index}
-                className={`whitespace-nowrap py-3 px-4 border-b border-gray-300 dark:border-gray-600 font-semibold ${index === 0 ? 'text-left' : 'text-center'}`}
+                className={`whitespace-nowrap py-3 px-4 border-b border-[#E5E7EB] dark:border-[#262626] font-semibold ${index === 0 ? 'text-left' : 'text-center'}`}
               >
                 {header}
               </th>
@@ -45,7 +45,7 @@ const CompareVersionsDataTable: React.FC<TableProps> = ({ headers, rows, title }
               {row.map((cell, cellIndex) => (
                 <td
                   key={cellIndex}
-                  className={`text-md font-normal py-2 px-4 border-b border-gray-200 dark:border-gray-600 ${cellIndex === 0 ? 'text-left w-[60%]' : 'text-center'}`}
+                  className={`text-md text-black dark:text-white font-normal py-2 px-4 border-b border-[#E5E7EB] dark:border-[#262626] ${cellIndex === 0 ? 'text-left w-[60%]' : 'text-center'}`}
                 >
                   { cell.content }
                 </td>
