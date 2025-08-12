@@ -29,7 +29,7 @@ const CompareVersionsDataTable: React.FC<TableProps> = ({ headers, rows, title }
             {headers.map((header, index) => (
               <th
                 key={index}
-                className={`whitespace-nowrap py-3 px-4 border-b border-[#E5E7EB] dark:border-[#262626] font-semibold ${index === 0 ? 'text-left' : 'text-center'}`}
+                className={`whitespace-nowrap py-3 pl-0 pr-4 border-b border-[#E5E7EB] dark:border-[#262626] font-semibold ${index === 0 ? 'text-left' : 'text-center'}`}
               >
                 {header}
               </th>
@@ -45,7 +45,7 @@ const CompareVersionsDataTable: React.FC<TableProps> = ({ headers, rows, title }
               {row.map((cell, cellIndex) => (
                 <td
                   key={cellIndex}
-                  className={`text-md text-black dark:text-white font-normal py-2 px-4 border-b border-[#E5E7EB] dark:border-[#262626] ${cellIndex === 0 ? 'text-left w-[60%]' : 'text-center'}`}
+                  className={`text-md text-black dark:text-white font-normal py-2 pl-0 pr-4 border-b border-[#E5E7EB] dark:border-[#262626] ${cellIndex === 0 ? 'text-left w-[60%]' : 'text-center'}`}
                 >
                   { cell.content }
                 </td>
