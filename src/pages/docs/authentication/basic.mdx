@@ -1,10 +1,10 @@
-# Basic authentication settings
+# Basic settings
 
 This topic describes some basic authentication-related configurations.
 
 ## Email suffix
 
-### How to configure
+If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
 
 <Steps>
 
@@ -27,14 +27,10 @@ Click **Submit**.
 
 </Steps>
 
-### Usage scenarios
-
-If the user from the third-party authentication does not have an email field configured, the email suffix is used to automatically generate the user email address by combining the username with the suffix.
-
-
 ## Forgot password URL
 
-### How to configure
+When the user clicks the `Forgot password?` on the login page, they will be redirected to "Forgot password URL".
+<img src="/images/docs/admin-guides/system-settings/auth/login-page-forgot-password.png" alt="image" width="350"/>
 
 <Steps>
 
@@ -58,15 +54,9 @@ Click **Submit**.
 
 </Steps>
 
-### Usage scenarios
-
-When the user clicks the _[Forgot password]()_ on the login page, they will be redirected to this URL.
-<img src="/images/docs/admin-guides/system-settings/auth/login-page-forgot-password.png" alt="image" width="350"/>
-
-
-
 ## Login redirection
-### How to configure
+When an unauthenticated user accesses JumpServer, if checked, they will be prompted to either **Cancel** and return to the default login page or **Confirm** to proceed with third-party authentication. If unchecked, they will be directly redirected to the third-party authentication page.
+<img src="/images/docs/admin-guides/system-settings/auth/redirection-page.png" alt="image" width="450"/>
 
 <Steps>
 
@@ -89,7 +79,3 @@ Click **Submit**.
 </div>
 
 </Steps>
-
-### Usage scenarios
-When an unauthenticated user accesses JumpServer, if checked, they will be prompted to either **Cancel** and return to the default login page or **Confirm** to proceed with third-party authentication. If unchecked, they will be directly redirected to the third-party authentication page.
-<img src="/images/docs/admin-guides/system-settings/auth/redirection-page.png" alt="image" width="450"/>

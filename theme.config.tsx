@@ -6,6 +6,29 @@ import {
   Tab, DataTable, ApplyTrialLicense, ResourceAttributeTable
 } from "@/components/docs";
 
+interface LinkTitleProps {
+  title: string;
+  url: string;
+}
+
+export const LinkTitle: React.FC<LinkTitleProps> = ({ title, url }) => {
+  const handleClick = () => {
+    window.open(url, "_blank");
+  };
+
+  return (
+    <div
+      className="flex w-full items-center gap-2 cursor-pointer"
+      onClick={handleClick}
+    >
+      <span>{title}</span>
+      <span className="ml-auto">
+        <Icon name="link-square" />
+      </span>
+    </div>
+  );
+};
+
 
 const config: DocsThemeConfig = {
   components: { 
@@ -51,17 +74,9 @@ const config: DocsThemeConfig = {
           </div>
         )
       }
-      if (title.startsWith("link.")) {
-        const [prefix, middle, ...url] = title.split(".");
-        const website = url.join(".");
-        titleComponent = (
-          <div className="flex w-full items-center gap-2" onClick={() => window.open(website, '_blank')}>
-            <span>{middle}</span>
-            <span className="ml-auto">
-              <Icon name="link-square" />
-            </span>
-          </div>
-        )
+      if (title === "DeepWiki") {
+        const URL = "https://deepwiki.com/jumpserver/jumpserver/"
+        titleComponent = <LinkTitle title={title} url={URL} />
       }
       return titleComponent;
     },

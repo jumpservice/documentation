@@ -41,6 +41,6 @@
 
   "-- more": { "type": "separator", "title": "More" },
   "changelog": { "title": "Changelog" },
-  "wiki": { "title": "link.DeepWiki.https://deepwiki.com/jumpserver/jumpserver/" },
+  "deepwiki": { "title": "DeepWiki" },
   "troubleshooting": { "title": "Troubleshooting", "display": "children" }
 }

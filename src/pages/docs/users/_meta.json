@@ -7,9 +7,9 @@
   "disable-users": { "title": "Disable users", "display": "normal" },
   "activate-users": { "title": "Activate users", "display": "normal" },
   "unlock-user": { "title": "Unlock user", "display": "normal" },
-  "reset-password": { "title": "Reset password", "display": "normal" },
-  "reset-ssh-key": { "title": "Reset SSH key", "display": "normal" },
-  "reset-mfa": { "title": "Reset MFA", "display": "normal" }, 
+  "reset-password": { "title": "Reset user password", "display": "normal" },
+  "reset-ssh-key": { "title": "Reset user SSH key", "display": "normal" },
+  "reset-mfa": { "title": "Reset user MFA", "display": "normal" }, 
 
   "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
   "create-users-via-api": { "title": "Create users via API", "display": "hidden" },
