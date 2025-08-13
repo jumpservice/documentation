@@ -1,4 +1,5 @@
 {
+  "user-parameter-reference": { "title": "User parameter reference", "display": "normal" },
   "create-user": { "title": "Create user", "display": "normal" },
   "duplicate-user": { "title": "Duplicate user", "display": "normal" },
   "delete-users": { "title": "Delete users", "display": "normal" },
