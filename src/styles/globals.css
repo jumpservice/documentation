@@ -166,12 +166,12 @@ pre {
     @apply md:w-80;
     ul {
       li.active > a {
-        @apply text-primary font-normal dark:text-primary bg-[#F4F5F7] dark:bg-[#1B1F23];
+        @apply text-primary dark:text-primary font-semibold bg-white dark:bg-[#111111];
 
       }
       li {
         a {
-          @apply text-black dark:text-white;
+          @apply text-black dark:text-white hover:text-primary hover:bg-white dark:hover:bg-[#111111] dark:hover:text-primary;
         }
         
         button {
@@ -205,13 +205,13 @@ pre {
   }
   .steps {
     img {
-      @apply mt-2 mb-2;
+      @apply my-2;
     }
     ul ul {
       list-style-type: circle
     }
     p {
-      @apply mt-0;
+      @apply mt-0 leading-7;
     }
   }
   code {

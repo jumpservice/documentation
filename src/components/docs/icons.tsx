@@ -43,6 +43,8 @@ export const iconConfig = {
   Ban: <LucideIcons.Ban className="w-4 pb-1 inline-block" />,
   CircleCheck: <LucideIcons.CircleCheck className="w-4 pb-1 inline-block" />,
   CircleMinus: <LucideIcons.CircleMinus className="w-4 pb-1 inline-block" />,
+  Check: <LucideIcons.Check className="w-4 pb-1 inline-block" />,
+  X: <LucideIcons.X className="w-4 pb-1 inline-block" />,
 
   // svg icons
   Console: <SvgIcon Icon={SvgIcons.Console} />,

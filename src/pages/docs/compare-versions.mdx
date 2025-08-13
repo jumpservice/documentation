@@ -23,8 +23,8 @@ This topic describes the feature comparison between the JumpServer open-source e
   headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
   rows={ResourceManagement.map((row) => [
     { content: row['feature'] },
-    { content: row['ce'] === false ? "❌" : "✅" },
-    { content: "✅" },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
   ])}
 />
 
@@ -34,8 +34,8 @@ This topic describes the feature comparison between the JumpServer open-source e
   headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
   rows={UserAuthentication.map((row) => [
     { content: row['feature'] },
-    { content: row['ce'] === false ? "❌" : "✅" },
-    { content: "✅" },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
   ])}
 />
 
@@ -45,8 +45,8 @@ This topic describes the feature comparison between the JumpServer open-source e
   headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
   rows={AssetType.map((row) => [
     { content: row['feature'] },
-    { content: row['ce'] === false ? "❌" : "✅" },
-    { content: "✅" },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
   ])}
 />
 
@@ -56,8 +56,8 @@ This topic describes the feature comparison between the JumpServer open-source e
   headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
   rows={AssetConnectionMethod.map((row) => [
     { content: row['feature'] },
-    { content: row['ce'] === false ? "❌" : "✅" },
-    { content: "✅" },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
   ])}
 />
 
@@ -67,8 +67,8 @@ This topic describes the feature comparison between the JumpServer open-source e
   headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
   rows={ACLsManagement.map((row) => [
     { content: row['feature'] },
-    { content: row['ce'] === false ? "❌" : "✅" },
-    { content: "✅" },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
   ])}
 />
 
@@ -78,8 +78,8 @@ This topic describes the feature comparison between the JumpServer open-source e
   headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
   rows={AuditManagement.map((row) => [
     { content: row['feature'] },
-    { content: row['ce'] === false ? "❌" : "✅" },
-    { content: "✅" },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
   ])}
 />
 
@@ -89,7 +89,7 @@ This topic describes the feature comparison between the JumpServer open-source e
   headers={['Feature', 'JumpServer CE', 'JumpServer EE']}
   rows={OtherFeatures.map((row) => [
     { content: row['feature'] },
-    { content: row['ce'] === false ? "❌" : "✅" },
-    { content: "✅" },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
   ])}
 />
