@@ -205,13 +205,13 @@ pre {
   }
   .steps {
     img {
-      @apply mt-2 mb-2;
+      @apply my-2;
     }
     ul ul {
       list-style-type: circle
     }
     p {
-      @apply mt-0;
+      @apply mt-0 leading-7;
     }
   }
   code {

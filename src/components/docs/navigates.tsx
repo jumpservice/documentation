@@ -3,7 +3,7 @@ import Icon from './icons'
 const NavConsole = () => {
   return (
     <div>
-      In the upper-left of the page, select <Icon name="Switch" />, then click <Icon name="Console" /> <b>Console</b>.
+      <p>In the upper-left of the page, select <Icon name="Switch" />, then click <Icon name="Console" /> <b>Console</b>.</p>
       <img src="/images/docs/navs/nav-console.png" alt="image" width="300"/>
     </div>
   );
@@ -12,7 +12,7 @@ const NavConsole = () => {
 const NavPAM = () => {
   return (
     <div>
-      In the upper-left of the page, select <Icon name="Switch" />, then click <Icon name="pam" /> <b>PAM</b>.
+      <p>In the upper-left of the page, select <Icon name="Switch" />, then click <Icon name="pam" /> <b>PAM</b>.</p>
       <img src="/images/docs/navs/nav-pam.png" alt="image" width="300"/>
     </div>
   );
@@ -21,7 +21,7 @@ const NavPAM = () => {
 const NavAudits = () => {
   return (
     <div>
-      In the upper-left of the page, select <Icon name="switch" />, then click <Icon name="audit" /> <b>Audits</b>.
+      <p>In the upper-left of the page, select <Icon name="switch" />, then click <Icon name="audit" /> <b>Audits</b>.</p>
       <img src="/images/docs/navs/nav-audits.png" alt="image" width="300"/>
     </div>
   );
@@ -30,7 +30,7 @@ const NavAudits = () => {
 const NavWebTerminal = () => {
   return (
     <div>
-      In the upper-right of the page, click <Icon name="square-terminal"/>.
+      <p>In the upper-right of the page, click <Icon name="square-terminal"/>.</p>
       <img src="/images/docs/navs/nav-web-terminal.png" alt="image" width="350"/>
     </div>
   )
@@ -40,7 +40,7 @@ const NavWebTerminal = () => {
 const NavSystemSettings = () => {
   return (
     <div>
-      In the upper-right of the page, click <Icon name="settings"/>.
+      <p>In the upper-right of the page, click <Icon name="settings"/>.</p>
       <img src="/images/docs/navs/nav-settings.png" alt="image" width="350"/>
     </div>
   );
@@ -49,7 +49,7 @@ const NavSystemSettings = () => {
 const ChangeOrg = () => {
   return (
     <div>
-      In the upper-left of the page, click the current organization and switch from the dropdown.
+      <p>In the upper-left of the page, click the current organization and switch from the dropdown.</p>
       <img src="/images/docs/navs/switch-org.png" alt="image" width="350"/>
     </div>
   )
