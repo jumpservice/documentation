@@ -53,8 +53,7 @@ Password rules can be configured in the system settings, including requirements 
 When `Password must be changed during next login` is checked, the user will be required to change the password immediately after the first successful login.
 
 ### MFA
-Configure the Multi-Factor Authentication (MFA) policy for a single user.
-You can also configure a global MFA policy in the system settings.
+Configure the Multi-Factor Authentication (MFA) policy for a single user. You can also configure a global MFA policy in the system settings.
 
 After MFA is enabled, users will be guided to set up MFA during their first login.
 
@@ -83,6 +82,11 @@ MFA backends support the following options, which must be enabled by the adminis
 - Facial recognition
 
 ### Source
+User Source identifies the user authentication backend. **Local** means the user belongs to the local database.
+
+The JumpServer supports integrating and enabling multiple authentication services simultaneously. When the same user exists in multiple services, this field helps distinguish the user's source.
+
+When a user logs in, the system will, by default, authenticate them using all enabled backends sequentially. Administrators can also configure the system to allow authentication only from the user's source, which helps improve authentication efficiency.
 
 ### System roles
 
