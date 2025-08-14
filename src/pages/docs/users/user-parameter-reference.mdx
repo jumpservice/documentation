@@ -18,10 +18,11 @@ The username is used to log in to JumpServer.
 
 `required` `unique`
 
-The user email is primarily used to receive system notifications. It also supports the following functions:
-* Users can use their email as the username to log in to JumpServer.
-* Used for password recovery.
-* Serves as a backend for multi-factor authentication (MFA) and receive MFA codes.
+The user email is primarily used to receive system notifications. 
+It also supports the following functions:
+- Users can use their email as the username to log in to JumpServer.
+- Used for password recovery.
+- Serves as a backend for multi-factor authentication (MFA) and receive MFA codes.
 
 ### Groups
 
@@ -32,7 +33,6 @@ User groups are used for organizing and managing users. A user can belong to mul
 Create user only.
 
 <dl>
-
 <dt>Reset link will be generated and sent to the user</dt>
 <dd>
 This will send a password setup email to the user. The user can log in after resetting the password as instructed.
@@ -42,7 +42,6 @@ This will send a password setup email to the user. The user can log in after res
 <dd>
 Manually set password. The user can log in directly with this password.
 </dd>
-
 </dl>
 
 ### Password
@@ -54,6 +53,34 @@ Password rules can be configured in the system settings, including requirements 
 When `Password must be changed during next login` is checked, the user will be required to change the password immediately after the first successful login.
 
 ### MFA
+Configure the Multi-Factor Authentication (MFA) policy for a single user.
+You can also configure a global MFA policy in the system settings.
+
+After MFA is enabled, users will be guided to set up MFA during their first login.
+
+<dl>
+<dt>Disabled</dt>
+<dd>
+MFA is disabled by default, but users can enable it from their profile page. 
+</dd>
+
+<dt>Enabled</dt>
+<dd>
+MFA is enabled for the user, but they can disable it from their profile page.
+</dd>
+
+<dt>Force enabled</dt>
+<dd>
+MFA is enforced for the user, and they cannot disable it.
+</dd>
+</dl>
+
+MFA backends support the following options, which must be enabled by the administrator in the system settings before users can configure them from their profile page:
+- OTP
+- SMS
+- Email
+- Passkey
+- Facial recognition
 
 ### Source
 
