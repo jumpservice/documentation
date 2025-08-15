@@ -185,7 +185,7 @@ pre {
   }
 
   article a {
-    @apply text-primary dark:text-primary;
+    @apply text-primary dark:text-primary no-underline hover:border-b pb-1 rounded-none border-primary;
   }
 
   article pre {
@@ -201,7 +201,7 @@ pre {
 
   }
   article main > div:last-of-type a {
-    @apply text-[#4B5563] hover:text-primary dark:text-[#D1D5DB] dark:hover:text-primary;
+    @apply text-[#4B5563] hover:text-primary dark:text-[#D1D5DB] dark:hover:text-primary hover:border-none;
   }
   article dl {
     @apply mt-4 text-black dark:text-white;
