@@ -30,7 +30,7 @@ User groups are used for organizing and managing users. A user can belong to mul
 
 ### Password setting
 
-Create local user only.
+(Create local user only) Choose the method for setting the password for a newly created user.
 
 <dl>
 <dt>Reset link will be generated and sent to the user</dt>
@@ -44,6 +44,10 @@ Manually set password. The user can log in directly with this password.
 </dd>
 </dl>
 
+### Change secret
+
+(Edit local user only) When editing a user, check to update the user’s password.
+
 ### Password
 
 (Local user only) The user can log in to the system using this password. 
@@ -54,8 +58,6 @@ When `Password must be changed during next login` is checked, the user will be r
 
 ### MFA
 Configure the Multi-Factor Authentication (MFA) policy for a single user. You can also configure a global MFA policy in the system settings.
-
-After MFA is enabled, users will be guided to set up MFA during their first login.
 
 <dl>
 <dt>Disabled</dt>
@@ -73,6 +75,8 @@ MFA is enabled for the user, but they can disable it from their profile page.
 MFA is enforced for the user, and they cannot disable it.
 </dd>
 </dl>
+
+After MFA is enabled, users will be guided to set up MFA during their first login.
 
 MFA backends support the following options, which must be enabled by the administrator in the system settings before users can configure them from their profile page:
 - OTP
@@ -101,13 +105,11 @@ Built-in roles include:
 A system role grants the user all permissions across all organizations. Administrators can also create custom system roles.
 </Alert>
 
-### Organization roles
+### Organization roles <Icon name="xpack-md" />
 
 `required`
 
-<Icon name="xpack" /> Enterprise only.
-
-Organization roles define a user’s position within the current organization and grant only the permissions assigned to each role. Multiple organization roles can be assigned, with permissions combined.
+(Enterprise only) Organization roles define a user’s position within the current organization and grant only the permissions assigned to each role. Multiple organization roles can be assigned, with permissions combined.
 
 Built-in roles include: 
 - User
