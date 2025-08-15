@@ -90,7 +90,7 @@ When a user logs in, the system will, by default, authenticate them using all en
 
 `required`
 
-A system role represents a user's role in the system. A user can have multiple roles simultaneously, inheriting the combined permissions of all assigned roles.
+System roles define a user's position in the system and grant only the permissions assigned to each role. Multiple system roles can be assigned, with permissions combined.
 
 Built-in roles include: 
 - User
@@ -101,7 +101,20 @@ Built-in roles include:
 A system role grants the user all permissions across all organizations. Administrators can also create custom system roles.
 </Alert>
 
-### Organizational roles <Icon name="xpack-md" />
+### Organization roles
+
+`required`
+
+<Icon name="xpack" /> Enterprise only.
+
+Organization roles define a user's position within the current organization and grant only the permissions assigned to each role. Multiple organization roles can be assigned, with permissions combined.
+
+Built-in roles include: 
+- User
+- Organization Admin
+- Organization Auditor
+
+<div className="text-blue-600" ><Icon name="link-square" /> Manage role</div>
 
 ### Active
 
