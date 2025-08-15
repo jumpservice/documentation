@@ -185,7 +185,7 @@ pre {
   }
 
   article a {
-    @apply text-primary dark:text-primary no-underline hover:border-b pb-1 rounded-none border-primary;
+    @apply text-primary dark:text-primary;
   }
 
   article pre {
