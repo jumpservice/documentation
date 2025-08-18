@@ -3,7 +3,7 @@ import Icon from './icons'
 const NavConsole = () => {
   return (
     <div>
-      <p>At the bottom-left of the top navigation bar, select <Icon name="Switch" />, then click <Icon name="Console" /> <b>Console</b>.</p>
+      <p>At the top-left of the page, select <Icon name="Switch" />, then click <Icon name="Console" /> <b>Console</b>.</p>
       <img src="/images/docs/navs/nav-console.png" alt="image" width="300"/>
     </div>
   );
@@ -12,7 +12,7 @@ const NavConsole = () => {
 const NavPAM = () => {
   return (
     <div>
-      <p>At the bottom-left of the top navigation bar, select <Icon name="Switch" />, then click <Icon name="pam" /> <b>PAM</b>.</p>
+      <p>At the top-left of the page, select <Icon name="Switch" />, then click <Icon name="pam" /> <b>PAM</b>.</p>
       <img src="/images/docs/navs/nav-pam.png" alt="image" width="300"/>
     </div>
   );
@@ -21,7 +21,7 @@ const NavPAM = () => {
 const NavAudits = () => {
   return (
     <div>
-      <p>At the bottom-left of the top navigation bar, select <Icon name="switch" />, then click <Icon name="audit" /> <b>Audits</b>.</p>
+      <p>At the top-left of the page, select <Icon name="switch" />, then click <Icon name="audit" /> <b>Audits</b>.</p>
       <img src="/images/docs/navs/nav-audits.png" alt="image" width="300"/>
     </div>
   );
