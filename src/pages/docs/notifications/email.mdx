@@ -1,0 +1,112 @@
+# Configure the email server
+
+In JumpServer, the email server is an essential configuration and it is strongly recommended to enable and properly set it up. It is primarily used for communication between the system and users, including account security, notification alerts, and system warnings.
+
+JumpServer supports configuring the email server in two ways: using the standard SMTP protocol or Microsoft Exchange Server.
+
+See below for detailed configuration parameters.
+
+### Service
+
+<dl>
+<dt>SMTP</dt>
+<dd>
+Standard SMTP protocol
+</dd>
+
+<dt>Microsoft Exchange Server</dt>
+<dd>
+A mail server developed by Microsoft.
+</dd>
+</dl>
+
+### Host
+
+`required`
+
+Email server host address.
+
+### Port
+
+`required`
+
+(SMTP only) Email server port.
+
+### Account
+
+Email server authentication account.
+
+### Password
+
+Email server authentication account password.
+
+### Sender
+
+The sender used to send emails. If not specified, the **Account** will be used by default.
+
+### Use ssl/tls
+
+(SMTP only) Encrypts the communication between the email client and server to protect the email content and account information.
+
+<dl>
+<dt>None</dt>
+<dd>
+No encryption — plain text transmission (low security).
+</dd>
+
+<dt>SSL</dt>
+<dd>
+SSL (Secure Sockets Layer) is an older protocol for establishing secure connections.
+</dd>
+
+<dt>TLS</dt>
+<dd>
+TLS (Transport Layer Security) is an improved version of SSL, providing stronger security. 
+</dd>
+</dl>
+
+### Template
+
+Email templates are used to provide consistent content and formatting when sending emails.
+
+#### General
+
+General fields included in every email.
+
+**Subject prefix**
+
+`required` 
+
+Specifies a prefix to insert at the start of the email subject.
+
+e.g., [JumpServer]
+
+#### Creating User Content
+
+The following fields are only used in emails sent upon successful user creation. 
+
+**Subject**
+
+Email subject.
+
+e.g., Create account successfully
+
+**Honorific**
+
+Email honorific.
+
+e.g., Dear / Hello
+
+**Content**
+
+Email content.
+
+You can use the variables `{name}`, `{username}`, and `{email}` to specify the corresponding user information.
+
+### Recipient
+
+This is used only for receiving test emails. Only one email address can be entered at a time. 
+
+<Alert type="note">
+Please submit the configuration information before testing.
+</Alert>

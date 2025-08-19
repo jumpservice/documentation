@@ -24,6 +24,7 @@
   "applications": { "title": "Application Integration", "display": "normal" },
 
   "-- system-settings": { "type": "separator", "title": "System Settings" },
+  "notifications": { "title": "Notifications", "display": "normal" },
   "authentication": { "title": "Authentication", "display": "normal" },
   "remoteapp": { "title": "RemoteApp", "display": "normal" },
   "virtualapp": {"title": "VirtualApp", "display": "normal"},
