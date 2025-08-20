@@ -205,23 +205,14 @@ pre {
   }
   article dl {
     @apply mt-4 text-black dark:text-white ;
-  }
-  article dl dt {
-    @apply mb-2 font-semibold pl-3 relative;
-    &::before {
-      content: '';
-      @apply absolute left-0 top-1/2 -translate-y-1/2;
-      width: 0;
-      height: 0;
-      border-top: 4px solid transparent;   /* 控制三角高度 */
-      border-bottom: 4px solid transparent; /* 控制三角高度 */
-      border-left: 6px solid theme('colors.primary'); /* 控制三角宽度和颜色 */
-      } 
-  }
-  article dl dd {
-    @apply mb-4 ml-3;
-    p {
-      @apply mt-4 leading-7;
+    dt {
+      @apply mb-2 font-semibold underline;
+    }
+    dd {
+      @apply mb-4;
+      p {
+        @apply mt-4 leading-7;
+      }
     }
   }
   .steps {
