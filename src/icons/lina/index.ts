@@ -13,3 +13,5 @@ export { default as Backup } from "./backup.svg";
 export { default as ChangePassword } from "./change-password.svg";
 export { default as Scan } from "./scan.svg";
 export { default as Service } from "./service.svg";
+export { default as BatchUpdate } from "./batch-update.svg";
+export { default as Remind } from "./remind.svg";

@@ -1,6 +1,7 @@
 import type { Heading } from 'nextra'
 import type { ReactElement } from 'react'
 import { useEffect, useMemo, useState } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 export type TOCProps = {
   headings: Heading[]
@@ -11,6 +12,8 @@ export default function TOC({ headings }: TOCProps): ReactElement | null {
     // 过滤掉 depth 为 1 的标题（通常是页面主标题）
     return headings.filter(h => h.depth > 1)
   }, [headings])
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   const [activeId, setActiveId] = useState<string | null>(null)
 
@@ -25,7 +28,7 @@ export default function TOC({ headings }: TOCProps): ReactElement | null {
     return () => {
       window.removeEventListener('hashchange', updateActiveId)
     }
-  }, [])
+  }, [pathname, searchParams?.toString()])
 
   if (items.length === 0) return null
 

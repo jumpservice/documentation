@@ -1,25 +1,12 @@
 {
   "create-user": { "title": "Create user", "display": "normal" },
-  "duplicate-user": { "title": "Duplicate user", "display": "normal" },
+  "edit-user": { "title": "Edit user", "display": "normal" },
   "delete-users": { "title": "Delete users", "display": "normal" },
-  "invite-users": { "title": "Invite users", "display": "normal" },
-  "remove-users": { "title": "Remove users", "display": "normal" },
-  "disable-users": { "title": "Disable users", "display": "normal" },
-  "activate-users": { "title": "Activate users", "display": "normal" },
+  "enable-disable-users": { "title": "Enable or disable users", "display": "normal" },
+  "invite-remove-users": { "title": "Invite or remove users", "display": "normal" },
   "unlock-user": { "title": "Unlock user", "display": "normal" },
   "reset-password": { "title": "Reset user password", "display": "normal" },
-  "reset-ssh-key": { "title": "Reset user SSH key", "display": "normal" },
-  "reset-mfa": { "title": "Reset user MFA", "display": "normal" }, 
-
-  "create-users-on-login": { "title": "Create users on login", "display": "hidden" },
-  "create-users-via-api": { "title": "Create users via API", "display": "hidden" },
-  "manage-groups": { "title": "Manage groups", "display": "hidden" },
-  "manage-login-acls": { "title": "Manage login ACLs", "display": "hidden" },
-  "update-users-from-file": { "title": "Update users from file", "display": "hidden" },
-
-  "user-details": { "title": "User details", "display": "hidden" },
-  "user-authorized-assets": { "title": "User authorized assets", "display": "hidden" },
-  "user-authorizations": { "title": "User authorizations", "display": "hidden" },
-  "user-connected-sessions": { "title": "User connected sessions", "display": "hidden" },
-  "user-activity-log": { "title": "User activity logs", "display": "hidden" }
+  "reset-ssh-key": { "title": "Reset user SSH Key", "display": "normal" },
+  "reset-mfa": { "title": "Reset user MFA", "display": "normal" },
+  "user-parameter-reference": { "title": "User parameter reference", "display": "normal" }
 }

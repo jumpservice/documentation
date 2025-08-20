@@ -22,42 +22,42 @@ Describe important notes or considerations when using the configuration item.
 
 */}
 
-#### SECRET_KEY
+##### SECRET_KEY
 Default: `A randomly generated 48-character`
 
 Used to encrypt sensitive information, such as asset account passwords.
 
 Keep the SECRET_KEY same as the old environment during migration. Do not share it with anyone.
 
-#### BOOTSTRAP_TOKEN
+##### BOOTSTRAP_TOKEN
 Default: `A randomly generated 24-character`
 
 Used for registration of components such as KoKo, Lion, Magnus, etc.
 
 Keep the BOOTSTRAP_TOKEN same as the old environment during migration. Do not share it with anyone.
 
-#### DEBUG
+##### DEBUG
 Default: `false`
 
 Debug mode shows detailed error pages with full tracebacks and environment info when exceptions occur.
 
 Never enable DEBUG in the production environment for a long time.
 
-#### DEBUG_DEV
+##### DEBUG_DEV
 Default: `false`
 
 Debug Dev mode shows more detailed information in log files.
 
 Never enable DEBUG_DEV in the production environment for a long time.
 
-#### DEBUG_ANSIBLE
+##### DEBUG_ANSIBLE
 Default: `false`
 
 Debug Ansible mode shows more detailed information during task execution.
 
 Never enable DEBUG_ANSIBLE in the production environment for a long time.
 
-#### LOG_LEVEL
+##### LOG_LEVEL
 Default: `ERROR`
 
 Control the display of log information at different levels.
@@ -67,3 +67,8 @@ Control the display of log information at different levels.
 * `WARNING`: Information describing a minor problem that has occurred.
 * `ERROR`: Information describing a major problem that has occurred.
 * `CRITICAL`: Information describing a critical problem that has occurred.
+
+##### USER_DEFAULT_EXPIRED_DAYS
+Default: `25550`
+
+Default expiration days for a user. When creating a user, the **Date expired** is automatically calculated based on this setting.

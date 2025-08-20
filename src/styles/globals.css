@@ -181,7 +181,7 @@ pre {
     }
   }
   article p {
-    @apply text-black dark:text-white;
+    @apply text-black dark:text-white mt-3;
   }
 
   article a {
@@ -201,7 +201,19 @@ pre {
 
   }
   article main > div:last-of-type a {
-    @apply text-[#4B5563] hover:text-primary dark:text-[#D1D5DB] dark:hover:text-primary;
+    @apply text-[#4B5563] hover:text-primary dark:text-[#D1D5DB] dark:hover:text-primary hover:border-none;
+  }
+  article dl {
+    @apply mt-4 text-black dark:text-white ;
+    dt {
+      @apply mb-2 font-semibold underline;
+    }
+    dd {
+      @apply mb-4;
+      p {
+        @apply mt-4 leading-7;
+      }
+    }
   }
   .steps {
     img {

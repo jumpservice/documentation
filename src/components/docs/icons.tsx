@@ -8,7 +8,15 @@ function SvgIcon({ Icon }) {
       <Icon className="w-4 pb-1 inline-block select-none pointer-events-none" />
     </span>
   )
+}
 
+function generateIconMap() {
+  return Object.fromEntries(
+    Object.entries(SvgIcons).map(([key, Icon]) => [
+      key,
+      <SvgIcon key={key} Icon={Icon} />,
+    ])
+  );
 }
 
 export const iconConfig = {
@@ -22,7 +30,9 @@ export const iconConfig = {
   push: <LucideIcons.Send className="w-4 pb-1 inline-block" />,
   pam: <LucideIcons.LockKeyhole className="w-4 pb-1 inline-block" />,
   settings: <LucideIcons.Settings className="w-4 pb-1 inline-block" />,
-  xpack: <LucideIcons.Crown className="w-4 pb-1 text-yellow-500 fill-yellow-500 select-none inline-block" />,
+  xpack: <LucideIcons.Crown className="w-4 pb-1 text-yellow-500 select-none inline-block" />,
+  "xpack-md": <LucideIcons.Crown className="size-[18px] text-yellow-500 select-none inline-block" />,
+  "xpack-lg": <LucideIcons.Crown className=" text-yellow-500 select-none inline-block" />,
   help: <LucideIcons.CircleHelp className="w-4 pb-1 inline-block" />,
   plus: <LucideIcons.Plus className="w-4 pb-1 inline-block" />,
   "square-terminal": <LucideIcons.SquareTerminal className="w-4 pb-1 inline-block" />,
@@ -46,21 +56,8 @@ export const iconConfig = {
   Check: <LucideIcons.Check className="w-4 pb-1 inline-block" />,
   X: <LucideIcons.X className="w-4 pb-1 inline-block" />,
 
-  // svg icons
-  Console: <SvgIcon Icon={SvgIcons.Console} />,
-  Assets: <SvgIcon Icon={SvgIcons.Asset} />,
-  Globe: <SvgIcon Icon={SvgIcons.Globe} />,
-  Application: <SvgIcon Icon={SvgIcons.Application} />,
-  Platform: <SvgIcon Icon={SvgIcons.Platform} />,
-  Switch: <SvgIcon Icon={SvgIcons.Switch} />,
-  Feature: <SvgIcon Icon={SvgIcons.Feature} />,
-  UserO: <SvgIcon Icon={SvgIcons.UserO} />,
-  Discovery: <SvgIcon Icon={SvgIcons.Discovery} />,
-  Push: <SvgIcon Icon={SvgIcons.Push} />,
-  Backup: <SvgIcon Icon={SvgIcons.Backup} />,
-  ChangePassword: <SvgIcon Icon={SvgIcons.ChangePassword} />,
-  Scan: <SvgIcon Icon={SvgIcons.Scan} />,
-  Service: <SvgIcon Icon={SvgIcons.Service} />,
+  // lina svg icons
+  ...generateIconMap(),
 }
 
 interface IconProps {

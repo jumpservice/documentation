@@ -23,7 +23,7 @@ function TableSupport() {
               <td>Standalone</td>
               <td>Annual Subscription</td>
               <td className="border-l dark:border-l dark:border-gray-700">
-                <a href="https://www.lxware.hk/products/jumpserver-enterprise-edition-basic-plan" target="_blank" className="underline hover:text-primary">
+                <a href="https://www.lxware.hk/products/jumpserver-enterprise-edition-basic-plan" target="_blank" className="hover:underline hover:text-primary">
                   Buy Now <Icon name="link" />
                 </a>
               </td>
@@ -34,7 +34,7 @@ function TableSupport() {
               <td>Standalone | Active-Standby</td>
               <td>Annual Subscription</td>
               <td rowSpan={3} className="border-l dark:border-l dark:border-gray-700">
-                <a href="mailto:sales@lxware.hk" className="underline hover:text-primary">Contact Sales <Icon name="send-email" /></a>
+                <a href="mailto:sales@lxware.hk" className="hover:underline hover:text-primary">Contact Sales <Icon name="send-email" /></a>
               </td>
             </tr>
             <tr>
@@ -62,7 +62,7 @@ export default function Edition() {
       <section id="section-edition">
         <h2>JumpServer Enterprise Edition</h2>
         <TableSupport />
-        <ApplyTrialLicense />
+        <ApplyTrialLicense showBorder={false} />
       </section>
     </>
   );
