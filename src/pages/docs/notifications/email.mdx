@@ -1,10 +1,36 @@
-# Configure the email server
+# Email service configuration guide
 
 In JumpServer, the email server is an essential configuration and it is strongly recommended to enable and properly set it up. It is primarily used for communication between the system and users, including account security, notification alerts, and system warnings.
 
 JumpServer supports configuring the email server in two ways: using the standard SMTP protocol or Microsoft Exchange Server.
 
-See below for detailed configuration parameters.
+## Configuration guide
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Remind" /> Notifications**.
+</div>
+
+<div>
+On the right page, click **Email** tab.
+</div>
+
+<div>
+Type the email configuration. About configuration parameters, see [Configuration parameters](#configuration-parameters).
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## Configuration parameters
 
 ### Service
 
@@ -107,6 +133,24 @@ You can use the variables `{name}`, `{username}`, and `{email}` to specify the c
 
 This is used only for receiving test emails. Only one email address can be entered at a time. 
 
+
+## Test the email service
+
+<Steps>
+<div>
+Finish configuring the email service and **submit** the form.
+
 <Alert type="note">
 Please submit the configuration information before testing.
 </Alert>
+
+</div>
+
+<div>
+In the **Recipient** field, type the email address to which you want to send a test email.
+</div>
+
+<div>
+Click **Test connection**.
+</div>
+</Steps>
