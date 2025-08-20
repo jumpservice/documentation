@@ -17,7 +17,7 @@ const DataTable: React.FC<TableProps> = ({ headers, rows }) => {
 
   return (
     <div className="overflow-x-auto text-[14px] mt-5">
-      <table className="min-w-full text-left table-auto border-collapse rounded-lg">
+      <table className="min-w-full text-center table-auto border-collapse rounded-lg">
         <thead>
           <tr className="font-bold text-black dark:text-white">
             {headers.map((header, index) => (
