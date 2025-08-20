@@ -17,13 +17,13 @@ const DataTable: React.FC<TableProps> = ({ headers, rows }) => {
 
   return (
     <div className="overflow-x-auto text-[14px] mt-5">
-      <table className="min-w-full text-center table-auto border-collapse rounded-lg">
+      <table className="min-w-full text-center table-auto border-collapse rounded-lg border dark:border-[#262626]">
         <thead>
           <tr className="font-bold text-black dark:text-white">
             {headers.map((header, index) => (
               <th
                 key={index}
-                className="py-3 pl-0 pr-4 border-b border-[#E5E7EB] dark:border-[#262626] font-semibold"
+                className="py-3 border-b border-[#E5E7EB] dark:border-[#262626] font-semibold"
               >
                 {header}
               </th>
@@ -32,19 +32,15 @@ const DataTable: React.FC<TableProps> = ({ headers, rows }) => {
         </thead>
         <tbody>
           {resolvedRows.map((row, rowIndex) => (
-            <tr
-              key={rowIndex}
-              className=""
-            >
+            <tr className="group">
               {row.map((cell, cellIndex) => (
                 <td
-                  key={cellIndex}
-                  className="py-2 text-black dark:text-white pl-0 pr-4 border-b border-[#E5E7EB] dark:border-[#262626]"
+                  className="py-2 text-black dark:text-white group-hover:text-primary"
                 >
                   {cell.link ? (
                     <a
                       href={cell.link}
-                      className=""
+                      className="block w-full h-full group-hover:text-primary"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
