@@ -49,7 +49,7 @@ const NavSystemSettings = () => {
 const ChangeOrg = () => {
   return (
     <div>
-      <p>In the upper-left of the page, click the current organization and switch from the dropdown.</p>
+      <p>In the left area of the top navigation bar, click the organization dropdown and switch to the target organization.</p>
       <img src="/images/docs/navs/switch-org.png" alt="image" width="350"/>
     </div>
   )
