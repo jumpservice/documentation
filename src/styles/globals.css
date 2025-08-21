@@ -180,6 +180,24 @@ pre {
       }
     }
   }
+  article h1 {
+    @apply text-[32px];
+  }
+  article h2 {
+    @apply text-[24px];
+  }
+  article h3 {
+    @apply text-[20px];
+  }
+  article h4 {
+    @apply text-[18px];
+  }
+  article h5 {
+    @apply text-[16px];
+  }
+  article h6 {
+    @apply text-[14px];
+  }
   article p {
     @apply text-black dark:text-white mt-3;
   }
@@ -205,18 +223,6 @@ pre {
 
   article main > div:last-of-type a {
     @apply text-[#4B5563] hover:text-primary dark:text-[#D1D5DB] dark:hover:text-primary hover:border-none;
-  }
-  article dl {
-    @apply mt-4 text-black dark:text-white ;
-    dt {
-      @apply mb-2 font-semibold underline;
-    }
-    dd {
-      @apply mb-4;
-      p {
-        @apply mt-4 leading-7;
-      }
-    }
   }
   .steps {
     img {
