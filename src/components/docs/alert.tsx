@@ -31,7 +31,7 @@ const Alert: React.FC<AlertProps> = ({ type = "tip", children }) => {
   const { title, borderColor, textColor, fillColor = "", icon: Icon } = typeConfig[type];
 
   return (
-    <div className={cn("flex border-l-2 rounded-md py-2 px-4 mt-5 mb-5", borderColor)}>
+    <div className={cn("flex border-2 rounded-lg py-2 px-4 mt-5 mb-5", borderColor)}>
       <div className="flex flex-col gap-1 flex-1">
         <div className="flex items-center gap-2">
           <Icon className={cn(textColor, fillColor)} size={18} />
