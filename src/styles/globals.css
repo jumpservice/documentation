@@ -196,10 +196,13 @@ pre {
     @apply mt-2 text-black dark:text-white text-base list-disc;
 
     li {
-      @apply mt-3 mb-2;
+      @apply ml-1 mt-3 mb-2;
     }
-
   }
+  article ul ul {
+    list-style-type: circle;
+  }
+
   article main > div:last-of-type a {
     @apply text-[#4B5563] hover:text-primary dark:text-[#D1D5DB] dark:hover:text-primary hover:border-none;
   }
@@ -218,9 +221,6 @@ pre {
   .steps {
     img {
       @apply my-2;
-    }
-    ul ul {
-      list-style-type: circle
     }
     p {
       @apply mt-0 leading-7;
