@@ -3,6 +3,7 @@
 This topic introduces configuration parameters for user authentication security.
 
 ## Basic
+This section introduces the user login configurations.
 
 ### Login CAPTCHA
 
@@ -11,6 +12,10 @@ This topic introduces configuration parameters for user authentication security.
 Login CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) can effectively prevent brute-force attacks by malicious programs.
 
 Once enabled, if a user fails to log in, any subsequent login attempts from the same IP within the next hour will require entering a CAPTCHA.
+
+<Alert type="note">
+Once enabled, the [Login dynamic code](#login-dynamic-code) and [MFA in login page](#mfa-in-login-page) will be disabled.
+</Alert>
 
 ### Login dynamic code
 
@@ -21,7 +26,7 @@ For example, if the user’s password is "passwd" and the dynamic code is "1234"
 This method is commonly used in scenarios such as RADIUS authentication.
 
 <Alert type="note">
-Once enabled, the login CAPTCHA will be disabled.
+Once enabled, the [Login CAPTCHA](#login-captcha) and [MFA in login page](#mfa-in-login-page) will be disabled.
 </Alert>
 
 ### Auto disable threshold (day)
@@ -43,8 +48,45 @@ Remote login alert.
 If a user has not logged in from the city of their most recent login within the past 7 days, the system will send a remote login alert through the user’s enabled message channels (e.g., in-site notifications, email, etc.).
 
 ## MFA
+
+This section introduces the MFA configurations.
+
 ### Global MFA
+
+Global MFA can be applied to all users at once, eliminating the need to configure it for each user individually, which simplifies administration.
+
+- Not enabled
+
+  Global MFA is disabled, but users can enable it from their profile page.
+
+- All users
+
+  Global MFA is enabled for all users and cannot be disabled by individual users.
+
+- Only admin users
+
+  Global MFA is enabled for admin users (including users with `System Admin` or `Organization Admin` roles) and cannot be disabled by them. Regular users can enable or disable it from their profile page.
+
+### MFA in login page
+
+Effective only when "Global MFA" is enabled and "All users" is selected.
+
+Once enabled, users will see the MFA code on the login page and can enter it together with their password for one-time verification.
+
+If a user has not yet enabled MFA, they do not need to enter the MFA code on the login page. After the username and password are successfully verified, the system will guide the user through the MFA setup process.
+
+<Alert type="note">
+Once enabled, the [Login CAPTCHA](#login-captcha) and [Login dynamic code](#login-dynamic-code) will be disabled.
+</Alert>
+
 ### MFA via email
+
+Email can be used as an MFA authentication method. When users enable MFA and log in, they can choose to receive the MFA code via Email to complete verification.
+
+<Alert>
+Administrators must configure the Email service in advance. For more information, see [Email service configuration guide](/docs/notifications/email).
+</Alert>
+
 ### Third-party login MFA
 ### MFA verify TTL
 ### OTP issuer name
