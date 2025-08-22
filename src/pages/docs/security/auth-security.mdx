@@ -1,0 +1,48 @@
+# Authentication security
+
+This topic introduces configuration parameters for user authentication security.
+
+## Basic
+
+### Login CAPTCHA
+
+`recommended`
+
+Login CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) can effectively prevent brute-force attacks by malicious programs.
+
+Once enabled, if a user fails to log in, any subsequent login attempts from the same IP within the next hour will require entering a CAPTCHA.
+
+### Login dynamic code
+
+Login dynamic code is concatenated with the user’s password and sent together to the authentication service for verification.
+
+For example, if the user’s password is "passwd" and the dynamic code is "1234", the system will send "passwd1234" as the password to the backend authentication service during login.
+
+This method is commonly used in scenarios such as RADIUS authentication.
+
+<Alert type="note">
+Once enabled, the login CAPTCHA will be disabled.
+</Alert>
+
+### Auto disable threshold (day)
+
+Automatically disabled users. 
+
+Users who have not logged in for more than the configured days will be automatically disabled.
+
+For more information about enabling users, see [Enable or disable users](/docs/users/enable-disable-users).
+
+### Suspicious login verification
+
+Remote login alert. 
+
+If a user has not logged in from the city of their most recent login within the past 7 days, the system will send a remote login alert through the user’s enabled message channels (e.g., in-site notifications, email, etc.).
+
+## MFA
+### Global MFA
+### MFA via email
+### Third-party login MFA
+### MFA verify TTL
+### OTP issuer name
+### OTP valid window
+
