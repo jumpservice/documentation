@@ -112,13 +112,25 @@ Users logging in through other authentication methods, like local users, can dir
 ### MFA verify TTL
 `required`
 
-Default: `60` (seconds)
+Default: `3600` (seconds)
 
-When an administrator views an asset account’s secret, the system requires MFA verification by default. This setting controls the validity period of the verification, with a default value of 60 seconds. Within this period, subsequent secret views do not require repeated MFA verification.
+When an administrator views an asset account’s secret, the system requires MFA verification by default. This setting controls the validity period of the verification, with a default value of 3600 seconds. Within this period, subsequent secret views do not require repeated MFA verification.
 
 
 For more information about disabling MFA verification when viewing account secrets, see [SECURITY_VIEW_AUTH_NEED_MFA](/docs/configuration#security_view_auth_need_mfa).
 
 ### OTP issuer name
-### OTP valid window
+Default: `JumpServer`
 
+When a user binds MFA, this field specifies the name of the service or application generating the OTP, helping the user distinguish codes from different services within their OTP app.
+
+### OTP valid window
+`required`
+
+Default: `2`, Min: `0`, Max: `10`
+
+This setting controls the valid time window for one-time passwords (OTP). A new OTP is typically generated every 30 seconds, and to accommodate network delays or user input lag, the system allows OTPs from a few previous and subsequent time steps to remain valid.
+
+If set to 2, the system accepts codes from the current, previous 2, and next 2 time steps.
+
+If set to 0, only the current code is valid.
