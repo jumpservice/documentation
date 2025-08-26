@@ -110,6 +110,15 @@ MFA can be enforced for users authenticated via third-party login methods. This 
 Users logging in through other authentication methods, like local users, can directly enable and use MFA.
 
 ### MFA verify TTL
+`required`
+
+Default: `60` (seconds)
+
+When an administrator views an asset account’s secret, the system requires MFA verification by default. This setting controls the validity period of the verification, with a default value of 60 seconds. Within this period, subsequent secret views do not require repeated MFA verification.
+
+
+For more information about disabling MFA verification when viewing account secrets, see [SECURITY_VIEW_AUTH_NEED_MFA](/docs/configuration#security_view_auth_need_mfa).
+
 ### OTP issuer name
 ### OTP valid window
 
