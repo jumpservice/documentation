@@ -89,24 +89,25 @@ Administrators must configure the Email service in advance. For more information
 
 ### Third-party login MFA
 
-Enable MFA for third-party authenticated users. This mainly applies to login methods that require authentication redirection or QR code login.
+MFA can be enforced for users authenticated via third-party login methods. This applies mainly to redirection-based logins and QR code logins.
 
-Included:
-- CAS
-- OIDC
-- SAML2
-- OAuth2
-- WeCom
-- Dingtalk
-- FeiShu
-- Lark
-- Slack
+|Authentication Method|Controlled by this setting|
+|:---|:---:|
+|AD/LDAP|✖️|
+|CAS|✔️|
+|Passkey|✖️|
+|AD/LDAP HA|✖️|
+|OIDC|✔️|
+|SAML2|✔️|
+|OAuth2|✔️|
+|WeCom|✔️|
+|Dingtalk|✔️|
+|FeiShu|✔️|
+|Lark|✔️|
+|Slack|✔️|
+|RADIUS|✖️|
 
-Not included:
-- AD/LDAP
-- AD/LDAP HA
-- RADIUS
-- Passkey
+Users logging in through other authentication methods, like local users, can directly enable and use MFA.
 
 ### MFA verify TTL
 ### OTP issuer name
