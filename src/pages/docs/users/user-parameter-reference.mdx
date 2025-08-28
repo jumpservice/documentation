@@ -61,7 +61,7 @@ Password rules can be configured in the system settings, including requirements 
 When `Password must be changed during next login` is checked, the user will be required to change the password immediately after the first successful login.
 
 ## MFA
-Configure the Multi-Factor Authentication (MFA) policy for a single user. You can also configure a global MFA policy in the system settings.
+Configure the Multi-Factor Authentication (MFA) policy for a single user.
 
 - Disabled
 
@@ -75,10 +75,12 @@ Configure the Multi-Factor Authentication (MFA) policy for a single user. You ca
 
   MFA is enforced for the user, and they cannot disable it.
 
-After MFA is enabled, users will be guided to set up MFA during their first login.
+You can also configure a global MFA policy in the system settings. For more information, see [Global MFA](/docs/security/auth-security#global-mfa).
 
-MFA backends support the following options, which must be enabled by the administrator in the system settings before users can configure them from their profile page:
-- OTP
+
+MFA supports the following methods:
+
+- One-Time Password (OTP)
 - SMS
 - Email
 - Passkey
