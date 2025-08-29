@@ -6,7 +6,7 @@ const Steps = ({ children, stepLevel = "1"}: { children: React.ReactNode, stepLe
     "2": ""
   };
   const stepIndexClassMapper = {
-    "1": "w-5 h-5 text-md mt-1 font-semibold text-black dark:text-white",
+    "1": "w-5 h-5 text-md mt-1 text-black dark:text-white",
     "2": "w-5 h-5 text-sm mt-1 text-black dark:text-white",
   }
   return (
@@ -17,7 +17,7 @@ const Steps = ({ children, stepLevel = "1"}: { children: React.ReactNode, stepLe
               `flex items-center justify-center rounded-full select-none flex-shrink-0 ${stepIndexClassMapper[stepLevel]}` 
             } 
           >
-            {index + 1}{stepLevel === "1" ? "." : "."}
+            {index + 1}.
           </div>
           <div className="flex-1">{child}</div>
         </div>
