@@ -62,7 +62,7 @@ export const ArchitectureDiagram = () => {
           <div className="flex w-full flex-wrap justify-center gap-4">
             <JumpServerWordmarkLogoIcon className="h-9" />
             <div className="text-primary font-semibold text-md text-center">
-              <span className="block font-bold">An open-source PAM tool</span>
+              <span className="block font-bold">An open-source PAM platform</span>
               <span className="block font-bold">( Bastion Host )</span>
             </div>
           </div>
