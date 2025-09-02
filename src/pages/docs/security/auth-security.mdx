@@ -67,6 +67,22 @@ Global MFA can be applied to all users at once, eliminating the need to configur
 
   Global MFA is enabled for admin users (including users with `System Admin` or `Organization Admin` roles) and cannot be disabled by them. Regular users can enable or disable it from their profile page.
 
+<Alert>
+If you have enabled global MFA but are unable to log in, you can run the following command to disable it.
+```
+docker exec -it jms_core bash
+cd apps/
+python manage.py shell
+```
+
+```
+from settings.models import Setting
+s = Setting.objects.get(name="SECURITY_MFA_AUTH")
+s.value = 0
+s.save()
+```
+</Alert>
+
 ### MFA in login page
 
 Effective only when "Global MFA" is enabled and "All users" is selected.
