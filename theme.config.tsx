@@ -45,7 +45,7 @@ const config: DocsThemeConfig = {
       <meta property="og:title" content="JumpServer" />
       <meta
         property="og:description"
-        content="An open-source PAM tool (Bastion Host)"
+        content="An open-source PAM platform (Bastion Host)"
       />
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     </>
@@ -91,7 +91,7 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter();
     let titleTemplate = "%s - JumpServer";
     if (asPath == "/") {
-      titleTemplate = "An open-source PAM tool - JumpServer";
+      titleTemplate = "An open-source PAM platform - JumpServer";
     }
     return {
       titleTemplate: titleTemplate,
