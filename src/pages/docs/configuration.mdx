@@ -68,6 +68,48 @@ Control the display of log information at different levels.
 * `ERROR`: Information describing a major problem that has occurred.
 * `CRITICAL`: Information describing a critical problem that has occurred.
 
+### DB_ENGINE
+Default: `postgresql`
+
+Specifies the backend database engine for JumpServer.
+
+* `postgresql`: Use PostgreSQL as the database.
+* `mysql`: Use MySQL or MariaDB as the database.
+* `vastbase`: Use Vastbase as the database.
+
+### DB_HOST
+Default: `postgresql`
+
+The hostname or IP address of the database server. Defaults to the built-in "jms_postgresql" container.
+
+### DB_PORT
+
+Default: `5432`
+
+The port number of the database server.
+
+### DB_NAME
+Default: `jumpserver`
+
+The name of the database to use.
+
+### DB_USER
+Default: `postgres`
+The username used to connect to the database.
+
+### DB_PASSWORD
+Default: `A randomly generated 26-character`
+
+The password used to connect to the database.
+
+### DB_USE_SSL
+
+Default: `false`
+
+Whether to use SSL to connect to the database. Effective only when `DB_ENGINE=mysql`.
+
+The SSL certificate should be placed at `/data/jumpserver/core/data/certs/db_ca.pem`.
+
 ### USER_DEFAULT_EXPIRED_DAYS
 Default: `25550`
 
