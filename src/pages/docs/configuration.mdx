@@ -95,6 +95,7 @@ The name of the database to use.
 
 ### DB_USER
 Default: `postgres`
+
 The username used to connect to the database.
 
 ### DB_PASSWORD
@@ -106,7 +107,7 @@ The password used to connect to the database.
 
 Default: `false`
 
-Whether to use SSL to connect to the database. Effective only when `DB_ENGINE=mysql`.
+Use SSL for the database connection. Supported only with the `mysql` database engine.
 
 The SSL certificate should be placed at `/data/jumpserver/core/data/certs/db_ca.pem`.
 
