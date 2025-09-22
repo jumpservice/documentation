@@ -111,6 +111,77 @@ Use SSL for the database connection. Supported only with the `mysql` database en
 
 The SSL certificate should be placed at `/data/jumpserver/core/data/certs/db_ca.pem`.
 
+### REDIS_HOST
+Default: `redis`
+
+The hostname or IP address of the Redis server. Defaults to the built-in "jms_redis" container.
+
+### REDIS_PORT 
+Default: `6379`
+
+The port number of the Redis server.
+
+### REDIS_PASSWORD
+Default: `A randomly generated 26-character`
+
+The password used to connect to the Redis server.
+
+### REDIS_USE_SSL
+Default: `false`
+
+Use SSL for the Redis connection.
+If enabled, you need to prepare the following files in advance and place them in the following directory:
+
+- Redis SSL private key file: `/data/jumpserver/core/data/certs/redis_client.key`
+
+- Redis SSL certificate file: `/data/jumpserver/core/data/certs/redis_client.crt`
+
+- Redis SSL CA certificate file (prefer .crt format, .pem as an alternative): 
+	- `/data/jumpserver/core/data/certs/redis_ca.crt`
+	- `/data/jumpserver/core/data/certs/redis_ca.pem`
+
+### REDIS_MAX_CONNECTIONS
+Default: `100`
+
+The maximum number of connections to the Redis server.
+
+### REDIS_SENTINEL_HOSTS
+Default: '' (empty)
+
+The Sentinel nodes for Redis Sentinel mode. 
+
+The format is: `ServiceName/host1:port1,host2:port2,host3:port3`
+
+### REDIS_SENTINEL_PASSWORD
+Default: '' (empty)
+
+The password used to connect to the Redis Sentinel nodes.
+
+### REDIS_SENTINEL_SOCKET_TIMEOUT
+Default: `none`
+
+Specifies the read timeout for Redis Sentinel connections, in seconds.
+
+### REDIS_DB_CELERY
+Default: `3`
+
+Redis database index used to store Celery tasks
+
+### REDIS_DB_CACHE
+Default: `4`
+
+Redis database index used for caching
+
+### REDIS_DB_SESSION
+Default: `5`
+
+Redis database index used to store user sessions
+
+### REDIS_DB_WS
+Default: `6`
+
+Redis database index used for WebSocket connections
+
 ### USER_DEFAULT_EXPIRED_DAYS
 Default: `25550`
 
