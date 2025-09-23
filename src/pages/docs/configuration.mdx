@@ -1,24 +1,22 @@
 # Configuration
 
 This topic describes the configuration options in the config.txt file. 
-The default location of the file is: 
-```
-/opt/jumpserver/config/config.txt
-```
+
+The default location of the file is: `/opt/jumpserver/config/config.txt`
 
 <Alert type="note">
 After changing any configuration, run `jmsctl restart` to apply the changes.
 </Alert>
 
 ### SECRET_KEY
-Default: `A randomly generated 48-character`
+Default: (A randomly generated 48-character)
 
 Used to encrypt sensitive information, such as asset account passwords.
 
 Keep the SECRET_KEY same as the old environment during migration. Do not share it with anyone.
 
 ### BOOTSTRAP_TOKEN
-Default: `A randomly generated 24-character`
+Default: (A randomly generated 24-character)
 
 Used for registration of components such as KoKo, Lion, Magnus, etc.
 
@@ -87,7 +85,7 @@ Default: `postgres`
 The username used to connect to the database.
 
 ### DB_PASSWORD
-Default: `A randomly generated 26-character`
+Default: (A randomly generated 26-character)
 
 The password used to connect to the database.
 
@@ -136,21 +134,21 @@ Default: `100`
 The maximum number of connections to the redis server.
 
 ### REDIS_SENTINEL_HOSTS
-Default: '' (empty)
+Default: (empty)
 
 The Sentinel nodes for redis sentinel mode. 
 
 The format is: `ServiceName/host1:port1,host2:port2,host3:port3`
 
 ### REDIS_SENTINEL_PASSWORD
-Default: '' (empty)
+Default: (empty)
 
 The password used to connect to the redis sentinel nodes.
 
 ### REDIS_SENTINEL_SOCKET_TIMEOUT
 Default: `none`
 
-Specifies the read timeout for redis sentinel connections, in seconds.
+Specifies the read timeout for redis sentinel connections, in seconds. The default is `none`, which means no timeout.
 
 ### REDIS_DB_CELERY
 Default: `3`
