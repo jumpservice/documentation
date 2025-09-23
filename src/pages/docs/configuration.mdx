@@ -171,14 +171,12 @@ Default: `6`
 Redis database index used for websocket connections.
 
 ### X_FRAME_OPTIONS
-
 Default: `SAMEORIGIN`
 
 Used to prevent the page from being embedded in third-party sites and to protect users from clickjacking attacks.
 
 - `SAMEORIGIN`: Allows the page to be displayed in a frame on the same origin.
 - `DENY`: Prevents the page from being displayed in a frame, regardless of the site attempting to do so.
-
 
 ### TOKEN_EXPIRATION
 Default: `3600`
@@ -188,7 +186,13 @@ The validity period of the bearer token for creating a user through the API, in 
 ### USER_DEFAULT_EXPIRED_DAYS
 Default: `25550`
 
-Default expiration days for a user. When creating a user, the "Date expired" is automatically calculated based on this setting.
+Default expiration period (in days) for a user. When creating a user, the "Date expired" is automatically calculated based on this setting.
+
+### ASSET_PERMISSION_DEFAULT_EXPIRED_DAYS
+Default: `25550`
+
+Default expiration period (in days) for an authorization. When an authorization is created, the “Date expired” is automatically calculated based on this value.
+
 
 ### SECURITY_VIEW_AUTH_NEED_MFA
 `recommended`
