@@ -179,17 +179,17 @@ Used to prevent the page from being embedded in third-party sites and to protect
 - `DENY`: Prevents the page from being displayed in a frame, regardless of the site attempting to do so.
 
 ### TOKEN_EXPIRATION
-Default: `3600`
+Default: `3600` (in seconds)
 
 The validity period of the bearer token for creating a user through the API, in seconds.
 
 ### USER_DEFAULT_EXPIRED_DAYS
-Default: `25550`
+Default: `25550` (in days)
 
 Default expiration period (in days) for a user. When creating a user, the "Date expired" is automatically calculated based on this setting.
 
 ### ASSET_PERMISSION_DEFAULT_EXPIRED_DAYS
-Default: `25550`
+Default: `25550` (in days)
 
 Default expiration period (in days) for an authorization. When an authorization is created, the "Date expired" is automatically calculated based on this value.
 
@@ -199,9 +199,24 @@ Default: `None`
 The domain to use for session cookies. Set this to a string such as "example.com" for cross-domain cookies, or use None for a standard domain cookie.
 
 ### SESSION_COOKIE_AGE
-Default: `86400`
+Default: `86400` (in seconds)
 
 The age of session cookies, in seconds. The default is 24 hours (86400 seconds).
+
+### CONNECTION_TOKEN_ONETIME_EXPIRATION
+Default: `300` (in seconds)
+
+The validity period of a one-time connection token, in seconds. The default is 5 minutes (300 seconds).
+
+### CONNECTION_TOKEN_REUSABLE
+default: `false`
+
+Whether to enable reusable connection tokens. The default is false, meaning that each token can only be used once. If set to true, the token can be used multiple times within the validity period.
+
+### CONNECTION_TOKEN_REUSABLE_EXPIRATION
+Default: `2592000` (in seconds)
+
+The validity period of a reusable connection token, in seconds. The default is 30 days (2592000 seconds).
 
 ### SECURITY_VIEW_AUTH_NEED_MFA
 `recommended`
