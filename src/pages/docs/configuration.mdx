@@ -146,7 +146,7 @@ Default: (empty)
 The password used to connect to the redis sentinel nodes.
 
 ### REDIS_SENTINEL_SOCKET_TIMEOUT
-Default: `none`
+Default: `None`
 
 Specifies the read timeout for redis sentinel connections, in seconds. The default is `none`, which means no timeout.
 
@@ -193,6 +193,10 @@ Default: `25550`
 
 Default expiration period (in days) for an authorization. When an authorization is created, the "Date expired" is automatically calculated based on this value.
 
+### SESSION_COOKIE_DOMAIN
+Default: `None`
+
+The domain to use for session cookies. Set this to a string such as "example.com" for cross-domain cookies, or use None for a standard domain cookie.
 
 ### SECURITY_VIEW_AUTH_NEED_MFA
 `recommended`
