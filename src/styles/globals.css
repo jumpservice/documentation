@@ -88,7 +88,7 @@ pre {
     @apply text-xs text-gray-700  dark:text-gray-400;
   }
   thead > tr > th {
-    @apply px-6 py-3 text-primary text-sm border-b dark:border-gray-700;
+    @apply px-4 py-3 text-primary text-sm border-b dark:border-gray-700;
   }
   tbody > tr {
     @apply border-b;
@@ -97,10 +97,10 @@ pre {
     @apply dark:border-gray-700;
   }
   tbody > tr > th {
-    @apply whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white;
+    @apply whitespace-nowrap px-4 py-4 font-medium text-gray-900 dark:text-white;
   }
   tbody > tr > td {
-    @apply px-6 py-4 text-gray-800 dark:text-gray-300;
+    @apply px-4 py-4 text-gray-800 dark:text-gray-300;
   }
 }
 
