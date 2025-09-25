@@ -23,9 +23,14 @@ function TableSupport() {
               <td>Standalone</td>
               <td>Annual Subscription</td>
               <td className="border-l dark:border-l dark:border-gray-700">
-                <a href="https://www.lxware.hk/products/jumpserver-enterprise-edition-basic-plan" target="_blank" className="hover:underline hover:text-primary">
-                  Buy Now <Icon name="link" />
-                </a>
+                <div className="flex flex-col gap-2">
+                  <a href="https://www.lxware.hk/products/jumpserver-enterprise-edition-basic-plan" target="_blank" className="hover:underline hover:text-primary">
+                    Buy Now <Icon name="link" />
+                  </a>
+                  <a href="https://aws.amazon.com/marketplace/pp/prodview-vapdbpzpdbjam" target="_blank" className="hover:underline hover:text-primary">
+                    Buy With AWS <Icon name="link" />
+                  </a>
+                </div>
               </td>
             </tr>
             <tr>
