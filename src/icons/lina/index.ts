@@ -16,3 +16,4 @@ export { default as Service } from "./service.svg";
 export { default as BatchUpdate } from "./batch-update.svg";
 export { default as Remind } from "./remind.svg";
 export { default as QuestionMark } from "./question-mark.svg";
+export { default as Basic } from "./basic.svg";
