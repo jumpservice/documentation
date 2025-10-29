@@ -55,6 +55,7 @@ export const iconConfig = {
   CircleMinus: <LucideIcons.CircleMinus className="w-4 pb-1 inline-block" />,
   Check: <LucideIcons.Check className="w-4 pb-1 inline-block" />,
   X: <LucideIcons.X className="w-4 pb-1 inline-block" />,
+  LucideMessageCircleQuestion: <LucideIcons.LucideMessageCircleQuestion className="w-4 pb-1 inline-block" />,
 
   // lina svg icons
   ...generateIconMap(),

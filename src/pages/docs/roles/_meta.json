@@ -1,0 +1,4 @@
+{
+  "system-role": { "title": "System role", "display": "normal" },
+  "org-role": { "title": "Organization role", "display": "normal" }
+}
