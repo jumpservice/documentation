@@ -1,3 +1,4 @@
 {
-  "email": { "title": "Email", "display": "normal" }
+  "email": { "title": "Email", "display": "normal" },
+  "msg-template": { "title": "Message template", "display": "normal" }
 }
