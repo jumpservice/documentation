@@ -26,6 +26,7 @@
   "-- system-settings": { "type": "separator", "title": "System Settings" },
   "general": { "title": "General", "display": "normal" },
   "organizations": { "title": "Organizations", "display": "normal" },
+  "roles": { "title" : "Roles", "display": "normal" },
   "notifications": { "title": "Notifications", "display": "normal" },
   "authentication": { "title": "Authentication", "display": "normal" },
   "remoteapp": { "title": "RemoteApp & VirtualApp", "display": "normal" },
