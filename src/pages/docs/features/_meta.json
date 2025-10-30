@@ -1,3 +1,5 @@
 {
-  "announcement": { "title": "Announcement", "display": "normal" }
+  "announcement": { "title": "Announcement", "display": "normal" },
+  "ticket": { "title": "Ticket", "display": "normal" },
+  "job-center": { "title": "Job center", "display": "normal" }
 }
