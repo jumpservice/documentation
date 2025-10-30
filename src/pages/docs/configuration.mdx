@@ -236,3 +236,92 @@ Default: `true`
 By default, MFA verification is mandatory when administrators view an asset account’s secret.
 
 For more information about configuring the MFA verification validity period, see [MFA verify TTL](/docs/security/auth-security#mfa-verify-ttl).
+
+
+### VAULT_ENABLED <Icon name="xpack" />
+`enterprise`
+
+Default: `false`
+
+Whether to enable account storage using other vaults (external storage).
+
+### VAULT_BACKEND <Icon name="xpack" />
+`enterprise`
+
+Default: `local`
+
+The backend type of the vault. Supported types include:
+- `local`: Use JumpServer's built-in database for account storage.
+- `hcp`: Use HashiCorp Vault HCP for account storage.
+- `azure`: Use Microsoft Azure Key Vault for account storage.
+- `aws`: Use Amazon Web Services Secrets Manager for account storage.
+
+### VAULT_HCP_HOST <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The HCP Vault host address.
+
+### VAULT_HCP_TOKEN <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The HCP Vault access token.
+
+### VAULT_HCP_MOUNT_POINT <Icon name="xpack" />
+`enterprise`
+
+Default: `jumpserver`
+
+The mount point of the secret engine in HCP Vault.
+
+### VAULT_AZURE_HOST <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The Azure Key Vault host address.
+
+### VAULT_AZURE_CLIENT_ID <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The Azure Key Vault client ID.
+
+### VAULT_AZURE_CLIENT_SECRET <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The Azure Key Vault client secret.
+
+### VAULT_AZURE_TENANT_ID <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The Azure Key Vault tenant ID.
+
+### VAULT_AWS_REGION_NAME <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The AWS region name where the Secrets Manager is located.
+
+### VAULT_AWS_ACCESS_KEY_ID <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The AWS access key ID for accessing the Secrets Manager.
+
+### VAULT_AWS_ACCESS_SECRET_KEY <Icon name="xpack" />
+`enterprise`
+
+Default: (empty)
+
+The AWS secret access key for accessing the Secrets Manager.

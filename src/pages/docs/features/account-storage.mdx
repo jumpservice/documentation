@@ -1,0 +1,91 @@
+# Account storage <Icon name="xpack-lg" />
+
+Administrators can configure account storage for the system and store asset account credentials in an external system.
+The following account storage types are currently supported:
+- HashiCorp Vault
+- Microsoft Azure Key Vault
+- Amazon Web Services Secrets Manager
+
+<Alert type="note">
+For security reasons, account storage can currently only be configured in the service configuration file (config.txt), and the JumpServer service must be restarted after configuration.
+</Alert>
+
+## Enable account storage
+
+### Using HashiCorp Vault
+
+Please refer to and modify the following configuration:
+- [VAULT_ENABLED](/docs/configuration#vault_enabled-)
+- [VAULT_BACKEND](/docs/configuration#vault_backend-)
+- [VAULT_HCP_HOST](/docs/configuration#vault_hcp_host-)
+- [VAULT_HCP_TOKEN](/docs/configuration#vault_hcp_token-)
+- [VAULT_HCP_MOUNT_POINT](/docs/configuration#vault_hcp_mount_point-)
+
+### Using Microsoft Azure Key Vault
+Please refer to and modify the following configuration:
+- [VAULT_ENABLED](/docs/configuration#vault_enabled-)
+- [VAULT_BACKEND](/docs/configuration#vault_backend-)
+- [VAULT_AZURE_HOST](/docs/configuration#vault_azure_host-)
+- [VAULT_AZURE_CLIENT_ID](/docs/configuration#vault_azure_client_id-)
+- [VAULT_AZURE_CLIENT_SECRET](/docs/configuration#vault_azure_client_secret-)
+- [VAULT_AZURE_TENANT_ID](/docs/configuration#vault_azure_tenant_id-)
+
+### Using Amazon Web Services Secrets Manager
+Please refer to and modify the following configuration:
+- [VAULT_ENABLED](/docs/configuration#vault_enabled-)
+- [VAULT_BACKEND](/docs/configuration#vault_backend-) 
+- [VAULT_AWS_REGION_NAME](/docs/configuration#vault_aws_region_name-)
+- [VAULT_AWS_ACCESS_KEY_ID](/docs/configuration#vault_aws_access_key_id-)
+- [VAULT_AWS_ACCESS_SECRET_KEY](/docs/configuration#vault_aws_access_secret_key-)
+
+## Set the maximum number of account secret records
+Administrators can set the maximum number of account secret records stored in the external vault system to avoid excessive storage usage.
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Feature" /> Features**.
+</div>
+
+<div>
+On the right page, click **Account storage** tab.
+</div>
+
+<div>
+In the **Record limit** field, type the maximum number of account secret records to be stored in the external vault system.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+## Synchronize account secrets to external vault
+After enabling account storage, administrators need to manually sync existing account secrets stored in JumpServer's local database to the external vault system.
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Feature" /> Features**.
+</div>
+
+<div>
+On the right page, click **Account storage** tab.
+</div>
+
+<div>
+Click **Sync**.
+</div>
+
+</Steps>
+
+<Alert type="note">
+Account credentials can only be synchronized from the local database to the external account storage, reverse synchronization is not supported.
+</Alert>

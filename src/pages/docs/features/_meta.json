@@ -1,5 +1,6 @@
 {
   "announcement": { "title": "Announcement", "display": "normal" },
   "ticket": { "title": "Ticket", "display": "normal" },
-  "job-center": { "title": "Job center", "display": "normal" }
+  "job-center": { "title": "Job center", "display": "normal" },
+  "account-storage": { "title": "Account storage", "display": "normal" }
 }
