@@ -1,0 +1,74 @@
+# General
+
+## Page navigation
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="TerminalSet" /> Components**.
+</div>
+
+<div>
+On the right page, click **Basic** tab.
+</div>
+
+<div>
+View and modify related [configuration options](#configuration-options).
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+## configuration options
+
+### Registration
+Configure whether components are allowed to register.
+
+- `Auto`: (default) Allows component registration within 5 minutes after the service starts.
+- `Enable`: Always allows component registration.
+- `Disable`: Prevents component registration.
+
+### Client connection
+
+Configure whether to allow connecting to the KoKo component via an SSH client.
+
+When enabled, the SSH Client launch method will be displayed on the Luna page when users connect to assets.
+
+### Password
+Configure whether to allow users to connect to the KoKo component using password authentication.
+
+### Public key
+Configure whether to allow users to connect to the KoKo component using public key authentication.
+
+If you have enabled a third-party authentication service, such as AD/LDAP, you should disable this option, otherwise, users will bypass the unified authentication system.
+
+### Asset sorting
+Configure the default asset sorting field when users log in to the KoKo component to view assets.
+- `Name`: (default) Sort assets by name in ascending order.
+- `Address`: Sort assets by address in ascending order.
+
+### Asset page size
+Configure the default number of assets displayed per page when users log in to the KoKo component to view assets.
+- `Auto`: (default) Automatically adjust the number of assets displayed per page based on the screen size.
+- `All`: Display all assets on a single page.
+- `10`: Display 10 assets per page.
+- `15`: Display 15 assets per page.
+- `25`: Display 25 assets per page.
+- `50`: Display 50 assets per page.
+
+### Razor
+
+Configure whether to allow connecting to assets via the RDP protocol through Razor.
+
+When enabled, the Luna page will display options to download the RDP file and connect to assets using an RDP client.
+
+### Magnus
+
+Configure whether to allow connecting to databases via Magnus.
+
+When enabled, the Luna page will display options to connect to assets using a database (DB) client.
