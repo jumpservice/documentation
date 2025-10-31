@@ -1,13 +1,17 @@
-# VirtualApp <Icon name="xpack"/>
+# VirtualApp <Icon name="xpack-lg"/>
 
 In JumpServer, a **VirtualApp** is an application that includes an image address. When a user connects to an asset through a VirtualApp, Panda creates a corresponding VirtualApp container based on the image and establishes the connection through that container.
 
 **Panda**, also called the **Application provider**, is a component of JumpServer. It is used to fetch VirtualApp images and manage containers, including creating, starting, stopping, and deleting containers.
 
 
-## Enable VirtualApp feature
+## Enable and configure VirtualApp
 
-### 1. Configure PANDA_HOST_IP
+### 1. Enable VirtualApp
+
+For details on how to enable the VirtualApp feature, see [Enable virtual app](/docs/features/virtual-app#enable-virtual-app).
+
+### 2. Configure PANDA_HOST_IP
 <Steps>
 
 <div>
@@ -21,7 +25,7 @@ Edit the config file and type the current host IP.
 vi  /opt/jumpserver/config/config.txt
 ```
 ```bash
-PANDA_HOST_IP="Host IP"
+PANDA_HOST_IP=Host-IP
 ```
 </div>
 
@@ -34,32 +38,6 @@ jmsctl restart
 </div>
 
 </Steps>
-
-### 2. Enable VirtualApp
-<Steps>
-
-<div>
-<Nav name="system-settings" />
-</div>
-
-<div>
-In the left menu, click **<Icon name="Feature" /> Features**.
-</div>
-
-<div>
-On the right page, click **VirtualApp** tab.
-</div>
-
-<div>
-Check **Virtual app**.
-</div>
-
-<div>
-Click **Submit**.
-</div>
-
-</Steps>
-
 
 ## Upload VirtualApp
 <Steps>
