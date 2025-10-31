@@ -1,13 +1,13 @@
 {
   "basic": "Basic settings",
 
-  "ldap": "Integrate LDAP",
+  "ldap": "Integrate AD/LDAP",
 
   "cas": "Integrate CAS",
 
   "passkey": "Integrate Passkey",
 
-  "ldap-ha": "Integrate LDAP HA",
+  "ldap-ha": "Integrate AD/LDAP HA",
 
   "oidc": "Integrate OIDC",
 
