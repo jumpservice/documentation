@@ -1,0 +1,154 @@
+# Object storage
+
+JumpServer allows administrators to configure object storage for saving asset session recordings.
+
+The following object storage types are currently supported:
+
+- Built-in types:
+  - Local (stores recordings locally)
+  - Null (does not store recordings)
+
+- Cloud or external storage types:
+  - Amazon S3
+  - Ceph
+  - OpenStack Swift
+  - Alibaba Cloud OSS
+  - Microsoft Azure Blob Storage
+  - Huawei Cloud OBS
+  - Tencent Cloud COS
+
+- Backup-only storage:
+  - SFTP (used only for storing backup files, such as account backups)
+
+
+## Create an object storage
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Storage" /> Storage**.
+</div>
+
+<div>
+On the right page, click **Object storage** tab.
+</div>
+
+<div>
+Click **+ Create**, and select the desired object storage type.
+</div>
+
+<div>
+Fill in the required information for the selected object storage type.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+## Set the default object storage
+After setting a default storage, newly registered components will automatically use it. The storage type of existing components will remain unchanged.
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Storage" /> Storage**.
+</div>
+
+<div>
+On the right page, click **Object storage** tab.
+</div>
+
+<div>
+Find the object storage you want to set as default.
+
+</div>
+
+<div>
+In the Actions column, click the **···** icon, then click **Set as default**.
+<Alert type="note">
+SFTP storage cannot be set as the default object storage.
+</Alert>
+
+</div>
+</Steps>
+
+## Test the object storage
+You can test whether the configured object storage is working properly.
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Storage" /> Storage**.
+</div>
+
+<div>
+On the right page, click **Object storage** tab.
+</div>
+
+<div>
+Find the object storage you want to test.
+
+</div>
+
+<div>
+In the Actions column, click the **···** icon, then click **Test**.
+</div>
+</Steps>
+
+## Edit an object storage
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Storage" /> Storage**.
+</div>
+
+<div>
+On the right page, click **Object storage** tab.
+</div>
+
+<div>
+Find the object storage you want to edit.
+
+</div>
+
+<div>
+In the Actions column, click **Edit**.
+</div>
+</Steps>
+
+## Delete an object storage
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Storage" /> Storage**.
+</div>
+
+<div>
+On the right page, click **Object storage** tab.
+</div>
+
+<div>
+Find the object storage you want to delete.
+
+</div>
+
+<div>
+In the Actions column, click the **···** icon, then click **Delete**.
+</div>
+</Steps>

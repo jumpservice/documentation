@@ -19,3 +19,4 @@ export { default as QuestionMark } from "./question-mark.svg";
 export { default as Basic } from "./basic.svg";
 export { default as OrganizationSet } from "./organization-set.svg";
 export { default as Role } from "./role.svg";
+export { default as Storage } from "./storage.svg";
