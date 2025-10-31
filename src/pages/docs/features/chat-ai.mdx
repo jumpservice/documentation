@@ -1,0 +1,144 @@
+# Chat AI
+
+Administrators can configure the Chat AI feature, allowing users to ask questions and chat through the AI assistant icon on the right side of the page.
+
+## Enable Chat AI
+
+Two configuration methods are currently supported:
+- `API`: Implemented by calling a general model.
+- `Embed`: Implemented by directly embedding an iframe chat window.
+
+### Using GPT model
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Feature" /> Features**.
+</div>
+
+<div>
+On the right page, click **Chat AI** tab.
+</div>
+
+<div>
+In the **Chat AI** field, check the box to enable Chat AI.
+</div>
+
+<div>
+In the **Method** field, select "API".
+</div>
+
+<div>
+In the **Types** field, select "GPT".
+</div>
+
+<div>
+In the **Base URL** field, type the API base URL of the GPT model.
+</div>
+
+<div>
+In the **API key** field, type the API key of the GPT model.
+</div>
+
+<div>
+In the **Proxy** field, type the proxy address if a proxy is needed to access the GPT model API.
+</div>
+
+<div>
+In the **GPT model** field, select the GPT model to be used.
+Available models:
+- gpt-4o-mini
+- gpt-4o
+- o3-mini
+- o1-mini
+- o1
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+### Using DeepSeek model
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Feature" /> Features**.
+</div>
+
+<div>
+On the right page, click **Chat AI** tab.
+</div>
+
+<div>
+In the **Chat AI** field, check the box to enable Chat AI.
+</div>
+
+<div>
+In the **Method** field, select "API".
+</div>
+
+<div>
+In the **Types** field, select "DeepSeek".
+</div>
+
+<div>
+In the **Base URL** field, type the API base URL of the DeepSeek model.
+</div>
+
+<div>
+In the **API key** field, type the API key of the DeepSeek model.
+</div>
+
+<div>
+In the **Proxy** field, type the proxy address if a proxy is needed to access the DeepSeek model API.
+</div>
+
+<div>
+In the **DeepSeek model** field, select the DeepSeek model to be used.
+Available models:
+- DeepSeek-V3
+- DeepSeek-R1
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+### Using embed method
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Feature" /> Features**.
+</div>
+
+<div>
+On the right page, click **Chat AI** tab.
+</div>
+
+<div>
+In the **Chat AI** field, check the box to enable Chat AI.
+</div>
+
+<div>
+In the **Method** field, select "Embed".
+</div>
+
+<div>
+In the **Base URL** field, type the iframe URL of the chat window.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
