@@ -1,0 +1,72 @@
+# Login restriction
+
+This topic introduces configuration parameters for user login restrictions.
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Security" /> Security**.
+</div>
+
+<div>
+On the right page, click **Login restriction** tab.
+</div>
+</Steps>
+
+## User
+
+Within the **Login failure period (minute)**, if the number of consecutive failed login attempts exceeds **Login failures count**, the user will be locked and unable to log in.
+
+Administrators can unlock the user from the User detail page, for more information, see [Unlock user](/docs/users/unlock-user).
+
+### Login failures count
+`required`
+
+The number of consecutive failed login attempts by the user before the user is locked.
+
+### Login failure period (minute) 
+`required`
+
+The time period within which the consecutive failed login attempts are counted.
+
+## IP
+
+Within the **Login failure period (minute)**, if the number of consecutive failed login attempts exceeds **Login failures count**, the IP will be locked and no users will be able to log in from that IP.
+
+Administrators can unlock the IP from the [Locked ips](#locked-ips) section.
+
+### Login failures count
+`required`
+
+The number of consecutive failed login attempts from the IP before the IP is locked.
+
+### Login failure period (minute)
+`required`
+
+The time period within which the consecutive failed login attempts from the IP are counted.
+
+### Login IP whitelist
+
+Set an IP whitelist. Users from these IPs will always be allowed to log in.
+
+### Login IP blacklist
+
+Set an IP blacklist. Users from these IPs will always be denied login.
+
+### Locked ips
+
+View and manage the currently locked IPs.
+
+## Other
+
+### Only single device login
+When enabled, a user can only be logged in from one device at a time. If the user logs in from another device, the previous session will be automatically logged out.
+
+### Only exist user login
+When enabled, only existing users in the system are allowed to log in. Any login attempts with non-existing usernames will be denied.
+
+### Only from source login
+When enabled, users can only authenticate and log in through the authentication service specified in their **Source** field.
