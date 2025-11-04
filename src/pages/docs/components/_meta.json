@@ -1,0 +1,7 @@
+{
+  "general": { "title": "General", "display": "normal" },
+  "components": { "title": "Components", "display": "normal"},
+  "monitoring": { "title": "Monitoring", "display": "normal" },
+  "endpoint": { "title": "Endpoint", "display": "normal" },
+  "endpoint-rules": { "title": "Endpoint rules", "display": "normal" }
+}

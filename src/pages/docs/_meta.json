@@ -30,6 +30,8 @@
   "notifications": { "title": "Notifications", "display": "normal" },
   "features": { "title": "Features", "display": "normal" },
   "authentication": { "title": "Authentication", "display": "normal" },
+  "storage": { "title": "Storage", "display": "normal" },
+  "components": { "title": "Components", "display": "normal" },
   "remoteapp": { "title": "RemoteApp & VirtualApp", "display": "normal" },
   "security": { "title": "Security", "display": "normal" },
   "license": { "title": "License", "display": "normal" },

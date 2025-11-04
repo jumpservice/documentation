@@ -1,0 +1,49 @@
+# Endpoint rules
+
+Endpoint rules define how the system selects service endpoints based on rules when users connect to assets. By configuring endpoint rules, you can control and optimize access to assets, ensuring that users connect through the most appropriate endpoints based on predefined conditions.
+
+For the server endpoint selection strategy, there are currently two options:
+1. Specify the endpoint according to the endpoint rule (current page);
+2. Choose the endpoint through asset tags, with the fixed tag name being "endpoint" and the value being the name of the endpoint.
+
+The tag matching method is preferred for both methods, as the ip range may conflict, and the tag method exists as a supplement to the rules.
+
+### Create endpoint rule
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="TerminalSet" /> Components**.
+</div>
+
+<div>
+On the right page, click **Endpoint rules** tab.
+</div>
+
+<div>
+Click **+ Create**.
+</div>
+
+<div>
+In the **Name** field, type a name for the endpoint rules.
+</div>
+
+<div>
+In the **Priority** field, type the priority of the endpoint rules. The lower the value, the higher the priority.
+</div>
+
+<div>
+In the **Address** field, type the IP address or IP segment of the asset to be matched by the endpoint rules.
+</div>
+
+<div>
+In the **Endpoint** field, select the endpoint to be used when the asset matches the address.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>

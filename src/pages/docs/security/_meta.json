@@ -1,3 +1,4 @@
 {
-  "auth-security": { "title": "Auth security", "display": "normal" }
+  "auth-security": { "title": "Auth security", "display": "normal" },
+  "login-restriction": { "title": "Login restriction", "display": "normal" }
 }
