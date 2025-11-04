@@ -1,4 +1,5 @@
 {
   "general": { "title": "General", "display": "normal" },
-  "components": { "title": "Components", "display": "normal"}
+  "components": { "title": "Components", "display": "normal"},
+  "monitoring": { "title": "Monitoring", "display": "normal" }
 }
