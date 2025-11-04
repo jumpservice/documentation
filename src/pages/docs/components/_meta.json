@@ -1,3 +1,4 @@
 {
-  "general": { "title": "General", "display": "normal" }
+  "general": { "title": "General", "display": "normal" },
+  "components": { "title": "Components", "display": "normal"}
 }
