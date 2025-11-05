@@ -1,0 +1,92 @@
+# Asset session
+This topic introduces configuration parameters for asset session security.
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Security" /> Security**.
+</div>
+
+<div>
+On the right page, click **Asset session** tab.
+</div>
+</Steps>
+
+
+## Basic
+### Session share
+After session sharing is enabled, users can create share links within their active sessions and share them with other users. The invited users can then join the session.
+The following session types are currently supported for sharing:
+- Web RDP
+- Web VNC
+- Web SSH
+
+### Session expire at browser closed
+When enabled, the user session will expire when the user completely exits the browser.
+
+### Allow users to view asset session information
+When enabled, the account selection pop-up will display the number of active sessions for the asset when users connect (RDP protocol only).
+
+### Max idle time (minute)
+The maximum idle time for an asset session. If there is no activity within the specified time, the session will be automatically disconnected.
+
+### Max online time (hour)
+The maximum online time for an asset session. Once the specified time is reached, the session will be automatically disconnected.
+
+## Watermark
+
+### Enable watermark
+When the watermark feature is enabled, the watermark content will be displayed on the Lina (Console) page and in Luna (Asset session) asset sessions, and will also be retained in the session recordings.
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Security" /> Security**.
+</div>
+
+<div>
+On the right page, click **Asset session** tab.
+</div>
+
+<div>
+In the **Watermark** section, check the box to enable watermark.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+### Configure watermark content
+#### Session content
+Configure the watermark content displayed in asset sessions.
+
+You can use `${key}` to read built-in variables in watermark content.
+Built-in variables can be viewed by clicking "<Icon name="QuestionMark" />Help" below the input box.
+
+#### Console content
+Configure the watermark content displayed in the console.
+
+You can use `${key}` to read built-in variables in watermark content.
+Built-in variables can be viewed by clicking "<Icon name="QuestionMark" />Help" below the input box.
+
+#### Font Color
+Select the font color of the watermark.
+
+#### Font size (px)
+Set the font size of the watermark in pixels.
+
+#### Height (px)
+Set the height of the watermark in pixels.
+
+#### Width (px)
+Set the width of the watermark in pixels.
+
+#### Rotate angle (degree)
+Set the rotation angle of the watermark in degrees.

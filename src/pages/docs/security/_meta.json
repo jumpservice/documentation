@@ -1,5 +1,6 @@
 {
   "auth-security": { "title": "Auth security", "display": "normal" },
   "login-restriction": { "title": "Login restriction", "display": "normal" },
-  "user-password": { "title": "User password", "display": "normal" }
+  "user-password": { "title": "User password", "display": "normal" },
+  "asset-session": { "title": "Asset session", "display": "normal" }
 }
