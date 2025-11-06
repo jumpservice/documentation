@@ -35,6 +35,7 @@
   "remoteapp": { "title": "RemoteApp & VirtualApp", "display": "normal" },
   "security": { "title": "Security", "display": "normal" },
   "appearance": { "title": "Appearance", "display": "normal" },
+  "tools": { "title": "Tools", "display": "normal" },
   "license": { "title": "License", "display": "normal" },
 
   "-- user-guides": { "type": "separator", "title": "User Guides", "display": "hidden" },
