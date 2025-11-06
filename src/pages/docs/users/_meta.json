@@ -8,5 +8,7 @@
   "reset-password": { "title": "Reset user password", "display": "normal" },
   "reset-ssh-key": { "title": "Reset user SSH Key", "display": "normal" },
   "reset-mfa": { "title": "Reset user MFA", "display": "normal" },
-  "user-parameter-reference": { "title": "User parameter reference", "display": "normal" }
+  "user-parameter-reference": { "title": "User parameter reference", "display": "normal" },
+  "view-user-related-resources": { "title": "View user related resources", "display": "normal" },
+  "user-login-acl": { "title": "User login ACL", "display": "normal" }
 }
