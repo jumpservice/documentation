@@ -36,6 +36,7 @@
   "security": { "title": "Security", "display": "normal" },
   "appearance": { "title": "Appearance", "display": "normal" },
   "tools": { "title": "Tools", "display": "normal" },
+  "system-tasks": { "title": "System tasks", "display": "normal" },
   "license": { "title": "License", "display": "normal" },
 
   "-- user-guides": { "type": "separator", "title": "User Guides", "display": "hidden" },

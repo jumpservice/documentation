@@ -23,3 +23,5 @@ export { default as Storage } from "./storage.svg";
 export { default as TerminalSet } from "./terminal-set.svg";
 export { default as Security } from "./security.svg";
 export { default as Face } from "./face.svg";
+export { default as Tasks } from "./tasks.svg";
+export { default as Tools } from "./tools.svg";
