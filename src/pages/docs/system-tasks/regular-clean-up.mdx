@@ -1,0 +1,59 @@
+# Regular clean-up
+
+This section introduces the regular clean-up tasks that can be configured in JumpServer.
+
+<Steps>
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **<Icon name="Tasks" /> Tasks**.
+</div>
+
+<div>
+On the right page, click **Regular clean-up** tab.
+</div>
+
+<div>
+Configure the regular clean-up tasks as needed. For more details, refer to [Configurable tasks](#configurable-tasks).
+</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+## Configurable tasks
+
+Logs exceeding the specified retention period will be automatically deleted.
+
+### Login log retention days
+User login log retention days.
+
+### Task log retention days
+Celery task execution record retention days.
+
+### Operate log retention days
+User operation log retention days.
+
+### Password change log retention days
+User password change log retention days.
+
+### FTP log retention days
+FTP file upload and download log retention days.
+
+### Session log retention days
+Retention days for asset session records, command records, and session recordings (when stored locally). Third-party object storage and command storage are not affected by this setting.
+
+### Activity log retention days
+Activity log retention days for each resource.
+
+### Job execution retention days
+Job execution record retention days.
+
+### Cloud sync task history retention days
+Retention days for execution history of asset cloud synchronization tasks.
+
+### Change secret and push record retention days
+Retention days for execution records of asset account secret changes and account pushes.
