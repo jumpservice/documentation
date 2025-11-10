@@ -1,0 +1,4 @@
+{
+  "create-group": { "title": "Create group", "display": "normal" },
+  "view-group-users": { "title": "View group users", "display": "normal" }
+}
