@@ -10,7 +10,7 @@
 
   "-- admin-guides": { "type": "separator", "title": "Admin Guides" },
   "users": { "title": "Users", "display": "normal" },
-  "groups": { "title": "Groups", "display": "hidden"},
+  "groups": { "title": "Groups", "display": "normal"},
   "assets": { "title": "Assets", "display": "normal" }, 
   "nodes": { "title": "Nodes", "display": "hidden" },
   "import-export": { "title": "Import & Export", "display": "normal" },
