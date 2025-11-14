@@ -51,6 +51,7 @@
 
   "-- more": { "type": "separator", "title": "More" },
   "changelog": { "title": "Changelog" },
+  "faq": { "title": "FAQ" },
   "deepwiki": { "title": "DeepWiki" },
   "troubleshooting": { "title": "Troubleshooting", "display": "children" }
 }
