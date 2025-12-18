@@ -1,0 +1,114 @@
+@use 'variables' as *;
+
+/* ========== Code Blocks ========== */
+code {
+  font-family: $font-mono;
+  font-size: 10pt;
+  background-color: $color-code-bg;
+  padding: 2pt 4pt;
+  border-radius: 3pt;
+  color: $color-code-text;
+}
+
+pre {
+  background-color: $color-pre-bg;
+  color: $color-pre-text;
+  padding: 12pt;
+  border-radius: 6pt;
+  overflow-x: auto;
+  margin: 15pt 0;
+  page-break-inside: avoid;
+
+  code {
+    background-color: transparent;
+    color: $color-pre-text;
+    padding: 0;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+}
+
+/* ========== Tables ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15pt 0;
+  page-break-inside: avoid;
+}
+
+th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  padding: 8pt;
+  text-align: left;
+  border: 1pt solid #d1d5db;
+}
+
+td {
+  padding: 8pt;
+  border: 1pt solid #e5e7eb;
+}
+
+tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* ========== Blockquotes ========== */
+blockquote {
+  border-left: 4pt solid #3b82f6;
+  padding-left: 15pt;
+  margin: 15pt 0;
+  color: #374151;
+  font-style: italic;
+  background-color: #eff6ff;
+  padding: 10pt 15pt;
+  page-break-inside: avoid;
+}
+
+/* ========== Images ========== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 15pt auto;
+  page-break-inside: avoid;
+}
+
+/* ========== Horizontal Rules ========== */
+hr {
+  border: none;
+  border-top: 1pt solid $color-border;
+  margin: 20pt 0;
+}
+
+/* ========== Alerts / Callouts ========== */
+.alert,
+.callout,
+.admonition {
+  padding: 12pt;
+  margin: 15pt 0;
+  border-left: 4pt solid;
+  border-radius: 4pt;
+  page-break-inside: avoid;
+}
+
+.alert-info {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.alert-warning {
+  background-color: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.alert-danger,
+.alert-error {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  border-color: #10b981;
+}

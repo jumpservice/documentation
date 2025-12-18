@@ -1,0 +1,109 @@
+# PDF Generation Configuration
+# Define the structure of the PDF document here.
+# Format is similar to mkdocs.yml nav.
+
+nav:
+  - Get Started:
+      - Quickstart: docs/quickstart.mdx
+      - Installation: docs/installation.mdx
+      - Upgrade: docs/upgrade.mdx
+  - Admin Guides:
+      - Users:
+          - Create user: docs/users/create-user.mdx
+          - Edit user: docs/users/edit-user.mdx
+          - Delete users: docs/users/delete-users.mdx
+          - Enable or disable users: docs/users/enable-disable-users.mdx
+          - Invite or remove users: docs/users/invite-remove-users.mdx
+          - Unlock user: docs/users/unlock-user.mdx
+          - Reset user password: docs/users/reset-password.mdx
+          - Reset user SSH Key: docs/users/reset-ssh-key.mdx
+          - Reset user MFA: docs/users/reset-mfa.mdx
+          - View user related resources: docs/users/view-user-related-resources.mdx
+          - User login ACL: docs/users/user-login-acl.mdx
+      - Groups:
+          - Create group: docs/groups/create-group.mdx
+          - View group users: docs/groups/view-group-users.mdx
+      - Assets:
+          - Create a web asset: docs/assets/create-web.mdx
+      - Import & Export:
+          - Overview: docs/import-export/general-guide.mdx
+          - Users: docs/import-export/users.mdx
+  - PAM Guides:
+      - Discover Accounts:
+          - Create discovery task: docs/discover-accounts/create-discovery-task.mdx
+      - Push Accounts:
+          - Create push task: docs/push-accounts/create-push-task.mdx
+      - Backup Accounts:
+          - Create backup task: docs/backup-accounts/create-backup-task.mdx
+      - Change Account Secrets:
+          - Create secret change task: docs/change-secrets/create-change-secret-task.mdx
+      - Account Risk Detection:
+          - Create detection task: docs/risk-detection/create-risk-detection-task.mdx
+      - Application Integration:
+          - Create application: docs/applications/create-application.mdx
+          - Integration docs: docs/applications/view-integration-docs.mdx
+  - System Settings:
+      - General: docs/general.mdx
+      - Organizations: docs/organizations.mdx
+      - Roles:
+          - System role: docs/roles/system-role.mdx
+          - Organization role: docs/roles/org-role.mdx
+      - Notifications:
+          - Email: docs/notifications/email.mdx
+          - Message template: docs/notifications/msg-template.mdx
+          - Message: docs/notifications/message.mdx
+      - Features:
+          - Announcement: docs/features/announcement.mdx
+          - Ticket: docs/features/ticket.mdx
+          - Job center: docs/features/job-center.mdx
+          - Account storage: docs/features/account-storage.mdx
+          - Chat AI: docs/features/chat-ai.mdx
+      - Authentication:
+          - Basic settings: docs/authentication/basic.mdx
+          - Integrate AD/LDAP: docs/authentication/ldap.mdx
+          - Integrate CAS: docs/authentication/cas.mdx
+          - Integrate Passkey: docs/authentication/passkey.mdx
+          - Integrate AD/LDAP HA: docs/authentication/ldap-ha.mdx
+          - Integrate OIDC: docs/authentication/oidc.mdx
+          - Integrate SAML2: docs/authentication/saml2.mdx
+          - Integrate OAuth2: docs/authentication/oauth2.mdx
+          - Integrate WeCom: docs/authentication/wecom.mdx
+          - Integrate DingTalk: docs/authentication/dingtalk.mdx
+          - Integrate Feishu: docs/authentication/feishu.mdx
+          - Integrate Lark: docs/authentication/lark.mdx
+          - Integrate Slack: docs/authentication/slack.mdx
+          - Integrate RADIUS: docs/authentication/radius.mdx
+      - Storage:
+          - Object Storage: docs/storage/object-storage.mdx
+          - Command Storage: docs/storage/command-storage.mdx
+      - Components:
+          - General: docs/components/general.mdx
+          - Components: docs/components/components.mdx
+          - Monitoring: docs/components/monitoring.mdx
+          - Endpoint: docs/components/endpoint.mdx
+          - Endpoint rules: docs/components/endpoint-rules.mdx
+      - RemoteApp & VirtualApp:
+          - RemoteApp: docs/remoteapp/remote-app.mdx
+          - RemoteApp machine: docs/remoteapp/remoteapp-machine.mdx
+          - VirtualApp: docs/remoteapp/virtualapp.mdx
+      - Security:
+          - Auth security: docs/security/auth-security.mdx
+          - Login restriction: docs/security/login-restriction.mdx
+          - User password: docs/security/user-password.mdx
+          - Asset session: docs/security/asset-session.mdx
+      - Appearance: docs/appearance.mdx
+      - Tools: docs/tools.mdx
+      - System tasks:
+          - Tasks: docs/system-tasks/tasks.mdx
+          - Regular clean-up: docs/system-tasks/regular-clean-up.mdx
+      - License: docs/license.mdx
+  - Configuration:
+      - Configuration: docs/configuration.mdx
+      - Enable HTTPS: docs/enable-https.mdx
+  - Enterprise Edition:
+      - Compare Versions: docs/compare-versions.mdx
+  - More:
+      - Changelog: docs/changelog.mdx
+      - FAQ: docs/faq.mdx
+      - Troubleshooting:
+          - No connection methods: docs/troubleshooting/no-connection-methods.mdx

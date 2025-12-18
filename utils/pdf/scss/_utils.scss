@@ -1,0 +1,37 @@
+/* ========== Page Breaks ========== */
+.page-break {
+  page-break-after: always;
+}
+
+.no-break {
+  page-break-inside: avoid;
+}
+
+/* ========== Table of Contents ========== */
+.toc {
+  page-break-after: always;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin: 8pt 0;
+    padding-left: 20pt;
+    text-indent: -20pt;
+  }
+
+  a {
+    color: #111;
+  }
+}
+
+/* ========== Navigation (hide in PDF) ========== */
+nav,
+.sidebar,
+.navbar,
+.nextra-nav-container,
+footer {
+  display: none !important;
+}

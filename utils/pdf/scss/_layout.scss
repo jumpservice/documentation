@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+/* ========== Page Layout ========== */
+@page {
+  size: A4;
+  margin: $page-margin;
+}
+
+/* ========== Body & Text ========== */
+body {
+  font-family: $font-primary;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: $color-text;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== Main Content Area ========== */
+main,
+article,
+.nextra-content {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

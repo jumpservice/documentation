@@ -1,0 +1,292 @@
+/**
+ * PDF Styles for Documentation
+ * 
+ * Customize fonts, colors, spacing, and page layout for generated PDFs
+ */
+
+/* ========== Fonts ========== */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap'); */
+
+/* Or use local fonts */
+/* 
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./fonts/CustomFont-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+} 
+*/
+
+/* ========== Page Layout ========== */
+@page {
+  size: A4;
+  margin: 20mm 15mm;
+}
+
+/* ========== Body & Text ========== */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #1a1a1a;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== Headings ========== */
+h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  color: #111;
+  margin-top: 30pt;
+  margin-bottom: 15pt;
+  page-break-after: avoid;
+  border-bottom: 2pt solid #e5e7eb;
+  padding-bottom: 8pt;
+}
+
+h2 {
+  font-size: 20pt;
+  font-weight: 600;
+  color: #222;
+  margin-top: 24pt;
+  margin-bottom: 12pt;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 16pt;
+  font-weight: 600;
+  color: #333;
+  margin-top: 18pt;
+  margin-bottom: 10pt;
+  page-break-after: avoid;
+}
+
+h4, h5, h6 {
+  font-size: 13pt;
+  font-weight: 600;
+  color: #444;
+  margin-top: 15pt;
+  margin-bottom: 8pt;
+  page-break-after: avoid;
+}
+
+/* ========== Paragraphs ========== */
+p {
+  margin: 0 0 10pt 0;
+  orphans: 3;
+  widows: 3;
+}
+
+/* ========== Links ========== */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Print URLs after links */
+a[href^="http"]:after {
+  content: " (" attr(href) ")";
+  font-size: 9pt;
+  color: #666;
+}
+
+/* ========== Lists ========== */
+ul, ol {
+  margin: 10pt 0;
+  padding-left: 25pt;
+}
+
+li {
+  margin: 5pt 0;
+}
+
+/* ========== Code Blocks ========== */
+code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 10pt;
+  background-color: #f3f4f6;
+  padding: 2pt 4pt;
+  border-radius: 3pt;
+  color: #dc2626;
+}
+
+pre {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 12pt;
+  border-radius: 6pt;
+  overflow-x: auto;
+  margin: 15pt 0;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background-color: transparent;
+  color: #f9fafb;
+  padding: 0;
+  font-size: 9pt;
+  line-height: 1.5;
+}
+
+/* ========== Tables ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15pt 0;
+  page-break-inside: avoid;
+}
+
+th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  padding: 8pt;
+  text-align: left;
+  border: 1pt solid #d1d5db;
+}
+
+td {
+  padding: 8pt;
+  border: 1pt solid #e5e7eb;
+}
+
+tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* ========== Blockquotes ========== */
+blockquote {
+  border-left: 4pt solid #3b82f6;
+  padding-left: 15pt;
+  margin: 15pt 0;
+  color: #374151;
+  font-style: italic;
+  background-color: #eff6ff;
+  padding: 10pt 15pt;
+  page-break-inside: avoid;
+}
+
+/* ========== Images ========== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 15pt auto;
+  page-break-inside: avoid;
+}
+
+/* ========== Horizontal Rules ========== */
+hr {
+  border: none;
+  border-top: 1pt solid #e5e7eb;
+  margin: 20pt 0;
+}
+
+/* ========== Page Breaks ========== */
+.page-break {
+  page-break-after: always;
+}
+
+.no-break {
+  page-break-inside: avoid;
+}
+
+/* ========== Table of Contents ========== */
+.toc {
+  page-break-after: always;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc li {
+  margin: 8pt 0;
+  padding-left: 20pt;
+  text-indent: -20pt;
+}
+
+.toc a {
+  color: #111;
+}
+
+/* ========== Navigation (hide in PDF) ========== */
+nav,
+.sidebar,
+.navbar,
+.nextra-nav-container,
+footer {
+  display: none !important;
+}
+
+/* ========== Main Content Area ========== */
+main,
+article,
+.nextra-content {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ========== Alerts / Callouts ========== */
+.alert,
+.callout,
+.admonition {
+  padding: 12pt;
+  margin: 15pt 0;
+  border-left: 4pt solid;
+  border-radius: 4pt;
+  page-break-inside: avoid;
+}
+
+.alert-info {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.alert-warning {
+  background-color: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.alert-danger,
+.alert-error {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  border-color: #10b981;
+}
+
+/* ========== Print Optimizations ========== */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  body {
+    font-size: 10pt;
+  }
+  
+  h1 {
+    font-size: 22pt;
+  }
+  
+  h2 {
+    font-size: 18pt;
+  }
+  
+  a[href]:after {
+    content: none;
+  }
+}

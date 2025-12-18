@@ -1,0 +1,74 @@
+@use 'variables' as *;
+
+/* ========== Headings ========== */
+h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  color: $color-heading;
+  margin-top: 30pt;
+  margin-bottom: 15pt;
+  page-break-after: avoid;
+  border-bottom: 2pt solid $color-border;
+  padding-bottom: 8pt;
+}
+
+h2 {
+  font-size: 20pt;
+  font-weight: 600;
+  color: #222;
+  margin-top: 24pt;
+  margin-bottom: 12pt;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 16pt;
+  font-weight: 600;
+  color: #333;
+  margin-top: 18pt;
+  margin-bottom: 10pt;
+  page-break-after: avoid;
+}
+
+h4, h5, h6 {
+  font-size: 13pt;
+  font-weight: 600;
+  color: #444;
+  margin-top: 15pt;
+  margin-bottom: 8pt;
+  page-break-after: avoid;
+}
+
+/* ========== Paragraphs ========== */
+p {
+  margin: 0 0 10pt 0;
+  orphans: 3;
+  widows: 3;
+}
+
+/* ========== Links ========== */
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  /* Print URLs after links */
+  &[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+}
+
+/* ========== Lists ========== */
+ul, ol {
+  margin: 10pt 0;
+  padding-left: 25pt;
+}
+
+li {
+  margin: 5pt 0;
+}
