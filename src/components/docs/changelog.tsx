@@ -1,4 +1,5 @@
 export const changelogData = [
+    { date: '2025-12-18', version: 'v4.10.14'},
     { date: '2025-11-20', version: 'v4.10.13'},
     { date: '2025-10-27', version: 'v4.10.12'},
     { date: '2025-10-21', version: 'v4.10.11'},
