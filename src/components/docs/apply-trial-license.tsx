@@ -17,7 +17,7 @@ const ApplyTrialLicense = ({ showBorder = true }) => {
         <NextLink
           className="text-nowrap ml-1 font-normal text-primary hover:underline"
           target="_blank"
-          href="mailto:sales@lxware.hk"
+          href="https://www.jumpserver.com/free-trial"
         >
           Contact us <Icon name="send" />
         </NextLink>{" "}
