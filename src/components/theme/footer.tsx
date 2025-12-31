@@ -4,6 +4,7 @@ import Logo from "./logo";
 import React from "react";
 import { GitHubIcon, DiscordIcon, XIcon } from "@/icons";
 
+
 const FooterNavbar = () => {
   return (
     <ul className="flex items-center justify-start gap-4 text-center">
@@ -36,6 +37,7 @@ const FooterNavbar = () => {
     </ul>
   );
 };
+
 
 function List({
   title,
@@ -92,7 +94,7 @@ function Footer() {
           <List
             title="Company"
             items={[
-              { title: "About Us", url: "https://www.jumpserver.com/about" },
+              { title: "About Us", url: "https://www.lxware.hk/pages/about" },
             ]}
           />
         </div>
