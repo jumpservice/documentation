@@ -1,15 +1,13 @@
 {
-  "index": {
+  "home": {
     "title": "Home",
     "type": "page",
-    "theme": {
-      "layout": "raw"
-    }
+    "route": "https://www.jumpserver.com/"
   },
   "pricing": {
     "title": "Pricing",
     "type": "page",
-    "route": "/#section-edition"
+    "route": "https://www.jumpserver.com/#features-JumpServer%20Enterprise%20Edition"
   },
   "docs": {
     "title": "Docs",
@@ -18,6 +16,6 @@
   "about": {
     "title": "About",
     "type": "page",
-    "route": "https://www.lxware.hk/pages/about"
+    "route": "https://www.jumpserver.com/about"
   }
 }
