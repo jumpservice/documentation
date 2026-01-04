@@ -6,6 +6,12 @@
       "layout": "raw"
     }
   },
+  "index": {
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
+  },
   "pricing": {
     "title": "Pricing",
     "type": "page",
