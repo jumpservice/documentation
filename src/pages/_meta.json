@@ -4,6 +4,12 @@
     "type": "page",
     "route": "https://www.jumpserver.com/"
   },
+  "index": {
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
+  },
   "pricing": {
     "title": "Pricing",
     "type": "page",
