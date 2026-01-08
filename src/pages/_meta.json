@@ -19,6 +19,11 @@
     "title": "Docs",
     "type": "page"
   },
+  "blogs": {
+    "title": "Blogs",
+    "type": "page",
+    "route": "https://www.jumpserver.com/archives"
+  },
   "about": {
     "title": "About",
     "type": "page",
