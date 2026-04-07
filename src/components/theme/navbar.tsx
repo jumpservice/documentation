@@ -6,9 +6,6 @@ const NavbarExtra = () => {
   return (
     <ul className="ml-2 flex items-center justify-center gap-4 text-center">
       {[
-        { url: "https://github.com/jumpserver/jumpserver", icon: GitHubIcon },
-        { url: "https://discord.gg/W6vYXmAQG2", icon: DiscordIcon },
-        { url: "https://x.com/lxware_x", icon: XIcon },
       ].map(({ url, icon: Icon }) => (
         <li key={url}>
           <a
