@@ -18,16 +18,6 @@ const NavbarExtra = () => {
           </a>
         </li>
       ))}
-      <li className="hidden sm:block" key="https://jumpserver.org">
-        <a
-          href="https://jumpserver.org"
-          target="_blank"
-          rel="noreferrer"
-          className="block transition-colors hover:text-primary"
-        >
-          <span className="h-6 w-auto fill-current text-sm font-serif">中文</span>
-        </a>
-      </li>
       <li className="" key="theme-switch">
         <DarkLightSwitch />
       </li>
