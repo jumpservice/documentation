@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.jumpserver.com/docs
+
+# Sitemaps
+Sitemap: https://www.jumpserver.com/docs/sitemap.xml
