@@ -1,3 +1,7 @@
+/**
+ * Sitemap：Nextra/Next Pages Router 不在此文件内生成站点地图。
+ * 使用 `next-sitemap`（见根目录 `next-sitemap.config.js`），在 `pnpm run build` 末尾写入 `public/sitemap.xml` 与 `public/robots.txt`。
+ */
 const withNextra = require("nextra")({
   theme: "nextra-theme-docs",
   themeConfig: "./theme.config.tsx",
