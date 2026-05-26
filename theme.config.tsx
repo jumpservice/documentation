@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Logo, Footer, NavbarExtra, TOC } from "@/components/theme";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
-  Tab, DataTable, ApplyTrialLicense, ResourceAttributeTable
+  Tab, DataTable, ApplyTrialLicense, EnterpriseFeatureCta, ResourceAttributeTable
 } from "@/components/docs";
 
 interface LinkTitleProps {
@@ -33,7 +33,7 @@ const config: DocsThemeConfig = {
   components: { 
     Icon, Alert, Cards, Card,
     Steps, Nav, WaitForCompletion, 
-    Tabs, Tab, DataTable, ApplyTrialLicense, ResourceAttributeTable
+    Tabs, Tab, DataTable, ApplyTrialLicense, EnterpriseFeatureCta, ResourceAttributeTable
   },
   head: (
     <>
