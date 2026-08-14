@@ -93,11 +93,11 @@ Download the JumpServer Enterprise offline installation package.
   <Tab titleKey="web">
     <Steps stepLevel="2">
       <div>
-      Log in to https://download-pkgs.jumpserver.com using the username and password provided by the support team.
+      Log in to https://support.fit2cloud.com using the username and password provided by the support team.
       </div>
 
       <div>
-      Click filename to download the offline installation package for the required version.
+      View the details of your valid Enterprise Edition subscription and navigate to the 'Installation Packages' tab. Find the installation package that matches your required version and architecture, click the 'Download' button, and then click 'Download' in the pop-up dialog to copy the download link.
       </div>
 
       <div>
@@ -109,21 +109,18 @@ Download the JumpServer Enterprise offline installation package.
   <Tab titleKey="wget">
     <Steps stepLevel="2">
       <div>
-      Log in to https://download-pkgs.jumpserver.com using the username and password provided by the support team.
+      Log in to https://support.fit2cloud.com using the username and password provided by the support team.
       </div>
 
       <div>
-      Right-click filename and select "Copy link address" to copy the download link for the required version of the offline installation package.
+      View the details of your valid Enterprise Edition subscription and navigate to the 'Installation Packages' tab. Find the installation package that matches your required version and architecture, click the 'Download' button, and then click 'Copy Link' in the pop-up dialog to copy the download link.
       </div>
 
       <div>
       Replace the download link and run the following command to download the offline installation package.
       ```sh
-      cd /opt && wget --user={username} --password={password} -O jumpserver-ee-v4.10.18-x86_64.tar.gz "https://download-pkgs.jumpserver.com/download?file=jumpserver-ee-v4.10.18-x86_64.tar.gz"
+      cd /opt && wget -O jumpserver-ee-v4.10.18-x86_64.tar.gz "https://support.fit2cloud.com/download/00000000-0000-0000-0000-00000000000/jumpserver-ee-v4.10.18-x86_64.tar.gz"
       ```
-      <Alert type="note">
-      Replace `{username}` and `{password}` with the actual username and password provided by the support team.
-      </Alert>
       </div>
     </Steps>
   </Tab>
