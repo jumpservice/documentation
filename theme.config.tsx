@@ -1,6 +1,6 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
-import { Logo, Footer, NavbarExtra, TOC } from "@/components/theme";
+import { Logo, Footer, Banner, NavbarExtra, TOC } from "@/components/theme";
 import { 
   Icon, Steps, Alert, Cards, Card, WaitForCompletion, Nav, Tabs, 
   Tab, DataTable, ApplyTrialLicense, EnterpriseFeatureCta, ResourceAttributeTable
@@ -30,6 +30,7 @@ export const LinkTitle: React.FC<LinkTitleProps> = ({ title, url }) => {
 };
 
 const config: DocsThemeConfig = {
+  banner: Banner,
   components: { 
     Icon, Alert, Cards, Card,
     Steps, Nav, WaitForCompletion, 
