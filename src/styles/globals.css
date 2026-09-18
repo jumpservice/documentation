@@ -125,6 +125,25 @@ pre {
 
 /* ------------ Docs ------------ */
 
+.components-table {
+  margin-top: 1.5rem;
+}
+
+.components-table table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  overflow-x: visible;
+}
+
+.components-table th:first-child {
+  width: 22%;
+}
+
+.components-table th:nth-child(2) {
+  width: 8rem;
+}
+
 .changelog {
   h1 {
     @apply text-4xl font-bold text-gray-900 mt-10 mb-10
