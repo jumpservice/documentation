@@ -1,27 +1,24 @@
-#!/bin/bash
-# TAG_NAME
+#!/usr/bin/env bash
+set -euo pipefail
 
-DATE=$(date +%Y-%m-%d)
+# The upstream release Action still calls this entry point with TAG_NAME.
+TAG_NAME="${TAG_NAME:-${1:-}}"
+if [[ -z "$TAG_NAME" ]]; then
+  echo "TAG_NAME is required" >&2
+  exit 1
+fi
 
-# changelog
-CHANGELOG_CONTENT="    { date: '$DATE', version: '$TAG_NAME'},"
-CHANGELOG_FILE_PATH="../src/components/docs/changelog.tsx"
-sed -i "2i\\${CHANGELOG_CONTENT}" "${CHANGELOG_FILE_PATH}"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+node "$REPO_ROOT/utils/sync-release.mjs" "$TAG_NAME"
 
-# last version
-VERSION_CONTENT="const LatestVersion = '$TAG_NAME'"
-VERSION_FILE_PATH="../src/components/public/version.tsx"
-sed -i "1s/.*/${VERSION_CONTENT}/" "${VERSION_FILE_PATH}"
+cd "$REPO_ROOT"
+if git diff --quiet HEAD -- src/data/releases.json; then
+  echo "$TAG_NAME is already recorded; nothing to publish"
+  exit 0
+fi
 
-# installation
-INSTALLATION_FILE_PATH="../src/pages/docs/installation.mdx"
-sed -i "s/v4\.[0-9]\+\.[0-9]\+/${TAG_NAME}/g" "${INSTALLATION_FILE_PATH}"
-
-# upgrade
-UPGRADE_FILE_PATH="../src/pages/docs/upgrade.mdx"
-sed -i "s/v4\.[0-9]\+\.[0-9]\+/${TAG_NAME}/g" "${UPGRADE_FILE_PATH}"
-
-git add ${CHANGELOG_FILE_PATH} ${VERSION_FILE_PATH} ${INSTALLATION_FILE_PATH} ${UPGRADE_FILE_PATH}
-git commit -m "add $TAG_NAME to changelogs"
-git checkout -b pr@dev@changelog
-git push origin pr@dev@changelog
+# The existing generic handler opens a PR when a new pr@dev@... branch is pushed.
+BRANCH="pr@dev@changelog-$TAG_NAME"
+git checkout -b "$BRANCH"
+git commit --only -m "docs: update release $TAG_NAME" -- src/data/releases.json
+git push origin "$BRANCH"

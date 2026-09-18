@@ -2,6 +2,8 @@
 description: Learn how to Installation in JumpServer documentation, with key steps, configuration options, and best practices.
 ---
 
+import VersionedCommand from '@/components/docs/versioned-command'
+
 # Installation
 
 This topic describes how to install JumpServer, including both the open-source and enterprise editions.
@@ -85,11 +87,11 @@ Download the JumpServer Enterprise offline installation package.
   <Tab titleKey="web">
     <Steps stepLevel="2">
       <div>
-      Log in to https://support.fit2cloud.com using the username and password provided by the support team.
+      Log in to the offline package download site provided by the delivery team.
       </div>
 
       <div>
-      View the details of your valid Enterprise Edition subscription and navigate to the 'Installation Packages' tab. Find the installation package that matches your required version and architecture, click the 'Download' button, and then click 'Download' in the pop-up dialog to copy the download link.
+      Find the JumpServer Enterprise package for your required version and architecture, then download it.
       </div>
 
       <div>
@@ -101,18 +103,16 @@ Download the JumpServer Enterprise offline installation package.
   <Tab titleKey="wget">
     <Steps stepLevel="2">
       <div>
-      Log in to https://support.fit2cloud.com using the username and password provided by the support team.
+      Log in to the offline package download site provided by the delivery team.
       </div>
 
       <div>
-      View the details of your valid Enterprise Edition subscription and navigate to the 'Installation Packages' tab. Find the installation package that matches your required version and architecture, click the 'Download' button, and then click 'Copy Link' in the pop-up dialog to copy the download link.
+      Find the JumpServer Enterprise package for your required version and architecture, then copy its download link.
       </div>
 
       <div>
-      Replace the download link and run the following command to download the offline installation package.
-      ```sh
-      cd /opt && wget -O jumpserver-ee-v5.0.0-x86_64.tar.gz "https://support.fit2cloud.com/download/00000000-0000-0000-0000-00000000000/jumpserver-ee-v5.0.0-x86_64.tar.gz"
-      ```
+      Replace `YOUR_DOWNLOAD_URL` with the copied link, then run the following command to download the offline installation package.
+      <VersionedCommand template={'cd /opt && wget -O jumpserver-ee-{version}-x86_64.tar.gz "YOUR_DOWNLOAD_URL"'} />
       </div>
     </Steps>
   </Tab>
@@ -122,16 +122,12 @@ Download the JumpServer Enterprise offline installation package.
 
 <div>
 Extract the offline installation package.
-```sh 
-tar -zxvf jumpserver-ee-v5.0.0-x86_64.tar.gz
-```
+<VersionedCommand template="tar -zxvf jumpserver-ee-{version}-x86_64.tar.gz" />
 </div>
 
 <div>
 Change to the extracted directory.
-```sh
-cd jumpserver-ee-v5.0.0-x86_64
-```
+<VersionedCommand template="cd jumpserver-ee-{version}-x86_64" />
 </div>
 
 <div>
@@ -182,4 +178,3 @@ At this point, you have successfully installed JumpServer.
 * [Import License](/docs/license): Learn how to import the enterprise edition license.
 * [Enable HTTPS](/docs/enable-https): Learn how to enable HTTPS.
 * [Upgrade JumpServer](/docs/upgrade): Learn how to upgrade JumpServer.
-

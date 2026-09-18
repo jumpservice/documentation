@@ -43,6 +43,12 @@ pnpm dev
 
 That’s it! Go to http://localhost:3000 to see it in action. Any change you make to a file in `pages` should be refreshed automatically in your browser.
 
+## Release updates
+
+The upstream JumpServer release Action calls `utils/update_changelog.sh` with `TAG_NAME`. The script reads published v4 and v5 Releases from GitHub, adds any missing entries to `src/data/releases.json`, and pushes a `pr@dev@changelog-<tag>` branch only when that file changes. The highest version in this file also supplies the version shown on the homepage and in the installation/upgrade commands.
+
+For a local data-only sync, run `node utils/sync-release.mjs v5.0.1` with an existing published tag; this does not commit or push. A v4-only release is picked up on the next v5-triggered sync, not immediately when v4 is published.
+
 ## License & Attribution
 
 The icon used in this project is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.  
