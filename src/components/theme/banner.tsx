@@ -1,13 +1,14 @@
 import { LatestVersion } from "../public";
 
 const Banner = {
-  key: "4.0-release",
+  key: `jumpserver-release-${LatestVersion}`,
   text: (
     <a
-      href={`https://github.com/jumpserver/jumpserver/releases/${LatestVersion}`}
+      href={`https://github.com/jumpserver/jumpserver/releases/tag/${LatestVersion}`}
       target="_blank"
+      rel="noopener noreferrer"
     >
-      🎉 JumpServer { LatestVersion } is released. Read more →
+      🎉 JumpServer {LatestVersion} is available. See what's new →
     </a>
   ),
 };
