@@ -1,3 +1,6 @@
-const LatestVersion = 'v5.0.0'
+import { changelogData } from "@/components/docs/changelog";
 
-export default LatestVersion
+// The release data is kept in descending semantic-version order.
+const LatestVersion = changelogData[0].version;
+
+export default LatestVersion;
