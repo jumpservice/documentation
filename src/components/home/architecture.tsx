@@ -73,7 +73,7 @@ export const ArchitectureDiagram = () => {
 
       <div className="border border-gray-400 dark:border-gray-500 rounded-lg p-4">
         <div className="text-xl text-center font-bold mb-6">IT Assets</div>
-        <div className="grid grid-cols-8 gap-1 text-center">
+        <div className="grid grid-cols-8 gap-2 text-center">
           {assets.map(({ name, icon: Icon, logo, color }) => (
             <div key={name} className="flex aspect-square w-full max-w-[7rem] min-w-0 flex-col items-center justify-center justify-self-center rounded-xl border border-gray-400 p-0.5 dark:border-gray-500">
               {Icon ? (
