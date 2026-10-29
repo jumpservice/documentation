@@ -1,0 +1,4 @@
+[
+  { "type": "file", "name": "create-group", "label": "Create group" },
+  { "type": "file", "name": "view-group-users", "label": "View group users" }
+]

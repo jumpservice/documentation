@@ -1,0 +1,73 @@
+---
+title: "License"
+description: "View the edition and licensed asset count of this deployment and import an enterprise license file."
+---
+
+# License
+
+<Alert type="xpack">
+**Enterprise features** such as organizations, roles, custom appearance, VirtualApp, tickets, account storage, SMS, and advanced audit reports require a valid license. Compare editions in [Community vs Enterprise](/reference/compare-editions).
+</Alert>
+
+The License page shows the current edition of the deployment and, once a license
+is imported, the licensed capacity and expiration date. JumpServer community
+edition runs with open-source licensing and cannot import an enterprise license
+file.
+
+## Overview
+
+| State | What the page shows |
+| --- | --- |
+| Community edition | Version **Community version**, expiry **Never**, license **GPLv3**, and a link to the project on GitHub. The **Import** button is disabled. |
+| Enterprise edition | Serial number, company, expiry date, licensed assets, version, and description, plus an **Import license** action. |
+
+When JDMC is enabled in the deployment, selecting **License** in System Settings
+opens the license management page of the Device Manager console instead, where
+the machine code can be read and the license file uploaded.
+
+## Import a license
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **License**.
+</div>
+
+<div>
+Click **Import**.
+</div>
+
+<div>
+In the import dialog, choose the license file supplied by the vendor.
+</div>
+
+<div>
+Click **Confirm**. The page reloads and displays the licensed details.
+</div>
+
+</Steps>
+
+![Figure 1: License page](/images/jumpserver/V4_lisence_01.png)
+
+## Field reference
+
+| Field | Description |
+| --- | --- |
+| Serial number | Identifier of the imported license. |
+| Company | Licensed organization name. |
+| Expired | Expiration date of the license. |
+| Assets | Maximum number of assets covered by the license. |
+| Version | Edition enabled by the license. |
+| Description | Optional remark stored with the license. |
+
+<Alert type="note">
+Importing a new license replaces the current entitlement. If the license has
+expired or the licensed asset count is exceeded, the features that depend on it
+become unavailable until the license is renewed, while existing data is
+retained. Contact the vendor through **Technical consultation** on the same page
+when you need a replacement or an extension.
+</Alert>

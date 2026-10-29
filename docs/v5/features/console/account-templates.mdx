@@ -1,0 +1,121 @@
+---
+title: "Account Templates"
+description: "Create reusable account templates so that identical credentials can be added to many assets without repeated manual entry."
+---
+
+# Account Templates
+
+An **account template** stores a reusable set of asset account information:
+username, secret type, secret policy, and related options. When many assets share
+the same credential, create the template once and use it from
+[Accounts](/features/console/accounts) or when creating an authorization, rather
+than filling in the same fields for every asset.
+
+Open the page from **Console > Templates**.
+
+![Figure 1: Account templates list showing name, username, and secret type.](/images/jumpserver/v5_admin_account_tpl_01.png)
+
+## Overview
+
+The list columns are Name, Username, Secret type, Privileged account, and
+Actions. The toolbar provides search, column settings, import, export, and
+refresh. Templates are scoped to the current organization.
+
+## Before you begin
+
+- Sign in with an account that can manage accounts.
+- The assets that will receive template accounts must already exist. See
+  [Assets](/features/console/assets).
+
+## Create an account template
+
+<Steps>
+<div>
+Click **Create**.
+</div>
+
+<div>
+In the **Create account template** drawer, fill in the fields below.
+</div>
+
+<div>
+Click **Submit**, or **Save and continue adding** to create another template.
+</div>
+</Steps>
+
+![Figure 2: Create account template drawer with username, secret type, and secret policy.](/images/jumpserver/v5_admin_account_tpl_02.png)
+
+### Field reference
+
+| Group | Field | Description |
+| --- | --- | --- |
+| Basic | Name | Required. Display name of the template. |
+| Basic | Username | Username used to sign in to assets. Use `null` when the authentication method does not require a username; AD accounts usually use `username@domain`. |
+| Basic | Privileged account | When selected, batch password changes and pushes prefer accounts created from this template. |
+| Basic | Switch from | Sign in through another account first, then switch to this one. Click **Select** to choose the source. |
+| Secret | Secret type | **Password**, **SSH key**, **SSH certificate**, **Token**, or **Access key**. |
+| Secret | Secret policy | **Specified** lets you enter the password; **Randomly generated** creates it from a password rule. |
+| Secret | Password | Shown when the secret policy is **Specified**. Use the generate button to create a random value. |
+| Secret | Password rule | Shown when the secret policy is **Randomly generated**. Click **Set** to configure the rule. |
+| Auto push | Auto push | When selected, accounts are pushed to assets automatically. |
+| Other | Comment | Optional. |
+
+### Password rule
+
+For **Randomly generated**, click **Set** to configure the password rule:
+
+| Field | Description |
+| --- | --- |
+| Length | Number of characters. Defaults to 16. |
+| Uppercase letters | Include uppercase letters. |
+| Lowercase letters | Include lowercase letters. |
+| Digits | Include digits. |
+| Special characters | Include special characters. |
+| Excluded characters | Characters to avoid when generating. Optional. |
+
+## Template details
+
+Click a template's **Name** to open the detail drawer. The title is
+`Account template: <name>`, and tabs include **Basic**, **Accounts**, and
+**Activity**.
+
+- **Basic** shows the ID, name, username, secret type, auto push, secret policy,
+  creator, comment, switch-from account, activation, and dates. **Quick update**
+  toggles the **Privileged** flag.
+- **Accounts** lists accounts created from this template, with name, asset,
+  secret type, activation, creation date, and actions. When no account has been
+  added yet, the list is empty. Use **Sync** in the quick update area to update
+  account information.
+- **Activity** shows the template's most recent 30 operations.
+
+<Alert type="note">
+The **Accounts** tab only shows accounts created from this template. Updating the
+template's secret updates the secret of those accounts as well. Add new accounts
+with **Add from template** on the [Accounts](/features/console/accounts) page.
+</Alert>
+
+## Import, export, and maintenance
+
+Use the toolbar to import or export templates. Import opens the **Import &
+create** dialog, where you choose **Create** or **Update**, download the CSV or
+XLSX template, and upload a file up to 10 MB.
+
+The row menu (**...**) provides:
+
+- **Delete**: remove the template. Irreversible.
+- **Duplicate**: clone the template as a new one.
+- **View**: open the detail drawer.
+
+Use the edit icon in the Actions column to update the template.
+
+<Alert type="warning">
+Deleting a template does not delete the accounts that were created from it, but
+those accounts are no longer linked to a template. Deleting a template is
+irreversible.
+</Alert>
+
+## Related topics
+
+- [Accounts](/features/console/accounts)
+- [Assets](/features/console/assets)
+- [Authorizations](/features/console/authorizations)

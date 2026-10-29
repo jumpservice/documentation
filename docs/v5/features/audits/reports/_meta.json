@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "user-reports",
+    "label": "User Reports"
+  },
+  {
+    "type": "file",
+    "name": "asset-reports",
+    "label": "Asset Reports"
+  },
+  {
+    "type": "file",
+    "name": "account-reports",
+    "label": "Account Reports"
+  }
+]

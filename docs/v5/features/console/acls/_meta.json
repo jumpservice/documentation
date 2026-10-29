@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "command-filter",
+    "label": "Command Filter"
+  },
+  {
+    "type": "file",
+    "name": "user-login",
+    "label": "User Login"
+  },
+  {
+    "type": "file",
+    "name": "asset-connect",
+    "label": "Asset Connect"
+  },
+  {
+    "type": "file",
+    "name": "data-masking",
+    "label": "Data Masking"
+  },
+  {
+    "type": "file",
+    "name": "clipboard",
+    "label": "Clipboard"
+  },
+  {
+    "type": "file",
+    "name": "connect-method",
+    "label": "Connect Method"
+  }
+]

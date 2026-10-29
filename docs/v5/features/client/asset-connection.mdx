@@ -1,0 +1,80 @@
+---
+title: "Asset Connection"
+description: "Connect to Linux, Windows, database, and web assets from JumpServer Client."
+---
+
+# Asset Connection
+
+<Alert type="xpack">
+**Desktop database, RDP, VNC, RemoteApp, and VirtualApp connections** require JumpServer Enterprise Edition. Desktop SSH and SFTP connections are included in Community Edition.
+</Alert>
+
+JumpServer Client lists the assets authorized to your account. Open an asset,
+choose a protocol and account, and confirm the connection.
+
+## Prerequisites
+
+- JumpServer Client is installed and you are signed in.
+- You have an authorization for the asset and account.
+- For database or application connections, the local client path is configured.
+
+## Connect to a Linux asset
+
+1. Find the Linux asset in the client asset list.
+2. Select **Connect** next to the asset name.
+3. Choose a protocol: **SSH**, **SFTP**, or **VNC**.
+4. Select an authorized account.
+5. Select **Confirm**.
+
+After connecting, run commands and upload or download files in the session.
+
+![Linux asset connection dialog](/images/jumpserver/clientV4_03.png)
+
+## Connect to a Windows asset
+
+1. Select **Connect** next to the Windows asset.
+2. Choose **RDP**, **VNC**, **SSH**, or **SFTP**.
+3. Select the account and confirm the connection.
+
+The available protocols depend on the asset platform and the enabled components.
+
+## Connect to a database asset
+
+Database assets use a local database client. Configure the application path once:
+
+1. Open the client settings.
+2. Select **Database** and choose the database type, for example **MySQL**.
+3. Download and install a supported database application if needed.
+4. Select **Select path** and choose the installed application.
+
+Then connect to the database asset from the asset list. The connection opens in the
+configured local client.
+
+![Database client path configuration](/images/jumpserver/client_mysql.png)
+
+## Connect to a web asset
+
+Web assets use the platform type **Website** and the **HTTP** or **HTTPS**
+protocol.
+
+1. Select **Connect** on the web asset.
+2. Choose **Built-in** > **Built-in browser**.
+3. Confirm the connection.
+
+The site opens in a WebView window, and traffic is forwarded through the JumpServer
+Web proxy. The built-in browser is available only in JumpServer Client; the browser
+Web terminal uses a published WebLite application instead.
+
+![Web asset in the built-in browser](/images/jumpserver/client_web.png)
+
+The site address and account are configured by the administrator on the Web asset;
+the client does not provide an edit entry.
+
+{/* //TODO: Add a screenshot of the Windows asset connection dialog in JumpServer Client. */}
+
+## Notes
+
+- Connection methods and protocols depend on the asset platform, enabled
+  components, license, and the account authorization.
+- If an asset or account is missing, ask an administrator to review your
+  authorization.

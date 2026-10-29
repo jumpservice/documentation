@@ -1,0 +1,7 @@
+[
+  { "text": "Home", "link": "https://www.jumpserver.com/" },
+  { "text": "Docs", "link": "/", "activeMatch": "^/" },
+  { "text": "Pricing", "link": "https://www.jumpserver.com/pricing" },
+  { "text": "Blogs", "link": "https://www.jumpserver.com/archives" },
+  { "text": "About", "link": "https://www.jumpserver.com/about" }
+]

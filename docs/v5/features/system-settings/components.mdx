@@ -1,0 +1,99 @@
+---
+title: "Components"
+description: "Configure terminal components, review registered components and their load, and define the service endpoints used to reach assets."
+---
+
+# Components
+
+Components is the control plane for JumpServer's terminal and client
+components. It defines how components register, which client connection methods
+are exposed to users, which storage each component uses, and how users reach the
+service through endpoints.
+
+## Overview
+
+The page is organized into tabs:
+
+| Tab | Purpose |
+| --- | --- |
+| Basic | Registration policy, client connection methods, and terminal display defaults. |
+| Web terminal | Settings applied to the Luna web terminal. |
+| Components | Registered component instances, their storage, and their status. |
+| Monitoring | Component load and active session counts. |
+| Endpoints | Access addresses and ports used when users connect to assets. |
+| Endpoint rules | Rules that map asset addresses or domains to an endpoint. |
+| Log | Component log streaming, shown only when log collection is enabled. |
+
+## Basic settings
+
+| Field | Description |
+| --- | --- |
+| Component registration | `Auto` allows registration within five minutes of service start; `Enable` always allows registration; `Disable` blocks it. Use `Enable` when you deploy a RemoteApp machine or add a JumpServer node. |
+| Client connection | Allows users to connect to KoKo through an SSH client. When enabled, the SSH client launch method appears in the web terminal. |
+| Password | Allows password login to KoKo. |
+| Public key | Allows public-key login to KoKo. Disable it when a directory service is used, so that users cannot bypass unified authentication. |
+| Asset sorting | Sort assets by name or address in the client asset list. |
+| Asset page size | Number of assets shown per page in the client asset list. |
+| Razor | Enables the Razor component for RDP client connections. Requires an Enterprise license. |
+| Magnus | Enables the Magnus component for local database client connections such as Navicat or DBeaver. Requires an Enterprise license. |
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **Components**.
+</div>
+
+<div>
+On the **Basic** tab, adjust the settings and click **Submit**.
+</div>
+
+</Steps>
+
+{/* //TODO: Add screenshot of the Components list with component status and storage columns for this page. */}
+
+## Component list and storage
+
+Open the **Components** tab to see every registered component. From the actions
+menu of a component you can change its **Replay storage** and **Command
+storage**. Recordings default to the local disk and command records default to
+the database; select an entry configured in
+[Storage](/features/system-settings/storage) to offload them, or `null` to skip
+storage.
+
+Offline components can be deleted from the same list once they are no longer
+needed.
+
+## Monitoring
+
+The **Monitoring** tab aggregates component health. Each component type reports
+the number of instances in normal, high-load, serious, and offline states, and
+the number of active sessions it currently serves. Use it to decide when to add
+a Koko, Razor, or Magnus node.
+
+## Endpoints and endpoint rules
+
+An endpoint is an address and port through which users reach the service. When a
+user connects to an asset, JumpServer selects an endpoint using endpoint rules
+and asset labels, and opens the connection through it. This is how distributed
+deployments route sessions to the nearest gateway.
+
+Create an endpoint on the **Endpoints** tab: set a name, a host, and the HTTP,
+HTTPS, SSH, RDP, VNC, or Magnus port that applies. Leave the host empty to reuse
+the address of the current browser. The default endpoint cannot change its host.
+
+On the **Endpoint rules** tab, create a rule with:
+
+| Field | Description |
+| --- | --- |
+| Name | Rule name. |
+| Priority | Lower values are evaluated first. |
+| Address | IP address or CIDR range to match, for example `10.20.0.0/16`. |
+| Endpoint | Endpoint used when the address matches. |
+
+Asset labels take precedence over rules: an asset tagged `endpoint` with the
+name of an endpoint is always routed to that endpoint. Use labels for specific
+assets and rules as the general fallback.

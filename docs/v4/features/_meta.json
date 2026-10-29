@@ -1,0 +1,8 @@
+[
+  { "type": "file", "name": "announcement", "label": "Announcement" },
+  { "type": "file", "name": "ticket", "label": "Ticket" },
+  { "type": "file", "name": "job-center", "label": "Job center" },
+  { "type": "file", "name": "account-storage", "label": "Account storage" },
+  { "type": "file", "name": "chat-ai", "label": "Chat AI" },
+  { "type": "file", "name": "virtual-app", "label": "Virtual App" }
+]

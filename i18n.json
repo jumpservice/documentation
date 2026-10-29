@@ -1,0 +1,10 @@
+{
+  "overview.filterPlaceholderText": {
+    "en": "Search documentation",
+    "zh": "搜索内容"
+  },
+  "overview.filterNoResultText": {
+    "en": "No matching page found",
+    "zh": "未找到匹配的内容"
+  }
+}

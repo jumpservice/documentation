@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "changelog",
+    "label": "Changelog"
+  },
+  {
+    "type": "file",
+    "name": "compare-editions",
+    "label": "Compare Editions"
+  },
+  {
+    "type": "file",
+    "name": "faq",
+    "label": "FAQ"
+  },
+  {
+    "type": "file",
+    "name": "license",
+    "label": "License"
+  },
+  {
+    "type": "file",
+    "name": "glossary",
+    "label": "Glossary"
+  }
+]

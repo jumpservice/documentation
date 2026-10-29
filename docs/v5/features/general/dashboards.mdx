@@ -1,0 +1,55 @@
+---
+title: "Dashboards"
+description: "Understand the Console, PAM, and Audits dashboards and the metrics they summarize."
+---
+
+# Dashboards
+
+JumpServer has three operational dashboards, one for each major working area. They
+share the same organization scope and update as sessions, assets, and automation
+tasks run. Use the area switcher at the top of the page to move between **Console**,
+**PAM**, and **Audits**.
+
+## Console dashboard
+
+The Console dashboard summarizes the current organization: active sessions, users,
+assets, login activity, asset-type distribution, and the top login users and assets.
+
+1. Switch the workspace to **Console**.
+2. Select **Dashboard** in the left sidebar.
+3. Review the real-time counters, user and asset totals, and the ranking tables.
+   The numbers are environment-specific and change as users connect.
+
+![Console dashboard](/images/jumpserver/v5_admin_dashboard_01.png)
+
+## PAM dashboard
+
+The PAM dashboard focuses on the managed account inventory and account automation:
+total and privileged accounts, accounts that support connection or secret rotation,
+automation task totals, change-secret success and failure trends, risk accounts, and
+account-type distribution.
+
+1. Switch the workspace to **PAM**.
+2. Select **Dashboard** in the left sidebar.
+
+![PAM dashboard](/images/jumpserver/V4_pam_dashboard1.png)
+
+## Audits dashboard
+
+The Audits dashboard is the evidence-oriented view. It summarizes login, operation,
+and password-change log volume; online and historical sessions; file transfers;
+command records; job logs; and session connection trends.
+
+1. Switch the workspace to **Audits**.
+2. Select **Dashboard** in the left sidebar.
+3. Use **Today**, **Last 7 days**, or **Last 30 days** to change the time range.
+
+![Audits dashboard](/images/jumpserver/v5_session_audit_dashboard.png)
+
+## Notes
+
+- Dashboards only show data from the organization selected in the top navigation.
+- Counters are operational summaries. Use the corresponding list pages in Console,
+  PAM, or Audits when you need record-level detail.
+- Dashboard access depends on the permissions of your role in the current
+  organization.

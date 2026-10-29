@@ -1,0 +1,7 @@
+[
+  { "type": "file", "name": "general", "label": "General" },
+  { "type": "file", "name": "components", "label": "Components" },
+  { "type": "file", "name": "monitoring", "label": "Monitoring" },
+  { "type": "file", "name": "endpoint", "label": "Endpoint" },
+  { "type": "file", "name": "endpoint-rules", "label": "Endpoint rules" }
+]

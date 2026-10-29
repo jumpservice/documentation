@@ -1,0 +1,100 @@
+---
+title: "Awaiting Approval"
+description: Review tickets assigned to you as a handler, adjust the requested scope, and approve or reject requests.
+---
+
+<Alert type="xpack">
+**Tickets & Approvals** requires JumpServer Enterprise Edition. Ticket entries, approval cards, and flow settings are hidden without a license.
+</Alert>
+
+**Assigned** lists the tickets that are waiting for your decision. A ticket appears
+here when you are the current handler in its approval flow and the ticket is still
+pending. Use it as the approver work queue: read the request, tighten the scope if
+needed, then approve or reject. In the navigation, this page is labelled
+**Assigned**; its page title is **Awaiting Approval**.
+
+![Figure 1: A ticket awaiting approval](/images/jumpserver/workorder05.png)
+
+## Prerequisites
+
+* The Tickets feature is enabled and licensed. The **Tickets & Approvals** area
+  requires an enterprise license.
+* Your role grants the ticket permission needed to view and process approvals.
+* You are named as a handler in the ticket's approval flow, or you belong to a
+  group or role matched by an attribute rule. Being able to view tickets does not
+  by itself put a ticket in this queue.
+
+## Review and decide
+
+<Steps>
+
+<div>
+Open **Assigned**. Only pending tickets where you are the current handler are
+listed.
+</div>
+
+<div>
+Click the ticket **title** to open its detail page.
+</div>
+
+<div>
+Read **Basic info** and **Apply info**: applicant, requested assets or nodes,
+accounts, actions, and the requested validity period.
+</div>
+
+<div>
+Check the approval steps and the conversation on the right side. Add a **Reply** if
+you need more information from the applicant.
+</div>
+
+<div>
+If necessary, narrow the requested assets, accounts, or actions before deciding.
+Approvers can reduce the requested scope so the permission matches the least
+privilege needed.
+</div>
+
+<div>
+Click **Agree** to approve the request or **Reject** to decline it. The ticket moves
+to the next approval level, or finishes when the last level is complete.
+</div>
+
+</Steps>
+
+![Figure 2: Approving a ticket and replying to the applicant](/images/jumpserver/workorder06.png)
+
+## Batch approval
+
+Select several pending tickets and choose **Batch approval** in the toolbar. A
+confirmation dialog lists the selected tickets and their key request details.
+Confirm to approve all of them, or cancel to reject the whole selection. Use batch
+actions only when the requests have the same scope you would approve
+individually.
+
+## Ticket detail reference
+
+| Area | What it shows |
+| --- | --- |
+| Applicant, type, ticket flow | Who submitted the request and which flow processes it |
+| Status | Pending, approved, rejected, or completed |
+| Assignees | All handlers for the current approval level |
+| Current handler | The handler who is expected to act now |
+| CC users | Users copied on the ticket; they receive updates but do not approve |
+| Apply info | Requested nodes, assets, accounts, actions, and validity dates |
+| Approval steps | Progress through the flow, including each level's result |
+| Comments | Conversation between applicant, handlers, and CC users |
+
+## Column reference
+
+| Column | Description |
+| --- | --- |
+| No. | Ticket serial number |
+| Title | Ticket title; click to open the detail page |
+| Type | Ticket type, such as Apply for assets |
+| Status | Current ticket status |
+| Date | Creation time of the ticket |
+
+<Alert type="note">
+Approvers bound to WeCom or DingTalk can also process tickets from the mobile
+approval message without signing in to JumpServer. Decisions made there use the
+same approval flow and are recorded in the ticket history.
+</Alert>

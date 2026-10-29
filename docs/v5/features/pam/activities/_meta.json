@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "account-sessions",
+    "label": "Account Sessions"
+  },
+  {
+    "type": "file",
+    "name": "account-activities",
+    "label": "Account Activities"
+  }
+]

@@ -1,0 +1,3 @@
+# pnpm supply-chain policy exception for the GA plugin used by this site.
+minimumReleaseAgeExclude:
+  - rsbuild-plugin-google-analytics@1.1.0

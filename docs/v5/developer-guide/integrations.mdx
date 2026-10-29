@@ -1,0 +1,87 @@
+---
+title: "Integrations"
+description: "Connect JumpServer to external systems through the REST API, notification channels, Syslog, and PAM integration applications."
+---
+
+# Integrations
+
+JumpServer integrates with external systems through a small set of supported
+surfaces: the REST API for automation, notification channels for outbound
+messages, Syslog for log collection, and PAM integration applications for
+controlled account access.
+
+## Integration surfaces
+
+| Surface | Direction | Use it for |
+| --- | --- | --- |
+| REST API | Pull and push | Automate users, assets, accounts, permissions, sessions, and tickets |
+| Notifications | Outbound | Email, SMS, and subscription-based platform alerts |
+| Syslog | Outbound | Send application logs to an external Syslog server |
+| PAM integration applications | Outbound API | Provide controlled account credential retrieval to external applications |
+| Authentication | Inbound | LDAP, CAS, OIDC, SAML2, OAuth2, and social login providers |
+
+## REST API
+
+The REST API is the primary integration surface. Use it when an external system
+must read or change records on demand:
+
+- Base path: `/api/v1/`
+- Documentation: `/api/docs/` and `/api/swagger.json`
+- Authentication: session, access key, private token, or OAuth2
+- Pagination: `limit` and `offset`
+
+See [REST API](/developer-guide/rest-api) for authentication and endpoint groups.
+
+## Notification channels
+
+JumpServer sends account, authorization, security, and monitoring messages
+through email and SMS, and lets users subscribe to in-site or email alerts.
+
+1. Open **System Settings > Notifications**.
+2. Configure **Email** for transactional messages.
+3. Configure **Message** (SMS) when SMS verification or password recovery is required.
+4. Configure **Subscription** to select message types and recipients.
+
+![Notification settings](/images/jumpserver/V4_systemsetting_notification_settings1.png)
+
+See [System Settings > Notifications](/features/system-settings/notifications) for
+the full configuration reference.
+
+## Syslog
+
+Application logs can be sent to an external Syslog server through the deployment
+configuration:
+
+- `SYSLOG_ADDR` — Syslog server address
+- `SYSLOG_FACILITY` — Syslog facility
+- `SYSLOG_SOCKTYPE` — socket type
+
+These values belong to the deployment configuration and require a service
+restart. See [Configuration](/operations/configuration) and
+[Command-Line Tools](/operations/cli-tools).
+
+## PAM integration applications
+
+PAM integration applications expose account credentials to external systems
+through a controlled API, without giving those systems direct access to the
+credential store.
+
+1. Open **PAM > Integration > Applications**.
+2. Create an application and select the accounts it may access.
+3. Distribute the application credentials to the consuming system.
+
+![PAM integration applications](/images/jumpserver/v5_admin_app_01.png)
+
+See [PAM > Applications](/features/pam/integration/applications) for the
+application workflow.
+
+## Authentication providers
+
+For inbound identity integration, configure LDAP, CAS, OIDC, SAML2, OAuth2, or a
+supported social provider under **System Settings > Authentication**. See
+[Authentication](/features/system-settings/authentication).
+
+## Notes
+
+- Use HTTPS for every external integration and store credentials outside source control.
+- Prefer a dedicated service account with the minimum required permissions for API and PAM integrations.

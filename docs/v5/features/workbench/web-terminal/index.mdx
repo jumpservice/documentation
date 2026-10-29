@@ -1,0 +1,91 @@
+---
+title: "Web Terminal Overview"
+description: "Use the browser-based Web Terminal to connect to authorized assets, manage sessions, and transfer files without installing a client."
+---
+
+# Web Terminal Overview
+
+The **Web Terminal** (Luna) connects you to authorized assets directly in the
+browser. It requires no local plugin and is the workspace that opens when you start
+a connection from the Workbench.
+
+Open it from the **Workbench** entry or the Web Terminal icon in the top
+navigation.
+
+![Web Terminal workspace](/images/jumpserver/v5_user_wb_luna_01.png)
+
+## Workspace layout
+
+| Area | What it contains |
+| --- | --- |
+| Top toolbar | **My Assets**, **File Manager**, sidebar toggle, **New Connection**; on the right: [AI Assistant](/features/general/ai-assistant), user menu, and session panel |
+| Left sidebar | Assets authorized in the current organization, with organization switch, search, favorites, and scripts |
+| Session area | Open sessions as tabs; drag, switch, and split panes |
+| Bottom status bar | Login status, session count, and the **Transfer Center** entry |
+
+## My Assets
+
+The left sidebar lists assets authorized to your account in the current
+organization. Use search and favorites to find a target, then select an asset to
+open its connection dialog. An empty list usually means the asset is not authorized
+or you are in the wrong organization.
+
+See [Access Assets](/features/workbench/access-assets) for the asset list,
+account inspection, and favorites.
+
+## Connect to an asset
+
+Select an asset in the sidebar, choose a protocol, account, and connection method,
+then select **Connect**. The connection opens as a tab in the session area.
+
+See [Connect Assets](/features/workbench/web-terminal/connect-assets) for the full
+connection flow, available methods, and session shortcuts.
+
+## AI Assistant
+
+Select the **AI Assistant** button in the top toolbar to open the assistant in the
+right panel. It works with the active session, so you can ask about terminal output,
+a database schema, a file operation, or a script without leaving the Web Terminal.
+
+See [AI Assistant](/features/general/ai-assistant) for entry points, session
+context, and prerequisites.
+
+## Organization switching
+
+The current organization is shown at the top of the sidebar. Select it to switch
+to another organization, or choose **All organizations**. The asset list reloads
+for the selected organization, so an authorization created in one organization is
+not visible in another.
+
+![Organization switcher in the Web Terminal](/images/jumpserver/v5_user_wb_luna_17.png)
+
+## File Manager
+
+Select **File Manager** in the top toolbar to open the file view:
+
+- **Local upload** — drag or upload files from your computer.
+- **Connect remote asset** — open an SFTP session to an authorized asset and
+  upload files to its current directory.
+
+After a session starts, use **Transfer Center** in the status bar to review the
+queue and progress. See [File Transfer](/features/workbench/file-transfer) for the
+separate multi-asset transfer job.
+
+## Personal menu
+
+Select your avatar in the top-right to open the personal menu:
+
+- **Language** — switch between Simplified Chinese and English.
+- **Theme** — system, light, or dark.
+- **Settings** — configure connection defaults and appearance.
+- **Client Download** — open the download page for JumpServer Client and related tools.
+- **Sign out** — end the current session.
+
+See [Web Terminal Settings](/features/workbench/web-terminal/settings) for the
+settings pages.
+
+<Alert type="note">
+The Web Terminal shows only assets authorized for your account in the active
+organization. If a connection method is missing, the protocol, enabled components,
+license, or your assigned connection methods may not allow it.
+</Alert>

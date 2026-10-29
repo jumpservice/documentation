@@ -1,0 +1,114 @@
+---
+title: "Roles"
+description: "Create system and organization roles, configure their permissions, and assign them to users."
+---
+
+# Roles
+
+<Alert type="xpack">
+**Role management** requires JumpServer Enterprise Edition. Without a license, the Roles page is unavailable while predefined roles continue to govern access.
+</Alert>
+
+Roles define what an administrator, auditor, or user is allowed to do. Since
+v4.9, role management lives in **System Settings**. JumpServer uses two role
+scopes: system roles, which apply across the whole deployment, and organization
+roles, which apply only inside one organization.
+
+## Overview
+
+JumpServer ships with default roles that cover the common personas. Default
+roles cannot be edited or deleted; to change what a default role grants,
+duplicate it, adjust the copy, and assign the copy to users instead.
+
+| Scope | Default roles |
+| --- | --- |
+| System roles | System admin, System auditor, User, System component |
+| Organization roles | Organization admin, Organization auditor, Organization user |
+
+A role is more than a name. It carries a permission set, a list of assigned
+users, and an activity record, so you can see who holds the role and what
+changed over time.
+
+## Create a role
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **Roles**.
+</div>
+
+<div>
+Click **Create** and choose whether the role is a system role or an
+organization role.
+</div>
+
+<div>
+Type a name and an optional description, then click **Submit**.
+</div>
+
+<div>
+On the role detail page, select the permissions the role should grant in the
+**Permissions** section.
+</div>
+
+<div>
+Click **Update** to save the permission set.
+</div>
+
+</Steps>
+
+![Figure 1: Create a role](/images/jumpserver/v4_role_list_01.png)
+
+## Assign users and review activity
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **Roles**, then click the role name.
+</div>
+
+<div>
+Open the **Users** tab and add the users who should receive this role.
+</div>
+
+<div>
+Open the **Activity** tab to review changes made to the role and its
+assignments.
+</div>
+
+</Steps>
+
+![Figure 2: Role detail page](/images/jumpserver/v4_role_list_04.png)
+
+## Field reference
+
+| Section | Description |
+| --- | --- |
+| Basic | Role name, scope, built-in flag, creator, and description. |
+| Permissions | The functions the role can use. Permissions are grouped by module and can be checked or cleared in bulk. |
+| Users | Users bound to the role. Assigning a role grants its permissions to those users. |
+| Activity | Audit trail of role and assignment changes. |
+
+## Manage existing roles
+
+- **Edit**: use the edit action in the role list to change the name or
+  description.
+- **Duplicate**: use the more actions menu to create a copy, then adjust the
+  copied permissions. Duplicating is the fastest way to build a role that is
+  close to a default role.
+- **Delete**: only non-built-in roles can be deleted. Deleting a role removes
+  its permissions from every assigned user.
+
+<Alert type="note">
+Role changes take effect on the next authorization check. A user who is already
+signed in is not forced out, but the menus and actions they can use are
+re-evaluated from the new permission set.
+</Alert>

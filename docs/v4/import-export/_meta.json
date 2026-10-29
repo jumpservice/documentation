@@ -1,0 +1,4 @@
+[
+  { "type": "file", "name": "general-guide", "label": "Overview" },
+  { "type": "file", "name": "users", "label": "Users" }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "my-tickets",
+    "label": "Submitted"
+  },
+  {
+    "type": "file",
+    "name": "awaiting-approval",
+    "label": "Assigned"
+  },
+  {
+    "type": "file",
+    "name": "ticket-flow",
+    "label": "Flow Setup"
+  }
+]

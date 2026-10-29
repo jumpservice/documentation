@@ -1,27 +1,44 @@
 import React from "react";
 import Icon from "./icons";
-import NextLink from "next/link";
 
 const ApplyTrialLicense = ({ showBorder = true }) => {
   return (
     <div
-      className={`grid grid-cols-[3%_auto] gap-2 my-5 p-2 items-center justify-center rounded-lg ${
-        showBorder ? "border border-primary" : ""
+      className={`my-5 flex flex-col gap-3 rounded-lg bg-surface-feature p-4 dark:bg-teal-mid/30 sm:flex-row sm:items-center sm:justify-between ${
+        showBorder ? "border border-primary/40" : ""
       }`}
     >
-      <div>
-        <Icon name="xpack" />
+      <div className="flex min-w-0 items-start gap-3">
+        <span className="mt-0.5 shrink-0 text-primary">
+          <Icon name="xpack" />
+        </span>
+        <div className="text-sm leading-6 text-slate dark:text-white/75">
+          <p className="!m-0 font-semibold text-ink dark:text-white">
+            Try JumpServer Enterprise Edition free for 14 days
+          </p>
+          <p className="!m-0">
+            No credit card required. Includes custom RBAC, enterprise SSO,
+            multi-tenancy, and SLA-backed support.
+          </p>
+        </div>
       </div>
-      <div className="text-md">
-        Try JumpServer Enterprise free for 14 days —{" "}
-        <NextLink
-          className="text-nowrap ml-1 font-normal text-primary hover:underline"
+      <div className="flex shrink-0 flex-wrap items-center gap-2">
+        <a
+          className="jms-btn jms-btn-primary !h-8 !px-3 !text-xs !leading-5 !text-white !no-underline hover:!text-white hover:!no-underline"
           target="_blank"
+          rel="noopener noreferrer"
           href="https://www.jumpserver.com/free-trial"
         >
-          Contact us <Icon name="send" />
-        </NextLink>{" "}
-        to get started !
+          Request free trial
+        </a>
+        <a
+          className="jms-btn jms-btn-secondary !h-8 !px-3 !text-xs !leading-5 !no-underline"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.jumpserver.com/contact"
+        >
+          Contact sales
+        </a>
       </div>
     </div>
   );

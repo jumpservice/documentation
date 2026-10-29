@@ -15,7 +15,7 @@ const ResourceAttributeTable: React.FC<TableProps> = ({ headers, rows }) => {
             {headers.map((header, idx) => (
               <th
                 key={idx}
-                className={`border dark:border-gray-600 px-4 py-2 break-words ${idx === 0 ? 'w-1/2' : 'w-1/2'}`}
+                className={`border border-hairline dark:border-white/10 px-4 py-2 break-words ${idx === 0 ? 'w-1/2' : 'w-1/2'}`}
               >
                 {header}
               </th>
@@ -38,7 +38,7 @@ const ResourceAttributeTable: React.FC<TableProps> = ({ headers, rows }) => {
                 return (
                   <td
                     key={cellIdx}
-                    className={`border dark:border-gray-600 px-4 py-2 align-top break-words ${cellIdx === 0 ? 'w-1/2' : 'w-1/2'}`}
+                    className={`border border-hairline dark:border-white/10 px-4 py-2 align-top break-words ${cellIdx === 0 ? 'w-1/2' : 'w-1/2'}`}
                   >
                     {isRequired && <Icon name="*" />}
                     <span dangerouslySetInnerHTML={{ __html: display }} />

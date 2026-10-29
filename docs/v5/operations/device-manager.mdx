@@ -1,0 +1,142 @@
+---
+title: "Device Manager"
+description: "Use Device Manager (JDMC) to monitor and maintain the server and containers that run JumpServer."
+---
+
+# Device Manager
+
+<Alert type="xpack">
+**Device Manager (JDMC)** requires JumpServer Enterprise Edition. The entry is available only when the deployment includes JDMC and the license and account permissions allow it.
+</Alert>
+
+**Device Manager** opens **JDMC**, the host operations console that is deployed
+alongside JumpServer. It manages the server and containers that run JumpServer —
+not the assets protected by JumpServer.
+
+Most of the operational tasks covered in this section are available from Device
+Manager: backup and restore preparation, upgrade preparation, network and
+certificate changes, disk expansion, license management, container status and
+restarts, log inspection, and primary/standby setup. Use Device Manager when the
+task targets the JumpServer host or its containers.
+
+<Alert type="warning">
+Device Manager actions affect the whole JumpServer deployment and can interrupt
+active sessions. Restrict access to authorized administrators, plan a maintenance
+window, and [back up the deployment](/operations/backup-restore) before changing
+network, disk, or availability settings.
+</Alert>
+
+## Open Device Manager
+
+From JumpServer, open **System Settings > Device Manager**. The console opens in a
+new tab and reuses the current sign-in.
+
+If you open `https://<jumpserver-host>/jdmc/` directly, sign in with the server's
+**root** password and accept the user and privacy agreements. Device Manager shares
+the JumpServer host name and is served under the `/jdmc/` path.
+
+For the entry, sign-in, and field-level details, see
+[Device Manager](/features/system-settings/device-manager).
+
+## What you can manage
+
+![Device Manager dashboard](/images/jumpserver/v5_jdmc_dashboard_01.png)
+
+### Dashboard
+
+The default page summarizes the host:
+
+- Resource usage cards for the server
+- CPU and memory trend charts
+- Host information, including the operating system and deployment details
+
+Use it as the first check before maintenance, or after a change, to confirm that
+the host is healthy.
+
+### System management
+
+| Area | Operational use |
+| --- | --- |
+| Network configuration | Manage interfaces, routes and gateways, DNS, and Docker networks |
+| Domain configuration | Set the access domain and view or update the service certificate |
+| Disk management | Expand a data disk and review mount-point capacity |
+| License management | Copy the machine code and upload a JDMC license |
+| Service settings | Change the root password, port exposure policy, SNMP settings, and system time |
+| Primary/standby management | Inspect and configure a two-node high-availability cluster |
+
+![Network configuration in JDMC](/images/jumpserver/v5_jdmc_network_01.png)
+
+### Application management
+
+| Area | Operational use |
+| --- | --- |
+| Data backup | Back up configuration files, the database, system logs, and session recordings; configure a remote SFTP target |
+| Application status | Start, restart, and inspect JumpServer containers, with streaming command output |
+| Application configuration | Edit deployment-level settings that are not exposed in Lina |
+| Application logs | View log files and follow live container logs |
+
+![Application status in JDMC](/images/jumpserver/v5_jdmc_appstate_01.png)
+
+## Runtime environment check
+
+Every page except the dashboard shows a runtime environment result. A passing check
+reports **Runtime environment normal**. Open the details to see required and
+optional dependencies, the detected executable paths, and network checks. If a
+dependency is missing, Device Manager identifies it and the affected operations may be
+unavailable until it is installed. Select **Re-check** after fixing the dependency.
+
+## Common operational scenarios
+
+| Scenario | Use Device Manager to |
+| --- | --- |
+| Prepare for an upgrade | Check the dashboard, take a backup, review application status and logs |
+| Change TLS or the access domain | Update the domain and certificate, then verify the service |
+| Disk is filling up | Review mount-point usage and expand the data disk |
+| License is expiring | Copy the machine code and upload a new license |
+| Network or DNS change | Update interfaces, routes, DNS, or Docker networks during a maintenance window |
+| Container is unhealthy | Inspect application status and logs, then restart the affected container |
+| Build a two-node deployment | Configure primary/standby management |
+| Collect evidence after an incident | Export logs and a configuration backup |
+
+## One console for most operations
+
+Most of the operational work described in this section can be completed from Device
+Manager. The table below maps the surrounding Operations topics to the console areas
+that support them.
+
+| Operations task | Device Manager area |
+| --- | --- |
+| Backup preparation | **Data backup** for configuration, database, logs, and recordings |
+| Configuration changes | **Application configuration** and **Network configuration** |
+| Network and port review | **Network configuration** and **Service settings** |
+| HTTPS and certificate changes | **Domain configuration** |
+| Disk capacity expansion | **Disk management** |
+| License renewal | **License management** |
+| Upgrade and maintenance support | Dashboard, **Data backup**, **Application status**, and **Application logs** |
+| Container troubleshooting | **Application status**, **Application logs**, and the runtime environment check |
+| Security hardening | **Service settings**: root password, port policy, SNMP, and system time |
+| High availability | **Primary/standby management** |
+
+Device Manager complements the procedures in this section rather than replacing
+them: use it for host and container actions, and follow the linked page for the
+surrounding process, validation, and rollback steps.
+
+## Operational boundaries
+
+- Device Manager operates on the **host and containers**; JumpServer Console operates on
+  organizations, users, assets, accounts, and authorizations.
+- Device Manager is not a replacement for [Backup & Restore](/operations/backup-restore) or
+  [Upgrade & Maintenance](/operations/upgrade-maintenance); use it as the host
+  console that supports those workflows.
+- Some actions require root-level access and a healthy runtime environment. Do not
+  run host-level changes during active maintenance windows without a rollback plan.
+- The Device Manager entry and available menus depend on the deployment and the account's
+  permissions.
+
+## Related topics
+
+- [Device Manager](/features/system-settings/device-manager) — entry, sign-in, and console reference
+- [Backup & Restore](/operations/backup-restore)
+- [Upgrade & Maintenance](/operations/upgrade-maintenance)
+- [Configuration](/operations/configuration)
+- [Network Ports](/operations/network-ports)

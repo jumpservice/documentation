@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "discover-accounts",
+    "label": "Discover Accounts"
+  },
+  {
+    "type": "file",
+    "name": "push-accounts",
+    "label": "Push Accounts"
+  },
+  {
+    "type": "file",
+    "name": "backup-accounts",
+    "label": "Backup Accounts"
+  }
+]

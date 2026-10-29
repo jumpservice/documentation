@@ -1,51 +1,41 @@
 {
-  "name": "docs",
+  "name": "jumpserver-docs",
   "version": "0.0.1",
+  "private": true,
+  "type": "module",
   "description": "JumpServer Documentation",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "rm -rf .next && next build && next-sitemap",
-    "start": "next start",
-    "pretty": "npx prettier . --write"
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "node scripts/preview.mjs",
+    "preview:rspress": "rspress preview",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "@headlessui/react": "^2.1.2",
-    "@heroicons/react": "^2.1.4",
-    "@next/third-parties": "^14.2.5",
-    "@primer/octicons-react": "^19.10.0",
-    "@radix-ui/react-tooltip": "1.0.7",
-    "@stitches/react": "^1.2.8",
-    "@tailwindcss/typography": "^0.5.13",
-    "@theguild/components": "^6.5.3",
-    "axios": "^1.7.2",
+    "@rsbuild/plugin-svgr": "^2.0.5",
+    "@rspress/core": "^2.0.23",
+    "@rspress/plugin-sitemap": "^2.0.23",
     "clsx": "^2.1.1",
-    "cobe": "^0.6.3",
-    "framer-motion": "^12.6.0",
     "lucide-react": "^0.479.0",
-    "next": "^14.2.4",
-    "next-with-less": "^3.0.1",
-    "nextra": "^2.13.4",
-    "nextra-theme-docs": "^2.13.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-github-btn": "^1.4.0",
-    "sharp": "^0.33.4",
-    "styled-components": "^6.1.11"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rsbuild-plugin-google-analytics": "^1.1.0"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
-    "@types/node": "20.14.9",
-    "autoprefixer": "^10.4.19",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.7",
-    "next-sitemap": "^4.2.3",
-    "postcss": "^8.4.39",
-    "prettier": "^3.3.3",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "storybook": "^8.1.11",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.3"
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b"
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "packageManager": "pnpm@11.15.1"
 }

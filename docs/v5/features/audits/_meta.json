@@ -1,0 +1,36 @@
+[
+  {
+    "type": "file",
+    "name": "dashboard",
+    "label": "Dashboard"
+  },
+  {
+    "type": "dir",
+    "name": "sessions",
+    "label": "Sessions",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "activities",
+    "label": "Activities",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "jobs",
+    "label": "Job Audits",
+    "collapsed": true
+  },
+  {
+    "type": "file",
+    "name": "tickets",
+    "label": "Ticket Audits"
+  },
+  {
+    "type": "dir",
+    "name": "reports",
+    "label": "Report",
+    "collapsed": true
+  }
+]

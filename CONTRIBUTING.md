@@ -6,7 +6,7 @@ Please read and follow our [Code of Conduct](https://github.com/jumpserver/jumps
 
 ## Contributor’s Guide
 
-Most of our docs are written in Markdown. If you are not familiar with Markdown, learn more [here](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). The files that you’ll likely be updating are inside of the “pages” folder. From there select a language in order to view the Markdown files.
+Most of our docs are written in Markdown/MDX. If you are not familiar with Markdown, learn more [here](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). The files that you’ll likely be updating live in the `docs/v4` and `docs/v5` folders. Page order and groups are controlled by the adjacent `_meta.json` files, and the top navigation is defined in each version’s `_nav.json`.
 
 Direct contributions are much appreciated for simple things (corrections, small additions to existing content). If the change is more complex, we encourage you to start a discussion in GitHub Issues or Discord first.
 

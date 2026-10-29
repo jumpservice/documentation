@@ -1,0 +1,80 @@
+---
+title: "Operator Guide"
+description: "Understand System Operator and Organization Operator roles and the Workbench features operators use."
+---
+
+# Operator Guide
+
+Operator access is built from two layers: a **System Operator** system role and
+an **Organization Operator** organization role. The organization role is what
+grants day-to-day Workbench access inside a specific organization. See
+[Role Model](/roles/role-model) for the general model.
+
+## Operator roles
+
+| Role | Scope | What it grants |
+| --- | --- | --- |
+| System Operator | System | General baseline role; intended to be combined with an organization role |
+| Organization Operator | Organization | Workbench within one organization |
+
+<Alert type="note">
+System Operator alone is not a complete operations role. Assign
+**Organization Operator** in the organization where the user needs to connect to
+assets and perform day-to-day work.
+</Alert>
+
+## System Operator baseline
+
+The system role provides the personal and cross-organization baseline used with
+an organization role:
+
+- [Profile](/features/general/profile), [Preferences](/features/general/preferences), and [Notifications](/features/general/notifications)
+- [Access Keys](/features/general/access-keys) and [Tokens](/features/general/tokens)
+- [Workbench Overview](/features/workbench/overview) and the Workbench entry
+- [JumpServer Client](/features/client/) and [Asset Connection](/features/client/asset-connection)
+
+## Organization Operator
+
+Organization Operator uses **Workbench** inside the assigned organization. It
+does not administer users, assets, authorizations, or platform settings.
+
+### Workbench
+
+- [Overview](/features/workbench/overview)
+- [Access Assets](/features/workbench/access-assets)
+- [File Transfer](/features/workbench/file-transfer)
+- [Personal Credentials](/features/workbench/personal-credentials)
+- [Job Center](/features/workbench/job-center/) — Adhoc, Jobs, Templates, and Execution History
+- [Tickets & Approvals](/features/workbench/tickets/) — Submitted and Assigned tickets
+- [Tools](/features/workbench/tools)
+
+### Client
+
+- [Client Overview](/features/client/) — desktop client features and requirements
+- [Asset Connection](/features/client/asset-connection) — Linux, Windows, database, and web assets
+- [Connection Settings](/features/client/connection-settings) — local preferences and application paths
+
+### General
+
+- [Global Search](/features/general/global-search)
+- [Notifications](/features/general/notifications)
+- [Profile](/features/general/profile)
+- [AI Assistant](/features/general/ai-assistant) when enabled for the deployment
+
+## Scope boundaries
+
+- Console administration, PAM lifecycle automation, Audits, and System Settings
+  are not part of Organization Operator by default.
+- **Flow Setup** in Workbench > Tickets & Approvals is an administrative
+  configuration, not an operator task. Operators use **Submitted** and
+  **Assigned**.
+- To use Workbench in another organization, assign Organization Operator there
+  and switch organizations.
+
+## Assigning operator roles
+
+1. Assign **System Operator** as the user's system role when a baseline account
+   is required.
+2. Invite the user to the target organization with **Organization Operator**.
+3. Switch organizations to confirm the Workbench shows the expected authorized
+   assets.

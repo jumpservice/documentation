@@ -1,7 +1,7 @@
-.next
-.idea
 node_modules
-
-*storybook.log
-.vscode
+build
+.rspress
 .DS_Store
+*.log
+.env
+.env.*

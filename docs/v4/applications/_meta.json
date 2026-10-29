@@ -1,0 +1,4 @@
+[
+  { "type": "file", "name": "create-application", "label": "Create application" },
+  { "type": "file", "name": "view-integration-docs", "label": "Integration docs" }
+]

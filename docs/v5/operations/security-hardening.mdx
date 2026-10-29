@@ -1,0 +1,93 @@
+---
+title: "Security Hardening"
+description: "Harden a JumpServer deployment by reducing network exposure, enabling TLS, protecting secrets, enforcing MFA and least privilege, and retaining audit evidence."
+---
+
+# Security Hardening
+
+JumpServer stores the credentials and session records of an organization's most
+privileged accounts, so the host, network, and application configuration all need
+hardening. This page lists the controls that matter most and the settings that
+implement them.
+
+{/* //TODO: Add a screenshot of the System Settings > Security page with the hardened policy values for this page. */}
+
+## Reduce network exposure
+
+- Publish only the user-facing ports: `80`, `443`, and `2222` for the web UI, HTTPS,
+  and SSH client access. Expose `5525` only if database client connections are
+  needed.
+- Keep PostgreSQL (`5432`), Redis (`6379`), MinIO (`9000`, `9001`), and
+  Elasticsearch (`9200`, `9300`) reachable only from the JumpServer hosts and the
+  load balancer.
+- Restrict management access (`22`) to jump hosts and administrators.
+- Allow the protocol ports (`3389`, `3390`, `15900`, `9898`) only where the matching
+  component is used.
+
+See [Network Ports](/operations/network-ports) for the full list.
+
+## Enable TLS everywhere
+
+- Serve the web UI over HTTPS. Place the certificate and key in
+  `config/nginx/cert`, set `HTTPS_PORT`, `SERVER_NAME`, `SSL_CERTIFICATE`, and
+  `SSL_CERTIFICATE_KEY`, then restart. See
+  [Enable HTTPS](/operations/enable-https).
+- Use trusted certificates. Clipboard copy and paste inside RDP sessions requires
+  the browser to trust the certificate.
+- Encrypt database and cache traffic with `DB_USE_SSL=True` and
+  `REDIS_USE_SSL=True`. Put the CA file under `/opt/jumpserver/config/certs` and
+  test the connection with the database client before restarting.
+
+## Protect secrets
+
+- Change the default `admin` password immediately after installation and enable MFA
+  for every administrator.
+- Treat `SECRET_KEY`, `BOOTSTRAP_TOKEN`, and `CHAT_AI_DELEGATION_SECRET` as
+  production secrets. Never commit `config.txt` or share the values in tickets.
+- Rotate access keys and revoke keys that are no longer used. The secret of an
+  access key is displayed only once. See
+  [Access Keys](/features/general/access-keys).
+- Store asset credentials in an external vault when required. Set
+  `VAULT_ENABLED=true` with an OpenBao-compatible backend, and optionally enable the
+  SSH certificate authority settings for short-lived SSH credentials.
+
+## Enforce identity and least privilege
+
+- Define roles and permissions narrowly. Use system roles for platform
+  administration and organization roles for tenant-scoped work.
+- Grant authorizations to users, groups, and nodes using the smallest set of
+  assets, accounts, and protocols. Review expiring and disabled rules regularly.
+- Add ACLs on top of authorizations: command filters, login restrictions, connect
+  method restrictions, and data masking for database sessions.
+- Set a password policy and session timeout that match the organization's security
+  policy.
+
+## Harden sessions and cookies
+
+| Setting | Recommended | Effect |
+| --- | --- | --- |
+| `DOMAINS` | Public domain and IP addresses | Rejects requests whose host is not trusted |
+| `SESSION_COOKIE_SECURE` | `true` with HTTPS | Sends the session cookie only over HTTPS |
+| `CSRF_COOKIE_SECURE` | `true` with HTTPS | Sends the CSRF cookie only over HTTPS |
+| `REFERER_CHECK_ENABLED` | `true` | Validates the request origin |
+| `SESSION_COOKIE_AGE` | Shorter than the default | Logs idle users out sooner |
+
+See [Configuration](/operations/configuration) for how to apply these values.
+
+## Retain audit evidence
+
+- Forward component logs to a central Syslog server with the `SYSLOG_ADDR`,
+  `SYSLOG_FACILITY`, and `SYSLOG_SOCKTYPE` settings, so logs survive host loss.
+- Keep recordings in object storage with retention that satisfies the audit policy,
+  and protect that storage with its own access controls.
+- Review login logs, operation logs, and session records regularly in
+  [Audits](/features/audits/).
+- Disable components that are not used to reduce the attack surface, and keep every
+  component on a supported version.
+
+## Related topics
+
+- [Security](/features/system-settings/security)
+- [Authentication](/features/system-settings/authentication)
+- [Command-Line Tools](/operations/cli-tools)
+- [Troubleshooting](/operations/troubleshooting)

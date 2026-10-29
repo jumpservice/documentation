@@ -1,0 +1,6 @@
+[
+  { "type": "file", "name": "auth-security", "label": "Auth security" },
+  { "type": "file", "name": "login-restriction", "label": "Login restriction" },
+  { "type": "file", "name": "user-password", "label": "User password" },
+  { "type": "file", "name": "asset-session", "label": "Asset session" }
+]

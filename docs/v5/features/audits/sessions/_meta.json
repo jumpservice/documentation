@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "asset-sessions",
+    "label": "Asset Sessions"
+  },
+  {
+    "type": "file",
+    "name": "session-commands",
+    "label": "Session Commands"
+  },
+  {
+    "type": "file",
+    "name": "file-transfer",
+    "label": "File Transfer"
+  },
+  {
+    "type": "file",
+    "name": "online-devices",
+    "label": "Online Devices"
+  }
+]

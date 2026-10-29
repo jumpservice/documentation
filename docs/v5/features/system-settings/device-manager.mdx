@@ -1,0 +1,84 @@
+---
+title: "Device Manager"
+description: "Open the JDMC operations console to manage the server that hosts JumpServer, including network, disk, license, high availability, and container operations."
+---
+
+# Device Manager
+
+<Alert type="xpack">
+**Device Manager (JDMC)** requires JumpServer Enterprise Edition. The entry is available only when the deployment includes JDMC and the license permits it.
+</Alert>
+
+Device Manager opens **JDMC**, an independent operations console that is deployed
+alongside JumpServer. JDMC manages the server that hosts JumpServer rather than
+the assets protected by JumpServer: network configuration, disk expansion,
+license, high availability, backups, and container lifecycle.
+
+For operational scenarios and a capability overview, see
+[Device Manager](/operations/device-manager).
+
+<Alert type="warning">
+JDMC operates on the host system and its containers. Changes made there affect
+the whole deployment and can interrupt running sessions. Restrict access to
+administrators who are authorized to manage the JumpServer server, and
+[back up the deployment](/operations/backup-restore) before you change network,
+disk, or high-availability settings.
+</Alert>
+
+## Open JDMC
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **Device manager**. JDMC opens in a new browser tab and
+uses the current JumpServer sign-in.
+</div>
+
+<div>
+If you open the console directly by browsing to `/jdmc/`, sign in with the root
+password of the server, accept the user and privacy agreements, and click
+**Log in to the console**.
+</div>
+
+</Steps>
+
+The entry is shown only when JDMC is enabled in the deployment and the account
+has the required permission. JDMC shares the JumpServer host name and serves
+under the `/jdmc/` path, for example `https://jumpserver.example.com/jdmc/`.
+
+![Figure 1: Device Manager entry](/images/jumpserver/v5_jdmc_overview_entry.png)
+
+![Figure 2: JDMC sign-in page](/images/jumpserver/v5_jdmc_overview_login.png)
+
+## Interface structure
+
+| Group | Menu | What it manages |
+| --- | --- | --- |
+| System management | Network configuration | Network interfaces, routes and gateways, DNS, and Docker networks. |
+| System management | Domain configuration | Access domain names and service certificates. |
+| System management | Disk management | Data disk expansion and mount point usage. |
+| System management | License management | Machine code and license upload. |
+| System management | Service settings | Root password, port exposure policy, SNMP, and system time. |
+| System management | Primary/standby management | Two-node high availability clustering. |
+| Application management | Data backup | Configuration files, database, system logs, and session recordings. |
+| Application management | Application status | Start, restart, and inspect the JumpServer containers. |
+| Application management | Application configuration | Deployment-level configuration for JumpServer. |
+| Application management | Application logs | Live logs from each container. |
+
+## Runtime environment check
+
+Every page except the dashboard shows a runtime check result. When the check
+passes, it reports **Runtime environment normal**; open the details to see each
+required and optional dependency and the executable path that was found. Click
+**Re-check** to run the test again after you install a missing dependency.
+
+<Alert type="note">
+A missing required dependency, such as `chronyc` on the system time page, blocks
+only the operations that need it. Install the dependency and re-check before you
+continue. JDMC actions are not available in deployments that do not ship the
+console.
+</Alert>

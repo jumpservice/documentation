@@ -1,0 +1,78 @@
+[
+  {
+    "type": "file",
+    "name": "dashboard",
+    "label": "Dashboard"
+  },
+  {
+    "type": "section-header",
+    "label": "Users"
+  },
+  {
+    "type": "file",
+    "name": "users",
+    "label": "Users"
+  },
+  {
+    "type": "file",
+    "name": "groups",
+    "label": "Groups"
+  },
+  {
+    "type": "section-header",
+    "label": "Assets"
+  },
+  {
+    "type": "file",
+    "name": "assets",
+    "label": "Assets"
+  },
+  {
+    "type": "file",
+    "name": "zones",
+    "label": "Zones"
+  },
+  {
+    "type": "file",
+    "name": "cloud-sync",
+    "label": "Cloud Sync"
+  },
+  {
+    "type": "section-header",
+    "label": "Accounts"
+  },
+  {
+    "type": "file",
+    "name": "accounts",
+    "label": "Accounts"
+  },
+  {
+    "type": "file",
+    "name": "account-templates",
+    "label": "Templates"
+  },
+  {
+    "type": "section-header",
+    "label": "Policies"
+  },
+  {
+    "type": "file",
+    "name": "authorizations",
+    "label": "Authorizations"
+  },
+  {
+    "type": "dir",
+    "name": "acls",
+    "label": "ACLs",
+    "collapsed": true
+  },
+  {
+    "type": "section-header",
+    "label": "Others"
+  },
+  {
+    "type": "file",
+    "name": "tags",
+    "label": "Tags"
+  }
+]

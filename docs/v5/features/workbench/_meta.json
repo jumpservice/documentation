@@ -1,0 +1,52 @@
+[
+  {
+    "type": "file",
+    "name": "overview",
+    "label": "Overview"
+  },
+  {
+    "type": "section-header",
+    "label": "My Assets"
+  },
+  {
+    "type": "file",
+    "name": "access-assets",
+    "label": "Access Assets"
+  },
+  {
+    "type": "file",
+    "name": "file-transfer",
+    "label": "File Transfer"
+  },
+  {
+    "type": "file",
+    "name": "personal-credentials",
+    "label": "Personal Credentials"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "web-terminal",
+    "label": "Web Terminal"
+  },
+  {
+    "type": "dir",
+    "name": "job-center",
+    "label": "Job Center",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "tickets",
+    "label": "Tickets & Approvals",
+    "collapsed": true
+  },
+  {
+    "type": "section-header",
+    "label": "Others"
+  },
+  {
+    "type": "file",
+    "name": "tools",
+    "label": "Tools"
+  }
+]

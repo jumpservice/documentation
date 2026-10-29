@@ -1,0 +1,100 @@
+---
+title: "Connect Assets"
+description: "Choose a protocol, account, and connection method in the Web Terminal, then manage the resulting session."
+---
+
+# Connect Assets
+
+<Alert type="xpack">
+**Desktop database, RDP, VNC, RemoteApp, and VirtualApp connection methods** require JumpServer Enterprise Edition. Web-based built-in terminal, Remote Desktop, and database access are included in Community Edition.
+</Alert>
+
+The Web Terminal connects to an asset from the left sidebar. The connection dialog
+shows the protocols configured for that asset, the accounts you may use, and the
+connection methods available to your account.
+
+## Connection flow
+
+1. Select the target asset in the left sidebar. The connection dialog opens.
+2. Choose a **Protocol** tab. Assets with multiple protocols, such as SSH and
+   SFTP, show one tab per protocol.
+3. Choose an **Account** authorized for the asset. **Manual input** lets you enter
+   an account and password yourself.
+4. Choose a **Connection method**. Methods are grouped by category.
+5. Open **Advanced options** when you need to change the character set, terminal
+   behavior, resolution, or remote application method.
+6. Select **Connect** to open a session. For application methods, the button reads
+   **Open client** instead.
+
+![Connection dialog in the Web Terminal](/images/jumpserver/v5_user_wb_luna_04.png)
+
+## Connection settings
+
+| Field | Description |
+| --- | --- |
+| Protocol | Protocol configured for the asset; options change when you switch tabs |
+| Account | Authorized account, same-name account, or manual input |
+| Connection method | Built-in, application, remote application, or virtual application |
+| Advanced options | Character set, Backspace as Ctrl + H, resolution, remote application method, and protocol-specific options |
+| Auto connect next time | Reuse the same protocol, account, and method the next time you select the asset |
+
+**Auto connect next time** is convenient for repeated access. To choose a different
+account or method later, right-click the asset in the sidebar and select
+**Connect** again.
+
+## Connection methods
+
+Available methods depend on the asset protocol, enabled components, license, and
+the methods assigned to your account.
+
+- **Built-in** — JumpServer renders the session in the browser. Examples: Terminal,
+  Remote Desktop, File Manager, File Editor, and Database Workbench.
+- **Application** — JumpServer Client launches a local program and fills in the
+  connection details. Examples: SSH Client, SFTP Client, Remote Desktop Client, and
+  SSH Wizard. Install [JumpServer Client](/features/client/installation) first and
+  configure local application paths in
+  [Connection Settings](/features/client/connection-settings).
+- **Remote application** — an administrator publishes the application on an
+  application host. Examples: DBeaver and JumpServer WebLite. See
+  [RemoteApp](/features/system-settings/remote-app).
+- **Virtual application** — an administrator publishes a Linux graphical
+  application. See [Feature Settings](/features/system-settings/features).
+
+![Connection method categories](/images/jumpserver/v5_user_wb_luna_15.png)
+
+## Common asset types
+
+| Asset type | Common protocols | Typical methods |
+| --- | --- | --- |
+| Linux host | SSH, SFTP | Built-in Terminal, File Manager, File Editor; SSH Client |
+| Windows host | RDP, VNC | Built-in Remote Desktop; Remote Desktop Client |
+| Network device | SSH, Telnet | Built-in Terminal; SSH Client |
+| Database | MySQL, PostgreSQL, Oracle, SQL Server, Redis, MongoDB | Built-in Terminal, Database Workbench, database client, remote application |
+| Web application | HTTP or HTTPS | JumpServer WebLite remote application |
+| Cloud service | K8S, HTTP | Built-in Kubernetes or web connection |
+| Directory service | SSH, RDP, VNC, WinRM | Same methods as the selected protocol |
+
+The platform determines which protocols an asset can enable; not every asset of the
+same type shows the same choices.
+
+## Session management
+
+Sessions open as tabs in the session area.
+
+- Switch sessions with `Alt + Shift + ← / →` or `Ctrl + 1…9`.
+- Drag tabs to reorder them.
+- Right-click a tab for pure mode, full screen, duplicate window, reconnect,
+  rename, vertical split, horizontal split, and close actions.
+- Use **New Connection** to reopen a recent asset, or **Transfer Center** to review
+  file transfers.
+
+![Session tabs in the Web Terminal](/images/jumpserver/v5_user_wb_luna_16.png)
+
+## Notes
+
+- If the connection dialog reports no available account, ask an administrator to
+  check the account authorization.
+- If a protocol is missing, the asset platform may not support it or the asset was
+  not created with that protocol enabled.
+- If an application method is missing, install JumpServer Client and configure the
+  local application path.

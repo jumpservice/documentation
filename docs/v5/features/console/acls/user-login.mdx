@@ -1,0 +1,86 @@
+---
+title: "User Login"
+description: "Audit and restrict JumpServer sign-in by source IP address and time period with global user login controls."
+---
+
+# User Login
+
+<Alert type="xpack">
+**Login review** requires JumpServer Enterprise Edition. Reviewers must be members of the organization, and matched sign-ins wait for approval.
+</Alert>
+
+**User Login** audits sign-in attempts against a user's source IP address and the
+time of day, then decides whether the sign-in is allowed. The controls on this
+page are global: the organization switcher shows **Global organization**, and the
+rules apply to every organization in the deployment.
+
+Open the page from **Console > ACLs > User Login**.
+
+![Figure 1: User Login list with priority, activation state, and action.](/images/jumpserver/v5_admin_acls_01.png)
+
+## Overview
+
+The list columns are Name, Priority, Active, Action, and Actions. Rules are
+matched by priority: the lower the number, the earlier the rule is evaluated. The
+first matching rule supplies the action; when no rule matches, this control does
+not restrict the sign-in.
+
+## Before you begin
+
+- Sign in with an account that can manage ACLs, such as a system administrator.
+- Know which users, IP ranges, and time windows should be restricted.
+- For the per-user variant, see the login rules on the
+  [Users](/features/console/users) detail page.
+
+## Create a user login control
+
+<Steps>
+<div>
+Click **Create**.
+</div>
+
+<div>
+In the **Create user login control** drawer, fill in the fields described below.
+</div>
+
+<div>
+Click **Submit**, or **Save and continue adding** to create another rule.
+</div>
+</Steps>
+
+![Figure 2: Create user login control with users, IP, time period, and action.](/images/jumpserver/v5_admin_acls_02.png)
+
+### Field reference
+
+| Group | Field | Description |
+| --- | --- | --- |
+| Basic | Name | Required. Rule name. |
+| Basic | Priority | Integer from 1 to 100. Defaults to 50; the lower the value, the earlier the rule is matched. |
+| Users | Users | **All users**, **Specified users**, or **Attribute filter**. |
+| Rule | IP | Source IP restriction. `*` matches all. Single addresses, CIDR ranges, address ranges, and IPv6 are supported, for example `192.168.10.1`, `192.168.1.0/24`, `10.1.1.1-10.1.1.20`, or `2001:db8:2de::e13`. Press Enter to add each entry. |
+| Rule | Time period | Drag to select weekdays and hours on the grid. No selection is treated as all day, every day. Use **Clear** or **Select all** to reset. |
+| Action | Action | **Reject**, **Accept**, **Review**, or **Notify**. |
+| Other | Active | When selected, the rule takes effect. |
+| Other | Comment | Optional. |
+
+## Action behavior
+
+| Action | Effect on a matched sign-in |
+| --- | --- |
+| Reject | The sign-in is denied. |
+| Accept | The sign-in is allowed. |
+| Review | The user must be approved before signing in. Requires an Enterprise license and at least one reviewer. |
+| Notify | The sign-in is allowed and a notification is produced. |
+
+<Alert type="warning">
+A **Reject** action blocks every matched sign-in while the rule is active. Before
+enabling a broad rule, test it with a small user group or a narrow IP range so
+that administrators are not locked out.
+</Alert>
+
+## Related topics
+
+- [ACLs](/features/console/acls/)
+- [Asset Connect](/features/console/acls/asset-connect)
+- [Connect Method](/features/console/acls/connect-method)
+- [Users](/features/console/users)

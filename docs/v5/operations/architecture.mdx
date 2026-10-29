@@ -1,0 +1,78 @@
+---
+title: "Architecture"
+description: "Understand the JumpServer layered architecture, its protocol components, and how a request flows from the browser to the target asset."
+---
+
+# Architecture
+
+JumpServer is a distributed privileged access management (PAM) platform. Users
+connect through a browser or a native client, the connection is terminated by a
+protocol component, and the core service authorizes the request and stores the
+session record. This page describes the layers, the components that make up an
+installation, and the path of a connection.
+
+## Layers
+
+JumpServer is organized into five layers. Each layer can be scaled independently
+in a production deployment.
+
+| Layer | Responsibility | Typical components |
+| --- | --- | --- |
+| Load | Receives browser and client traffic, balances it across nodes, terminates TLS | HAProxy, built-in Nginx |
+| Access | Authenticates users, serves the web UI and API, coordinates connections | Core, Web |
+| Protocol | Terminates SSH, RDP, database, VNC, and application sessions | KoKo, Lion, Razor, Magnus, Chen, Nec, Panda, Tinker |
+| Data | Stores platform records, sessions, queues, and cache | PostgreSQL, Redis |
+| Storage | Persists recordings, logs, and shared files | NFS or object storage, Elasticsearch |
+
+{/* //TODO: Add screenshot of a redrawn JumpServer layered architecture diagram for this page. */}
+
+## Components
+
+- **Core** is the central service. It stores and serves every record, enforces
+  authorization, and is the registration point for all other components. No other
+  component works if Core is unavailable.
+- **KoKo** handles character protocols such as SSH and Telnet and provides the
+  backend for Web Terminal character sessions.
+- **Lion** handles graphical protocols and provides browser access to Windows
+  assets.
+- **Razor** is the RDP proxy used by the JumpServer Client for Windows assets.
+- **Magnus** is the database proxy used when connecting to database assets.
+- **Chen** is the web database client for browser-based database sessions.
+- **Nec** is the VNC proxy, while **Panda** and **Tinker** are application
+  publishing hosts for virtual applications.
+- **Kael** supports AI assets, and **Celery** executes asynchronous and scheduled
+  automation tasks.
+- **Video Worker** converts recordings produced by graphical components into MP4
+  format. It is an enterprise component.
+- **JDMC** is the host management service. In enterprise installations it runs on
+  the JumpServer host as a systemd service, next to the containers.
+- **Web** (Nginx) serves the web frontend and proxies API, terminal, and RDP
+  traffic to the other components.
+
+## Connection flow
+
+1. A user opens the web UI. Nginx serves the frontend and forwards API requests
+   to Core.
+2. Core authenticates the user, resolves the active organization, role, and
+   authorization rules, and returns the assets the user may access.
+3. When the user connects, Core issues a connection token and points the client at
+   the appropriate protocol component.
+4. The protocol component opens the session to the target asset, streams the
+   terminal or desktop to the user, and records the session.
+5. Core stores the session metadata, while the recording is written to local
+   storage or uploaded to the configured object storage.
+
+## Scaling points
+
+The load and protocol layers are stateless and can run on more than one node.
+User sessions and queues live in Redis, records live in PostgreSQL, and recordings
+live in shared storage, so those services determine how far the deployment can
+scale. See [Deployment Topologies](/operations/deployment-topologies) for the
+supported layouts and [Network Ports](/operations/network-ports) for the ports each
+component needs.
+
+## Related topics
+
+- [Deployment Topologies](/operations/deployment-topologies)
+- [Network Ports](/operations/network-ports)
+- [Installation](/installation)

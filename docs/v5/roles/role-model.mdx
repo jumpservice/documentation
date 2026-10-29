@@ -1,0 +1,79 @@
+---
+title: "Role Model"
+description: "Understand the difference between system roles and organization roles, the default built-in roles, and how effective permissions are combined."
+---
+
+# Role Model
+
+JumpServer uses two role layers. A user can hold a system role and one or more
+organization roles at the same time, and the effective permissions are the union
+of those grants.
+
+## System roles
+
+System roles apply universally across all organizations in the platform. They
+define permissions and access levels for the whole system, so changing a system
+role affects every organization that uses the platform.
+
+Typical use cases:
+
+- Platform administration (all organizations and global settings)
+- Cross-organization auditing
+- A baseline self-service role that is combined with organization roles
+
+## Organization roles
+
+Organization roles are tailored to individual organizations. They are assigned
+when a user is invited to join an organization and apply only within that
+organization. Unlike system roles, organization roles are customizable and do
+not grant access outside the organization they are bound to.
+
+Typical use cases:
+
+- Administering one organization's users, assets, and authorizations
+- Auditing only one organization's sessions and logs
+- Giving a user day-to-day access to authorized assets in one organization
+
+## Default roles
+
+| Role | Scope | Default capability |
+| --- | --- | --- |
+| System Admin | System | Highest system administrator; all functional permissions |
+| System Auditor | System | Audits module across organizations |
+| System Operator | System | General baseline role; intended to be combined with an organization role |
+| Organization Admin | Organization | Console, Audits, and Workbench within the organization |
+| Organization Auditor | Organization | Audits within the organization |
+| Organization Operator | Organization | Workbench within the organization |
+
+<Alert type="note">
+The API and older releases may expose the internal names `SystemUser` and
+`OrgUser` for the operator roles. Use the role names shown in the current UI.
+</Alert>
+
+## How assignments combine
+
+1. Assign a **system role** on the user record.
+2. Assign an **organization role** when inviting the user to an organization, or
+   when managing the user's organization membership.
+3. The user's effective permissions are the union of the system-scope and
+   organization-scope permissions.
+4. Changing a system role affects all organizations. Changing an organization
+   role affects only that organization.
+
+A user with **System Operator** alone has a general baseline and should be
+paired with an organization role such as **Organization Operator** to use
+organization-scoped features. Likewise, **Organization Admin** is scoped to one
+organization; platform-wide configuration requires **System Admin**.
+
+## Built-in and custom roles
+
+The default roles are built-in and protected: they cannot be edited or deleted.
+To customize an organization role, clone the built-in role or create a new
+organization role and grant the required permissions. System roles and
+organization roles are managed separately in **System Settings > Roles**.
+
+## Role guides
+
+- [Administrator](/roles/administrator) — System Admin and Organization Admin
+- [Operator](/roles/operator) — System Operator and Organization Operator
+- [Auditor](/roles/auditor) — System Auditor and Organization Auditor

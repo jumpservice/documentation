@@ -1,0 +1,90 @@
+---
+title: "AI Assistant"
+description: "Use the AI Assistant inside the Web Terminal and JumpServer Client to query assets, work with active sessions, and prepare operations."
+---
+
+# AI Assistant
+
+The AI Assistant helps you work with authorized assets through a conversation. It
+is available in two places:
+
+- **Web Terminal** — the assistant opens beside the browser session.
+- **JumpServer Client** — the assistant works alongside desktop connections and
+  local applications.
+
+The assistant can query asset information, explain session output, help prepare
+commands, and organize your workspace. It only sees assets and actions that your
+account is authorized to use.
+
+## Entry points
+
+| Where | How to open it | Best for |
+| --- | --- | --- |
+| Web Terminal | Select the **AI Assistant** button in the top toolbar; the assistant opens in the right panel | Working with a terminal, database, file, or script session in the browser |
+| JumpServer Client | Select the **AI Assistant** entry in the client window | Working beside desktop connections or when using local applications |
+
+![AI Assistant panel in the Web Terminal](/images/jumpserver/web_terminal_ai.png)
+
+## Open the assistant in the Web Terminal
+
+1. Sign in and open **Workbench > Web Terminal**.
+2. Start a session or select an existing session tab.
+3. Select the AI Assistant button in the top toolbar.
+4. Ask a question about the current asset, session output, or task.
+
+The assistant panel opens on the right and keeps its own conversation context. It
+can inspect the current session domain, such as a terminal, database console, file
+manager, or script workspace, and can help you act on that session.
+
+## Open the assistant in JumpServer Client
+
+1. Sign in to JumpServer Client.
+2. Connect to an authorized asset, or open the workspace where you need help.
+3. Select the AI Assistant entry in the client.
+4. Describe the task or ask about the active connection.
+
+Because the assistant runs beside the desktop client, it can help with connections
+that use native protocols and local applications. See
+[Client Overview](/features/client/) and
+[Asset Connection](/features/client/asset-connection) for the desktop workflow.
+
+## Work with an active session
+
+The assistant is most useful when a session is already open:
+
+- **Terminal** — explain an error, summarize command output, or suggest the next
+  command.
+- **Database** — inspect table structure, explain a query, or help draft SQL.
+- **Files** — understand the current directory or plan a file operation.
+- **Scripts** — draft or refine a script, then copy it to the script library.
+- **Workspace** — organize session tabs, panes, or the current working layout.
+
+When the assistant proposes a command or operation, review the target asset,
+account, and command before allowing it to run. The action takes effect on the
+authorized asset exactly as if you ran it yourself.
+
+## Prerequisites
+
+- An administrator has enabled the assistant under **System Settings > AI
+  Assistant** and configured the model connection.
+- Your system or organization role includes the Chat AI permission. The built-in
+  Operator roles include the baseline permission; custom roles may not.
+- The target asset is authorized to your account.
+- In JumpServer Client, the client version is compatible with the server.
+
+If the entry is missing, the feature is disabled, your role lacks permission, or
+the deployment has no valid model configuration.
+
+![AI Assistant configuration](/images/jumpserver/v5_ai_assistant_01.png)
+
+## Notes
+
+- The assistant is scoped to the current organization and does not bypass
+  authorization.
+- Review generated commands and changes before confirming them.
+- Do not paste secrets, private keys, or passwords into the assistant.
+- Conversations can be audited by authorized administrators.
+- Web Terminal and JumpServer Client share the same assistant configuration but
+  provide different session context.
+
+{/* //TODO: Add a screenshot of the AI Assistant entry in JumpServer Client. */}

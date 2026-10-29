@@ -1,0 +1,102 @@
+[
+  {
+    "type": "section-header",
+    "label": "General"
+  },
+  {
+    "type": "file",
+    "name": "basic",
+    "label": "Basic Settings"
+  },
+  {
+    "type": "file",
+    "name": "organizations",
+    "label": "Organizations"
+  },
+  {
+    "type": "file",
+    "name": "roles",
+    "label": "Roles"
+  },
+  {
+    "type": "file",
+    "name": "platforms",
+    "label": "Platforms"
+  },
+  {
+    "type": "file",
+    "name": "notifications",
+    "label": "Notifications"
+  },
+  {
+    "type": "file",
+    "name": "features",
+    "label": "Features"
+  },
+  {
+    "type": "section-header",
+    "label": "Security"
+  },
+  {
+    "type": "file",
+    "name": "authentication",
+    "label": "Authentication"
+  },
+  {
+    "type": "file",
+    "name": "security",
+    "label": "Security"
+  },
+  {
+    "type": "section-header",
+    "label": "Infrastructure"
+  },
+  {
+    "type": "file",
+    "name": "storage",
+    "label": "Storage"
+  },
+  {
+    "type": "file",
+    "name": "components",
+    "label": "Components"
+  },
+  {
+    "type": "file",
+    "name": "remote-app",
+    "label": "RemoteApp"
+  },
+  {
+    "type": "file",
+    "name": "system-tasks",
+    "label": "System Tasks"
+  },
+  {
+    "type": "file",
+    "name": "device-manager",
+    "label": "Device Manager"
+  },
+  {
+    "type": "section-header",
+    "label": "Appearance & Tools"
+  },
+  {
+    "type": "file",
+    "name": "appearance",
+    "label": "Appearance"
+  },
+  {
+    "type": "file",
+    "name": "tools",
+    "label": "System Tools"
+  },
+  {
+    "type": "section-header",
+    "label": "System"
+  },
+  {
+    "type": "file",
+    "name": "license",
+    "label": "License"
+  }
+]

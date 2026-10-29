@@ -1,0 +1,43 @@
+---
+title: "Preferences"
+description: "Set your interface language, export encryption password, and Web terminal defaults."
+---
+
+# Preferences
+
+Preferences are personal overrides that apply only to your account. Open **Profile >
+Preferences**. The available tabs are **General** and **Web Terminal**.
+
+## General preferences
+
+The **General** tab controls:
+
+| Setting | Purpose |
+| --- | --- |
+| Language | Interface language for your account |
+| File encryption password | Password used to encrypt files exported from JumpServer |
+
+To set or change the export password, enter the new password and confirmation, then
+select **Submit**. Select **Reset** to discard changes.
+
+![General preferences](/images/jumpserver/profile_05_preference.png)
+
+Changing the language affects only your interface. It does not change data,
+permissions, or what other users see.
+
+## Web terminal preferences
+
+The **Web Terminal** tab overrides global defaults for your account. Options include
+themes, default connection method, RDP resolution, keyboard layout, display mode,
+and other terminal behavior.
+
+Select **Use global default** next to an option to clear your override. The available
+settings depend on the global policy configured by an administrator.
+
+![Web terminal preferences](/images/jumpserver/profile_06_web_terminal.png)
+
+## Notes
+
+- Export files are protected by the configured password; keep it safe.
+- Clear a Web terminal override if a global policy change should apply to you.
+- Organization switching reloads the interface but does not reset these preferences.

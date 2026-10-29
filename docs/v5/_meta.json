@@ -1,0 +1,56 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Introduction"
+  },
+  {
+    "type": "section-header",
+    "label": "Get Started"
+  },
+  {
+    "type": "file",
+    "name": "quickstart",
+    "label": "Quickstart"
+  },
+  {
+    "type": "file",
+    "name": "installation",
+    "label": "Installation"
+  },
+  {
+    "type": "file",
+    "name": "upgrade",
+    "label": "Upgrade"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "features",
+    "label": "Feature Modules",
+    "collapsed": true
+  },
+  {
+    "type": "dir-section-header",
+    "name": "roles",
+    "label": "Role Guides",
+    "collapsed": true
+  },
+  {
+    "type": "dir-section-header",
+    "name": "operations",
+    "label": "Operations",
+    "collapsed": true
+  },
+  {
+    "type": "dir-section-header",
+    "name": "developer-guide",
+    "label": "Developer Guide",
+    "collapsed": true
+  },
+  {
+    "type": "dir-section-header",
+    "name": "reference",
+    "label": "Reference",
+    "collapsed": true
+  }
+]
