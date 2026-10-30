@@ -109,9 +109,10 @@ body {
   -webkit-backdrop-filter: saturate(180%) blur(14px);
 }
 
-.rp-nav__title__logo-image {
+.rp-nav__title__logo .rp-nav__title__logo-image,
+.rp-nav__title__logo-image.rspress-logo {
   width: auto;
-  height: 2rem;
+  height: 3rem;
 }
 
 .rp-nav__title__link:hover {
