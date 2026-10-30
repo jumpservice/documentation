@@ -11,9 +11,10 @@
     "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "web-terminal",
-    "label": "Web Terminal"
+    "label": "Web Terminal",
+    "collapsed": true
   },
   {
     "type": "file",
