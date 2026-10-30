@@ -637,6 +637,27 @@ html.dark .jms-btn-secondary:hover {
   width: 8rem;
 }
 
+/* Keep the external-link marker beside version badges instead of below them. */
+.components-table td:nth-child(2) > a.rp-link[target="_blank"] {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.components-table td:nth-child(2) > a.rp-link[target="_blank"] img {
+  display: block;
+  margin: 0;
+}
+
+.components-table td:nth-child(2) > a.rp-link[target="_blank"]::after {
+  margin: 0 !important;
+  transform: none !important;
+  line-height: 1;
+}
+
 /* ===================================================================
    Dark-mode corrections for Tailwind-driven custom components
    =================================================================== */
