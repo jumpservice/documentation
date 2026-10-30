@@ -1,6 +1,11 @@
 [
   {
     "type": "file",
+    "name": "whats-new",
+    "label": "What's New in V5"
+  },
+  {
+    "type": "file",
     "name": "changelog",
     "label": "Changelog"
   },
@@ -8,11 +13,6 @@
     "type": "file",
     "name": "compare-editions",
     "label": "Compare Editions"
-  },
-  {
-    "type": "file",
-    "name": "faq",
-    "label": "FAQ"
   },
   {
     "type": "file",
