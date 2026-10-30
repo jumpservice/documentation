@@ -3,6 +3,8 @@ export { default as JumpServerWordmarkLogoIcon } from "./jumpserver-wordmark.svg
 export { default as DiscordIcon } from "./icons8-discord.svg?react";
 export { default as GitHubIcon } from "./icons8-github.svg?react";
 export { default as XIcon } from "./icons8-x.svg?react";
+export { default as LinkedInIcon } from "./linkedin.svg?react";
+export { default as WhatsAppIcon } from "./whatsapp.svg?react";
 
 export { default as HeroGitHubStarIcon } from "./hero-github-star.svg?react";
 export { default as HeroDocsIcon } from "./hero-docs.svg?react";
