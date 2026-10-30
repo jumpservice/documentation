@@ -15,11 +15,6 @@
   },
   {
     "type": "file",
-    "name": "ssh-terminal",
-    "label": "SSH Terminal"
-  },
-  {
-    "type": "file",
     "name": "file-transfer",
     "label": "File Transfer"
   },
@@ -32,6 +27,11 @@
     "type": "dir-section-header",
     "name": "web-terminal",
     "label": "Web Terminal"
+  },
+  {
+    "type": "file",
+    "name": "ssh-terminal",
+    "label": "SSH Terminal"
   },
   {
     "type": "dir",
