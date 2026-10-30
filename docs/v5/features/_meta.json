@@ -36,14 +36,14 @@
   },
   {
     "type": "dir",
-    "name": "system-settings",
-    "label": "System Settings",
+    "name": "client",
+    "label": "Client",
     "collapsed": true
   },
   {
     "type": "dir",
-    "name": "client",
-    "label": "Client",
+    "name": "system-settings",
+    "label": "System Settings",
     "collapsed": true
   }
 ]
