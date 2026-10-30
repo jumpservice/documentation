@@ -436,6 +436,42 @@ html.dark .jms-btn-secondary:hover {
   text-decoration-color: currentColor;
 }
 
+/* Content images: one consistent framed treatment for screenshots and diagrams. */
+.rspress-doc p:has(> img:only-child),
+.rspress-doc p:has(> a:only-child > img:only-child) {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.rspress-doc p > img:only-child,
+.rspress-doc p > a:only-child > img:only-child,
+.rspress-doc figure img {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 12px;
+  background-color: var(--rp-c-bg);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 12px 32px -18px rgba(15, 23, 42, 0.35);
+}
+
+.rspress-doc p > a:only-child > img:only-child {
+  cursor: zoom-in;
+}
+
+html.dark .rspress-doc p > img:only-child,
+html.dark .rspress-doc p > a:only-child > img:only-child,
+html.dark .rspress-doc figure img,
+html.rp-dark .rspress-doc p > img:only-child,
+html.rp-dark .rspress-doc p > a:only-child > img:only-child,
+html.rp-dark .rspress-doc figure img {
+  border-color: var(--rp-c-divider-dark, var(--rp-c-divider));
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 14px 34px -18px rgba(0, 0, 0, 0.7);
+}
+
 .rspress-doc hr {
   border: 0;
   border-top: 1px solid var(--rp-c-divider);
