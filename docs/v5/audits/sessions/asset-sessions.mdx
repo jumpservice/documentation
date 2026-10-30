@@ -1,0 +1,102 @@
+---
+title: "Asset Sessions"
+description: "Review online and historical asset sessions, terminate active connections, replay recordings, and export session records."
+---
+
+# Asset Sessions
+
+**Asset Sessions** records every connection that users make to assets through JumpServer. Auditors use it to confirm who connected to which asset, with which account and protocol, and when, and to close a live connection when it is no longer needed.
+
+Open the page from **Audits > Sessions > Asset Sessions**.
+
+## Overview
+
+The page has two tabs:
+
+- **Online sessions** lists connections that are still open. You can terminate selected sessions.
+- **Historical sessions** lists connections that have ended. Historical rows can be replayed and their recordings downloaded when recording storage is configured.
+
+Both tabs share the toolbar: search, date range, column settings, refresh, and export. Click the row number to open the session detail, which includes tabs for basic information, commands, collaboration records, and file transfers.
+
+## Prerequisites
+
+- Sign in with an account that has the `terminal.view_session` permission, such as a system administrator or auditor.
+- At least one user must have connected to an asset.
+- Session recording storage must be configured before replay or download is available.
+
+## Terminate online sessions
+
+<Steps>
+  <div>Open the **Online sessions** tab.</div>
+  <div>Select one or more sessions.</div>
+  <div>Click **More actions** and choose **Terminate selected sessions**.</div>
+  <div>Confirm the operation.</div>
+</Steps>
+
+![Figure 1: Online sessions tab with search, date range, and session columns.](/images/jumpserver/v5_admin_session_01.png)
+
+<Alert type="warning">
+  Terminating a session disconnects the user immediately. Make sure the
+  connection is no longer needed before you confirm.
+</Alert>
+
+## Review historical sessions
+
+<Steps>
+  <div>Open the **Historical sessions** tab.</div>
+  <div>Narrow the list with the date range or the search box.</div>
+  <div>
+    Click the row number, a username, or the target to open the session detail
+    and review commands and file transfers.
+  </div>
+  <div>
+    Use the replay action to play the recording, or download the recording for
+    offline review.
+  </div>
+</Steps>
+
+## Download recordings in batch
+
+<VersionBadge version="5.1.0" kind="new" />
+
+Available since JumpServer v5.1.0, you can download several session recordings at the same time instead of downloading them one by one. Recording storage must be configured before the download actions are available, as with single-session downloads.
+
+<Steps>
+  <div>Open the **Historical sessions** tab.</div>
+  <div>Select two or more sessions whose recordings you want to keep.</div>
+  <div>
+    Use the download action to download the selected recordings as a batch.
+  </div>
+</Steps>
+
+{/* //TODO: Add a screenshot of the Historical sessions tab with multiple sessions selected and the batch download action visible. */}
+
+## Customize columns and export
+
+Open **List preferences** from the column settings icon, select the extra columns you need, and click **Confirm**. **Restore defaults** returns to the standard column set. Extra columns include the remote address, duration, replay availability, login source, and session lock state.
+
+![Figure 2: List preferences for the session list.](/images/jumpserver/v5_admin_session_04.png)
+
+Click **Export**, choose **CSV** or **Excel**, then select **Export all**, **Export selected**, or **Export search results**, and click **Confirm**.
+
+## Field reference
+
+| Field          | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| No.            | Row number. Click it to open the session detail.       |
+| User           | User who opened the session.                           |
+| Target         | Asset or target of the connection.                     |
+| Account        | Account used to sign in to the asset.                  |
+| Protocol       | Protocol of the session, for example SSH, RDP, or VNC. |
+| Start date     | When the session started.                              |
+| Actions        | Row actions, such as replay, download, or terminate.   |
+| Remote address | Optional. Source address of the client.                |
+| Duration       | Optional. Time between session start and end.          |
+| Replay         | Optional. Whether a recording is available.            |
+| Login source   | Optional. Entry point used to start the session.       |
+
+## Related topics
+
+- [Session Commands](/audits/sessions/session-commands)
+- [File Transfer](/audits/sessions/file-transfer)
+- [Online Devices](/audits/sessions/online-devices)

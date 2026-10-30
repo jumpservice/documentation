@@ -1,0 +1,77 @@
+---
+title: "Session Commands"
+description: "Inspect the commands users executed in asset sessions, including command output, risk level, and the related session."
+---
+
+# Session Commands
+
+**Session Commands** shows the commands that were captured while users worked in asset sessions. Use it to reconstruct what happened during a session, check whether a command matched a risky command rule, and jump back to the full session record.
+
+Open the page from **Audits > Sessions > Session Commands**.
+
+## Overview
+
+The left panel is the **Command storage** tree. Each storage represents a command storage backend configured for the platform, such as the default server storage. Selecting a storage filters the list on the right. The list includes the command text, risk level, user, asset, account, session, and timestamp.
+
+Rows are expandable: open a row to read the stored command output without leaving the list.
+
+## Prerequisites
+
+- Sign in with an account that has the `terminal.view_command` permission, such as a system administrator or auditor.
+- Command recording and command storage must be configured in [Storage](/system-settings/infrastructure/storage). Without a command storage, the page has nothing to list.
+- Asset sessions must have produced command records.
+
+## Review commands
+
+<Steps>
+<div>
+Select a command storage in the left tree.
+</div>
+<div>
+Set the date range or enter a search term.
+</div>
+<div>
+Expand a row to read the command output.
+</div>
+<div>
+Click the value in the **Session** column to open the related session record.
+</div>
+</Steps>
+
+![Figure 1: Session Commands with the command storage tree and command list.](/images/jumpserver/v5_admin_cmd_01.png)
+
+## Risk level
+
+The **Risk level** column shows how command filter rules classified or handled the command, for example **Accept**, **Warning**, or **Reject**. Commands with a non-zero risk level, including warnings and rejected commands, are highlighted in red so they stand out in the list.
+
+## Customize columns and export
+
+Open **List preferences** from the column settings icon, select the columns to display, and click **Confirm**. Available columns include ID, command, risk level, user, asset, account, session, and datetime. **Restore defaults** returns to the standard set.
+
+![Figure 2: List preferences for session commands.](/images/jumpserver/v5_admin_cmd_02.png)
+
+Click **Export**, choose **CSV** or **Excel**, select **Export all**, **Export selected**, or **Export search results**, and click **Confirm**.
+
+## Field reference
+
+| Field | Description |
+| --- | --- |
+| Command | Command text captured during the session. |
+| Output | Stored command output. Expand the row to view it. |
+| Risk level | How the command was classified or handled by command filter rules. |
+| User | User who ran the command. |
+| Asset | Asset on which the command ran. |
+| Account | Account used for the connection. |
+| Session | Related session record. Select it to open the session. |
+| Datetime | When the command was recorded. |
+
+## Notes
+
+<Alert type="note">
+Command records are read-only. If command storage is backed by Elasticsearch, search and retention follow that storage configuration, and older records may no longer be available.
+</Alert>
+
+## Related topics
+
+- [Asset Sessions](/audits/sessions/asset-sessions)
+- [Command Filter](/console/policies/acls/command-filter)

@@ -120,22 +120,24 @@ JumpServer 文档站的读者是正在做运维、审计、交付和日常接入
 
 ### 2.4 页面放在哪里
 
-V5 顶层按**读者任务**划分，不再使用统一的 `features/` 目录：
+V5 顶层按“用户区 / 管理区”划分，同时保留按产品模块组织页面：
 
-| 顶层分区 | 目录 | 内容 |
+| 顶层分区 | 实际目录 | 内容 |
 | --- | --- | --- |
 | Getting Started | `docs/v5/getting-started/` | Quickstart、安装、升级 |
-| User Guide | `docs/v5/user-guide/` | General、Workbench、Client |
-| Administration | `docs/v5/administration/` | Console、PAM、Audits、System Settings |
+| User Guide | `docs/v5/general/`、`workbench/`、`client/` | 普通用户日常使用 |
+| Administration | `docs/v5/console/`、`pam/`、`audits/`、`system-settings/` | 管理员配置与治理 |
 | Operations | `docs/v5/operations/` | 部署、维护、安全、Device Manager |
 | Role Guides | `docs/v5/roles/` | 按角色组织的能力地图与入口 |
 | Developer Guide | `docs/v5/developer-guide/` | API、集成、SDK |
 | Reference | `docs/v5/reference/` | 版本、License、术语、版本对比 |
 
+`User Guide` 和 `Administration` 是侧边栏中的**静态分区标题**，不是目录；它们下面的 General、Workbench、Client、Console、PAM、Audits、System Settings 都是 `docs/v5/` 下的真实模块目录。
+
 按以下顺序做决策，命中即停：
 
-1. 是普通用户的日常操作/概念 → `docs/v5/user-guide/general/`、`workbench/` 或 `client/`。
-2. 是管理员的配置/治理操作 → `docs/v5/administration/console/`、`pam/`、`audits/` 或 `system-settings/`。
+1. 是普通用户的日常操作/概念 → `docs/v5/general/`、`workbench/` 或 `client/`。
+2. 是管理员的配置/治理操作 → `docs/v5/console/`、`pam/`、`audits/` 或 `system-settings/`。
 3. 是安装、升级、部署、配置、备份、安全加固、网络端口 → `docs/v5/operations/`。
 4. 是 API、集成、SDK → `docs/v5/developer-guide/`。
 5. 是术语、版本对比、License、Changelog → `docs/v5/reference/`。
@@ -144,7 +146,7 @@ V5 顶层按**读者任务**划分，不再使用统一的 `features/` 目录：
 
 ### 2.5 侧边栏：`_meta.json`
 
-每个目录都有自己的 `_meta.json`，决定该目录的侧边栏顺序与分组。V5 的统一模型是：**目录即分组**。
+每个目录都有自己的 `_meta.json`，决定该目录的侧边栏顺序与分组。V5 的模型是：**用户区/管理区用静态标题分隔，模块用目录分组。**
 
 顶层示例：
 
@@ -157,8 +159,12 @@ V5 顶层按**读者任务**划分，不再使用统一的 `features/` 目录：
     "label": "Getting Started",
     "collapsed": false
   },
-  { "type": "dir", "name": "user-guide", "label": "User Guide", "collapsed": true },
-  { "type": "dir", "name": "administration", "label": "Administration", "collapsed": true }
+  { "type": "section-header", "label": "User Guide" },
+  { "type": "dir", "name": "general", "label": "General", "collapsed": true },
+  { "type": "dir", "name": "workbench", "label": "Workbench", "collapsed": true },
+  { "type": "dir", "name": "client", "label": "Client", "collapsed": true },
+  { "type": "section-header", "label": "Administration" },
+  { "type": "dir", "name": "console", "label": "Console", "collapsed": true }
 ]
 ```
 
@@ -175,15 +181,16 @@ V5 顶层按**读者任务**划分，不再使用统一的 `features/` 目录：
 
 规则：
 
-- **V5 不使用 `section-header` 或 `dir-section-header`**。所有有子页面的分组都必须是真实目录 + `dir`。
+- **`section-header` 只允许出现在 V5 顶层**，用于分隔 User Guide 与 Administration 等读者分区；它没有 URL，也不可折叠。
+- **模块内部不使用 `section-header` 或 `dir-section-header`**，所有有子页面的分组都必须是真实目录 + `dir`。
 - **新页面必须登记**到同级 `_meta.json`，否则不会出现在侧边栏。未登记的页面虽然可路由，但视为缺陷。
 - 每个 `dir` 必须有 `index.mdx`。`index.mdx` 是该分组的概览或主页面，**不登记到 `_meta.json`**；分组标题直接链接到它。
 - 只有一个页面的主题直接登记为 `file`，不要再包一层目录。
 - 新增分组前先确认现有目录能否容纳；不要为了折叠交互把扁平页面强行升级为目录。
 - 顺序即侧边栏顺序：按读者使用频率和任务先后排，不按字母排。
-- 顶部 `Getting Started` 默认展开（`collapsed: false`），其余顶层分组默认折叠（`collapsed: true`）。
+- 顶部 `Getting Started` 默认展开（`collapsed: false`），其余目录分组默认折叠（`collapsed: true`）。
 - 删除或重命名页面时，同步删除/更新 `_meta.json` 条目和所有入链。
-- 旧版 `section-header` 写法不再接受；发现历史残留时按本节迁移为目录分组或单页直达。
+- 旧版模块内的 `section-header` / `dir-section-header` 写法不再接受；发现历史残留时按本节迁移为目录分组或单页直达。
 
 ### 2.6 顶部导航：`_nav.json`
 
@@ -280,7 +287,7 @@ What the page shows and what the main controls do.
 
 ## Related topics
 
-- [Related page](/administration/console/assets/)
+- [Related page](/console/assets/)
 ```
 
 章节概览页：
@@ -483,7 +490,7 @@ overview: true
 ### 4.9 链接文案
 
 - 链接文字描述目标内容，不写 "here"、"this link"、"点击这里"。
-- 链接文字用目标页标题或主题短语：`[Assets](/administration/console/assets/)`。
+- 链接文字用目标页标题或主题短语：`[Assets](/console/assets/)`。
 - 同一段落内不重复堆多个同义链接；需要多个入口时用列表。
 - 外部链接给出可识别的名称：`[JumpServer GitHub repository](https://github.com/jumpserver/jumpserver)`。
 - 不要用裸 URL 作为正文（除极短的官方地址）；不要给链接文字加行内代码或粗体。
@@ -790,11 +797,11 @@ import EnterpriseFeatureCta from "@/components/docs/enterprise-feature-cta";
   headers={["Name", "Description"]}
   rows={[
     [
-      { content: "Console", link: "/administration/console/" },
+      { content: "Console", link: "/console/" },
       { content: "Administration workspace" },
     ],
     [
-      { content: "Workbench", link: "/user-guide/workbench/" },
+      { content: "Workbench", link: "/workbench/" },
       { content: "Daily access workspace" },
     ],
   ]}
@@ -1090,15 +1097,15 @@ alt 规则：
 站内链接使用**版本内绝对路径**，不带 `/docs` 前缀，也不带版本前缀：
 
 ```mdx
-[Assets](/administration/console/assets/)
-[Authorizations](/administration/console/policies/authorizations#field-reference)
-[Console overview](/administration/console/)
+[Assets](/console/assets/)
+[Authorizations](/console/policies/authorizations#field-reference)
+[Console overview](/console/)
 ```
 
-- V5 页面：`/getting-started/...`、`/user-guide/...`、`/administration/...`、`/operations/...`、`/reference/...`、`/roles/...`、`/developer-guide/...`。
+- V5 页面：`/getting-started/...`、`/general/...`、`/workbench/...`、`/client/...`、`/console/...`、`/pam/...`、`/audits/...`、`/system-settings/...`、`/operations/...`、`/reference/...`、`/roles/...`、`/developer-guide/...`。
 - V4 页面同样写版本内路径（例如 `/notifications/email`），由多版本路由处理；不要手写 `/v4/...`。
-- 指向目录时用尾斜杠：`/administration/console/`。
-- 锚点直接拼在路径后：`/administration/console/assets/#field-reference`。
+- 指向目录时用尾斜杠：`/console/`。
+- 锚点直接拼在路径后：`/console/assets/#field-reference`。
 - 版本内链接**不要**手写本版本前缀：V4 页面写 `/v4/...` 会被再次加上 `/v4`，变成 `/docs/v4/v4/...`。
 - 跨版本链接谨慎使用：V5 → V4 可写 `/v4/...`（构建会校验）；V4 → V5 不要手写，交给顶部版本选择器，或在正文说明切换到 V5 查看。
 - 禁止 `/docs/...` 前缀；禁止指向 `build/`、`node_modules/`、源文件路径。
@@ -1453,8 +1460,8 @@ pnpm preview --port 4173            # 抽检改动页面
 
 - 任务：<task id / 一句话目标>
 - 改动文件：
-  - docs/v5/administration/console/example.mdx（新增，+120 行）
-  - docs/v5/administration/console/_meta.json（登记 example）
+  - docs/v5/console/example.mdx（新增，+120 行）
+  - docs/v5/console/_meta.json（登记 example）
 - 截图：无新增 / <文件名>（来源、是否入库、是否替换旧图）
 - 待人工截图清单：
   - <页面> → <位置> → <期望画面>
@@ -1643,7 +1650,7 @@ Open **Console > [Module]**.
 
 ## Related topics
 
-- [Related page](/user-guide/[module]/[page])
+- [Related page](/console/[page])
 ```
 
 ### A.2 概念页
@@ -1669,11 +1676,11 @@ description: "[One sentence that defines the concept and why it matters.]"
 
 ## Related concepts
 
-- [Related concept](/user-guide/[module]/[page])
+- [Related concept](/console/[page])
 
 ## Related topics
 
-- [Related task page](/user-guide/[module]/[page])
+- [Related task page](/console/[page])
 ```
 
 ### A.3 参考页
@@ -1700,7 +1707,7 @@ description: "[What this reference covers.]"
 
 ## Related topics
 
-- [Related page](/user-guide/[module]/[page])
+- [Related page](/console/[page])
 ```
 
 ### A.4 故障排查页

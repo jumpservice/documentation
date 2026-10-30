@@ -1,0 +1,79 @@
+---
+title: "Account Reports"
+description: "Analyze account inventory, connectivity, password changes, and account automation task results."
+---
+
+# Account Reports
+
+<Alert type="xpack">
+**Audit reports** require JumpServer Enterprise Edition. Raw session and log evidence remains available according to your deployment configuration.
+</Alert>
+
+**Account Reports** summarizes managed accounts and the automation that maintains them. Use it to review account inventory and connectivity, password-change activity, and the outcome of push, discovery, backup, risk-detection, and secret-change tasks.
+
+Open the page from **Audits > Report > Account Reports**.
+
+## Report types
+
+- **Account statistics report** — inventory and connectivity, creation sources, password change trends, and rankings by asset account count.
+- **Account automation report** — risky accounts, automation task execution trends, and account secret change results.
+
+## Prerequisites
+
+- A valid enterprise license. Without a license, the Report area is not available.
+- An audit role with the `rbac.view_accountstatisticsreport` or `rbac.view_accountautomationreport` permission.
+
+## Read the account statistics report
+
+<Steps>
+<div>
+Select **Account statistics report** in the left panel.
+</div>
+<div>
+Choose **Today**, **Last 7 days**, or **Last 30 days**.
+</div>
+<div>
+Review the overview counters: total, active, connectable, switch from, reset secret, and account templates.
+</div>
+<div>
+Read the creation source, connectivity status, and password change trend charts, then check the ranking tables.
+</div>
+</Steps>
+
+![Figure 1: Account statistics report with overview counters, creation source, connectivity, and password change trends.](/images/jumpserver/v5_admin_report_03.png)
+
+## Read the account automation report
+
+Select **Account automation report** to see the outcome of automation rather than inventory. The overview counts push accounts, risk detection, account backup, discover accounts, and change secrets tasks. The **Risky account** section lists risky account categories and counts, **Task execution trends** shows automation activity over time, and **Account secret change success/failure** shows the result distribution.
+
+## Field reference
+
+| Report | Metric or chart | Description |
+| --- | --- | --- |
+| Account statistics | Total | Total accounts in the organization. |
+| Account statistics | Active | Accounts that are enabled. |
+| Account statistics | Connectable | Accounts whose credentials passed a connectivity check. |
+| Account statistics | Switch from | Accounts marked as switch-from accounts. |
+| Account statistics | Reset secret | Accounts whose secret was changed in the range. |
+| Account statistics | Account templates | Accounts created from an account template. |
+| Account statistics | Account creation source distribution | How accounts were created. |
+| Account statistics | Account connectivity status distribution | Connectivity check results. |
+| Account statistics | Account password change trends | Secret changes over time. |
+| Account statistics | Ranking by number of asset accounts | Assets with the most accounts. |
+| Account statistics | Account and password change ranking | Account versions ranked by password changes. |
+| Account automation | Push / Risk detection / Backup / Discover / Change secrets | Task counts for each automation category. |
+| Account automation | Risky account | Risk categories and counts. |
+| Account automation | Task execution trends | Automation task runs over time. |
+| Account automation | Account secret change success/failure | Successful and failed secret changes. |
+
+## Notes
+
+<Alert type="note">
+**Customize** controls which charts and tables the report displays. For record-level action, open [Account Activities](/pam/activities/account-activities) or [Change Secrets](/pam/security/change-secrets).
+</Alert>
+
+## Related topics
+
+- [Accounts](/console/accounts/)
+- [Account Sessions](/pam/activities/account-sessions)
+- [Change Secrets](/pam/security/change-secrets)

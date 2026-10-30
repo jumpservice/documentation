@@ -1,0 +1,55 @@
+---
+title: "Account Sessions"
+description: "Review live and completed sessions opened with PAM-managed accounts, including playback and termination."
+---
+
+# Account Sessions
+
+Account Sessions lists the connections that were opened with accounts managed in PAM. Use it to see which privileged accounts are in use right now, and to review how they were used after a session ends.
+
+This page is separate from [Asset Sessions](/audits/sessions/asset-sessions): account sessions focus on the account side of the connection, while asset sessions describe the user-to-asset connection from the audit point of view.
+
+## Overview
+
+Go to **PAM > Activities > Account Sessions**. The page contains two tabs:
+
+- **Online sessions** – sessions that are currently running. This tab opens by default.
+- **Historical sessions** – sessions that have already ended.
+
+Both tabs use the same columns: **No.**, **User**, **Asset**, **Account**, **Protocol**, **Start date**, and **Actions**.
+
+![Figure 1: Online account sessions in the PAM module](/images/jumpserver/V4_pam_sessions1.png)
+
+## Online sessions
+
+The **Online sessions** tab shows the active PAM account sessions. When nothing is running, the list shows an empty state instead of rows.
+
+Row actions depend on your permissions and on the protocol of the session:
+
+| Action | Effect |
+| --- | --- |
+| **Monitor** | Opens the live monitor view for the session so that an authorized operator can watch it. |
+| **Pause** | Locks the session, keeping the connection open but preventing input. |
+| **Resume** | Unlocks a paused session. |
+| **Terminate** | Ends the session. The termination is asynchronous, so refresh after a short delay. |
+
+Termination and monitoring are privilege-sensitive. Grant them only to roles that are expected to intervene in live privileged sessions.
+
+## Historical sessions
+
+The **Historical sessions** tab lists completed sessions with the same columns, which makes it straightforward to answer questions such as which accounts were used against a given asset in a period.
+
+Open a row's **Actions** menu to:
+
+- **Replay** the session recording in the browser.
+- **Download** the session recording for offline review.
+
+Recording availability depends on the session protocol and the storage configured for replay files. Some database protocols do not support playback.
+
+![Figure 2: Historical account session records with replay actions](/images/jumpserver/V4_pam_sessions2.png)
+
+<Alert type="note">
+Session visibility follows organization and permission rules. If a session is missing, confirm the current organization and check that your role can view account sessions.
+</Alert>
+
+For the user-side session audit, including command records and file transfers, continue with [Asset Sessions](/audits/sessions/asset-sessions) and [Session Commands](/audits/sessions/session-commands).

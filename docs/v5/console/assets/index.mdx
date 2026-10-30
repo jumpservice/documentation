@@ -1,0 +1,137 @@
+---
+title: "Assets"
+description: "Organize, create, import, and maintain assets in JumpServer Console, including nodes, platforms, protocols, and account binding."
+---
+
+# Assets
+
+<Alert type="xpack">
+**Oracle, SQL Server, ClickHouse, and Dameng database assets**, **advanced RemoteApp**, and **VirtualApp** require JumpServer Enterprise Edition.
+</Alert>
+
+The **Assets** page is the inventory of everything JumpServer can connect to:
+hosts, network devices, databases, cloud services, web applications, directory
+services, and custom asset types. Assets are grouped into a node tree, created
+from a platform template, and bound to the accounts that are used for sign-in.
+
+Open the page from **Console > Assets**.
+
+![Figure 1: Assets list with node tree, type tabs, and connection status.](/images/jumpserver/v5_admin_assets_01.png)
+
+## Overview
+
+Type tabs at the top filter the inventory: **All**, **Hosts**, **Network
+devices**, **Databases**, **Cloud services**, **Web**, **Directory services**,
+and **Custom types**. The node tree is shown on the left of the **All** tab; when
+you switch to a specific type, the tree is hidden and the list is filtered.
+
+Columns on the **All** tab are Name, Address, Account count, Platform, Last login
+time, Connectivity, and Actions.
+
+## Before you begin
+
+- Sign in with an account that can manage assets.
+- Plan the node structure first, and create a zone if the assets sit behind
+  another network segment.
+- Web assets also require a remote application publisher.
+
+<Alert type="important">
+The list shows only assets in the current organization. Nodes, zones, and
+authorizations also apply only within the active organization.
+</Alert>
+
+## Work with the node tree
+
+On the **All** tab, the node tree organizes assets by node. An asset can belong to
+several nodes, which makes it easy to authorize along project or protocol
+boundaries.
+
+Right-click a node to:
+
+- **Create node**, **Rename node**, or **Delete node**.
+- **Add assets to node**: add assets while keeping their original membership.
+- **Move assets to node**: move assets here and remove them from the old node.
+- **Remove assets from node**: detach assets without deleting them.
+- **Update hardware information** or **Test connectivity** for the node's assets.
+
+The number beside a node is the count of assets inside it.
+
+## Create an asset
+
+<Steps>
+<div>
+Click **Create** and pick a platform in the **Select platform** dialog.
+</div>
+
+<div>
+In the **Create asset** drawer, fill in the fields below.
+</div>
+
+<div>
+Click **Submit**, or **Save and continue adding** to create another asset.
+</div>
+</Steps>
+
+![Figure 2: Create asset drawer for a Linux host with protocols and accounts.](/images/jumpserver/v5_admin_assets_04.png)
+
+### Field reference
+
+| Group | Field | Description |
+| --- | --- | --- |
+| Basic | Name | Required. Display name. Must be unique; unrelated to the operating system hostname. |
+| Basic | IP/Host | Required. Address the asset is reached at. Domains and IPs are allowed and may repeat. |
+| Basic | Platform | The platform selected at creation, for example Linux. |
+| Basic | Nodes | Required. Nodes the asset belongs to. |
+| Protocol | Protocol | Access protocols and ports. Linux includes `ssh/22` and `sftp/22` by default. |
+| Account | Account | Bind sign-in accounts now with **Add** or **Add from template**. |
+| Other | Zone | Select a zone when the asset must be reached through a gateway. |
+| Other | Tags | Optional. Useful for filtering. |
+| Other | Active | When selected, the asset can be used. |
+| Other | Comment | Optional. Shown in the user's asset tree in Luna; do not store secrets here. |
+
+<Alert type="note">
+Available protocols are defined by the platform. To change protocol
+capabilities, update the platform instead of the asset.
+</Alert>
+
+## Import and export
+
+Use the toolbar to import or export assets. Import can create or update assets,
+accepts CSV and XLSX files up to 10 MB, and is easiest when you download the
+template first and fill in the columns.
+
+## Asset details
+
+Click an asset's **Name** to open the detail drawer. Tabs include **Basic**,
+**Accounts**, **Authorized users**, **Sessions**, **Commands**, and
+**Activity**.
+
+- **Basic** shows identity, platform, protocols, zone, activation, and dates.
+  **Quick update** toggles **Active**, refreshes hardware information, and tests
+  connectivity.
+- **Accounts** lists bound accounts; add them with **Create** or **Account
+  template**. Lifecycle automation is covered in the PAM module.
+- **Authorized users**, **Sessions**, **Commands**, and **Activity** show access
+  and recent records.
+
+## Row actions and bulk actions
+
+The row menu (**...**) provides **Delete**, **Duplicate**, **Test**, **Add
+account**, and **Account discovery**. **Add account** asks for the name,
+username, privileged flag, switch-from account, secret type, password-change
+permission, immediate push, activation, and comment.
+
+Select several assets and click **More actions** to test, disable, enable, edit,
+or delete them.
+
+<Alert type="warning">
+**Delete** and **Delete selected** remove asset data permanently. To detach an
+asset from a node, use **Remove assets from node** instead.
+</Alert>
+
+## Related topics
+
+- [Zones](/console/assets/zones)
+- [Cloud Sync](/console/assets/cloud-sync)
+- [Accounts](/console/accounts/)
+- [Authorizations](/console/policies/authorizations)

@@ -1,0 +1,45 @@
+---
+title: "Account Activities"
+description: "Audit who created, viewed, modified, or deleted PAM-managed accounts, with before-and-after change details."
+---
+
+# Account Activities
+
+Account Activities is the audit trail for operations performed on accounts managed in PAM. It answers questions such as who created an account, who viewed or updated a secret, and when an account was removed.
+
+The page reads from JumpServer's operation logs and keeps only entries whose resource is an account, so it is a narrower view than the global operation log.
+
+## Overview
+
+Go to **PAM > Activities > Account Activities**. The list is read-only and contains the columns **User**, **Action**, **Resource**, **Remote address**, **Date**, and **Actions**.
+
+![Figure 1: Account activities list with operation log entries](/images/jumpserver/V4_pam_activity1.png)
+
+| Column | Meaning |
+| --- | --- |
+| **User** | The user who performed the operation. |
+| **Action** | The operation type, for example create, update, delete, or view. |
+| **Resource** | The account, and where relevant the asset, that the operation targeted. |
+| **Remote address** | The source address the request came from. |
+| **Date** | When the operation happened. |
+| **Actions** | Opens the detail view for the entry. |
+
+## Filter and inspect
+
+Use the date picker to narrow the list to the window you are investigating, then combine it with the search box and any available filters. The toolbar also provides column settings, export, and refresh.
+
+1. Locate the entry you need by user, resource, or date.
+2. Open **View** in the **Actions** column.
+3. Review the change detail, which shows the fields that were modified together with their before and after values.
+
+This is a quick way to establish when an account was modified and by whom, especially when the change did not come from a scheduled automation task.
+
+<Alert type="note">
+Account activities are audit records and cannot be edited from this page. If an expected entry is missing, check the current organization, your audit permissions, and the log retention settings of the environment.
+</Alert>
+
+## Relationship to other audit pages
+
+- Use [Operate Logs](/audits/activities/operate-logs) when you need the full operation log across all resource types, including assets, users, and authorizations.
+- Use [Account Sessions](/pam/activities/account-sessions) when you need to see actual privileged connections rather than account management changes.
+- Use [Password Change Logs](/audits/activities/password-change-logs) for user password events, which are separate from asset account secret changes.

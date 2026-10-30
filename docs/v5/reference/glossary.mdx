@@ -15,90 +15,90 @@ An isolated workspace for users, user groups, assets, accounts, labels, and
 authorizations. Every record belongs to one organization, and switching
 organizations changes which records and menus are available. The **Default**
 organization exists in every installation; enterprise deployments can create more.
-See [Organizations](/user-guide/general/workspace/organizations).
+See [Organizations](/general/workspace/organizations).
 
 ## Asset
 
 Anything JumpServer can connect to: hosts, network devices, databases, cloud
 services, web applications, directory services, and custom types. An asset is
 created from a platform and is organized through nodes and zones. See
-[Assets](/administration/console/assets/).
+[Assets](/console/assets/).
 
 ## Account
 
 A login identity for an asset, meaning a username plus a secret such as a password,
 SSH key, SSH certificate, token, or access key. An asset can have several accounts,
 and an authorization decides which accounts a user may use. See
-[Accounts](/administration/console/accounts/).
+[Accounts](/console/accounts/).
 
 ## Node
 
 A folder in the asset tree used to organize assets for navigation and
 authorization. Assets can belong to several nodes, so a single asset can be granted
 through different project or protocol groupings. See
-[Assets](/administration/console/assets/).
+[Assets](/console/assets/).
 
 ## Zone
 
 A network location where assets live, such as a data center, a public cloud, or a
 VPC. A zone contains one or more gateways, and assets behind a segmented network are
 reached through the zone gateway instead of a direct connection. See
-[Zones](/administration/console/assets/zones).
+[Zones](/console/assets/zones).
 
 ## Authorization
 
 A rule that maps users or user groups to assets or nodes and constrains the
 accounts, protocols, actions, and validity period. Authorizations decide which
 assets appear in a user's Workbench. See
-[Authorizations](/administration/console/policies/authorizations).
+[Authorizations](/console/policies/authorizations).
 
 ## ACL
 
 Access control list: a constraint applied on top of authorization. Command filters,
 login restrictions, asset connection rules, data masking, clipboard control, and
-connect-method restrictions are ACLs. See [ACLs](/administration/console/policies/acls/).
+connect-method restrictions are ACLs. See [ACLs](/console/policies/acls/).
 
 ## PAM
 
 Privileged access management: the discipline and the JumpServer module that manages
 the lifecycle and security of privileged accounts, including discovery, push,
 backup, secret rotation, risk detection, and account activity. See
-[PAM](/administration/pam/).
+[PAM](/pam/).
 
 ## Session
 
 A connection from a user to an asset through a protocol component. A session has a
 recording, command records, and metadata such as the user, asset, account, source
 address, and start and end times. See
-[Sessions](/administration/audits/sessions/).
+[Sessions](/audits/sessions/).
 
 ## Audit
 
 The evidence side of the platform: session recordings, command logs, file transfer
 records, login and operation logs, job history, ticket history, and reports.
 Auditors use it to investigate activity and prove compliance. See
-[Audits](/administration/audits/).
+[Audits](/audits/).
 
 ## Ticket
 
 A request for access or for a sensitive action, routed to approvers through a
 configurable approval flow. Tickets are an enterprise feature and leave an audit
 trail of who requested and who approved. See
-[Tickets & Approvals](/user-guide/workbench/tickets/).
+[Tickets & Approvals](/workbench/tickets/).
 
 ## Job
 
 An automation task executed against authorized assets: an ad-hoc command, a saved
 job, or a job created from a template. Job Center schedules the run and records each
 execution in the execution history. See
-[Job Center](/user-guide/workbench/job-center/).
+[Job Center](/workbench/job-center/).
 
 ## Client
 
 A user-facing entry point or protocol connector. Luna is the browser terminal, the
 JumpServer Client is the desktop client, and KoKo, Lion, Chen, Tinker, Panda, Razor,
 Magnus, Nec, and Facelive are the protocol components that terminate connections.
-See [Client](/user-guide/client/).
+See [Client](/client/).
 
 ## Component
 

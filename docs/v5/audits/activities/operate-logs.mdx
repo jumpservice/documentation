@@ -1,0 +1,78 @@
+---
+title: "Operate Logs"
+description: "Review changes to platform resources, inspect field-level before-and-after values, and export operation records."
+---
+
+# Operate Logs
+
+**Operate Logs** records administrative changes made on the JumpServer platform, such as creating users, updating assets, changing authorizations, or deleting resources. Use it to answer who changed what and when, and to see the exact fields that changed.
+
+Open the page from **Audits > Activities > Operate Logs**.
+
+## Overview
+
+Each row shows the operator, resource, remote address, date, action, resource type, and an action to open the change detail. The list is read-only and keeps a historical record of platform changes.
+
+## Prerequisites
+
+- Sign in with an account that has the `audits.view_operatelog` permission, such as a system administrator or auditor.
+- At least one auditable resource change must have been performed.
+
+## Inspect a change
+
+<Steps>
+<div>
+Set the date range, or search for a user or resource.
+</div>
+<div>
+Click **View** in the row actions.
+</div>
+<div>
+In the detail dialog, compare the **Before change** and **After changes** values for each **Change field**.
+</div>
+</Steps>
+
+![Figure 1: Operate Logs list with user, resource, remote address, date, action, and resource type.](/images/jumpserver/v5_admin_oplog_01.png)
+
+The change dialog lists one row per changed field:
+
+| Column | Description |
+| --- | --- |
+| Change field | Name of the field that changed. |
+| Before change | Value before the operation. |
+| After changes | Value after the operation. |
+
+![Figure 2: Operate log change detail with before-and-after values.](/images/jumpserver/v5_admin_oplog_02.png)
+
+<Alert type="note">
+Sensitive values are masked when the log is written, so the change detail may show an asterisk pattern instead of the original secret. The audit record never exposes stored passwords or keys.
+</Alert>
+
+## Customize columns and export
+
+Open **List preferences**, select the columns to display, and click **Confirm**. Extra columns include ID, organization ID, and organization name. **Restore defaults** resets the list.
+
+Click **Export**, choose **CSV** or **Excel**, select **Export all**, **Export selected**, or **Export search results**, and click **Confirm**.
+
+## Field reference
+
+| Field | Description |
+| --- | --- |
+| User | Operator who performed the action. |
+| Resource | Resource that was changed. |
+| Remote address | Source address of the operator. |
+| Date | When the operation happened. |
+| Action | Operation type, for example create, update, delete, or view. |
+| Resource type | Type of the changed resource. |
+| Actions | **View** opens the change detail for the row. |
+
+## Notes
+
+<Alert type="tip">
+When operation logs are stored in Elasticsearch, use the search box to query large volumes of records. Storage is configured in [Storage](/system-settings/infrastructure/storage).
+</Alert>
+
+## Related topics
+
+- [Login Logs](/audits/activities/login-logs)
+- [Password Change Logs](/audits/activities/password-change-logs)

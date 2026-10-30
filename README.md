@@ -96,24 +96,22 @@ paths as a second lens:
 docs/v5/
 ├── index.mdx                 # Introduction
 ├── getting-started/          # Quickstart, installation, upgrade
-├── user-guide/               # General, Workbench, Client
-│   ├── general/              # organizations, search, profile, AI assistant
-│   ├── workbench/            # assets, terminals, job center, tickets, tools
-│   └── client/               # JumpServer Client
-├── administration/           # Console, PAM, Audits, System Settings
-│   ├── console/              # users, assets, accounts, policies, ACLs, tags
-│   ├── pam/                  # account automation, security, integration, activities
-│   ├── audits/               # sessions, activities, job audits, ticket audits, reports
-│   └── system-settings/      # platform configuration
+├── general/                  # User Guide: personal workspace
+├── workbench/                # User Guide: assets, terminals, jobs, tickets
+├── client/                   # User Guide: JumpServer Client
+├── console/                  # Administration: users, assets, accounts, policies
+├── pam/                      # Administration: account automation, security, integration
+├── audits/                   # Administration: sessions, activities, jobs, reports
+├── system-settings/          # Administration: platform configuration
 ├── roles/                    # Role guides
 ├── operations/               # Deployment, maintenance, security
 ├── developer-guide/          # API and integrations
 └── reference/                # What's new, changelog, editions, license, glossary
 ```
 
-- The **User Guide** covers daily work in General, Workbench, and Client.
-- The **Administration** section mirrors the JumpServer V5 English console:
-  Console, PAM, Audits, and System Settings.
+- The **User Guide** sidebar section contains General, Workbench, and Client.
+- The **Administration** sidebar section contains Console, PAM, Audits, and
+  System Settings, mirroring the JumpServer V5 English console.
 - The **Role Guides** section explains system roles vs organization roles and
   maps Administrator, Operator, and Auditor to the corresponding built-in roles.
   Role pages link to the canonical feature pages instead of duplicating procedures.
@@ -145,7 +143,7 @@ dead end.
 - Add or edit pages under `docs/v4` or `docs/v5`. V4 keeps the legacy
   structure; V5 uses the audience-first structure described below. Add each page
   to the version where it belongs.
-- For V5, put product features under `docs/v5/user-guide/<module>` or `docs/v5/administration/<module>` and
+- For V5, put product features under `docs/v5/{general,workbench,client}` or `docs/v5/{console,pam,audits,system-settings}` and
   role-oriented indexes in `docs/v5/roles/<role>.mdx`. Prefer a feature page as
   the canonical source and link to it from role pages.
 - Page order and sidebar groups come from the `_meta.json` file in each version

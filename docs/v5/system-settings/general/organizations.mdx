@@ -1,0 +1,106 @@
+---
+title: "Organizations"
+description: "Create isolated organizations and work inside each one to manage its own users, assets, accounts, and authorizations."
+---
+
+# Organizations
+
+<Alert type="xpack">
+**Multi-organization management** requires JumpServer Enterprise Edition. Check the entitlement on the [License](/system-settings/license) page before creating additional organizations.
+</Alert>
+
+Organizations partition one JumpServer deployment into isolated working spaces.
+Each organization owns its users, user groups, assets, domains, labels, zones,
+accounts, and authorizations, while authentication methods and system settings
+remain global.
+
+## Overview
+
+The Organizations page lists every organization in the deployment together with
+a resource summary: the number of users, user groups, assets, and authorization
+rules that belong to it. The default organization is named `DEFAULT` unless a
+global display name has been configured.
+
+Most day-to-day work happens inside an organization, not on this page. After you
+create an organization, switch to it from the organization selector at the top
+of the page, then create and manage resources there. Updates and deletions of
+organization resources must be performed in the organization that owns them.
+
+## Create an organization
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **Organizations**.
+</div>
+
+<div>
+Click **Create**.
+</div>
+
+<div>
+Type the organization **Name** and an optional **Description**.
+</div>
+
+<div>
+Click **Submit**.
+</div>
+
+</Steps>
+
+![Figure 1: Organizations page](/images/jumpserver/V4_systemsetting_organization_manage1.png)
+
+## Change the global organization display name
+
+<Steps>
+
+<div>
+<Nav name="system-settings" />
+</div>
+
+<div>
+In the left menu, click **Organizations**.
+</div>
+
+<div>
+Click **Setting** above the table.
+</div>
+
+<div>
+Enter the new name in the **Global organization display name** field.
+</div>
+
+<div>
+Click **Confirm**.
+</div>
+
+</Steps>
+
+![Figure 2: Set the global organization display name](/images/jumpserver/V4_systemsetting_organization_manage3.png)
+
+## Field reference
+
+| Column or field | Description |
+| --- | --- |
+| Name | Display name of the organization. Must be unique. |
+| Description | Optional free-text description. |
+| Users | Number of users that belong to the organization. |
+| User groups | Number of user groups in the organization. |
+| Assets | Number of assets registered in the organization. |
+| Authorizations | Number of authorization rules defined in the organization. |
+| Global organization display name | Replaces the displayed label of the default organization in all organization selectors. |
+
+## Work inside an organization
+
+- Switch organizations from the selector in the page header before you edit
+  users, assets, or authorizations. Changes made while one organization is
+  selected apply only to that organization.
+- Every organization keeps its own
+  [users](/console/users/), [assets](/console/assets/), and
+  [authorizations](/console/policies/authorizations).
+- An organization can be deleted only after its users, user groups, assets,
+  nodes, labels, zones, authorizations, and account templates have been removed.

@@ -46,7 +46,7 @@ See [Network Ports](/operations/deployment/network-ports) for the full list.
   production secrets. Never commit `config.txt` or share the values in tickets.
 - Rotate access keys and revoke keys that are no longer used. The secret of an
   access key is displayed only once. See
-  [Access Keys](/user-guide/general/account/access-keys).
+  [Access Keys](/general/account/access-keys).
 - Store asset credentials in an external vault when required. Set
   `VAULT_ENABLED=true` with an OpenBao-compatible backend, and optionally enable the
   SSH certificate authority settings for short-lived SSH credentials.
@@ -64,7 +64,7 @@ certificate configuration so that JumpServer trusts the OpenBao endpoint.
 
 Access Token format validation preserves fallback compatibility with other
 Bearer Token authentication methods. See
-[Access Keys](/user-guide/general/account/access-keys) for how Access Tokens are issued
+[Access Keys](/general/account/access-keys) for how Access Tokens are issued
 and rotated.
 
 ## Enforce identity and least privilege
@@ -97,13 +97,13 @@ See [Configuration](/operations/deployment/configuration) for how to apply these
 - Keep recordings in object storage with retention that satisfies the audit policy,
   and protect that storage with its own access controls.
 - Review login logs, operation logs, and session records regularly in
-  [Audits](/administration/audits/).
+  [Audits](/audits/).
 - Disable components that are not used to reduce the attack surface, and keep every
   component on a supported version.
 
 ## Related topics
 
-- [Security](/administration/system-settings/security/security)
-- [Authentication](/administration/system-settings/security/authentication)
+- [Security](/system-settings/security/security)
+- [Authentication](/system-settings/security/authentication)
 - [Command-Line Tools](/operations/maintenance/cli-tools)
 - [Troubleshooting](/operations/maintenance/troubleshooting)

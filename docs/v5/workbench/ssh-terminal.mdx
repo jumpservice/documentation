@@ -1,0 +1,170 @@
+---
+title: "SSH Terminal"
+description: "Connect to JumpServer from a local SSH terminal and open authorized assets without the Web UI."
+---
+
+# SSH Terminal
+
+The **SSH Terminal** lets you open JumpServer from a standard terminal client
+instead of a browser. After you sign in to JumpServer, KoKo presents your
+authorized assets and accounts in an interactive menu, then proxies the selected
+session through the same authorization, policy, and audit pipeline as the Web
+Terminal.
+
+This is different from **Application > SSH Client**. That method launches a local
+SSH client for one asset from the Web Terminal. SSH Terminal connects to
+JumpServer itself and lets you choose the asset and account from the terminal.
+
+## Prerequisites
+
+- Your JumpServer user is enabled and can sign in.
+- At least one asset and account are authorized for your user.
+- The SSH client port `2222` is reachable from your computer. See
+  [Network Ports](/operations/deployment/network-ports).
+- Your terminal has an SSH client. Linux, macOS, Windows 10/11, and most
+  terminal emulators include one.
+- If your administrator enabled MFA, login confirmation, or SSH-key-only login,
+  complete that step when prompted.
+
+## Connect from a terminal
+
+Run the command with your JumpServer account and the JumpServer host:
+
+```bash
+ssh <jumpserver-username>@<jumpserver-host> -p 2222
+```
+
+For example:
+
+```bash
+ssh admin@jumpserver.example.com -p 2222
+```
+
+On the first connection, verify the host key fingerprint and confirm it:
+
+```text
+The authenticity of host '[jumpserver.example.com]:2222' ... can't be established.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Then enter your **JumpServer password**, not the password of the asset account:
+
+```text
+admin@jumpserver.example.com's password:
+```
+
+If the administrator allows SSH keys for your user, you can use a key instead:
+
+```bash
+ssh -i ~/.ssh/id_ed25519 admin@jumpserver.example.com -p 2222
+```
+
+## Interactive asset menu
+
+After login, KoKo displays a welcome message and a numbered shortcut menu. The
+exact wording follows the interface language selected for your user, and the
+prompt is `Opt>`.
+
+![SSH Terminal shortcut menu](/images/jumpserver/ssh_terminal_menu.png)
+
+| Input      | Action                                    |
+| ---------- | ----------------------------------------- |
+| `/192.168` | Search assets by IP, hostname, or comment |
+| `p`        | Display all assets you can access         |
+| `g`        | Display the authorization tree            |
+| `c`        | Display the asset type tree               |
+| `f`        | Display the favorites tree                |
+| `s`        | Change the interface language             |
+| `t`        | Switch to TUI mode                        |
+| `?`        | View help                                 |
+| `q`        | End the SSH session                       |
+
+When you display an asset list, KoKo shows a table with **No.**, **Name**,
+**Address**, **Platform**, **Organization**, and **Remarks** columns. Enter the
+number of the asset to select it:
+
+![SSH Terminal asset list](/images/jumpserver/ssh_terminal_assets.png)
+
+```text
+No.  Name            Address         Platform    Organization  Remarks
+1    172.19.0.10     172.19.0.10     Linux       DEFAULT
+2    jms_postgresql  jms_postgresql  PostgreSQL  DEFAULT
+```
+
+If an asset has multiple authorized accounts, KoKo shows an account table with
+**No.**, **Name**, and **Username** columns. Enter the account number to
+continue. Use `b` or `back` to return to the asset list.
+
+![SSH Terminal account selection](/images/jumpserver/ssh_terminal_accounts.png)
+
+The session opens as a terminal connection. When you exit the remote shell, the
+proxied session ends. If you return to the JumpServer menu instead, select another
+asset or enter `q` to exit.
+
+## TUI mode
+
+<VersionBadge version="5.1.0" kind="changed" />
+
+JumpServer v5.0.0 redesigned the KoKo TUI, and JumpServer v5.1.0 revamps it for
+direct SSH access. Instead of the numbered menu, the TUI presents an interactive
+workspace in the terminal:
+
+- **Asset tree** — browse authorized assets and their accounts as a tree.
+- **Search and filtering** — type part of a name or address to narrow the tree
+  instead of scrolling through every authorized asset.
+- **Mouse controls** — select items in the tree and the session list with the mouse
+  when your terminal client supports it.
+- **Multiple sessions** — keep several sessions open and switch between them
+  without leaving the TUI.
+
+Plain-text connection mode is restored in v5.1.0 for direct SSH access. A direct
+login that already specifies the asset and account connects to the asset terminal
+without rendering the TUI interface.
+
+{/* //TODO: Add a screenshot of the v5.1.0 KoKo TUI with the asset tree for this page. */}
+
+## Advanced: direct asset login
+
+If you already know the asset and account, you can put them in the SSH username.
+KoKo supports these forms:
+
+```bash
+# Default to the SSH protocol
+ssh <jumpserver-user>@<asset-account>@<asset-address> -p 2222
+
+# Specify the protocol explicitly
+ssh <jumpserver-user>@<protocol>@<asset-account>@<asset-address> -p 2222
+```
+
+For example, to open an SSH account named `ubuntu` on `172.19.0.10`:
+
+```bash
+ssh admin@ubuntu@172.19.0.10 -p 2222
+```
+
+The `#` separator is also accepted:
+
+```bash
+ssh 'admin#ssh#ubuntu#172.19.0.10' -p 2222
+```
+
+Direct login still requires your JumpServer password and still applies
+authorization and ACL checks. If the asset or account is ambiguous, use the
+interactive menu instead.
+
+## Troubleshooting
+
+| Symptom                                    | Check                                                                  |
+| ------------------------------------------ | ---------------------------------------------------------------------- |
+| `Connection refused` or timeout            | Confirm `2222` is open and KoKo is running                             |
+| `Permission denied`                        | Verify the JumpServer username, password, MFA, and login restrictions  |
+| Login succeeds but the asset list is empty | Confirm the asset is authorized for your user and organization         |
+| Direct asset login reports no match        | Check the asset address, account username, and protocol                |
+| Host key warning after a server change     | Verify the new fingerprint with your administrator before accepting it |
+| Session disconnects unexpectedly           | Check the session idle timeout and network connection                  |
+
+## Related
+
+- [Access Assets](/workbench/my-assets/access-assets) — browse authorized assets in the Workbench
+- [Web Terminal](/workbench/web-terminal/) — browser-based terminal and remote desktop
+- [Network Ports](/operations/deployment/network-ports) — firewall requirements for SSH client access

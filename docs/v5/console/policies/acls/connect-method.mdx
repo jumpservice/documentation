@@ -1,0 +1,115 @@
+---
+title: "Connect Method"
+description: "Limit which connection methods users can use to reach assets, with global connect method controls."
+---
+
+# Connect Method
+
+<Alert type="xpack">
+  **Connection method control** requires JumpServer Enterprise Edition.
+</Alert>
+
+**Connect Method** controls which connection methods a user may use to log in to
+assets. Connection methods are the ways a connection can be launched, such as the
+web terminal or native clients. The controls on this page are global: the
+organization switcher shows **Global organization**, and the rules apply to every
+organization.
+
+Open the page from **Console > ACLs > Connect Method**.
+
+![Figure 1: Create connect method control with users, connect method, and action.](/images/jumpserver/v5_admin_acls_09.png)
+
+## Overview
+
+A rule selects users (all, specified, or by attribute), one or more connection
+methods, and an action. Rules can also select the assets they apply to, as
+described in [Select assets for a rule](#select-assets-for-a-rule). When the rule
+matches, the action decides whether the selected method is accepted or rejected.
+The list columns are Name, Priority, Active, Action, and Actions.
+
+## Before you begin
+
+- Sign in with an account that can manage ACLs.
+- Confirm which connection methods are available in the environment. The list is
+  provided by the enabled components and may include web methods, native
+  clients, applets, and virtual applications.
+- Tell affected users in advance when a method is going to be rejected.
+
+## Create a connect method control
+
+<Steps>
+<div>
+Click **Create**.
+</div>
+
+<div>In the **Create connect method** drawer, fill in the fields below.</div>
+
+<div>
+Click **Submit**.
+</div>
+</Steps>
+
+### Field reference
+
+| Field           | Description                                                                                  |
+| --------------- | -------------------------------------------------------------------------------------------- |
+| Name            | Required. Rule name.                                                                         |
+| Priority        | Integer from 1 to 100. Defaults to 50; the lower the value, the earlier the rule is matched. |
+| Users           | **All users**, **Specified users**, or **Attribute filter**.                                 |
+| Connect methods | The connection methods to control, selected from the drop-down.                              |
+| Action          | **Reject** or **Accept**. Defaults to **Reject**.                                            |
+| Active          | When selected, the rule takes effect.                                                        |
+| Comment         | Optional.                                                                                    |
+
+## Select assets for a rule
+
+<VersionBadge version="5.1.0" kind="new" />
+
+<Alert type="xpack">
+  **Asset-based selection** for connection methods requires JumpServer
+  Enterprise Edition.
+</Alert>
+
+Available since JumpServer v5.1.0. A control can select the assets it applies to.
+With assets selected, the rule restricts the chosen connection methods only for
+connections to those assets, so a restriction can target one group of hosts
+instead of the whole deployment.
+
+- Combine asset selection with users and connection methods to keep the rule as
+  narrow as the scenario requires.
+- Review the selected assets before activating the rule, because a rejected method
+  blocks that method for every matched user on those assets.
+
+{/* //TODO: Add a screenshot of the asset selection in the Create connect method drawer, with a rule scoped to specific assets. */}
+
+## Choose methods carefully
+
+Connection method names describe how the connection starts, and the available
+set depends on the deployment:
+
+- **Web methods** such as Web GUI, Web CLI, and Web SFTP.
+- **Native clients** such as SSH Client, SFTP Client, Remote Desktop, VNC Client,
+  and their setup guides.
+- **Applets and virtual applications**, when those components are published.
+
+Rejecting a method can force users onto another approved path, for example
+allowing only the web terminal for a group that must be audited in the browser.
+
+<Alert type="warning">
+  A **Reject** rule prevents matched users from using the selected connection
+  methods, even when they are authorized to the asset. Because these controls
+  are global, review the users and methods before activating a rule; a mistaken
+  scope can block access across the whole deployment.
+</Alert>
+
+<Alert type="note">
+  Global controls cannot be overridden by organization-level settings. If only
+  one team needs a restriction, prefer **Specified users** over **All users**.
+</Alert>
+
+## Related topics
+
+- [ACLs](/console/policies/acls/)
+- [User Login](/console/policies/acls/user-login)
+- [Asset Connect](/console/policies/acls/asset-connect)
+- [Asset Connection](/client/asset-connection)
