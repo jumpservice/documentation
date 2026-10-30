@@ -1,12 +1,16 @@
 ---
 title: "Roles"
-description: "Create system and organization roles, configure their permissions, and assign them to users."
+description: "Understand built-in and custom roles, their permissions, and how role management differs between Community and Enterprise editions."
 ---
 
 # Roles
 
 <Alert type="xpack">
-**Role management** requires JumpServer Enterprise Edition. Without a license, the Roles page is unavailable while predefined roles continue to govern access.
+**Role management** requires JumpServer Enterprise Edition. Enterprise Edition
+lets you create system and organization roles and define their permissions.
+
+Community Edition can only use the built-in roles. It cannot create roles or
+modify the permissions granted by an existing role.
 </Alert>
 
 Roles define what an administrator, auditor, or user is allowed to do. Since
@@ -14,11 +18,18 @@ v4.9, role management lives in **System Settings**. JumpServer uses two role
 scopes: system roles, which apply across the whole deployment, and organization
 roles, which apply only inside one organization.
 
+| Capability | Community Edition | Enterprise Edition |
+| --- | --- | --- |
+| Use built-in roles | Yes | Yes |
+| Create custom roles | No | Yes |
+| Modify role permissions | No | Yes |
+
 ## Overview
 
 JumpServer ships with default roles that cover the common personas. Default
-roles cannot be edited or deleted; to change what a default role grants,
-duplicate it, adjust the copy, and assign the copy to users instead.
+roles cannot be edited or deleted. In Enterprise Edition, to change what a
+default role grants, duplicate it, adjust the copy, and assign the copy to users
+instead. Community Edition cannot create or customize roles.
 
 | Scope | Default roles |
 | --- | --- |
@@ -30,6 +41,11 @@ users, and an activity record, so you can see who holds the role and what
 changed over time.
 
 ## Create a role
+
+<Alert type="note">
+Creating roles is available in Enterprise Edition only. Community Edition uses
+the built-in roles and cannot modify their permissions.
+</Alert>
 
 <Steps>
 
@@ -99,13 +115,17 @@ assignments.
 
 ## Manage existing roles
 
-- **Edit**: use the edit action in the role list to change the name or
-  description.
-- **Duplicate**: use the more actions menu to create a copy, then adjust the
-  copied permissions. Duplicating is the fastest way to build a role that is
-  close to a default role.
-- **Delete**: only non-built-in roles can be deleted. Deleting a role removes
-  its permissions from every assigned user.
+- **View**: built-in roles are read-only in every edition. Their permissions
+  cannot be changed.
+- **Edit**: in Enterprise Edition, edit the name or description of a custom
+  role from the role list.
+- **Duplicate**: in Enterprise Edition, use the more actions menu to create a
+  copy, then adjust the copied permissions. Duplicating is the fastest way to
+  build a role that is close to a default role.
+- **Delete**: in Enterprise Edition, delete a non-built-in role. Deleting a
+  role removes its permissions from every assigned user.
+- **Community Edition**: only the built-in roles are available. Creating,
+  editing, duplicating, and deleting roles are unavailable.
 
 <Alert type="note">
 Role changes take effect on the next authorization check. A user who is already
