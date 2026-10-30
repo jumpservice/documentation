@@ -914,7 +914,7 @@ import EnterpriseFeatureCta from "@/components/docs/enterprise-feature-cta";
 
 - V5 新截图放在 `docs/public/images/v5/jumpserver/`。
 - V4 历史截图放在 `docs/public/images/v4/`：常用页面图在 `admin-guides/`，旧版界面图在 `jumpserver/`；V4 正文引用 `/images/v4/admin-guides/...` 或 `/images/v4/jumpserver/...`。
-- V5 页面复用旧版截图时，引用对应的 `/images/v4/jumpserver/...`，不要把旧图复制到 `images/v5/`。
+- **所有 V5 页面使用到的图片统一放在 `docs/public/images/v5/jumpserver/`**，不再创建 `v5/admin-guides/` 等版本内子目录；复用旧版界面截图也放在这里。
 - `docs/public/images/docs/navs/` 是 V4/V5 共享导航示意图目录，不按版本拆分。
 - 文件名格式：`v5_<模块>_<页面>_<序号>.png`，全小写、下划线分隔、无空格、无中文、无大写（历史文件除外）。
 

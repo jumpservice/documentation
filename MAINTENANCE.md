@@ -189,7 +189,7 @@ Open **Console > Accounts**.
 
 V5 图片写 `![Figure N: 描述](/images/v5/jumpserver/<file>.png)`，文件放在 `docs/public/images/v5/jumpserver/
 docs/public/images/v4/admin-guides/
-docs/public/images/v4/jumpserver/`；V4 图片写 `/images/v4/admin-guides/...` 或 `/images/v4/jumpserver/...`，文件放在 `docs/public/images/v4/`。不要写 `/docs` 前缀；截图采集、脱敏、命名与替换规则见 WRITING-GUIDE 第 7 章。
+docs/public/images/v4/jumpserver/`；V4 图片写 `/images/v4/admin-guides/...` 或 `/images/v4/jumpserver/...`，文件放在 `docs/public/images/v4/`；所有 V5 图片统一放在 `docs/public/images/v5/jumpserver/`。不要写 `/docs` 前缀；截图采集、脱敏、命名与替换规则见 WRITING-GUIDE 第 7 章。
 
 ### 4.2 代码和表格
 
