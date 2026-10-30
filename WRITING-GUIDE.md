@@ -359,7 +359,7 @@ overview: true
 - 空章节（标题下没有内容）。
 - 用标题模拟表格/列表（例如 `### 字段一` 逐字段堆 H3；字段多时用表格）。
 - 把完整 UI 说明复制到多个页面。
-- 在正文中保留 `TODO`、`FIXME`、作者备注；截图待办使用页面可见的 `Alert` 块（见 7.10）。
+- 在正文中保留 `TODO`、`FIXME`、作者备注；截图待办使用页面可见、可搜索的引用块（见 7.10）。
 
 ## 4. 行文规范
 
@@ -992,23 +992,22 @@ alt 规则：
 
 ### 7.10 无法截图时的约定
 
-没有条件采集截图（Agent 默认情况、无法访问演示环境）时，**不要留空、不要用占位图、不要删除已有图**，而是在对应位置写一个**页面可见**的截图待办：
+没有条件采集截图（Agent 默认情况、无法访问演示环境）时，**不要留空、不要用占位图、不要删除已有图**，而是在对应位置写一个**页面可见、且可被站内搜索索引**的截图待办：
 
 ```mdx
-<Alert type="note">
-**Screenshot TODO:** Capture the asset list with the Hosts tab selected and the Create button visible.
-Save as `docs/public/images/jumpserver/v5_admin_assets_02.png` and replace this block with the figure reference.
-</Alert>
+> **Screenshot TODO:** Capture the asset list with the Hosts tab selected and the Create button visible.
+>
+> Save as `docs/public/images/jumpserver/v5_admin_assets_02.png` and replace this block with the figure reference.
 ```
 
 规则：
 
-- 使用 `Alert type="note"` 渲染到页面，让编写者浏览文档时就能看到；不要再使用隐藏的 MDX 注释。
-- 固定以 `**Screenshot TODO:**` 开头，便于检索（`grep -rn "Screenshot TODO" docs/v5`）。
+- 使用 Markdown 引用块（blockquote）渲染到页面，让编写者浏览文档时就能看到，并能通过站内搜索框检索；不要使用隐藏的 MDX 注释，也不要只用 `Alert` 组件（组件内容不会进入搜索索引）。
+- 固定以 `**Screenshot TODO:**` 开头，搜索框输入 `Screenshot TODO` 即可找到全部待补截图。
 - 必须写清**拍什么**、**页面/状态**、**图中要出现的关键元素**，并给出建议文件名和完整保存路径；不要只写 `Screenshot TODO`。
 - 放在它所服务的段落后，单独一块。
 - 交付说明中列出全部待人工截图项（页面 + 内容 + 建议文件名），交接给人工。
-- 已有正确截图时不要新增 TODO；截图采集完成后删除整个 `Alert` 块，改为 `Figure N` 图片引用。
+- 已有正确截图时不要新增 TODO；截图采集完成后删除整个引用块，改为 `Figure N` 图片引用。
 
 ### 7.11 截图替换流程
 
@@ -1030,7 +1029,7 @@ Save as `docs/public/images/jumpserver/v5_admin_assets_02.png` and replace this 
 - [ ] 引用使用 `/images/...`，无 `/docs` 前缀
 - [ ] alt 以 `Figure N:` 开头，描述准确，编号连续
 - [ ] 截图内容与正文步骤、字段名、版本一致
-- [ ] 无法截图的项已写可见的 `<Alert type="note">Screenshot TODO...</Alert>` 并列入交付清单
+- [ ] 无法截图的项已写可见、可搜索的 `Screenshot TODO` 引用块并列入交付清单
 
 ### 7.13 AI Agent 的截图边界
 
@@ -1423,7 +1422,7 @@ pnpm exec prettier --check <files>   # 格式检查；修复用 prettier --write
 | 组件        | 需 import 的组件已 import；全局组件未重复 import                       |
 | 代码块      | 标注语言；无真实凭据；版本命令用 `VersionedCommand`                    |
 | 表格        | 列数一致；不手写 `<table>`；字段表首列 `Group` 时重复值一致            |
-| 截图待办    | 使用页面可见的 `<Alert type="note">`，写清画面、文件名和保存路径 |
+| 截图待办    | 使用页面可见的 `Screenshot TODO` Markdown 引用块，写清画面、文件名和保存路径 |
 | 语言        | 英文正文无中文字符；术语按附录 B                                       |
 | 页面登记    | 新页面已登记同级 `_meta.json`                                          |
 
@@ -1776,7 +1775,7 @@ overview: true
 2. 在同级 `_meta.json` 添加 `{ "type": "file", "name": "[page]", "label": "[Label]" }`。
 3. 若新页面属于新目录，创建目录 `_meta.json` 并在上一级登记 `dir`。
 4. 确认至少有一个已存在的页面链接到新页面（避免孤立页）。
-5. 需要截图时写可见的 `Screenshot TODO` Alert，包含建议文件名，并登记到交付清单。
+5. 需要截图时写可见、可搜索的 `Screenshot TODO` 引用块，包含建议文件名，并登记到交付清单。
 
 ## 附录 B：术语表
 
@@ -1843,7 +1842,7 @@ overview: true
 - [ ] 站内链接不带 `/docs`，目标存在，锚点有效
 - [ ] 图片路径 `/images/...`，文件存在，alt 合规且 `Figure N` 连续
 - [ ] 截图英文界面、已脱敏、尺寸一致
-- [ ] 无法截图处已写可见的 `Screenshot TODO` Alert 并列入交付清单
+- [ ] 无法截图处已写可见、可搜索的 `Screenshot TODO` 引用块并列入交付清单
 - [ ] 新页面已登记 `_meta.json`，非孤立页
 - [ ] `pnpm build` 通过（或由 Lead 执行并确认）
 - [ ] `pnpm check:docs` 无新增 error

@@ -10,10 +10,37 @@ Docker Compose project and is the supported way to install, start, stop, back up
 restore, and upgrade the platform. This page lists the most useful commands and
 their behavior.
 
-<Alert type="note">
-**Screenshot TODO:** Capture the `jmsctl.sh --help` output.
-Save as `docs/public/images/jumpserver/v5_ops_jmsctl_help_01.png` and replace this block with the figure reference.
-</Alert>
+'''bash
+root@jumpserver-host:~# jmsctl --help
+
+JumpServer Deployment Management Script
+
+Usage:
+  ./jmsctl.sh [COMMAND] [ARGS...]
+  ./jmsctl.sh --help
+
+Installation Commands:
+  install           Install JumpServer
+  upgrade           Upgrade JumpServer
+
+Management Commands:
+  config            Configuration  Tools
+  start [--skip-kotl]   Start     JumpServer
+  stop [--skip-kotl]    Stop      JumpServer
+  restart [--skip-kotl] Restart   JumpServer
+  status [--skip-kotl]  Check     JumpServer
+  down              Offline   JumpServer
+  uninstall         Uninstall JumpServer
+
+More Commands:
+  load_image        Loading docker image
+  backup_db         Backup database
+  backup_no_audit   Backup database without audit data
+  backup_audit      Backup audits tables
+  restore_db [file]        Data recovery through database backup file
+  raw               Execute the original docker compose command
+  tail [service]    View log
+'''
 
 ## Before you begin
 

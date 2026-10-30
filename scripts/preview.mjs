@@ -12,6 +12,7 @@
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
+import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = path.resolve(
@@ -35,6 +36,7 @@ const argValue = (names, fallback) => {
 
 const port = Number(process.env.PORT || argValue(["--port", "-p"], "4173"));
 const host = process.env.HOST || argValue(["--host"], "127.0.0.1");
+const watchEnabled = !argv.includes("--no-watch");
 
 const contentTypes = {
   ".css": "text/css; charset=utf-8",
@@ -74,7 +76,10 @@ const resolvePage = (pathname) => {
   const relative = relativeUrl.replace(/^\/+/, "");
   const requested = path.resolve(buildRoot, relative);
 
-  if (requested !== buildRoot && !requested.startsWith(`${buildRoot}${path.sep}`)) {
+  if (
+    requested !== buildRoot &&
+    !requested.startsWith(`${buildRoot}${path.sep}`)
+  ) {
     return null;
   }
 
@@ -159,3 +164,121 @@ const server = http.createServer((request, response) => {
 server.listen(port, host, () => {
   console.log(`\n  JumpServer docs preview: http://${host}:${port}${base}/\n`);
 });
+
+if (watchEnabled) {
+  const rspressBin = path.join(
+    projectRoot,
+    "node_modules",
+    "@rspress",
+    "core",
+    "bin",
+    "rspress.js",
+  );
+  const watchedPaths = [
+    path.join(projectRoot, "docs"),
+    path.join(projectRoot, "theme"),
+    path.join(projectRoot, "src"),
+    path.join(projectRoot, "rspress.config.ts"),
+    path.join(projectRoot, "i18n.json"),
+    path.join(projectRoot, "package.json"),
+  ].filter((candidate) => fs.existsSync(candidate));
+
+  let debounceTimer;
+  let building = false;
+  let queued = false;
+  const watchers = [];
+
+  const build = () => {
+    if (building) {
+      queued = true;
+      return;
+    }
+    building = true;
+    console.log("\n  [preview] source changed; rebuilding...\n");
+    const child = spawn(process.execPath, [rspressBin, "build"], {
+      cwd: projectRoot,
+      stdio: "inherit",
+    });
+    child.on("error", (error) => {
+      building = false;
+      console.error("[preview] build could not start:", error.message);
+      if (queued) {
+        queued = false;
+        build();
+      }
+    });
+    child.on("exit", (code) => {
+      building = false;
+      if (code === 0) {
+        console.log("\n  [preview] build complete; refresh the browser.\n");
+      } else {
+        console.error(
+          `\n  [preview] build failed with exit code ${code}; keeping the previous build.\n`,
+        );
+      }
+      if (queued) {
+        queued = false;
+        build();
+      }
+    });
+  };
+
+  const scheduleBuild = (reason) => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      console.log(`[preview] detected change: ${reason}`);
+      build();
+    }, 600);
+  };
+
+  for (const watchedPath of watchedPaths) {
+    try {
+      const isDirectory = fs.statSync(watchedPath).isDirectory();
+      const watcher = fs.watch(
+        watchedPath,
+        isDirectory ? { recursive: true } : {},
+        (eventType, filename) => {
+          if (filename) {
+            const normalized = filename.toString().replaceAll("\\", "/");
+            if (
+              normalized.includes("node_modules") ||
+              normalized.includes("/.git/") ||
+              normalized.startsWith(".git/")
+            ) {
+              return;
+            }
+            scheduleBuild(normalized);
+          } else {
+            scheduleBuild(path.basename(watchedPath));
+          }
+        },
+      );
+      watcher.on("error", (error) => {
+        console.error(
+          `[preview] watcher error for ${watchedPath}:`,
+          error.message,
+        );
+      });
+      watchers.push(watcher);
+    } catch (error) {
+      console.error(`[preview] could not watch ${watchedPath}:`, error.message);
+    }
+  }
+
+  const closeWatchers = () => {
+    for (const watcher of watchers) watcher.close();
+  };
+  process.on("SIGINT", () => {
+    closeWatchers();
+    process.exit(0);
+  });
+  process.on("SIGTERM", () => {
+    closeWatchers();
+    process.exit(0);
+  });
+
+  console.log(
+    `[preview] watching ${watchedPaths.length} source paths; edited files rebuild automatically.`,
+  );
+  console.log("[preview] use --no-watch to disable automatic rebuilds.\n");
+}

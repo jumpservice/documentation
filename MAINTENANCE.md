@@ -272,6 +272,8 @@ http://127.0.0.1:4173/docs/
 注意：
 
 - `rspress preview` 不会自动处理 clean URL，必须使用 `pnpm preview`
+- `pnpm preview` 会自动监听 `docs/`、`theme/`、`src/`、`rspress.config.ts`、`i18n.json` 和 `package.json`；修改后自动重新构建，刷新浏览器即可看到变化
+- 使用 `pnpm preview --port 4173 --no-watch` 可关闭自动重建
 - `build/` 是生成物，不提交 Git
 - 构建输出包含 `llms.txt`、`llms-full.txt`、`sitemap.xml`，不要手工编辑这些生成文件
 - 页面出现 404 时，先检查 `base`、链接前缀和 `_meta.json`

@@ -49,6 +49,11 @@ build output at `/docs/`, redirects `/` to `/docs/`, and maps clean URLs such as
 `/docs/quickstart` and `/docs/v4/quickstart` to the generated `.html` files.
 Rspress' own `preview` command does not perform this mapping.
 
+The preview server watches `docs/`, `theme/`, `src/`, `rspress.config.ts`,
+`i18n.json`, and `package.json`. After an edit it rebuilds automatically; refresh
+the browser to see the new build. Use `pnpm preview --port 4173 --no-watch` to
+disable automatic rebuilds.
+
 The production output is written to `build/`. Deploy the **contents of `build/`
 at the `/docs` mount point** (for example with a reverse-proxy rewrite from
 `/docs/*` to the build root). The generated URLs already include the `/docs`

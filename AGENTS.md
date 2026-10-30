@@ -25,7 +25,7 @@
 | `pnpm exec prettier --check <files>` | 检查本次改动文件                     | Agent 默认用这个，不用 `pnpm format`                                                    |
 | `pnpm exec prettier --write <files>` | 格式化本次改动文件                   | 仅限自己负责的文件                                                                      |
 | `pnpm build`                         | 生产构建 + 死链死图检查              | 默认由 Lead 统一执行，Agent 不主动运行                                                  |
-| `pnpm preview --port 4173`           | 预览构建产物                         | `http://127.0.0.1:4173/docs/`，读取 `build/`                                            |
+| `pnpm preview --port 4173`           | 预览构建产物，自动重建               | `http://127.0.0.1:4173/docs/`；修改源文件后自动构建，刷新浏览器；`--no-watch` 关闭 |
 | `pnpm format`                        | 全仓库格式化（`prettier --write .`） | **禁止**在文档任务中使用，会重排无关文件                                                |
 
 ### 1.2 目录
@@ -82,7 +82,7 @@ theme/              主题组件；rspress.config.ts 为站点配置（base、�
 | 标题        | 全页有且只有一个 H1（`#`），位于 frontmatter 与 import 块之后、正文第一行（概览页除外）；sentence case，不手动编号                                                                                         | [3.4](WRITING-GUIDE.md#3-页面结构规范)          |
 | 站内链接    | 绝对路径、**不带 `/docs` 前缀**，写**版本内路径**：V5 如 `/features/console/assets/`，V4 如 `/notifications/email`（多版本路由自动加 `/v4`）；仅显式跨版本引用才写 `/v4/...`；目标必须存在                  | [9](WRITING-GUIDE.md#9-链接与引用规范)          |
 | 图片        | `![Figure N: 描述](/images/jumpserver/<name>.png)`，文件放 `docs/public/images/jumpserver/`；**禁止** `/docs/images/...`                                                                                   | [7](WRITING-GUIDE.md#7-截图规范)                |
-| 截图 TODO   | 页面可见的 `<Alert type="note">**Screenshot TODO:** ...</Alert>`；写清画面、建议文件名和保存路径 | [7](WRITING-GUIDE.md#7-截图规范) |
+| 截图 TODO   | 页面可见、可搜索的 `> **Screenshot TODO:** ...` Markdown 引用块；写清画面、建议文件名和保存路径 | [7](WRITING-GUIDE.md#7-截图规范) |
 | `Steps`     | 每个**直接子元素**是一步，必须用 `<div>` 包裹；嵌套用 `<Steps stepLevel="2">`；步骤内可放 `<Nav>`、代码块、`<Alert>`                                                                                       | [5](WRITING-GUIDE.md#5-步骤与操作说明)          |
 | `Alert`     | `type` 只能是 `tip`（默认）、`note`、`warning`、`important`、`error`、`xpack`；拼错会导致渲染异常                                                                                                          | [6.2](WRITING-GUIDE.md#6-组件与-markdown-规范)  |
 | 组件        | 全局组件不需要 import；`Tabs`/`Tab` 与 `@/components/docs/*` 定制组件必须显式 import                                                                                                                       | [6.1](WRITING-GUIDE.md#6-组件与-markdown-规范)  |
@@ -151,7 +151,7 @@ pnpm preview --port 4173                # 4. 预览抽检改动涉及的页面
 
 - 仓库存在历史格式债：`docs/v4` 大部分文件为 CRLF，`docs/v5` 仍有部分 MDX 尚未 prettier-clean。**只检查本次改动的文件**，不要为通过检查去重排未改动的旧页面。
 - `prettier --check` 失败常见原因：CRLF 行尾、旧表格未对齐；确认差异来自自己的改动再 `--write`。
-- `pnpm preview` 读取 `build/`，看不到更新时先确认构建已重新生成；命令与结果要原样写进交付说明，不要只写“已通过”。
+- `pnpm preview` 会自动监听源文件并重新构建；刷新浏览器即可看到更新。使用 `--no-watch` 可关闭自动重建；构建失败时继续提供上一次成功的构建。
 
 ## 10. 升级人工条件
 
@@ -185,7 +185,7 @@ pnpm preview --port 4173                # 4. 预览抽检改动涉及的页面
 | 页面构建报错或空白             | 需要 import 的组件没 import，或组件名拼错                                | 按第 6 节补 import                                                        |
 | `Icon` 区域空白 / `Alert` 异常 | `name` 不在 `iconConfig`；`type` 拼错                                    | 用 `icons.tsx` 已有名字；`Alert` 只用 6 个合法值                          |
 | prettier 检查失败              | CRLF 行尾或旧文件未格式化                                                | 只处理自己改动的文件                                                      |
-| 预览没更新                     | `preview` 读 `build/`，未重新构建                                        | 重新 `pnpm build` 后预览                                                  |
+| 预览没更新                     | 预览进程未监听或构建失败                                                | 确认 `pnpm preview` 正在运行并查看终端构建日志；必要时重启预览              |
 | 版本号过期 / 表格错位          | 命令手写版本号；单元格换行或列数不一致                                   | 改用 `VersionedCommand`；拆表格、统一列数                                 |
 
 ## 13. 规范索引
