@@ -67,17 +67,17 @@ prompt is `Opt>`.
 
 ![SSH Terminal shortcut menu](/images/jumpserver/ssh_terminal_menu.png)
 
-| Input | Action |
-| --- | --- |
+| Input      | Action                                    |
+| ---------- | ----------------------------------------- |
 | `/192.168` | Search assets by IP, hostname, or comment |
-| `p` | Display all assets you can access |
-| `g` | Display the authorization tree |
-| `c` | Display the asset type tree |
-| `f` | Display the favorites tree |
-| `s` | Change the interface language |
-| `t` | Switch to TUI mode |
-| `?` | View help |
-| `q` | End the SSH session |
+| `p`        | Display all assets you can access         |
+| `g`        | Display the authorization tree            |
+| `c`        | Display the asset type tree               |
+| `f`        | Display the favorites tree                |
+| `s`        | Change the interface language             |
+| `t`        | Switch to TUI mode                        |
+| `?`        | View help                                 |
+| `q`        | End the SSH session                       |
 
 When you display an asset list, KoKo shows a table with **No.**, **Name**,
 **Address**, **Platform**, **Organization**, and **Remarks** columns. Enter the
@@ -100,6 +100,28 @@ continue. Use `b` or `back` to return to the asset list.
 The session opens as a terminal connection. When you exit the remote shell, the
 proxied session ends. If you return to the JumpServer menu instead, select another
 asset or enter `q` to exit.
+
+## TUI mode
+
+<VersionBadge version="5.1.0" kind="changed" />
+
+JumpServer v5.0.0 redesigned the KoKo TUI, and JumpServer v5.1.0 revamps it for
+direct SSH access. Instead of the numbered menu, the TUI presents an interactive
+workspace in the terminal:
+
+- **Asset tree** — browse authorized assets and their accounts as a tree.
+- **Search and filtering** — type part of a name or address to narrow the tree
+  instead of scrolling through every authorized asset.
+- **Mouse controls** — select items in the tree and the session list with the mouse
+  when your terminal client supports it.
+- **Multiple sessions** — keep several sessions open and switch between them
+  without leaving the TUI.
+
+Plain-text connection mode is restored in v5.1.0 for direct SSH access. A direct
+login that already specifies the asset and account connects to the asset terminal
+without rendering the TUI interface.
+
+{/* //TODO: Add a screenshot of the v5.1.0 KoKo TUI with the asset tree for this page. */}
 
 ## Advanced: direct asset login
 
@@ -132,17 +154,17 @@ interactive menu instead.
 
 ## Troubleshooting
 
-| Symptom | Check |
-| --- | --- |
-| `Connection refused` or timeout | Confirm `2222` is open and KoKo is running |
-| `Permission denied` | Verify the JumpServer username, password, MFA, and login restrictions |
-| Login succeeds but the asset list is empty | Confirm the asset is authorized for your user and organization |
-| Direct asset login reports no match | Check the asset address, account username, and protocol |
-| Host key warning after a server change | Verify the new fingerprint with your administrator before accepting it |
-| Session disconnects unexpectedly | Check the session idle timeout and network connection |
+| Symptom                                    | Check                                                                  |
+| ------------------------------------------ | ---------------------------------------------------------------------- |
+| `Connection refused` or timeout            | Confirm `2222` is open and KoKo is running                             |
+| `Permission denied`                        | Verify the JumpServer username, password, MFA, and login restrictions  |
+| Login succeeds but the asset list is empty | Confirm the asset is authorized for your user and organization         |
+| Direct asset login reports no match        | Check the asset address, account username, and protocol                |
+| Host key warning after a server change     | Verify the new fingerprint with your administrator before accepting it |
+| Session disconnects unexpectedly           | Check the session idle timeout and network connection                  |
 
 ## Related
 
-- [Access Assets](/features/workbench/access-assets) — browse authorized assets in the Workbench
+- [Access Assets](/features/workbench/my-assets/access-assets) — browse authorized assets in the Workbench
 - [Web Terminal](/features/workbench/web-terminal/) — browser-based terminal and remote desktop
 - [Network Ports](/operations/network-ports) — firewall requirements for SSH client access

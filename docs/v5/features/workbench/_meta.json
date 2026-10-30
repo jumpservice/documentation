@@ -5,23 +5,10 @@
     "label": "Overview"
   },
   {
-    "type": "section-header",
-    "label": "My Assets"
-  },
-  {
-    "type": "file",
-    "name": "access-assets",
-    "label": "Access Assets"
-  },
-  {
-    "type": "file",
-    "name": "file-transfer",
-    "label": "File Transfer"
-  },
-  {
-    "type": "file",
-    "name": "personal-credentials",
-    "label": "Personal Credentials"
+    "type": "dir",
+    "name": "my-assets",
+    "label": "My Assets",
+    "collapsed": true
   },
   {
     "type": "dir-section-header",
