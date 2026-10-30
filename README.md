@@ -130,7 +130,7 @@ docs/v5/
 - V5 feature, operations, developer, and reference pages are populated with
   English content adapted from the Chinese JumpServer documentation, the V5
   English UI, and the Lina/JumpServer source trees. Source screenshots are stored
-  under `docs/public/images/jumpserver/`; some show the Chinese UI or an older
+  under `docs/public/images/v5/jumpserver/` (V4 images live under `docs/public/images/v4/admin-guides/` and `docs/public/images/v4/jumpserver/`); some show the Chinese UI or an older
   release and can be replaced later.
 - A few pages still need a final screenshot. Find them with:
 

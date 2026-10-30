@@ -257,7 +257,7 @@ description: "One sentence that says what this page helps the reader do."
 
 One short paragraph: what this page is, where it is in the UI, who it is for.
 
-![Figure 1: What the page looks like with the key areas visible.](/images/jumpserver/v5_admin_example_01.png)
+![Figure 1: What the page looks like with the key areas visible.](/images/v5/jumpserver/v5_admin_example_01.png)
 
 ## Overview
 
@@ -854,7 +854,7 @@ import EnterpriseFeatureCta from "@/components/docs/enterprise-feature-cta";
 
 ### 6.12 图片语法与 alt
 
-- 正文图片统一用 Markdown 图片语法：`![Figure 1: ...](/images/jumpserver/xxx.png)`。
+- 正文图片统一用 Markdown 图片语法：`![Figure 1: ...](/images/v5/jumpserver/xxx.png)`。
 - 图片路径以 `/images/...` 开头，**禁止**写 `/docs/images/...`；构建时的 `remark-base-images` 会自动补 `/docs` base。
 - alt 文本规则见 7.5；alt 不是文件名的复述，必须描述图中可见的关键信息。
 - 图片默认支持 medium zoom；需要禁止放大时加 `no-zoom` class（通过 `<img className="no-zoom">`，仅特殊情况使用）。
@@ -912,7 +912,10 @@ import EnterpriseFeatureCta from "@/components/docs/enterprise-feature-cta";
 
 ### 7.4 命名与存放
 
-- 新截图放在 `docs/public/images/jumpserver/`。
+- V5 新截图放在 `docs/public/images/v5/jumpserver/`。
+- V4 历史截图放在 `docs/public/images/v4/`：常用页面图在 `admin-guides/`，旧版界面图在 `jumpserver/`；V4 正文引用 `/images/v4/admin-guides/...` 或 `/images/v4/jumpserver/...`。
+- V5 页面复用旧版截图时，引用对应的 `/images/v4/jumpserver/...`，不要把旧图复制到 `images/v5/`。
+- `docs/public/images/docs/navs/` 是 V4/V5 共享导航示意图目录，不按版本拆分。
 - 文件名格式：`v5_<模块>_<页面>_<序号>.png`，全小写、下划线分隔、无空格、无中文、无大写（历史文件除外）。
 
   ```text
@@ -922,7 +925,7 @@ import EnterpriseFeatureCta from "@/components/docs/enterprise-feature-cta";
   ```
 
 - 序号从 `01` 开始，同一页面递增；替换同名图片时保持原文件名，避免改引用。
-- 历史目录 `docs/public/images/docs/**` 只读保留，不再新增；V5 新截图不要放进该目录。
+- V4/V5 目录必须分开：新增 V5 截图不要放进 `images/v4/`，反之亦然；共享导航示意图除外。
 - 已废弃的图片确认无引用后删除；不要长期保留"可能有用"的孤立图片。
 - 图片必须随仓库提交，禁止外链图床（GitHub 徽章等特殊场景除外）。
 
@@ -931,7 +934,7 @@ import EnterpriseFeatureCta from "@/components/docs/enterprise-feature-cta";
 正文统一用 Markdown 图片语法：
 
 ```mdx
-![Figure 1: Assets list with node tree, type tabs, and connection status.](/images/jumpserver/v5_admin_assets_01.png)
+![Figure 1: Assets list with node tree, type tabs, and connection status.](/images/v5/jumpserver/v5_admin_assets_01.png)
 ```
 
 alt 规则：
@@ -997,7 +1000,7 @@ alt 规则：
 ```mdx
 > **Screenshot TODO:** Capture the asset list with the Hosts tab selected and the Create button visible.
 >
-> Save as `docs/public/images/jumpserver/v5_admin_assets_02.png` and replace this block with the figure reference.
+> Save as `docs/public/images/v5/jumpserver/v5_admin_assets_02.png` and replace this block with the figure reference.
 ```
 
 规则：
@@ -1025,7 +1028,7 @@ alt 规则：
 - [ ] 尺寸与同页其它截图一致，文字清晰
 - [ ] 保留了必要的上下文（页签、面包屑、抽屉标题）
 - [ ] 无密码、Token、AK/SK、内网地址、个人信息、客户信息
-- [ ] 文件名符合 `v5_<模块>_<页面>_<序号>.png`，位置在 `docs/public/images/jumpserver/`
+- [ ] 文件名符合 `v5_<模块>_<页面>_<序号>.png`，位置在 `docs/public/images/v5/jumpserver/`
 - [ ] 引用使用 `/images/...`，无 `/docs` 前缀
 - [ ] alt 以 `Figure N:` 开头，描述准确，编号连续
 - [ ] 截图内容与正文步骤、字段名、版本一致
@@ -1609,7 +1612,7 @@ description: "[One sentence that says what the reader can do on this page.]"
 
 [One short paragraph: what this page is, where it is, who it is for.]
 
-![Figure 1: What the page shows and the key areas visible.](/images/jumpserver/v5_example_01.png)
+![Figure 1: What the page shows and the key areas visible.](/images/v5/jumpserver/v5_example_01.png)
 
 ## Overview
 
@@ -1867,7 +1870,7 @@ overview: true
 - [ ] 1600×1000 PNG（或同页一致规格），文字清晰
 - [ ] 保留必要上下文，未含浏览器地址栏/任务栏
 - [ ] 无密码、Token、AK/SK、内网地址、个人信息、客户信息
-- [ ] 文件名 `v5_<模块>_<页面>_<序号>.png`，位于 `docs/public/images/jumpserver/`
+- [ ] 文件名 `v5_<模块>_<页面>_<序号>.png`，位于 `docs/public/images/v5/jumpserver/`
 - [ ] 引用 `/images/...`，无 `/docs` 前缀
 - [ ] alt 以 `Figure N:` 开头，描述准确，编号连续
 - [ ] 截图与正文步骤、字段名、版本一致

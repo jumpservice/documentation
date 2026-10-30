@@ -39,7 +39,10 @@ docs/
     developer-guide/  # API 与集成
     reference/        # 参考、术语表、版本对比
   public/
-    images/jumpserver/ # 文档截图和图片
+    images/v5/jumpserver/ # V5 文档截图
+    images/v4/admin-guides/ # V4 文档截图
+    images/v4/jumpserver/   # V4 历史界面截图
+    images/docs/navs/      # 共享导航示意图
     svgs/              # 图标资源
 src/
   components/         # 自定义组件
@@ -184,7 +187,9 @@ Open **Console > Accounts**.
 
 ### 4.1 图片与截图
 
-图片统一写 `![Figure N: 描述](/images/jumpserver/<file>.png)`，文件放在 `docs/public/images/jumpserver/`，不要写 `/docs` 前缀；截图采集、脱敏、命名与替换规则见 WRITING-GUIDE 第 7 章，当前截图清单与人工待办见 [SCREENSHOT-REPLACEMENT.md](SCREENSHOT-REPLACEMENT.md)。
+V5 图片写 `![Figure N: 描述](/images/v5/jumpserver/<file>.png)`，文件放在 `docs/public/images/v5/jumpserver/
+docs/public/images/v4/admin-guides/
+docs/public/images/v4/jumpserver/`；V4 图片写 `/images/v4/admin-guides/...` 或 `/images/v4/jumpserver/...`，文件放在 `docs/public/images/v4/`。不要写 `/docs` 前缀；截图采集、脱敏、命名与替换规则见 WRITING-GUIDE 第 7 章。
 
 ### 4.2 代码和表格
 
@@ -195,7 +200,7 @@ Open **Console > Accounts**.
 截图资源目录：
 
 ```text
-docs/public/images/jumpserver/
+docs/public/images/v5/jumpserver/
 ```
 
 当前截图清单和人工待办记录在：
@@ -347,7 +352,7 @@ feat/rspress-v5-docs
 - [ ] frontmatter 有 `title` 和 `description`
 - [ ] 新页面已加入 `_meta.json`
 - [ ] 内部链接使用版本内路径（如 `/features/console/...`）而不是 `/docs/...`
-- [ ] 图片文件位于 `docs/public/images/jumpserver/`
+- [ ] 图片文件位于 `docs/public/images/v5/jumpserver/`（V5）或 `docs/public/images/v4/admin-guides/`（V4，位于 `admin-guides/` 或 `jumpserver/`）
 - [ ] 截图为英文界面，无水印、无敏感信息
 - [ ] `pnpm check:docs` 无新增 error（收尾时可用 `pnpm check:docs --strict`）
 - [ ] 改动文件 `pnpm exec prettier --check` 通过
