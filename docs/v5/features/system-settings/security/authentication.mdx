@@ -115,47 +115,6 @@ Each method tab follows the same shape, with protocol-specific fields:
 - **Passkey** requires HTTPS access and a valid domain list for the relying
   party.
 
-### OAuth2 user groups and certificate verification
-
-<VersionBadge version="5.1.0" kind="new" />
-
-OAuth2 login supports user group synchronization and configurable user group
-attribute mapping, so groups returned by the identity provider can be mapped to
-JumpServer user groups. Certificate verification modes can be configured for the
-OAuth2 connection. **OAuth2** requires JumpServer Enterprise Edition.
-
-### SAML2 certificate verification
-
-<VersionBadge version="5.1.0" kind="new" />
-
-SAML2 remote metadata supports configurable certificate verification modes.
-**SAML2** requires JumpServer Enterprise Edition.
-
-> **Screenshot TODO:** Capture OAuth2 user group mapping and certificate verification settings.
->
->  Save as `docs/public/images/jumpserver/v5_settings_oauth2_mapping_01.png` and replace this block with the figure reference.
-
-<Alert type="note">
-  Redirect-based methods build callback URLs from the [Site
-  URL](/features/system-settings/general/basic). Make sure it matches the address users
-  actually open, and add the matching callback URL to the identity provider. MFA
-  enforcement for third-party sign-in is configured in
-  [Security](/features/system-settings/security/security).
-</Alert>
-
-> **Screenshot TODO:** Capture the Authentication method tabs.
->
->  Save as `docs/public/images/jumpserver/v5_settings_auth_methods_01.png` and replace this block with the figure reference.
-
-## Version history
-
-| Version | Change                                                                                                                               |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| v5.1.0  | MFA user settings follow the system configuration, and system-wide MFA enforcement cannot be disabled.                               |
-| v5.1.0  | OAuth2 login adds user group synchronization, user group attribute mapping, and certificate verification modes (Enterprise Edition). |
-| v5.1.0  | SAML2 remote metadata adds configurable certificate verification modes (Enterprise Edition).                                         |
-| v5.1.0  | LDAP supports user group mapping through `distinguishedName`.                                                                        |
-
 ## Related topics
 
 - [Security](/features/system-settings/security/security)

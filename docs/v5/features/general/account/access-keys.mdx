@@ -32,10 +32,9 @@ current user; it cannot grant more access than the user already has.
 <VersionBadge version="5.1.1" kind="changed" />
 
 When a request authenticates with a Bearer Token, JumpServer validates the token
-format and rejects tokens whose format is invalid. The change preserves fallback
+format and rejects tokens whose format is invalid. Format validation preserves fallback
 compatibility with other Bearer Token authentication methods, so existing API
-clients that authenticate with those methods keep working after you upgrade to
-JumpServer v5.1.1.
+clients that authenticate with those methods keep working.
 
 ## Security notes
 

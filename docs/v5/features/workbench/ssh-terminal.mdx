@@ -101,30 +101,6 @@ The session opens as a terminal connection. When you exit the remote shell, the
 proxied session ends. If you return to the JumpServer menu instead, select another
 asset or enter `q` to exit.
 
-## TUI mode
-
-<VersionBadge version="5.1.0" kind="changed" />
-
-JumpServer v5.0.0 redesigned the KoKo TUI, and JumpServer v5.1.0 revamps it for
-direct SSH access. Instead of the numbered menu, the TUI presents an interactive
-workspace in the terminal:
-
-- **Asset tree** — browse authorized assets and their accounts as a tree.
-- **Search and filtering** — type part of a name or address to narrow the tree
-  instead of scrolling through every authorized asset.
-- **Mouse controls** — select items in the tree and the session list with the mouse
-  when your terminal client supports it.
-- **Multiple sessions** — keep several sessions open and switch between them
-  without leaving the TUI.
-
-Plain-text connection mode is restored in v5.1.0 for direct SSH access. A direct
-login that already specifies the asset and account connects to the asset terminal
-without rendering the TUI interface.
-
-> **Screenshot TODO:** Capture the v5.1.0 KoKo TUI with the asset tree.
->
->  Save as `docs/public/images/jumpserver/v5_user_wb_koko_tui_01.png` and replace this block with the figure reference.
-
 ## Advanced: direct asset login
 
 If you already know the asset and account, you can put them in the SSH username.

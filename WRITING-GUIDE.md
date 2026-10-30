@@ -1208,7 +1208,7 @@ pnpm preview --port 4173    # 预览构建产物，http://127.0.0.1:4173/docs/
 
 ### 10.7 版本引入与变更标注
 
-读者需要能回答两个问题：这个功能从哪个版本开始有？它在哪个版本发生了变化？本仓库用统一的"版本徽标 + 版本历史表 + 版本化措辞"回答，不写"最近新增"这类相对时间。
+功能页只回答“这个功能是什么、怎么用”。能力的引入或变更版本由 **`VersionBadge` 统一标注**，正文不再重复写版本描述。
 
 **版本徽标**（全局组件，无需 import）：
 
@@ -1224,25 +1224,11 @@ pnpm preview --port 4173    # 预览构建产物，http://127.0.0.1:4173/docs/
 - 徽标不是企业版标注：企业版能力仍用 `<Alert type="xpack">`，徽标只回答"哪个版本"。
 - 不放在 H1 之后的首屏位置，首屏仍按 3.5 写"是什么、在哪里、给谁用"。
 
-**版本历史表**：一个页面有 3 处及以上版本变化时，在 `## Related topics` 之前增加：
+**正文措辞**：
 
-```mdx
-## Version history
-
-| Version | Change                                                         |
-| ------- | -------------------------------------------------------------- |
-| v5.1.0  | Added CIDR-based asset assignment and automatic zone matching. |
-| v5.0.0  | Added zone management for assets behind gateways.              |
-```
-
-- 行按版本倒序，只写与本页主题相关的变更；每条给出一句可验证的行为描述。
-- 只有 1–2 处变化的页面只用徽标，不加表，避免为凑表重复正文。
-
-**版本化措辞**（正文内）：
-
-- 能力范围：`Available since JumpServer v5.1.0.` / `Requires JumpServer v5.1.0 or later.`
-- 行为变化：`Before v5.1.0, ...; from v5.1.0, ...`
-- 版本号写 `v5.1.0`，不写 `5.1`、`最新版`、`新版本`。
+- 有徽标的小节，正文只描述功能本身；不再重复 `Available since JumpServer vX.Y.Z`、`From vX.Y.Z, ...`、`In vX.Y.Z, ...`、`The same release...` 等版本化开场。
+- 功能页不再增加 `## Version history` 表；版本历史集中在 [What's New](/reference/whats-new)、[Changelog](/reference/changelog) 与升级页，避免同一版本信息在多个页面重复漂移。
+- 例外：升级页、兼容性说明和迁移步骤本身就以版本为主题，可以保留必要的版本号与前后行为对比，但仍应聚焦“升级时做什么”。
 
 **事实来源**：版本归属以 GitHub Release Notes、`src/data/releases.json`（版本历史）与 `src/data/release-notes.json`（详细说明）为准，不得凭印象写"某版本新增"。发布说明页（[changelog.mdx](docs/v5/reference/changelog.mdx)）同时渲染这两份数据：新增版本时，版本历史更新 `releases.json`（脚本自动），详细说明更新 `release-notes.json`（人工维护），不在页面里手抄。
 

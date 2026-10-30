@@ -48,6 +48,8 @@ that use native protocols and local applications. See
 [Client Overview](/features/client/) and
 [Asset Connection](/features/client/asset-connection) for the desktop workflow.
 
+![Figure 1: AI Assistant entry in JumpServer Client.](/images/jumpserver/v5_user_ai_client_entry_01.png)
+
 ## Work with an active session
 
 The assistant is most useful when a session is already open:
@@ -67,7 +69,7 @@ authorized asset exactly as if you ran it yourself.
 
 <VersionBadge version="5.0.0" kind="new" />
 
-Available since JumpServer v5.0.0, the assistant also supports day-to-day
+The assistant also supports day-to-day
 operations and auditing:
 
 - **Command recommendations** — the assistant suggests commands from the current
@@ -86,7 +88,7 @@ operations and auditing:
 
 <VersionBadge version="5.1.0" kind="new" />
 
-From JumpServer v5.1.0, you can describe a command filter rule and have the
+You can describe a command filter rule and have the
 assistant draft it, or create the rule through conversation, instead of
 configuring the rule manually. Review generated rules before you save them. See
 [Command Filter](/features/console/policies/acls/command-filter).
@@ -123,13 +125,3 @@ the deployment has no valid model configuration.
 - Conversations can be audited by authorized administrators.
 - Web Terminal and JumpServer Client share the same assistant configuration but
   provide different session context.
-
-## Version history
-
-| Version | Change                                                                                                                                 |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| v5.1.0  | Fixed the AI dialog appearing behind the Web Terminal session interface and the AI panel expanding automatically in JumpServer Client. |
-| v5.1.0  | Added AI-assisted drafting and conversational creation for command filter rules.                                                       |
-| v5.0.0  | Introduced AI-assisted command recommendations, real-time operation risk alerts, and automated audit reports.                          |
-
-![Figure 1: AI Assistant entry in JumpServer Client.](/images/jumpserver/v5_user_ai_client_entry_01.png)

@@ -24,7 +24,7 @@ choose a protocol and account, and confirm the connection.
 
 <VersionBadge version="5.0.0" />
 
-From JumpServer v5.0.0, the client uses a unified entry point for SSH, RDP,
+The client uses a unified entry point for SSH, RDP,
 Kubernetes, database, and RemoteApp assets. Select any of these assets from the same
 client asset list and choose the protocol, account, and connection method. The
 connection opens in the client window, and the same authorization and ACL rules
@@ -72,10 +72,6 @@ The Kubernetes workspace opens in the client, with a resource browser for the
 Kubernetes resources you are authorized to see and a terminal for the selected
 container.
 
-> **Screenshot TODO:** Capture a Kubernetes connection in JumpServer Client.
->
->  Save as `docs/public/images/jumpserver/v5_client_kubernetes_connection_01.png` and replace this block with the figure reference.
-
 ## Connect to a database asset
 
 <VersionBadge version="5.1.0" kind="changed" />
@@ -90,7 +86,7 @@ Database assets use a local database client. Configure the application path once
 Then connect to the database asset from the asset list. The connection opens in the
 configured local client.
 
-From JumpServer v5.1.0, DBX replaces DBeaver as the default remote database
+DBX replaces DBeaver as the default remote database
 application for these connections. To use a different database application,
 configure its executable path in
 [Connection Settings](/features/client/connection-settings).
@@ -123,10 +119,3 @@ the client does not provide an edit entry.
   components, license, and the account authorization.
 - If an asset or account is missing, ask an administrator to review your
   authorization.
-
-## Version history
-
-| Version | Change                                                                                                                                  |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| v5.1.0  | DBX replaces DBeaver as the default remote database application.                                                                        |
-| v5.0.0  | Added a unified connection entry for SSH, RDP, Kubernetes, database, and RemoteApp assets, with Kubernetes and SFTP Server connections. |

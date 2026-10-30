@@ -60,14 +60,14 @@ Click **Submit**, or **Save and continue adding** to create another zone.
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name    | Required. The zone name.                                                                                                                                                         |
 | Gateway | Added after the zone is created, from the zone detail page.                                                                                                                      |
-| Assets  | Assets that should be reached through this zone. Can be maintained later. From v5.1.0, assets are also assigned automatically when their addresses match the zone's CIDR blocks. |
+| Assets  | Assets that should be reached through this zone. Can be maintained later. Assets are also assigned automatically when their addresses match the zone's CIDR blocks. |
 | Comment | Optional.                                                                                                                                                                        |
 
 ## Assign assets by CIDR
 
 <VersionBadge version="5.1.0" kind="new" />
 
-Available since JumpServer v5.1.0. A zone can define one or more CIDR blocks in
+A zone can define one or more CIDR blocks in
 addition to a manual asset list. When an asset's address falls inside a block,
 JumpServer assigns the asset to the zone automatically, so assets that are
 imported or synchronized in bulk do not need to be selected by hand.

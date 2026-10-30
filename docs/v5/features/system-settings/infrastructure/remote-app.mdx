@@ -95,27 +95,6 @@ package, and click **Upload** to add it.
 
 ![Figure 2: Create a RemoteApp machine](/images/jumpserver/V4_RemoteApp2.png)
 
-## Tinker RDP desktops
-
-<VersionBadge version="5.1.0" kind="changed" />
-
-Tinker now provides standalone RDP desktops through the Windows authentication
-plugin, replacing the previous RemoteApp-based approach. Users open a full
-desktop instead of a published application.
-
-> **Screenshot TODO:** Capture a standalone RDP desktop provided by Tinker.
->
->  Save as `docs/public/images/jumpserver/v5_settings_tinker_rdp_01.png` and replace this block with the figure reference.
-
-### Tinker applet host deployment
-
-<VersionBadge version="5.1.1" kind="changed" />
-
-During Tinker applet host deployment, JumpServer checks the Group Policy of the
-host, disables listener Network Level Authentication (NLA) before installation,
-and verifies the configuration afterwards. If Group Policy requires NLA,
-deployment stops and shows guidance.
-
 ## VirtualApp
 
 VirtualApp uses Linux systems as application providers, which is useful for
