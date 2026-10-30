@@ -20,7 +20,9 @@ const gitDirectory = path.join(projectRoot, ".git");
 const hooksDirectory = path.join(projectRoot, ".githooks");
 
 if (!fs.existsSync(gitDirectory) || !fs.existsSync(hooksDirectory)) {
-  console.log("Git hooks not installed: not a Git checkout or .githooks is missing.");
+  console.log(
+    "Git hooks not installed: not a Git checkout or .githooks is missing.",
+  );
   process.exit(0);
 }
 
