@@ -62,34 +62,40 @@ ssh -i ~/.ssh/id_ed25519 admin@jumpserver.example.com -p 2222
 ## Interactive asset menu
 
 After login, KoKo displays a welcome message and a numbered shortcut menu. The
-exact wording follows the interface language selected for your user.
+exact wording follows the interface language selected for your user, and the
+prompt is `Opt>`.
+
+![SSH Terminal shortcut menu](/images/jumpserver/ssh_terminal_menu.png)
 
 | Input | Action |
 | --- | --- |
-| Part of an IP, hostname, or comment | Search assets; connect directly when the result is unique |
-| `/192.168` | Search by keyword |
+| `/192.168` | Search assets by IP, hostname, or comment |
 | `p` | Display all assets you can access |
-| `g` | Display authorized nodes |
-| `h` | Display authorized hosts |
-| `d` | Display authorized databases |
-| `k` | Display authorized Kubernetes assets |
-| `r` | Refresh assets and nodes |
-| `s` | Switch language |
-| `?` | Print help |
-| `q` | Exit |
+| `g` | Display the authorization tree |
+| `c` | Display the asset type tree |
+| `f` | Display the favorites tree |
+| `s` | Change the interface language |
+| `t` | Switch to TUI mode |
+| `?` | View help |
+| `q` | End the SSH session |
 
-When you display an asset list, KoKo shows a table with **ID**, **Hostname**,
-**Address**, and **Comment** columns. Enter the ID of the asset to select it:
+When you display an asset list, KoKo shows a table with **No.**, **Name**,
+**Address**, **Platform**, **Organization**, and **Remarks** columns. Enter the
+number of the asset to select it:
+
+![SSH Terminal asset list](/images/jumpserver/ssh_terminal_assets.png)
 
 ```text
-ID  Hostname        Address         Comment
-1   172.19.0.10     172.19.0.10     Linux host
-2   jms_postgresql  jms_postgresql  Database
+No.  Name            Address         Platform    Organization  Remarks
+1    172.19.0.10     172.19.0.10     Linux       DEFAULT
+2    jms_postgresql  jms_postgresql  PostgreSQL  DEFAULT
 ```
 
 If an asset has multiple authorized accounts, KoKo shows an account table with
-**ID**, **Name**, and **Username**. Enter the account ID to continue. Use `b` or
-`back` to return to the asset list.
+**No.**, **Name**, and **Username** columns. Enter the account number to
+continue. Use `b` or `back` to return to the asset list.
+
+![SSH Terminal account selection](/images/jumpserver/ssh_terminal_accounts.png)
 
 The session opens as a terminal connection. When you exit the remote shell, the
 proxied session ends. If you return to the JumpServer menu instead, select another
