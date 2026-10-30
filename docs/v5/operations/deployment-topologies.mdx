@@ -1,0 +1,83 @@
+---
+title: "Deployment Topologies"
+description: "Choose between a single-node, two-node high-availability, and fully distributed JumpServer deployment topology."
+---
+
+# Deployment Topologies
+
+JumpServer can run as a single all-in-one server, as a pair of nodes behind a load
+balancer, or as a distributed deployment in which the database, cache, storage, and
+search services run on dedicated hosts. This page compares the topologies and
+lists the dependencies and prerequisites of each one.
+
+## Topology comparison
+
+| Topology | Good for | Key dependencies | Main failure domain |
+| --- | --- | --- | --- |
+| Single node | Evaluation, small teams, lab environments | One Linux host with Docker | The single host |
+| Two-node HA | Production with a modest footprint | Load balancer, shared storage, external database and cache | Load balancer or shared storage |
+| Fully distributed | Large or regulated environments | NFS or object storage, PostgreSQL, Redis, HAProxy, MinIO, Elasticsearch | Each dedicated service |
+
+{/* //TODO: Add screenshot of a topology diagram showing the load balancer, JumpServer nodes, database, cache, and storage layers for this page. */}
+
+## Single-node deployment
+
+The default installation runs every service on one host with Docker Compose. Core,
+the web frontend, and the protocol components run as containers, and a built-in
+PostgreSQL and Redis are started next to them. Recordings, logs, and database
+backups are written under `VOLUME_DIR`, `/data/jumpserver` by default.
+
+This is the fastest way to evaluate JumpServer and is sufficient for small
+production environments. The host is a single point of failure, so keep regular
+[database and static file backups](/operations/backup-restore) and monitor disk
+space under `VOLUME_DIR`.
+
+## Two-node high availability
+
+Two JumpServer nodes run the same services behind a load balancer. The nodes share
+the Core data directory through NFS or use an object storage for recordings, and
+they use an external PostgreSQL and Redis so that data is not tied to either node.
+
+Key requirements:
+
+- Install the first node, then reuse its `SECRET_KEY`, `BOOTSTRAP_TOKEN`, and
+  `CHAT_AI_DELEGATION_SECRET` on the second node. Nodes that do not share these
+  values cannot read the same data or register the same components.
+- Point component registration at the cluster address instead of a single node.
+- If a built-in database is used instead of an external service, bind the built-in
+  database to each node's fixed HA address with `POSTGRESQL_EXPOSE_HOST` or
+  `MYSQL_EXPOSE_HOST` and the matching `*_EXPOSE_PORT` settings.
+
+## Distributed deployment
+
+In a fully distributed deployment, the supporting services run on dedicated hosts:
+NFS, PostgreSQL, Redis, HAProxy, MinIO, and Elasticsearch. Deploy them before the
+JumpServer nodes, in this order:
+
+1. NFS
+2. PostgreSQL
+3. Redis
+4. JumpServer node 01
+5. JumpServer node 02
+6. HAProxy
+7. MinIO (object storage)
+8. Elasticsearch (command storage)
+
+If the environment already provides an object storage service such as S3, Ceph,
+Swift, or OSS, MinIO is not required. In production, prefer Ceph or a highly
+available NFS instead of a single NFS server. A third-party load balancer can
+replace HAProxy, as long as it supports session persistence and WebSocket
+connections.
+
+## Version requirements
+
+The supporting services must meet these minimum versions:
+
+| Service | Requirement |
+| --- | --- |
+| PostgreSQL | 16 or later |
+| MariaDB | 10.6 or later |
+| Redis | 7.0 or later; Sentinel is supported, cluster mode is not |
+
+Compression, TLS, and high-availability options for the database and cache are
+documented in [Configuration](/operations/configuration).

@@ -1,0 +1,76 @@
+---
+title: "Tools"
+description: Run Ping, Telnet, Nmap, and Traceroute diagnostics from JumpServer to check network reachability.
+---
+
+**Tools** runs network diagnostics from the JumpServer server to a destination
+address. Use it to check whether JumpServer can reach an asset, a host, or a
+service before you troubleshoot a failed connection.
+
+![Figure 1: The Tools page with the Ping tab](/images/jumpserver/v5_admin_wb_tools_01.png)
+
+## Prerequisites
+
+* The **Tools in the Workbench** feature is enabled by an administrator. Without
+  it, the **Tools** entry does not appear in the Workbench navigation.
+* Your role grants access to the system tools.
+
+Administrators can also use the Tools page under
+[System Settings](/features/system-settings/appearance-tools/tools), which adds a basic
+server-information tab.
+
+## Run a test
+
+<Steps>
+
+<div>
+Select a diagnostic tab, for example **Ping**.
+</div>
+
+<div>
+Enter the destination address or host name. Some tabs require an additional port
+or port list.
+</div>
+
+<div>
+Click **Test**. The command output streams into the **Output** terminal.
+</div>
+
+<div>
+Click **Stop** to interrupt a test that is still running. Closing or refreshing
+the page also ends the test from the browser side.
+</div>
+
+</Steps>
+
+The page shows the current **Server time** above the form. This is the time on
+the JumpServer server that runs the diagnostic, not the local time of your
+browser.
+
+## Tab reference
+
+| Tab | Fields | Use |
+| --- | --- | --- |
+| Ping | Destination address | Check basic ICMP reachability and latency to a host |
+| Telnet | Destination address, destination port | Check whether a specific TCP port accepts connections |
+| Nmap | Destination address, destination ports | Scan one or more ports on a host |
+| Traceroute | Destination address | Show the network path and hops to a host |
+
+Depending on the release, a **Tcpdump** tab may also be available for packet
+capture. The tabs shown are controlled by the server configuration, so a tab that
+appears in one deployment may not appear in another.
+
+## Notes
+
+<Alert type="note">
+Tests run from the JumpServer server or its containers, not from your browser. A
+successful test proves that JumpServer can reach the target; it does not prove
+that your workstation can reach it, or that the target's login configuration is
+correct.
+</Alert>
+
+<Alert type="tip">
+Use **Ping** first to confirm the host is reachable, then **Telnet** on the
+service port. If both succeed but a connection still fails, check the asset
+account, authorization, and access policies rather than the network.
+</Alert>

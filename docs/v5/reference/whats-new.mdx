@@ -37,35 +37,35 @@ conveniences.
 
 | Capability                                                                   | Where to read more                                                         |
 | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| KoKo TUI with asset tree, search, mouse controls, and multiple sessions      | [SSH Terminal](/workbench/ssh-terminal)                           |
-| Windows PowerShell over WinRM, with auditing, ACL enforcement, and recording | [Connect assets](/workbench/web-terminal/connect-assets)          |
-| Dameng Database Web CLI and Dameng connections through Magnus                | [Supported platforms](/system-settings/general/platforms)                 |
-| Standalone RDP desktops through Tinker and the Windows authentication plugin | [Remote app](/system-settings/infrastructure/remote-app)                         |
-| DBX as the default remote database application                               | [Connection settings](/client/connection-settings)                |
-| AI-assisted command filter drafting                                          | [Command filter](/console/policies/acls/command-filter)                    |
-| Approval exemption period for asset login ACLs                               | [Asset connect ACL](/console/policies/acls/asset-connect)                  |
-| OAuth2 user group synchronization and certificate verification modes         | [Authentication](/system-settings/security/authentication)                 |
-| SAML2 certificate verification modes                                         | [Authentication](/system-settings/security/authentication)                 |
-| CIDR-based asset assignment for zones                                        | [Zones](/console/assets/zones)                                           |
-| Persistent tab grouping in the Web Terminal                                  | [Web Terminal settings](/workbench/web-terminal/settings)         |
-| Personal credential reminders and recent credential usage                    | [Personal credentials](/workbench/my-assets/personal-credentials) |
-| Batch download of session recordings                                         | [Asset sessions](/audits/sessions/asset-sessions)                 |
-| Expiration reminders for authorizations                                      | [Authorizations](/console/policies/authorizations)                         |
-| Filtering and exporting ticket audits by creation time                       | [Ticket audits](/audits/tickets)                                  |
+| KoKo TUI with asset tree, search, mouse controls, and multiple sessions      | [SSH Terminal](/features/workbench/ssh-terminal)                           |
+| Windows PowerShell over WinRM, with auditing, ACL enforcement, and recording | [Connect assets](/features/workbench/web-terminal/connect-assets)          |
+| Dameng Database Web CLI and Dameng connections through Magnus                | [Supported platforms](/features/system-settings/general/platforms)                 |
+| Standalone RDP desktops through Tinker and the Windows authentication plugin | [Remote app](/features/system-settings/infrastructure/remote-app)                         |
+| DBX as the default remote database application                               | [Connection settings](/features/client/connection-settings)                |
+| AI-assisted command filter drafting                                          | [Command filter](/features/console/policies/acls/command-filter)                    |
+| Approval exemption period for asset login ACLs                               | [Asset connect ACL](/features/console/policies/acls/asset-connect)                  |
+| OAuth2 user group synchronization and certificate verification modes         | [Authentication](/features/system-settings/security/authentication)                 |
+| SAML2 certificate verification modes                                         | [Authentication](/features/system-settings/security/authentication)                 |
+| CIDR-based asset assignment for zones                                        | [Zones](/features/console/assets/zones)                                           |
+| Persistent tab grouping in the Web Terminal                                  | [Web Terminal settings](/features/workbench/web-terminal/settings)         |
+| Personal credential reminders and recent credential usage                    | [Personal credentials](/features/workbench/my-assets/personal-credentials) |
+| Batch download of session recordings                                         | [Asset sessions](/features/audits/sessions/asset-sessions)                 |
+| Expiration reminders for authorizations                                      | [Authorizations](/features/console/policies/authorizations)                         |
+| Filtering and exporting ticket audits by creation time                       | [Ticket audits](/features/audits/tickets)                                  |
 | JDMC primary and standby management, system upgrade, and patch management    | [Device manager](/operations/device-manager)                               |
 
 ### Improvements
 
 | Change                                                                         | Where to read more                                                |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| OpenBao enables HTTPS by default                                               | [Security hardening](/operations/security/security-hardening)              |
-| MFA follows the system configuration and is enforced system-wide when required | [Authentication](/system-settings/security/authentication)        |
-| Account templates label inherited fields                                       | [Account templates](/console/accounts/templates)          |
-| Access control policies support asset-based connection method selection        | [Connection method ACL](/console/policies/acls/connect-method)    |
-| LDAP user group mapping through `distinguishedName`                            | [Authentication](/system-settings/security/authentication)        |
-| Paginated unread in-app notifications                                          | [Notifications](/general/workspace/notifications)                  |
-| Consolidated Celery logs                                                       | [System tasks](/system-settings/infrastructure/system-tasks)            |
-| Chen SQL execution plan summary view                                           | [Connect assets](/workbench/web-terminal/connect-assets) |
+| OpenBao enables HTTPS by default                                               | [Security hardening](/operations/security-hardening)              |
+| MFA follows the system configuration and is enforced system-wide when required | [Authentication](/features/system-settings/security/authentication)        |
+| Account templates label inherited fields                                       | [Account templates](/features/console/accounts/templates)          |
+| Access control policies support asset-based connection method selection        | [Connection method ACL](/features/console/policies/acls/connect-method)    |
+| LDAP user group mapping through `distinguishedName`                            | [Authentication](/features/system-settings/security/authentication)        |
+| Paginated unread in-app notifications                                          | [Notifications](/features/general/workspace/notifications)                  |
+| Consolidated Celery logs                                                       | [System tasks](/features/system-settings/infrastructure/system-tasks)            |
+| Chen SQL execution plan summary view                                           | [Connect assets](/features/workbench/web-terminal/connect-assets) |
 
 ## v5.0.0
 
@@ -74,9 +74,9 @@ client, AI assistance, and the redesigned KoKo terminal.
 
 | Capability                                                                                                                                                                              | Where to read more                                                                                      |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Refreshed JumpServer Client with a unified entry for SSH, RDP, Kubernetes, database, and RemoteApp assets, split views, a file workspace, a script library, and SFTP Server connections | [Client](/client/), [Workspace, files, and scripts](/client/workspace)                |
-| AI-assisted command recommendations, real-time operation risk alerts, and automated audit reports                                                                                       | [AI Assistant](/general/support/ai-assistant), [Risk detection](/pam/security/risk-detection) |
-| Redesigned KoKo TUI for asset search, account and protocol selection, and session switching                                                                                             | [SSH Terminal](/workbench/ssh-terminal)                                                        |
+| Refreshed JumpServer Client with a unified entry for SSH, RDP, Kubernetes, database, and RemoteApp assets, split views, a file workspace, a script library, and SFTP Server connections | [Client](/features/client/), [Workspace, files, and scripts](/features/client/workspace)                |
+| AI-assisted command recommendations, real-time operation risk alerts, and automated audit reports                                                                                       | [AI Assistant](/features/general/support/ai-assistant), [Risk detection](/features/pam/security/risk-detection) |
+| Redesigned KoKo TUI for asset search, account and protocol selection, and session switching                                                                                             | [SSH Terminal](/features/workbench/ssh-terminal)                                                        |
 
 ## v5.1.1
 
@@ -85,12 +85,12 @@ deployments and fixes client, authentication, and deployment issues.
 
 | Change                                                                                        | Where to read more                                         |
 | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| Stronger persistent write protection for databases and Redis in high availability deployments | [Deployment topologies](/operations/deployment/deployment-topologies) |
-| Access Token format validation with fallback compatibility                                    | [Access keys](/general/account/access-keys)               |
-| More reliable Tinker RDP deployment when Group Policy requires NLA                            | [Remote app](/system-settings/infrastructure/remote-app)         |
+| Stronger persistent write protection for databases and Redis in high availability deployments | [Deployment topologies](/operations/deployment-topologies) |
+| Access Token format validation with fallback compatibility                                    | [Access keys](/features/general/account/access-keys)               |
+| More reliable Tinker RDP deployment when Group Policy requires NLA                            | [Remote app](/features/system-settings/infrastructure/remote-app)         |
 
 ## Related topics
 
 - [Changelog](/reference/changelog)
-- [Upgrade](/getting-started/upgrade)
+- [Upgrade](/upgrade)
 - [Documentation home](/)

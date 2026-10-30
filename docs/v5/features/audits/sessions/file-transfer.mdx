@@ -1,0 +1,70 @@
+---
+title: "File Transfer"
+description: "Review file upload, download, delete, and rename records, and download retained files for investigation."
+---
+
+# File Transfer
+
+**File Transfer** lists the file operations performed through JumpServer sessions, including uploads, downloads, deletes, and renames. Use it to confirm which files moved between a user and an asset, and to retrieve a retained file when file storage is enabled.
+
+Open the page from **Audits > Sessions > File Transfer**.
+
+## Overview
+
+Each row records the user, asset, account, operation, file name, start time, and result. The row action **Download** retrieves the stored file when the file was retained. The toolbar provides search, a date range, column settings, export, and refresh.
+
+## Prerequisites
+
+- Sign in with an account that has the `audits.view_ftplog` permission, such as a system administrator or auditor.
+- At least one file operation must have been performed through JumpServer.
+- File storage and file retention must be enabled before files can be stored and downloaded from this page.
+
+## Review and retrieve transfers
+
+<Steps>
+<div>
+Filter the list by date range, or search for a user, asset, or file name.
+</div>
+<div>
+Check the **Operate** and **Success** columns to confirm the direction and result of the transfer.
+</div>
+<div>
+Click **Download** in the row actions to retrieve a retained file.
+</div>
+</Steps>
+
+![Figure 1: File Transfer list with user, asset, account, operation, file name, and result columns.](/images/jumpserver/v5_admin_ftp_01.png)
+
+## Customize columns and export
+
+Open **List preferences**, select the extra columns you need, and click **Confirm**. Extra columns include ID, remote address, organization ID, download availability, and session. **Restore defaults** resets the list.
+
+![Figure 2: List preferences for file transfer records.](/images/jumpserver/v5_admin_ftp_02.png)
+
+Click **Export**, choose **CSV** or **Excel**, then select **Export all**, **Export selected**, or **Export search results**, and click **Confirm**.
+
+## Field reference
+
+| Field | Description |
+| --- | --- |
+| User | User who performed the file operation. |
+| Asset | Asset involved in the transfer. |
+| Account | Account used for the connection. |
+| Operate | Operation type, such as upload, download, delete, or rename. |
+| Filename | Name of the transferred file. |
+| Start date | When the operation started. |
+| Success | Whether the operation completed successfully. |
+| Download | Retrieves the retained file when available. |
+| Remote address | Optional. Source address of the client. |
+| Session | Optional. Related session record. |
+
+## Notes
+
+<Alert type="note">
+The **Download** action is available only when file storage is enabled and the file is still retained. If file storage is disabled or the retention limit was reached, the record remains visible but the file cannot be retrieved. Configure retention in [Storage](/features/system-settings/infrastructure/storage).
+</Alert>
+
+## Related topics
+
+- [Asset Sessions](/features/audits/sessions/asset-sessions)
+- [Session Commands](/features/audits/sessions/session-commands)

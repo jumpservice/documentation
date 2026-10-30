@@ -9,7 +9,7 @@
 | -------- | -------------------------------------------------------------------------------------------------------------------- |
 | 站点框架 | Rspress 2（`@rspress/core` 2.0.23）+ React 19 + Tailwind CSS 3，内容为 MDX                                           |
 | 站点路径 | `base: /docs/`，`cleanUrls: true`（页面地址不带 `.html`），构建时校验死链、锚点、死图                                |
-| 内容版本 | V5 默认版本 `docs/v5`（150 篇，`/docs/...`）；V4 历史版本 `docs/v4`（83 篇，`/docs/v4/...`，由多版本路由自动加前缀） |
+| 内容版本 | V5 默认版本 `docs/v5`（147 篇，`/docs/...`）；V4 历史版本 `docs/v4`（83 篇，`/docs/v4/...`，由多版本路由自动加前缀） |
 | 内容语言 | 正文全英文、使用英文界面术语；本文件与 WRITING-GUIDE 用中文                                                          |
 | 图片资源 | `docs/public/images/jumpserver/`；导航示意图在 `docs/public/images/docs/navs/`                                       |
 | 构建产物 | `build/`（生成物，不手改；含 `llms.txt`、`llms-full.txt`、`sitemap.xml`）                                            |
@@ -31,7 +31,7 @@
 ### 1.2 目录
 
 ```text
-docs/v5/            默认版本正文（getting-started/ general/ workbench/ client/ console/ pam/ audits/ system-settings/ operations/ roles/ developer-guide/ reference/）
+docs/v5/            默认版本正文（features/ roles/ operations/ developer-guide/ reference/，以及根级 getting started 页面）
 docs/v4/            历史版本正文（legacy 结构，除任务明确要求外不改）
 docs/public/        图片资源（images/jumpserver/）、SVG、favicon
 src/components/     MDX 组件（docs/ 为实现，global/ 为全局注册的包装）
@@ -80,7 +80,7 @@ theme/              主题组件；rspress.config.ts 为站点配置（base、�
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | frontmatter | 新页面必须有 `title` 与 `description`；章节概览页额外加 `overview: true`；不加自定义字段                                                                                                                   | [3.1](WRITING-GUIDE.md#3-页面结构规范)          |
 | 标题        | 全页有且只有一个 H1（`#`），位于 frontmatter 与 import 块之后、正文第一行（概览页除外）；sentence case，不手动编号                                                                                         | [3.4](WRITING-GUIDE.md#3-页面结构规范)          |
-| 站内链接    | 绝对路径、**不带 `/docs` 前缀**，写**版本内路径**：V5 如 `/console/assets/`，V4 如 `/notifications/email`（多版本路由自动加 `/v4`）；仅显式跨版本引用才写 `/v4/...`；目标必须存在                  | [9](WRITING-GUIDE.md#9-链接与引用规范)          |
+| 站内链接    | 绝对路径、**不带 `/docs` 前缀**，写**版本内路径**：V5 如 `/features/console/assets/`，V4 如 `/notifications/email`（多版本路由自动加 `/v4`）；仅显式跨版本引用才写 `/v4/...`；目标必须存在                  | [9](WRITING-GUIDE.md#9-链接与引用规范)          |
 | 图片        | `![Figure N: 描述](/images/jumpserver/<name>.png)`，文件放 `docs/public/images/jumpserver/`；**禁止** `/docs/images/...`                                                                                   | [7](WRITING-GUIDE.md#7-截图规范)                |
 | 截图 TODO   | `{/* //TODO: Add a screenshot of <what> for this page. */}`（MDX 注释，不渲染）                                                                                                                            | [7](WRITING-GUIDE.md#7-截图规范)                |
 | `Steps`     | 每个**直接子元素**是一步，必须用 `<div>` 包裹；嵌套用 `<Steps stepLevel="2">`；步骤内可放 `<Nav>`、代码块、`<Alert>`                                                                                       | [5](WRITING-GUIDE.md#5-步骤与操作说明)          |
@@ -178,7 +178,7 @@ pnpm preview --port 4173                # 4. 预览抽检改动涉及的页面
 
 | 症状                           | 原因                                                                     | 处理                                                                      |
 | ------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| 构建报死链                     | 链接目标不存在；在 V4 页面误写 `/v4/...`（实际会变成 `/docs/v4/v4/...`） | 写版本内路径，如 V5 `/console/assets/`、V4 `/notifications/email` |
+| 构建报死链                     | 链接目标不存在；在 V4 页面误写 `/v4/...`（实际会变成 `/docs/v4/v4/...`） | 写版本内路径，如 V5 `/features/console/assets/`、V4 `/notifications/email` |
 | 图片 404                       | 写了 `/docs/images/...`                                                  | 去掉 `/docs`，确认文件在 `docs/public/images/jumpserver/`                 |
 | 侧边栏看不到新页面             | 只建了 MDX，没在 `_meta.json` 登记                                       | 补 `{ "type": "file", "name": "<file>", "label": "..." }`                 |
 | `Steps` 编号错乱或空步骤       | 子元素没包 `<div>`，或写了裸文本                                         | 每步一个 `<div>`                                                          |

@@ -9,8 +9,8 @@ The site serves two documentation versions:
 
 A version selector is rendered in the top navigation. The V4 tree is based on the
 last V4 documentation snapshot (`v4.10.19`), with its release-specific install
-and upgrade commands updated to `v4.10.20`. V5 has been reorganized into a new
-audience-first information architecture; V4 keeps the legacy structure.
+and upgrade commands updated to `v4.10.20`. V5 keeps the Feature Modules /
+Role Guides / Operations information architecture; V4 keeps the legacy structure.
 
 ## Visual design
 
@@ -89,35 +89,37 @@ scripts/
 
 ## V5 information architecture
 
-V5 is organized by **audience first, then by product area**, with role-specific
-paths as a second lens:
+V5 is organized by **Feature Modules**, **Role Guides**, and **Operations**, with
+role-specific paths as a second lens:
 
 ```text
 docs/v5/
 ├── index.mdx                 # Introduction
-├── getting-started/          # Quickstart, installation, upgrade
-├── general/                  # User Guide: personal workspace
-├── workbench/                # User Guide: assets, terminals, jobs, tickets
-├── client/                   # User Guide: JumpServer Client
-├── console/                  # Administration: users, assets, accounts, policies
-├── pam/                      # Administration: account automation, security, integration
-├── audits/                   # Administration: sessions, activities, jobs, reports
-├── system-settings/          # Administration: platform configuration
-├── roles/                    # Role guides
+├── quickstart.mdx            # Get Started
+├── installation.mdx
+├── upgrade.mdx
+├── features/                 # Feature Modules
+│   ├── general/              # personal workspace
+│   ├── console/              # users, assets, accounts, policies
+│   ├── pam/                  # account automation, security, integration
+│   ├── audits/               # sessions, activities, jobs, reports
+│   ├── workbench/            # assets, terminals, job center, tickets
+│   ├── client/               # JumpServer Client
+│   └── system-settings/      # platform configuration
+├── roles/                    # Role Guides
 ├── operations/               # Deployment, maintenance, security
 ├── developer-guide/          # API and integrations
 └── reference/                # What's new, changelog, editions, license, glossary
 ```
 
-- The **User Guide** sidebar section contains General, Workbench, and Client.
-- The **Administration** sidebar section contains Console, PAM, Audits, and
-  System Settings, mirroring the JumpServer V5 English console.
+- The **Feature Modules** sidebar section mirrors the JumpServer V5 English
+  console: General, Console, PAM, Audits, Workbench, Client, and System Settings.
 - The **Role Guides** section explains system roles vs organization roles and
   maps Administrator, Operator, and Auditor to the corresponding built-in roles.
   Role pages link to the canonical feature pages instead of duplicating procedures.
 - Chapter index pages use Rspress `overview: true` to render a Halo-style card
-  index with search. The top-level User Guide and Administration pages use a
-  custom module card grid. Overview search text is overridden in `i18n.json`.
+  index with search. The Feature Modules section uses a custom module card grid.
+  Overview search text is overridden in `i18n.json`.
 - Module and nested chapter overviews are not repeated as sidebar children:
   the group title (for example **General**) links directly to the overview page.
 - V5 feature, operations, developer, and reference pages are populated with

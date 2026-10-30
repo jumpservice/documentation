@@ -1,0 +1,130 @@
+---
+title: "Asset Connection"
+description: "Connect to Linux, Windows, Kubernetes, database, and web assets from JumpServer Client."
+---
+
+# Asset Connection
+
+<Alert type="xpack">
+  **Desktop database, RDP, VNC, RemoteApp, and VirtualApp connections** require
+  JumpServer Enterprise Edition. Desktop SSH and SFTP connections are included
+  in Community Edition.
+</Alert>
+
+JumpServer Client lists the assets authorized to your account. Open an asset,
+choose a protocol and account, and confirm the connection.
+
+## Prerequisites
+
+- JumpServer Client is installed and you are signed in.
+- You have an authorization for the asset and account.
+- For database or application connections, the local client path is configured.
+
+## Unified connection entry
+
+<VersionBadge version="5.0.0" />
+
+From JumpServer v5.0.0, the client uses a unified entry point for SSH, RDP,
+Kubernetes, database, and RemoteApp assets. Select any of these assets from the same
+client asset list and choose the protocol, account, and connection method. The
+connection opens in the client window, and the same authorization and ACL rules
+apply as for the Web Terminal.
+
+Kubernetes assets open the Kubernetes workspace. RemoteApp assets open a published
+remote application, and the RemoteApp connection requires JumpServer Enterprise
+Edition. SFTP Server connections use the same entry but open a file session; see
+[Workspace, Files, and Scripts](/features/client/workspace).
+
+{/* //TODO: Add a screenshot of the unified asset entry in JumpServer Client for this page. */}
+
+## Connect to a Linux asset
+
+1. Find the Linux asset in the client asset list.
+2. Select **Connect** next to the asset name.
+3. Choose a protocol: **SSH**, **SFTP**, or **VNC**.
+4. Select an authorized account.
+5. Select **Confirm**.
+
+After connecting, run commands and upload or download files in the session.
+
+![Linux asset connection dialog](/images/jumpserver/clientV4_03.png)
+
+## Connect to a Windows asset
+
+1. Select **Connect** next to the Windows asset.
+2. Choose **RDP**, **VNC**, **SSH**, or **SFTP**.
+3. Select the account and confirm the connection.
+
+The available protocols depend on the asset platform and the enabled components.
+
+## Connect to a Kubernetes asset
+
+<VersionBadge version="5.0.0" />
+
+Kubernetes cloud assets use the `k8s` protocol. Connect to them from the same client
+asset list:
+
+1. Select **Connect** next to the Kubernetes asset.
+2. Select the authorized account.
+3. Select **Confirm**.
+
+The Kubernetes workspace opens in the client, with a resource browser for the
+Kubernetes resources you are authorized to see and a terminal for the selected
+container.
+
+{/* //TODO: Add a screenshot of a Kubernetes connection in JumpServer Client for this page. */}
+
+## Connect to a database asset
+
+<VersionBadge version="5.1.0" kind="changed" />
+
+Database assets use a local database client. Configure the application path once:
+
+1. Open the client settings.
+2. Select **Database** and choose the database type, for example **MySQL**.
+3. Download and install a supported database application if needed.
+4. Select **Select path** and choose the installed application.
+
+Then connect to the database asset from the asset list. The connection opens in the
+configured local client.
+
+From JumpServer v5.1.0, DBX replaces DBeaver as the default remote database
+application for these connections. To use a different database application,
+configure its executable path in
+[Connection Settings](/features/client/connection-settings).
+
+![Database client path configuration](/images/jumpserver/client_mysql.png)
+
+## Connect to a web asset
+
+Web assets use the platform type **Website** and the **HTTP** or **HTTPS**
+protocol.
+
+1. Select **Connect** on the web asset.
+2. Choose **Built-in** > **Built-in browser**.
+3. Confirm the connection.
+
+The site opens in a WebView window, and traffic is forwarded through the JumpServer
+Web proxy. The built-in browser is available only in JumpServer Client; the browser
+Web terminal uses a published WebLite application instead.
+
+![Web asset in the built-in browser](/images/jumpserver/client_web.png)
+
+The site address and account are configured by the administrator on the Web asset;
+the client does not provide an edit entry.
+
+{/* //TODO: Add a screenshot of the Windows asset connection dialog in JumpServer Client. */}
+
+## Notes
+
+- Connection methods and protocols depend on the asset platform, enabled
+  components, license, and the account authorization.
+- If an asset or account is missing, ask an administrator to review your
+  authorization.
+
+## Version history
+
+| Version | Change                                                                                                                                  |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| v5.1.0  | DBX replaces DBeaver as the default remote database application.                                                                        |
+| v5.0.0  | Added a unified connection entry for SSH, RDP, Kubernetes, database, and RemoteApp assets, with Kubernetes and SFTP Server connections. |

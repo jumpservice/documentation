@@ -1,0 +1,60 @@
+---
+title: "PAM Dashboard"
+description: "Monitor account inventory, automation task activity, secret-change results, and account risk from the PAM Dashboard."
+---
+
+# PAM Dashboard
+
+The PAM Dashboard gives you a single view of the account inventory that JumpServer manages, the automation tasks that maintain it, and the accounts that currently carry risk. Use it as the starting point for [Accounts](/features/pam/accounts) cleanup and follow-up work.
+
+## Overview
+
+Open the dashboard from the **PAM** menu, under **Dashboard**. The page is read-only and reflects the current organization.
+
+Users without the PAM view permission cannot open the dashboard and see a permission-denied page instead. Visibility of individual blocks also depends on the permissions of your role, so a dashboard may show fewer cards than the one described below.
+
+![Figure 1: PAM Dashboard with account metrics, task summary, and risk charts](/images/jumpserver/V4_pam_dashboard1.png)
+
+## Account data
+
+The top card summarizes the size and health of the account inventory.
+
+| Metric | Description |
+| --- | --- |
+| Total accounts | Number of accounts managed in PAM. The card also shows how many accounts were added this week and a seven-day trend line. |
+| Privileged | Accounts marked as privileged, meaning they hold elevated permissions on the asset. |
+| Secret can be changed | Accounts with secret change enabled that currently support the operation. |
+| Connectable | Accounts that JumpServer can use to establish a working connection to the asset. |
+| Active | Accounts that are currently in the active state. |
+
+Clicking one of the health metrics opens the Accounts page pre-filtered to the matching accounts, for example privileged accounts or accounts whose secret can be changed.
+
+## Task summary
+
+The donut chart counts the PAM automation tasks configured in the current organization and groups them into account change secret, account push, account discovery, account backup, and applications. Hover over a segment to see both the count and its share of all tasks.
+
+## Account secret change success/failure
+
+The **Account secret change success/failure** line chart compares successful and failed secret-change executions over the selected period: the green line is success and the orange line is failure. The chart appears only when a valid license is active and your role can view change-secret tasks.
+
+If failures stay high, review the task scope and target account state in [Change Secrets](/features/pam/security/change-secrets), then re-run a small batch before widening the scope.
+
+## Risky accounts
+
+The bar chart counts accounts by risk type. The types include no login for long time, new accounts found, group changed, sudo changed, authorized keys changed, account deleted, password expired, long time password, weak password, leaked password, and repeated password. When no account currently carries a risk count, the chart lists the first seven types so the axis stays stable; otherwise every category with data is shown.
+
+Use [Risk Detection](/features/pam/security/risk-detection) to review, resolve, or ignore these risks. Discovery tasks can also flag newly found accounts when the risk check option is enabled, which is described in [Discover Accounts](/features/pam/automation/discover-accounts).
+
+## Account type proportion
+
+The horizontal bar chart shows the share of managed accounts by platform type, such as Linux, Windows, or database platforms. An inventory that contains only one platform type shows a single row, which is expected.
+
+## Notes
+
+<Alert type="note">
+When no change-secret execution or risk data exists yet, the charts render only axes and legends. Run an automation task first, then refresh the dashboard.
+</Alert>
+
+<Alert type="tip">
+Account counts are organization-scoped. Switch the organization before comparing dashboards, because the same physical asset can be managed differently in each organization.
+</Alert>

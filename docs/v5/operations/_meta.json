@@ -1,21 +1,58 @@
 [
   {
-    "type": "dir",
-    "name": "deployment",
-    "label": "Deployment",
-    "collapsed": true
+    "type": "file",
+    "name": "index",
+    "label": "Operations Overview"
   },
   {
-    "type": "dir",
-    "name": "maintenance",
-    "label": "Maintenance",
-    "collapsed": true
+    "type": "file",
+    "name": "architecture",
+    "label": "Architecture"
   },
   {
-    "type": "dir",
-    "name": "security",
-    "label": "Security",
-    "collapsed": true
+    "type": "file",
+    "name": "deployment-topologies",
+    "label": "Deployment Topologies"
+  },
+  {
+    "type": "file",
+    "name": "configuration",
+    "label": "Configuration"
+  },
+  {
+    "type": "file",
+    "name": "network-ports",
+    "label": "Network Ports"
+  },
+  {
+    "type": "file",
+    "name": "backup-restore",
+    "label": "Backup & Restore"
+  },
+  {
+    "type": "file",
+    "name": "cli-tools",
+    "label": "Command-Line Tools"
+  },
+  {
+    "type": "file",
+    "name": "upgrade-maintenance",
+    "label": "Upgrade & Maintenance"
+  },
+  {
+    "type": "file",
+    "name": "enable-https",
+    "label": "Enable HTTPS"
+  },
+  {
+    "type": "file",
+    "name": "security-hardening",
+    "label": "Security Hardening"
+  },
+  {
+    "type": "file",
+    "name": "troubleshooting",
+    "label": "Troubleshooting"
   },
   {
     "type": "file",

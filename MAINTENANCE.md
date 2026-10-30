@@ -30,16 +30,12 @@ docs/
   v5/                 # V5 当前文档
     _nav.json         # V5 顶部导航
     _meta.json        # V5 侧边栏分组和顺序
-    getting-started/  # 快速开始、安装、升级
-    general/          # User Guide：个人工作区
-    workbench/        # User Guide：资产、终端、任务、工单
-    client/           # User Guide：JumpServer Client
-    console/          # Administration：用户、资产、账号、策略
-    pam/              # Administration：PAM
-    audits/           # Administration：审计
-    system-settings/  # Administration：系统设置
-    roles/            # 角色指南
-    operations/       # 运维指南
+    quickstart.mdx    # Get Started
+    installation.mdx
+    upgrade.mdx
+    features/         # Feature Modules：General、Console、PAM、Audits、Workbench、Client、System Settings
+    roles/            # Role Guides
+    operations/       # Operations
     developer-guide/  # API 与集成
     reference/        # 参考、术语表、版本对比
   public/
@@ -62,7 +58,7 @@ worker/index.js       # /docs 前缀重写和 clean URL 处理
 在对应目录创建 `.mdx` 文件，例如：
 
 ```text
-docs/v5/console/example.mdx
+docs/v5/features/console/example.mdx
 ```
 
 文件开头必须有 frontmatter：
@@ -90,7 +86,7 @@ description: "One-sentence description used by search and page metadata."
 
 只创建文件还不够，必须在同级 `_meta.json` 中登记，否则侧边栏可能不显示。
 
-例如在 `docs/v5/console/_meta.json` 中加入：
+例如在 `docs/v5/features/console/_meta.json` 中加入：
 
 ```json
 {
@@ -131,13 +127,13 @@ docs/v4/_nav.json
 使用站点内绝对路径，不要带 `/docs` 前缀：
 
 ```mdx
-[Assets](/console/assets/)
+[Assets](/features/console/assets/)
 ```
 
 不要写成：
 
 ```mdx
-[Assets](/docs/console/assets/)
+[Assets](/docs/features/console/assets/)
 ```
 
 V4 页面同样写版本内路径（如 `/notifications/email`），由多版本路由自动加 `/v4` 前缀；只有显式跨版本引用时才手写 `/v4/...`。
@@ -348,7 +344,7 @@ feat/rspress-v5-docs
 
 - [ ] frontmatter 有 `title` 和 `description`
 - [ ] 新页面已加入 `_meta.json`
-- [ ] 内部链接使用版本内路径（如 `/console/...`）而不是 `/docs/...`
+- [ ] 内部链接使用版本内路径（如 `/features/console/...`）而不是 `/docs/...`
 - [ ] 图片文件位于 `docs/public/images/jumpserver/`
 - [ ] 截图为英文界面，无水印、无敏感信息
 - [ ] `pnpm check:docs` 无新增 error（收尾时可用 `pnpm check:docs --strict`）

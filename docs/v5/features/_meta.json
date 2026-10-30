@@ -1,0 +1,49 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Feature Overview"
+  },
+  {
+    "type": "dir",
+    "name": "general",
+    "label": "General",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "console",
+    "label": "Console",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "pam",
+    "label": "PAM",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "audits",
+    "label": "Audits",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "workbench",
+    "label": "Workbench",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "client",
+    "label": "Client",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "system-settings",
+    "label": "System Settings",
+    "collapsed": true
+  }
+]

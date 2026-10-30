@@ -5,81 +5,50 @@
     "label": "Introduction"
   },
   {
-    "type": "dir",
-    "name": "getting-started",
-    "label": "Getting Started",
-    "collapsed": false
-  },
-  {
     "type": "section-header",
-    "label": "User Guide"
+    "label": "Get Started"
   },
   {
-    "type": "dir",
-    "name": "general",
-    "label": "General",
+    "type": "file",
+    "name": "quickstart",
+    "label": "Quickstart"
+  },
+  {
+    "type": "file",
+    "name": "installation",
+    "label": "Installation"
+  },
+  {
+    "type": "file",
+    "name": "upgrade",
+    "label": "Upgrade"
+  },
+  {
+    "type": "dir-section-header",
+    "name": "features",
+    "label": "Feature Modules",
     "collapsed": true
   },
   {
-    "type": "dir",
-    "name": "workbench",
-    "label": "Workbench",
-    "collapsed": true
-  },
-  {
-    "type": "dir",
-    "name": "client",
-    "label": "Client",
-    "collapsed": true
-  },
-  {
-    "type": "section-header",
-    "label": "Administration"
-  },
-  {
-    "type": "dir",
-    "name": "console",
-    "label": "Console",
-    "collapsed": true
-  },
-  {
-    "type": "dir",
-    "name": "pam",
-    "label": "PAM",
-    "collapsed": true
-  },
-  {
-    "type": "dir",
-    "name": "audits",
-    "label": "Audits",
-    "collapsed": true
-  },
-  {
-    "type": "dir",
-    "name": "system-settings",
-    "label": "System Settings",
-    "collapsed": true
-  },
-  {
-    "type": "dir",
-    "name": "operations",
-    "label": "Operations",
-    "collapsed": true
-  },
-  {
-    "type": "dir",
+    "type": "dir-section-header",
     "name": "roles",
     "label": "Role Guides",
     "collapsed": true
   },
   {
-    "type": "dir",
+    "type": "dir-section-header",
+    "name": "operations",
+    "label": "Operations",
+    "collapsed": true
+  },
+  {
+    "type": "dir-section-header",
     "name": "developer-guide",
     "label": "Developer Guide",
     "collapsed": true
   },
   {
-    "type": "dir",
+    "type": "dir-section-header",
     "name": "reference",
     "label": "Reference",
     "collapsed": true
