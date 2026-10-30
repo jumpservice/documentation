@@ -109,22 +109,5 @@ export default defineConfig({
       docRepoBaseUrl:
         "https://github.com/jumpservice/documentation/tree/dev/docs",
     },
-    socialLinks: [
-      {
-        icon: "github",
-        mode: "link",
-        content: "https://github.com/jumpserver/jumpserver",
-      },
-      {
-        icon: "discord",
-        mode: "link",
-        content: "https://discord.gg/W6vYXmAQG2",
-      },
-      {
-        icon: "x",
-        mode: "link",
-        content: "https://x.com/lxware_x",
-      },
-    ],
   },
 });
