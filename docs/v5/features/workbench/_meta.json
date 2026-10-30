@@ -15,6 +15,11 @@
   },
   {
     "type": "file",
+    "name": "ssh-terminal",
+    "label": "SSH Terminal"
+  },
+  {
+    "type": "file",
     "name": "file-transfer",
     "label": "File Transfer"
   },

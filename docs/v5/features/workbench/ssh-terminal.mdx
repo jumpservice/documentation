@@ -1,0 +1,142 @@
+---
+title: "SSH Terminal"
+description: "Connect to JumpServer from a local SSH terminal and open authorized assets without the Web UI."
+---
+
+# SSH Terminal
+
+The **SSH Terminal** lets you open JumpServer from a standard terminal client
+instead of a browser. After you sign in to JumpServer, KoKo presents your
+authorized assets and accounts in an interactive menu, then proxies the selected
+session through the same authorization, policy, and audit pipeline as the Web
+Terminal.
+
+This is different from **Application > SSH Client**. That method launches a local
+SSH client for one asset from the Web Terminal. SSH Terminal connects to
+JumpServer itself and lets you choose the asset and account from the terminal.
+
+## Prerequisites
+
+- Your JumpServer user is enabled and can sign in.
+- At least one asset and account are authorized for your user.
+- The SSH client port `2222` is reachable from your computer. See
+  [Network Ports](/operations/network-ports).
+- Your terminal has an SSH client. Linux, macOS, Windows 10/11, and most
+  terminal emulators include one.
+- If your administrator enabled MFA, login confirmation, or SSH-key-only login,
+  complete that step when prompted.
+
+## Connect from a terminal
+
+Run the command with your JumpServer account and the JumpServer host:
+
+```bash
+ssh <jumpserver-username>@<jumpserver-host> -p 2222
+```
+
+For example:
+
+```bash
+ssh admin@jumpserver.example.com -p 2222
+```
+
+On the first connection, verify the host key fingerprint and confirm it:
+
+```text
+The authenticity of host '[jumpserver.example.com]:2222' ... can't be established.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Then enter your **JumpServer password**, not the password of the asset account:
+
+```text
+admin@jumpserver.example.com's password:
+```
+
+If the administrator allows SSH keys for your user, you can use a key instead:
+
+```bash
+ssh -i ~/.ssh/id_ed25519 admin@jumpserver.example.com -p 2222
+```
+
+## Interactive asset menu
+
+After login, KoKo displays a welcome message and a numbered shortcut menu. The
+exact wording follows the interface language selected for your user.
+
+| Input | Action |
+| --- | --- |
+| Part of an IP, hostname, or comment | Search assets; connect directly when the result is unique |
+| `/192.168` | Search by keyword |
+| `p` | Display all assets you can access |
+| `g` | Display authorized nodes |
+| `h` | Display authorized hosts |
+| `d` | Display authorized databases |
+| `k` | Display authorized Kubernetes assets |
+| `r` | Refresh assets and nodes |
+| `s` | Switch language |
+| `?` | Print help |
+| `q` | Exit |
+
+When you display an asset list, KoKo shows a table with **ID**, **Hostname**,
+**Address**, and **Comment** columns. Enter the ID of the asset to select it:
+
+```text
+ID  Hostname        Address         Comment
+1   172.19.0.10     172.19.0.10     Linux host
+2   jms_postgresql  jms_postgresql  Database
+```
+
+If an asset has multiple authorized accounts, KoKo shows an account table with
+**ID**, **Name**, and **Username**. Enter the account ID to continue. Use `b` or
+`back` to return to the asset list.
+
+The session opens as a terminal connection. When you exit the remote shell, the
+proxied session ends. If you return to the JumpServer menu instead, select another
+asset or enter `q` to exit.
+
+## Advanced: direct asset login
+
+If you already know the asset and account, you can put them in the SSH username.
+KoKo supports these forms:
+
+```bash
+# Default to the SSH protocol
+ssh <jumpserver-user>@<asset-account>@<asset-address> -p 2222
+
+# Specify the protocol explicitly
+ssh <jumpserver-user>@<protocol>@<asset-account>@<asset-address> -p 2222
+```
+
+For example, to open an SSH account named `ubuntu` on `172.19.0.10`:
+
+```bash
+ssh admin@ubuntu@172.19.0.10 -p 2222
+```
+
+The `#` separator is also accepted:
+
+```bash
+ssh 'admin#ssh#ubuntu#172.19.0.10' -p 2222
+```
+
+Direct login still requires your JumpServer password and still applies
+authorization and ACL checks. If the asset or account is ambiguous, use the
+interactive menu instead.
+
+## Troubleshooting
+
+| Symptom | Check |
+| --- | --- |
+| `Connection refused` or timeout | Confirm `2222` is open and KoKo is running |
+| `Permission denied` | Verify the JumpServer username, password, MFA, and login restrictions |
+| Login succeeds but the asset list is empty | Confirm the asset is authorized for your user and organization |
+| Direct asset login reports no match | Check the asset address, account username, and protocol |
+| Host key warning after a server change | Verify the new fingerprint with your administrator before accepting it |
+| Session disconnects unexpectedly | Check the session idle timeout and network connection |
+
+## Related
+
+- [Access Assets](/features/workbench/access-assets) — browse authorized assets in the Workbench
+- [Web Terminal](/features/workbench/web-terminal/) — browser-based terminal and remote desktop
+- [Network Ports](/operations/network-ports) — firewall requirements for SSH client access
