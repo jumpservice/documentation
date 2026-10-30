@@ -8,8 +8,11 @@
   "scripts": {
     "dev": "rspress dev",
     "build": "rspress build",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check:todos": "node scripts/check-todos.mjs",
     "preview": "node scripts/preview.mjs",
     "preview:rspress": "rspress preview",
+    "prepare": "node scripts/install-git-hooks.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

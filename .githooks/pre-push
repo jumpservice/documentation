@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+# Reject the push while documentation TODO markers remain.
+# Installed automatically by `pnpm install` via scripts/install-git-hooks.mjs.
+node scripts/check-todos.mjs
