@@ -115,3 +115,14 @@ The **Detection engines** tab lists the engines available in the current environ
 | Check whether the account password is a common password | Whether the password appears in lists of commonly leaked passwords.   |
 
 Enabled engines are selected per task, so you can run a lightweight strength-only check daily and a full check on a weekly schedule. Review the result list periodically; a clean run does not prove that every asset account is healthy, only that the managed credentials passed the selected checks.
+
+## AI-assisted operation risk alerts
+
+Available since JumpServer v5.0.0, the AI Assistant analyzes operations in real time and alerts the operator to risky commands or actions while the session is still active. These alerts are separate from the credential checks on this page: the detection engines scan stored account secrets on a schedule, while AI-assisted alerts evaluate live session activity as it happens.
+
+AI-assisted alerts use the same [AI Assistant](/features/general/support/ai-assistant) configuration. An administrator must enable the assistant and configure the model connection; otherwise no alerts are generated.
+
+<Alert type="note">
+**Screenshot TODO:** Capture an AI-assisted risk alert during an active session.
+Save as `docs/public/images/jumpserver/v5_admin_risk_alert_01.png` and replace this block with the figure reference.
+</Alert>
