@@ -1,0 +1,194 @@
+---
+title: "Installation"
+description: "Install JumpServer Community Edition with the online one-line installer, or install JumpServer Enterprise Edition from an offline package."
+---
+
+import VersionedCommand from '@/components/docs/versioned-command'
+import EnterpriseEditionCta from '@/components/docs/enterprise-edition-cta'
+import { Tab, Tabs } from '@rspress/core/theme';
+
+# Installation
+
+JumpServer has two installation paths. Choose the one that matches your edition
+and network environment.
+
+| Edition | Installation method | Use when |
+| --- | --- | --- |
+| Community Edition | Online one-line command | The server has outbound internet access and you want the latest community release |
+| Enterprise Edition | Offline installation package | You have an Enterprise license and deploy in a restricted or air-gapped network |
+
+<Alert type="note">
+Both editions require a clean 64-bit Linux server with at least 4 CPU cores and
+8 GB of memory. Use a host that you can dedicate to JumpServer; do not reuse a
+server that already runs conflicting web or database services.
+</Alert>
+
+<EnterpriseEditionCta />
+
+## Before you begin
+
+- Prepare a clean Linux server (64-bit, at least 4c8g).
+- Sign in as `root` or a user with superuser privileges.
+- Confirm the server can reach its package source:
+  - Community Edition: outbound HTTPS access to GitHub.
+  - Enterprise Edition: the offline package from your delivery team.
+- Decide the host name or IP address that users will use to access JumpServer.
+
+## Community Edition: online installation
+
+The Community Edition is installed with a one-line command that downloads and
+runs the current installer. Use this path when the server has internet access.
+
+<Steps>
+
+<div>
+Change to the `/opt` directory.
+```sh
+cd /opt
+```
+</div>
+
+<div>
+Run the online installation command.
+```sh
+curl -sSL https://github.com/jumpserver/jumpserver/releases/latest/download/quick_start.sh | bash
+```
+</div>
+
+<div>
+Wait for the installer to finish. It downloads the required images and starts the
+JumpServer services.
+</div>
+
+<div>
+Open `https://<jumpserver-host>/` in a current browser.
+<Alert type="note">
+Replace `<jumpserver-host>` with the IP address or domain name of the server.
+</Alert>
+</div>
+
+<div>
+Sign in with the initial administrator account:
+- Username: `admin`
+- Password: `ChangeMe`
+</div>
+
+<div>
+Change the password when prompted, then sign in again. Installation is complete.
+</div>
+
+</Steps>
+
+## Enterprise Edition: offline package installation
+
+The Enterprise Edition is installed from an offline package provided by the
+JumpServer delivery team. The package contains the images and dependencies needed
+for a deployment without internet access. An Enterprise license is required.
+
+<Steps>
+
+<div>
+Obtain the Enterprise offline package and license from your delivery team. Confirm
+that the package version and CPU architecture match the target server.
+</div>
+
+<div>
+Sign in as `root`, then change to `/opt`.
+```sh
+cd /opt
+```
+</div>
+
+<div>
+Place the offline package in `/opt`. You can upload it from the delivery portal or
+download it with `wget` if the server can reach the download URL.
+
+<Tabs>
+  <Tab label="Upload">
+    <Steps stepLevel="2">
+      <div>
+      Download the package from the offline package site provided by the delivery
+      team.
+      </div>
+
+      <div>
+      Upload the package to `/opt` on the deployment server.
+      </div>
+    </Steps>
+  </Tab>
+
+  <Tab label="wget">
+    <Steps stepLevel="2">
+      <div>
+      Copy the package download link from the delivery portal.
+      </div>
+
+      <div>
+      Replace `YOUR_DOWNLOAD_URL` with the copied link and download the package.
+      <VersionedCommand template={'cd /opt && wget -O jumpserver-ee-{version}-x86_64.tar.gz "YOUR_DOWNLOAD_URL"'} />
+      </div>
+    </Steps>
+  </Tab>
+</Tabs>
+
+</div>
+
+<div>
+Extract the package.
+<VersionedCommand template="tar -zxvf jumpserver-ee-{version}-x86_64.tar.gz" />
+</div>
+
+<div>
+Change to the extracted directory.
+<VersionedCommand template="cd jumpserver-ee-{version}-x86_64" />
+</div>
+
+<div>
+Run the installer. The default options are sufficient for a standard deployment;
+you can adjust the configuration files afterward.
+```sh
+./jmsctl.sh install
+```
+</div>
+
+<div>
+Start the services.
+```sh
+./jmsctl.sh start
+```
+</div>
+
+<div>
+Confirm that the services are running and healthy.
+```sh
+./jmsctl status
+```
+The core services include `jms_core`, `jms_postgresql`, and `jms_redis`.
+</div>
+
+<div>
+Open `https://<jumpserver-host>/` in a current browser.
+<Alert type="note">
+Replace `<jumpserver-host>` with the IP address or domain name of the server.
+</Alert>
+</div>
+
+<div>
+Sign in with the initial administrator account:
+- Username: `admin`
+- Password: `ChangeMe`
+</div>
+
+<div>
+Change the password when prompted, then import the Enterprise license. See
+[License](/reference/license).
+</div>
+
+</Steps>
+
+## Next steps
+
+- [Quickstart](/getting-started/quickstart): sign in, open the Console, and complete your first asset connection.
+- [Import License](/reference/license): activate Enterprise Edition features.
+- [Enable HTTPS](/operations/deployment/enable-https): secure the web interface.
+- [Upgrade JumpServer](/getting-started/upgrade): plan the next version upgrade.

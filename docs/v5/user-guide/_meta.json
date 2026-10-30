@@ -1,0 +1,20 @@
+[
+  {
+    "type": "dir",
+    "name": "general",
+    "label": "General",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "workbench",
+    "label": "Workbench",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "client",
+    "label": "Client",
+    "collapsed": true
+  }
+]

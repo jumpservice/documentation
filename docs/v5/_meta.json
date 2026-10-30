@@ -5,50 +5,43 @@
     "label": "Introduction"
   },
   {
-    "type": "section-header",
-    "label": "Get Started"
+    "type": "dir",
+    "name": "getting-started",
+    "label": "Getting Started",
+    "collapsed": false
   },
   {
-    "type": "file",
-    "name": "quickstart",
-    "label": "Quickstart"
-  },
-  {
-    "type": "file",
-    "name": "installation",
-    "label": "Installation"
-  },
-  {
-    "type": "file",
-    "name": "upgrade",
-    "label": "Upgrade"
-  },
-  {
-    "type": "dir-section-header",
-    "name": "features",
-    "label": "Feature Modules",
+    "type": "dir",
+    "name": "user-guide",
+    "label": "User Guide",
     "collapsed": true
   },
   {
-    "type": "dir-section-header",
-    "name": "roles",
-    "label": "Role Guides",
+    "type": "dir",
+    "name": "administration",
+    "label": "Administration",
     "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "operations",
     "label": "Operations",
     "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
+    "name": "roles",
+    "label": "Role Guides",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
     "name": "developer-guide",
     "label": "Developer Guide",
     "collapsed": true
   },
   {
-    "type": "dir-section-header",
+    "type": "dir",
     "name": "reference",
     "label": "Reference",
     "collapsed": true

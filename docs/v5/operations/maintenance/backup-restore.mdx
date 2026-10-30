@@ -1,0 +1,97 @@
+---
+title: "Backup & Restore"
+description: "Back up and restore the JumpServer database and static files, and understand the constraints when moving data between environments."
+---
+
+# Backup & Restore
+
+JumpServer data is split into two parts:
+
+- **Database data**: users, assets, accounts, authorizations, operation logs, and
+  command records.
+- **Static files**: session recordings, uploaded files, system logs, certificates,
+  and component registration keys.
+
+Back up both parts together. A database-only backup restores the platform but
+leaves recordings orphaned, and a static-file-only backup cannot be indexed
+without the matching database.
+
+## Back up the database
+
+Run the backup on any one node of the deployment:
+
+```sh
+./jmsctl.sh backup_db
+```
+
+The backup file and the active configuration are written to the persistence
+directory, `/data/jumpserver/db_backup` by default. The file name contains the
+version and timestamp, for example
+`jumpserver-v5.0.0-2026-10-28_10:00:00.dump` for PostgreSQL or the matching `.sql`
+file for MySQL and MariaDB.
+
+{/* //TODO: Add a screenshot of the db_backup directory with a complete backup file for this page. */}
+
+## Restore the database
+
+Stop the services, then restore the backup file on one node:
+
+```sh
+./jmsctl.sh stop
+./jmsctl.sh restore_db /data/jumpserver/db_backup/jumpserver-v5.0.0-2026-10-28_10:00:00.dump
+./jmsctl.sh start
+```
+
+When restoring into a different environment, the database engine and version must
+match the source, and `SECRET_KEY` and `BOOTSTRAP_TOKEN` must have the same values
+as in the source environment. Otherwise encrypted fields cannot be decrypted and
+components cannot register with Core.
+
+## Back up static files
+
+Static files are stored under `VOLUME_DIR`, `/data/jumpserver` by default:
+
+```sh
+├── core/data/logs      # system logs
+├── core/data/media     # session recordings and uploads
+├── core/data/certs     # certificates
+├── db_backup           # database backups and saved configuration
+├── koko/data           # component logs and keys
+├── nginx/data/logs     # web access logs
+├── postgresql/data     # built-in PostgreSQL data files
+└── redis/data          # built-in Redis data files
+```
+
+Copy the directories you need to a backup target, for example the recordings:
+
+```sh
+rsync -avh /data/jumpserver/core/data/media/replay/ /backup/jumpserver/replay_backup/
+```
+
+<Alert type="note">
+In a two-node deployment, keep `core/data` on shared storage (NFS) or use object
+storage for recordings, so that both nodes read the same files. Back up the shared
+location once, not per node.
+</Alert>
+
+## External storage
+
+If recordings are stored in an object storage service, or session commands are
+stored in Elasticsearch, back those services up with their own tooling. The
+JumpServer database backup does not include external object or index data. Keep the
+database backup and the external storage snapshot from the same point in time.
+
+## Restore checklist
+
+1. Confirm that the target version and database engine match the backup.
+2. Restore the files under `VOLUME_DIR` first.
+3. Restore the database with `./jmsctl.sh restore_db`.
+4. Start the services and check `./jmsctl.sh status` and `/api/health/`.
+5. Open an existing session recording and an account secret to confirm that the
+   data and encryption keys match.
+
+## Related topics
+
+- [Command-Line Tools](/operations/maintenance/cli-tools)
+- [Configuration](/operations/deployment/configuration)
+- [Upgrade & Maintenance](/operations/maintenance/upgrade-maintenance)

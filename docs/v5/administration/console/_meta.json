@@ -1,0 +1,36 @@
+[
+  {
+    "type": "file",
+    "name": "dashboard",
+    "label": "Dashboard"
+  },
+  {
+    "type": "dir",
+    "name": "users",
+    "label": "Users",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "assets",
+    "label": "Assets",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "accounts",
+    "label": "Accounts",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "policies",
+    "label": "Policies",
+    "collapsed": true
+  },
+  {
+    "type": "file",
+    "name": "tags",
+    "label": "Tags"
+  }
+]

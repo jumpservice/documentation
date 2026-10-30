@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "zones",
+    "label": "Zones"
+  },
+  {
+    "type": "file",
+    "name": "cloud-sync",
+    "label": "Cloud Sync"
+  }
+]

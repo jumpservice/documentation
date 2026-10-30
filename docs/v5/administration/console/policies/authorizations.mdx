@@ -1,0 +1,141 @@
+---
+title: "Authorizations"
+description: "Grant users and groups access to assets or nodes, and constrain the accounts, protocols, and actions they can use."
+---
+
+# Authorizations
+
+An **authorization** maps users or user groups to assets or nodes. It answers
+"who can reach what, with which account, using which protocols, and for which
+actions." Once a rule is active, the authorized assets appear in the user's
+Workbench and can be connected according to the rule's constraints.
+
+Open the page from **Console > Authorizations**.
+
+![Figure 1: Authorizations list with asset tree, subjects, and resources.](/images/jumpserver/v5_admin_perms_01.png)
+
+## Overview
+
+The asset tree on the left filters rules by node or asset. Columns are Name,
+Users, User groups, Assets, Nodes, Accounts, Active, and Actions; the user,
+group, asset, node, and account columns show counts rather than names.
+
+Quick filters include **Invalid**, **Valid**, **Expiration date**, **Disabled**,
+and **No valid resources**.
+
+## Before you begin
+
+- Sign in with an account that can manage authorizations.
+- The users or groups and the assets or nodes must already exist. See
+  [Users](/administration/console/users/), [Groups](/administration/console/users/groups), and
+  [Assets](/administration/console/assets/).
+
+<Alert type="important">
+  The list shows only authorizations in the current organization, and rules
+  apply only to users and assets in the active organization.
+</Alert>
+
+## Create an authorization
+
+<Steps>
+<div>
+Click **Create**.
+</div>
+
+<div>In the **Create authorization** drawer, fill in the fields below.</div>
+
+<div>
+Expand **Other settings**, confirm the activation state and validity period, then
+click **Submit**. Use **Save and continue adding** for more rules.
+</div>
+</Steps>
+
+![Figure 2: Create authorization drawer with users, assets, accounts, and protocol settings.](/images/jumpserver/v5_admin_perms_02.png)
+
+### Field reference
+
+| Group    | Field           | Description                                                                                                          |
+| -------- | --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Basic    | Name            | Required. Rule name.                                                                                                 |
+| Users    | Users           | JumpServer users allowed to connect to the assets. Multiple selections are allowed.                                  |
+| Users    | User groups     | Groups whose members inherit the rule.                                                                               |
+| Assets   | Assets          | Assets the users can connect to.                                                                                     |
+| Assets   | Nodes           | Asset nodes the users can connect to; assets under a node follow the node.                                           |
+| Accounts | Accounts        | **All accounts**, **Specified accounts**, **Excluded accounts**, or **None**. Virtual accounts can also be selected. |
+| Protocol | Protocols       | **All protocols** or **Specified protocols**.                                                                        |
+| Actions  | Actions         | Operations users may perform: connect, file transfer, clipboard, and share.                                          |
+| Other    | Active          | When selected, the rule takes effect.                                                                                |
+| Other    | Start date      | When the rule starts to apply.                                                                                       |
+| Other    | Expiration date | When the rule stops applying.                                                                                        |
+| Other    | Comment         | Optional.                                                                                                            |
+
+Users and groups can be selected together, and so can assets and nodes. A common
+pattern is one group and one node, with users and assets left empty.
+
+### Account options
+
+| Option             | Meaning                                                                                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| All accounts       | Every account added to the asset.                                                                                                                             |
+| Specified accounts | Only the listed usernames. Press Enter after each, or click **Add from template**. Accounts that do not exist are created and pushed when a template is used. |
+| Excluded accounts  | Every account except the listed usernames.                                                                                                                    |
+| None               | No hosted account on the asset.                                                                                                                               |
+| Virtual accounts   | A virtual identity such as manual input, same-name account, anonymous account, or specified account.                                                          |
+
+### Protocols and actions
+
+Select **Specified protocols** to limit the rule to particular protocols. Actions
+default to **All** and include **Connect**, **File transfer** (upload, download,
+delete), **Clipboard** (copy, paste), and **Share**. Action availability differs
+by protocol.
+
+## Expiration reminders
+
+<VersionBadge version="5.1.0" kind="new" />
+
+Available since JumpServer v5.1.0. An asset authorization can carry a configurable
+expiration reminder. When the rule has an **Expiration date**, JumpServer sends a
+reminder ahead of that date so the rule can be extended in time or allowed to
+expire as planned.
+
+- Reminders are configured per authorization; a rule without an expiration date
+  has no reminder to send.
+- Use reminders for rules that grant temporary access, so access does not lapse
+  without notice.
+
+{/* //TODO: Add a screenshot of the expiration reminder settings in the Create authorization drawer and of the reminder notification. */}
+
+## Import and export
+
+The toolbar provides column settings, export, import, and refresh. Import opens
+the **Import & create** dialog, where you choose **Create** or **Update**,
+download the CSV or XLSX template, and upload a file up to 10 MB.
+
+## Authorization details
+
+Click a rule's **Name** to open the detail drawer. Tabs include **Basic**,
+**Users/groups**, **Assets/nodes**, **Authorized accounts**, and **Activity**.
+
+- **Basic** shows identity, actions, start and expiration dates, and creator.
+  **Quick update** toggles **Active**.
+- **Users/groups** and **Assets/nodes** add or remove members with **Add**.
+- **Authorized accounts** switches between all and specified accounts.
+- **Activity** shows the most recent 30 operations.
+
+## Row actions and bulk actions
+
+The row menu (**...**) provides **Delete** and **Duplicate**. Select checkboxes
+and click **More actions** to delete or edit several rules.
+
+<Alert type="warning">
+  Deleting an authorization removes the access it granted, so users may lose
+  access immediately. If the rule only needs to pause, clear **Active** instead.
+</Alert>
+
+## Related topics
+
+- [ACLs](/administration/console/policies/acls/) for command, login, connection, masking, and
+  clipboard controls layered on top of authorizations.
+- [Users](/administration/console/users/)
+- [Groups](/administration/console/users/groups)
+- [Accounts](/administration/console/accounts/)

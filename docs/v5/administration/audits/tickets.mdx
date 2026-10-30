@@ -1,0 +1,109 @@
+---
+title: "Ticket Audits"
+description: "Review ticket history for asset applications and login or command approvals, inspect ticket details, and export records."
+---
+
+# Ticket Audits
+
+**Ticket Audits** is the read-only ticket history for the current organization. It covers tickets that users submit for asset access and for login or command approvals, and it preserves the approval flow, handler actions, and timeline for later review.
+
+Open the page from **Audits > Ticket Audits**.
+
+## Overview
+
+Tickets can be filtered by type and status, and each row shows the title, ticket number, type, current action/state, and date. Use the search box to find a ticket by title or number.
+
+Available type filters:
+
+- **Apply for assets** — requests for asset access.
+- **Login review** — sign-in approval requests.
+- **Command review** — command approval requests.
+- **Asset connect review** — asset connection approval requests.
+
+Available state filters: **All**, **Open**, **Cancel**, **Agreed**, and **Rejected**.
+
+## Prerequisites
+
+- Sign in with an account that has ticket audit permission, such as a system administrator or auditor.
+- Users must have submitted at least one ticket.
+
+## Review a ticket
+
+<Steps>
+  <div>Choose a type and a state, or search for the ticket title.</div>
+  <div>Click the ticket title to open the detail drawer.</div>
+  <div>
+    On the **Ticket details** tab, review the ticket flow, applicant, handler,
+    node, assets, accounts, action, start date, and expiration date.
+  </div>
+  <div>
+    Use the **Activities** tab to read the processing records, including
+    comments and approvals.
+  </div>
+</Steps>
+
+![Figure 1: Ticket Audits list with title, number, type, state, and date.](/images/jumpserver/v5_admin_ticket_01.png)
+
+The right side of the detail shows the processing progress: **Create ticket**, **Handle ticket**, and **Complete ticket**. Completed steps show the handler and completion time.
+
+![Figure 2: Ticket detail with ticket fields, progress, and processing records.](/images/jumpserver/v5_admin_ticket_02.png)
+
+## Field reference
+
+| Field                        | Description                                                  |
+| ---------------------------- | ------------------------------------------------------------ |
+| Title                        | Ticket title. Select it to open the detail.                  |
+| Number                       | Ticket number.                                               |
+| Type                         | Ticket type, such as apply for assets or login review.       |
+| Action                       | Current ticket state, for example Open, Agreed, or Rejected. |
+| Date                         | When the ticket was created.                                 |
+| Ticket flow                  | Approval flow applied to the ticket.                         |
+| Applicant                    | User who submitted the ticket.                               |
+| CC Users                     | Users copied on the ticket, if any.                          |
+| Node                         | Organization node affected by the request.                   |
+| Asset / Accounts             | Assets and accounts covered by the ticket.                   |
+| Start date / Expiration date | Validity window granted by the ticket.                       |
+
+## Export
+
+<VersionBadge version="5.1.0" kind="changed" />
+
+Click **Export**, choose **CSV** or **Excel**, select **Export all**, **Export selected**, or **Export search results**, and click **Confirm**.
+
+From v5.1.0, exported ticket data renders approval workflows, approvers,
+approval statuses, and related resources as readable text instead of raw
+identifiers. This export formatting requires JumpServer Enterprise Edition.
+
+## Filter and export by creation time
+
+<VersionBadge version="5.1.0" kind="new" />
+
+<Alert type="xpack">
+  **Filtering and exporting ticket audits by creation time** requires JumpServer
+  Enterprise Edition.
+</Alert>
+
+Available since JumpServer v5.1.0, you can narrow the list to a ticket creation time range and export the tickets that match it.
+
+<Steps>
+<div>
+Open **Audits > Ticket Audits**.
+</div>
+<div>
+Set the creation time range for the tickets you need.
+</div>
+<div>
+Review the filtered list, then click **Export** to export the matching tickets.
+</div>
+</Steps>
+
+{/* //TODO: Add a screenshot of the Ticket Audits list with a creation time range applied and the filtered rows visible. */}
+
+## Notes
+
+<Alert type="note">
+  Ticket Audits is read-only. Users create tickets and handlers process them in
+  the Workbench under [Submitted](/user-guide/workbench/tickets/my-tickets),
+  [Assigned](/user-guide/workbench/tickets/awaiting-approval), and [Flow
+  Setup](/user-guide/workbench/tickets/ticket-flow).
+</Alert>

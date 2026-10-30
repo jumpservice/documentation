@@ -1,0 +1,108 @@
+---
+title: "Workbench Overview"
+description: "The Workbench landing page, with recent sessions, pending approvals, your profile, and recent login activity."
+---
+
+# Workbench Overview
+
+**Overview** is the default page of the Workbench. It collects the information a
+user usually needs after signing in: the assets connected most recently, the
+tickets waiting for approval, the current profile, and recent login activity. Use
+it as a shortcut back into daily work instead of browsing the whole menu.
+
+Normal users land on the Workbench after signing in. Administrators start in the
+Console and can switch to the Workbench from the workspace switcher in the
+top-left corner.
+
+![Figure 1: The Workbench Overview page](/images/jumpserver/workbench_overview.png)
+
+## What the page contains
+
+| Area | What it shows |
+| --- | --- |
+| Recent sessions | The last asset connections, newest first, with asset, account, remote address, and protocol |
+| Awaiting my approval | Tickets with you as a handler and a pending state, with title, user, type, ticket status, and date |
+| Your profile | Username, email address, and the date of the current session's login |
+| Recent login | The last sign-in records, with login city and login date |
+| Announcement | A message published by an administrator in Feature Settings |
+
+The **Awaiting my approval** card is only shown when the Tickets feature is
+licensed and the current account has ticket permissions. The **Announcement**
+banner only appears after an administrator enables announcements.
+
+## Open the Workbench
+
+<Steps>
+
+<div>
+Sign in to JumpServer with your user account.
+</div>
+
+<div>
+If the Console opens first, use the workspace switcher in the top-left corner
+and select **Workbench**.
+</div>
+
+<div>
+Select **Overview** in the left navigation. The Overview page opens.
+</div>
+
+</Steps>
+
+## Connect from a recent session
+
+The **Recent sessions** card lists up to five connections.
+
+<Steps>
+
+<div>
+Find the asset in the **Asset** column. Each row is a previous connection to that
+asset with a specific account.
+</div>
+
+<div>
+Click the connect icon in the **Actions** column. The
+[Web Terminal](/user-guide/workbench/web-terminal/) opens in a new window with the
+asset and account already selected.
+</div>
+
+</Steps>
+
+This is usually faster than searching in [Access Assets](/user-guide/workbench/my-assets/access-assets)
+when the target is already in the list. If you have no connection history, the
+card shows **No data**.
+
+## Review pending approvals
+
+The **Awaiting my approval** card shows only tickets where you are the current
+handler and the ticket is still pending. Click a **Title** to open the ticket
+detail page, where you can read the request, review the approval steps, and
+approve or reject it. See [Assigned](/user-guide/workbench/tickets/awaiting-approval)
+for the full list and batch actions.
+
+If you are not named as a handler in the approval flow, this card stays empty
+even when other tickets are pending.
+
+## Card reference
+
+| Field | Description |
+| --- | --- |
+| Asset | Asset name and address used by the session |
+| Account | Account used for the connection |
+| Remote address | Client address that started the session |
+| Protocol | Protocol used, such as `ssh` or `rdp` |
+| Ticket title, user, type, status, date | Summary of the pending approval |
+| Login city | `City (IP address)` derived from the sign-in address; private addresses show as **Intranet**, unresolvable ones as **Unknown** |
+| Login date | Time of the sign-in |
+
+<Alert type="note">
+Announcements are managed under **System Settings > Feature Settings**. If the
+Overview page shows no announcement, the setting is disabled or no announcement
+has been published. See [Feature Settings](/administration/system-settings/general/features).
+</Alert>
+
+<Alert type="note">
+Only tickets in which you are the current handler appear on this page. Ticket
+lists and approvals are also available on the
+[Assigned](/user-guide/workbench/tickets/awaiting-approval) page.
+</Alert>

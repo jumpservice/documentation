@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "connect-assets",
+    "label": "Connect Assets"
+  },
+  {
+    "type": "file",
+    "name": "settings",
+    "label": "Settings"
+  }
+]

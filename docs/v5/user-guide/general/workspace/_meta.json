@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "organizations",
+    "label": "Organizations"
+  },
+  {
+    "type": "file",
+    "name": "global-search",
+    "label": "Global Search"
+  },
+  {
+    "type": "file",
+    "name": "notifications",
+    "label": "Notifications"
+  },
+  {
+    "type": "file",
+    "name": "announcements",
+    "label": "Announcements"
+  }
+]

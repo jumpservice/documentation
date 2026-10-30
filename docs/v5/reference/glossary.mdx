@@ -15,90 +15,90 @@ An isolated workspace for users, user groups, assets, accounts, labels, and
 authorizations. Every record belongs to one organization, and switching
 organizations changes which records and menus are available. The **Default**
 organization exists in every installation; enterprise deployments can create more.
-See [Organizations](/features/general/organizations).
+See [Organizations](/user-guide/general/workspace/organizations).
 
 ## Asset
 
 Anything JumpServer can connect to: hosts, network devices, databases, cloud
 services, web applications, directory services, and custom types. An asset is
 created from a platform and is organized through nodes and zones. See
-[Assets](/features/console/assets).
+[Assets](/administration/console/assets/).
 
 ## Account
 
 A login identity for an asset, meaning a username plus a secret such as a password,
 SSH key, SSH certificate, token, or access key. An asset can have several accounts,
 and an authorization decides which accounts a user may use. See
-[Accounts](/features/console/accounts).
+[Accounts](/administration/console/accounts/).
 
 ## Node
 
 A folder in the asset tree used to organize assets for navigation and
 authorization. Assets can belong to several nodes, so a single asset can be granted
 through different project or protocol groupings. See
-[Assets](/features/console/assets).
+[Assets](/administration/console/assets/).
 
 ## Zone
 
 A network location where assets live, such as a data center, a public cloud, or a
 VPC. A zone contains one or more gateways, and assets behind a segmented network are
 reached through the zone gateway instead of a direct connection. See
-[Zones](/features/console/zones).
+[Zones](/administration/console/assets/zones).
 
 ## Authorization
 
 A rule that maps users or user groups to assets or nodes and constrains the
 accounts, protocols, actions, and validity period. Authorizations decide which
 assets appear in a user's Workbench. See
-[Authorizations](/features/console/authorizations).
+[Authorizations](/administration/console/policies/authorizations).
 
 ## ACL
 
 Access control list: a constraint applied on top of authorization. Command filters,
 login restrictions, asset connection rules, data masking, clipboard control, and
-connect-method restrictions are ACLs. See [ACLs](/features/console/acls/).
+connect-method restrictions are ACLs. See [ACLs](/administration/console/policies/acls/).
 
 ## PAM
 
 Privileged access management: the discipline and the JumpServer module that manages
 the lifecycle and security of privileged accounts, including discovery, push,
 backup, secret rotation, risk detection, and account activity. See
-[PAM](/features/pam/).
+[PAM](/administration/pam/).
 
 ## Session
 
 A connection from a user to an asset through a protocol component. A session has a
 recording, command records, and metadata such as the user, asset, account, source
 address, and start and end times. See
-[Sessions](/features/audits/sessions/).
+[Sessions](/administration/audits/sessions/).
 
 ## Audit
 
 The evidence side of the platform: session recordings, command logs, file transfer
 records, login and operation logs, job history, ticket history, and reports.
 Auditors use it to investigate activity and prove compliance. See
-[Audits](/features/audits/).
+[Audits](/administration/audits/).
 
 ## Ticket
 
 A request for access or for a sensitive action, routed to approvers through a
 configurable approval flow. Tickets are an enterprise feature and leave an audit
 trail of who requested and who approved. See
-[Tickets & Approvals](/features/workbench/tickets/).
+[Tickets & Approvals](/user-guide/workbench/tickets/).
 
 ## Job
 
 An automation task executed against authorized assets: an ad-hoc command, a saved
 job, or a job created from a template. Job Center schedules the run and records each
 execution in the execution history. See
-[Job Center](/features/workbench/job-center/).
+[Job Center](/user-guide/workbench/job-center/).
 
 ## Client
 
 A user-facing entry point or protocol connector. Luna is the browser terminal, the
 JumpServer Client is the desktop client, and KoKo, Lion, Chen, Tinker, Panda, Razor,
 Magnus, Nec, and Facelive are the protocol components that terminate connections.
-See [Client](/features/client/).
+See [Client](/user-guide/client/).
 
 ## Component
 
@@ -106,4 +106,4 @@ A service that makes up a JumpServer deployment. Core is the central API and
 registration point; KoKo, Lion, Chen, and the other protocol components handle
 connections; PostgreSQL and Redis store data; Nginx serves the frontend. Components
 register with Core using the shared bootstrap token. See
-[Architecture](/operations/architecture).
+[Architecture](/operations/deployment/architecture).

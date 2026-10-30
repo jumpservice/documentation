@@ -1,0 +1,90 @@
+---
+title: "Console Dashboard"
+description: "Monitor live sessions, user and asset statistics, activity trends, and login rankings on the Console Dashboard."
+---
+
+# Console Dashboard
+
+The Console Dashboard is the landing page of the Console workspace. It brings
+together the live state of the current organization: sessions that are running
+now, how many users and assets exist, which assets were active today, and the
+accounts and assets that were logged in to most often. Use it as the starting
+point for daily operations, then open the detailed lists when a number looks
+wrong.
+
+Open the page from **Console > Dashboard**.
+
+![Figure 1: Console Dashboard with real-time metrics, user and asset statistics, activity trend, and login rankings.](/images/jumpserver/v5_admin_dashboard_01.png)
+
+## Overview
+
+The page is organized into six areas:
+
+- **Real-time data**: the number of online sessions, the number of users in
+  those sessions, and the number of failed connections today.
+- **User data**: total users, users added this week, today's login users, and
+  their share of all users.
+- **Asset data**: total assets, assets added this week, today's active assets,
+  and their share of all assets.
+- **User and asset activity**: a trend line comparing active users with active
+  assets over time, to show usage peaks and quiet periods.
+- **Asset type distribution**: the share of assets by platform or type, shown as
+  a horizontal bar chart.
+- **Login rankings**: the accounts with the most logins and the assets with the
+  most access, each with a selectable time window.
+
+## What each area shows
+
+| Area | Metrics | How to use it |
+| --- | --- | --- |
+| Real-time data | Online sessions, session users, failed connections today | Confirm whether users are connected and whether connection failures are piling up. |
+| User data | Total users, new users this week, today's login users and their share | Gauge directory growth and daily adoption. |
+| Asset data | Total assets, new assets this week, active assets today and their share | See how much of the inventory is actually used. |
+| User and asset activity | Active users and active assets over time | Compare peaks and idle periods before planning maintenance. |
+| Asset type distribution | Assets grouped by platform or type | Understand the composition of the managed estate. |
+| Login rankings | Top accounts by login count, top assets by access count | Identify the busiest accounts and the most frequently accessed assets. |
+
+## Change the ranking period
+
+<Steps>
+<div>
+Scroll to **Login account ranking** or **Login asset ranking** at the bottom of
+the page.
+</div>
+
+<div>
+Select **Today**, **Last 7 days**, or **Last 30 days** above the table.
+</div>
+
+<div>
+The table refreshes for the selected window. The account ranking lists rank,
+username, and login count; the asset ranking lists rank, asset name, and access
+count.
+</div>
+</Steps>
+
+## Investigate from a tile
+
+- A spike in **Failed connections today** is usually a credential, network, or
+  connectivity problem. Compare it with [Login Logs](/administration/audits/activities/login-logs).
+- Unexpected **online sessions** can be inspected, recorded, or terminated in
+  [Asset Sessions](/administration/audits/sessions/asset-sessions).
+- Assets with no recent activity often mean missing or stale
+  [Authorizations](/administration/console/policies/authorizations), or accounts that were
+  never added to the [asset](/administration/console/assets/).
+- Users who never sign in are easy to find with the **Never logged in** filter on
+  the [Users](/administration/console/users/) page.
+
+<Alert type="note">
+All figures follow the organization selected in the organization switcher. If
+the numbers look unexpectedly small, confirm that you are viewing the intended
+organization. Values change as users sign in, connect, and disconnect, so they
+can differ from reports that aggregate historic audit records.
+</Alert>
+
+## Related topics
+
+- [Users](/administration/console/users/)
+- [Assets](/administration/console/assets/)
+- [Accounts](/administration/console/accounts/)
+- [Login Logs](/administration/audits/activities/login-logs)

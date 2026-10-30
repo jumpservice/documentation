@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "profile",
+    "label": "Profile"
+  },
+  {
+    "type": "file",
+    "name": "password-and-ssh-key",
+    "label": "Password & SSH Key"
+  },
+  {
+    "type": "file",
+    "name": "access-keys",
+    "label": "Access Keys"
+  },
+  {
+    "type": "file",
+    "name": "tokens",
+    "label": "Tokens"
+  },
+  {
+    "type": "file",
+    "name": "passkeys",
+    "label": "Passkeys"
+  },
+  {
+    "type": "file",
+    "name": "preferences",
+    "label": "Preferences"
+  }
+]

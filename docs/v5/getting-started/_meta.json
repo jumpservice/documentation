@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "quickstart",
+    "label": "Quickstart"
+  },
+  {
+    "type": "file",
+    "name": "installation",
+    "label": "Installation"
+  },
+  {
+    "type": "file",
+    "name": "upgrade",
+    "label": "Upgrade"
+  }
+]

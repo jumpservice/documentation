@@ -1,0 +1,31 @@
+[
+  {
+    "type": "dir",
+    "name": "general",
+    "label": "General",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "security",
+    "label": "Security",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "infrastructure",
+    "label": "Infrastructure",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "appearance-tools",
+    "label": "Appearance & Tools",
+    "collapsed": true
+  },
+  {
+    "type": "file",
+    "name": "license",
+    "label": "License"
+  }
+]

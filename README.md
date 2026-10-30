@@ -10,7 +10,7 @@ The site serves two documentation versions:
 A version selector is rendered in the top navigation. The V4 tree is based on the
 last V4 documentation snapshot (`v4.10.19`), with its release-specific install
 and upgrade commands updated to `v4.10.20`. V5 has been reorganized into a new
-feature-first information architecture; V4 keeps the legacy structure.
+audience-first information architecture; V4 keeps the legacy structure.
 
 ## Visual design
 
@@ -74,6 +74,7 @@ docs/
 src/
 ├── components/            # MDX components and global component wrappers
 ├── data/releases.json     # changelog data and version-aware release lookups
+├── data/release-notes.json # detailed per-version release notes data
 ├── icons/                 # SVG icons imported as React components
 ├── styles/globals.css     # Tailwind entry + Rspress theme overrides
 └── types/svg.d.ts
@@ -88,39 +89,37 @@ scripts/
 
 ## V5 information architecture
 
-V5 is organized **feature-first**, with role-specific paths as a second lens:
+V5 is organized by **audience first, then by product area**, with role-specific
+paths as a second lens:
 
 ```text
 docs/v5/
 ├── index.mdx                 # Introduction
-├── quickstart.mdx            # Get Started: login, Console, first asset, audit
-├── installation.mdx
-├── upgrade.mdx
-├── features/                 # Primary: product areas
-│   ├── general/              # organizations, search, notifications, profile, AI assistant
-│   ├── console/              # users, assets, accounts, authorization, ACLs, tags
+├── getting-started/          # Quickstart, installation, upgrade
+├── user-guide/               # General, Workbench, Client
+│   ├── general/              # organizations, search, profile, AI assistant
+│   ├── workbench/            # assets, terminals, job center, tickets, tools
+│   └── client/               # JumpServer Client
+├── administration/           # Console, PAM, Audits, System Settings
+│   ├── console/              # users, assets, accounts, policies, ACLs, tags
 │   ├── pam/                  # account automation, security, integration, activities
 │   ├── audits/               # sessions, activities, job audits, ticket audits, reports
-│   ├── workbench/            # asset access, file transfer, job center, tickets, tools
-│   ├── system-settings/      # platform configuration
-│   └── client/               # JumpServer Client: download, asset connections, settings, recording tools
-├── roles/                    # Secondary: role indexes
-│   ├── administrator.mdx
-│   ├── operator.mdx
-│   └── auditor.mdx
-├── operations/               # Deployment, configuration, maintenance
+│   └── system-settings/      # platform configuration
+├── roles/                    # Role guides
+├── operations/               # Deployment, maintenance, security
 ├── developer-guide/          # API and integrations
-└── reference/                # Changelog, editions, FAQ, license, glossary
+└── reference/                # What's new, changelog, editions, license, glossary
 ```
 
-- The **Feature Modules** section mirrors the JumpServer V5 English console:
-  General, Console, PAM, Audits, Workbench, System Settings, and Client.
+- The **User Guide** covers daily work in General, Workbench, and Client.
+- The **Administration** section mirrors the JumpServer V5 English console:
+  Console, PAM, Audits, and System Settings.
 - The **Role Guides** section explains system roles vs organization roles and
   maps Administrator, Operator, and Auditor to the corresponding built-in roles.
   Role pages link to the canonical feature pages instead of duplicating procedures.
 - Chapter index pages use Rspress `overview: true` to render a Halo-style card
-  index with search. The top-level Feature Modules page uses a custom module
-  card grid. Overview search text is overridden in `i18n.json`.
+  index with search. The top-level User Guide and Administration pages use a
+  custom module card grid. Overview search text is overridden in `i18n.json`.
 - Module and nested chapter overviews are not repeated as sidebar children:
   the group title (for example **General**) links directly to the overview page.
 - V5 feature, operations, developer, and reference pages are populated with
@@ -144,16 +143,15 @@ dead end.
 ## Writing documentation
 
 - Add or edit pages under `docs/v4` or `docs/v5`. V4 keeps the legacy
-  structure; V5 uses the feature-first structure described below. Add each page
+  structure; V5 uses the audience-first structure described below. Add each page
   to the version where it belongs.
-- For V5, put product features under `docs/v5/features/<module>` and
+- For V5, put product features under `docs/v5/user-guide/<module>` or `docs/v5/administration/<module>` and
   role-oriented indexes in `docs/v5/roles/<role>.mdx`. Prefer a feature page as
   the canonical source and link to it from role pages.
 - Page order and sidebar groups come from the `_meta.json` file in each version
   root. Use `{ "type": "file", "name": "...", "label": "..." }`,
   `{ "type": "dir", "name": "...", "label": "..." }`,
-  `{ "type": "dir-section-header", "name": "...", "label": "..." }`, and
-  `{ "type": "section-header", "label": "..." }` entries.
+  `{ "type": "dir", "name": "...", "label": "...", "collapsed": true }` entries. V5 groups by real directories; use a separate `index.mdx` as the group landing page.
 - Pages omitted from `_meta.json` are still routable but hidden from the
   sidebar.
 - Top navigation lives in `docs/v4/_nav.json` and `docs/v5/_nav.json`.
@@ -161,10 +159,14 @@ dead end.
   such as `/images/docs/example.png`. Rspress' base path handling prefixes the
   generated URLs with `/docs`.
 - MDX components are available globally: `Icon`, `Alert`, `Steps`, `Nav`,
-  `ApplyTrialLicense`, and `DataTable`. They are registered in
+  `ApplyTrialLicense`, `DataTable`, and `VersionBadge`. They are registered in
   `rspress.config.ts` via `markdown.globalComponents`.
 - Use Rspress built-in `Tabs`/`Tab` from `@rspress/core/theme` when a page needs
   tabs. Code-block titles use `title="..."` in the fence info string.
+- Page structure, tone, component usage, screenshot rules, and link conventions
+  are defined in [WRITING-GUIDE.md](WRITING-GUIDE.md). AI agents working in this
+  repository must also follow [AGENTS.md](AGENTS.md), which records the
+  executable rules, write boundaries, and validation loop.
 
 ## LLM support (llms.txt / Markdown)
 

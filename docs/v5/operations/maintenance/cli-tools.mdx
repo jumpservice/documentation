@@ -1,0 +1,104 @@
+---
+title: "Command-Line Tools"
+description: "Use the jmsctl management script and its configuration helper to install, start, stop, back up, restore, and inspect JumpServer services."
+---
+
+# Command-Line Tools
+
+Each JumpServer installation ships with the `jmsctl` management script. It wraps the
+Docker Compose project and is the supported way to install, start, stop, back up,
+restore, and upgrade the platform. This page lists the most useful commands and
+their behavior.
+
+{/* //TODO: Add a screenshot of the jmsctl.sh --help output for this page. */}
+
+## Before you begin
+
+- Log in to the JumpServer host with an account that can run Docker commands.
+- Change to the JumpServer installation directory before running the script. The
+  directory is the extracted installer or upgrade package, commonly
+  `/opt/jumpserver`.
+
+## Service commands
+
+| Command | Description |
+| --- | --- |
+| `./jmsctl.sh install` | Install JumpServer services and initialize the database |
+| `./jmsctl.sh start` | Start all enabled services |
+| `./jmsctl.sh stop` | Stop all services |
+| `./jmsctl.sh restart` | Restart all services |
+| `./jmsctl.sh status` | Show the running state of the services |
+| `./jmsctl.sh down` | Take the services offline, including the Docker network |
+| `./jmsctl.sh uninstall` | Remove the services |
+| `./jmsctl.sh --help` | Print the command reference |
+
+Start and stop commands are also the way to apply configuration changes; there is
+no hot reload. See [Configuration](/operations/deployment/configuration).
+
+<Alert type="warning">
+`stop`, `down`, `restart`, and `uninstall` interrupt active sessions. Run them in a
+maintenance window and notify users first.
+</Alert>
+
+## Data commands
+
+| Command | Description |
+| --- | --- |
+| `./jmsctl.sh backup_db` | Back up the database and the active configuration |
+| `./jmsctl.sh restore_db <file>` | Restore the database from a backup file |
+| `./jmsctl.sh tail [service]` | Follow the log of one service, or of all services |
+| `./jmsctl.sh load_image` | Load Docker images from the offline package |
+| `./jmsctl.sh raw <args>` | Run an arbitrary `docker compose` command |
+| `./jmsctl.sh upgrade` | Upgrade the installation to the packaged version |
+
+Back up before any upgrade or restore, and verify the backup file before starting
+the operation. The full procedure is in [Backup & Restore](/operations/maintenance/backup-restore).
+
+## Configuration helper
+
+`./jmsctl.sh config` edits common settings with guided prompts:
+
+```sh
+./jmsctl.sh config --help
+```
+
+| Subcommand | Description |
+| --- | --- |
+| `config init` | Initialize the configuration file |
+| `config port` | Configure the JumpServer service ports |
+| `config ssl` | Configure Web SSL |
+| `config env` | Configure environment variables |
+| `config ntp` | Configure NTP time synchronization |
+
+Changes made by the helper are written to `config.txt` and take effect after
+`./jmsctl.sh restart`.
+
+## Examples
+
+Check the service state and follow Core logs:
+
+```sh
+./jmsctl.sh status
+./jmsctl.sh tail core
+```
+
+Create a database backup, then restore it later:
+
+```sh
+./jmsctl.sh backup_db
+./jmsctl.sh restore_db /data/jumpserver/db_backup/jumpserver-v5.0.0-2026-10-28_10:00:00.dump
+```
+
+In an enterprise installation, the host management service is managed together
+with the containers:
+
+```sh
+./jmsctl.sh tail jdmc
+```
+
+## Related topics
+
+- [Backup & Restore](/operations/maintenance/backup-restore)
+- [Configuration](/operations/deployment/configuration)
+- [Upgrade & Maintenance](/operations/maintenance/upgrade-maintenance)
+- [Troubleshooting](/operations/maintenance/troubleshooting)

@@ -1,11 +1,6 @@
 [
   {
     "type": "file",
-    "name": "index",
-    "label": "Role Guides Overview"
-  },
-  {
-    "type": "file",
     "name": "role-model",
     "label": "Role Model"
   },

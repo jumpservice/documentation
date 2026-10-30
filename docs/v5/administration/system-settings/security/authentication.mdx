@@ -1,0 +1,160 @@
+---
+title: "Authentication"
+description: "Choose how users sign in to JumpServer: local accounts, directory services, single sign-on protocols, social identity providers, or passkeys."
+---
+
+# Authentication
+
+<Alert type="xpack">
+  **LDAP HA, OIDC, SAML2, OAuth2, WeCom, DingTalk, Feishu, Lark, Slack, RADIUS,
+  and UKey** require JumpServer Enterprise Edition. AD/LDAP, CAS, and Passkey
+  are included in Community Edition.
+</Alert>
+
+Authentication controls how users prove their identity before they reach
+JumpServer. The page starts with a **Basic** tab of global options, followed by
+an **Integration** tab where authentication methods are enabled, and a tab for
+each enabled method.
+
+## Basic settings
+
+| Field               | Description                                                                                                                                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Email suffix        | When a third-party identity provider does not return an email address, JumpServer builds one by combining the user name with this suffix, for example `example.com`.              |
+| Forgot password URL | Page that users are redirected to when they click **Forgot password** on the login page. Use it to point to your own password self-service portal.                                |
+| Login redirection   | When enabled, visitors who are not signed in are prompted to confirm before being redirected to the third-party authentication page. When disabled, they are redirected directly. |
+
+![Figure 1: Email suffix setting](/images/jumpserver/V4_Basic6.png)
+
+![Figure 2: Forgot password URL setting](/images/jumpserver/V4_Basic3.png)
+
+## Supported methods
+
+| Method     | How it authenticates                                                                                                                 | Edition    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| AD/LDAP    | Authenticates against a directory service with a bind DN and user search filter. Supports user import and scheduled synchronization. | Community  |
+| AD/LDAP HA | LDAP with failover between primary and backup directory servers.                                                                     | Enterprise |
+| CAS        | Central Authentication Service single sign-on, versions 1, 2, 3, and CAS 2 with SAML 1.0.                                            | Community  |
+| OIDC       | OpenID Connect single sign-on. Supports Keycloak or a manually defined OpenID provider.                                              | Enterprise |
+| SAML2      | SAML 2.0 service provider integration with an external identity provider.                                                            | Enterprise |
+| OAuth2     | Generic OAuth 2.0 authorization-code flow with configurable endpoints.                                                               | Enterprise |
+| RADIUS     | RADIUS authentication, optionally as an MFA backend.                                                                                 | Enterprise |
+| Passkey    | FIDO2 passwordless authentication with biometrics, PIN, or a security key.                                                           | Community  |
+| WeCom      | WeCom QR-code sign-in and identity binding.                                                                                          | Enterprise |
+| DingTalk   | DingTalk QR-code sign-in and identity binding.                                                                                       | Enterprise |
+| Feishu     | Feishu QR-code sign-in and identity binding.                                                                                         | Enterprise |
+| Lark       | Lark QR-code sign-in and identity binding.                                                                                           | Enterprise |
+| Slack      | Slack OAuth sign-in.                                                                                                                 | Enterprise |
+| UKey       | Hardware USB-key authentication.                                                                                                     | Enterprise |
+
+## Multi-factor authentication
+
+<VersionBadge version="5.1.0" kind="changed" />
+
+MFA (Multi-Factor Authentication) user settings follow the system configuration
+by default. Authentication methods that are not enabled at the system level are
+clearly marked in the user's MFA settings. When MFA is enforced system-wide, it is
+enabled automatically for every user and cannot be disabled.
+
+The system-wide MFA policy is configured in
+[Security](/administration/system-settings/security/security).
+
+## Enable an authentication method
+
+<Steps>
+
+<div>
+  <Nav name="system-settings" />
+</div>
+
+<div>In the left menu, click **Authentication**.</div>
+
+<div>
+  Open the **Integration** tab and select the method you want to enable.
+</div>
+
+<div>
+  Open the method's tab and complete the provider connection fields: server URL
+  or issuer, client ID and client secret, and the protocol-specific settings.
+</div>
+
+<div>
+  Define the attribute mapping so that provider attributes are written to the
+  JumpServer user name, name, and email fields.
+</div>
+
+<div>
+  Optionally choose the organization that authenticated users join, and whether
+  JumpServer should create users that do not exist yet.
+</div>
+
+<div>
+  Click **Submit**, then test the sign-in flow from a private browser window.
+</div>
+
+</Steps>
+
+## Protocol details
+
+Each method tab follows the same shape, with protocol-specific fields:
+
+- **LDAP and LDAP HA** require a bind DN, bind password, user OU, user filter,
+  and attribute mapping. Use **Test connection**, **Test login**, **User
+  import**, and **Sync settings** at the bottom of the tab. User groups can be
+  mapped through `distinguishedName`.
+- **CAS** requires the CAS server address, service URL, version, and attribute
+  mapping. Add the login, callback, and logout URLs to the CAS client.
+- **OIDC** requires the client ID and secret, either a Keycloak server and realm
+  or explicit authorization, token, JWKS, userinfo, and logout endpoints.
+- **SAML2** requires the SP key and certificate, and either the IdP metadata URL
+  or metadata XML. Download the SP metadata to configure the identity provider.
+- **OAuth2** requires the authorization, token, userinfo, and logout endpoints,
+  plus scopes and a client authentication method.
+- **RADIUS** requires host, port, and shared secret. Enable the RADIUS OTP option
+  to use it as an MFA backend.
+- **Passkey** requires HTTPS access and a valid domain list for the relying
+  party.
+
+### OAuth2 user groups and certificate verification
+
+<VersionBadge version="5.1.0" kind="new" />
+
+OAuth2 login supports user group synchronization and configurable user group
+attribute mapping, so groups returned by the identity provider can be mapped to
+JumpServer user groups. Certificate verification modes can be configured for the
+OAuth2 connection. **OAuth2** requires JumpServer Enterprise Edition.
+
+### SAML2 certificate verification
+
+<VersionBadge version="5.1.0" kind="new" />
+
+SAML2 remote metadata supports configurable certificate verification modes.
+**SAML2** requires JumpServer Enterprise Edition.
+
+{/* //TODO: Add a screenshot of the OAuth2 user group mapping and certificate verification settings for this page. */}
+
+<Alert type="note">
+  Redirect-based methods build callback URLs from the [Site
+  URL](/administration/system-settings/general/basic). Make sure it matches the address users
+  actually open, and add the matching callback URL to the identity provider. MFA
+  enforcement for third-party sign-in is configured in
+  [Security](/administration/system-settings/security/security).
+</Alert>
+
+{/* //TODO: Add screenshot of the Authentication method tabs for this page. */}
+
+## Version history
+
+| Version | Change                                                                                                                               |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| v5.1.0  | MFA user settings follow the system configuration, and system-wide MFA enforcement cannot be disabled.                               |
+| v5.1.0  | OAuth2 login adds user group synchronization, user group attribute mapping, and certificate verification modes (Enterprise Edition). |
+| v5.1.0  | SAML2 remote metadata adds configurable certificate verification modes (Enterprise Edition).                                         |
+| v5.1.0  | LDAP supports user group mapping through `distinguishedName`.                                                                        |
+
+## Related topics
+
+- [Security](/administration/system-settings/security/security)
+- [Basic settings](/administration/system-settings/general/basic)
+- [Users](/administration/console/users/)
+- [Profile](/user-guide/general/account/profile)

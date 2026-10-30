@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "basic",
+    "label": "Basic Settings"
+  },
+  {
+    "type": "file",
+    "name": "organizations",
+    "label": "Organizations"
+  },
+  {
+    "type": "file",
+    "name": "roles",
+    "label": "Roles"
+  },
+  {
+    "type": "file",
+    "name": "platforms",
+    "label": "Platforms"
+  },
+  {
+    "type": "file",
+    "name": "notifications",
+    "label": "Notifications"
+  },
+  {
+    "type": "file",
+    "name": "features",
+    "label": "Features"
+  }
+]

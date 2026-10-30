@@ -1,0 +1,100 @@
+---
+title: "Upgrade & Maintenance"
+description: "Plan a JumpServer upgrade, follow the supported version path, and keep an installation healthy with routine maintenance tasks."
+---
+
+# Upgrade & Maintenance
+
+JumpServer releases new versions regularly. Upgrading keeps the platform on
+supported components and security fixes, while routine maintenance keeps the
+database, storage, and logs from degrading over time. This page covers the upgrade
+path, the preparation steps, the upgrade commands, and the recurring tasks an
+operator should schedule.
+
+{/* //TODO: Add a screenshot of a completed jmsctl.sh upgrade output for this page. */}
+
+## Supported upgrade path
+
+Upgrade along the following path to avoid incompatible schema changes:
+
+- **v2 to v3**: the two versions differ significantly. Read the upgrade notes
+  before starting.
+- **v3 to v4**: first upgrade to the latest v3 release, then to v4.
+- **v4 to v5**: database migrations roll forward continuously, so any v4 release can
+  be upgraded to v5. For early v4 releases, upgrade to the latest v4 release first.
+
+The detailed step-by-step upgrade for both installation types is in the
+[Upgrade](/getting-started/upgrade) guide.
+
+## Before the upgrade
+
+1. Read the release notes of the target version for behavior changes and new
+   requirements; pay attention to the database and Redis version requirements.
+2. Schedule a maintenance window. Upgrading stops the services and interrupts
+   active sessions.
+3. Back up the database and static files. See
+   [Backup & Restore](/operations/maintenance/backup-restore).
+4. Confirm that `DOMAINS` contains the domain or IP address users open in the
+   browser. A missing trusted host is the usual cause of 400 and 403 responses after
+   an upgrade.
+5. Keep the current packages and configuration backup until the new version has
+   been verified.
+
+## Upgrade an offline installation
+
+```sh
+cd /opt
+tar -xf jumpserver-ce-<version>-x86_64.tar.gz
+cd jumpserver-ce-<version>-x86_64
+./jmsctl.sh upgrade
+./jmsctl.sh start
+```
+
+For the enterprise offline package, use the `jumpserver-ee-<version>-x86_64`
+package and the same commands.
+
+## Upgrade an online installation
+
+Download the installer package for the target version, extract it, then upgrade:
+
+```sh
+cd /opt
+tar -xf jumpserver-installer-<version>.tar.gz
+cd jumpserver-installer-<version>
+./jmsctl.sh upgrade
+./jmsctl.sh start
+```
+
+## After the upgrade
+
+- Run `./jmsctl.sh status` and confirm that all expected containers are running.
+- Open `/api/health/` and the web UI, then log in as a normal user.
+- Check the version shown in the UI and in the startup output.
+- Test one connection, one recording playback, and one account secret to confirm
+  that the data survived the migration.
+- Watch the Core and protocol component logs for errors for a few minutes.
+- Upgrade the other node in a high-availability pair after the first node is
+  healthy.
+
+## Routine maintenance
+
+| Task | Frequency | Notes |
+| --- | --- | --- |
+| Database and static file backup | Daily | Copy backups off the host; verify restore regularly |
+| Disk usage of `VOLUME_DIR` | Weekly | Recordings and logs grow quickly; increase storage or move recordings to object storage |
+| Log review | Weekly | Check Core, KoKo, and web logs for repeated errors |
+| Certificate renewal | Before expiry | Configure HTTPS and renew under `config/nginx/cert` |
+| License validity | Before expiry | Enterprise licenses expire; import a new license in System Settings |
+| Patch and version updates | Per release | Follow the upgrade path above |
+
+Local cleanup of login, operation, and file-transfer records is configured under
+**System Settings > System Tasks > Regular clean-up**. Recordings and commands
+written to external storage are not affected by that page. See
+[System Tasks](/administration/system-settings/infrastructure/system-tasks) and
+[Storage](/administration/system-settings/infrastructure/storage).
+
+## Related topics
+
+- [Upgrade](/getting-started/upgrade)
+- [Backup & Restore](/operations/maintenance/backup-restore)
+- [Configuration](/operations/deployment/configuration)

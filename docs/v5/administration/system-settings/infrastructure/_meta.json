@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "storage",
+    "label": "Storage"
+  },
+  {
+    "type": "file",
+    "name": "components",
+    "label": "Components"
+  },
+  {
+    "type": "file",
+    "name": "remote-app",
+    "label": "RemoteApp"
+  },
+  {
+    "type": "file",
+    "name": "system-tasks",
+    "label": "System Tasks"
+  },
+  {
+    "type": "file",
+    "name": "device-manager",
+    "label": "Device Manager"
+  }
+]

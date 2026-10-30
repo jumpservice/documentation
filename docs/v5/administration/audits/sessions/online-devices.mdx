@@ -1,0 +1,68 @@
+---
+title: "Online Devices"
+description: "View users currently signed in to JumpServer through the web interface and force logout selected devices."
+---
+
+# Online Devices
+
+**Online Devices** lists the users who are currently signed in to JumpServer through the web interface. Auditors use it to spot stale or unexpected sessions and to force a logout when a device should no longer have access.
+
+Open the page from **Audits > Sessions > Online Devices**. The page header reads **Online user devices**.
+
+## Overview
+
+The list shows the user, authentication method, login city, login date, active state, and actions for each web login. Only web logins are recorded here; connections to assets are listed under [Asset Sessions](/administration/audits/sessions/asset-sessions).
+
+The page note explains two constraints: the current user's own session cannot be logged out, and only web logins are recorded.
+
+## Prerequisites
+
+- Sign in with an account that has the `audits.view_usersession` permission, such as a system administrator or auditor.
+- Force logout additionally requires the `audits.offline_usersession` permission.
+
+## Log out a device
+
+<Steps>
+<div>
+Find the session with search, or sort by **Login date**.
+</div>
+<div>
+Select one or more rows.
+</div>
+<div>
+Click **More actions** and choose **Offline selected**, or use the power icon in the row actions for a single session.
+</div>
+<div>
+Confirm the operation.
+</div>
+</Steps>
+
+![Figure 1: Online user devices with user, authentication method, login city, and active state.](/images/jumpserver/v5_admin_online_01.png)
+
+<Alert type="warning">
+Logging out a device ends the user's web session immediately. The current user's own session is protected and cannot be logged out from this page.
+</Alert>
+
+## Customize columns
+
+Open **List preferences**, select the columns to display, and click **Confirm**. Extra columns include ID, expiration date, and user agent. **Restore defaults** resets the list.
+
+![Figure 2: Offline selected action for online devices.](/images/jumpserver/v5_admin_online_02.png)
+
+## Field reference
+
+| Field | Description |
+| --- | --- |
+| User | User signed in to the web interface. |
+| Authentication method | Method used for the sign-in, such as password. |
+| Login city | City resolved from the login address. |
+| Login date | When the session was created. |
+| Active | Whether the session is still active. |
+| Actions | Log out the selected session. |
+| Expiration date | Optional. When the session expires. |
+| User agent | Optional. Browser and operating system of the device. |
+
+## Related topics
+
+- [Login Logs](/administration/audits/activities/login-logs)
+- [Asset Sessions](/administration/audits/sessions/asset-sessions)

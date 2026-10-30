@@ -1,0 +1,25 @@
+[
+  {
+    "type": "file",
+    "name": "dashboards",
+    "label": "Dashboards"
+  },
+  {
+    "type": "dir",
+    "name": "workspace",
+    "label": "Workspace",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "account",
+    "label": "Account",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "support",
+    "label": "Support",
+    "collapsed": true
+  }
+]

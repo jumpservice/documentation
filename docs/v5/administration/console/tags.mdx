@@ -1,0 +1,89 @@
+---
+title: "Tags"
+description: "Create tags and attach them to assets and other resources to make inventory easier to filter and manage."
+---
+
+# Tags
+
+A **tag** classifies resources such as assets so they can be searched and
+filtered more easily. Each tag combines a **name** and a **value** and can have a
+color. Names may repeat, and a single resource can carry several tags.
+
+Open the page from **Console > Tags**.
+
+![Figure 1: Tags list showing name, value, color, and resource count.](/images/jumpserver/v5_admin_tags_01.png)
+
+## Overview
+
+The list columns are Name, Value, Color, Resources, Creation date, and Actions.
+The **Resources** column is the number of resources currently bound to the tag.
+The toolbar provides search, column settings, export, import, and refresh.
+**More actions** offers **Delete selected** only.
+
+Tags are scoped to the current organization. They are often used to record the
+department, owner, environment, or purpose of a resource.
+
+## Create a tag
+
+<Steps>
+<div>
+Click **Create**.
+</div>
+
+<div>
+In the **Create tag** drawer, fill in the fields below.
+</div>
+
+<div>
+Click **Submit**, or **Save and continue adding** to create another tag.
+</div>
+</Steps>
+
+![Figure 2: Create tag drawer with name, value, and color.](/images/jumpserver/v5_admin_tags_02.png)
+
+### Field reference
+
+| Field | Description |
+| --- | --- |
+| Name | Required. The tag category, for example Department or Purpose. |
+| Value | Required. The specific content within that category. |
+| Color | Swatch used in lists so tags can be told apart at a glance. |
+| Comment | Optional. |
+
+## Attach tags to resources
+
+There are three ways to bind a tag:
+
+1. **From the tag**: click the number in the **Resources** column to open
+   **Associate resources** and review what is already bound. You can add more or
+   remove existing bindings from that dialog.
+2. **From the row menu**: click **...** and choose **Associate resources**, select
+   a **Resource type**, move resources from the left list to the right, and click
+   **Confirm**. No resources are selectable until a resource type is chosen.
+3. **From the asset**: select tags in **Other settings** while creating an asset,
+   or add them from the **Tags** area on the asset's **Basic** tab in
+   [Assets](/administration/console/assets/).
+
+## Edit, duplicate, and delete
+
+The Actions column provides:
+
+- **Edit**: open **Update tag**. Fields are the same as for creation.
+- **Duplicate**: copy the tag as a new one.
+- **Associate resources**: bind or unbind resources.
+- **Delete**: remove the tag.
+
+Select several tags and use **More actions > Delete selected** to delete them in a
+batch.
+
+<Alert type="note">
+Deleting a tag removes it from every resource that carried it, but the resources
+themselves are not deleted. Tags are not used for access control; use
+[Authorizations](/administration/console/policies/authorizations) for that.
+</Alert>
+
+## Related topics
+
+- [Assets](/administration/console/assets/)
+- [Accounts](/administration/console/accounts/)
+- [Users](/administration/console/users/)

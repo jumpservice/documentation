@@ -1,11 +1,6 @@
 [
   {
     "type": "file",
-    "name": "index",
-    "label": "Developer Guide Overview"
-  },
-  {
-    "type": "file",
     "name": "rest-api",
     "label": "REST API"
   },

@@ -1,0 +1,13 @@
+[
+  {
+    "type": "file",
+    "name": "authorizations",
+    "label": "Authorizations"
+  },
+  {
+    "type": "dir",
+    "name": "acls",
+    "label": "ACLs",
+    "collapsed": true
+  }
+]

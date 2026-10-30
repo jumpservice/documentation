@@ -1,0 +1,74 @@
+---
+title: "Login Logs"
+description: "Review successful and failed JumpServer sign-ins, including authentication method, source, and failure reason."
+---
+
+# Login Logs
+
+**Login Logs** records every sign-in attempt to JumpServer, successful or failed. Use it to confirm who signed in, from where, with which method, and why an attempt failed.
+
+Open the page from **Audits > Activities > Login Logs**.
+
+## Overview
+
+Each row shows the username, authentication method, login city, reason description, status, and login date. Failed rows include the reason, which makes this page the first place to check when users report that they cannot sign in.
+
+The toolbar provides search, a date range, column settings, export, and refresh.
+
+## Prerequisites
+
+- Sign in with an account that has the `audits.view_userloginlog` permission, such as a system administrator or auditor.
+- Users must have attempted to sign in at least once.
+
+## Investigate sign-ins
+
+<Steps>
+<div>
+Set the date range to the period you want to review.
+</div>
+<div>
+Search for a username or filter the list with the toolbar.
+</div>
+<div>
+Read the **Status** and **Reason description** columns to separate successful sign-ins from failed attempts.
+</div>
+<div>
+If a web session needs to be closed, continue in [Online Devices](/administration/audits/sessions/online-devices).
+</div>
+</Steps>
+
+![Figure 1: Login Logs with username, authentication method, login city, reason, status, and login date.](/images/jumpserver/v5_admin_loginlog_01.png)
+
+## Customize columns and export
+
+Open **List preferences**, select the columns to display, and click **Confirm**. Extra columns include ID, type, login IP, user agent, MFA, and reason. **Restore defaults** returns to the standard set.
+
+![Figure 2: List preferences for login logs.](/images/jumpserver/v5_admin_loginlog_02.png)
+
+Click **Export**, choose **CSV** or **Excel**, select **Export all**, **Export selected**, or **Export search results**, and click **Confirm**.
+
+## Field reference
+
+| Field | Description |
+| --- | --- |
+| Username | Account name used for the sign-in attempt. |
+| Authentication method | Method used to authenticate, for example password, LDAP/AD, or an SSO provider. |
+| Login city | City resolved from the login address. |
+| Reason description | Explanation for a failed sign-in; empty for successful ones. |
+| Status | Whether the attempt succeeded or failed. |
+| Login date | When the attempt happened. |
+| Type | Optional. Login source, such as web or terminal. |
+| Login IP | Optional. Source address of the attempt. |
+| MFA | Optional. MFA method used. |
+| User agent | Optional. Browser and operating system. |
+
+## Notes
+
+<Alert type="tip">
+A burst of failed attempts from one address or against one account is a useful early warning. Export the filtered rows and include them in your security review.
+</Alert>
+
+## Related topics
+
+- [Password Change Logs](/administration/audits/activities/password-change-logs)
+- [Online Devices](/administration/audits/sessions/online-devices)

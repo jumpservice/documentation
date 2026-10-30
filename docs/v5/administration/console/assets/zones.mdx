@@ -1,0 +1,148 @@
+---
+title: "Zones"
+description: "Define network zones and gateways so JumpServer can reach assets that are not directly accessible."
+---
+
+# Zones
+
+A **zone** represents where an asset lives: a data center, a public cloud, or a
+VPC. A zone can contain one or more **gateways**, and when JumpServer cannot
+reach an asset directly, it connects through a gateway in the asset's zone. Use
+zones whenever assets sit behind a jump host or in a segmented network.
+
+Open the page from **Console > Zones**.
+
+![Figure 1: Zones list showing asset and gateway counts.](/images/jumpserver/v5_admin_zones_01.png)
+
+## Overview
+
+Each network location is modeled once, and assets are assigned to it. The
+gateway then acts as the connection entry point for every asset in that zone, so
+you do not need a separate route for each host. The list columns are Name,
+Number of assets, Number of gateways, Comment, and Actions.
+
+## Before you begin
+
+- Sign in with an account that can manage assets.
+- Create the assets first, or add them to the zone after it is created. See
+  [Assets](/administration/console/assets/).
+- Prepare at least one host that can act as a gateway and is reachable from
+  JumpServer.
+
+<Alert type="important">
+  Zones are scoped to the current organization: the list shows only zones in the
+  active organization, and gateway forwarding applies only to assets in that
+  organization.
+</Alert>
+
+## Create a zone
+
+<Steps>
+<div>
+Click **Create**.
+</div>
+
+<div>
+  In the **Create zone** drawer, type a **Name** and, optionally, select the
+  **Assets** that should be reached through this zone.
+</div>
+
+<div>
+Click **Submit**, or **Save and continue adding** to create another zone.
+</div>
+</Steps>
+
+![Figure 2: Create zone drawer with name, gateway, assets, and comment fields.](/images/jumpserver/v5_admin_zones_02.png)
+
+### Field reference
+
+| Field   | Description                                                                                                                                                                      |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name    | Required. The zone name.                                                                                                                                                         |
+| Gateway | Added after the zone is created, from the zone detail page.                                                                                                                      |
+| Assets  | Assets that should be reached through this zone. Can be maintained later. From v5.1.0, assets are also assigned automatically when their addresses match the zone's CIDR blocks. |
+| Comment | Optional.                                                                                                                                                                        |
+
+## Assign assets by CIDR
+
+<VersionBadge version="5.1.0" kind="new" />
+
+Available since JumpServer v5.1.0. A zone can define one or more CIDR blocks in
+addition to a manual asset list. When an asset's address falls inside a block,
+JumpServer assigns the asset to the zone automatically, so assets that are
+imported or synchronized in bulk do not need to be selected by hand.
+
+- Set the CIDR blocks in the same drawer used to create or edit the zone.
+- CIDR matching is based on the asset's address.
+- Assets that are selected manually remain in the zone, and CIDR matching adds the
+  assets whose addresses match.
+- Review the **Assets** tab of the zone after you change its CIDR blocks.
+
+{/* //TODO: Add a screenshot of the CIDR configuration in the Create zone and Update zone drawers, with several CIDR blocks entered. */}
+
+## Create a gateway
+
+<Steps>
+<div>
+Open the zone by clicking its **Name**, then select the **Gateways** tab.
+</div>
+
+<div>Click **Create**, fill in the gateway fields, and click **Submit**.</div>
+
+<div>
+Optionally use **Add** on the **Gateways** tab to attach an existing gateway
+asset instead of creating a new one.
+</div>
+</Steps>
+
+### Gateway field reference
+
+| Group    | Field    | Description                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------- |
+| Basic    | Name     | Required. Display name of the gateway.                                                        |
+| Basic    | IP/Host  | Required. Address of the gateway.                                                             |
+| Basic    | Platform | Must use a platform whose name starts with Gateway. The default Gateway platform is provided. |
+| Basic    | Nodes    | Required. Nodes the gateway belongs to.                                                       |
+| Protocol | Protocol | Defaults include `ssh/22` and `sftp/22`; the list can be edited.                              |
+| Account  | Account  | Bind the account used to sign in to the gateway, with **Add** or **Add from template**.       |
+| Other    | Zone     | Automatically bound to the current zone.                                                      |
+| Other    | Tags     | Optional.                                                                                     |
+| Other    | Active   | When selected, the gateway can be used.                                                       |
+| Other    | Comment  | Optional. Shown in the user's asset tree in Luna; do not store secrets here.                  |
+
+<Alert type="important">
+  The gateway platform must start with Gateway, and available protocols come
+  from that platform. Do not use a normal host platform for a gateway asset.
+</Alert>
+
+## Zone details
+
+Click a zone's **Name** to open the detail drawer. Tabs include **Basic**,
+**Gateways**, **Assets**, and **Activity**.
+
+- **Basic** shows the name, asset and gateway counts, creation date, and comment.
+- **Gateways** lists gateways with name, IP/host, connectivity, and actions.
+- **Assets** lets you add existing assets to the zone with **Add**.
+- **Activity** shows the most recent 30 operations.
+
+## Edit, duplicate, and delete
+
+Use the edit icon in the Actions column, or **Edit** in the detail drawer, to
+open **Update zone**. Change the name, assets, or comment, then click **Submit**.
+Gateways are still maintained from the **Gateways** tab.
+
+The row menu (**...**) provides **Delete** and **Duplicate**. **Activity** shows
+recent operations for the zone. To remove a single asset or gateway, use the
+corresponding tab instead of deleting the zone.
+
+<Alert type="warning">
+  Deleting a zone is irreversible and removes its gateway routing configuration.
+  Remove individual assets or gateways from the tabs when you only want to
+  detach them.
+</Alert>
+
+## Related topics
+
+- [Assets](/administration/console/assets/)
+- [Cloud Sync](/administration/console/assets/cloud-sync)
+- [Authorizations](/administration/console/policies/authorizations)

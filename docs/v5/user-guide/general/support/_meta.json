@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "help",
+    "label": "Help & Support"
+  },
+  {
+    "type": "file",
+    "name": "ai-assistant",
+    "label": "AI Assistant"
+  }
+]

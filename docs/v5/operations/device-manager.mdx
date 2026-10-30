@@ -6,7 +6,9 @@ description: "Use Device Manager (JDMC) to monitor and maintain the server and c
 # Device Manager
 
 <Alert type="xpack">
-**Device Manager (JDMC)** requires JumpServer Enterprise Edition. The entry is available only when the deployment includes JDMC and the license and account permissions allow it.
+  **Device Manager (JDMC)** requires JumpServer Enterprise Edition. The entry is
+  available only when the deployment includes JDMC and the license and account
+  permissions allow it.
 </Alert>
 
 **Device Manager** opens **JDMC**, the host operations console that is deployed
@@ -20,10 +22,10 @@ restarts, log inspection, and primary/standby setup. Use Device Manager when the
 task targets the JumpServer host or its containers.
 
 <Alert type="warning">
-Device Manager actions affect the whole JumpServer deployment and can interrupt
-active sessions. Restrict access to authorized administrators, plan a maintenance
-window, and [back up the deployment](/operations/backup-restore) before changing
-network, disk, or availability settings.
+  Device Manager actions affect the whole JumpServer deployment and can
+  interrupt active sessions. Restrict access to authorized administrators, plan
+  a maintenance window, and [back up the deployment](/operations/maintenance/backup-restore)
+  before changing network, disk, or availability settings.
 </Alert>
 
 ## Open Device Manager
@@ -36,7 +38,7 @@ If you open `https://<jumpserver-host>/jdmc/` directly, sign in with the server'
 the JumpServer host name and is served under the `/jdmc/` path.
 
 For the entry, sign-in, and field-level details, see
-[Device Manager](/features/system-settings/device-manager).
+[Device Manager](/administration/system-settings/infrastructure/device-manager).
 
 ## What you can manage
 
@@ -55,27 +57,52 @@ the host is healthy.
 
 ### System management
 
-| Area | Operational use |
-| --- | --- |
-| Network configuration | Manage interfaces, routes and gateways, DNS, and Docker networks |
-| Domain configuration | Set the access domain and view or update the service certificate |
-| Disk management | Expand a data disk and review mount-point capacity |
-| License management | Copy the machine code and upload a JDMC license |
-| Service settings | Change the root password, port exposure policy, SNMP settings, and system time |
-| Primary/standby management | Inspect and configure a two-node high-availability cluster |
+| Area                       | Operational use                                                                |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| Network configuration      | Manage interfaces, routes and gateways, DNS, and Docker networks               |
+| Domain configuration       | Set the access domain and view or update the service certificate               |
+| Disk management            | Expand a data disk and review mount-point capacity                             |
+| License management         | Copy the machine code and upload a JDMC license                                |
+| Service settings           | Change the root password, port exposure policy, SNMP settings, and system time |
+| Primary/standby management | Inspect and configure a two-node high-availability cluster                     |
 
 ![Network configuration in JDMC](/images/jumpserver/v5_jdmc_network_01.png)
 
 ### Application management
 
-| Area | Operational use |
-| --- | --- |
-| Data backup | Back up configuration files, the database, system logs, and session recordings; configure a remote SFTP target |
-| Application status | Start, restart, and inspect JumpServer containers, with streaming command output |
-| Application configuration | Edit deployment-level settings that are not exposed in Lina |
-| Application logs | View log files and follow live container logs |
+| Area                      | Operational use                                                                                                |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Data backup               | Back up configuration files, the database, system logs, and session recordings; configure a remote SFTP target |
+| Application status        | Start, restart, and inspect JumpServer containers, with streaming command output                               |
+| Application configuration | Edit deployment-level settings that are not exposed in Lina                                                    |
+| Application logs          | View log files and follow live container logs                                                                  |
 
 ![Application status in JDMC](/images/jumpserver/v5_jdmc_appstate_01.png)
+
+## High availability and maintenance
+
+<VersionBadge version="5.1.0" kind="new" />
+
+JDMC adds primary and standby management, system upgrade management, and patch
+package management. Use primary and standby management to inspect and configure
+a two-node high-availability cluster, and use system upgrade management and
+patch package management to maintain the deployment without leaving the console.
+Available since JumpServer v5.1.0.
+
+For the surrounding procedure, see
+[Upgrade & Maintenance](/operations/maintenance/upgrade-maintenance).
+
+{/* //TODO: Add a screenshot of the JDMC system upgrade and patch package pages for this page. */}
+
+### Stronger persistent write protection
+
+<VersionBadge version="5.1.1" kind="changed" />
+
+High availability deployments apply stronger persistent write protection for
+databases and Redis across container restarts, re-creation, and failure
+recovery. Redeployment completion checks tolerate normal replication lag, and
+switchover waits and recovery coordination are refined to reduce false failure
+detection.
 
 ## Runtime environment check
 
@@ -87,16 +114,16 @@ unavailable until it is installed. Select **Re-check** after fixing the dependen
 
 ## Common operational scenarios
 
-| Scenario | Use Device Manager to |
-| --- | --- |
-| Prepare for an upgrade | Check the dashboard, take a backup, review application status and logs |
-| Change TLS or the access domain | Update the domain and certificate, then verify the service |
-| Disk is filling up | Review mount-point usage and expand the data disk |
-| License is expiring | Copy the machine code and upload a new license |
-| Network or DNS change | Update interfaces, routes, DNS, or Docker networks during a maintenance window |
-| Container is unhealthy | Inspect application status and logs, then restart the affected container |
-| Build a two-node deployment | Configure primary/standby management |
-| Collect evidence after an incident | Export logs and a configuration backup |
+| Scenario                           | Use Device Manager to                                                          |
+| ---------------------------------- | ------------------------------------------------------------------------------ |
+| Prepare for an upgrade             | Check the dashboard, take a backup, review application status and logs         |
+| Change TLS or the access domain    | Update the domain and certificate, then verify the service                     |
+| Disk is filling up                 | Review mount-point usage and expand the data disk                              |
+| License is expiring                | Copy the machine code and upload a new license                                 |
+| Network or DNS change              | Update interfaces, routes, DNS, or Docker networks during a maintenance window |
+| Container is unhealthy             | Inspect application status and logs, then restart the affected container       |
+| Build a two-node deployment        | Configure primary/standby management                                           |
+| Collect evidence after an incident | Export logs and a configuration backup                                         |
 
 ## One console for most operations
 
@@ -104,18 +131,18 @@ Most of the operational work described in this section can be completed from Dev
 Manager. The table below maps the surrounding Operations topics to the console areas
 that support them.
 
-| Operations task | Device Manager area |
-| --- | --- |
-| Backup preparation | **Data backup** for configuration, database, logs, and recordings |
-| Configuration changes | **Application configuration** and **Network configuration** |
-| Network and port review | **Network configuration** and **Service settings** |
-| HTTPS and certificate changes | **Domain configuration** |
-| Disk capacity expansion | **Disk management** |
-| License renewal | **License management** |
-| Upgrade and maintenance support | Dashboard, **Data backup**, **Application status**, and **Application logs** |
-| Container troubleshooting | **Application status**, **Application logs**, and the runtime environment check |
-| Security hardening | **Service settings**: root password, port policy, SNMP, and system time |
-| High availability | **Primary/standby management** |
+| Operations task                 | Device Manager area                                                             |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| Backup preparation              | **Data backup** for configuration, database, logs, and recordings               |
+| Configuration changes           | **Application configuration** and **Network configuration**                     |
+| Network and port review         | **Network configuration** and **Service settings**                              |
+| HTTPS and certificate changes   | **Domain configuration**                                                        |
+| Disk capacity expansion         | **Disk management**                                                             |
+| License renewal                 | **License management**                                                          |
+| Upgrade and maintenance support | Dashboard, **Data backup**, **Application status**, and **Application logs**    |
+| Container troubleshooting       | **Application status**, **Application logs**, and the runtime environment check |
+| Security hardening              | **Service settings**: root password, port policy, SNMP, and system time         |
+| High availability               | **Primary/standby management**                                                  |
 
 Device Manager complements the procedures in this section rather than replacing
 them: use it for host and container actions, and follow the linked page for the
@@ -125,8 +152,8 @@ surrounding process, validation, and rollback steps.
 
 - Device Manager operates on the **host and containers**; JumpServer Console operates on
   organizations, users, assets, accounts, and authorizations.
-- Device Manager is not a replacement for [Backup & Restore](/operations/backup-restore) or
-  [Upgrade & Maintenance](/operations/upgrade-maintenance); use it as the host
+- Device Manager is not a replacement for [Backup & Restore](/operations/maintenance/backup-restore) or
+  [Upgrade & Maintenance](/operations/maintenance/upgrade-maintenance); use it as the host
   console that supports those workflows.
 - Some actions require root-level access and a healthy runtime environment. Do not
   run host-level changes during active maintenance windows without a rollback plan.
@@ -135,8 +162,8 @@ surrounding process, validation, and rollback steps.
 
 ## Related topics
 
-- [Device Manager](/features/system-settings/device-manager) — entry, sign-in, and console reference
-- [Backup & Restore](/operations/backup-restore)
-- [Upgrade & Maintenance](/operations/upgrade-maintenance)
-- [Configuration](/operations/configuration)
-- [Network Ports](/operations/network-ports)
+- [Device Manager](/administration/system-settings/infrastructure/device-manager) — entry, sign-in, and console reference
+- [Backup & Restore](/operations/maintenance/backup-restore)
+- [Upgrade & Maintenance](/operations/maintenance/upgrade-maintenance)
+- [Configuration](/operations/deployment/configuration)
+- [Network Ports](/operations/deployment/network-ports)

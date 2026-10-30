@@ -1,0 +1,102 @@
+---
+title: "System Tasks"
+description: "Review scheduled automation, inspect task history and worker health, and configure retention for logs, records, and session evidence."
+---
+
+# System Tasks
+
+System Tasks shows everything that JumpServer runs in the background and lets
+you control how long the resulting records are kept. Scheduled automations,
+periodic synchronizations, and cleanup jobs are all listed here.
+
+## Overview
+
+The page has two tabs:
+
+| Tab              | Purpose                                                                 |
+| ---------------- | ----------------------------------------------------------------------- |
+| Tasks            | Scheduled tasks, their state, execution history, and worker monitoring. |
+| Regular clean-up | Retention periods for logs, activity records, and execution history.    |
+
+## Task list
+
+| Column              | Description                                                                |
+| ------------------- | -------------------------------------------------------------------------- |
+| Name                | Task name. For scheduled tasks, the subtitle describes what the task does. |
+| Queue               | Celery queue that executes the task.                                       |
+| Success / Total     | Number of successful executions against the total.                         |
+| State               | Health indicator for the task: green, yellow, or red.                      |
+| Last published      | When the task was last dispatched.                                         |
+| Execution cycle     | Cron expression or interval for periodic tasks.                            |
+| Next execution time | Planned time of the next run.                                              |
+| Enabled             | Switch that enables or disables a periodic task.                           |
+
+Typical entries include account backup plans, account pushes, connectivity
+checks, email delivery, directory synchronization, and cloud synchronization.
+Click a task name to open its detail page with the full execution history and
+logs.
+
+![Figure 1: System task list](/images/jumpserver/V4_system_task_01.png)
+
+## Inspect and control tasks
+
+<Steps>
+
+<div>
+  <Nav name="system-settings" />
+</div>
+
+<div>In the left menu, click **System Tasks**.</div>
+
+<div>
+  Open the **Tasks** tab. Use the **Enabled** switch on a periodic task to pause
+  or resume it.
+</div>
+
+<div>
+  Click a task name to open the detail page. Review the execution history and
+  open a failed run to read its log.
+</div>
+
+<div>
+  Click **Task monitor** to open the Celery monitoring page in a new tab and
+  check worker queues and workload.
+</div>
+
+</Steps>
+
+### Celery logs
+
+<VersionBadge version="5.1.0" kind="changed" />
+
+Celery logs are consolidated into a single window with separate tabs. Switch
+between the tabs to read the logs of different tasks instead of opening one
+window per task.
+
+## Regular clean-up
+
+Retention is configured per record type. The defaults are suitable for most
+deployments; shorten them when local storage grows quickly, and lengthen them
+when audit requirements demand it.
+
+| Record type                 | What is deleted                                         |
+| --------------------------- | ------------------------------------------------------- |
+| Login log                   | User sign-in records.                                   |
+| Task log                    | Automated task execution records.                       |
+| Operate log                 | User operations on assets and resources.                |
+| Password change log         | Password change history.                                |
+| Upload / download log       | FTP file transfer records.                              |
+| Session log                 | Session records, command records, and local recordings. |
+| Activity log                | Activity records shown on resource detail pages.        |
+| Job execution               | Job center execution history.                           |
+| Cloud sync task execution   | History of asset cloud synchronization runs.            |
+| Change secret / push record | Account secret changes and account pushes.              |
+
+![Figure 2: Regular clean-up settings](/images/jumpserver/V4_system_task_05.png)
+
+<Alert type="warning">
+  Clean-up settings control local records only. Recordings or command logs that
+  are stored in external storage are governed by the retention policy of that
+  system, and files already removed by a cleanup task cannot be recovered.
+  Verify backups before you shorten a retention period.
+</Alert>
