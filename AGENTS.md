@@ -89,7 +89,7 @@ theme/              主题组件；rspress.config.ts 为站点配置（base、�
 | 代码块      | 标注语言（` ```sh `、` ```bash `、` ```json `、` ```yaml `）；密码/Token/AK/SK 一律占位符；版本号命令用 `VersionedCommand`                                                                                 | [6.10](WRITING-GUIDE.md#6-组件与-markdown-规范) |
 | 表格        | 列数一致，单元格内不换行；用 Markdown 原生表格，不手写 `<table>`                                                                                                                                           | [8](WRITING-GUIDE.md#8-图示与表格规范)          |
 | 术语        | 英文界面术语；菜单路径写 **Console > Assets**；按钮名加粗 **Create**                                                                                                                                       | [4.4–4.5](WRITING-GUIDE.md#4-行文规范)          |
-| 版本        | 一页只讲一个版本，V5 页面不混入 V4 菜单；同一页面内的链接都用版本内路径，不要给本版本链接加 `/v4` 前缀；功能引入/变更只用 `VersionBadge` 标注，正文不重复版本描述（[10.7](WRITING-GUIDE.md#107-版本引入与变更标注)） | [10](WRITING-GUIDE.md#10-版本国际化与发布)      |
+| 版本        | 一页只讲一个版本，V5 页面不混入 V4 菜单；同一页面内的链接都用版本内路径，不要给本版本链接加 `/v4` 前缀；功能引入/变更用 `VersionBadge` 标注，并在页面下方维护 `## Version history` Release note 表，正文不重复版本描述（[10.7](WRITING-GUIDE.md#107-版本引入与变更标注)） | [10](WRITING-GUIDE.md#10-版本国际化与发布)      |
 
 ## 6. 组件速查
 

@@ -1227,8 +1227,22 @@ pnpm preview --port 4173    # 预览构建产物，http://127.0.0.1:4173/docs/
 **正文措辞**：
 
 - 有徽标的小节，正文只描述功能本身；不再重复 `Available since JumpServer vX.Y.Z`、`From vX.Y.Z, ...`、`In vX.Y.Z, ...`、`The same release...` 等版本化开场。
-- 功能页不再增加 `## Version history` 表；版本历史集中在 [What's New](/reference/whats-new)、[Changelog](/reference/changelog) 与升级页，避免同一版本信息在多个页面重复漂移。
+- **每个涉及版本变化的功能页必须在页面下方增加 `## Version history` 表**，把该页的 Release note 穿插在功能文档中；表放在 `## Related topics` 之前，没有 Related topics 时放在页面末尾。
+- 表使用 `| Version | Change |` 两列，按版本从新到旧排列；每行写一条与该页功能直接相关、可验证的变化描述。
+- 同一页面可以有多个同版本条目（不同功能小节的变化），不要为了合并而丢失信息。
+- 版本历史集中在 [What's New](/reference/whats-new)、[Changelog](/reference/changelog) 与升级页，同时保留功能页内的版本历史表，三者互相印证但角度不同。
 - 例外：升级页、兼容性说明和迁移步骤本身就以版本为主题，可以保留必要的版本号与前后行为对比，但仍应聚焦“升级时做什么”。
+
+示例：
+
+```mdx
+## Version history
+
+| Version | Change |
+| --- | --- |
+| v5.1.0 | Added batch download for historical session recordings. |
+| v5.0.0 | Introduced the feature for the first time. |
+```
 
 **事实来源**：版本归属以 GitHub Release Notes、`src/data/releases.json`（版本历史）与 `src/data/release-notes.json`（详细说明）为准，不得凭印象写"某版本新增"。发布说明页（[changelog.mdx](docs/v5/reference/changelog.mdx)）同时渲染这两份数据：新增版本时，版本历史更新 `releases.json`（脚本自动），详细说明更新 `release-notes.json`（人工维护），不在页面里手抄。
 
