@@ -13,7 +13,9 @@
     "preview": "node scripts/preview.mjs",
     "preview:rspress": "rspress preview",
     "prepare": "node scripts/install-git-hooks.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "push:search": "node scripts/push-search-index.mjs",
+    "deploy:cloudflare": "npx wrangler deploy && pnpm run push:search"
   },
   "dependencies": {
     "@rsbuild/plugin-svgr": "^2.0.5",

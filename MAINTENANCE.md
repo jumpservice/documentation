@@ -299,10 +299,31 @@ Cloudflare Workers Builds 建议参数：
 | Repository        | `jumpservice/documentation`                         |
 | Production branch | `dev`（稳定后）/ `feat/rspress-v5-docs`（预览阶段） |
 | Build command     | `pnpm run build`                                    |
-| Deploy command    | `npx wrangler deploy`                               |
+| Deploy command    | `pnpm run deploy:cloudflare`                        |
 | Root directory    | `/`                                                 |
 | Watch include     | `*`                                                 |
 | Watch exclude     | `node_modules/**,.git/**`                           |
+
+`deploy:cloudflare` 会先执行 `npx wrangler deploy`，部署成功后再执行
+`scripts/push-search-index.mjs`，向 IndexNow 和 Google Indexing API 提交
+`build/sitemap.xml` 中的页面。
+
+Cloudflare 构建环境变量：
+
+| 变量 | 必填 | 说明 |
+| --- | --- | --- |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | 推荐 | Google 服务账号 JSON 原文；也可以改用 `GOOGLE_SERVICE_ACCOUNT_JSON_B64` |
+| `GOOGLE_SERVICE_ACCOUNT_JSON_B64` | 推荐 | Google 服务账号 JSON 的 Base64，避免多行 JSON 在 CI 中被转义 |
+| `INDEXNOW_KEY` | 否 | 默认使用仓库内置的 IndexNow key |
+| `SEARCH_SITE_ORIGIN` | 否 | 默认 `https://www.jumpserver.com` |
+| `SEARCH_PUSH_STRICT` | 否 | 设为 `1` 时搜索推送失败会让部署失败；默认只记录日志 |
+
+推送策略：
+
+- IndexNow：提交 sitemap 中的全部 URL
+- Google Indexing API：默认只提交 V5 URL（排除 `/docs/v4/`），避免超过每日 200 条配额；设置 `GOOGLE_INDEXING_ALL=1` 可包含 V4
+- Google 服务账号需要是 Search Console 对应资源的 owner，否则 API 会返回权限错误
+- IndexNow 验证文件位于 `docs/public/019db843c3d570d9a0a88a45aad88338.txt`，部署后可通过 `/docs/019db843c3d570d9a0a88a45aad88338.txt` 访问
 
 当前 Worker 按 `/docs` 子路径部署：
 
