@@ -14,7 +14,7 @@ export default function ChangelogTable() {
       { content: release.date },
       {
         content: "Read More",
-        link: `https://github.com/jumpserver/jumpserver/releases/${release.version}`,
+        link: `https://github.com/jumpserver/jumpserver/releases/tag/${release.version}`,
       },
     ]);
 

@@ -77,6 +77,7 @@ export default defineConfig({
       abs("src/components/global/Nav.tsx"),
       abs("src/components/global/ApplyTrialLicense.tsx"),
       abs("src/components/global/DataTable.tsx"),
+      abs("src/components/global/VersionBadge.tsx"),
     ],
   },
   plugins: [
