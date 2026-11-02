@@ -1,0 +1,106 @@
+[
+  {
+    "version": "v5.1.1",
+    "date": "2026-10-20",
+    "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.1.1",
+    "summary": "High availability hardening for container deployments, stricter Access Token validation, and more reliable Tinker RDP deployment.",
+    "sections": [
+      {
+        "title": "Improvements",
+        "items": [
+          "Background task records omit the original arguments and keyword arguments at creation, reducing unnecessary parameter persistence",
+          "High availability deployments apply stronger persistent write protection for databases and Redis across container restarts, re-creation, and failure recovery",
+          "Redeployment completion checks tolerate normal replication lag, and switchover waits and recovery coordination are refined to reduce false failure detection"
+        ]
+      },
+      {
+        "title": "Bug fixes",
+        "items": [
+          "Access Token format validation now preserves fallback compatibility with other Bearer Token authentication methods",
+          "Tinker applet host deployment checks Group Policy, disables listener NLA before installation, verifies the configuration afterwards, and stops with clear guidance when Group Policy requires NLA",
+          "Race conditions involving role callbacks, operation locks, and file synchronization acknowledgements during switchover, automatic rejoin, and startup recovery (Enterprise Edition)",
+          "MySQL and MariaDB replication position handling and crash recovery are improved, and a race condition in PostgreSQL replication slot cleanup during standby rebuilds is fixed (Enterprise Edition)",
+          "Local administrator credential recovery and health checks during MySQL and MariaDB maintenance no longer use peer credentials or stale application passwords (Enterprise Edition)"
+        ]
+      }
+    ]
+  },
+  {
+    "version": "v5.1.0",
+    "date": "2026-10-15",
+    "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.1.0",
+    "summary": "A new KoKo TUI, Windows PowerShell over WinRM, Dameng Database support, DBX and Tinker changes, AI-assisted command filters, CIDR zones, persistent tab groups, and many experience improvements.",
+    "sections": [
+      {
+        "title": "New features",
+        "items": [
+          "KoKo revamps the TUI terminal experience, restoring plain-text connection mode and adding an asset tree, search and filtering, mouse controls, and multi-session management for direct SSH access",
+          "Magnus supports connections to Dameng Database (Enterprise Edition)",
+          "KoKo supports Windows PowerShell over WinRM and the Dameng Database Web CLI; WinRM provides command auditing, ACL enforcement, session recording, and AI assistance in Luna Web and desktop clients",
+          "Tinker is redesigned to provide standalone RDP desktops through the Windows authentication plugin, replacing the previous RemoteApp-based approach",
+          "Luna Workspace supports database connections through DBX, and DBX replaces DBeaver as the default remote database application",
+          "Command filter rules support AI-assisted drafting and conversational creation through the AI assistant, with an improved configuration experience for command filter rules and command groups",
+          "Asset login ACLs support configurable approval exemption periods, so the same user can reconnect to the same asset with the same account without repeated approval during the configured period (Enterprise Edition)",
+          "OAuth2 login supports user group synchronization, configurable user group attribute mapping, and certificate verification modes (Enterprise Edition)",
+          "SAML2 remote metadata supports configurable certificate verification modes (Enterprise Edition)",
+          "Zones support CIDR configuration so assets are assigned automatically based on their addresses",
+          "Tabs support persistent grouping that can be restored in future sessions, with drag-and-drop grouping by dropping one tab onto another",
+          "Personal credential creation reminders and daily activity summaries, plus recent usage tracking for credentials such as Access Keys, temporary passwords, and connection tokens",
+          "Session recordings support batch downloads",
+          "Asset authorizations support configurable expiration reminders",
+          "Work order auditing supports filtering and exporting by creation time (Enterprise Edition)",
+          "JDMC adds primary and standby management, system upgrade management, and patch package management"
+        ]
+      },
+      {
+        "title": "Improvements",
+        "items": [
+          "OpenBao enables HTTPS by default",
+          "MFA user settings follow the system configuration by default, authentication methods not enabled at the system level are clearly marked, and MFA is automatically enabled and cannot be disabled when enforced system-wide",
+          "SQL execution plan visualization in Chen Web gains a summary view and quick-access toolbar actions",
+          "Work order exports convert approval workflows, approvers, approval statuses, and related resources into more readable text (Enterprise Edition)",
+          "Lina search lets users edit search condition values",
+          "Access control policies support asset-based selection for connection methods (Enterprise Edition)",
+          "LDAP supports user group mapping through distinguishedName",
+          "Account templates explicitly identify fields that inherit values from the template",
+          "In-app notifications support paginated access to all unread messages",
+          "The mobile experience has better connection button adaptation and a more compact layout",
+          "Keyboard and shortcut controls in the lower-right corner of the interface are improved",
+          "Celery logs are consolidated into a single window with separate tabs",
+          "The default Ansible WinRM configuration is improved when HTTPS is enabled"
+        ]
+      },
+      {
+        "title": "Bug fixes",
+        "items": [
+          "Fix KoKo crashes on certain legacy CPUs",
+          "Fix node selections not being saved when creating jobs, and improve permission, command filter rule, and data masking rule checks when selecting assets through nodes",
+          "Fix Redis SSL verification settings not taking effect",
+          "Fix LDAP connection timeout settings, incorrect LDAP HA user source records, and LDAP user list sorting failures when sort fields are unavailable",
+          "Improve Jinja2 content handling and username validation in account automation to keep invalid discovered accounts out of downstream automation",
+          "Fix the authorization scope and detail list inconsistency after excluding specific accounts from an asset authorization",
+          "Fix anonymous users not being supported correctly for web connections",
+          "Fix the scheduled LDAP synchronization toggle not being displayed correctly in the Community Edition",
+          "Fix the AI dialog appearing behind the web session interface",
+          "Fix the AI panel expanding automatically in the desktop client"
+        ]
+      }
+    ]
+  },
+  {
+    "version": "v5.0.0",
+    "date": "2026-09-17",
+    "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.0.0",
+    "summary": "The first V5 release: a refreshed native client with a unified connection entry, AI-assisted operations and auditing, and a redesigned KoKo TUI.",
+    "sections": [
+      {
+        "title": "New features",
+        "items": [
+          "A refreshed native JumpServer Client with a unified entry point for SSH, RDP, Kubernetes, database, and RemoteApp assets, alongside split views, a file workspace, a script library, and SFTP Server connections",
+          "AI-assisted command recommendations, real-time operation risk alerts, and automated audit reports",
+          "A redesigned KoKo TUI makes it easier to find assets, choose accounts and protocols, and switch between sessions from an SSH terminal"
+        ]
+      }
+    ]
+  }
+]
