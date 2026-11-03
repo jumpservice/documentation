@@ -11,6 +11,11 @@
   },
   {
     "type": "file",
+    "name": "faq",
+    "label": "FAQ"
+  },
+  {
+    "type": "file",
     "name": "compare-editions",
     "label": "Compare Editions"
   },
