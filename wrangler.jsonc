@@ -3,6 +3,7 @@
   "name": "documentation",
   "main": "worker/index.js",
   "compatibility_date": "2025-10-29",
+  "previews": {},
   "assets": {
     "directory": "./build",
     "binding": "ASSETS",
