@@ -20,6 +20,8 @@
  *   GOOGLE_INDEXING_ALL        set to 1 to include /docs/v4/ pages
  *   GOOGLE_INDEXING_LIMIT      defaults to 200 (Google's daily quota)
  *   SEARCH_PUSH_DRY_RUN        set to 1 to print targets without sending
+ *   SEARCH_PUSH_INDEXNOW_RETRIES defaults to 3
+ *   SEARCH_PUSH_INDEXNOW_RETRY_DELAY_MS defaults to 30000
  *   SEARCH_PUSH_STRICT         set to 1 to exit non-zero on any failure
  */
 import crypto from "node:crypto";
@@ -87,27 +89,63 @@ const pushIndexNow = async (urls) => {
     return { attempted: 0, failed: 0 };
   }
 
-  try {
-    const { response, text } = await request(
-      "https://api.indexnow.org/indexnow",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify(payload),
-      },
-    );
-    if (response.ok) {
-      console.log(
-        `[search-push] IndexNow accepted ${urls.length} URLs (HTTP ${response.status})`,
+  const retries = Math.max(
+    1,
+    Number(process.env.SEARCH_PUSH_INDEXNOW_RETRIES || "3"),
+  );
+  const retryDelay = Math.max(
+    1000,
+    Number(process.env.SEARCH_PUSH_INDEXNOW_RETRY_DELAY_MS || "30000"),
+  );
+
+  for (let attempt = 1; attempt <= retries; attempt += 1) {
+    try {
+      const { response, text } = await request(
+        "https://api.indexnow.org/indexnow",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json; charset=utf-8" },
+          body: JSON.stringify(payload),
+        },
       );
-      return { attempted: urls.length, failed: 0 };
+      if (response.ok || response.status === 202) {
+        console.log(
+          `[search-push] IndexNow accepted ${urls.length} URLs (HTTP ${response.status})`,
+        );
+        return { attempted: urls.length, failed: 0 };
+      }
+
+      const verificationPending =
+        response.status === 403 &&
+        text.includes("SiteVerificationNotCompleted");
+      if (verificationPending && attempt < retries) {
+        console.log(
+          `[search-push] IndexNow key verification is pending; retrying in ${Math.round(
+            retryDelay / 1000,
+          )}s (attempt ${attempt}/${retries})`,
+        );
+        await new Promise((resolve) => setTimeout(resolve, retryDelay));
+        continue;
+      }
+
+      fail(`IndexNow returned HTTP ${response.status}: ${text.slice(0, 500)}`);
+      return { attempted: urls.length, failed: 1 };
+    } catch (error) {
+      if (attempt < retries) {
+        console.log(
+          `[search-push] IndexNow request failed; retrying in ${Math.round(
+            retryDelay / 1000,
+          )}s (attempt ${attempt}/${retries}): ${error.message}`,
+        );
+        await new Promise((resolve) => setTimeout(resolve, retryDelay));
+        continue;
+      }
+      fail(`IndexNow request failed: ${error.message}`);
+      return { attempted: urls.length, failed: 1 };
     }
-    fail(`IndexNow returned HTTP ${response.status}: ${text.slice(0, 500)}`);
-    return { attempted: urls.length, failed: 1 };
-  } catch (error) {
-    fail(`IndexNow request failed: ${error.message}`);
-    return { attempted: urls.length, failed: 1 };
   }
+
+  return { attempted: urls.length, failed: 1 };
 };
 
 const loadGoogleCredentials = () => {
@@ -200,7 +238,7 @@ const pushGoogle = async (urls) => {
   const credentials = loadGoogleCredentials();
   if (!credentials) {
     console.log(
-      "[search-push] Google Indexing API skipped: GOOGLE_SERVICE_ACCOUNT_JSON is not configured",
+      "[search-push] Google Indexing API skipped: set GOOGLE_SERVICE_ACCOUNT_JSON_B64 in the Cloudflare build environment",
     );
     return { attempted: 0, failed: 0 };
   }

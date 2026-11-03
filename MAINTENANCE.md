@@ -317,6 +317,12 @@ Cloudflare 构建环境变量：
 | `INDEXNOW_KEY` | 否 | 默认使用仓库内置的 IndexNow key |
 | `SEARCH_SITE_ORIGIN` | 否 | 默认 `https://www.jumpserver.com` |
 | `SEARCH_PUSH_STRICT` | 否 | 设为 `1` 时搜索推送失败会让部署失败；默认只记录日志 |
+| `SEARCH_PUSH_INDEXNOW_RETRIES` | 否 | IndexNow key 验证等待重试次数，默认 `3` |
+| `SEARCH_PUSH_INDEXNOW_RETRY_DELAY_MS` | 否 | 每次重试间隔，默认 `30000` 毫秒 |
+
+IndexNow 第一次提交时，如果 key 文件刚刚部署，可能返回
+`SiteVerificationNotCompleted`（HTTP 403）。脚本会自动等待并重试；也可以在
+下一轮部署后再次提交。
 
 推送策略：
 
