@@ -1,5 +1,0 @@
-{
-  "remote-app": {"title": "RemoteApp", "display": "normal"},
-  "remoteapp-machine": {"title": "RemoteApp machine", "display": "normal"},
-  "virtualapp": {"title": "VirtualApp", "display": "normal"}
-}

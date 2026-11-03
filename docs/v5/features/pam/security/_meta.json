@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "change-secrets",
+    "label": "Change Secrets"
+  },
+  {
+    "type": "file",
+    "name": "risk-detection",
+    "label": "Risk Detection"
+  }
+]

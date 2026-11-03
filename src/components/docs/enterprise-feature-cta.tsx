@@ -7,6 +7,7 @@ interface EnterpriseFeatureCtaProps {
   description?: string;
   trialHref?: string;
   pricingHref?: string;
+  contactHref?: string;
 }
 
 const linkBase =
@@ -17,6 +18,7 @@ const EnterpriseFeatureCta: React.FC<EnterpriseFeatureCtaProps> = ({
   description,
   trialHref = "https://www.jumpserver.com/free-trial",
   pricingHref = "https://www.jumpserver.com/pricing",
+  contactHref = "https://www.jumpserver.com/contact",
 }) => {
   return (
     <div
@@ -34,13 +36,13 @@ const EnterpriseFeatureCta: React.FC<EnterpriseFeatureCtaProps> = ({
 
           <div className="min-w-0">
             <span className="mb-3 inline-block rounded-sm bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-primary">
-              Enterprise Feature
+              Enterprise Edition
             </span>
             <div className="space-y-1.5">
-              <p className="!m-0 text-[15px] font-semibold leading-snug text-gray-900 dark:text-white">
+              <p className="!m-0 text-[15px] font-semibold leading-snug text-ink dark:text-white">
                 {feature}
               </p>
-              <p className="!m-0 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              <p className="!m-0 text-sm leading-relaxed text-slate dark:text-white/70">
                 Requires JumpServer Enterprise Edition.
                 {description && <> {description}</>}
               </p>
@@ -52,25 +54,33 @@ const EnterpriseFeatureCta: React.FC<EnterpriseFeatureCtaProps> = ({
           <a
             href={trialHref}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className={cn(
               linkBase,
               "bg-primary !text-white hover:bg-primary/90 hover:!text-white"
             )}
           >
-            Free Trial
+            Start 14-day trial
             <ArrowRight className="h-3.5 w-3.5" />
           </a>
           <a
             href={pricingHref}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className={cn(
               linkBase,
-              "border border-primary/30 bg-white/60 !text-primary hover:border-primary/50 hover:bg-white hover:!text-primary dark:bg-neutral-900/40 dark:hover:bg-neutral-900/70"
+              "border border-primary/30 bg-white/60 !text-primary hover:border-primary/50 hover:bg-white hover:!text-primary dark:bg-teal-mid/40 dark:hover:bg-teal-mid/60"
             )}
           >
-            See Plans
+            View pricing
+          </a>
+          <a
+            href={contactHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-primary underline-offset-2 hover:underline dark:text-brand-light"
+          >
+            Contact sales
           </a>
         </div>
       </div>

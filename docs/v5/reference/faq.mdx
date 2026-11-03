@@ -1,0 +1,348 @@
+---
+title: "FAQ"
+description: "Answers to common JumpServer V5 questions about upgrades, access, assets, clients, AI, and auditing."
+---
+
+# FAQ
+
+This page collects common questions from JumpServer deployments and the
+community. Answers focus on V5 behavior and link to the detailed guide when one
+exists.
+
+## Upgrade and deployment
+
+### Can I upgrade directly from V3 or V4 to V5?
+
+**Problem**: You want to know whether an existing V3 or V4 deployment can move
+straight to V5.
+
+**Solution**:
+
+- **V4 to V5**: Database migrations are forward-compatible, so V4 versions can
+  upgrade directly to V5. If you are on an early V4 release such as V4.0.0,
+  upgrade to the latest V4 LTS first.
+- **V3 to V5**: You cannot skip a major version. Upgrade to the latest V3 LTS,
+  then to V4, then to V5. Skipping V4 can fail because of table-structure
+  changes.
+
+See [Upgrade](/upgrade) before you start and take a database backup.
+
+### Why does the login page return 400 or 403 after upgrading to V5?
+
+**Problem**: The browser shows HTTP 400 or 403 after the upgrade.
+
+**Solution**: Configure the trusted `DOMAINS` value in
+`/opt/jumpserver/config/config.txt`. In V5 the value includes the port: use `:443`
+for HTTPS and `:80` for HTTP. Separate multiple domains or IP addresses with
+commas, then restart JumpServer with `jmsctl restart`.
+
+```text
+DOMAINS="demo.jumpserver.org:443"
+DOMAINS="172.17.200.191:80"
+DOMAINS="demo.jumpserver.org:443,172.17.200.191:80"
+```
+
+If the deployment already terminated HTTPS before the upgrade, the existing
+value may still work. See [Configuration](/operations/configuration).
+
+### Is the lion component still available in V5?
+
+**Problem**: The V5 container list or component page no longer shows lion.
+
+**Solution**: Lion functionality is merged into koko in V5. If an old offline
+lion entry remains in **System Settings > Components**, remove it after the
+upgrade.
+
+### Does `restore_db` require dropping the old tables first?
+
+**Problem**: A database restore fails with duplicate keys or table conflicts.
+
+**Solution**: Stop JumpServer, drop the existing tables in the target database,
+then run `./jmsctl.sh restore_db <backup-file>`. Use the original backup taken
+before the upgrade or before the failure. See
+[Backup and Restore](/operations/backup-restore).
+
+### How should I handle database character sets when moving to MySQL 8.4?
+
+**Problem**: A MySQL 5.7 database is exported and imported into MySQL 8.4 before
+the V5 upgrade, and you are unsure whether `utf8mb4` is required.
+
+**Solution**: The database, tables, columns, and collation must use one
+consistent character set and collation. `utf8mb4` is recommended, but the
+important requirement is consistency rather than one specific charset.
+
+### Which kernel version does V5 require?
+
+**Problem**: The host runs an older Linux kernel.
+
+**Solution**: V5 requires Linux kernel 4.0 or later on both AMD64 and ARM64.
+Upgrade the operating system kernel, or migrate to a supported host. See the
+[Installation](/installation) requirements.
+
+### Which database and cache versions does V5 support?
+
+**Problem**: You are planning an upgrade and need the minimum versions.
+
+**Solution**: V5 requires MySQL 8.0 or later, PostgreSQL 16 or later, MariaDB
+10.6 or later, and Redis 7.0 or later. The default installer bundles PostgreSQL
+and Redis. MySQL 5.7 must be upgraded before V5.
+
+### How can users reach JumpServer from both the internal and external network?
+
+**Problem**: Configuring one address makes the other network unable to sign in,
+or the login page asks for `DOMAINS`.
+
+**Solution**: Add every access address to `DOMAINS` with commas, including the
+port. In a 1Panel deployment, set `DOMAINS` in the application parameters; in a
+standard deployment, edit `/opt/jumpserver/config/config.txt`. Restart the
+service or recreate the containers. Open the corresponding firewall ports and
+include every hostname in the reverse-proxy `server_name`. See
+[Network Ports](/operations/network-ports).
+
+## Environment and operations
+
+### Which ports must be open for JumpServer?
+
+**Problem**: The server is behind a firewall and clients cannot connect.
+
+**Solution**: Community Edition requires SSH `22`, HTTP `80`, HTTPS `443`, and
+KoKo SSH `2222`. Enterprise Edition also uses Razor RDP `3389`. Database
+connections through Magnus need the database protocol ports, such as `33060` for
+MySQL, `54320` for PostgreSQL, and `63790` for Redis. See
+[Network Ports](/operations/network-ports).
+
+### Does JumpServer start automatically after a host reboot?
+
+**Problem**: You want to control whether JumpServer restarts with the host.
+
+**Solution**: JumpServer starts automatically by default. If you do not want
+that behavior, run `./jmsctl.sh down` before shutting down or rebooting the host.
+
+### How do I move session recordings to external storage?
+
+**Problem**: Local disk space is running out and recordings must be retained
+elsewhere.
+
+**Solution**: Configure object storage under **System Settings > Storage** and
+enable the external target. New recordings go to the new storage; existing local
+recordings are not migrated automatically. Alternatively, mount remote storage
+at `/opt/jumpserver/core/data/media/replay`, but move the existing recordings
+first. See [Storage](/features/system-settings/infrastructure/storage).
+
+### How do I change the upload size limit or upload timeout?
+
+**Problem**: Large file uploads fail or time out.
+
+**Solution**: Set `CLIENT_MAX_BODY_SIZE` in
+`/opt/jumpserver/config/config.txt` and restart JumpServer. The default is
+`4096m`. For proxy timeouts, adjust the `proxy_read_timeout` and related values
+in the nginx configuration for the relevant component, then reload nginx. In a
+cluster, apply the same change on every node.
+
+### How do I resolve a Docker subnet conflict?
+
+**Problem**: JumpServer containers cannot reach assets because the Docker subnet
+overlaps an asset network.
+
+**Solution**: Stop JumpServer, change `DOCKER_SUBNET` in
+`/opt/jumpserver/config/config.txt` to a non-conflicting range, then restart the
+service. If the host Docker bridge also conflicts, change the Docker `bip`
+setting in `/etc/docker/daemon.json` and restart Docker. See
+[Configuration](/operations/configuration).
+
+### How do I configure my own SSL certificate?
+
+**Problem**: You need HTTPS with a certificate issued for your domain.
+
+**Solution**: Put the certificate and key in
+`/opt/jumpserver/config/nginx/cert`, set `HTTPS_PORT`, `SERVER_NAME`,
+`SSL_CERTIFICATE`, and `SSL_CERTIFICATE_KEY` in `config.txt`, then restart
+JumpServer. To replace a certificate with the same filename, replace the files
+and reload nginx in the `jms_web` container. See
+[Enable HTTPS](/operations/enable-https).
+
+### Why does a batch task show only `....`?
+
+**Problem**: A bulk password change, connectivity test, or command task never
+shows a result.
+
+**Solution**: Open **Job Center > Task Monitoring** and check whether celery and
+ansible are **Online**. Restart `jms_celery` if either is offline. In a
+high-availability deployment, verify shared storage is mounted at
+`/opt/jumpserver/core/data` on every node, then restart JumpServer. Check that the
+reverse proxy supports WebSocket. See
+[Troubleshooting](/operations/troubleshooting).
+
+### Why does a command-filter regex such as `^mysql.* -p.+` behave unexpectedly?
+
+**Problem**: A command filter matches more commands than intended.
+
+**Solution**: Use `^mysql.* -p.*` when the password may be empty, because `*`
+matches zero or more characters while `+` requires at least one. Test the rule
+against the commands you intend to block. See
+[Command Filter](/features/console/policies/acls/command-filter).
+
+## Assets and connections
+
+### How do I configure a web asset that has no login page or no account?
+
+**Problem**: A firewall or appliance web page does not need credentials, so
+automatic form filling breaks the connection.
+
+**Solution**: Make sure a RemoteApp publisher is configured under **System
+Settings > RemoteApp**. Create the asset as a **Website** asset, set **Autofill**
+to **Disabled**, and bind an account only if the target requires one. Do not use
+**Basic** autofill for a page with no login form. See
+[Web assets](/features/console/assets/) and
+[RemoteApp](/features/system-settings/infrastructure/remote-app).
+
+### Is script-based autofill available in V5 Community Edition?
+
+**Problem**: The script autofill option is missing from a Website asset.
+
+**Solution**: Script-based autofill is an Enterprise Edition feature. Community
+Edition supports only **Disabled** and **Basic** autofill modes.
+
+### How do I import assets, authorizations, or users in bulk?
+
+**Problem**: Creating many records one by one is too slow.
+
+**Solution**: On the list page, select **Import**, download the template, fill in
+the required fields, and import the file. Use the create flow for new records and
+the update flow for existing records. Check the failure count and status column
+after import, correct the reported rows, and import again. See
+[Assets](/features/console/assets/) and
+[Authorizations](/features/console/policies/authorizations).
+
+### How do I use command filtering for high-risk commands?
+
+**Problem**: You need to prevent destructive Linux commands without blocking all
+administrative work.
+
+**Solution**: Add high-risk commands such as `rm`, `fdisk`, `mkfs`, `shutdown`,
+`reboot`, and `passwd` to command groups, then create command-filter rules that
+block, review, or allow them. Prefer a review action over a blanket deny for
+commands that are occasionally required. See
+[Command Filter](/features/console/policies/acls/command-filter).
+
+### Why is the Guacamole mapped drive missing from a Windows RDP session?
+
+**Problem**: A Web GUI connection to Windows cannot upload or download files
+because the Guacamole drive is unavailable.
+
+**Solution**: Enable **Network discovery** on the Windows asset, then map the
+`\\tsclient\JumpServer` share. If the drive is still hidden, check whether domain
+policy disables drive redirection, LPT redirection, or clipboard redirection.
+Update the policy, run `gpupdate /force`, and reconnect. See
+[File Transfer](/features/workbench/my-assets/file-transfer).
+
+### How do Windows and Linux file transfers behave?
+
+**Problem**: You need to know where files are staged and what limits apply.
+
+**Solution**: Windows transfers stage the file on JumpServer before copying it to
+the asset; Linux SFTP transfers go directly to the asset. Both are limited by
+`CLIENT_MAX_BODY_SIZE`. For browser-based transfers, allow uploads and downloads
+in the browser. See
+[File Transfer](/features/workbench/my-assets/file-transfer).
+
+## Users and authentication
+
+### How do I recover a forgotten password or unlock a locked account?
+
+**Problem**: A user cannot sign in because the password is lost or the account is
+locked after repeated failures.
+
+**Solution**: Use the configured email flow to reset the password, or ask an
+administrator to reset it in the user's profile. An administrator can also clear
+the login-failure lockout. For a break-glass recovery, use the `jms_core` console
+with `python manage.py shell`. See
+[Password and SSH Key](/features/general/account/password-and-ssh-key) and
+[Security](/features/system-settings/security/security).
+
+### How can a user sign in to the JumpServer SSH gateway with a key?
+
+**Problem**: Passwordless terminal login is required.
+
+**Solution**: Upload the public key under **Profile > Authentication Settings >
+Login SSH Public Key**, then connect to port `2222` with the matching private
+key. The key authenticates the JumpServer account only; asset authorization and
+MFA still apply. See
+[SSH Terminal](/features/workbench/ssh-terminal).
+
+### How do I restrict an asset so it can only be opened from specific IPs?
+
+**Problem**: An asset must be reachable only after signing in to JumpServer from
+an approved network.
+
+**Solution**: Create a dedicated JumpServer user, authorize only the target
+asset, create an **Asset Login** ACL that denies all IPs (priority `100`), and
+add a higher-priority allow rule for the approved IPs (priority `90`). Require
+review for other users. See
+[Asset Connect](/features/console/policies/acls/asset-connect) and
+[User Login ACL](/features/console/policies/acls/user-login).
+
+## Client and terminal
+
+### Where is file transfer in the V5 Web Terminal?
+
+**Problem**: The old gear icon for file transfer is missing.
+
+**Solution**: Connect to the asset, open the sidebar in the upper-right corner of
+the Web Terminal, and select **File transfer**. See
+[Connect Assets](/features/workbench/web-terminal/connect-assets).
+
+### Why is selected text no longer copied automatically?
+
+**Problem**: Selecting terminal text no longer places it on the clipboard.
+
+**Solution**: V5 Web Terminal does not copy on selection. Use `Ctrl+C` or the
+context menu to copy. The behavior may be improved in a later release.
+
+### How do I return to the Web Terminal console after closing it?
+
+**Problem**: The console or home view was closed and the user does not want to
+sign in again.
+
+**Solution**: The Web Terminal opens in a separate browser tab. Switch back to
+that tab with the browser's tab switcher; no new login is required.
+
+### Where are files downloaded by JumpServer Client SFTP saved?
+
+**Problem**: Files downloaded through the client are not in the expected folder.
+
+**Solution**: The local save location follows the browser's default download
+directory. The remote session starts in `/tmp` by default. To change the remote
+path, clone the Linux platform under **System Settings > General > Platforms**,
+change the SFTP path in the platform settings, and assign the new platform to the
+asset. See [Connection Settings](/features/client/connection-settings).
+
+## AI assistant and auditing
+
+### How do I troubleshoot a failing AI assistant conversation?
+
+**Problem**: Every AI assistant request fails.
+
+**Solution**: Open **System Settings > AI Assistant**. For **Built-in API**,
+verify the service URL (usually ending in `/v1`), API key, and model. Use
+**Test**; a successful connection reports that the model supports tool calls.
+Check network reachability and confirm the provider supports the Responses
+format. If the assistant is embedded through iframe, make sure the target allows
+iframe embedding. See [AI Assistant](/features/general/support/ai-assistant).
+
+### Can passwords typed in a session recording be masked?
+
+**Problem**: A command typed in a recorded session contains a password.
+
+**Solution**: Session recordings cannot mask command-line input. Data masking
+applies to database fields and query results, not to terminal recordings. See
+[Audits](/features/audits/) and
+[Data Masking](/features/console/policies/acls/data-masking).
+
+## Related topics
+
+- [Upgrade](/upgrade)
+- [Installation](/installation)
+- [Network Ports](/operations/network-ports)
+- [Troubleshooting](/operations/troubleshooting)
+- [What's New in V5](/reference/whats-new)

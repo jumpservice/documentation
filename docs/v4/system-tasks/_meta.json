@@ -1,0 +1,4 @@
+[
+  { "type": "file", "name": "tasks", "label": "Tasks" },
+  { "type": "file", "name": "regular-clean-up", "label": "Regular clean-up" }
+]

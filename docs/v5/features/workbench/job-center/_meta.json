@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "adhoc",
+    "label": "Adhoc"
+  },
+  {
+    "type": "file",
+    "name": "jobs",
+    "label": "Jobs"
+  },
+  {
+    "type": "file",
+    "name": "templates",
+    "label": "Templates"
+  },
+  {
+    "type": "file",
+    "name": "execution-history",
+    "label": "Execution History"
+  }
+]

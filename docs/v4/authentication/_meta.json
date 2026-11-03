@@ -1,0 +1,16 @@
+[
+  { "type": "file", "name": "basic", "label": "Basic settings" },
+  { "type": "file", "name": "ldap", "label": "Integrate AD/LDAP" },
+  { "type": "file", "name": "cas", "label": "Integrate CAS" },
+  { "type": "file", "name": "passkey", "label": "Integrate Passkey" },
+  { "type": "file", "name": "ldap-ha", "label": "Integrate AD/LDAP HA" },
+  { "type": "file", "name": "oidc", "label": "Integrate OIDC" },
+  { "type": "file", "name": "saml2", "label": "Integrate SAML2" },
+  { "type": "file", "name": "oauth2", "label": "Integrate OAuth2" },
+  { "type": "file", "name": "wecom", "label": "Integrate WeCom" },
+  { "type": "file", "name": "dingtalk", "label": "Integrate DingTalk" },
+  { "type": "file", "name": "feishu", "label": "Integrate Feishu" },
+  { "type": "file", "name": "lark", "label": "Integrate Lark" },
+  { "type": "file", "name": "slack", "label": "Integrate Slack" },
+  { "type": "file", "name": "radius", "label": "Integrate RADIUS" }
+]

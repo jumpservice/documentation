@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "login-logs",
+    "label": "Login Logs"
+  },
+  {
+    "type": "file",
+    "name": "password-change-logs",
+    "label": "Password Change Logs"
+  },
+  {
+    "type": "file",
+    "name": "operate-logs",
+    "label": "Operate Logs"
+  }
+]

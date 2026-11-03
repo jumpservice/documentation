@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "appearance",
+    "label": "Appearance"
+  },
+  {
+    "type": "file",
+    "name": "tools",
+    "label": "System Tools"
+  }
+]

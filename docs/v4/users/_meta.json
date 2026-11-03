@@ -1,0 +1,13 @@
+[
+  { "type": "file", "name": "create-user", "label": "Create user" },
+  { "type": "file", "name": "edit-user", "label": "Edit user" },
+  { "type": "file", "name": "delete-users", "label": "Delete users" },
+  { "type": "file", "name": "enable-disable-users", "label": "Enable or disable users" },
+  { "type": "file", "name": "invite-remove-users", "label": "Invite or remove users" },
+  { "type": "file", "name": "unlock-user", "label": "Unlock user" },
+  { "type": "file", "name": "reset-password", "label": "Reset user password" },
+  { "type": "file", "name": "reset-ssh-key", "label": "Reset user SSH Key" },
+  { "type": "file", "name": "reset-mfa", "label": "Reset user MFA" },
+  { "type": "file", "name": "view-user-related-resources", "label": "View user related resources" },
+  { "type": "file", "name": "user-login-acl", "label": "User login ACL" }
+]
