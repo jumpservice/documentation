@@ -1,4 +1,0 @@
-{
-  "create-host": { "title": "Create a host asset", "display": "hidden" },
-  "create-web": { "title": "Create a web asset", "display": "normal" }
-}

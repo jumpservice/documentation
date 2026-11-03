@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "documentation",
+  "main": "worker/index.js",
+  "compatibility_date": "2025-10-29",
+  "assets": {
+    "directory": "./build",
+    "binding": "ASSETS",
+    "run_worker_first": ["/docs", "/docs/*"]
+  }
+}

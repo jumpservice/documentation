@@ -1,0 +1,5 @@
+[
+  { "type": "file", "name": "remote-app", "label": "RemoteApp" },
+  { "type": "file", "name": "remoteapp-machine", "label": "RemoteApp machine" },
+  { "type": "file", "name": "virtualapp", "label": "VirtualApp" }
+]

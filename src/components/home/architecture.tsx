@@ -1,7 +1,8 @@
 import React from "react";
 import { Layers3, Monitor } from "lucide-react";
+import { normalizeImagePath } from "@rspress/core/runtime";
 import { JumpServerWordmarkLogoIcon } from "@/icons";
-import GlobeIcon from "@/icons/lina/globe.svg";
+import GlobeIcon from "@/icons/lina/globe.svg?react";
 
 const assets = [
   { name: "SSH", logo: "/svgs/linux.svg" },
@@ -79,7 +80,7 @@ export const ArchitectureDiagram = () => {
               {Icon ? (
                 <Icon aria-hidden="true" className={`w-6 h-6 ${color ?? "text-primary"}`} />
               ) : (
-                <img src={logo} alt="" className="w-6 h-6 object-contain" />
+                <img src={normalizeImagePath(logo)} alt="" className="w-6 h-6 object-contain" />
               )}
               <div className="mt-2 max-w-full whitespace-nowrap text-[9.5px] font-bold leading-tight tracking-tight">{name}</div>
             </div>
@@ -112,7 +113,7 @@ export const ArchitectureDiagram = () => {
             {securityLayers.map((item) => (
               <div key={item.name} className="flex flex-col items-center p-3 border border-primary rounded-lg shadow">
                 <div className="w-6 h-6">
-                  <img src={item.logo} alt={item.name} className="max-w-full h-auto" />
+                  <img src={normalizeImagePath(item.logo)} alt={item.name} className="max-w-full h-auto" />
                 </div>
                 <div className="mt-2 text-sm font-bold">{item.name}</div>
               </div>
@@ -142,7 +143,7 @@ export const ArchitectureDiagram = () => {
 
               <div className="flex flex-col items-center rounded-lg px-4 pt-4">
                 <div className="w-8 h-8">
-                  <img src={item.logo} alt={item.name} className="max-w-full h-auto" />
+                  <img src={normalizeImagePath(item.logo)} alt={item.name} className="max-w-full h-auto" />
                 </div>
                 <div className="mt-2 text-sm font-semibold">{item.name}</div>
               </div>

@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "job-audits",
+    "label": "Job Audits"
+  },
+  {
+    "type": "file",
+    "name": "job-executions",
+    "label": "Job Executions"
+  }
+]

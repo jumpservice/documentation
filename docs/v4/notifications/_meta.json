@@ -1,0 +1,6 @@
+[
+  { "type": "file", "name": "email", "label": "Email" },
+  { "type": "file", "name": "msg-template", "label": "Message template" },
+  { "type": "file", "name": "message", "label": "Message" },
+  { "type": "file", "name": "subscription", "label": "Subscription" }
+]

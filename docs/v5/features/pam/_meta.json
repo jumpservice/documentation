@@ -1,0 +1,36 @@
+[
+  {
+    "type": "file",
+    "name": "dashboard",
+    "label": "Dashboard"
+  },
+  {
+    "type": "file",
+    "name": "accounts",
+    "label": "Accounts"
+  },
+  {
+    "type": "dir",
+    "name": "automation",
+    "label": "Automation",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "security",
+    "label": "Security",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "integration",
+    "label": "Integration",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "activities",
+    "label": "Activities",
+    "collapsed": true
+  }
+]

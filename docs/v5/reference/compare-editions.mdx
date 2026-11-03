@@ -1,0 +1,103 @@
+---
+title: "Community vs Enterprise"
+description: "Compare JumpServer Community Edition and Enterprise Edition features, scales, authentication methods, and support options."
+---
+
+import { 
+  ResourceManagement, 
+  AssetType, 
+  UserAuthentication,
+  AssetConnectionMethod,
+  AccountManagement,
+  ACLsManagement,
+  AdditionalFeatures,
+  AuditManagement,
+  OtherFeatures,
+} from '@/components/docs/compare-versions-data'
+import CompareVersionsDataTable from '@/components/docs/compare-versions-datatable'
+
+# Community vs Enterprise
+
+JumpServer Community Edition is free and self-hosted for up to 5,000 assets.
+Enterprise Edition adds custom RBAC, multi-tenant organizations, enterprise SSO,
+advanced database and connection methods, and SLA-backed support. The table below
+compares the two editions feature by feature.
+
+<ApplyTrialLicense />
+
+### Resource & Access Management
+
+<CompareVersionsDataTable
+  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  rows={ResourceManagement.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+### User Authentication Methods
+
+<CompareVersionsDataTable
+  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  rows={UserAuthentication.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+### Available Asset Types
+
+<CompareVersionsDataTable
+  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  rows={AssetType.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+### Asset Connection Methods
+
+<CompareVersionsDataTable
+  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  rows={AssetConnectionMethod.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+### Access Control Policies (ACLs)
+
+<CompareVersionsDataTable
+  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  rows={ACLsManagement.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+### Audit & Monitoring Capabilities
+
+<CompareVersionsDataTable
+  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  rows={AuditManagement.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+### Additional Features & Integrations
+
+<CompareVersionsDataTable
+  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  rows={OtherFeatures.map((row) => [
+    { content: row['feature'] },
+    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: <Icon name="Check" /> },
+  ])}
+/>

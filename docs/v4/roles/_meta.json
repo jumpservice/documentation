@@ -1,0 +1,4 @@
+[
+  { "type": "file", "name": "system-role", "label": "System role" },
+  { "type": "file", "name": "org-role", "label": "Organization role" }
+]

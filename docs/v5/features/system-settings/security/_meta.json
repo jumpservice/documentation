@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "authentication",
+    "label": "Authentication"
+  },
+  {
+    "type": "file",
+    "name": "security",
+    "label": "Security"
+  }
+]

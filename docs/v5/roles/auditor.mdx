@@ -1,0 +1,88 @@
+---
+title: "Auditor Guide"
+description: "Understand System Auditor and Organization Auditor roles and the Audits evidence each role can review."
+---
+
+# Auditor Guide
+
+<Alert type="xpack">
+**Audit reports** require JumpServer Enterprise Edition. Raw session and log evidence remains available according to your deployment configuration.
+</Alert>
+
+Auditors review evidence without changing platform configuration. **System
+Auditor** works across organizations; **Organization Auditor** reviews only the
+organization where the role is assigned. See [Role Model](/roles/role-model) for
+how the role layers combine.
+
+## Auditor roles
+
+| Role | Scope | What it grants |
+| --- | --- | --- |
+| System Auditor | System | Audits module across organizations |
+| Organization Auditor | Organization | Audits within one organization |
+
+Both roles are read-oriented. Neither role grants Console administration, PAM
+automation, or System Settings by default.
+
+## What auditors review
+
+### Sessions
+
+- [Asset Sessions](/features/audits/sessions/asset-sessions) — online and historical sessions, replay, and download
+- [Session Commands](/features/audits/sessions/session-commands)
+- [File Transfer](/features/audits/sessions/file-transfer)
+- [Online Devices](/features/audits/sessions/online-devices)
+
+### Activities
+
+- [Login Logs](/features/audits/activities/login-logs)
+- [Password Change Logs](/features/audits/activities/password-change-logs)
+- [Operate Logs](/features/audits/activities/operate-logs)
+
+### Jobs and tickets
+
+- [Job Audits](/features/audits/jobs/job-audits)
+- [Job Executions](/features/audits/jobs/job-executions)
+- [Tickets Audit](/features/audits/tickets)
+
+### Reports
+
+- [User Reports](/features/audits/reports/user-reports)
+- [Asset Reports](/features/audits/reports/asset-reports)
+- [Account Reports](/features/audits/reports/account-reports)
+
+## System Auditor
+
+System Auditor can review audit evidence across organizations and is intended
+for platform-wide compliance and investigation work. Use the organization
+selector and the Audits dashboard to narrow the view; the role itself is not
+limited to one organization.
+
+- [Audits Dashboard](/features/audits/dashboard)
+- [Audits module](/features/audits/)
+
+## Organization Auditor
+
+Organization Auditor reviews the same evidence, but only for the organization
+where the role is assigned. Switch organizations to review a different scope,
+provided the user also holds a role there.
+
+Common tasks:
+
+1. Open **Audits > Dashboard** and select the time range.
+2. Open **Sessions > Asset Sessions** to replay or download a recording.
+3. Open **Activities** to correlate login, operation, and password-change events.
+4. Open **Reports** when a summarized export is required.
+
+## Read-only context
+
+System Auditor may also see read-only user and asset references needed to
+interpret audit records. These are context views, not administration pages.
+Organization Auditor is intended to stay within Audits for the assigned
+organization.
+
+## Assigning auditor roles
+
+1. Assign **System Auditor** on the user's system roles for cross-organization auditing.
+2. Invite the user to an organization with **Organization Auditor** for scoped auditing.
+3. Confirm the user can see the expected sessions and logs after switching to the target organization.
