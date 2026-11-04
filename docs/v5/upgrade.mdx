@@ -41,7 +41,14 @@ the server can reach GitHub.
 
 <Steps>
 
-<div>Change to the `/opt` directory. ```sh cd /opt ```</div>
+<div>
+Change to the `/opt` directory.
+
+```bash
+cd /opt
+```
+
+</div>
 
 <div>
   Download the installer package for the target version.
@@ -58,9 +65,23 @@ the server can reach GitHub.
   <VersionedCommand template="cd jumpserver-installer-{version}" />
 </div>
 
-<div>Run the upgrade. ```sh ./jmsctl.sh upgrade ```</div>
+<div>
+Run the upgrade.
 
-<div>Start the services. ```sh ./jmsctl.sh start ```</div>
+```bash
+./jmsctl.sh upgrade
+```
+
+</div>
+
+<div>
+Start the services.
+
+```bash
+./jmsctl.sh start
+```
+
+</div>
 
 </Steps>
 
@@ -77,7 +98,14 @@ internet access on the target server.
   architecture match the target deployment.
 </div>
 
-<div>Change to the `/opt` directory. ```sh cd /opt ```</div>
+<div>
+Change to the `/opt` directory.
+
+```bash
+cd /opt
+```
+
+</div>
 
 <div>
 Place the offline package in `/opt`. Upload it from the delivery portal, or use
@@ -127,17 +155,28 @@ Place the offline package in `/opt`. Upload it from the delivery portal, or use
 
 <div>
   Run the upgrade. The default options are sufficient for a standard deployment.
-  ```sh ./jmsctl.sh upgrade ```
+
+```bash
+./jmsctl.sh upgrade
+```
+
 </div>
 
-<div>Start the services. ```sh ./jmsctl.sh start ```</div>
+<div>
+Start the services.
+
+```bash
+./jmsctl.sh start
+```
+
+</div>
 
 </Steps>
 
 ## After the upgrade
 
 1. Check the service state:
-   ```sh
+   ```bash
    ./jmsctl.sh status
    ```
 2. Sign in and confirm the version shown in the UI.
@@ -146,7 +185,7 @@ Place the offline package in `/opt`. Upload it from the delivery portal, or use
 4. For Enterprise Edition, confirm that the license is still valid. If needed,
    import it again from [License](/reference/license).
 5. Review the Core and component logs for errors:
-   ```sh
+   ```bash
    ./jmsctl.sh tail core
    ```
 6. If the upgrade fails, stop the services and restore the backup from
@@ -164,8 +203,8 @@ These notes describe the behavior changes and fixes in each target version. They
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | OpenBao enables HTTPS by default                                                                       | Verify the OpenBao certificate and CA configuration, and update clients that connect to OpenBao directly. See [Security hardening](/operations/security-hardening). |
 | DBX replaces DBeaver as the default remote database application                                        | Confirm that database sessions in Luna Workspace open with DBX. See [Connection settings](/features/client/connection-settings).                                    |
-| Tinker provides standalone RDP desktops through the Windows authentication plugin instead of RemoteApp | Review published Windows applications and the Tinker hosts that serve them. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                                  |
-| MFA user settings follow the system configuration by default                                           | Confirm the system-level MFA policy before users sign in. See [Authentication](/features/system-settings/security/authentication).                                           |
+| Tinker provides standalone RDP desktops through the Windows authentication plugin instead of RemoteApp | Review published Windows applications and the Tinker hosts that serve them. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                   |
+| MFA user settings follow the system configuration by default                                           | Confirm the system-level MFA policy before users sign in. See [Authentication](/features/system-settings/security/authentication).                                  |
 | KoKo TUI restores the plain-text connection mode                                                       | Review terminal access for direct SSH connections. See [SSH Terminal](/features/workbench/ssh-terminal).                                                            |
 
 ### JumpServer v5.1.1
@@ -176,8 +215,8 @@ These notes describe the behavior changes and fixes in each target version. They
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | High availability deployments apply stronger persistent write protection to databases and Redis                                                      | Confirm that databases and Redis keep working after container restarts, re-creation, and failure recovery. See [Deployment topologies](/operations/deployment-topologies). |
 | Redeployment and switchover checks tolerate normal replication lag                                                                                   | Confirm that redeployment and switchover finish without false failure reports. See [Deployment topologies](/operations/deployment-topologies).                             |
-| Access Token format validation preserves fallback compatibility with other Bearer Token authentication methods                                       | Verify API clients that authenticate with Bearer tokens. See [Access keys](/features/general/account/access-keys).                                                                 |
-| Tinker applet host deployment checks Group Policy, disables listener NLA before installation, and stops with guidance when Group Policy requires NLA | Review the deployment result for Tinker hosts. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                                                                      |
+| Access Token format validation preserves fallback compatibility with other Bearer Token authentication methods                                       | Verify API clients that authenticate with Bearer tokens. See [Access keys](/features/general/account/access-keys).                                                         |
+| Tinker applet host deployment checks Group Policy, disables listener NLA before installation, and stops with guidance when Group Policy requires NLA | Review the deployment result for Tinker hosts. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                                                       |
 
 ## Next steps
 
