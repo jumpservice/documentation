@@ -40,7 +40,7 @@ The detailed step-by-step upgrade for both installation types is in the
 
 ## Upgrade an offline installation
 
-```sh
+```bash
 cd /opt
 tar -xf jumpserver-ce-<version>-x86_64.tar.gz
 cd jumpserver-ce-<version>-x86_64
@@ -55,7 +55,7 @@ package and the same commands.
 
 Download the installer package for the target version, extract it, then upgrade:
 
-```sh
+```bash
 cd /opt
 tar -xf jumpserver-installer-<version>.tar.gz
 cd jumpserver-installer-<version>
@@ -76,14 +76,14 @@ cd jumpserver-installer-<version>
 
 ## Routine maintenance
 
-| Task | Frequency | Notes |
-| --- | --- | --- |
-| Database and static file backup | Daily | Copy backups off the host; verify restore regularly |
-| Disk usage of `VOLUME_DIR` | Weekly | Recordings and logs grow quickly; increase storage or move recordings to object storage |
-| Log review | Weekly | Check Core, KoKo, and web logs for repeated errors |
-| Certificate renewal | Before expiry | Configure HTTPS and renew under `config/nginx/cert` |
-| License validity | Before expiry | Enterprise licenses expire; import a new license in System Settings |
-| Patch and version updates | Per release | Follow the upgrade path above |
+| Task                            | Frequency     | Notes                                                                                   |
+| ------------------------------- | ------------- | --------------------------------------------------------------------------------------- |
+| Database and static file backup | Daily         | Copy backups off the host; verify restore regularly                                     |
+| Disk usage of `VOLUME_DIR`      | Weekly        | Recordings and logs grow quickly; increase storage or move recordings to object storage |
+| Log review                      | Weekly        | Check Core, KoKo, and web logs for repeated errors                                      |
+| Certificate renewal             | Before expiry | Configure HTTPS and renew under `config/nginx/cert`                                     |
+| License validity                | Before expiry | Enterprise licenses expire; import a new license in System Settings                     |
+| Patch and version updates       | Per release   | Follow the upgrade path above                                                           |
 
 Local cleanup of login, operation, and file-transfer records is configured under
 **System Settings > System Tasks > Regular clean-up**. Recordings and commands
