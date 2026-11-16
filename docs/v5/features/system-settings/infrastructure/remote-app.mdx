@@ -16,6 +16,13 @@ applications. Windows applications run on a RemoteApp machine and are delivered
 to the user's browser, while Linux applications run as containers managed by the
 Panda application provider.
 
+Web assets can also be opened without RemoteApp infrastructure: JumpServer
+Client opens a web asset in its built-in browser through the JumpServer Web
+proxy, so that path needs no RemoteApp machine, no Windows Server, and no RDS
+license. Use the decision table in
+[Web asset connection paths](#web-asset-connection-paths) to choose the path for
+a web asset.
+
 ## Overview
 
 | Tab                   | Purpose                                                                |
@@ -25,16 +32,37 @@ Panda application provider.
 | Application providers | Panda instances that manage VirtualApp containers.                     |
 | VirtualApp            | Linux application images available to users.                           |
 
+## Web asset connection paths
+
+The two paths for opening a web asset solve different problems. The built-in
+browser is a local client feature, while a remote application publishes the
+resource from a host.
+
+| Path                               | Use when                                                                                              | Requirements                                                                      |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| JumpServer Client built-in browser | The user needs a local browser window and no RemoteApp infrastructure should be involved.             | JumpServer Client installed; authorization; the client can reach port `5001/tcp`. |
+| WebLite on a RemoteApp machine     | The site must open from the browser Web Terminal, or the session must run in a published application. | RemoteApp machine with Windows Server and RDS licensing; WebLite published.       |
+| VirtualApp                         | The published application runs on a Linux application provider.                                       | VirtualApp enabled; Panda provider registered.                                    |
+
+Web-based RemoteApp access is included in Community Edition. Advanced RemoteApp
+and VirtualApp require JumpServer Enterprise Edition. For the full description of
+web assets, see [Web assets](/features/console/assets/web-assets).
+
 ## RemoteApp machine requirements
 
-| Requirement       | Minimum                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------ |
-| Operating system  | Windows Server 2019, Standard or Datacenter                                                      |
-| CPU               | 4 cores                                                                                          |
-| Memory            | 8 GB                                                                                             |
-| Remote management | WinRM or OpenSSH installed and configured                                                        |
-| RDS licensing     | Remote Desktop Services license installed and activated; Windows Server includes a 120-day trial |
-| Network           | HTTPS access from the machine to JumpServer, needed for registration and deployment              |
+| Requirement       | Minimum                                                                                                                                        |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Operating system  | Windows Server 2019, Standard or Datacenter                                                                                                    |
+| CPU               | 4 cores                                                                                                                                        |
+| Memory            | 8 GB                                                                                                                                           |
+| Remote management | WinRM or OpenSSH installed and configured                                                                                                      |
+| RDS licensing     | Required for the RemoteApp machine path only. Remote Desktop Services license installed and activated; Windows Server includes a 120-day trial |
+| Network           | HTTPS access from the machine to JumpServer, needed for registration and deployment                                                            |
+
+RDS licensing applies only to this RemoteApp machine path. A web asset opened in
+the JumpServer Client built-in browser does not use a RemoteApp machine, so it
+needs neither Windows Server nor an RDS license; built-in browser access is
+included in Community Edition.
 
 ## Create a RemoteApp machine
 

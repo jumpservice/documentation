@@ -28,7 +28,7 @@ connection methods available to your account.
 6. Select **Connect** to open a session. For application methods, the button reads
    **Open client** instead.
 
-![Connection dialog in the Web Terminal](/images/v5/jumpserver/v5_user_wb_luna_04.png)
+![Figure 1: Connection dialog in the Web Terminal](/images/v5/jumpserver/v5_user_wb_luna_04.png)
 
 ## Connection settings
 
@@ -62,7 +62,7 @@ the methods assigned to your account.
 - **Virtual application** — an administrator publishes a Linux graphical
   application. See [Feature Settings](/features/system-settings/general/features).
 
-![Connection method categories](/images/v5/jumpserver/v5_user_wb_luna_15.png)
+![Figure 2: Connection method categories](/images/v5/jumpserver/v5_user_wb_luna_15.png)
 
 ## Common asset types
 
@@ -79,7 +79,7 @@ uses the `mysql` protocol, while a Kubernetes cloud asset uses `k8s`.
 | Database          | MySQL, MariaDB, PostgreSQL, Oracle, SQL Server, DB2, Dameng, OceanBase, ClickHouse, MongoDB, Redis | The database protocol that matches the platform, such as `mysql`, `postgresql`, `oracle`, `sqlserver`, `db2`, `dameng`, `clickhouse`, `mongodb`, or `redis` | Built-in terminal, Database Workbench                        |
 | Cloud service     | Kubernetes                                                                                         | k8s                                                                                                                                                         | Kubernetes workspace                                         |
 | Cloud service     | Public cloud, Private cloud                                                                        | HTTP                                                                                                                                                        | Built-in Browser, Remote Application                         |
-| Web               | Website                                                                                            | HTTP or HTTPS                                                                                                                                               | Built-in Browser                                             |
+| Web               | Website                                                                                            | HTTP or HTTPS                                                                                                                                               | Built-in Browser (Web Terminal, WebLite remote application)  |
 | Directory service | General                                                                                            | SSH                                                                                                                                                         | Built-in terminal                                            |
 | Directory service | Windows Active Directory                                                                           | RDP, SSH, VNC, WinRM                                                                                                                                        | Remote Desktop, built-in terminal                            |
 | Custom type       | Administrator-defined                                                                              | Custom protocol                                                                                                                                             | Depends on the configured protocol handler                   |
@@ -88,15 +88,20 @@ uses the `mysql` protocol, while a Kubernetes cloud asset uses `k8s`.
 
 The built-in workspace is selected from the protocol, not from the asset name:
 
-| Built-in method    | Protocols                                                                                              | What opens                                                          |
-| ------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| Built-in terminal  | SSH, Telnet, WinRM, ClickHouse, Dameng, MariaDB, MongoDB, MySQL, Oracle, PostgreSQL, Redis, SQL Server | Character terminal; database commands are sent through the terminal |
-| Database Workbench | ClickHouse, Dameng, DB2, MariaDB, MongoDB, MySQL, OceanBase, Oracle, PostgreSQL, Redis, SQL Server     | Database resource tree, SQL editor, and result views                |
-| File Manager       | SFTP                                                                                                   | SFTP file browser and transfer center                               |
-| File Editor        | SFTP                                                                                                   | In-browser text editor over SFTP                                    |
-| Remote Desktop     | RDP, VNC                                                                                               | Graphical remote desktop                                            |
-| Kubernetes         | k8s, kubernetes                                                                                        | Kubernetes resource browser and terminal                            |
-| Built-in Browser   | HTTP, HTTPS                                                                                            | Web application inside the browser through the web proxy            |
+| Built-in method    | Protocols                                                                                              | What opens                                                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Built-in terminal  | SSH, Telnet, WinRM, ClickHouse, Dameng, MariaDB, MongoDB, MySQL, Oracle, PostgreSQL, Redis, SQL Server | Character terminal; database commands are sent through the terminal                                                           |
+| Database Workbench | ClickHouse, Dameng, DB2, MariaDB, MongoDB, MySQL, OceanBase, Oracle, PostgreSQL, Redis, SQL Server     | Database resource tree, SQL editor, and result views                                                                          |
+| File Manager       | SFTP                                                                                                   | SFTP file browser and transfer center                                                                                         |
+| File Editor        | SFTP                                                                                                   | In-browser text editor over SFTP                                                                                              |
+| Remote Desktop     | RDP, VNC                                                                                               | Graphical remote desktop                                                                                                      |
+| Kubernetes         | k8s, kubernetes                                                                                        | Kubernetes resource browser and terminal                                                                                      |
+| Built-in Browser   | HTTP, HTTPS                                                                                            | Web application in the browser through the KoKo web proxy on `5001/tcp`; separate from the JumpServer Client built-in browser |
+
+In the browser Web Terminal, a **Website** asset opens in a published **WebLite**
+remote application. It does not use the JumpServer Client built-in browser, which
+is a separate client-only path that needs no publisher and is included in
+Community Edition. See [Web assets](/features/console/assets/web-assets).
 
 Protocols such as SSH, SFTP, and RDP may also be opened with an **Application**
 method when a local client is configured. The exact application list comes from
@@ -114,9 +119,10 @@ methods and are described in [Connection methods](#connection-methods).
   terminal for character access, or a configured local database client.
 - **Network device:** Built-in terminal for SSH or Telnet; SFTP is available only
   when the device platform and device configuration support it.
-- **Web application:** Built-in Browser in the Web Terminal, or a Remote
-  Application such as JumpServer WebLite when the site must open in an isolated
-  published application.
+- **Web application:** Built-in Browser in the Web Terminal through the WebLite
+  remote application, or the JumpServer Client built-in browser for a local
+  browser window that needs no publisher. See
+  [Web assets](/features/console/assets/web-assets).
 - **Kubernetes:** The Kubernetes workspace is available only for cloud assets
   created from a Kubernetes platform; a public or private cloud asset normally
   uses HTTP instead.
@@ -148,7 +154,7 @@ auditing records the commands, access control rules are enforced for the
 connection, and the session is recorded. The AI Assistant can work beside a WinRM
 session as it does for an SSH session.
 
-![Figure 4: Windows PowerShell session over WinRM in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_winrm_session_01.png)
+![Figure 3: Windows PowerShell session over WinRM in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_winrm_session_01.png)
 
 ## Dameng Database Web CLI
 
@@ -177,7 +183,7 @@ Sessions open as tabs in the session area.
 - Use **New Connection** to reopen a recent asset, or **Transfer Center** to review
   file transfers.
 
-![Session tabs in the Web Terminal](/images/v5/jumpserver/v5_user_wb_luna_16.png)
+![Figure 4: Session tabs in the Web Terminal](/images/v5/jumpserver/v5_user_wb_luna_16.png)
 
 ## Notes
 
@@ -190,8 +196,8 @@ Sessions open as tabs in the session area.
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.0 | Added a summary view and quick-access actions for SQL execution plans. |
-| v5.1.0 | Added Windows PowerShell over WinRM. |
-| v5.1.0 | Added the Dameng Database Web CLI. |
+| Version | Change                                                                 |
+| ------- | ---------------------------------------------------------------------- |
+| v5.1.0  | Added a summary view and quick-access actions for SQL execution plans. |
+| v5.1.0  | Added Windows PowerShell over WinRM.                                   |
+| v5.1.0  | Added the Dameng Database Web CLI.                                     |

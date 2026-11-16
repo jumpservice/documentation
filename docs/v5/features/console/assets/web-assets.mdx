@@ -1,0 +1,356 @@
+---
+title: "Web Assets"
+description: "Create Website assets, choose a connection path, and configure autofill, recording, and troubleshooting."
+---
+
+# Web Assets
+
+A web asset is an asset created from the **Website** platform. It exposes an
+`http` or `https` protocol and points at a web application, such as an internal
+management console or a SaaS page. Users open web assets in two ways: in the
+built-in browser of JumpServer Client, or in a published WebLite application from
+the browser Web Terminal.
+
+<Alert type="xpack">
+  **Script autofill**, the **Successful login selector** and the **Interactive
+  selector**, and **web asset session recording** require JumpServer Enterprise
+  Edition. The **Website** asset type, **Disabled** and **Basic** autofill, and
+  built-in browser access from JumpServer Client are included in Community
+  Edition.
+</Alert>
+
+## Overview
+
+Web assets differ from most other asset types because the access path decides
+what carries the session. The two supported paths are:
+
+| Path                               | Where the session runs                                                                                                   | Publisher required | Windows Server and RDS                                         |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------ | -------------------------------------------------------------- |
+| JumpServer Client built-in browser | A local WebView window in JumpServer Client. Page traffic goes through the JumpServer Web proxy on KoKo port `5001/tcp`. | No                 | No                                                             |
+| Browser Web Terminal with WebLite  | A published remote application on a RemoteApp machine or a VirtualApp provider, opened from the Web Terminal.            | Yes                | A RemoteApp machine requires Windows Server and RDS licensing. |
+
+The built-in browser is part of JumpServer Client. It does not use a RemoteApp
+relay, so this path needs no Windows Server and no RDS license, and built-in
+browser access is included in Community Edition. The WebLite path publishes the
+site as a remote application and follows the RemoteApp infrastructure described
+in [RemoteApp](/features/system-settings/infrastructure/remote-app).
+
+| Term               | Meaning                                                                            |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| Web asset          | An asset created from the **Website** platform with an `http` or `https` protocol. |
+| Built-in browser   | The browser window that JumpServer Client opens for a web asset.                   |
+| WebLite            | The remote application that opens a web page in the browser Web Terminal.          |
+| Remote application | An application published on a RemoteApp machine or a VirtualApp provider.          |
+| Web Terminal       | The browser-based workspace for opening and managing sessions.                     |
+
+## Before you begin
+
+- Sign in with an account that can manage assets in the Console.
+- Plan the URL, the node, and the account before you create the asset. Autofill
+  uses the account bound to the asset.
+- For the built-in browser path, install JumpServer Client and make sure the
+  client can reach the JumpServer Web proxy on `5001/tcp`. See
+  [Network Ports](/operations/network-ports).
+- For the WebLite path, deploy at least one RemoteApp machine or VirtualApp
+  provider and publish the WebLite application. See
+  [RemoteApp](/features/system-settings/infrastructure/remote-app).
+- Have an authorization that covers the web asset and the account used to sign
+  in.
+
+## Create a web asset
+
+<Steps>
+
+<div>
+  <Nav name="console" />
+</div>
+
+<div>Open **Console > Assets** and select the **Web** tab.</div>
+
+<div>
+  Click **Create** and select the **Website** platform in the **Select
+  platform** dialog.
+</div>
+
+<div>
+  In the **Create asset** drawer, type a name in the **Name** field and select
+  one or more nodes in the **Nodes** field.
+</div>
+
+<div>
+  In the **URL** field, type the full website address, including the scheme and
+  the port when it is not 80 or 443. For example,
+  `https://intranet.example.com:8443`.
+</div>
+
+<div>
+  Optional: in the **Allowed sites** field, type the full HTTP/HTTPS origins
+  that users may open, for example `https://intranet.example.com:8443`. Enter
+  the scheme, host, and port without a path or a wildcard, and press Enter after
+  each. Leave the field empty to allow every site; when the field is set,
+  navigation is limited to the asset address and the listed sites.
+</div>
+
+<div>Choose a method in the **Autofill** field. See [Autofill](#autofill).</div>
+
+<div>
+  Bind the account used to sign in to the site with **Add** or **Add from
+  template**.
+</div>
+
+<div>Optional: select a zone, add tags, and type a comment for the asset.</div>
+
+<div>Click **Submit**, or **Save and continue adding**.</div>
+
+</Steps>
+
+![Figure 1: Update asset drawer for a Website asset with the Basic autofill selectors.](/images/v5/jumpserver/v5_console_web_asset_autofill_01.png)
+
+## Field reference
+
+| Group    | Field         | Description                                                                                                                                                                                                    |
+| -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Basic    | Name          | Required. Display name of the asset; must be unique.                                                                                                                                                           |
+| Basic    | URL           | Required. Full website address, with the scheme and any non-default port, for example `https://intranet.example.com:8443`.                                                                                     |
+| Basic    | Platform      | **Website**. Defines the available `http` and `https` protocols.                                                                                                                                               |
+| Basic    | Node          | Required. Node the asset belongs to.                                                                                                                                                                           |
+| Basic    | Allowed sites | Optional. Leave empty to allow all sites. When it is set, navigation is limited to the asset address and the listed sites. Enter full HTTP/HTTPS origins (scheme, host, and port), without paths or wildcards. |
+| Selector | Autofill      | Autofill method for the site: **Disabled**, **Basic**, or **Script**.                                                                                                                                          |
+| Protocol | Protocol      | Default `http` or `https` with port 80. Add or remove ports to match the site; the available protocols are defined by the platform.                                                                            |
+| Account  | Account       | Account used for sign-in. Autofill uses this account, and the user does not type the credentials.                                                                                                              |
+| Other    | Zone          | Select a zone when the site must be reached through a gateway.                                                                                                                                                 |
+| Other    | Tags          | Optional. Useful for filtering the asset list.                                                                                                                                                                 |
+| Other    | Active        | When selected, the asset can be used.                                                                                                                                                                          |
+| Other    | Comment       | Optional. Shown in the user's asset tree; do not store secrets here.                                                                                                                                           |
+
+<Alert type="note">
+  Available protocols are defined by the platform. To change protocol
+  capabilities, update the platform instead of the asset.
+</Alert>
+
+## Connect to a web asset
+
+<VersionBadge version="5.0.0" />
+
+Users open a web asset from JumpServer Client or from the browser Web Terminal.
+The two paths are separate: the client opens the site in its built-in browser,
+while the Web Terminal opens a published WebLite application.
+
+### Open in the client built-in browser
+
+<Steps>
+
+<div>Open JumpServer Client and sign in.</div>
+
+<div>Find the web asset in the asset list and select **Connect**.</div>
+
+<div>Choose **Built-in** > **Built-in browser**.</div>
+
+<div>Select the authorized account.</div>
+
+<div>Select **Confirm**.</div>
+
+</Steps>
+
+The site opens in a WebView window, and traffic is forwarded through the
+JumpServer Web proxy. The administrator configures the address and the account on
+the web asset, and the client does not provide an edit entry. Autofill signs the
+user in with the bound account before the page is shown.
+
+![Figure 2: Web asset connection dialog with the Built-in browser selected in JumpServer Client.](/images/v5/jumpserver/v5_console_web_asset_builtin_browser_01.png)
+
+### Open in the browser Web Terminal
+
+<Steps>
+
+<div>Open the **Web Terminal**.</div>
+
+<div>Select the web asset in the left sidebar.</div>
+
+<div>Choose the `http` or `https` protocol and an authorized account.</div>
+
+<div>
+  Choose the **Remote application** connection method and select JumpServer
+  WebLite.
+</div>
+
+<div>Select **Open client**.</div>
+
+</Steps>
+
+The site opens inside the published WebLite application. This path requires a
+RemoteApp machine or a VirtualApp provider, and the WebLite application must be
+published on the provider. Without a publisher, the Web Terminal cannot open a
+web asset; use the client built-in browser instead.
+
+## Autofill
+
+Autofill signs the user in to a site that requires authentication. Before the
+page is shown, JumpServer fills in the username and password of the bound account,
+so the user does not type or see the credentials. The method is set per asset in
+the **Autofill** field.
+
+<Alert type="note">
+  Whether autofill applies to both access paths or only to the WebLite path is
+  to be confirmed. Bind an account to the asset either way, so the credentials
+  are available when the method runs.
+</Alert>
+
+### Disabled
+
+Select **Disabled** for sites that do not require authentication, such as a
+status page or a firewall login page without an account. The username and
+password selectors are hidden, and no autofill runs.
+
+### Basic
+
+Select **Basic** when the username field, the password field, and the sign-in
+button are on the same page. JumpServer fills in the fields and submits the form.
+
+The method uses the selectors below. Supported selector types include Name, ID,
+Class, CSS, and XPath; `name=` and `id=` are the common forms.
+
+| Selector                  | Description                                                                             |
+| ------------------------- | --------------------------------------------------------------------------------------- |
+| Username selector         | Required. Locates the username field, for example `id=name`.                            |
+| Password selector         | Required. Locates the password field, for example `id=password`.                        |
+| Confirm button selector   | Required. Locates the sign-in button, for example `id=enter`.                           |
+| Successful login selector | Optional. Element that appears after a successful sign-in. Requires Enterprise Edition. |
+| Interactive selector      | Optional. Limits the area that users can operate. Requires Enterprise Edition.          |
+
+### Script
+
+Select **Script** for sites with a complex sign-in flow, such as multi-step
+authentication, a page that needs manual verification, or a login flow that moves
+across pages. Script autofill requires JumpServer Enterprise Edition.
+
+A script is a JSON array of steps. Each element is one step, and `step` starts at
+1 without repeating.
+
+| Key       | Required | Type    | Description                                                                                                                                           |
+| --------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `step`    | Yes      | Integer | Execution order. A positive integer starting from 1; no two steps use the same value.                                                                 |
+| `command` | Yes      | String  | Action to run: `type`, `click`, `interactive`, or `success`.                                                                                          |
+| `target`  | Yes      | String  | Selector for the element, written the same way as in **Basic**, for example `name=username` or `id=login_button`.                                     |
+| `value`   | Yes      | String  | Value for the step. Use the built-in variables `{USERNAME}` and `{SECRET}`, or leave it empty when the command does not type text.                    |
+| `origin`  | No       | String  | HTTP or HTTPS origin of the page for this step, with the scheme, host, and port and without a path. Set it per step when the flow moves across sites. |
+
+The commands are:
+
+| Command       | Description                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| `type`        | Type the value into the target element.                                   |
+| `click`       | Click the target element.                                                 |
+| `interactive` | Pause the script and wait for manual verification, for example a CAPTCHA. |
+| `success`     | Mark the sign-in as successful. It must be the last step.                 |
+
+`{USERNAME}` and `{SECRET}` are replaced with the username and secret of the
+account bound to the asset when the script runs. Use them with the `type`
+command.
+
+The example below types the username and password, clicks the sign-in button,
+waits for manual verification, and ends with `success`.
+
+```json
+[
+  {
+    "step": 1,
+    "command": "type",
+    "target": "name=username",
+    "value": "{USERNAME}",
+    "origin": "https://example.com"
+  },
+  {
+    "step": 2,
+    "command": "type",
+    "target": "name=password",
+    "value": "{SECRET}"
+  },
+  {
+    "step": 3,
+    "command": "click",
+    "target": "id=login_button"
+  },
+  {
+    "step": 4,
+    "command": "interactive"
+  },
+  {
+    "step": 5,
+    "command": "success"
+  }
+]
+```
+
+Remove the `interactive` step when the site has no manual step, but keep `success`
+as the last step.
+
+<Alert type="note">
+  The fields and command set above follow the vendor's V5 documentation for Web
+  assets. The English UI may label individual fields differently, and earlier V4
+  documentation listed a different command set (`click`, `type`, `sleep`, and
+  `select_frame`). Confirm the options in your build before you author a script.
+</Alert>
+
+<Alert type="note">
+  The vendor's V5 documentation states that the current Web Proxy does not
+  support sign-in inside an iframe or in a separate popup window; multi-step
+  scripts must finish in the same window. Confirm the behavior on your
+  deployment before you plan a flow around an embedded login.
+</Alert>
+
+## Self-signed certificates
+
+<Alert type="note">
+  The certificate trust behavior for web assets is to be confirmed. Whether the
+  built-in browser trusts a self-signed certificate, whether a CA certificate
+  can be imported, and how a certificate error appears in the client are not
+  confirmed in the current documentation. Confirm the supported behavior with
+  the product before you rely on it.
+</Alert>
+
+A site that uses a self-signed certificate can fail during the first page load.
+When a page does not open, check the certificate state of the site before you
+change the autofill method, so that a certificate error is not mistaken for an
+autofill error.
+
+## Recording and audit
+
+Recording of web asset sessions requires JumpServer Enterprise Edition, and the
+deployment must have recording storage configured. See
+[Storage](/features/system-settings/infrastructure/storage).
+
+<Alert type="note">
+  Where a web asset recording is reviewed, which protocol value it shows, and
+  whether replay depends on the Video Worker are to be confirmed.
+</Alert>
+
+## Troubleshooting
+
+| Symptom                                                   | What to check                                                                                                                                                                         |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The site does not open in the built-in browser            | Confirm that JumpServer Client can reach port `5001/tcp` and that KoKo is running. See [Network Ports](/operations/network-ports) and [Troubleshooting](/operations/troubleshooting). |
+| The page stays blank or keeps loading                     | Confirm that the URL is reachable from the JumpServer server, and check the certificate state described in [Self-signed certificates](#self-signed-certificates).                     |
+| The Web Terminal offers no WebLite option                 | Confirm that the WebLite application is published on a RemoteApp machine or a VirtualApp provider. See [RemoteApp](/features/system-settings/infrastructure/remote-app).              |
+| Basic autofill fails on a custom login page               | Verify the selectors on the login page. When the form spans several pages, use **Script** instead.                                                                                    |
+| The user is asked to sign in although autofill is enabled | Confirm that an account is bound to the asset and that the login page matches the selected autofill method.                                                                           |
+
+## Version history
+
+| Version | Change                                                              |
+| ------- | ------------------------------------------------------------------- |
+| v5.0.0  | Added built-in browser access to web assets from JumpServer Client. |
+
+<Alert type="note">
+  The v5.0.0 attribution follows the unified connection entry release note.
+  Confirm the exact attribution in the official release notes.
+</Alert>
+
+## Related topics
+
+- [Asset Connection](/features/client/asset-connection)
+- [RemoteApp](/features/system-settings/infrastructure/remote-app)
+- [Connect Assets](/features/workbench/web-terminal/connect-assets)
+- [Asset Sessions](/features/audits/sessions/asset-sessions)
+- [Network Ports](/operations/network-ports)
+- [Assets](/features/console/assets/)
