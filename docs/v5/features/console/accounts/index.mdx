@@ -42,8 +42,8 @@ accounts by asset type.
   template first in [Templates](/features/console/accounts/templates).
 
 <Alert type="important">
-The list shows only accounts in the current organization. Asset filters, imports,
-and authorizations also apply within the active organization.
+  The list shows only accounts in the current organization. Asset filters,
+  imports, and authorizations also apply within the active organization.
 </Alert>
 
 ## Create an account
@@ -53,9 +53,7 @@ and authorizations also apply within the active organization.
 Click **Create**.
 </div>
 
-<div>
-In the **Add account** drawer, fill in the fields below.
-</div>
+<div>In the **Add account** drawer, fill in the fields below.</div>
 
 <div>
 Click **Confirm**.
@@ -66,17 +64,23 @@ Click **Confirm**.
 
 ### Field reference
 
-| Group | Field | Description |
-| --- | --- | --- |
-| Basic | Name | Required. Display name. Duplicates are allowed. |
-| Basic | Username | Username used to sign in to the asset. |
-| Basic | Privileged account | Batch password changes and pushes prefer this account. |
-| Asset | Assets | One or more assets to associate with the account. |
-| Secret | Secret type | **Password**, **SSH key**, **SSH certificate**, **Token**, or **Access key**. |
-| Secret | Password | Shown for the Password type; use the generate button for a random value. |
-| Secret | Can change password | When selected, password-change plans may update the password on the asset. |
-| Other | Account policy | Behavior when the same account name already exists on the asset: **Skip**, **Update**, or **Fail**. Defaults to **Fail**. |
-| Other | Active | When selected, the account can be used to sign in. |
+| Group  | Field               | Description                                                                                                               |
+| ------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Basic  | Name                | Required. Display name. Duplicates are allowed.                                                                           |
+| Basic  | Username            | Username used to sign in to the asset.                                                                                    |
+| Basic  | Privileged account  | Batch password changes and pushes prefer this account.                                                                    |
+| Asset  | Assets              | One or more assets to associate with the account.                                                                         |
+| Secret | Secret type         | **Password**, **SSH key**, **SSH certificate**, **Token**, or **Access key**.                                             |
+| Secret | Password            | Shown for the Password type; use the generate button for a random value.                                                  |
+| Secret | Can change password | When selected, change-secret tasks may update the password for this account.                                              |
+| Other  | Account policy      | Behavior when the same account name already exists on the asset: **Skip**, **Update**, or **Fail**. Defaults to **Fail**. |
+| Other  | Active              | When selected, the account can be used to sign in.                                                                        |
+
+<Alert type="note">
+  Whether **Can change password** also covers SSH key rotation for accounts
+  whose secret type is **SSH key** is not confirmed. Verify the behaviour on
+  your deployment before relying on the switch for key rotation.
+</Alert>
 
 ## Add accounts from a template
 
@@ -86,8 +90,8 @@ Click **Add from template**.
 </div>
 
 <div>
-Select one or more **Templates**, then choose whether to add accounts to
-**Nodes** or **Assets**.
+  Select one or more **Templates**, then choose whether to add accounts to
+  **Nodes** or **Assets**.
 </div>
 
 <div>
@@ -103,8 +107,9 @@ create** dialog: choose **Create** or **Update**, download the template, and
 upload a CSV or XLSX file up to 10 MB.
 
 <Alert type="warning">
-Viewing secrets and exporting accounts require MFA verification for the current
-user. If MFA is not enabled, the page asks you to enable and configure it first.
+  Viewing secrets and exporting accounts require MFA verification for the
+  current user. If MFA is not enabled, the page asks you to enable and configure
+  it first.
 </Alert>
 
 ## Account details
@@ -129,8 +134,8 @@ The row menu (**...**) provides **Delete**, **Edit**, **Edit secret**,
 Select several accounts to test, clear secrets, edit, or delete them in bulk.
 
 <Alert type="warning">
-Deleting an account is irreversible, and clearing a secret means the credential
-must be entered or pushed again before the account can be used.
+  Deleting an account is irreversible, and clearing a secret means the
+  credential must be entered or pushed again before the account can be used.
 </Alert>
 
 ## Virtual accounts

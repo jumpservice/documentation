@@ -72,14 +72,14 @@ target system and the corresponding client component support it.
 The automation section is used by PAM automation tasks. When enabled, the
 platform defines the default method for each capability:
 
-| Capability         | Purpose                                                                                                    |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| Asset probe        | Checks whether the asset is reachable and records connectivity state.                                      |
-| Collect asset info | Reads hardware and system information from the asset.                                                      |
-| Change secret      | Changes the password of an asset account; used by [Change Secrets](/features/pam/security/change-secrets). |
-| Push account       | Creates or updates accounts on the asset.                                                                  |
-| Verify account     | Checks that stored credentials are still valid.                                                            |
-| Collect accounts   | Discovers existing accounts on the asset.                                                                  |
+| Capability         | Purpose                                                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| Asset probe        | Checks whether the asset is reachable and records connectivity state.                                                 |
+| Collect asset info | Reads hardware and system information from the asset.                                                                 |
+| Change secret      | Changes the password or SSH key of an asset account; used by [Change Secrets](/features/pam/security/change-secrets). |
+| Push account       | Creates or updates accounts on the asset.                                                                             |
+| Verify account     | Checks that stored credentials are still valid.                                                                       |
+| Collect accounts   | Discovers existing accounts on the asset.                                                                             |
 
 ![Figure 2: Platform detail and automation options](/images/v5/jumpserver/v5_settings_platforms_detail_01.png)
 
