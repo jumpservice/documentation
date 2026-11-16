@@ -1,6 +1,11 @@
 [
   {
     "type": "file",
+    "name": "web-assets",
+    "label": "Web Assets"
+  },
+  {
+    "type": "file",
     "name": "zones",
     "label": "Zones"
   },

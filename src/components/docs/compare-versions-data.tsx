@@ -84,7 +84,7 @@ export const ACLsManagement = [
 export const AccountManagement = [
   { feature: 'Account Templates' },
   { feature: 'Account Discovery' },
-  { feature: 'Account Secret Change' },
+  { feature: 'Account Secret Change', ce: false },
   { feature: 'Account Backup' },
   { feature: 'Account Storage (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault)', ce: false },
   { feature: 'Account Risk Detection', ce: false },
@@ -99,4 +99,16 @@ export const AuditManagement = [
   { feature: 'User Login Audit Logs' },
   { feature: 'User Password Change Logs' },
   { feature: 'User Operation Logs' },
+]
+
+export const WebAssetEditions = [
+  { feature: 'Web assets (Website platform)' },
+  { feature: 'Client built-in browser access' },
+  { feature: 'Basic autofill' },
+  { feature: 'Web asset session recording', ce: false },
+  { feature: 'Script autofill', ce: false },
+  { feature: 'Interactive selector', ce: false },
+  { feature: 'Successful login selector', ce: false },
+  { feature: 'Web-based RemoteApp access' },
+  { feature: 'VirtualApp access', ce: false },
 ]

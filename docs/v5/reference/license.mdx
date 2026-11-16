@@ -1,14 +1,15 @@
 ---
-title: "Import license"
-description: "Import a JumpServer Enterprise Edition license and verify that licensed features are activated."
+title: "Upload license"
+description: "Upload a JumpServer Enterprise Edition license file and verify the licensed edition, count, and service expiration."
 ---
 
 import EnterpriseEditionCta from "@/components/docs/enterprise-edition-cta";
 
-# Import license <Icon name="xpack-lg" />
+# Upload license <Icon name="xpack-lg" />
 
-This topic describes how to import a license for JumpServer Enterprise Edition.
-Community Edition deployments cannot import a license.
+This topic describes how to upload a license file for JumpServer Enterprise
+Edition. Community Edition deployments run under GPLv3 and cannot upload a
+license.
 
 <EnterpriseEditionCta />
 
@@ -19,24 +20,36 @@ Community Edition deployments cannot import a license.
 </div>
 
 <div>
-Navigate to the **System settings > License**.
+  Navigate to **System Settings > License**. The page is titled **Authorization
+  Management**.
 </div>
 
 <div>
-  In the "Quick update" section on the right side of the page, locate the
-  "Import license" option and click the "Import" button.
-  <img
-    src="/images/v5/jumpserver/v5_settings_license_import_01.png"
-    alt="Figure 1: Import license option in System Settings"
-    width="450"
-  />
+  Optional: click **Copy Machine ID** to copy the deployment ID when the vendor
+  asks for it during the license request.
 </div>
 
 <div>
-  In the "Import license" dialog box, click the "Choose file" button to select
-  the license file.
+  Click **Upload License File** and select the license file supplied by the
+  vendor.
 </div>
 
-<div>Click **Confirm**.</div>
+<div>
+  Wait for the page to refresh. Verify **Corporation**, **Edition**, **Count**,
+  **Generate Time**, and **Service Expiration** against the license you
+  received.
+</div>
 
 </Steps>
+
+<Alert type="note">
+  Uploading a license file replaces the current entitlement. If the service
+  period has expired or the licensed count is exceeded, the features that depend
+  on the license become unavailable until the license is renewed, while existing
+  data is retained.
+</Alert>
+
+## Related topics
+
+- [License](/features/system-settings/license) — the page reference for the
+  fields and actions on the license page.

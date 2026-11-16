@@ -28,6 +28,8 @@ installation method used for the deployment.
   version, including database and Redis requirements.
 - Confirm the supported upgrade path in
   [Upgrade & Maintenance](/operations/upgrade-maintenance).
+- For an Enterprise offline package, verify the archive against the checksum
+  supplied with it before you extract it.
 - Back up the database and the active configuration with
   `./jmsctl.sh backup_db`; copy the backup off the host.
 - Keep the current installation package and configuration until the new version
@@ -91,6 +93,34 @@ Use this path when JumpServer was installed from an Enterprise offline package.
 The package is provided by the JumpServer delivery team and does not require
 internet access on the target server.
 
+### Prepare the Enterprise package
+
+The Enterprise upgrade package follows the same model as the installation
+package: an archive supplied by the delivery team that carries the images and
+dependencies for the target version. See [Installation](/installation) for what
+the archive contains, and [Command-Line Tools](/operations/cli-tools) for
+`load_image`.
+
+Before you extract the archive:
+
+- Confirm that the package version and CPU architecture match the target
+  deployment.
+- Verify the archive against the checksum supplied with it. When no checksum is
+  supplied, ask the delivery team for the verification method.
+- Keep the current package and configuration so that you can return to the
+  previous version if the upgrade or verification fails.
+
+<Alert type="note">
+  **Pending confirmation:** the checksum or signature format and the command
+  used to verify it. The documentation does not yet name a verification command;
+  use the method the delivery team supplies.
+</Alert>
+
+In an air-gapped environment, transfer the package and its checksum together with
+removable media, verify the checksum before you extract the archive, then follow
+the steps below in order. The commands do not contact the internet; the package
+carries everything the upgrade needs.
+
 <Steps>
 
 <div>
@@ -134,6 +164,8 @@ Place the offline package in `/opt`. Upload it from the delivery portal, or use
 
       <div>
       Replace `YOUR_DOWNLOAD_URL` with the copied link and download the package.
+      `YOUR_DOWNLOAD_URL` is a placeholder, not a working address, so the command
+      fails until you replace it.
       <VersionedCommand template={'cd /opt && wget -O jumpserver-ee-{version}-x86_64.tar.gz "YOUR_DOWNLOAD_URL"'} />
       </div>
     </Steps>
@@ -183,7 +215,7 @@ Start the services.
 3. Verify that users can open sessions and that recent recordings and audit logs
    are still available.
 4. For Enterprise Edition, confirm that the license is still valid. If needed,
-   import it again from [License](/reference/license).
+   upload it again from [License](/reference/license).
 5. Review the Core and component logs for errors:
    ```bash
    ./jmsctl.sh tail core

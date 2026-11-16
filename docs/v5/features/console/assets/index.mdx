@@ -6,7 +6,12 @@ description: "Organize, create, import, and maintain assets in JumpServer Consol
 # Assets
 
 <Alert type="xpack">
-**Oracle, SQL Server, ClickHouse, and Dameng database assets**, **advanced RemoteApp**, and **VirtualApp** require JumpServer Enterprise Edition.
+  **Oracle, SQL Server, ClickHouse, and Dameng database assets**, **advanced
+  RemoteApp**, and **VirtualApp** require JumpServer Enterprise Edition.
+  **Script-based autofill**, the **Interactive selector** and the **Successful
+  login selector**, and **web asset session recording** also require Enterprise
+  Edition, while the **Website** asset type, **Basic** autofill, and built-in
+  browser access are available in Community Edition.
 </Alert>
 
 The **Assets** page is the inventory of everything JumpServer can connect to:
@@ -25,6 +30,12 @@ devices**, **Databases**, **Cloud services**, **Web**, **Directory services**,
 and **Custom types**. The node tree is shown on the left of the **All** tab; when
 you switch to a specific type, the tree is hidden and the list is filtered.
 
+The **Web** tab lists Website assets that use the `HTTP` or `HTTPS` protocol.
+They can be opened in the JumpServer Client built-in browser, or through a
+published WebLite application in the browser Web terminal. See
+[Web Assets](/features/console/assets/web-assets) for both paths and for autofill
+settings.
+
 Columns on the **All** tab are Name, Address, Account count, Platform, Last login
 time, Connectivity, and Actions.
 
@@ -33,11 +44,14 @@ time, Connectivity, and Actions.
 - Sign in with an account that can manage assets.
 - Plan the node structure first, and create a zone if the assets sit behind
   another network segment.
-- Web assets also require a remote application publisher.
+- Web assets can be opened in the JumpServer Client built-in browser, or through
+  a published Remote Application such as WebLite in the browser Web terminal.
+  Only the published-application path needs a RemoteApp or VirtualApp publisher.
+  See [Web Assets](/features/console/assets/web-assets).
 
 <Alert type="important">
-The list shows only assets in the current organization. Nodes, zones, and
-authorizations also apply only within the active organization.
+  The list shows only assets in the current organization. Nodes, zones, and
+  authorizations also apply only within the active organization.
 </Alert>
 
 ## Work with the node tree
@@ -63,9 +77,7 @@ The number beside a node is the count of assets inside it.
 Click **Create** and pick a platform in the **Select platform** dialog.
 </div>
 
-<div>
-In the **Create asset** drawer, fill in the fields below.
-</div>
+<div>In the **Create asset** drawer, fill in the fields below.</div>
 
 <div>
 Click **Submit**, or **Save and continue adding** to create another asset.
@@ -76,22 +88,22 @@ Click **Submit**, or **Save and continue adding** to create another asset.
 
 ### Field reference
 
-| Group | Field | Description |
-| --- | --- | --- |
-| Basic | Name | Required. Display name. Must be unique; unrelated to the operating system hostname. |
-| Basic | IP/Host | Required. Address the asset is reached at. Domains and IPs are allowed and may repeat. |
-| Basic | Platform | The platform selected at creation, for example Linux. |
-| Basic | Nodes | Required. Nodes the asset belongs to. |
-| Protocol | Protocol | Access protocols and ports. Linux includes `ssh/22` and `sftp/22` by default. |
-| Account | Account | Bind sign-in accounts now with **Add** or **Add from template**. |
-| Other | Zone | Select a zone when the asset must be reached through a gateway. |
-| Other | Tags | Optional. Useful for filtering. |
-| Other | Active | When selected, the asset can be used. |
-| Other | Comment | Optional. Shown in the user's asset tree in Luna; do not store secrets here. |
+| Group    | Field    | Description                                                                            |
+| -------- | -------- | -------------------------------------------------------------------------------------- |
+| Basic    | Name     | Required. Display name. Must be unique; unrelated to the operating system hostname.    |
+| Basic    | IP/Host  | Required. Address the asset is reached at. Domains and IPs are allowed and may repeat. |
+| Basic    | Platform | The platform selected at creation, for example Linux.                                  |
+| Basic    | Nodes    | Required. Nodes the asset belongs to.                                                  |
+| Protocol | Protocol | Access protocols and ports. Linux includes `ssh/22` and `sftp/22` by default.          |
+| Account  | Account  | Bind sign-in accounts now with **Add** or **Add from template**.                       |
+| Other    | Zone     | Select a zone when the asset must be reached through a gateway.                        |
+| Other    | Tags     | Optional. Useful for filtering.                                                        |
+| Other    | Active   | When selected, the asset can be used.                                                  |
+| Other    | Comment  | Optional. Shown in the user's asset tree in Luna; do not store secrets here.           |
 
 <Alert type="note">
-Available protocols are defined by the platform. To change protocol
-capabilities, update the platform instead of the asset.
+  Available protocols are defined by the platform. To change protocol
+  capabilities, update the platform instead of the asset.
 </Alert>
 
 ## Import and export
@@ -125,12 +137,13 @@ Select several assets and click **More actions** to test, disable, enable, edit,
 or delete them.
 
 <Alert type="warning">
-**Delete** and **Delete selected** remove asset data permanently. To detach an
-asset from a node, use **Remove assets from node** instead.
+  **Delete** and **Delete selected** remove asset data permanently. To detach an
+  asset from a node, use **Remove assets from node** instead.
 </Alert>
 
 ## Related topics
 
+- [Web Assets](/features/console/assets/web-assets)
 - [Zones](/features/console/assets/zones)
 - [Cloud Sync](/features/console/assets/cloud-sync)
 - [Accounts](/features/console/accounts/)

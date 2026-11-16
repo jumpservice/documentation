@@ -97,22 +97,41 @@ configure its executable path in
 
 ## Connect to a web asset
 
+<VersionBadge version="5.0.0" />
+
 Web assets use the platform type **Website** and the **HTTP** or **HTTPS**
 protocol.
 
+Before you connect, confirm that:
+
+- JumpServer Client is installed and you are signed in.
+- Your account is authorized for the web asset and for the account you select.
+- The client can reach the JumpServer Web proxy on `5001/tcp`. See
+  [Network Ports](/operations/network-ports).
+
 1. Select **Connect** on the web asset.
 2. Choose **Built-in** > **Built-in browser**.
-3. Confirm the connection.
+3. Select the authorized account.
+4. Select **Confirm**.
 
 The site opens in a WebView window, and traffic is forwarded through the JumpServer
 Web proxy. The built-in browser is available only in JumpServer Client; the browser
-Web terminal uses a published WebLite application instead.
+Web terminal uses a published WebLite application instead. This path needs no
+RemoteApp publisher, Windows Server relay, or RDS license, and built-in browser
+access is included in Community Edition.
 
 ![Figure 5: Web asset connection dialog with the built-in browser selected.](/images/v5/jumpserver/v5_client_web_browser_01.png)
 
 The site address and account are configured by the administrator on the Web asset;
-the client does not provide an edit entry.
+the client does not provide an edit entry. To change the URL, the account, or the
+autofill method, edit the asset in **Console > Assets > Web**. Autofill uses the
+bound account and stores no credential in the client. See
+[Web assets](/features/console/assets/web-assets).
 
+Web sessions can be recorded when recording storage is configured, and recording
+of web asset sessions requires JumpServer Enterprise Edition. See
+[Web assets](/features/console/assets/web-assets#recording-and-audit) for the
+current limits of web session recording.
 
 ## Notes
 
@@ -123,8 +142,8 @@ the client does not provide an edit entry.
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.0 | Changed the default remote database application to DBX. |
-| v5.0.0 | Added a unified connection entry for SSH, RDP, Kubernetes, database, RemoteApp, and web assets. |
-| v5.0.0 | Added Kubernetes connections from the client asset list. |
+| Version | Change                                                                                          |
+| ------- | ----------------------------------------------------------------------------------------------- |
+| v5.1.0  | Changed the default remote database application to DBX.                                         |
+| v5.0.0  | Added a unified connection entry for SSH, RDP, Kubernetes, database, RemoteApp, and web assets. |
+| v5.0.0  | Added Kubernetes connections from the client asset list.                                        |

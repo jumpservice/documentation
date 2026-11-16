@@ -12,11 +12,11 @@ lists the dependencies and prerequisites of each one.
 
 ## Topology comparison
 
-| Topology | Good for | Key dependencies | Main failure domain |
-| --- | --- | --- | --- |
-| Single node | Evaluation, small teams, lab environments | One Linux host with Docker | The single host |
-| Two-node HA | Production with a modest footprint | Load balancer, shared storage, external database and cache | Load balancer or shared storage |
-| Fully distributed | Large or regulated environments | NFS or object storage, PostgreSQL, Redis, HAProxy, MinIO, Elasticsearch | Each dedicated service |
+| Topology          | Good for                                  | Key dependencies                                                        | Main failure domain             |
+| ----------------- | ----------------------------------------- | ----------------------------------------------------------------------- | ------------------------------- |
+| Single node       | Evaluation, small teams, lab environments | One Linux host with Docker                                              | The single host                 |
+| Two-node HA       | Production with a modest footprint        | Load balancer, shared storage, external database and cache              | Load balancer or shared storage |
+| Fully distributed | Large or regulated environments           | NFS or object storage, PostgreSQL, Redis, HAProxy, MinIO, Elasticsearch | Each dedicated service          |
 
 ## Single-node deployment
 
@@ -71,11 +71,12 @@ connections.
 
 The supporting services must meet these minimum versions:
 
-| Service | Requirement |
-| --- | --- |
-| PostgreSQL | 16 or later |
-| MariaDB | 10.6 or later |
-| Redis | 7.0 or later; Sentinel is supported, cluster mode is not |
+| Service    | Requirement                                              |
+| ---------- | -------------------------------------------------------- |
+| PostgreSQL | 16 or later                                              |
+| MariaDB    | 10.6 or later                                            |
+| Redis      | 7.0 or later; Sentinel is supported, cluster mode is not |
 
-Compression, TLS, and high-availability options for the database and cache are
-documented in [Configuration](/operations/configuration).
+Connection security for the built-in database and cache is described in
+[Configuration](/operations/configuration); the high-availability options depend
+on the external service you choose.

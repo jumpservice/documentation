@@ -7,8 +7,9 @@ description: "Use the jmsctl management script and its configuration helper to i
 
 Each JumpServer installation ships with the `jmsctl` management script. It wraps the
 Docker Compose project and is the supported way to install, start, stop, back up,
-restore, and upgrade the platform. This page lists the most useful commands and
-their behavior.
+restore, and upgrade the platform. The commands on this page apply to a deployment
+that `jmsctl` manages as a Docker Compose project; `./jmsctl.sh raw` passes its
+arguments to `docker compose`.
 
 ```bash
 root@jumpserver-host:~# jmsctl --help
@@ -51,38 +52,52 @@ More Commands:
 
 ## Service commands
 
-| Command | Description |
-| --- | --- |
-| `./jmsctl.sh install` | Install JumpServer services and initialize the database |
-| `./jmsctl.sh start` | Start all enabled services |
-| `./jmsctl.sh stop` | Stop all services |
-| `./jmsctl.sh restart` | Restart all services |
-| `./jmsctl.sh status` | Show the running state of the services |
-| `./jmsctl.sh down` | Take the services offline, including the Docker network |
-| `./jmsctl.sh uninstall` | Remove the services |
-| `./jmsctl.sh --help` | Print the command reference |
+| Command                 | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| `./jmsctl.sh install`   | Install JumpServer services and initialize the database |
+| `./jmsctl.sh start`     | Start all enabled services                              |
+| `./jmsctl.sh stop`      | Stop all services                                       |
+| `./jmsctl.sh restart`   | Restart all services                                    |
+| `./jmsctl.sh status`    | Show the running state of the services                  |
+| `./jmsctl.sh down`      | Take the services offline, including the Docker network |
+| `./jmsctl.sh uninstall` | Remove the services                                     |
+| `./jmsctl.sh --help`    | Print the command reference                             |
 
 Start and stop commands are also the way to apply configuration changes; there is
 no hot reload. See [Configuration](/operations/configuration).
 
 <Alert type="warning">
-`stop`, `down`, `restart`, and `uninstall` interrupt active sessions. Run them in a
-maintenance window and notify users first.
+  `stop`, `down`, `restart`, and `uninstall` interrupt active sessions. Run them
+  in a maintenance window and notify users first.
 </Alert>
 
 ## Data commands
 
-| Command | Description |
-| --- | --- |
-| `./jmsctl.sh backup_db` | Back up the database and the active configuration |
-| `./jmsctl.sh restore_db <file>` | Restore the database from a backup file |
-| `./jmsctl.sh tail [service]` | Follow the log of one service, or of all services |
-| `./jmsctl.sh load_image` | Load Docker images from the offline package |
-| `./jmsctl.sh raw <args>` | Run an arbitrary `docker compose` command |
-| `./jmsctl.sh upgrade` | Upgrade the installation to the packaged version |
+| Command                         | Description                                                                             |
+| ------------------------------- | --------------------------------------------------------------------------------------- |
+| `./jmsctl.sh backup_db`         | Back up the database and the active configuration                                       |
+| `./jmsctl.sh restore_db <file>` | Restore the database from a backup file                                                 |
+| `./jmsctl.sh tail [service]`    | Follow the log of one service, or of all services                                       |
+| `./jmsctl.sh load_image`        | Load Docker images from the offline package; the package is the documented image source |
+| `./jmsctl.sh raw <args>`        | Run an arbitrary `docker compose` command                                               |
+| `./jmsctl.sh upgrade`           | Upgrade the installation to the packaged version                                        |
 
 Back up before any upgrade or restore, and verify the backup file before starting
 the operation. The full procedure is in [Backup & Restore](/operations/backup-restore).
+
+## Images and the offline package
+
+For an air-gapped deployment, the container images come from the offline package and
+are loaded with `./jmsctl.sh load_image`. The offline package is the documented image
+source.
+
+<Alert type="note">
+  **Pending confirmation:** the documentation does not describe a private
+  container registry or a registry-based image source. Do not assume that images
+  can be pulled from an internal registry; confirm the supported delivery method
+  with the vendor. See [Installation](/installation) for what the package
+  contains.
+</Alert>
 
 ## Configuration helper
 
@@ -92,13 +107,13 @@ the operation. The full procedure is in [Backup & Restore](/operations/backup-re
 ./jmsctl.sh config --help
 ```
 
-| Subcommand | Description |
-| --- | --- |
-| `config init` | Initialize the configuration file |
+| Subcommand    | Description                            |
+| ------------- | -------------------------------------- |
+| `config init` | Initialize the configuration file      |
 | `config port` | Configure the JumpServer service ports |
-| `config ssl` | Configure Web SSL |
-| `config env` | Configure environment variables |
-| `config ntp` | Configure NTP time synchronization |
+| `config ssl`  | Configure Web SSL                      |
+| `config env`  | Configure environment variables        |
+| `config ntp`  | Configure NTP time synchronization     |
 
 Changes made by the helper are written to `config.txt` and take effect after
 `./jmsctl.sh restart`.
