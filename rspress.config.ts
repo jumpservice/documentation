@@ -4,6 +4,7 @@ import { defineConfig } from "@rspress/core";
 import { pluginSitemap } from "@rspress/plugin-sitemap";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 import { pluginGoogleAnalytics } from "rsbuild-plugin-google-analytics";
+import mermaid from "rspress-plugin-mermaid";
 import remarkBaseImages from "./scripts/remark-base-images.mjs";
 import rehypeTableGroupRowspan from "./scripts/rehype-table-group-rowspan.mjs";
 
@@ -83,6 +84,23 @@ export default defineConfig({
   plugins: [
     pluginSitemap({
       siteUrl: `${SITE_ORIGIN}/docs/`,
+    }),
+    mermaid({
+      mermaidConfig: {
+        layout: "dagre",
+        look: "classic",
+        htmlLabels: false,
+        fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
+        themeVariables: {
+          fontSize: "15px",
+        },
+        flowchart: {
+          htmlLabels: false,
+          useMaxWidth: true,
+          nodeSpacing: 36,
+          rankSpacing: 44,
+        },
+      },
     }),
   ],
   builderConfig: {
