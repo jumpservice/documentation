@@ -13,25 +13,34 @@ commands.
 
 ## Port reference
 
-| Port | Protocol | Purpose | Notes |
-| --- | --- | --- | --- |
-| 22 | TCP | SSH | Installation, upgrade, and host management |
-| 80 | TCP | Web HTTP | Browser access to the JumpServer frontend |
-| 443 | TCP | Web HTTPS | Browser access over TLS |
-| 5432 | TCP | PostgreSQL | Built-in or external database |
-| 3306 | TCP | MySQL / MariaDB | When MySQL or MariaDB is used as the database |
-| 6379 | TCP | Redis | Built-in or external cache |
-| 3389 | TCP | Razor RDP proxy | Windows assets accessed through the JumpServer Client |
-| 3390 | TCP | XRDP | Optional enterprise component, disabled by default |
-| 2222 | TCP | SSH client | Terminal tools such as Xshell, PuTTY, and MobaXterm |
-| 5001 | TCP | KoKo web proxy | Browser access to web assets |
-| 5525 | TCP | Magnus database proxy | The actual port is allocated per database type |
-| 15900 | TCP | Nec VNC proxy | VNC sessions |
-| 9898 | TCP | JDMC | Enterprise host management service, HTTPS |
+| Port  | Protocol | Purpose               | Notes                                                                                                                                                                                                    |
+| ----- | -------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 22    | TCP      | SSH                   | Installation, upgrade, and host management                                                                                                                                                               |
+| 80    | TCP      | Web HTTP              | Browser access to the JumpServer frontend                                                                                                                                                                |
+| 443   | TCP      | Web HTTPS             | Browser access over TLS                                                                                                                                                                                  |
+| 5432  | TCP      | PostgreSQL            | Built-in or external database                                                                                                                                                                            |
+| 3306  | TCP      | MySQL / MariaDB       | When MySQL or MariaDB is used as the database                                                                                                                                                            |
+| 6379  | TCP      | Redis                 | Built-in or external cache                                                                                                                                                                               |
+| 3389  | TCP      | Razor RDP proxy       | Windows assets accessed through the JumpServer Client                                                                                                                                                    |
+| 3390  | TCP      | XRDP                  | Optional enterprise component, disabled by default                                                                                                                                                       |
+| 2222  | TCP      | SSH client            | Terminal tools such as Xshell, PuTTY, and MobaXterm                                                                                                                                                      |
+| 5001  | TCP      | KoKo web proxy        | Browser access to web assets                                                                                                                                                                             |
+| 5525  | TCP      | Magnus database proxy | The proxy port. Each database type is also reached on its own protocol port, such as 33060 for MySQL, 54320 for PostgreSQL, and 63790 for Redis; open the port that matches each database type you proxy |
+| 15900 | TCP      | Nec VNC proxy         | VNC sessions                                                                                                                                                                                             |
+| 9898  | TCP      | JDMC                  | Enterprise host management service, HTTPS                                                                                                                                                                |
 
 Supporting services use their own ports: MinIO on `9000` and `9001`, Elasticsearch
 on `9200` and `9300`, and HAProxy on `80`, `443`, `2222`, and `5525`. Open these
 only between the hosts that need them, not to end users.
+
+### Magnus database ports
+
+Magnus is the database proxy. Port `5525` is the proxy port, while the client
+connection to the proxied database uses a protocol port allocated per database
+type: `33060` for MySQL, `54320` for PostgreSQL, and `63790` for Redis. Open `5525`
+and the protocol port of each database type you expose. The
+[Troubleshooting](/operations/troubleshooting) and [FAQ](/reference/faq) pages use
+the same convention.
 
 ## Container network
 
@@ -70,10 +79,75 @@ firewall-cmd --list-all
 ```
 
 <Alert type="tip">
-With `ufw`, open the same ports with `ufw allow <port>/tcp`. In cloud environments,
-add the matching rules to the security group of the JumpServer host and of any load
-balancer.
+  With `ufw`, allow the same ports from a source network rather than from
+  anywhere, for example `ufw allow from 10.20.0.0/24 to any port 5432 proto
+  tcp`, and keep the default incoming policy at deny with `ufw default deny
+  incoming`.
 </Alert>
+
+## Firewall policy
+
+The commands above open ports. A production host needs a policy that decides which
+sources may reach them.
+
+### Default deny
+
+Start from a default-deny inbound policy, then allow only the ports in the table
+for the sources that need them. With `firewalld`, a zone can drop everything that
+it does not explicitly allow:
+
+```sh
+firewall-cmd --permanent --zone=public --set-target=DROP
+firewall-cmd --reload
+```
+
+<Alert type="warning">
+  A default-deny target can lock you out of SSH. Add the SSH rule for your
+  administrative source first, keep a provider console or out-of-band path
+  available, and verify the rules before you close the session.
+</Alert>
+
+### Restrict sources with rich rules
+
+Prefer a rich rule that names the source network over a port that is open to
+everyone. The example allows PostgreSQL only from the JumpServer host network:
+
+```sh
+firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="10.20.0.0/24" port port="5432" protocol="tcp" accept'
+firewall-cmd --reload
+```
+
+Repeat the pattern for `6379` from the same network, and restrict backend ports to
+the load balancer's address only. See
+[Behind a load balancer](#behind-a-load-balancer).
+
+### Outbound traffic
+
+Inbound rules do not describe what the host must reach. Allow the outbound
+direction for the features you enable:
+
+- Community Edition installation and upgrade: outbound HTTPS to GitHub. See
+  [Installation](/installation).
+- Syslog forwarding: outbound to `SYSLOG_ADDR` on the transport and port you
+  configured. See [Log Forwarding & SIEM](/operations/siem-log-forwarding).
+- External PostgreSQL, Redis, object storage, and search services: outbound to the
+  hosts that run them. See
+  [Deployment Topologies](/operations/deployment-topologies).
+- Notification delivery: outbound to the SMTP or SMS provider configured under
+  **System Settings > Notifications**.
+
+<Alert type="note">
+  **Pending confirmation:** the complete list of outbound destinations for every
+  optional integration is not documented. Confirm the final egress list against
+  the integrations you enable.
+</Alert>
+
+### Cloud security groups
+
+In a cloud environment the host firewall is only one part of the path. Mirror every
+inbound rule in the security group of the JumpServer host, add egress rules for the
+outbound destinations above, and restrict backend ports to the load balancer's
+security group instead of to a CIDR range when a load balancer is used.
 
 ## Behind a load balancer
 
@@ -86,3 +160,4 @@ domain or IP users type in the browser.
 
 - [Deployment Topologies](/operations/deployment-topologies)
 - [Security Hardening](/operations/security-hardening)
+- [Log Forwarding & SIEM](/operations/siem-log-forwarding)

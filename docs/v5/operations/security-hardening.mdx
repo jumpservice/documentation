@@ -12,9 +12,10 @@ implement them.
 
 ## Reduce network exposure
 
-- Publish only the user-facing ports: `80`, `443`, and `2222` for the web UI, HTTPS,
-  and SSH client access. Expose `5525` only if database client connections are
-  needed.
+- Publish only the user-facing ports: `80` and `443` for the web UI, `2222` for
+  SSH client access, and `22` only when administrators need host management
+  access. Restrict `22` to trusted sources. Expose `5525` only if database client
+  connections are needed.
 - Keep PostgreSQL (`5432`), Redis (`6379`), MinIO (`9000`, `9001`), and
   Elasticsearch (`9200`, `9300`) reachable only from the JumpServer hosts and the
   load balancer.
@@ -33,8 +34,9 @@ See [Network Ports](/operations/network-ports) for the full list.
 - Use trusted certificates. Clipboard copy and paste inside RDP sessions requires
   the browser to trust the certificate.
 - Encrypt database and cache traffic with `DB_USE_SSL=True` and
-  `REDIS_USE_SSL=True`. Put the CA file under `/opt/jumpserver/config/certs` and
-  test the connection with the database client before restarting.
+  `REDIS_USE_SSL=True`. Put the CA file in the certificate directory configured
+  for those settings and test the connection with the database client before
+  restarting. See [Configuration](/operations/configuration).
 
 ## Protect secrets
 
@@ -90,8 +92,10 @@ See [Configuration](/operations/configuration) for how to apply these values.
 
 ## Retain audit evidence
 
-- Forward component logs to a central Syslog server with the `SYSLOG_ADDR`,
-  `SYSLOG_FACILITY`, and `SYSLOG_SOCKTYPE` settings, so logs survive host loss.
+- Forward component logs to a central Syslog server with the `SYSLOG_ENABLE`,
+  `SYSLOG_ADDR`, `SYSLOG_FACILITY`, and `SYSLOG_SOCKTYPE` settings, so logs
+  survive host loss. The payload is structured JSON; see
+  [Log Forwarding & SIEM](/operations/siem-log-forwarding).
 - Keep recordings in object storage with retention that satisfies the audit policy,
   and protect that storage with its own access controls.
 - Review login logs, operation logs, and session records regularly in
@@ -101,10 +105,10 @@ See [Configuration](/operations/configuration) for how to apply these values.
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.1 | Added Access Token format validation with fallback compatibility for other Bearer Token authentication methods. |
-| v5.1.0 | Enabled HTTPS by default for OpenBao. |
+| Version | Change                                                                                                          |
+| ------- | --------------------------------------------------------------------------------------------------------------- |
+| v5.1.1  | Added Access Token format validation with fallback compatibility for other Bearer Token authentication methods. |
+| v5.1.0  | Enabled HTTPS by default for OpenBao.                                                                           |
 
 ## Related topics
 

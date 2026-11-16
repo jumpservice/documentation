@@ -3,31 +3,40 @@ title: "Installation"
 description: "Install JumpServer Community Edition with the online one-line installer, or install JumpServer Enterprise Edition from an offline package."
 ---
 
-import VersionedCommand from '@/components/docs/versioned-command'
-import EnterpriseEditionCta from '@/components/docs/enterprise-edition-cta'
-import { Tab, Tabs } from '@rspress/core/theme';
+import VersionedCommand from "@/components/docs/versioned-command";
+import EnterpriseEditionCta from "@/components/docs/enterprise-edition-cta";
+import { Tab, Tabs } from "@rspress/core/theme";
 
 # Installation
 
 JumpServer has two installation paths. Choose the one that matches your edition
-and network environment.
+and network environment. The current release number and the changes in each
+release are tracked in [Changelog](/reference/changelog) and
+[What's new in V5](/reference/whats-new); this page does not repeat a version
+number.
 
-| Edition | Installation method | Use when |
-| --- | --- | --- |
-| Community Edition | Online one-line command | The server has outbound internet access and you want the latest community release |
-| Enterprise Edition | Offline installation package | You have an Enterprise license and deploy in a restricted or air-gapped network |
+| Edition            | Installation method          | Use when                                                                          |
+| ------------------ | ---------------------------- | --------------------------------------------------------------------------------- |
+| Community Edition  | Online one-line command      | The server has outbound internet access and you want the latest community release |
+| Enterprise Edition | Offline installation package | You have an Enterprise license and deploy in a restricted or air-gapped network   |
 
 <Alert type="note">
-Both editions require a clean 64-bit Linux server with at least 4 CPU cores and
-8 GB of memory. Use a host that you can dedicate to JumpServer; do not reuse a
-server that already runs conflicting web or database services.
+  Both editions require a clean 64-bit Linux server. The documented minimum of 4
+  CPU cores and 8 GB of memory is an **evaluation specification** for a
+  single-node, single-host deployment, not a production sizing baseline. Size a
+  production deployment from measured concurrency, recording volume, and
+  retention requirements. Use a host that you can dedicate to JumpServer; do not
+  reuse a server that already runs conflicting web or database services.
 </Alert>
 
 <EnterpriseEditionCta />
 
 ## Before you begin
 
-- Prepare a clean Linux server (64-bit, at least 4c8g).
+- Prepare a clean 64-bit Linux server on AMD64 (x86_64) or ARM64 (aarch64). The
+  documented 4 CPU cores and 8 GB of memory are an evaluation specification; see
+  the note above.
+- Confirm that the host runs Linux kernel 4.0 or later.
 - Sign in as `root` or a user with superuser privileges.
 - Confirm the server can reach its package source:
   - Community Edition: outbound HTTPS access to GitHub.
@@ -42,22 +51,28 @@ runs the current installer. Use this path when the server has internet access.
 <Steps>
 
 <div>
+
 Change to the `/opt` directory.
+
 ```sh
 cd /opt
 ```
+
 </div>
 
 <div>
+
 Run the online installation command.
+
 ```sh
 curl -sSL https://github.com/jumpserver/jumpserver/releases/latest/download/quick_start.sh | bash
 ```
+
 </div>
 
 <div>
-Wait for the installer to finish. It downloads the required images and starts the
-JumpServer services.
+  Wait for the installer to finish. It downloads the required images and starts
+  the JumpServer services.
 </div>
 
 <div>
@@ -68,13 +83,17 @@ Replace `<jumpserver-host>` with the IP address or domain name of the server.
 </div>
 
 <div>
+
 Sign in with the initial administrator account:
+
 - Username: `admin`
 - Password: `ChangeMe`
+
 </div>
 
 <div>
-Change the password when prompted, then sign in again. Installation is complete.
+  Change the password when prompted, then sign in again. Installation is
+  complete.
 </div>
 
 </Steps>
@@ -85,18 +104,38 @@ The Enterprise Edition is installed from an offline package provided by the
 JumpServer delivery team. The package contains the images and dependencies needed
 for a deployment without internet access. An Enterprise license is required.
 
+### What the package contains
+
+The offline package is the image source for an air-gapped deployment: it contains
+the container images and the dependencies that the installation needs, so the
+target host does not pull images from a public registry. The bundled images are
+loaded from the package; see [Command-Line Tools](/operations/cli-tools).
+
+An Enterprise license is required, and it is uploaded after the installation
+rather than extracted from the package. See [Upload license](/reference/license).
+
+<Alert type="note">
+  **Pending confirmation:** the package checksum or signature format, the exact
+  image list, and whether the license file accompanies the package. Verify the
+  archive against the checksum supplied with it before you extract it, and ask
+  the delivery team for the verification method when no checksum is supplied.
+</Alert>
+
 <Steps>
 
 <div>
-Obtain the Enterprise offline package and license from your delivery team. Confirm
-that the package version and CPU architecture match the target server.
+  Obtain the Enterprise offline package and license from your delivery team.
+  Confirm that the package version and CPU architecture match the target server.
 </div>
 
 <div>
+
 Sign in as `root`, then change to `/opt`.
+
 ```sh
 cd /opt
 ```
+
 </div>
 
 <div>
@@ -115,6 +154,7 @@ download it with `wget` if the server can reach the download URL.
       Upload the package to `/opt` on the deployment server.
       </div>
     </Steps>
+
   </Tab>
 
   <Tab label="wget">
@@ -125,45 +165,58 @@ download it with `wget` if the server can reach the download URL.
 
       <div>
       Replace `YOUR_DOWNLOAD_URL` with the copied link and download the package.
+      `YOUR_DOWNLOAD_URL` is a placeholder, not a working address, so the command
+      fails until you replace it.
       <VersionedCommand template={'cd /opt && wget -O jumpserver-ee-{version}-x86_64.tar.gz "YOUR_DOWNLOAD_URL"'} />
       </div>
     </Steps>
+
   </Tab>
 </Tabs>
 
 </div>
 
 <div>
-Extract the package.
-<VersionedCommand template="tar -zxvf jumpserver-ee-{version}-x86_64.tar.gz" />
+  Extract the package.
+  <VersionedCommand template="tar -zxvf jumpserver-ee-{version}-x86_64.tar.gz" />
 </div>
 
 <div>
-Change to the extracted directory.
-<VersionedCommand template="cd jumpserver-ee-{version}-x86_64" />
+  Change to the extracted directory.
+  <VersionedCommand template="cd jumpserver-ee-{version}-x86_64" />
 </div>
 
 <div>
+
 Run the installer. The default options are sufficient for a standard deployment;
 you can adjust the configuration files afterward.
+
 ```sh
 ./jmsctl.sh install
 ```
+
 </div>
 
 <div>
+
 Start the services.
+
 ```sh
 ./jmsctl.sh start
 ```
+
 </div>
 
 <div>
+
 Confirm that the services are running and healthy.
+
 ```sh
 ./jmsctl status
 ```
+
 The core services include `jms_core`, `jms_postgresql`, and `jms_redis`.
+
 </div>
 
 <div>
@@ -174,14 +227,17 @@ Replace `<jumpserver-host>` with the IP address or domain name of the server.
 </div>
 
 <div>
+
 Sign in with the initial administrator account:
+
 - Username: `admin`
 - Password: `ChangeMe`
+
 </div>
 
 <div>
-Change the password when prompted, then import the Enterprise license. See
-[License](/reference/license).
+  Change the password when prompted, then upload the Enterprise license. See
+  [License](/reference/license).
 </div>
 
 </Steps>
@@ -189,6 +245,6 @@ Change the password when prompted, then import the Enterprise license. See
 ## Next steps
 
 - [Quickstart](/quickstart): sign in, open the Console, and complete your first asset connection.
-- [Import License](/reference/license): activate Enterprise Edition features.
+- [Upload License](/reference/license): activate Enterprise Edition features.
 - [Enable HTTPS](/operations/enable-https): secure the web interface.
 - [Upgrade JumpServer](/upgrade): plan the next version upgrade.

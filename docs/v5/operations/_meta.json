@@ -51,6 +51,11 @@
   },
   {
     "type": "file",
+    "name": "siem-log-forwarding",
+    "label": "Log Forwarding & SIEM"
+  },
+  {
+    "type": "file",
     "name": "troubleshooting",
     "label": "Troubleshooting"
   },

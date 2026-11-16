@@ -30,15 +30,15 @@ are also what a load balancer should check.
 
 Component logs are written under `VOLUME_DIR`, `/data/jumpserver` by default:
 
-| Component | Container | Log directory |
-| --- | --- | --- |
-| Core | `jms_core` | `/data/jumpserver/core/data/logs` |
-| Celery | `jms_celery` | `/data/jumpserver/core/data/logs` |
-| KoKo | `jms_koko` | `/data/jumpserver/koko/data/logs` |
-| Chen | `jms_chen` | `/data/jumpserver/chen/data/logs` |
-| Razor | `jms_razor` | `/data/jumpserver/razor/data/logs` |
-| Magnus | `jms_magnus` | `/data/jumpserver/magnus/data/logs` |
-| Web | `jms_web` | `/data/jumpserver/nginx/data/logs` |
+| Component | Container    | Log directory                       |
+| --------- | ------------ | ----------------------------------- |
+| Core      | `jms_core`   | `/data/jumpserver/core/data/logs`   |
+| Celery    | `jms_celery` | `/data/jumpserver/core/data/logs`   |
+| KoKo      | `jms_koko`   | `/data/jumpserver/koko/data/logs`   |
+| Chen      | `jms_chen`   | `/data/jumpserver/chen/data/logs`   |
+| Razor     | `jms_razor`  | `/data/jumpserver/razor/data/logs`  |
+| Magnus    | `jms_magnus` | `/data/jumpserver/magnus/data/logs` |
+| Web       | `jms_web`    | `/data/jumpserver/nginx/data/logs`  |
 
 Core writes `jumpserver.log`, `gunicorn.log`, `drf_exception.log`, and
 `unexpected_exception.log`. Read the files directly, or use Docker:
@@ -53,17 +53,39 @@ the container is recreated, so copy important log files aside before an upgrade.
 
 ## Common problems
 
-| Symptom | What to check |
-| --- | --- |
-| Web UI returns 400 or 403 | `DOMAINS` must contain the exact host or IP users open in the browser; restart after editing |
-| Web UI returns 502 or 504 behind a proxy | Proxy health checks, WebSocket upgrade headers, and the backend port |
-| Services do not start | `./jmsctl.sh status`, `docker ps`, and the Core log; check disk space under `VOLUME_DIR` |
-| Asset connection fails | Authorization to the asset and account, account secret validity, connectivity test, platform protocol settings, and the zone gateway if the asset is behind one |
-| Web Terminal or web assets do not load | KoKo health, port `2222` for SSH client access, and port `5001` for the web proxy |
-| Login fails after enabling MFA | Server time drift (configure NTP) and the user's MFA secret; an administrator can reset MFA |
-| Database or Redis connection errors | `DB_USE_SSL` / `REDIS_USE_SSL` and certificate files, service availability, and credentials |
-| Recordings cannot be played | Video Worker state for graphical sessions, storage connectivity, and free space on `VOLUME_DIR` |
-| Jobs or discovery tasks keep failing | Target host reachability, account permissions on the target, and the task log |
+| Symptom                                         | What to check                                                                                                                                                       |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Web UI returns 400 or 403                       | `DOMAINS` must contain the exact host or IP users open in the browser; restart after editing                                                                        |
+| Web UI returns 502 or 504 behind a proxy        | Proxy health checks, WebSocket upgrade headers, and the backend port                                                                                                |
+| Services do not start                           | `./jmsctl.sh status`, `docker ps`, and the Core log; check disk space under `VOLUME_DIR`                                                                            |
+| Asset connection fails                          | Authorization to the asset and account, account secret validity, connectivity test, platform protocol settings, and the zone gateway if the asset is behind one     |
+| Web Terminal or web assets do not load          | KoKo health, port `2222` for SSH client access, and port `5001` for the web proxy                                                                                   |
+| Login fails after enabling MFA                  | Server time drift (configure NTP) and the user's MFA secret; an administrator can reset MFA                                                                         |
+| Database or Redis connection errors             | `DB_USE_SSL` / `REDIS_USE_SSL` and certificate files, service availability, and credentials                                                                         |
+| Database client connection through Magnus fails | Port `5525` and the protocol port for the database type, such as `33060`, `54320`, or `63790`; see [Network Ports](/operations/network-ports#magnus-database-ports) |
+| Recordings cannot be played                     | Video Worker state for graphical sessions, storage connectivity, and free space on `VOLUME_DIR`                                                                     |
+| Jobs or discovery tasks keep failing            | Target host reachability, account permissions on the target, and the task log                                                                                       |
+
+## Web asset connection problems
+
+Web assets can fail differently depending on how the user opens them: the client's
+built-in browser connects to the site directly, while the browser Web Terminal
+opens the asset through the web proxy or a published application. See
+[Network Ports](/operations/network-ports) for the ports.
+
+| Symptom                                               | What to check                                                                                                                                                              |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Page does not load in the browser Web Terminal        | KoKo health (`/koko/health/`), port `5001` reachable from the user's network, and the web proxy configuration                                                              |
+| Page loads but stays blank                            | Browser console and network errors, the asset URL scheme and port, and whether the site refuses to load in an embedded frame                                               |
+| Certificate warning or blocked connection             | The asset's certificate chain; a self-signed certificate is not trusted automatically. Confirm the target certificate before you change component settings                 |
+| WebLite or the publisher is missing                   | The RemoteApp publisher and the application images registered on it; this path is required when the connection does not use the client's built-in browser                  |
+| Connection works in the client but not in the browser | Compare the two paths: the built-in browser is a direct connection, while the browser path depends on the proxy. See [Asset connection](/features/client/asset-connection) |
+
+<Alert type="note">
+  **Pending confirmation:** the trust policy for self-signed certificates on web
+  assets, and where the WebLite and publisher components must be installed.
+  Confirm both with the vendor before you change a production deployment.
+</Alert>
 
 ## Use the audit trail
 
@@ -85,7 +107,8 @@ Collect the following in one archive:
 5. A screenshot of the failing page, without secrets.
 
 See the [Client documentation](/features/client/) page for connection-specific
-issues.
+issues, and [Help](/features/general/support/help) for the in-product help and
+support entry points.
 
 ## Related topics
 

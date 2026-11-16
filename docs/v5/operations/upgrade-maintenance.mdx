@@ -74,6 +74,60 @@ cd jumpserver-installer-<version>
 - Upgrade the other node in a high-availability pair after the first node is
   healthy.
 
+The checklist below expands these checks and adds the ones that are easy to skip,
+such as component registration and audit continuity.
+
+## Upgrade verification checklist
+
+Verify the deployment in this order before you declare the upgrade complete. Each
+check validates a different layer, so do not skip one because the previous check
+passed.
+
+| #   | Check                  | Where                                             | Pass condition                                                          |
+| --- | ---------------------- | ------------------------------------------------- | ----------------------------------------------------------------------- |
+| 1   | Service state          | `./jmsctl.sh status`                              | Every expected container is running                                     |
+| 2   | Component registration | **System Settings > Components**                  | Each enabled component instance registers and reports a normal state    |
+| 3   | Core health            | `curl -s http://127.0.0.1/api/health/`            | The health endpoint reports the expected state                          |
+| 4   | Sign-in                | Web UI                                            | A normal user and an administrator can both sign in                     |
+| 5   | Protocol connectivity  | **Workbench** or a test authorization             | One session per protocol you use opens end to end                       |
+| 6   | Recording playback     | **Audits > Asset sessions > Historical sessions** | A recording made after the upgrade plays, and an older one still plays  |
+| 7   | Audit continuity       | **Audits**                                        | Login, operation, and session records from before and after are present |
+| 8   | Enterprise license     | **System Settings > License**                     | The license is valid and licensed features remain available             |
+| 9   | Scheduled tasks        | **Job Center** or **System Tasks**                | A scheduled task runs after the upgrade                                 |
+
+See [Components](/features/system-settings/infrastructure/components) for the
+component states and [Asset sessions](/features/audits/sessions/asset-sessions)
+for replay conditions.
+
+<Alert type="note">
+  **Pending confirmation:** whether a supported post-upgrade validation script
+  or smoke-test suite exists. The checks above use documented pages and
+  commands, not a vendor test kit.
+</Alert>
+
+## Rollback preparation
+
+Prepare the rollback before you start the upgrade, not after a check fails.
+
+- **Backup point.** Run `./jmsctl.sh backup_db` before the upgrade, verify that the
+  dump file is readable and complete, and copy it off the host. A backup that only
+  exists on the host being upgraded is not a rollback point. See
+  [Backup & Restore](/operations/backup-restore).
+- **Version anchor.** Keep the current installation package, its configuration,
+  and the database backup together, so that the restored database matches the
+  package you return to.
+- **Rollback triggers.** Roll back when a verification check cannot be met and the
+  cause is not a configuration value that you can correct, for example when Core
+  does not start after the upgrade, component registration cannot be restored, or
+  session recordings and audit records are missing.
+- **Rollback steps.** Stop the services, restore the pre-upgrade database backup,
+  return to the package that matches that backup, and start the services. Follow
+  the restore procedure in [Backup & Restore](/operations/backup-restore); when the
+  restore reports table conflicts, follow the restore guidance in the
+  [FAQ](/reference/faq).
+- **After a rollback.** Record the failed check and the collected logs, and report
+  them before you retry the upgrade.
+
 ## Routine maintenance
 
 | Task                            | Frequency     | Notes                                                                                   |
@@ -82,7 +136,7 @@ cd jumpserver-installer-<version>
 | Disk usage of `VOLUME_DIR`      | Weekly        | Recordings and logs grow quickly; increase storage or move recordings to object storage |
 | Log review                      | Weekly        | Check Core, KoKo, and web logs for repeated errors                                      |
 | Certificate renewal             | Before expiry | Configure HTTPS and renew under `config/nginx/cert`                                     |
-| License validity                | Before expiry | Enterprise licenses expire; import a new license in System Settings                     |
+| License validity                | Before expiry | Enterprise licenses expire; upload a new license file in System Settings                |
 | Patch and version updates       | Per release   | Follow the upgrade path above                                                           |
 
 Local cleanup of login, operation, and file-transfer records is configured under
