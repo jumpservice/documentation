@@ -76,8 +76,8 @@ important requirement is consistency rather than one specific charset.
 **Problem**: The host runs an older Linux kernel.
 
 **Solution**: V5 requires Linux kernel 4.0 or later on both AMD64 and ARM64.
-Upgrade the operating system kernel, or migrate to a supported host. See the
-[Installation](/installation) requirements.
+Upgrade the operating system kernel, or migrate to a supported host. See
+[Installation](/installation#before-you-begin) for the host requirements.
 
 ### Which database and cache versions does V5 support?
 
@@ -93,11 +93,11 @@ and Redis. MySQL 5.7 must be upgraded before V5.
 or the login page asks for `DOMAINS`.
 
 **Solution**: Add every access address to `DOMAINS` with commas, including the
-port. In a 1Panel deployment, set `DOMAINS` in the application parameters; in a
-standard deployment, edit `/opt/jumpserver/config/config.txt`. Restart the
-service or recreate the containers. Open the corresponding firewall ports and
-include every hostname in the reverse-proxy `server_name`. See
-[Network Ports](/operations/network-ports).
+port. When the deployment is managed by a control panel such as 1Panel, set
+`DOMAINS` in the application parameters; in a standard deployment, edit
+`/opt/jumpserver/config/config.txt`. Restart the service or recreate the
+containers. Open the corresponding firewall ports and include every hostname in
+the reverse-proxy `server_name`. See [Network Ports](/operations/network-ports).
 
 ## Environment and operations
 
@@ -105,10 +105,11 @@ include every hostname in the reverse-proxy `server_name`. See
 
 **Problem**: The server is behind a firewall and clients cannot connect.
 
-**Solution**: Community Edition requires SSH `22`, HTTP `80`, HTTPS `443`, and
-KoKo SSH `2222`. Enterprise Edition also uses Razor RDP `3389`. Database
-connections through Magnus need the database protocol ports, such as `33060` for
-MySQL, `54320` for PostgreSQL, and `63790` for Redis. See
+**Solution**: Community Edition requires HTTP `80`, HTTPS `443`, and KoKo SSH
+`2222`; management access uses SSH `22`, restricted to administrators. Enterprise
+Edition also uses Razor RDP `3389`. Magnus listens on `5525` and allocates a
+protocol port per database type, such as `33060` for MySQL, `54320` for
+PostgreSQL, and `63790` for Redis. See
 [Network Ports](/operations/network-ports).
 
 ### Does JumpServer start automatically after a host reboot?
@@ -189,11 +190,12 @@ against the commands you intend to block. See
 **Problem**: A firewall or appliance web page does not need credentials, so
 automatic form filling breaks the connection.
 
-**Solution**: Make sure a RemoteApp publisher is configured under **System
-Settings > RemoteApp**. Create the asset as a **Website** asset, set **Autofill**
-to **Disabled**, and bind an account only if the target requires one. Do not use
-**Basic** autofill for a page with no login form. See
-[Web assets](/features/console/assets/) and
+**Solution**: Create the asset as a **Website** asset and set **Autofill** to
+**Disabled**; bind an account only if the target requires one. Do not use
+**Basic** autofill for a page with no login form. If the session is opened from
+the browser Web terminal, a WebLite or Remote Application publisher is required;
+the JumpServer Client built-in browser does not need a publisher. See
+[Web Assets](/features/console/assets/web-assets) and
 [RemoteApp](/features/system-settings/infrastructure/remote-app).
 
 ### Is script-based autofill available in V5 Community Edition?
@@ -245,6 +247,59 @@ the asset; Linux SFTP transfers go directly to the asset. Both are limited by
 `CLIENT_MAX_BODY_SIZE`. For browser-based transfers, allow uploads and downloads
 in the browser. See
 [File Transfer](/features/workbench/my-assets/file-transfer).
+
+## Web assets
+
+### How do I open a web asset without a RemoteApp machine?
+
+**Problem**: The deployment has no Windows Server or RDS license, but users need
+to reach web applications.
+
+**Solution**: Open the asset from **JumpServer Client**, which renders the site in
+its built-in browser and forwards traffic through the JumpServer Web proxy. This
+path needs no RemoteApp machine, Windows Server, or RDS license, and built-in
+browser access is included in Community Edition. The browser Web Terminal still
+requires a published WebLite application on a RemoteApp or VirtualApp provider.
+See [Web assets](/features/console/assets/web-assets).
+
+### Why is the WebLite option missing in the Web Terminal?
+
+**Problem**: A web asset is authorized, but the Web Terminal offers no WebLite
+application.
+
+**Solution**: Publish WebLite on a RemoteApp machine (Windows) or a VirtualApp
+provider (Linux), and assign the application to the user. Without a publisher the
+Web Terminal cannot open a web asset; use the client built-in browser instead. See
+[RemoteApp](/features/system-settings/infrastructure/remote-app).
+
+### Where can I find the recording of a web session?
+
+**Problem**: A web session was opened, but no replay is available in the audit.
+
+**Solution**: Recording of web asset sessions requires Enterprise Edition, and the
+deployment must have recording storage configured under **System Settings >
+Storage**. Where a web asset recording can be reviewed and how it is identified in
+the audit are to be confirmed.
+
+### Can I open a site that uses a self-signed certificate?
+
+**Problem**: The page does not open, or the client reports a certificate error.
+
+**Solution**: The certificate trust behavior for web assets is not confirmed in
+the documentation. Check the site certificate before you change the autofill
+method, and confirm the supported behavior with the vendor. See
+[Web assets](/features/console/assets/web-assets).
+
+### Which autofill method should I choose?
+
+**Problem**: The **Autofill** field offers several methods, and the site does not
+sign in as expected.
+
+**Solution**: Use **Disabled** for a site without a login form, **Basic** for a
+single-page form with username, password, and a sign-in button on the same page,
+and **Script** for multi-step or cross-page logins. Script autofill, the
+**Successful login selector**, and the **Interactive selector** require Enterprise
+Edition. See [Autofill](/features/console/assets/web-assets#autofill).
 
 ## Users and authentication
 
