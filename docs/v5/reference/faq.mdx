@@ -285,9 +285,11 @@ the audit are to be confirmed.
 
 **Problem**: The page does not open, or the client reports a certificate error.
 
-**Solution**: The certificate trust behavior for web assets is not confirmed in
-the documentation. Check the site certificate before you change the autofill
-method, and confirm the supported behavior with the vendor. See
+**Solution**: Yes. Web assets trust self-signed certificates by default, so a
+site whose certificate is not issued by a public CA opens normally. Because the
+certificate is not validated against a trusted CA, review the site before you add
+it as a web asset, and add only sites that you control or trust. A self-signed
+certificate does not prove the identity of the server. See
 [Web assets](/features/console/assets/web-assets).
 
 ### Which autofill method should I choose?
