@@ -54,7 +54,19 @@ export const iconConfig = {
   CircleCheck: <LucideIcons.CircleCheck className="w-4 pb-1 inline-block" />,
   CircleMinus: <LucideIcons.CircleMinus className="w-4 pb-1 inline-block" />,
   Check: <LucideIcons.Check className="w-4 pb-1 inline-block" />,
-  X: <LucideIcons.X className="w-4 pb-1 inline-block" />,
+  X: (
+    <span
+      className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-red-100 align-middle ring-1 ring-red-300 dark:bg-red-500/20 dark:ring-red-400/40"
+      role="img"
+      aria-label="Not supported in Community Edition"
+    >
+      <LucideIcons.X
+        className="h-3.5 w-3.5 text-red-600 dark:text-red-400"
+        strokeWidth={3}
+        aria-hidden="true"
+      />
+    </span>
+  ),
   LucideMessageCircleQuestion: <LucideIcons.LucideMessageCircleQuestion className="w-4 pb-1 inline-block" />,
 
   // lina svg icons

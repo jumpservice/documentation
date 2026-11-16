@@ -1,20 +1,20 @@
 ---
 title: "Community vs Enterprise"
-description: "Compare JumpServer Community Edition and Enterprise Edition features, scales, authentication methods, and support options."
+description: "Compare JumpServer Community Edition and Enterprise Edition features, asset types, connection methods, access control, and account management."
 ---
 
-import { 
-  ResourceManagement, 
-  AssetType, 
+import {
+  ResourceManagement,
+  AssetType,
   UserAuthentication,
   AssetConnectionMethod,
   AccountManagement,
   ACLsManagement,
-  AdditionalFeatures,
   AuditManagement,
   OtherFeatures,
-} from '@/components/docs/compare-versions-data'
-import CompareVersionsDataTable from '@/components/docs/compare-versions-datatable'
+  WebAssetEditions,
+} from "@/components/docs/compare-versions-data";
+import CompareVersionsDataTable from "@/components/docs/compare-versions-datatable";
 
 # Community vs Enterprise
 
@@ -25,79 +25,124 @@ compares the two editions feature by feature.
 
 <ApplyTrialLicense />
 
-### Resource & Access Management
+## Resource & Access Management
 
 <CompareVersionsDataTable
-  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
   rows={ResourceManagement.map((row) => [
-    { content: row['feature'] },
-    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
     { content: <Icon name="Check" /> },
   ])}
 />
 
-### User Authentication Methods
+## User Authentication Methods
 
 <CompareVersionsDataTable
-  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
   rows={UserAuthentication.map((row) => [
-    { content: row['feature'] },
-    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
     { content: <Icon name="Check" /> },
   ])}
 />
 
-### Available Asset Types
+## Available Asset Types
 
 <CompareVersionsDataTable
-  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
   rows={AssetType.map((row) => [
-    { content: row['feature'] },
-    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
     { content: <Icon name="Check" /> },
   ])}
 />
 
-### Asset Connection Methods
+## Asset Connection Methods
 
 <CompareVersionsDataTable
-  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
   rows={AssetConnectionMethod.map((row) => [
-    { content: row['feature'] },
-    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
     { content: <Icon name="Check" /> },
   ])}
 />
 
-### Access Control Policies (ACLs)
+## Web Assets
+
+Web asset features split between the editions: the asset type and the client
+built-in browser are included in Community Edition, while session recording,
+script autofill, and the successful login and interactive selectors require
+Enterprise Edition.
 
 <CompareVersionsDataTable
-  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
+  rows={WebAssetEditions.map((row) => [
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+## Access Control Policies (ACLs)
+
+<CompareVersionsDataTable
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
   rows={ACLsManagement.map((row) => [
-    { content: row['feature'] },
-    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
     { content: <Icon name="Check" /> },
   ])}
 />
 
-### Audit & Monitoring Capabilities
+## Account Management
 
 <CompareVersionsDataTable
-  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
+  rows={AccountManagement.map((row) => [
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
+    { content: <Icon name="Check" /> },
+  ])}
+/>
+
+## Audit & Monitoring Capabilities
+
+<CompareVersionsDataTable
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
   rows={AuditManagement.map((row) => [
-    { content: row['feature'] },
-    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
     { content: <Icon name="Check" /> },
   ])}
 />
 
-### Additional Features & Integrations
+## Additional Features & Integrations
 
 <CompareVersionsDataTable
-  headers={['Feature', 'Community Edition', 'Enterprise Edition']}
+  headers={["Feature", "Community Edition", "Enterprise Edition"]}
   rows={OtherFeatures.map((row) => [
-    { content: row['feature'] },
-    { content: row['ce'] === false ? <Icon name="X" /> : <Icon name="Check" /> },
+    { content: row["feature"] },
+    {
+      content: row["ce"] === false ? <Icon name="X" /> : <Icon name="Check" />,
+    },
     { content: <Icon name="Check" /> },
   ])}
 />
