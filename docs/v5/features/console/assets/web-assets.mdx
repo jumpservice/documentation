@@ -301,18 +301,16 @@ as the last step.
 
 ## Self-signed certificates
 
-<Alert type="note">
-  The certificate trust behavior for web assets is to be confirmed. Whether the
-  built-in browser trusts a self-signed certificate, whether a CA certificate
-  can be imported, and how a certificate error appears in the client are not
-  confirmed in the current documentation. Confirm the supported behavior with
-  the product before you rely on it.
-</Alert>
+Web assets trust self-signed certificates by default, so a site whose certificate
+is not issued by a public CA still opens in JumpServer. The client accepts the
+certificate that the site presents.
 
-A site that uses a self-signed certificate can fail during the first page load.
-When a page does not open, check the certificate state of the site before you
-change the autofill method, so that a certificate error is not mistaken for an
-autofill error.
+<Alert type="warning">
+  Because self-signed certificates are trusted by default, review a site before
+  you add it as a web asset, and add only sites that you control or trust. A
+  self-signed certificate does not prove the identity of the server, so an
+  untrusted or spoofed site can also present one.
+</Alert>
 
 ## Recording and audit
 
