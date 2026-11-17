@@ -39,5 +39,6 @@
   { "type": "section-header", "label": "More" },
   { "type": "file", "name": "changelog", "label": "Changelog" },
   { "type": "file", "name": "faq", "label": "FAQ" },
+  { "type": "custom-link", "label": "Tutorials", "link": "https://www.jumpserver.com/categories/tutorials" },
   { "type": "custom-link", "label": "DeepWiki", "link": "https://deepwiki.com/jumpserver/jumpserver/" }
 ]
