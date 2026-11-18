@@ -163,7 +163,7 @@ export default function Footer() {
                 alt="JumpServer"
                 width={139}
                 height={28}
-                className="h-7 w-auto"
+                className="h-7 w-[139px]"
               />
             </a>
             <p className="mt-3 text-sm text-white/60">
