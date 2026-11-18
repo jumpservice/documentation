@@ -10,7 +10,7 @@ const MEDIA_PREFIXES = ["/images/", "/svgs/"];
 const MEDIA_EXTENSION = /\.(?:svg|png|jpe?g|gif|webp|avif|ico)$/i;
 const IMMUTABLE_CACHE_CONTROL = "public, max-age=31536000, immutable";
 const MEDIA_CACHE_CONTROL = "public, max-age=604800";
-const HTML_CACHE_CONTROL = "public, max-age=0, must-revalidate";
+const HTML_CACHE_CONTROL = "public, max-age=3600";
 
 function withCacheHeaders(response, assetPath) {
   const headers = new Headers(response.headers);
