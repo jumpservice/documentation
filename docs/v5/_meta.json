@@ -52,5 +52,10 @@
     "name": "reference",
     "label": "Reference",
     "collapsed": true
+  },
+  {
+    "type": "custom-link",
+    "label": "Tutorials",
+    "link": "https://www.jumpserver.com/categories/tutorials"
   }
 ]
