@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "rspress dev",
-    "build": "rspress build",
+    "build": "rspress build && node scripts/inject-canonical.mjs",
     "check:docs": "node scripts/check-docs.mjs",
     "check:todos": "node scripts/check-todos.mjs",
     "preview": "node scripts/preview.mjs",
