@@ -50,6 +50,9 @@ export default {
     const legacyTarget = LEGACY_REDIRECTS[normalizePath(pathname)];
     if (legacyTarget && legacyTarget !== pathname) {
       const redirectUrl = new URL(url);
+      // Cloudflare can hand the worker an http:// request URL even when the
+      // visitor is on https, which would add a second hop to the redirect.
+      redirectUrl.protocol = "https:";
       redirectUrl.pathname = legacyTarget;
       return Response.redirect(redirectUrl.toString(), 301);
     }
