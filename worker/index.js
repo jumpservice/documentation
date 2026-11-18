@@ -10,7 +10,8 @@ const MEDIA_PREFIXES = ["/images/", "/svgs/"];
 const MEDIA_EXTENSION = /\.(?:svg|png|jpe?g|gif|webp|avif|ico)$/i;
 const IMMUTABLE_CACHE_CONTROL = "public, max-age=31536000, immutable";
 const MEDIA_CACHE_CONTROL = "public, max-age=604800";
-const HTML_CACHE_CONTROL = "public, max-age=3600";
+const HTML_CACHE_CONTROL = "public, max-age=3600, stale-while-revalidate=300";
+const HTML_CACHE_TAG = "jumpserver-docs-html";
 
 function withCacheHeaders(response, assetPath) {
   const headers = new Headers(response.headers);
@@ -23,6 +24,7 @@ function withCacheHeaders(response, assetPath) {
     headers.set("cache-control", MEDIA_CACHE_CONTROL);
   } else if (assetPath.endsWith(".html")) {
     headers.set("cache-control", HTML_CACHE_CONTROL);
+    headers.set("cache-tag", HTML_CACHE_TAG);
   } else {
     return response;
   }
