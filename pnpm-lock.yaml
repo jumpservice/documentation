@@ -29,9 +29,6 @@ importers:
       react-dom:
         specifier: ^19.2.0
         version: 19.3.1(react@19.3.1)
-      rsbuild-plugin-google-analytics:
-        specifier: ^1.1.0
-        version: 1.1.0(@rsbuild/core@2.2.14)
     devDependencies:
       '@tailwindcss/typography':
         specifier: ^0.5.16
@@ -1922,14 +1919,6 @@ packages:
 
   roughjs@4.6.6:
     resolution: {integrity: sha512-ZUz/69+SYpFN/g/lUlo2FXcIjRkSu3nDarreVdGGndHEBJ6cXPdKguS8JGxwj5HA5xIbVKSmLgr5b3AWxtRfvQ==}
-
-  rsbuild-plugin-google-analytics@1.1.0:
-    resolution: {integrity: sha512-Wd0jzjuOrA8tzFCn3WaZ2moI2ypd222pDWhSjNqKZQcNO7vKBGKrGdI5ga4OB++SSb+JGs/NhJi24XXIbVujlA==}
-    peerDependencies:
-      '@rsbuild/core': ^1.0.0 || ^2.0.0
-    peerDependenciesMeta:
-      '@rsbuild/core':
-        optional: true
 
   rspress-plugin-devkit@1.0.1:
     resolution: {integrity: sha512-uEzS3D/jwDSHN2KAHvoQDiia4+gov5t4ZHv+YP1Iu11TRJ/0dlDjao4QXrPEIgCPJ1MHvMHfkpIJecn/h3ilVA==}
@@ -4482,10 +4471,6 @@ snapshots:
       path-data-parser: 0.1.0
       points-on-curve: 0.2.0
       points-on-path: 0.2.1
-
-  rsbuild-plugin-google-analytics@1.1.0(@rsbuild/core@2.2.14):
-    optionalDependencies:
-      '@rsbuild/core': 2.2.14
 
   rspress-plugin-devkit@1.0.1(@rspress/core@2.0.23(@rspack/core@2.2.9(@swc/helpers@0.5.23))(micromark-util-types@2.0.3)(micromark@4.0.3)):
     dependencies:
