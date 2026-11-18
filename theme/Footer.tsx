@@ -24,9 +24,9 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h4 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
+      <h3 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">
         {title}
-      </h4>
+      </h3>
       <ul className="space-y-2.5">
         {links.map((link) => (
           <li key={`${link.title}-${link.url}`}>
@@ -161,13 +161,15 @@ export default function Footer() {
               <img
                 src={normalizeImagePath("/jumpserver-wordmark-white.svg")}
                 alt="JumpServer"
+                width={139}
+                height={28}
                 className="h-7 w-auto"
               />
             </a>
             <p className="mt-3 text-sm text-white/60">
               Open-source privileged access management platform
             </p>
-            <p className="mt-2 text-xs text-white/45">
+            <p className="mt-2 text-xs text-white/70">
               500,000+ deployments · 30k+ GitHub Stars
             </p>
 
@@ -202,7 +204,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-teal-mid pt-6 sm:flex-row">
-          <p className="text-xs text-white/45">
+          <p className="text-xs text-white/70">
             © {new Date().getFullYear()} Lingxia (Hong Kong) Software Co., Ltd.
             (LXware)
           </p>

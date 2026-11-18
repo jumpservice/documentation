@@ -2,6 +2,39 @@ import { LEGACY_REDIRECTS } from "./legacy-redirects.js";
 
 const DOCS_PREFIX = "/docs";
 
+// Assets under /static are content-hashed by Rspress, so they can be cached
+// for a year. Images and SVGs are not hashed: keep a shorter browser TTL so a
+// replaced screenshot is picked up without a hard refresh.
+const STATIC_PREFIX = "/static/";
+const MEDIA_PREFIXES = ["/images/", "/svgs/"];
+const MEDIA_EXTENSION = /\.(?:svg|png|jpe?g|gif|webp|avif|ico)$/i;
+const IMMUTABLE_CACHE_CONTROL = "public, max-age=31536000, immutable";
+const MEDIA_CACHE_CONTROL = "public, max-age=604800";
+const HTML_CACHE_CONTROL = "public, max-age=3600, stale-while-revalidate=300";
+const HTML_CACHE_TAG = "jumpserver-docs-html";
+
+function withCacheHeaders(response, assetPath) {
+  const headers = new Headers(response.headers);
+  if (assetPath.startsWith(STATIC_PREFIX)) {
+    headers.set("cache-control", IMMUTABLE_CACHE_CONTROL);
+  } else if (
+    MEDIA_PREFIXES.some((prefix) => assetPath.startsWith(prefix)) ||
+    MEDIA_EXTENSION.test(assetPath)
+  ) {
+    headers.set("cache-control", MEDIA_CACHE_CONTROL);
+  } else if (assetPath.endsWith(".html")) {
+    headers.set("cache-control", HTML_CACHE_CONTROL);
+    headers.set("cache-tag", HTML_CACHE_TAG);
+  } else {
+    return response;
+  }
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 function isFileLike(pathname) {
   return /\.[^/]+$/.test(pathname);
 }
@@ -9,7 +42,8 @@ function isFileLike(pathname) {
 async function fetchAsset(env, url, pathname) {
   const assetUrl = new URL(url);
   assetUrl.pathname = pathname;
-  return env.ASSETS.fetch(new Request(assetUrl.toString()));
+  const response = await env.ASSETS.fetch(new Request(assetUrl.toString()));
+  return withCacheHeaders(response, pathname);
 }
 
 function normalizePath(pathname) {
@@ -50,6 +84,9 @@ export default {
     const legacyTarget = LEGACY_REDIRECTS[normalizePath(pathname)];
     if (legacyTarget && legacyTarget !== pathname) {
       const redirectUrl = new URL(url);
+      // Cloudflare can hand the worker an http:// request URL even when the
+      // visitor is on https, which would add a second hop to the redirect.
+      redirectUrl.protocol = "https:";
       redirectUrl.pathname = legacyTarget;
       return Response.redirect(redirectUrl.toString(), 301);
     }
