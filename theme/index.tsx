@@ -13,10 +13,92 @@ const latestForVersion = (version: string) =>
   releases.find((release) => release.version.startsWith(`${version}.`))
     ?.version ?? releases[0].version;
 
+const GA_ID = "G-QJE3MCHN3H";
+
+// Load analytics after the page is idle or the user interacts, so that the
+// Google tag does not compete with the first render for the main thread.
+function scheduleAnalytics() {
+  if (typeof window === "undefined") return;
+
+  const load = () => {
+    const w = window as unknown as {
+      dataLayer?: unknown[];
+      gtag?: (...args: unknown[]) => void;
+      __gaLoaded?: boolean;
+    };
+    if (w.__gaLoaded) return;
+    w.__gaLoaded = true;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(script);
+
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = (...args: unknown[]) => {
+      w.dataLayer?.push(args);
+    };
+    w.gtag("js", new Date());
+    w.gtag("config", GA_ID);
+  };
+
+  const idle = () => {
+    const requestIdle = (
+      window as unknown as {
+        requestIdleCallback?: (
+          callback: () => void,
+          options?: { timeout: number },
+        ) => void;
+      }
+    ).requestIdleCallback;
+    if (typeof requestIdle === "function") {
+      requestIdle(load, { timeout: 3000 });
+    } else {
+      window.setTimeout(load, 1500);
+    }
+  };
+
+  if (document.readyState === "complete") {
+    idle();
+  } else {
+    window.addEventListener("load", idle, { once: true });
+  }
+
+  const onInteraction = () => load();
+  ["pointerdown", "keydown"].forEach((event) => {
+    window.addEventListener(event, onInteraction, {
+      passive: true,
+      once: true,
+    });
+  });
+}
+
+// Rspress renders heading anchors with aria-hidden but leaves them focusable,
+// which fails the aria-hidden-focus accessibility audit.
+function fixHeaderAnchors() {
+  document
+    .querySelectorAll<HTMLAnchorElement>(
+      'a.rp-header-anchor[aria-hidden="true"]',
+    )
+    .forEach((anchor) => {
+      if (!anchor.hasAttribute("tabindex")) {
+        anchor.setAttribute("tabindex", "-1");
+      }
+    });
+}
+
 const Layout = () => {
   const version = useVersion() || "v5";
   const latestVersion = latestForVersion(version);
   const releaseUrl = `https://github.com/jumpserver/jumpserver/releases/tag/${latestVersion}`;
+
+  useEffect(() => {
+    scheduleAnalytics();
+    fixHeaderAnchors();
+    const observer = new MutationObserver(fixHeaderAnchors);
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <BasicLayout

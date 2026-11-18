@@ -2,6 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Self-hosted Inter (SIL OFL 1.1, see /docs/fonts/inter/OFL.txt).
+   The latin variable file covers 400-700 and removes a third-party,
+   render-blocking request to fonts.googleapis.com. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/inter-latin-var.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/inter-latin-var.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/inter-latin-var.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/inter-latin-var.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
 /* ===================================================================
    JumpServer docs theme
    Aligned with theme-jumpserver / docs.halo.run design tokens.
@@ -195,13 +246,13 @@ body {
 }
 
 .jms-btn-primary {
-  background-color: #2b937c;
+  background-color: #1f6f5f;
   color: #ffffff;
   box-shadow: 0 1px 2px rgba(15, 46, 41, 0.12);
 }
 
 .jms-btn-primary:hover {
-  background-color: #238c76;
+  background-color: #1a5c4e;
   color: #ffffff;
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(43, 147, 124, 0.28);
@@ -628,7 +679,7 @@ html.rp-dark .rspress-doc figure img {
 
 .rp-doc-footer__edit,
 .rp-edit-link {
-  color: var(--rp-c-text-3);
+  color: var(--rp-c-text-2);
   font-size: 13px;
 }
 
@@ -736,9 +787,13 @@ html.dark ::selection {
 
 /* Brand banner */
 .rp-banner {
-  background: linear-gradient(90deg, #0f2e29 0%, #1a5c4e 45%, #2b937c 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #0f2e29 0%,
+    #1a5c4e 45%,
+    #2b937c 100%
+  ) !important;
 }
-
 
 /* Ensure the white wordmark is used in dark mode */
 html.dark .rp-nav__title__logo-image--light,
@@ -751,13 +806,11 @@ html.rp-dark .rp-nav__title__logo-image--dark {
   display: block !important;
 }
 
-
 /* White wordmark in dark mode regardless of which asset the theme picks */
 html.dark .rp-nav__title__logo-image,
 html.rp-dark .rp-nav__title__logo-image {
   filter: brightness(0) invert(1);
 }
-
 
 /* Make table navigation links unmistakable */
 .rspress-doc table a.rp-link {
@@ -767,7 +820,6 @@ html.rp-dark .rp-nav__title__logo-image {
   text-decoration-color: color-mix(in srgb, var(--rp-c-brand) 50%, transparent);
   text-underline-offset: 2px;
 }
-
 
 /* Enterprise CTA action row */
 .enterprise-cta-actions {
@@ -786,7 +838,6 @@ html.rp-dark .rp-nav__title__logo-image {
     width: 100%;
   }
 }
-
 
 /* Sidebar hierarchy: top-level sections vs nested sub-sections */
 .rp-doc-layout__sidebar .rp-sidebar-section-header {
@@ -809,7 +860,9 @@ html.rp-dark .rp-nav__title__logo-image {
   border-top: 1px solid var(--rp-c-divider-light);
 }
 
-.rp-doc-layout__sidebar > .rp-sidebar-section-header .rp-sidebar-section-header__left {
+.rp-doc-layout__sidebar
+  > .rp-sidebar-section-header
+  .rp-sidebar-section-header__left {
   color: var(--rp-c-text-3);
   font-size: 14px;
   line-height: 1.4;
@@ -840,7 +893,6 @@ html.rp-dark .rp-nav__title__logo-image {
   background-color: transparent;
 }
 
-
 /* Keep the external-link marker white on the primary nav CTA */
 .rp-nav-menu a.jms-btn-primary[target="_blank"]::after {
   color: #ffffff !important;
@@ -869,7 +921,9 @@ html.rp-dark .rp-nav__title__logo-image {
   color: var(--rp-c-text-1);
   font-size: 14px;
   outline: none;
-  transition: background-color 160ms ease, border-color 160ms ease;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
 }
 
 .rp-overview-search__input:focus {
@@ -890,7 +944,8 @@ html.rp-dark .rp-nav__title__logo-image {
   height: 18px;
   content: "";
   background-color: var(--rp-c-text-3);
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-width='2' d='M14.5 14.5L20 20m-4-10a6 6 0 1 1-12 0a6 6 0 0 1 12 0Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-width='2' d='M14.5 14.5L20 20m-4-10a6 6 0 1 1-12 0a6 6 0 0 1 12 0Z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
   pointer-events: none;
   transform: translateY(-50%);
 }

@@ -3,7 +3,6 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "@rspress/core";
 import { pluginSitemap } from "@rspress/plugin-sitemap";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
-import { pluginGoogleAnalytics } from "rsbuild-plugin-google-analytics";
 import mermaid from "rspress-plugin-mermaid";
 import remarkBaseImages from "./scripts/remark-base-images.mjs";
 import rehypeTableGroupRowspan from "./scripts/rehype-table-group-rowspan.mjs";
@@ -29,28 +28,14 @@ export default defineConfig({
   logoText: "",
   logoHref: "https://www.jumpserver.com/",
   siteOrigin: SITE_ORIGIN,
-  head: [
-    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
-    [
-      "link",
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossorigin: "anonymous",
-      },
-    ],
-    [
-      "link",
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
-      },
-    ],
-  ],
+  head: [],
   llms: true,
   multiVersion: {
     default: "v5",
     versions: ["v4", "v5"],
+  },
+  search: {
+    codeBlocks: false,
   },
   globalStyles: abs("src/styles/globals.css"),
   route: {
@@ -104,12 +89,7 @@ export default defineConfig({
     }),
   ],
   builderConfig: {
-    plugins: [
-      pluginSvgr(),
-      pluginGoogleAnalytics({
-        id: "G-QJE3MCHN3H",
-      }),
-    ],
+    plugins: [pluginSvgr()],
     resolve: {
       alias: {
         "@": abs("src"),
