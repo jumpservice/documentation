@@ -38,7 +38,7 @@ export default function EnterpriseEditionCta() {
             href={trialUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="jms-btn jms-btn-primary !h-8 !bg-primary !px-3 !text-xs !leading-5 !text-white !no-underline hover:!bg-primary-deep hover:!text-white hover:!no-underline"
+            className="jms-btn jms-btn-primary !h-8 !bg-primary-cta !px-3 !text-xs !leading-5 !text-white !no-underline hover:!bg-primary-cta-hover hover:!text-white hover:!no-underline"
           >
             Start 14-day free trial
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

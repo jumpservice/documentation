@@ -21,6 +21,8 @@ module.exports = {
         primary: "#2B937C",
         "primary-deep": "#238C76",
         "primary-pressed": "#1D7562",
+        "primary-cta": "#1F6F5F",
+        "primary-cta-hover": "#1A5C4E",
         "brand-dark": "#1A5C4E",
         "brand-light": "#5FD3B8",
         "brand-soft": "#D4EDE7",
