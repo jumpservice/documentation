@@ -6,6 +6,7 @@ const DOCS_PREFIX = "/docs";
 // for a year. Images and SVGs are not hashed: keep a shorter browser TTL so a
 // replaced screenshot is picked up without a hard refresh.
 const STATIC_PREFIX = "/static/";
+const FONT_PREFIX = "/fonts/";
 const MEDIA_PREFIXES = ["/images/", "/svgs/"];
 const MEDIA_EXTENSION = /\.(?:svg|png|jpe?g|gif|webp|avif|ico)$/i;
 const IMMUTABLE_CACHE_CONTROL = "public, max-age=31536000, immutable";
@@ -15,14 +16,18 @@ const HTML_CACHE_TAG = "jumpserver-docs-html";
 
 function withCacheHeaders(response, assetPath) {
   const headers = new Headers(response.headers);
+  const contentType = headers.get("content-type") || "";
   if (assetPath.startsWith(STATIC_PREFIX)) {
     headers.set("cache-control", IMMUTABLE_CACHE_CONTROL);
   } else if (
+    assetPath.startsWith(FONT_PREFIX) ||
     MEDIA_PREFIXES.some((prefix) => assetPath.startsWith(prefix)) ||
     MEDIA_EXTENSION.test(assetPath)
   ) {
     headers.set("cache-control", MEDIA_CACHE_CONTROL);
-  } else if (assetPath.endsWith(".html")) {
+  } else if (contentType.startsWith("text/html")) {
+    // Clean URLs are served as HTML without a .html extension in the asset
+    // path, so detect the document by its response type instead of the path.
     headers.set("cache-control", HTML_CACHE_CONTROL);
     headers.set("cache-tag", HTML_CACHE_TAG);
   } else {
