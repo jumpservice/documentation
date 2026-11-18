@@ -28,7 +28,19 @@ export default defineConfig({
   logoText: "",
   logoHref: "https://www.jumpserver.com/",
   siteOrigin: SITE_ORIGIN,
-  head: [],
+  head: [
+    [
+      "link",
+      {
+        rel: "preload",
+        href: "/docs/fonts/inter/inter-latin-var.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    ],
+    ["link", { rel: "stylesheet", href: "/docs/fonts/inter.css" }],
+  ],
   llms: true,
   multiVersion: {
     default: "v5",
