@@ -21,7 +21,7 @@ Open the page from **Console > Assets > Hosts > Cloud Sync**. The page title is
 **Host - Cloud sync**; the same feature is available for database instances with
 the **Database** category.
 
-![Figure 1: Hosts tab with the Cloud Sync entry point.](/images/v5/jumpserver/v5_admin_assets_06.png)
+![Figure 1: Hosts tab with the Cloud sync entry.](/images/v5/jumpserver/v5_cloud_sync_entry_01.png)
 
 ## Overview
 
@@ -32,6 +32,30 @@ The page has three tabs:
 | Accounts             | Cloud platform accounts: provider, credentials, region, and the sync task settings for each account.                                               |
 | Sync policy          | Ordered rules that decide which instances are imported or skipped and which actions apply. A built-in default policy exists and cannot be deleted. |
 | Synchronize instance | The result of sync runs: instances that were discovered, imported, or skipped.                                                                     |
+
+## Supported providers
+
+The provider list in the wizard depends on the asset category and the supported
+cloud platforms. The following matrix lists the available sources.
+
+### Hosts
+
+| Source type   | Providers                                                                                                                                                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Public cloud  | Alibaba Cloud, Tencent Cloud, Tencent Cloud (Lighthouse), Huawei Cloud, Baidu Cloud, JD Cloud, Kingsoft Cloud, AWS (China), AWS (International), Azure (China), Azure (International), Google Cloud, UCloud UHost, Volcengine, SmartX CloudTower, State Cloud |
+| Private cloud | VMware, QingCloud private cloud, Huawei private cloud, State Cloud (Private), OpenStack, ZStack, Nutanix, FusionCompute, SANGFOR cloud platform, Alibaba private cloud, SmartX CloudTower, Proxmox                                                            |
+| LAN           | Scan a specified subnet and port range                                                                                                                                                                                                                        |
+
+### Databases
+
+| Source type  | Providers                    |
+| ------------ | ---------------------------- |
+| Public cloud | Alibaba Cloud, Tencent Cloud |
+
+<Alert type="note">
+  Provider availability can vary by JumpServer version and license. The Cloud
+  sync wizard shows the providers available to the current deployment.
+</Alert>
 
 ## Before you begin
 
@@ -65,7 +89,7 @@ receive them, then review the **Result** step and submit.
 </div>
 </Steps>
 
-![Figure 2: Create cloud account for a cloud platform.](/images/v5/jumpserver/v5_admin_assets_07.png)
+![Figure 2: Cloud sync provider selection.](/images/v5/jumpserver/v5_cloud_sync_provider_01.png)
 
 After the account is created, open it to adjust the sync task: the source IP type
 (public or private), whether released instances are removed from the inventory,
