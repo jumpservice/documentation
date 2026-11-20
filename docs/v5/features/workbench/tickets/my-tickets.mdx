@@ -61,21 +61,23 @@ navigation, this page is labelled **Submitted**; its page title is **My Tickets*
 
 ## Ticket types
 
-| Type                       | Meaning                                                             |
-| -------------------------- | ------------------------------------------------------------------- |
-| Apply for assets           | A user requests temporary asset permission                          |
-| Login review               | A login blocked by an access policy waits for approval              |
-| Command review             | A command blocked by a command filter waits for approval            |
-| Asset connect review       | A connection blocked by an asset connect control waits for approval |
-| View account password      | Viewing an account secret waits for approval                        |
-| Change account password    | Changing an account secret waits for approval                       |
-| File upload / download     | A file transfer waits for approval                                  |
-| Download session recording | Downloading a session recording waits for approval                  |
+The ticket list can be filtered by **Type**. The supported types are:
 
-Only asset authorization requests are created from **New ticket**. The other types
-are raised automatically by the relevant policy, filter, account operation, or file
-operation, and then appear in the same list for tracking. The available types
-depend on the enabled features and license.
+| Type                       | Meaning                                                             | Raised by           |
+| -------------------------- | ------------------------------------------------------------------- | ------------------- |
+| Apply for assets           | A user requests temporary asset permission                          | New ticket          |
+| Change account password    | A change to a managed account secret waits for approval             | Account operation   |
+| Command review             | A command blocked by a command filter waits for approval            | Command filter      |
+| Download session recording | Downloading a session recording waits for approval                  | Recording download  |
+| File upload / download     | A file transfer waits for approval                                  | File operation      |
+| Asset connect review       | A connection blocked by an asset connect control waits for approval | Asset connect ACL   |
+| Login review               | A login blocked by an access policy waits for approval              | Login policy        |
+| View account password      | Viewing an account secret waits for approval                        | Account secret view |
+
+Only asset authorization requests are created manually from **New ticket**. The
+other types are raised automatically by the relevant policy, filter, or operation,
+and then appear in the same list for tracking. The available types depend on the
+enabled features and license.
 
 ## Track and manage tickets
 
