@@ -77,6 +77,17 @@ inherited from the global organization.
 | Approval process | Handler rule for each level: all users, specified users, or attribute matching                  |
 | Attribute filter | Matches handlers by user attributes, for example system role, department, or another user field |
 
+### Approval modes and conditions
+
+<VersionBadge version="5.2.0" />
+
+A flow can combine several approval levels with conditional branches and choose how each level reaches a decision:
+
+- **Approval modes** — a level can require all approvers or any one approver.
+- **Conditions** — branch to different approval paths based on the ticket data.
+- **Reassignment and additional approvers** — move a pending approval to another handler or add approvers while the ticket is in progress.
+- **Timeout handling** — define what happens when a level is not approved within the configured time.
+
 ## How a flow is selected
 
 When an applicant creates a ticket, JumpServer chooses an approval flow from the
@@ -85,25 +96,7 @@ in automatically; when several match, the applicant can choose from the availabl
 flows. The chosen flow determines the number of approval steps, the handlers at
 each step, and the CC list shown on the ticket.
 
-## Visual approval workflows
-
-<VersionBadge version="5.2.0" />
-
-V5.2.0 adds visual approval workflows for Enterprise Edition. A flow can combine
-several approval levels with conditional branches and choose how each level
-reaches a decision:
-
-- **Approval modes** — a level can require all approvers or any one approver.
-- **Conditions** — branch to different approval paths based on the ticket data.
-- **Reassignment and additional approvers** — move a pending approval to another
-  handler or add approvers while the ticket is in progress.
-- **Timeout handling** — define what happens when a level is not approved within
-  the configured time.
-
-The same release expands ticket-based approval to password viewing, account
-password changes, file uploads and downloads, and recording downloads. Approved
-authorization tickets can also be used to request an authorization renewal with a
-new authorization period.
+Ticket approvals also cover password viewing, account password changes, file uploads and downloads, and recording downloads. Approved authorization tickets can request an authorization renewal with a new authorization period.
 
 <Alert type="note">
   Legacy tickets and workflows are migrated automatically. Complex approver

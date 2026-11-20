@@ -72,6 +72,10 @@ machine. Nothing is saved unless you choose to save the command as a template.
 | Running path    | Optional working directory; otherwise the user's home directory is used                                    |
 | Output          | Combined per-asset output, with refresh and download actions                                               |
 
+<VersionBadge version="5.2.0" /> The database module also runs against DB2,
+ClickHouse, Dameng, OceanBase, and Oracle. Select the matching database module
+and confirm that the target accounts can run the command.
+
 The toolbar also provides **Open command** to load a saved script template,
 **Save command** to store the current command as a template, and a help entry for
 template variables. Commands loaded from a template prompt for any variables
@@ -88,12 +92,6 @@ before running.
   Adhoc execution is disabled while the global (root) organization is selected.
   Switch to a specific organization first. Every run is recorded on [Execution
   History](/features/workbench/job-center/execution-history).
-</Alert>
-
-<Alert type="note">
-  **Changed in v5.2.0:** job execution supports Oracle, Dameng, OceanBase, DB2,
-  ClickHouse, and other databases. Select the matching database module and
-  confirm that the target accounts can run the command.
 </Alert>
 
 ## Version history
