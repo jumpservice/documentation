@@ -73,6 +73,16 @@ Celery logs are consolidated into a single window with separate tabs. Switch
 between the tabs to read the logs of different tasks instead of opening one
 window per task.
 
+### Manage task execution
+
+<VersionBadge version="5.2.0" kind="new" />
+
+Task management shows the queues and worker processes that execute background
+work. From the task list, cancel a pending task that no longer needs to run, or
+terminate an eligible running task when it must stop. Terminating a running task
+can leave part of its work unfinished; review the task log and rerun the task if
+needed.
+
 ## Regular clean-up
 
 Retention is configured per record type. The defaults are suitable for most
@@ -103,6 +113,7 @@ when audit requirements demand it.
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.0 | Consolidated Celery logs into one window with separate tabs. |
+| Version | Change                                                                                       |
+| ------- | -------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added queues and worker visibility, pending-task cancellation, and running-task termination. |
+| v5.1.0  | Consolidated Celery logs into one window with separate tabs.                                 |

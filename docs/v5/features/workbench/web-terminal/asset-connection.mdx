@@ -159,6 +159,22 @@ open the published application in JumpServer Client instead. This is useful when
 the local application window, local input devices, or a client-only integration is
 required.
 
+## Database Workbench
+
+<VersionBadge version="5.2.0" kind="changed" />
+
+Database assets can open in the built-in Database Workbench instead of a local
+database client. The Workbench provides a SQL editor and query results in the
+browser:
+
+- Edit result rows, run paginated exports, and inspect execution plans.
+- Open relationship diagrams to understand table relationships.
+- Commit or roll back a transaction manually.
+- Search AI context by table name, column name, or comment.
+
+Database Workbench availability depends on the asset platform and the enabled
+database component.
+
 ## When JumpServer Client opens
 
 The browser Web Terminal starts JumpServer Client in these cases:
@@ -215,16 +231,17 @@ Sessions open as tabs in the session area.
 
 ## Version history
 
-| Version | Change                                                                  |
-| ------- | ----------------------------------------------------------------------- |
-| v5.2.0  | Added DB2 database support in the Web Terminal and native client proxy. |
-| v5.2.0  | Added ClickHouse HTTP and Native protocol connectivity.                 |
-| v5.2.0  | Added a single-endpoint proxy for Redis Cluster.                        |
-| v5.2.0  | Added OceanBase MySQL-compatible and Oracle-compatible tenants.         |
-| v5.2.0  | Added SQL Server domain account authentication with NTLMv2 or Kerberos. |
-| v5.1.0  | Added a summary view and quick-access actions for SQL execution plans.  |
-| v5.1.0  | Added Windows PowerShell over WinRM.                                    |
-| v5.1.0  | Added the Dameng Database Web CLI.                                      |
+| Version | Change                                                                                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Refactored Database Workbench with a SQL editor, manual transaction control, result editing, paginated exports, execution plans, and relationship diagrams. |
+| v5.2.0  | Added DB2 database support in the Web Terminal and native client proxy.                                                                                     |
+| v5.2.0  | Added ClickHouse HTTP and Native protocol connectivity.                                                                                                     |
+| v5.2.0  | Added a single-endpoint proxy for Redis Cluster.                                                                                                            |
+| v5.2.0  | Added OceanBase MySQL-compatible and Oracle-compatible tenants.                                                                                             |
+| v5.2.0  | Added SQL Server domain account authentication with NTLMv2 or Kerberos.                                                                                     |
+| v5.1.0  | Added a summary view and quick-access actions for SQL execution plans.                                                                                      |
+| v5.1.0  | Added Windows PowerShell over WinRM.                                                                                                                        |
+| v5.1.0  | Added the Dameng Database Web CLI.                                                                                                                          |
 
 ## Related topics
 
