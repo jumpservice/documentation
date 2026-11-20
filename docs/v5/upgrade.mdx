@@ -250,6 +250,20 @@ These notes describe the behavior changes and fixes in each target version. They
 | Access Token format validation preserves fallback compatibility with other Bearer Token authentication methods                                       | Verify API clients that authenticate with Bearer tokens. See [Access keys](/features/general/account/access-keys).                                                         |
 | Tinker applet host deployment checks Group Policy, disables listener NLA before installation, and stops with guidance when Group Policy requires NLA | Review the deployment result for Tinker hosts. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                                                       |
 
+### JumpServer v5.2.0
+
+<VersionBadge version="5.2.0" kind="changed" />
+
+| Change                                                                                                                                             | What to check after the upgrade                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bundled PostgreSQL is upgraded to 18.7 and Redis to 8.10.3                                                                                         | Confirm that the bundled database and Redis containers start, and that the health endpoint reports normally. See [Backup & Restore](/operations/backup-restore).           |
+| Bundled PostgreSQL 10 to 17 migrates automatically in standard deployments, preserving data, backups, and migration progress                       | Let the migration finish before you start sessions; an interrupted migration can be resumed. External databases and customized deployments are not migrated automatically. |
+| Email addresses must be unique; existing duplicates keep one address and receive temporary `.invalid` placeholders for the others                  | Review the administrator notification, then correct the placeholder addresses in the affected user accounts.                                                               |
+| A failed routine database backup shows a 30-second confirmation prompt and the upgrade proceeds by default on timeout                              | Watch the upgrade output; confirm that the pre-upgrade backup completed. Backups required for PostgreSQL major version migrations are still mandatory.                     |
+| High availability upgrades coordinate PostgreSQL and Redis migrations on both nodes through JDMC, and both JDMC instances must support the process | In an Enterprise HA deployment, verify JDMC connectivity and that both nodes are on a JDMC version that supports the migration before you start.                           |
+| JDMC uses a new socket discovery mechanism and environments using the PROXY protocol must configure trusted proxy networks                         | Confirm that JDMC, Core, and Xpack versions match, and update the trusted proxy configuration when the deployment uses the PROXY protocol.                                 |
+| Legacy tickets and workflows are migrated automatically; complex approver rules may be disabled pending review                                     | Review [Ticket flow](/features/workbench/tickets/ticket-flow) and re-enable or rebuild approval rules that the migration disabled.                                         |
+
 ## Next steps
 
 - [Upgrade & Maintenance](/operations/upgrade-maintenance): supported version paths and post-upgrade checks.
