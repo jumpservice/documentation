@@ -57,27 +57,34 @@ Client.
 
 ### Protocols and connection methods
 
-| Protocol                                               | Built-in                     | Application           | Remote app   | Enterprise?              |
-| ------------------------------------------------------ | ---------------------------- | --------------------- | ------------ | ------------------------ |
-| SSH                                                    | Terminal                     | SSH Client, SSH Guide | -            | No                       |
-| SFTP                                                   | File Manager, File Editor    | SFTP Client           | -            | No                       |
-| Telnet                                                 | Terminal                     | SSH Client            | -            | No                       |
-| WinRM                                                  | Terminal (PowerShell)        | -                     | -            | No                       |
-| RDP                                                    | Remote Desktop               | Remote Desktop        | -            | Application only         |
-| VNC                                                    | Remote Desktop               | VNC Client            | -            | Application only         |
-| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Terminal, Database Workbench | DB Client, DB Guide   | DBX, Navicat | Application + Remote app |
-| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Terminal, Database Workbench | DB Client, DB Guide   | DBX, Navicat | Yes                      |
-| Kubernetes                                             | Kubernetes workspace         | -                     | -            | No                       |
-| HTTP, HTTPS                                            | Built-in Browser             | -                     | WebLite      | No                       |
-| Custom protocol                                        | Depends                      | Depends               | Depends      | Depends                  |
+| Protocol                                               | Connect Method                             | Enterprise?      |
+| ------------------------------------------------------ | ------------------------------------------ | ---------------- |
+| SSH                                                    | Built-in terminal                          | No               |
+| SSH                                                    | Application: SSH Client or SSH Guide       | No               |
+| SFTP                                                   | Built-in File Manager or File Editor       | No               |
+| SFTP                                                   | Application: SFTP Client                   | No               |
+| Telnet                                                 | Built-in terminal                          | No               |
+| Telnet                                                 | Application: SSH Client                    | No               |
+| WinRM                                                  | Built-in terminal with PowerShell          | No               |
+| RDP                                                    | Built-in Remote Desktop                    | No               |
+| RDP                                                    | Application: Remote Desktop                | Application only |
+| VNC                                                    | Built-in Remote Desktop                    | No               |
+| VNC                                                    | Application: VNC Client                    | Application only |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Built-in terminal or Database Workbench    | No               |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Application: DB Client or DB Guide         | Application only |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Remote Application: DBX or Navicat         | Remote app only  |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Built-in terminal or Database Workbench    | Yes              |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Application: DB Client or DB Guide         | Yes              |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Remote Application: DBX or Navicat         | Yes              |
+| Kubernetes                                             | Built-in Kubernetes workspace              | No               |
+| HTTP, HTTPS                                            | Built-in Browser                           | No               |
+| HTTP, HTTPS                                            | Remote Application: WebLite                | No               |
+| Custom protocol                                        | Depends on the configured protocol handler | Depends          |
 
-<Alert type="note">
-  **Built-in** runs in the browser, **Application** launches a local program
-  through JumpServer Client, and **Remote app** opens a published RemoteApp or
-  VirtualApp. A dash means the protocol does not expose that method in a
-  standard deployment. Available methods still depend on the enabled components,
-  license, and access control policies.
-</Alert>
+**Built-in** runs in the browser, **Application** launches a local program through
+JumpServer Client, and **Remote Application** opens a published RemoteApp or
+VirtualApp. Available methods still depend on the enabled components, license,
+and access control policies.
 
 ## Connection methods
 

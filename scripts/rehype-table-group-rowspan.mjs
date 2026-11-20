@@ -15,12 +15,16 @@ const textOf = (node) => {
 const isElement = (node, tagName) =>
   node?.type === "element" && node.tagName === tagName;
 
+const GROUP_HEADERS = ["group", "分组", "protocol"];
+
 const isGroupTable = (table) => {
   const head = table.children?.find((child) => isElement(child, "thead"));
   const headerRow = head?.children?.find((child) => isElement(child, "tr"));
-  const firstCell = headerRow?.children?.find((child) => isElement(child, "th"));
+  const firstCell = headerRow?.children?.find((child) =>
+    isElement(child, "th"),
+  );
   const label = textOf(firstCell).trim().toLowerCase();
-  return label === "group" || label === "分组";
+  return GROUP_HEADERS.includes(label);
 };
 
 const mergeRows = (tbody) => {
