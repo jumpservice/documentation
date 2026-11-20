@@ -1,7 +1,7 @@
 [
   {
     "type": "file",
-    "name": "connect-assets",
+    "name": "asset-connection",
     "label": "Asset Connection"
   },
   {
