@@ -87,21 +87,31 @@ license to be enabled.
 
 ## Approval exemption period
 
-<VersionBadge version="5.1.0" kind="new" />
+When **Require approval** is enabled, choose how connections are approved and
+whether an approved connection can be reused without another approval.
 
-<Alert type="xpack">
-  **Approval exemption periods** require JumpServer Enterprise Edition.
-</Alert>
+### Approval mode
 
-When a control uses an action that requires
-approval, configure an approval exemption period so the same user can reconnect to
-the same asset with the same account without another approval during that period.
+| Mode              | Configuration                                                                                     |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| Simple approval   | Select one or more **Approvers**. The connection is blocked when no approver is available.        |
+| Workflow approval | Select an enabled asset connection workflow. The workflow defines the approval path and handlers. |
+
+### Exemption period
+
+The **Exemption period** is measured in hours. `0` requires approval for every
+connection. After an approval, the same user can reconnect to the same asset with
+the same account without another approval until the period ends.
 
 The exemption is tied to the specific user, asset, and account combination. A
-different asset, account, or user still goes through approval, and when the period
-ends the next matching connection goes through approval again.
+different user, asset, or account still goes through approval, and the next
+connection after the period ends requires approval again. Changing the exemption
+period does not affect exemptions that were already granted.
 
-![Figure 2: Configure an asset connect ACL](/images/v5/jumpserver/v5_console_acl_asset_connect_create.png)
+Use `0` for sensitive assets that must be approved every time, and a short period
+for troubleshooting sessions that may reconnect several times.
+
+![Figure 2: Approval mode, approvers, and exemption period in the asset connect drawer.](/images/v5/jumpserver/v5_console_acl_asset_connect_approval.png)
 
 ## Test before enabling
 
@@ -129,6 +139,7 @@ ends the next matching connection goes through approval again.
 
 | Version | Change                                                                                                                                                                  |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added Simple approval and Workflow approval modes to the approval control.                                                                                              |
 | v5.2.0  | Added combinable connection controls: connection reason, MFA, face verification, approval, account push, notification, face online, and post-session password rotation. |
 | v5.1.0  | Added the approval exemption period.                                                                                                                                    |
 
