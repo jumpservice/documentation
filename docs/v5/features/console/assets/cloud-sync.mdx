@@ -24,13 +24,12 @@ category you need and select **Cloud sync**.
 
 ## Overview
 
-Cloud sync uses three tabs:
-
-| Tab                  | Purpose                                                                                                                                            |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Accounts             | Cloud platform accounts: provider, credentials, region, and the sync task settings for each account.                                               |
-| Sync policy          | Ordered rules that decide which instances are imported or skipped and which actions apply. A built-in default policy exists and cannot be deleted. |
-| Synchronize instance | The result of sync runs: instances that were discovered, imported, or skipped.                                                                     |
+Cloud sync is organized around a cloud account and the policy that controls it.
+The **Accounts** tab stores the provider credentials, region, and sync settings.
+The **Sync policy** tab defines the ordered rules that decide which instances are
+imported or skipped and which actions apply; a built-in default policy exists and
+cannot be deleted. After a run, the **Synchronize instance** tab shows which
+instances were discovered, imported, or skipped.
 
 ## Before you begin
 
@@ -117,6 +116,8 @@ Open the **Sync policy** tab and click **Create**.
 Add the rules and actions, choose the rule relation, then click **Submit**.
 </div>
 </Steps>
+
+![Figure 3: Create sync policy drawer with conditions and actions.](/images/v5/jumpserver/v5_cloud_sync_policy_01.png)
 
 ## Review sync results
 
