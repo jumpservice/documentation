@@ -27,6 +27,56 @@ example, <VersionBadge version="5.1.0" /> marks a section introduced in that
 release, and <VersionBadge version="5.1.0" kind="changed" /> marks a section
 whose behavior changed in that release.
 
+## v5.2.0
+
+Released November 19, 2026. The release expands database connectivity and
+automation, hardens sessions and the desktop client, and adds visual approval
+workflows and report tooling.
+
+### New capabilities
+
+| Capability                                                                                                                 | Where to read more                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| DB2 database support in the Web Terminal and through the native client proxy                                               | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
+| ClickHouse assets with both HTTP and Native protocols                                                                      | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
+| Redis Cluster access through a single endpoint, with node routing and redirection                                          | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
+| SQL Server domain account authentication with NTLMv2 or Kerberos                                                           | [Accounts](/features/console/accounts/)                                                             |
+| Job execution for Oracle, Dameng, OceanBase, DB2, ClickHouse, and other databases                                          | [Ad hoc jobs](/features/workbench/job-center/adhoc)                                                 |
+| Account automation for Dameng, OceanBase MySQL tenants, and ClickHouse                                                     | [Automation](/features/pam/automation/)                                                             |
+| Local AI (Codex) assistant in JumpServer Client                                                                            | [Client](/features/client/)                                                                         |
+| Web session lifetime, automatic renewal, sign-out after the last page closes, and idle lock with password                  | [Security settings](/features/system-settings/security/security#web-session-lifetime-and-idle-lock) |
+| Client login and screen lock settings on the User page: sign-in-again after exit, maximum login lifetime, idle screen lock | [Settings](/features/client/connection-settings#user)                                               |
+| Tencent Cloud database synchronization for MySQL, PostgreSQL, and SQL Server (Enterprise Edition)                          | [Cloud Sync](/features/console/assets/cloud-sync)                                                   |
+| Visual approval workflows with conditions, all/any-approver modes, reassignment, and timeouts (Enterprise)                 | [Ticket flow](/features/workbench/tickets/ticket-flow)                                              |
+| Ticket approvals for password viewing, password changes, file transfers, and recording downloads (Enterprise)              | [Tickets](/features/workbench/tickets/my-tickets)                                                   |
+| Application credential rotation with primary and standby accounts (Enterprise Edition)                                     | [Change Secrets](/features/pam/security/change-secrets)                                             |
+| OceanBase MySQL-compatible and Oracle-compatible tenants (Enterprise Edition)                                              | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
+
+### Security and improvements
+
+| Change                                                                                                            | Where to read more                                                    |
+| ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Flexible split views, SSH input broadcasting, and customizable keyboard shortcuts in the Workbench                | [Web Terminal](/features/workbench/web-terminal/)                     |
+| Jobs enforce access control policies at execution time                                                            | [Job Center](/features/workbench/job-center/)                         |
+| Client site security enables HTTPS certificate validation by default, with certificate details and exceptions     | [Asset connection](/features/client/asset-connection)                 |
+| Automation execution uses a dedicated SSH Ansible executor and restricts playbook paths, links, and plugins       | [Automation](/features/pam/automation/)                               |
+| Database workbench uses Monaco, supports manual commit and rollback, relationship diagrams, and paginated exports | [Connect assets](/features/workbench/web-terminal/connect-assets)     |
+| Audit report center supports configurable sections, previews, and PDF export                                      | [Reports](/features/audits/reports/)                                  |
+| Recording search by window title navigates to the matching point in a recording                                   | [Asset sessions](/features/audits/sessions/asset-sessions)            |
+| Task management shows queues and workers and supports canceling pending tasks and terminating running tasks       | [System tasks](/features/system-settings/infrastructure/system-tasks) |
+| Cloud Sync shows progress, changes, and errors, with a pending-review state before assets are released (EE)       | [Cloud Sync](/features/console/assets/cloud-sync)                     |
+| Asset connection ACLs combine justification, MFA, facial verification, approval, and account operations (EE)      | [Asset connect ACL](/features/console/policies/acls/asset-connect)    |
+
+### Installation and upgrade
+
+| Change                                                                                  | Where to read more                                         |
+| --------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Bundled PostgreSQL is upgraded to 18.7 and Redis to 8.10.3                              | [Upgrade](/upgrade)                                        |
+| Bundled PostgreSQL 10 to 17 migrates automatically, with resumable migration progress   | [Upgrade](/upgrade)                                        |
+| Email addresses become unique; duplicate accounts receive `.invalid` placeholders       | [Upgrade](/upgrade)                                        |
+| A failed routine database backup shows a 30-second confirmation prompt                  | [Upgrade & maintenance](/operations/upgrade-maintenance)   |
+| High availability upgrades coordinate PostgreSQL and Redis migrations through JDMC (EE) | [Deployment topologies](/operations/deployment-topologies) |
+
 ## v5.1.1
 
 Released October 20, 2026. This patch release hardens high availability
@@ -52,7 +102,7 @@ conveniences.
 | Windows PowerShell over WinRM, with auditing, ACL enforcement, and recording | [Connect assets](/features/workbench/web-terminal/connect-assets)          |
 | Dameng Database Web CLI and Dameng connections through Magnus                | [Supported platforms](/features/system-settings/general/platforms)         |
 | Standalone RDP desktops through Tinker and the Windows authentication plugin | [Remote app](/features/system-settings/infrastructure/remote-app)          |
-| DBX as the default remote database application                               | [Connection settings](/features/client/connection-settings)                |
+| DBX as the default remote database application                               | [Settings](/features/client/connection-settings)                           |
 | AI-assisted command filter drafting                                          | [Command filter](/features/console/policies/acls/command-filter)           |
 | Approval exemption period for asset login ACLs                               | [Asset connect ACL](/features/console/policies/acls/asset-connect)         |
 | OAuth2 user group synchronization and certificate verification modes         | [Authentication](/features/system-settings/security/authentication)        |
