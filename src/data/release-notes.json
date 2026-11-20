@@ -1,5 +1,103 @@
 [
   {
+    "version": "v5.2.0",
+    "date": "2026-11-19",
+    "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.2.0",
+    "summary": "DB2, ClickHouse dual-protocol access, Redis Cluster, OceanBase, SQL Server domain accounts, a local Codex assistant in the client, session lifetime and idle-lock controls, visual approval workflows, and bundled PostgreSQL 18.7 and Redis 8.10.3.",
+    "sections": [
+      {
+        "title": "New features",
+        "items": [
+          "DB2 database support, with access through the Web Terminal and the native client proxy",
+          "Dual-protocol connectivity for ClickHouse, so one asset can accept both HTTP and Native connections",
+          "A single-endpoint proxy for Redis Cluster, with node routing and redirection",
+          "SQL Server domain account authentication through managed domain accounts using NTLMv2 and Kerberos",
+          "Job execution support for Oracle, Dameng, OceanBase, DB2, ClickHouse, and other databases",
+          "Account automation support for Dameng, OceanBase MySQL tenants, and ClickHouse",
+          "A local Codex assistant in the desktop client",
+          "Web session management with configurable login lifetimes, automatic renewal on requests, sign-out after all pages are closed, and automatic idle locking with password-based unlocking",
+          "Desktop client session management with configurable maximum login lifetimes that are not extended by activity, reauthentication on expiry, optional reauthentication after fully exiting and reopening the client, and automatic idle locking with password-based unlocking",
+          "Tencent Cloud database asset synchronization for MySQL, PostgreSQL, and SQL Server (Enterprise Edition)",
+          "Visual approval workflows with multi-level approvals, conditional branching, all-approver and any-approver modes, approval reassignment, additional approvers, and timeout handling (Enterprise Edition)",
+          "Ticket-based approvals for password viewing, account password changes, file uploads and downloads, and recording downloads (Enterprise Edition)",
+          "Application credential rotation with alternating primary and standby accounts, account switching across assets, execution history, and client status reporting (Enterprise Edition)",
+          "OceanBase support for MySQL-compatible and Oracle-compatible tenants (Enterprise Edition)"
+        ]
+      },
+      {
+        "title": "Security enhancements",
+        "items": [
+          "The workbench adds flexible split views, SSH input broadcasting, and customizable keyboard shortcuts",
+          "Scheduled jobs apply the relevant access control policies at execution time",
+          "Login lifetime enforcement and reauthentication after exit are improved",
+          "Desktop client site security enables HTTPS certificate validation by default, with certificate details, site-specific exceptions, and risk confirmation before HTTP access",
+          "Automation execution is hardened with a dedicated SSH Ansible executor, playbook path traversal safeguards, and restrictions on symbolic links, bundled configuration files, and plugins",
+          "API parameter validation and organization and role permission checks are strengthened",
+          "Sensitive data masking is expanded in database query results and error messages",
+          "Database protocol packet validation, command controls, and TLS verification are strengthened",
+          "Audit reliability is improved with durable record storage, acknowledgments, retries on failure, and retransmission after restart",
+          "Verification code protection prevents codes from appearing in task views or error logs",
+          "Existing SSH keys are disabled after a key reset",
+          "Scheduled rotation of OpenBao access tokens is supported",
+          "FreeRDP is updated to address protocol parsing and memory safety issues",
+          "Asset connection ACLs support combinations of request justification, MFA, facial verification, approval, and account operation requirements (Enterprise Edition)"
+        ]
+      },
+      {
+        "title": "Improvements",
+        "items": [
+          "Session recording for the desktop client built-in browser is improved",
+          "Recordings support search by window title, with navigation to the corresponding point in the recording",
+          "NEC can submit recordings to Video Worker for transcoding",
+          "Personal credentials are supported in direct SSH connections",
+          "The database workbench is refactored, the Chen backend is migrated to Go, and the SQL editor is upgraded to Monaco",
+          "The database workbench improves result editing, paginated exports, execution plans, and relationship diagrams",
+          "Database transaction control supports manual commits and rollbacks",
+          "Database AI context retrieval supports search by table name, column name, and comment",
+          "The audit report center is refactored with configurable sections, report previews, and PDF export",
+          "AI conversation audit queries and permission isolation are improved",
+          "Asset and account connectivity testing is unified with detailed results and execution history",
+          "Task management shows queues, worker processes, and logs, and supports canceling pending tasks and terminating eligible running tasks",
+          "Log queries, audit reports, cloud synchronization, and background tasks reduce resource overhead",
+          "RDP recording encoding and memory reclamation are optimized",
+          "Remote connection settings for printer redirection, security protocols, and Windows key combinations are improved",
+          "Asset authorization renewal requests are available from approved authorization tickets, with a new authorization period granted on approval (Enterprise Edition)",
+          "Cloud synchronization shows status, progress, changes, and errors, and a pending-review workflow prevents assets from being released when scans are incomplete (Enterprise Edition)"
+        ]
+      },
+      {
+        "title": "Bug fixes",
+        "items": [
+          "Database query cancellation, result editing, paginated exports, and connection context",
+          "Session invalidation caused by editing personal credential descriptions",
+          "Job parameter submission, clearing template variables, and editor state after renaming playbooks",
+          "WebSFTP upload chunk ordering and file retention for download auditing",
+          "Terminal approval confirmation and cancellation, and Vim rendering",
+          "File retention when recording transcoding fails",
+          "Username and email conflicts during concurrent user creation, duplicate login logs, and email notifications",
+          "Windows asset list loading when the standalone client connects to the Community Edition",
+          "Connection compatibility for Oracle SYSDBA, Windows OCI, ClickHouse JDBC/DBeaver, and DBX (Enterprise Edition)",
+          "Credential synchronization after account provisioning, and directory service account switching and validation (Enterprise Edition)",
+          "Ticket approver previews, approval notifications, and legacy rule migration (Enterprise Edition)"
+        ]
+      },
+      {
+        "title": "Installation and upgrade",
+        "items": [
+          "Bundled PostgreSQL is upgraded to 18.7 and Redis to 8.10.3",
+          "Bundled PostgreSQL 10 to 17 is migrated automatically in standard deployments, preserving existing data, backups, and migration progress, with support for resuming interrupted migrations; external databases and customized deployments are excluded",
+          "Email addresses must be unique; for existing duplicates, one account keeps the address and the others receive temporary .invalid placeholder addresses, with administrators notified to correct them",
+          "Installation and recovery are improved by standardizing component directories, permissions, and key initialization, with better support for legacy Compose versions, executor networking, and service recovery after PostgreSQL upgrades",
+          "A routine database backup failure shows a 30-second confirmation prompt, and the upgrade proceeds by default on timeout; backups for PostgreSQL major version migrations remain mandatory",
+          "High availability upgrades coordinate PostgreSQL migrations and Redis updates on both nodes through JDMC, and both JDMC instances must support the migration process (Enterprise Edition)",
+          "High availability recovery improves primary and standby rejoin, interrupted node decommissioning, and socket conflicts in shared directories (Enterprise Edition)",
+          "JDMC updates require matching Core/Xpack support for the new socket discovery mechanism, and environments using the PROXY protocol must configure trusted proxy networks (Enterprise Edition)",
+          "Legacy tickets and workflows are migrated automatically, and complex approver rules may be disabled pending review (Enterprise Edition)"
+        ]
+      }
+    ]
+  },
+  {
     "version": "v5.1.1",
     "date": "2026-10-20",
     "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.1.1",
