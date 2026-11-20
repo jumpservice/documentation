@@ -58,6 +58,23 @@ return and set the path.
 
 ![Figure 4: Client application configuration](/images/v5/jumpserver/client_setting_04.png)
 
+## Session security
+
+<VersionBadge version="5.2.0" />
+
+The client manages the lifetime and lock behavior of signed-in sessions:
+
+- **Maximum login lifetime** sets the longest time a session stays signed in.
+  Activity does not extend it.
+- **Reauthentication** is required after the lifetime expires, and optionally
+  after you fully exit and reopen the client. Reauthenticate with your JumpServer
+  account.
+- **Idle lock** locks the client after the configured inactivity period. Enter
+  your password to unlock it and continue the current work.
+
+Site security settings are described in
+[Asset connection](/features/client/asset-connection#site-security).
+
 ## Notes
 
 - Settings apply only to the current desktop client profile, not to other users.
@@ -67,6 +84,7 @@ return and set the path.
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.0 | DBX replaces DBeaver as the default remote database application. |
+| Version | Change                                                                            |
+| ------- | --------------------------------------------------------------------------------- |
+| v5.2.0  | Added maximum login lifetime, reauthentication on expiry, and idle lock settings. |
+| v5.1.0  | DBX replaces DBeaver as the default remote database application.                  |

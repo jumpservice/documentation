@@ -6,7 +6,8 @@ description: Configure the approval flows that tickets use, including approval l
 # Ticket Flow
 
 <Alert type="xpack">
-**Tickets & Approvals** requires JumpServer Enterprise Edition. Ticket entries, approval cards, and flow settings are hidden without a license.
+  **Tickets & Approvals** requires JumpServer Enterprise Edition. Ticket
+  entries, approval cards, and flow settings are hidden without a license.
 </Alert>
 
 **Flow Setup** is the administrative configuration view for ticket approval. It
@@ -19,9 +20,9 @@ approvers act on them from [Assigned](/features/workbench/tickets/awaiting-appro
 
 ## Prerequisites
 
-* The Tickets feature is enabled and licensed. The **Tickets & Approvals** area
+- The Tickets feature is enabled and licensed. The **Tickets & Approvals** area
   requires an enterprise license.
-* Your role grants the ticket flow permissions needed to view, create, update, or
+- Your role grants the ticket flow permissions needed to view, create, update, or
   delete flows. Managing flows is an administrative or operator task, not part of
   the normal applicant workflow.
 
@@ -30,52 +31,50 @@ approvers act on them from [Assigned](/features/workbench/tickets/awaiting-appro
 The list shows the flows available in the current organization, including flows
 inherited from the global organization.
 
-| Column | Description |
-| --- | --- |
-| Name | Flow name |
-| Approval level | Number of approval levels the flow uses |
-| Created by | Account that created the flow |
-| Organization | Organization the flow belongs to |
-| Created, Updated | Creation and last modification times |
-| Actions | Edit or delete the flow, subject to permissions and organization |
+| Column           | Description                                                      |
+| ---------------- | ---------------------------------------------------------------- |
+| Name             | Flow name                                                        |
+| Approval level   | Number of approval levels the flow uses                          |
+| Created by       | Account that created the flow                                    |
+| Organization     | Organization the flow belongs to                                 |
+| Created, Updated | Creation and last modification times                             |
+| Actions          | Edit or delete the flow, subject to permissions and organization |
 
 ## Create a flow
 
 <Steps>
 
+<div>Open **Flow Setup** and click **Create**.</div>
+
 <div>
-Open **Flow Setup** and click **Create**.
+  In **Basic**, enter a **name** and optionally select **CC users** who should
+  be copied on every ticket that uses the flow.
 </div>
 
 <div>
-In **Basic**, enter a **name** and optionally select **CC users** who should be
-copied on every ticket that uses the flow.
+  In **Approval level**, choose how many levels the request must pass, from one
+  to five.
 </div>
 
 <div>
-In **Approval level**, choose how many levels the request must pass, from one to
-five.
+  For each level, define the handlers. You can include all users, select
+  specific users, or use an attribute filter such as a system role equal to
+  **System administrator**.
 </div>
 
 <div>
-For each level, define the handlers. You can include all users, select specific
-users, or use an attribute filter such as a system role equal to
-**System administrator**.
-</div>
-
-<div>
-Click **Submit**. The flow becomes selectable when applicants create a ticket for
-the matching organization and ticket type.
+  Click **Submit**. The flow becomes selectable when applicants create a ticket
+  for the matching organization and ticket type.
 </div>
 
 </Steps>
 
-| Field | Description |
-| --- | --- |
-| Name | Flow name. Required, and unique for the ticket type in the organization |
-| CC users | Users who receive ticket updates but do not approve |
-| Approval level | Number of approval levels, 1 to 5 |
-| Approval process | Handler rule for each level: all users, specified users, or attribute matching |
+| Field            | Description                                                                                     |
+| ---------------- | ----------------------------------------------------------------------------------------------- |
+| Name             | Flow name. Required, and unique for the ticket type in the organization                         |
+| CC users         | Users who receive ticket updates but do not approve                                             |
+| Approval level   | Number of approval levels, 1 to 5                                                               |
+| Approval process | Handler rule for each level: all users, specified users, or attribute matching                  |
 | Attribute filter | Matches handlers by user attributes, for example system role, department, or another user field |
 
 ## How a flow is selected
@@ -86,20 +85,36 @@ in automatically; when several match, the applicant can choose from the availabl
 flows. The chosen flow determines the number of approval steps, the handlers at
 each step, and the CC list shown on the ticket.
 
-Flows defined in the global (root) organization act as defaults for all
-organizations. A flow with the same ticket type and name defined in a specific
-organization overrides the global flow, while differently named flows remain
-available.
+## Visual approval workflows
 
-<Alert type="warning">
-Every approval level must resolve to at least one handler. If an attribute rule
-matches nobody, saving the flow fails with an error asking you to update the
-approval rule. Check role and attribute values before changing a flow that is
-already in use.
-</Alert>
+<VersionBadge version="5.2.0" />
+
+V5.2.0 adds visual approval workflows for Enterprise Edition. A flow can combine
+several approval levels with conditional branches and choose how each level
+reaches a decision:
+
+- **Approval modes** — a level can require all approvers or any one approver.
+- **Conditions** — branch to different approval paths based on the ticket data.
+- **Reassignment and additional approvers** — move a pending approval to another
+  handler or add approvers while the ticket is in progress.
+- **Timeout handling** — define what happens when a level is not approved within
+  the configured time.
+
+The same release expands ticket-based approval to password viewing, account
+password changes, file uploads and downloads, and recording downloads. Approved
+authorization tickets can also be used to request an authorization renewal with a
+new authorization period.
 
 <Alert type="note">
-Changing a flow affects tickets created afterwards. Tickets already in progress
-keep the approval steps that were created with them. Auditors can review ticket
-history from [Ticket Audits](/features/audits/tickets).
+  Legacy tickets and workflows are migrated automatically. Complex approver
+  rules may be disabled during migration and require review before they are used
+  again.
 </Alert>
+
+## Version history
+
+| Version | Change                                                                                                                     |
+| ------- | -------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added visual approval workflows with conditions, all/any-approver modes, reassignment, additional approvers, and timeouts. |
+| v5.2.0  | Expanded ticket approvals to password viewing and changes, file transfers, and recording downloads.                        |
+| v5.2.0  | Added authorization renewal requests from approved authorization tickets.                                                  |

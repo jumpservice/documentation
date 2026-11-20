@@ -133,6 +133,21 @@ of web asset sessions requires JumpServer Enterprise Edition. See
 [Web assets](/features/console/assets/web-assets#recording-and-audit) for the
 current limits of web session recording.
 
+## Site security
+
+<VersionBadge version="5.2.0" />
+
+For web assets, the built-in browser validates the site certificate over HTTPS by
+default. When a certificate is not trusted, the client shows the certificate
+details so you can review them before you continue.
+
+- Site-specific certificate exceptions can be added for sites that use a
+  certificate the client does not trust by default.
+- Opening a site over plain HTTP shows a risk confirmation before the page loads.
+
+Review exceptions periodically and remove them when a site has a trusted
+certificate again.
+
 ## Notes
 
 - Connection methods and protocols depend on the asset platform, enabled
@@ -142,8 +157,9 @@ current limits of web session recording.
 
 ## Version history
 
-| Version | Change                                                                                          |
-| ------- | ----------------------------------------------------------------------------------------------- |
-| v5.1.0  | Changed the default remote database application to DBX.                                         |
-| v5.0.0  | Added a unified connection entry for SSH, RDP, Kubernetes, database, RemoteApp, and web assets. |
-| v5.0.0  | Added Kubernetes connections from the client asset list.                                        |
+| Version | Change                                                                                                           |
+| ------- | ---------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added HTTPS certificate validation by default, certificate details, site exceptions, and HTTP risk confirmation. |
+| v5.1.0  | Changed the default remote database application to DBX.                                                          |
+| v5.0.0  | Added a unified connection entry for SSH, RDP, Kubernetes, database, RemoteApp, and web assets.                  |
+| v5.0.0  | Added Kubernetes connections from the client asset list.                                                         |

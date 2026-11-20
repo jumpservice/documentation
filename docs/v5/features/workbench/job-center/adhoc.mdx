@@ -14,11 +14,11 @@ machine. Nothing is saved unless you choose to save the command as a template.
 
 ## Prerequisites
 
-* The **Job Center** feature is enabled by an administrator in
+- The **Job Center** feature is enabled by an administrator in
   [Feature Settings](/features/system-settings/general/features). When it is disabled, the
   Job Center entries are hidden.
-* Your role grants the permissions required to view and execute jobs.
-* Your account is authorized for the target assets, including the account you
+- Your role grants the permissions required to view and execute jobs.
+- Your account is authorized for the target assets, including the account you
   intend to run as.
 
 ## Execute a command
@@ -26,32 +26,33 @@ machine. Nothing is saved unless you choose to save the command as a template.
 <Steps>
 
 <div>
-In **Selected assets**, click **Select assets** and choose one or more authorized
-hosts or nodes. The selected targets appear in the list.
+  In **Selected assets**, click **Select assets** and choose one or more
+  authorized hosts or nodes. The selected targets appear in the list.
 </div>
 
 <div>
-Enter the **Run user**, for example `root`. Autocomplete suggests usernames that
-exist on the selected assets.
+  Enter the **Run user**, for example `root`. Autocomplete suggests usernames
+  that exist on the selected assets.
 </div>
 
 <div>
-Choose an **Account policy** for assets where the run user does not exist.
+  Choose an **Account policy** for assets where the run user does not exist.
 </div>
 
 <div>
-Choose the **Module** that matches the command: Shell, Powershell, Raw, Python,
-MySQL, PostgreSQL, SQL Server, or CloudEngine.
+  Choose the **Module** that matches the command: Shell, Powershell, Raw,
+  Python, MySQL, PostgreSQL, SQL Server, or CloudEngine.
 </div>
 
 <div>
-Type the command in the editor. Optionally set a timeout and a running path, then
-click **Execute**.
+  Type the command in the editor. Optionally set a timeout and a running path,
+  then click **Execute**.
 </div>
 
 <div>
-If some assets cannot run the command, review the runnable and unrunnable lists
-and confirm the remaining targets. Output streams into the terminal below.
+  If some assets cannot run the command, review the runnable and unrunnable
+  lists and confirm the remaining targets. Output streams into the terminal
+  below.
 </div>
 
 </Steps>
@@ -60,16 +61,16 @@ and confirm the remaining targets. Output streams into the terminal below.
 
 ## Field reference
 
-| Field | Description |
-| --- | --- |
-| Selected assets | Authorized hosts or nodes that receive the command |
-| Run user | Login account used on the targets |
-| Account policy | What to do when the run user is missing: **Skip this asset**, **Privileged first**, or **Privileged only** |
-| Module | Interpreter for the command; Shell, Powershell, Raw, Python, and database modules are available |
-| Command | The command text executed on every selected asset |
-| Timeout | Optional time limit; `-1` means no timeout |
-| Running path | Optional working directory; otherwise the user's home directory is used |
-| Output | Combined per-asset output, with refresh and download actions |
+| Field           | Description                                                                                                |
+| --------------- | ---------------------------------------------------------------------------------------------------------- |
+| Selected assets | Authorized hosts or nodes that receive the command                                                         |
+| Run user        | Login account used on the targets                                                                          |
+| Account policy  | What to do when the run user is missing: **Skip this asset**, **Privileged first**, or **Privileged only** |
+| Module          | Interpreter for the command; Shell, Powershell, Raw, Python, and database modules are available            |
+| Command         | The command text executed on every selected asset                                                          |
+| Timeout         | Optional time limit; `-1` means no timeout                                                                 |
+| Running path    | Optional working directory; otherwise the user's home directory is used                                    |
+| Output          | Combined per-asset output, with refresh and download actions                                               |
 
 The toolbar also provides **Open command** to load a saved script template,
 **Save command** to store the current command as a template, and a help entry for
@@ -79,12 +80,24 @@ before running.
 ## Notes
 
 <Alert type="warning">
-The command executes immediately on every selected asset. Check the command text
-and the target list before clicking **Execute**.
+  The command executes immediately on every selected asset. Check the command
+  text and the target list before clicking **Execute**.
 </Alert>
 
 <Alert type="note">
-Adhoc execution is disabled while the global (root) organization is selected.
-Switch to a specific organization first. Every run is recorded on
-[Execution History](/features/workbench/job-center/execution-history).
+  Adhoc execution is disabled while the global (root) organization is selected.
+  Switch to a specific organization first. Every run is recorded on [Execution
+  History](/features/workbench/job-center/execution-history).
 </Alert>
+
+<Alert type="note">
+  **Changed in v5.2.0:** job execution supports Oracle, Dameng, OceanBase, DB2,
+  ClickHouse, and other databases. Select the matching database module and
+  confirm that the target accounts can run the command.
+</Alert>
+
+## Version history
+
+| Version | Change                                                                                                 |
+| ------- | ------------------------------------------------------------------------------------------------------ |
+| v5.2.0  | Expanded database support for job execution, including Oracle, Dameng, OceanBase, DB2, and ClickHouse. |

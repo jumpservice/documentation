@@ -16,12 +16,12 @@ navigation.
 
 ## Workspace layout
 
-| Area | What it contains |
-| --- | --- |
-| Top toolbar | **My Assets**, **File Manager**, sidebar toggle, **New Connection**; on the right: [AI Assistant](/features/general/support/ai-assistant), user menu, and session panel |
-| Left sidebar | Assets authorized in the current organization, with organization switch, search, favorites, and scripts |
-| Session area | Open sessions as tabs; drag, switch, and split panes |
-| Bottom status bar | Login status, session count, and the **Transfer Center** entry |
+| Area              | What it contains                                                                                                                                                        |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Top toolbar       | **My Assets**, **File Manager**, sidebar toggle, **New Connection**; on the right: [AI Assistant](/features/general/support/ai-assistant), user menu, and session panel |
+| Left sidebar      | Assets authorized in the current organization, with organization switch, search, favorites, and scripts                                                                 |
+| Session area      | Open sessions as tabs; drag, switch, and split panes                                                                                                                    |
+| Bottom status bar | Login status, session count, and the **Transfer Center** entry                                                                                                          |
 
 ## My Assets
 
@@ -49,6 +49,24 @@ a database schema, a file operation, or a script without leaving the Web Termina
 
 See [AI Assistant](/features/general/support/ai-assistant) for entry points, session
 context, and prerequisites.
+
+## Split views, input broadcasting, and shortcuts
+
+<VersionBadge version="5.2.0" />
+
+The Workbench adds flexible layouts and terminal controls for multi-session work:
+
+- **Split views** — arrange sessions in vertical or horizontal splits and resize
+  the panes to fit the task.
+- **SSH input broadcasting** — send the input from one terminal to the other
+  terminal sessions in the current layout when you need to run the same command
+  on several assets.
+- **Keyboard shortcuts** — switch sessions, split panes, and open common actions
+  from the keyboard; review the shortcut list in the Workbench and customize the
+  bindings where the setting is available.
+
+Broadcasting sends input to the selected sessions only. Access control and command
+auditing still apply to each session independently.
 
 ## Organization switching
 
@@ -84,8 +102,14 @@ Select your avatar in the top-right to open the personal menu:
 See [Web Terminal Settings](/features/workbench/web-terminal/settings) for the
 settings pages.
 
+## Version history
+
 <Alert type="note">
-The Web Terminal shows only assets authorized for your account in the active
-organization. If a connection method is missing, the protocol, enabled components,
-license, or your assigned connection methods may not allow it.
+  The Web Terminal shows only assets authorized for your account in the active
+  organization. If a connection method is missing, the protocol, enabled
+  components, license, or your assigned connection methods may not allow it.
 </Alert>
+
+| Version | Change                                                                                   |
+| ------- | ---------------------------------------------------------------------------------------- |
+| v5.2.0  | Added flexible split views, SSH input broadcasting, and customizable keyboard shortcuts. |

@@ -141,6 +141,53 @@ In Database Workbench, the SQL execution plan view includes a summary view and
 quick-access actions in the toolbar. Use the summary to read the plan first, then
 open the detailed view when you need the full plan tree.
 
+## Database connectivity in v5.2.0
+
+<VersionBadge version="5.2.0" />
+
+V5.2.0 expands the database platforms that the Web Terminal and JumpServer
+Client can reach. Available platforms and protocols still come from the asset
+platform, so create the asset from the matching database platform before you
+connect.
+
+### DB2
+
+DB2 assets use the `db2` protocol and can be opened in the Database Workbench or
+through the native database client proxy in JumpServer Client. DB2 supports the
+same authorization, access control, and session recording pipeline as the other
+database assets.
+
+### ClickHouse with HTTP and Native
+
+A ClickHouse asset can enable both the HTTP and Native connection paths. When both
+are enabled, the connection dialog shows them as separate protocol choices, so you
+can use the path that matches the client or workload without creating two assets.
+
+### Redis Cluster
+
+For a Redis instance that belongs to a cluster, enable the cluster option on the
+asset's Redis protocol. JumpServer exposes a single endpoint and routes commands to
+the right node, including redirections issued by the cluster, so the client does
+not need the full node list.
+
+### OceanBase tenants
+
+<Alert type="xpack">
+  **OceanBase database assets** require JumpServer Enterprise Edition.
+</Alert>
+
+OceanBase assets can connect to a MySQL-compatible tenant or an Oracle-compatible
+tenant. Create the asset from the matching OceanBase platform
+(**OceanBase-MySQL** or **OceanBase-Oracle**); the tenant mode is part of the
+platform protocol settings.
+
+### SQL Server domain accounts
+
+SQL Server assets can authenticate with a managed domain account over NTLMv2 or
+Kerberos. Store the domain account as an asset account, then select it in the
+SQL Server connection dialog like any other account. The domain account must be
+able to authenticate to the SQL Server instance with the selected method.
+
 ## Windows PowerShell over WinRM
 
 <VersionBadge version="5.1.0" />
@@ -196,8 +243,13 @@ Sessions open as tabs in the session area.
 
 ## Version history
 
-| Version | Change                                                                 |
-| ------- | ---------------------------------------------------------------------- |
-| v5.1.0  | Added a summary view and quick-access actions for SQL execution plans. |
-| v5.1.0  | Added Windows PowerShell over WinRM.                                   |
-| v5.1.0  | Added the Dameng Database Web CLI.                                     |
+| Version | Change                                                                  |
+| ------- | ----------------------------------------------------------------------- |
+| v5.2.0  | Added DB2 database support in the Web Terminal and native client proxy. |
+| v5.2.0  | Added ClickHouse HTTP and Native protocol connectivity.                 |
+| v5.2.0  | Added a single-endpoint proxy for Redis Cluster.                        |
+| v5.2.0  | Added OceanBase MySQL-compatible and Oracle-compatible tenants.         |
+| v5.2.0  | Added SQL Server domain account authentication with NTLMv2 or Kerberos. |
+| v5.1.0  | Added a summary view and quick-access actions for SQL execution plans.  |
+| v5.1.0  | Added Windows PowerShell over WinRM.                                    |
+| v5.1.0  | Added the Dameng Database Web CLI.                                      |

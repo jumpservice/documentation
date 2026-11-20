@@ -6,7 +6,8 @@ description: "Analyze account inventory, connectivity, password changes, and acc
 # Account Reports
 
 <Alert type="xpack">
-**Audit reports** require JumpServer Enterprise Edition. Raw session and log evidence remains available according to your deployment configuration.
+  **Audit reports** require JumpServer Enterprise Edition. Raw session and log
+  evidence remains available according to your deployment configuration.
 </Alert>
 
 **Account Reports** summarizes managed accounts and the automation that maintains them. Use it to review account inventory and connectivity, password-change activity, and the outcome of push, discovery, backup, risk-detection, and secret-change tasks.
@@ -26,18 +27,16 @@ Open the page from **Audits > Report > Account Reports**.
 ## Read the account statistics report
 
 <Steps>
-<div>
-Select **Account statistics report** in the left panel.
-</div>
-<div>
-Choose **Today**, **Last 7 days**, or **Last 30 days**.
-</div>
-<div>
-Review the overview counters: total, active, connectable, switch from, reset secret, and account templates.
-</div>
-<div>
-Read the creation source, connectivity status, and password change trend charts, then check the ranking tables.
-</div>
+  <div>Select **Account statistics report** in the left panel.</div>
+  <div>Choose **Today**, **Last 7 days**, or **Last 30 days**.</div>
+  <div>
+    Review the overview counters: total, active, connectable, switch from, reset
+    secret, and account templates.
+  </div>
+  <div>
+    Read the creation source, connectivity status, and password change trend
+    charts, then check the ranking tables.
+  </div>
 </Steps>
 
 ![Figure 1: Account statistics report with overview counters, creation source, connectivity, and password change trends.](/images/v5/jumpserver/v5_admin_report_03.png)
@@ -48,29 +47,47 @@ Select **Account automation report** to see the outcome of automation rather tha
 
 ## Field reference
 
-| Report | Metric or chart | Description |
-| --- | --- | --- |
-| Account statistics | Total | Total accounts in the organization. |
-| Account statistics | Active | Accounts that are enabled. |
-| Account statistics | Connectable | Accounts whose credentials passed a connectivity check. |
-| Account statistics | Switch from | Accounts marked as switch-from accounts. |
-| Account statistics | Reset secret | Accounts whose secret was changed in the range. |
-| Account statistics | Account templates | Accounts created from an account template. |
-| Account statistics | Account creation source distribution | How accounts were created. |
-| Account statistics | Account connectivity status distribution | Connectivity check results. |
-| Account statistics | Account password change trends | Secret changes over time. |
-| Account statistics | Ranking by number of asset accounts | Assets with the most accounts. |
-| Account statistics | Account and password change ranking | Account versions ranked by password changes. |
-| Account automation | Push / Risk detection / Backup / Discover / Change secrets | Task counts for each automation category. |
-| Account automation | Risky account | Risk categories and counts. |
-| Account automation | Task execution trends | Automation task runs over time. |
-| Account automation | Account secret change success/failure | Successful and failed secret changes. |
+| Report             | Metric or chart                                            | Description                                             |
+| ------------------ | ---------------------------------------------------------- | ------------------------------------------------------- |
+| Account statistics | Total                                                      | Total accounts in the organization.                     |
+| Account statistics | Active                                                     | Accounts that are enabled.                              |
+| Account statistics | Connectable                                                | Accounts whose credentials passed a connectivity check. |
+| Account statistics | Switch from                                                | Accounts marked as switch-from accounts.                |
+| Account statistics | Reset secret                                               | Accounts whose secret was changed in the range.         |
+| Account statistics | Account templates                                          | Accounts created from an account template.              |
+| Account statistics | Account creation source distribution                       | How accounts were created.                              |
+| Account statistics | Account connectivity status distribution                   | Connectivity check results.                             |
+| Account statistics | Account password change trends                             | Secret changes over time.                               |
+| Account statistics | Ranking by number of asset accounts                        | Assets with the most accounts.                          |
+| Account statistics | Account and password change ranking                        | Account versions ranked by password changes.            |
+| Account automation | Push / Risk detection / Backup / Discover / Change secrets | Task counts for each automation category.               |
+| Account automation | Risky account                                              | Risk categories and counts.                             |
+| Account automation | Task execution trends                                      | Automation task runs over time.                         |
+| Account automation | Account secret change success/failure                      | Successful and failed secret changes.                   |
 
 ## Notes
 
 <Alert type="note">
-**Customize** controls which charts and tables the report displays. For record-level action, open [Account Activities](/features/pam/activities/account-activities) or [Change Secrets](/features/pam/security/change-secrets).
+  **Customize** controls which charts and tables the report displays. For
+  record-level action, open [Account
+  Activities](/features/pam/activities/account-activities) or [Change
+  Secrets](/features/pam/security/change-secrets).
 </Alert>
+
+## Report center
+
+<VersionBadge version="5.2.0" />
+
+V5.2.0 refactors the audit report center. The same report types now support
+configurable report sections, a preview before export, and PDF export. Use the
+section selector to include only the parts that matter for the audience, preview
+the result, then export the PDF and store it with the audit evidence.
+
+## Version history
+
+| Version | Change                                                                                    |
+| ------- | ----------------------------------------------------------------------------------------- |
+| v5.2.0  | Added configurable report sections, report previews, and PDF export to the report center. |
 
 ## Related topics
 
