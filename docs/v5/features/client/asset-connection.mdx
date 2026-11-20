@@ -1,15 +1,15 @@
 ---
 title: "Asset Connection"
-description: "Connect to Linux, Windows, Kubernetes, database, web, and published-application assets in JumpServer Client, including connections handed off from the Web Terminal."
+description: "Connect to Linux, Windows, Kubernetes, database, web, and published-application assets in JumpServer Client."
 ---
 
 # Asset Connection
 
 <Alert type="xpack">
   **Oracle, SQL Server, DB2, ClickHouse, Dameng, and OceanBase database assets**
-  require JumpServer Enterprise Edition. **Desktop database, RDP, VNC,
-  RemoteApp, and VirtualApp connection methods** also require Enterprise
-  Edition. Desktop SSH and SFTP connections are included in Community Edition.
+  require JumpServer Enterprise Edition. **Client-side database, RDP, VNC,
+  RemoteApp, and VirtualApp methods** also require Enterprise Edition. Desktop
+  SSH and SFTP connections are included in Community Edition.
 </Alert>
 
 JumpServer Client is the local endpoint for authorized assets. It opens
@@ -24,8 +24,6 @@ application with the **Client** option.
 3. Choose a **Protocol**, an authorized **Account**, and a **Connection method**. Methods are grouped as built-in, application, and remote application.
 4. Select **Confirm**. The session opens in the client window or in the local
    application, depending on the method.
-
-![Figure 1: Unified connection entry with JumpServer Client.](/images/v5/jumpserver/v5_client_asset_entry_01.png)
 
 ## Supported asset types and protocols
 
@@ -82,10 +80,10 @@ account, and **Connection Wizard**, JumpServer displays:
 - a temporary username and password for this connection;
 - the ready-to-copy connection information for the selected protocol.
 
-![Figure 2: Connection Wizard with the proxy address, temporary account, and connection details.](/images/v5/jumpserver/v5_client_connection_wizard_01.png)
+![Figure 1: Connection Wizard showing proxy and temporary connection details.](/images/v5/jumpserver/v5_client_connection_wizard_01.png)
 
 Use these details in any compatible SSH, database, RDP, or VNC client on your
-computer. The client connects to the JumpServer proxy rather than directly to the
+computer. Your chosen client connects to the JumpServer proxy rather than directly to the
 asset, so authorization, access control, and auditing still apply. The temporary
 credentials and the proxy endpoint expire with the connection; do not save or
 share them.
@@ -138,7 +136,7 @@ for the full conditions and fallback behavior.
 
 Run commands and upload or download files in the session after it connects.
 
-![Figure 3: Linux asset connection dialog with SSH and SFTP options.](/images/v5/jumpserver/v5_client_linux_connection_01.png)
+![Figure 2: Linux asset connection dialog with SSH and SFTP options.](/images/v5/jumpserver/v5_client_linux_connection_01.png)
 
 ### Windows assets
 
@@ -149,7 +147,7 @@ Run commands and upload or download files in the session after it connects.
 Windows PowerShell sessions over WinRM open in the built-in terminal. RDP and VNC
 can use either the built-in Remote Desktop or a configured local client.
 
-![Figure 4: Windows asset connection dialog with RDP and WinRM options.](/images/v5/jumpserver/v5_client_windows_connection_01.png)
+![Figure 3: Windows asset session over RDP in JumpServer Client.](/images/v5/jumpserver/v5_client_windows_connection_01.png)
 
 ### Kubernetes assets
 
@@ -170,7 +168,7 @@ Redis Cluster connects through a single endpoint, OceanBase provides
 MySQL-compatible and Oracle-compatible tenant platforms, and SQL Server domain
 accounts authenticate with NTLMv2 or Kerberos.
 
-![Figure 5: Database connection dialog for a PostgreSQL asset.](/images/v5/jumpserver/v5_client_database_connection_01.png)
+![Figure 4: Database connection dialog for a PostgreSQL asset.](/images/v5/jumpserver/v5_client_database_connection_01.png)
 
 ### Web assets
 
@@ -186,7 +184,7 @@ JumpServer Client; the browser Web Terminal uses a published WebLite application
 instead. This path needs no RemoteApp publisher, Windows Server relay, or RDS
 license, and is included in Community Edition.
 
-![Figure 6: Web asset connection dialog with the built-in browser selected.](/images/v5/jumpserver/v5_client_web_browser_01.png)
+![Figure 5: Web asset connection dialog with the built-in browser selected.](/images/v5/jumpserver/v5_client_web_browser_01.png)
 
 The site address, account, and autofill method are configured on the asset in
 **Console > Assets > Web**. The client does not provide an edit entry for them.
@@ -207,6 +205,24 @@ details so you can review them before you continue.
 
 Review exceptions periodically and remove them when a site has a trusted
 certificate again.
+
+## RDP connection security
+
+<VersionBadge version="5.2.0" kind="changed" />
+
+The security layer is chosen per RDP connection in the connection dialog. Open
+**Advanced** and select a **Security layer**:
+
+| Option                | Description                                                                                   |
+| --------------------- | --------------------------------------------------------------------------------------------- |
+| Platform default      | Uses the security layer configured on the asset platform; the option shows the current value. |
+| Automatic negotiation | Lets the client negotiate the security layer with the server.                                 |
+| RDP                   | Uses the RDP security layer.                                                                  |
+| TLS                   | Uses TLS for the connection.                                                                  |
+| NLA                   | Uses Network Level Authentication.                                                            |
+
+The option applies to the current connection only. It does not change the defaults
+under **Settings > General > Remote Desktop**.
 
 ## Notes
 

@@ -1,6 +1,6 @@
 ---
 title: "Adhoc"
-description: Run a command once across many authorized assets from the Job Center and review the combined output.
+description: "Run a command once across many authorized assets from the Job Center and review the combined output."
 ---
 
 # Adhoc
@@ -10,7 +10,7 @@ fast path for day-to-day operations: select the targets, enter the run user and
 the command, execute, and read the result per asset without logging in to each
 machine. Nothing is saved unless you choose to save the command as a template.
 
-![Figure 1: The Adhoc page](/images/v5/jumpserver/v5_admin_wb_adhoc_01.png)
+![Figure 1: Adhoc page with selected assets, run user, module, and command editor.](/images/v5/jumpserver/v5_admin_wb_adhoc_01.png)
 
 ## Prerequisites
 
@@ -26,8 +26,8 @@ machine. Nothing is saved unless you choose to save the command as a template.
 <Steps>
 
 <div>
-  In **Selected assets**, click **Select assets** and choose one or more
-  authorized hosts or nodes. The selected targets appear in the list.
+  In **Selected assets**, click **Click to add** and choose one or more
+  authorized assets or nodes. The selected targets appear in the list.
 </div>
 
 <div>
@@ -40,8 +40,8 @@ machine. Nothing is saved unless you choose to save the command as a template.
 </div>
 
 <div>
-  Choose the **Module** that matches the command: Shell, Powershell, Raw,
-  Python, MySQL, PostgreSQL, SQL Server, or CloudEngine.
+  Choose the **Module** that matches the command: Shell, PowerShell, Raw,
+  Python, a database module, or CloudEngine.
 </div>
 
 <div>
@@ -57,16 +57,16 @@ machine. Nothing is saved unless you choose to save the command as a template.
 
 </Steps>
 
-![Figure 2: Adhoc execution output](/images/v5/jumpserver/job_adhoc_exec.png)
+![Figure 2: Adhoc execution output for the selected assets.](/images/v5/jumpserver/job_adhoc_exec.png)
 
 ## Field reference
 
 | Field           | Description                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| Selected assets | Authorized hosts or nodes that receive the command                                                         |
+| Selected assets | Authorized assets or nodes that receive the command                                                        |
 | Run user        | Login account used on the targets                                                                          |
 | Account policy  | What to do when the run user is missing: **Skip this asset**, **Privileged first**, or **Privileged only** |
-| Module          | Interpreter for the command; Shell, Powershell, Raw, Python, and database modules are available            |
+| Module          | Interpreter for the command: Shell, PowerShell, Raw, Python, CloudEngine, or a database module             |
 | Command         | The command text executed on every selected asset                                                          |
 | Timeout         | Optional time limit; `-1` means no timeout                                                                 |
 | Running path    | Optional working directory; otherwise the user's home directory is used                                    |

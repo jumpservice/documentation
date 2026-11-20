@@ -1,6 +1,6 @@
 ---
 title: "Settings"
-description: "Configure JumpServer Client language, character set, terminal, RDP display and redirection, appearance, local application paths, and login and screen lock settings."
+description: "Configure JumpServer Client language, terminal, RDP display, appearance, local applications, and login and screen lock settings."
 ---
 
 # Settings
@@ -42,8 +42,8 @@ client login and screen lock behave.
 | Reset to default                       | Restores the login and screen lock settings to their defaults.                                                                                                                                                                                                                                                                                                                                     |
 
 The settings apply to the current site and account on this client. They do not
-change the server-side security policy; see [Security](/features/system-settings/security/security#web)
-for the administrator-controlled web session policy.
+change the server-side security policy; see [Security](/features/system-settings/security/security#client)
+for the administrator-controlled client session policy.
 
 ## General
 
@@ -58,7 +58,7 @@ The **General** page controls:
 These defaults apply to new sessions opened from the client. A session can still
 have its own protocol-specific options.
 
-![Figure 1: Client general settings](/images/v5/jumpserver/client_setting_02.png)
+![Figure 1: Client general settings.](/images/v5/jumpserver/client_setting_02.png)
 
 ### Remote desktop
 
@@ -70,7 +70,7 @@ drive redirection options require JumpServer Enterprise Edition.
 
 | Setting                        | Description                                                                                                                                                                                      |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Keyboard layout                | Keyboard layout used by local RDP sessions. The default is **US English (QWERTY)**; other layouts depend on the client.                                                                          |
+| Keyboard layout                | Keyboard layout used by local RDP sessions.                                                                                                                                                      |
 | Resolution                     | Default resolution for future Windows connections. **Auto** follows the client window; a selection in an individual connection applies only to that connection and does not change this setting. |
 | RDP color quality              | Color depth for the local RDP client: 8-bit, 16-bit, 24-bit, or True color (32-bit). Applies only to the local RDP client, not the web remote desktop.                                           |
 | RDP smart sizing               | Scales the remote desktop to fit the client window. Applies only to the local RDP client, not the web remote desktop.                                                                            |
@@ -82,22 +82,10 @@ drive redirection options require JumpServer Enterprise Edition.
 
 ### RDP connection security
 
-<VersionBadge version="5.2.0" kind="changed" />
-
-This setting is in the connection dialog, not in **Settings > General**. For an RDP
-connection opened with the built-in RDP connector, open **Advanced** and choose a
-**Security layer**:
-
-| Option                | Description                                                                                   |
-| --------------------- | --------------------------------------------------------------------------------------------- |
-| Platform default      | Uses the security layer configured on the asset platform; the option shows the current value. |
-| Automatic negotiation | Lets the client negotiate the security layer with the server.                                 |
-| RDP                   | Uses the RDP security layer.                                                                  |
-| TLS                   | Uses TLS for the connection.                                                                  |
-| NLA                   | Uses Network Level Authentication.                                                            |
-
-The security layer applies to the current connection only. It does not change the
-default settings on the **General** page.
+The security layer is a per-connection option. It is configured in the connection
+dialog, not on the General page, and does not change the General defaults. See
+[RDP connection security](/features/client/asset-connection#rdp-connection-security)
+for the available options.
 
 ## Appearance
 
@@ -107,7 +95,7 @@ The **Appearance** page controls the client's visual theme:
 - Primary color
 - Font
 
-![Figure 2: Client appearance settings](/images/v5/jumpserver/client_setting_03.png)
+![Figure 2: Client appearance settings.](/images/v5/jumpserver/client_setting_03.png)
 
 ## Application settings
 
@@ -126,7 +114,7 @@ open in DBX unless another application is configured for that database type.
 If an application is not installed, use the download link shown in the client, then
 return and set the path.
 
-![Figure 3: Client application configuration](/images/v5/jumpserver/client_setting_04.png)
+![Figure 3: Client application configuration.](/images/v5/jumpserver/client_setting_04.png)
 
 ## Notes
 

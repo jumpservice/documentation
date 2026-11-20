@@ -1,50 +1,51 @@
 ---
-title: "Ticket Flow"
-description: Configure the approval flows that tickets use, including approval levels, handlers, and CC users.
+title: "Approval Workflows"
+description: "Configure the approval workflows that tickets use, including approval nodes, handlers, and CC users."
 ---
 
-# Ticket Flow
+# Approval Workflows
 
 <Alert type="xpack">
   **Tickets & Approvals** requires JumpServer Enterprise Edition. Ticket
   entries, approval cards, and flow settings are hidden without a license.
 </Alert>
 
-**Flow Setup** is the administrative configuration view for ticket approval. It
-defines who approves a request, how many approval levels a request passes through,
-and who is copied on the ticket. It is not where access is requested: applicants
+**Approval workflows** is the administrative configuration view for ticket approval. It
+defines the approval path a request follows, who approves at each node, and who is
+copied on the ticket. It is not where access is requested: applicants
 create requests from [Submitted](/features/workbench/tickets/my-tickets), and
 approvers act on them from [Related to me](/features/workbench/tickets/awaiting-approval).
 
-![Figure 1: Approval workflows list](/images/v5/jumpserver/v5_ticket_flow_list_01.png)
+![Figure 1: Approval workflows list.](/images/v5/jumpserver/v5_ticket_flow_list_01.png)
 
 ## Prerequisites
 
 - The Tickets feature is enabled and licensed. The **Tickets & Approvals** area
   requires an enterprise license.
 - Your role grants the ticket flow permissions needed to view, create, update, or
-  delete flows. Managing flows is an administrative or operator task, not part of
-  the normal applicant workflow.
+  delete flows. Managing flows is an administrative task, not part of the normal
+  applicant workflow.
 
 ## Review existing flows
 
 The list shows the flows available in the current organization, including flows
 inherited from the global organization.
 
-| Column           | Description                                                      |
-| ---------------- | ---------------------------------------------------------------- |
-| Name             | Flow name                                                        |
-| Approval level   | Number of approval levels the flow uses                          |
-| Created by       | Account that created the flow                                    |
-| Organization     | Organization the flow belongs to                                 |
-| Created, Updated | Creation and last modification times                             |
-| Actions          | Edit or delete the flow, subject to permissions and organization |
+| Column       | Description                         |
+| ------------ | ----------------------------------- |
+| Name         | Flow name                           |
+| Type         | Ticket type the flow applies to     |
+| Organization | Organization that owns the flow     |
+| Version      | Published workflow version          |
+| Enabled      | Whether the flow is enabled         |
+| Update date  | Last modification time              |
+| Actions      | Edit, duplicate, or delete the flow |
 
 ## Create a flow
 
 <Steps>
 
-<div>Open **Flow Setup** and click **Create**.</div>
+<div>Open **Approval workflows** and click **Create**.</div>
 
 <div>
   In **Basic information**, enter a **Workflow name**, select the **Request
@@ -91,12 +92,12 @@ inherited from the global organization.
 
 <VersionBadge version="5.2.0" />
 
-A flow can combine several approval levels with conditional branches and choose how each level reaches a decision:
+A flow can combine approval nodes with conditional branches and choose how each node reaches a decision:
 
-- **Approval modes** â€” a level can require all approvers or any one approver.
-- **Conditions** â€” branch to different approval paths based on the ticket data.
-- **Reassignment and additional approvers** â€” move a pending approval to another handler or add approvers while the ticket is in progress.
-- **Timeout handling** â€” define what happens when a level is not approved within the configured time.
+- **Approval modes** â€?an approval node can require all approvers or any one approver.
+- **Conditions** â€?branch to different approval paths based on the ticket data.
+- **Reassignment and additional approvers** â€?move a pending approval to another handler or add approvers while the ticket is in progress.
+- **Timeout handling** â€?define what happens when a node is not approved within the configured time.
 
 ## How a flow is selected
 

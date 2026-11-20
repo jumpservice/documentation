@@ -7,10 +7,10 @@ description: "Choose an asset type, protocol, and connection method in the Web T
 
 <Alert type="xpack">
   **Oracle, SQL Server, DB2, ClickHouse, Dameng, and OceanBase database assets**
-  require JumpServer Enterprise Edition. **Desktop database, RDP, VNC,
-  RemoteApp, and VirtualApp connection methods** also require Enterprise
-  Edition. Web-based built-in terminal, Remote Desktop, and Community-supported
-  database access are included in Community Edition.
+  require JumpServer Enterprise Edition. **Desktop database, RDP, VNC, and
+  VirtualApp methods** also require Enterprise Edition. Built-in Web Terminal
+  access, WebLite remote applications, and Community-supported database
+  platforms are included in Community Edition.
 </Alert>
 
 The Web Terminal connects to assets authorized for your account. A connection is
@@ -32,7 +32,7 @@ or in JumpServer Client on your computer.
 6. Select **Connect**, or **Open in client** for a method that runs in JumpServer
    Client.
 
-![Figure 1: Connection dialog in the Web Terminal](/images/v5/jumpserver/v5_user_wb_luna_04.png)
+![Figure 1: Connection dialog in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_luna_04.png)
 
 ## Supported asset types and protocols
 
@@ -57,29 +57,28 @@ Client.
 
 ### Protocols and connection methods
 
-| Protocol                                               | Connect Method                               | Enterprise?      |
-| ------------------------------------------------------ | -------------------------------------------- | ---------------- |
-| SSH                                                    | Built-in terminal                            | No               |
-| SSH                                                    | Application: SSH Client or Connection Wizard | No               |
-| SFTP                                                   | Built-in File Manager or File Editor         | No               |
-| SFTP                                                   | Application: SFTP Client                     | No               |
-| Telnet                                                 | Built-in terminal                            | No               |
-| Telnet                                                 | Application: SSH Client                      | No               |
-| WinRM                                                  | Built-in terminal with PowerShell            | No               |
-| RDP                                                    | Built-in Remote Desktop                      | No               |
-| RDP                                                    | Application: Remote Desktop                  | Application only |
-| VNC                                                    | Built-in Remote Desktop                      | No               |
-| VNC                                                    | Application: VNC Client                      | Application only |
-| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Built-in terminal or Database Workbench      | No               |
-| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Application: DB Client or Connection Wizard  | Application only |
-| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Remote Application: DBX or Navicat           | Remote app only  |
-| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Built-in terminal or Database Workbench      | Yes              |
-| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Application: DB Client or Connection Wizard  | Yes              |
-| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Remote Application: DBX or Navicat           | Yes              |
-| Kubernetes                                             | Built-in Kubernetes workspace                | No               |
-| HTTP, HTTPS                                            | Built-in Browser                             | No               |
-| HTTP, HTTPS                                            | Remote Application: WebLite                  | No               |
-| Custom protocol                                        | Depends on the configured protocol handler   | Depends          |
+| Protocol                                               | Connect Method                               | Enterprise? |
+| ------------------------------------------------------ | -------------------------------------------- | ----------- |
+| SSH                                                    | Built-in terminal                            | No          |
+| SSH                                                    | Application: SSH Client or Connection Wizard | No          |
+| SFTP                                                   | Built-in File Manager or File Editor         | No          |
+| SFTP                                                   | Application: SFTP Client                     | No          |
+| Telnet                                                 | Built-in terminal                            | No          |
+| Telnet                                                 | Application: SSH Client                      | No          |
+| WinRM                                                  | Built-in terminal with PowerShell            | No          |
+| RDP                                                    | Built-in Remote Desktop                      | No          |
+| RDP                                                    | Application: Remote Desktop                  | Yes         |
+| VNC                                                    | Built-in Remote Desktop                      | No          |
+| VNC                                                    | Application: VNC Client                      | Yes         |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Built-in terminal or Database Workbench      | No          |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Application: DB Client or Connection Wizard  | Yes         |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Remote Application: DBX or Navicat           | Yes         |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Built-in terminal or Database Workbench      | Yes         |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Application: DB Client or Connection Wizard  | Yes         |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Remote Application: DBX or Navicat           | Yes         |
+| Kubernetes                                             | Built-in Kubernetes workspace                | No          |
+| HTTP, HTTPS                                            | Remote Application: WebLite                  | No          |
+| Custom protocol                                        | Depends on the configured protocol handler   | Depends     |
 
 **Built-in** runs in the browser, **Application** launches a local program through
 JumpServer Client, and **Remote Application** opens a published RemoteApp or
@@ -91,14 +90,12 @@ and access control policies.
 Available methods depend on the asset protocol, enabled components, license, and
 the methods assigned to your account.
 
-| Method                  | Where the session runs                                                                                         | Common examples                                                                                        | Requirements                                                                                    |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
-| **Built-in**            | In the browser, rendered by JumpServer                                                                         | Terminal, Web CLI, Database Workbench, Remote Desktop, VNC, File Manager, Kubernetes, Built-in Browser | The component for the protocol is enabled; no local client is needed                            |
-| **Application**         | In a local application launched by JumpServer Client, or shown as connection details for **Connection Wizard** | SSH Client, SFTP Client, DB Client, Remote Desktop, VNC Client, and Connection Wizard                  | JumpServer Client and local application path for direct launch; Connection Wizard needs neither |
-| **Remote Application**  | In a published application, in the browser or in JumpServer Client when the **Client** option is chosen        | DBX, Navicat, WebLite, and other published applications                                                | The application is published on a RemoteApp machine; the account is authorized                  |
-| **Virtual Application** | In a published Linux application, in the browser or in JumpServer Client when the **Client** option is chosen  | VirtualApp images published by the Panda application provider                                          | VirtualApp is enabled, a provider is registered, and the application is published               |
-
-![Figure 2: Connection method categories](/images/v5/jumpserver/v5_user_wb_luna_15.png)
+| Method                  | Where the session runs                                                                                         | Common examples                                                                          | Requirements                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Built-in**            | In the browser, rendered by JumpServer                                                                         | Terminal, Web CLI, Database Workbench, Remote Desktop, VNC, File Manager, and Kubernetes | The component for the protocol is enabled; no local client is needed                            |
+| **Application**         | In a local application launched by JumpServer Client, or shown as connection details for **Connection Wizard** | SSH Client, SFTP Client, DB Client, Remote Desktop, VNC Client, and Connection Wizard    | JumpServer Client and local application path for direct launch; Connection Wizard needs neither |
+| **Remote Application**  | In a published application, in the browser or in JumpServer Client when the **Client** option is chosen        | DBX, Navicat, WebLite, and other published applications                                  | The application is published on a RemoteApp machine; the account is authorized                  |
+| **Virtual Application** | In a published Linux application, in the browser or in JumpServer Client when the **Client** option is chosen  | VirtualApp images published by the Panda application provider                            | VirtualApp is enabled, a provider is registered, and the application is published               |
 
 ### Built-in
 
@@ -132,7 +129,7 @@ account, and **Connection Wizard**, JumpServer displays:
 - the ready-to-copy connection information for the selected protocol.
 
 Use these details in any compatible SSH, database, RDP, or VNC client on your
-computer. The client connects to the JumpServer proxy rather than directly to the
+computer. Your chosen client connects to the JumpServer proxy rather than directly to the
 asset, so authorization, access control, and auditing still apply. The temporary
 credentials and the proxy endpoint expire with the connection; do not save or
 share them.
@@ -217,7 +214,7 @@ Sessions open as tabs in the session area.
 - Use **New Connection** to reopen a recent asset, or **Transfer Center** to review
   file transfers.
 
-![Figure 3: Session tabs in the Web Terminal](/images/v5/jumpserver/v5_user_wb_luna_16.png)
+![Figure 2: Session tabs in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_luna_16.png)
 
 ## Notes
 

@@ -239,7 +239,7 @@ These notes describe the behavior changes and fixes in each target version. They
 | A failed routine database backup shows a 30-second confirmation prompt and the upgrade proceeds by default on timeout                              | Watch the upgrade output; confirm that the pre-upgrade backup completed. Backups required for PostgreSQL major version migrations are still mandatory.                     |
 | High availability upgrades coordinate PostgreSQL and Redis migrations on both nodes through JDMC, and both JDMC instances must support the process | In an Enterprise HA deployment, verify JDMC connectivity and that both nodes are on a JDMC version that supports the migration before you start.                           |
 | JDMC uses a new socket discovery mechanism and environments using the PROXY protocol must configure trusted proxy networks                         | Confirm that JDMC, Core, and Xpack versions match, and update the trusted proxy configuration when the deployment uses the PROXY protocol.                                 |
-| Legacy tickets and workflows are migrated automatically; complex approver rules may be disabled pending review                                     | Review [Ticket flow](/features/workbench/tickets/ticket-flow) and re-enable or rebuild approval rules that the migration disabled.                                         |
+| Legacy tickets and workflows are migrated automatically; complex approver rules may be disabled pending review                                     | Review [Approval workflows](/features/workbench/tickets/ticket-flow) and re-enable or rebuild approval rules that the migration disabled.                                  |
 
 ### JumpServer v5.1.1
 

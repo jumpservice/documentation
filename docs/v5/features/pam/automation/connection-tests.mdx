@@ -33,8 +33,6 @@ The page has three tabs:
 - **Execution records** — per-asset or per-account results, including the target,
   result, and error.
 
-![Figure 1: Create connection test drawer with type, targets, and schedule.](/images/v5/jumpserver/v5_pam_connection_tests_01.png)
-
 ## Create a connection test
 
 <Steps>
@@ -44,7 +42,7 @@ The page has three tabs:
 </div>
 
 <div>
-Open **Automation > Connection tests** and stay on the **Test tasks** tab.
+Open **PAM > Automation > Connection tests** and stay on the **Test tasks** tab.
 </div>
 
 <div>Click **Create**.</div>
@@ -55,7 +53,7 @@ Open **Automation > Connection tests** and stay on the **Test tasks** tab.
 </div>
 
 <div>
-  Select the **Assets** and **Nodes** to test. The two fields can be combined.
+  Select the **Asset** and **Node** targets. The two fields can be combined.
 </div>
 
 <div>
@@ -70,14 +68,16 @@ Open **Automation > Connection tests** and stay on the **Test tasks** tab.
 
 </Steps>
 
+![Figure 1: Create connection test drawer with type, targets, and schedule.](/images/v5/jumpserver/v5_pam_connection_tests_01.png)
+
 ## Field reference
 
 | Field       | Description                                                                                   |
 | ----------- | --------------------------------------------------------------------------------------------- |
 | Name        | Required. Task name.                                                                          |
 | Type        | **Asset** tests reachability; **Account** tests managed account credentials.                  |
-| Assets      | Assets to test. Can be combined with nodes.                                                   |
-| Nodes       | Nodes whose assets are tested. Can be combined with assets.                                   |
+| Asset       | Assets to test. Can be combined with nodes.                                                   |
+| Node        | Nodes whose assets are tested. Can be combined with assets.                                   |
 | Accounts    | Account type only. Usernames to test; leave empty to test all active accounts on the targets. |
 | Periodic    | Repeats the test on a schedule, using an interval or a crontab.                               |
 | Active      | Enables the task.                                                                             |
