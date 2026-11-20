@@ -1,6 +1,6 @@
 ---
 title: "Asset Connection"
-description: "Connect to Linux, Windows, Kubernetes, database, and web assets from JumpServer Client."
+description: "Connect to Linux, Windows, Kubernetes, database, web, and published-application assets in JumpServer Client, including connections handed off from the Web Terminal."
 ---
 
 # Asset Connection
@@ -11,127 +11,151 @@ description: "Connect to Linux, Windows, Kubernetes, database, and web assets fr
   in Community Edition.
 </Alert>
 
-JumpServer Client lists the assets authorized to your account. Open an asset,
-choose a protocol and account, and confirm the connection.
+JumpServer Client is the local endpoint for authorized assets. It opens
+connections directly from its asset list, and it is also the process that opens
+when the browser Web Terminal uses an **Application** method or a published
+application with the **Client** option.
 
-## Prerequisites
+## Connection flow
 
-- JumpServer Client is installed and you are signed in.
-- You have an authorization for the asset and account.
-- For database or application connections, the local client path is configured.
-
-## Unified connection entry
-
-<VersionBadge version="5.0.0" />
-
-The client uses a unified entry point for SSH, RDP,
-Kubernetes, database, and RemoteApp assets. Select any of these assets from the same
-client asset list and choose the protocol, account, and connection method. The
-connection opens in the client window, and the same authorization and ACL rules
-apply as for the Web Terminal.
-
-Kubernetes assets open the Kubernetes workspace. RemoteApp assets open a published
-remote application, and the RemoteApp connection requires JumpServer Enterprise
-Edition. SFTP Server connections use the same entry but open a file session; see
-[Workspace, Files, and Scripts](/features/client/workspace).
+1. Find the asset in the client asset list.
+2. Select **Connect** next to the asset name.
+3. Choose a **Protocol**, an authorized **Account**, and a **Connection method**.
+4. Select **Confirm**. The session opens in the client window or in the local
+   application, depending on the method.
 
 ![Figure 1: Unified connection entry with JumpServer Client.](/images/v5/jumpserver/v5_client_asset_entry_01.png)
 
-## Connect to a Linux asset
+## Supported asset types and protocols
 
-1. Find the Linux asset in the client asset list.
-2. Select **Connect** next to the asset name.
-3. Choose a protocol: **SSH**, **SFTP**, or **VNC**.
-4. Select an authorized account.
-5. Select **Confirm**.
+The asset platform determines which protocols and methods are available. The
+client uses the same asset catalog as the Web Terminal.
 
-After connecting, run commands and upload or download files in the session.
+| Asset type        | Common protocols                                                                                   | What the client can open                                                   |
+| ----------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Linux and Unix    | SSH, SFTP, VNC                                                                                     | Built-in terminal, file manager, local SSH/SFTP/VNC applications           |
+| Windows           | RDP, VNC, SSH, SFTP, WinRM                                                                         | Remote Desktop, built-in terminal, local RDP/VNC clients                   |
+| Kubernetes        | k8s                                                                                                | Kubernetes resource browser and terminal                                   |
+| Database          | MySQL, MariaDB, PostgreSQL, Oracle, SQL Server, DB2, Dameng, OceanBase, ClickHouse, MongoDB, Redis | Database Workbench, local database client, published database applications |
+| Web               | HTTP, HTTPS                                                                                        | Built-in browser in the client                                             |
+| Directory service | SSH, RDP, VNC, WinRM                                                                               | Built-in terminal, Remote Desktop                                          |
+| Published apps    | RemoteApp and VirtualApp application protocols                                                     | Published RemoteApp or VirtualApp application in the client window         |
+
+The same platform rules as the Web Terminal apply: a protocol must be enabled on
+the platform, and the component, license, and authorization must allow it. See
+[Supported asset types and protocols](/features/workbench/web-terminal/connect-assets#supported-asset-types-and-protocols)
+in the Web Terminal chapter for the full protocol list.
+
+## Connection methods in the client
+
+| Method                  | What it does                                                                                                     | Requirements                                                                                                                       |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Built-in**            | Renders the session in the client window: terminal, Database Workbench, Remote Desktop, file manager, Kubernetes | The matching component is enabled; no local application is needed                                                                  |
+| **Application**         | Launches a local program with the asset, account, and connection details filled in                               | The application path is configured in [Settings > Application Settings](/features/client/connection-settings#application-settings) |
+| **Remote Application**  | Opens an application published on a RemoteApp machine                                                            | RemoteApp is published and authorized; desktop RemoteApp requires Enterprise Edition                                               |
+| **Virtual Application** | Opens a Linux application published through the Panda application provider                                       | VirtualApp is enabled and a provider is registered; requires Enterprise Edition                                                    |
+
+### Built-in workspace
+
+Use the built-in method when you do not need a local program. The client renders
+the session in its own window, so the session keeps the client's layout, tabs, and
+session controls. This is also the fallback when a local application is not
+installed or an access control policy blocks client methods.
+
+### Local applications
+
+The Application method launches a local program such as an SSH client, an SFTP
+client, a database client, an RDP client, or a VNC client. Configure the program
+once in **Settings > Application Settings**, then choose the matching application
+method in the connection dialog. DBX is the default database application unless
+another application is configured for that database type. See
+[Settings](/features/client/connection-settings#application-settings).
+
+### Published applications
+
+RemoteApp and VirtualApp assets are published by an administrator. Both appear
+under the **Remote Application** method group. When you open one from the client
+asset list, the application opens in the client window. When the Web Terminal
+hands off a RemoteApp or VirtualApp with the **Client** option, the client opens
+the same published application locally.
+
+## Connections started from the Web Terminal
+
+The browser Web Terminal opens JumpServer Client when it needs a local
+application:
+
+1. **Application method** — a native method such as SSH Client, SFTP Client,
+   DB Client, Remote Desktop, or VNC Client opens in the configured local
+   application.
+2. **Remote Application or Virtual Application with the Client option** — when
+   the Web Terminal connection dialog offers **Client** under **Advanced
+   options**, selecting it opens the published application in JumpServer Client.
+
+When the client is launched this way, it receives the selected asset, account, and
+protocol from the Web Terminal. The client must be installed, running, and able to
+reach JumpServer; for an Application method, the local application path must
+already be configured. See
+[When JumpServer Client opens](/features/workbench/web-terminal/connect-assets#when-jumpserver-client-opens)
+for the conditions and fallback behavior.
+
+## Connect to specific assets
+
+### Linux and Unix assets
+
+1. Select **Connect** next to the Linux asset.
+2. Choose **SSH**, **SFTP**, or **VNC**.
+3. Select an authorized account and confirm.
+
+Run commands and upload or download files in the session after it connects.
 
 ![Figure 2: Linux asset connection dialog with SSH and SFTP options.](/images/v5/jumpserver/v5_client_linux_connection_01.png)
 
-## Connect to a Windows asset
+### Windows assets
 
 1. Select **Connect** next to the Windows asset.
-2. Choose **RDP**, **VNC**, **SSH**, or **SFTP**.
+2. Choose **RDP**, **VNC**, **SSH**, or **WinRM**.
 3. Select the account and confirm the connection.
 
-The available protocols depend on the asset platform and the enabled components.
+Windows PowerShell sessions over WinRM open in the built-in terminal. RDP and VNC
+can use either the built-in Remote Desktop or a configured local client.
 
-![Figure 3: Windows asset connection dialog with RDP and WINRM options.](/images/v5/jumpserver/v5_client_windows_connection_01.png)
+![Figure 3: Windows asset connection dialog with RDP and WinRM options.](/images/v5/jumpserver/v5_client_windows_connection_01.png)
 
-## Connect to a Kubernetes asset
+### Kubernetes assets
 
-<VersionBadge version="5.0.0" />
+Kubernetes cloud assets use the `k8s` protocol. Select the asset, choose the
+authorized account, and confirm. The Kubernetes workspace opens in the client
+with a resource browser and a container terminal.
 
-Kubernetes cloud assets use the `k8s` protocol. Connect to them from the same client
-asset list:
+### Database assets
 
-1. Select **Connect** next to the Kubernetes asset.
-2. Select the authorized account.
-3. Select **Confirm**.
+Database assets can open in Database Workbench or in a configured local database
+client. To use a local client, configure its executable path in
+[Settings > Application Settings](/features/client/connection-settings#application-settings)
+first, then choose the Application method for that database asset.
 
-The Kubernetes workspace opens in the client, with a resource browser for the
-Kubernetes resources you are authorized to see and a terminal for the selected
-container.
+![Figure 4: Database connection dialog for a PostgreSQL asset.](/images/v5/jumpserver/v5_client_database_connection_01.png)
 
-## Connect to a database asset
+### Web assets
 
-<VersionBadge version="5.1.0" kind="changed" />
-
-Database assets use a local database client. Configure the application path once:
-
-1. Open the client settings.
-2. Select **Database** and choose the database type, for example **MySQL**.
-3. Download and install a supported database application if needed.
-4. Select **Select path** and choose the installed application.
-
-Then connect to the database asset from the asset list. The connection opens in the
-configured local client.
-
-DBX replaces DBeaver as the default remote database
-application for these connections. To use a different database application,
-configure its executable path in
-[Settings](/features/client/connection-settings).
-
-![Figure 4: Database connection dialog for a PostgreSQL asset with Built-in terminal and Database workbench options.](/images/v5/jumpserver/v5_client_database_connection_01.png)
-
-## Connect to a web asset
-
-<VersionBadge version="5.0.0" />
-
-Web assets use the platform type **Website** and the **HTTP** or **HTTPS**
-protocol.
-
-Before you connect, confirm that:
-
-- JumpServer Client is installed and you are signed in.
-- Your account is authorized for the web asset and for the account you select.
-- The client can reach the JumpServer Web proxy on `5001/tcp`. See
-  [Network Ports](/operations/network-ports).
+Web assets use the **Website** platform and the **HTTP** or **HTTPS** protocol.
 
 1. Select **Connect** on the web asset.
 2. Choose **Built-in** > **Built-in browser**.
-3. Select the authorized account.
-4. Select **Confirm**.
+3. Select the authorized account and confirm.
 
-The site opens in a WebView window, and traffic is forwarded through the JumpServer
-Web proxy. The built-in browser is available only in JumpServer Client; the browser
-Web terminal uses a published WebLite application instead. This path needs no
-RemoteApp publisher, Windows Server relay, or RDS license, and built-in browser
-access is included in Community Edition.
+The site opens in the client's WebView window and traffic is forwarded through the
+JumpServer Web proxy on `5001/tcp`. The built-in browser is available only in
+JumpServer Client; the browser Web Terminal uses a published WebLite application
+instead. This path needs no RemoteApp publisher, Windows Server relay, or RDS
+license, and is included in Community Edition.
 
 ![Figure 5: Web asset connection dialog with the built-in browser selected.](/images/v5/jumpserver/v5_client_web_browser_01.png)
 
-The site address and account are configured by the administrator on the Web asset;
-the client does not provide an edit entry. To change the URL, the account, or the
-autofill method, edit the asset in **Console > Assets > Web**. Autofill uses the
-bound account and stores no credential in the client. See
-[Web assets](/features/console/assets/web-assets).
-
-Web sessions can be recorded when recording storage is configured, and recording
-of web asset sessions requires JumpServer Enterprise Edition. See
-[Web assets](/features/console/assets/web-assets#recording-and-audit) for the
-current limits of web session recording.
+The site address, account, and autofill method are configured on the asset in
+**Console > Assets > Web**. The client does not provide an edit entry for them.
+Web session recording requires recording storage and JumpServer Enterprise
+Edition; see [Web assets](/features/console/assets/web-assets).
 
 ## Site security
 
@@ -152,6 +176,9 @@ certificate again.
 
 - Connection methods and protocols depend on the asset platform, enabled
   components, license, and the account authorization.
+- If the client was launched from the Web Terminal but the application did not
+  open, confirm that the client is installed and that the application path is
+  configured in Settings.
 - If an asset or account is missing, ask an administrator to review your
   authorization.
 
@@ -163,3 +190,11 @@ certificate again.
 | v5.1.0  | Changed the default remote database application to DBX.                                                          |
 | v5.0.0  | Added a unified connection entry for SSH, RDP, Kubernetes, database, RemoteApp, and web assets.                  |
 | v5.0.0  | Added Kubernetes connections from the client asset list.                                                         |
+
+## Related topics
+
+- [Connect Assets](/features/workbench/web-terminal/connect-assets)
+- [Client Overview](/features/client/)
+- [Settings](/features/client/connection-settings)
+- [Workspace, Files, and Scripts](/features/client/workspace)
+- [RemoteApp](/features/system-settings/infrastructure/remote-app)
