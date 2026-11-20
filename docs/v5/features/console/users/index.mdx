@@ -6,7 +6,8 @@ description: "Create, invite, import, and manage JumpServer users, including MFA
 # Users
 
 <Alert type="xpack">
-**Custom system and organization roles** require JumpServer Enterprise Edition. Built-in roles remain available in Community Edition.
+  **Custom system and organization roles** require JumpServer Enterprise
+  Edition. Built-in roles remain available in Community Edition.
 </Alert>
 
 The **Users** page is the user directory for the current organization. It lists
@@ -37,9 +38,9 @@ toolbar icons to change columns, export, import, and refresh the list.
   [Notifications](/features/system-settings/general/notifications) first.
 
 <Alert type="important">
-The list shows only users in the current organization. A user who already exists
-in JumpServer but has not joined this organization must be added with
-**Invite user**.
+  The list shows only users in the current organization. A user who already
+  exists in JumpServer but has not joined this organization must be added with
+  **Invite user**.
 </Alert>
 
 ## Create a user
@@ -49,9 +50,7 @@ in JumpServer but has not joined this organization must be added with
 Click **Create**.
 </div>
 
-<div>
-In the **Create user** drawer, fill in the fields described below.
-</div>
+<div>In the **Create user** drawer, fill in the fields described below.</div>
 
 <div>
 Click **Submit**, or **Save and continue adding** to create another user.
@@ -62,19 +61,19 @@ Click **Submit**, or **Save and continue adding** to create another user.
 
 ### Field reference
 
-| Group | Field | Description |
-| --- | --- | --- |
-| Basic | Name | Display name. Duplicate names are allowed. |
-| Basic | Username | Sign-in name. Must be unique. |
-| Basic | Email | Used for sign-in and notifications. Must be unique. |
-| Basic | Groups | Groups the user belongs to. Group authorizations are inherited by members. |
-| Authentication | Password | **Send reset password link by email** or **Set password**. |
-| Authentication | MFA | **Disabled**, **Enabled**, or **Enforced**. |
-| Authentication | Allowed MFA types | Virtual MFA, SMS, Email, Face recognition, Radius, Passkey, or Custom. |
-| Security | System roles | System-level permissions such as System administrator, Auditor, User, or a custom role. |
-| Security | Organization roles | Organization-level permissions. Click **Manage roles** to maintain roles. |
-| Security | Active | When selected, the user can sign in. |
-| Security | Expiration date | After this date and time the user cannot sign in. |
+| Group          | Field              | Description                                                                             |
+| -------------- | ------------------ | --------------------------------------------------------------------------------------- |
+| Basic          | Name               | Display name. Duplicate names are allowed.                                              |
+| Basic          | Username           | Sign-in name. Must be unique.                                                           |
+| Basic          | Email              | Used for sign-in and notifications. Must be unique.                                     |
+| Basic          | Groups             | Groups the user belongs to. Group authorizations are inherited by members.              |
+| Authentication | Password           | **Send reset password link by email** or **Set password**.                              |
+| Authentication | MFA                | **Disabled**, **Enabled**, or **Enforced**.                                             |
+| Authentication | Allowed MFA types  | Virtual MFA, SMS, Email, Face recognition, Radius, Passkey, or Custom.                  |
+| Security       | System roles       | System-level permissions such as System administrator, Auditor, User, or a custom role. |
+| Security       | Organization roles | Organization-level permissions. Click **Manage roles** to maintain roles.               |
+| Security       | Active             | When selected, the user can sign in.                                                    |
+| Security       | Expiration date    | After this date and time the user cannot sign in.                                       |
 
 ## Invite a user into the organization
 
@@ -84,8 +83,8 @@ Click **Invite user**.
 </div>
 
 <div>
-In **Invite user to this organization**, select the **User** and the
-**Organization roles**.
+  In **Invite user to this organization**, select the **User** and the
+  **Organization roles**.
 </div>
 
 <div>
@@ -116,18 +115,20 @@ authorized assets, authorization rules, login rules, sessions, and activity.
 - **Reset MFA**: the user must bind MFA again at the next sign-in.
 - **Unlock user**: unlock an account locked after repeated failed sign-ins.
 
+**Reset SSH key** clears the user's current public key and disables all existing SSH keys for that user. The emailed link lets the user set a new key; keys belonging to other users are not changed.
+
 ### User login rules
 
 The **User login rules** tab restricts where and when this user can sign in.
 
-| Field | Description |
-| --- | --- |
-| Name | Rule name. |
-| Priority | Lower numbers are evaluated first. |
-| IP group | Comma-separated source addresses. `*` matches all; single IPs, CIDR ranges, address ranges, and IPv6 are supported. |
-| Time period | The time window in which sign-in is allowed or restricted. |
-| Action | **Reject**, **Allow**, or **Login review** (sign-in succeeds after approval). |
-| Active | Whether the rule applies. |
+| Field       | Description                                                                                                         |
+| ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| Name        | Rule name.                                                                                                          |
+| Priority    | Lower numbers are evaluated first.                                                                                  |
+| IP group    | Comma-separated source addresses. `*` matches all; single IPs, CIDR ranges, address ranges, and IPv6 are supported. |
+| Time period | The time window in which sign-in is allowed or restricted.                                                          |
+| Action      | **Reject**, **Allow**, or **Login review** (sign-in succeeds after approval).                                       |
+| Active      | Whether the rule applies.                                                                                           |
 
 ## Row actions and bulk actions
 
@@ -139,8 +140,8 @@ Select the checkboxes in front of one or more users and click **More actions** t
 remove, disable, enable, edit, or delete the selected users.
 
 <Alert type="warning">
-**Delete** permanently removes user data and cannot be undone. To take a user out
-of the current organization only, use **Remove**.
+  **Delete** permanently removes user data and cannot be undone. To take a user
+  out of the current organization only, use **Remove**.
 </Alert>
 
 ## Related topics
