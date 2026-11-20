@@ -1,6 +1,6 @@
 ---
 title: "Settings"
-description: "Configure JumpServer Client language, character set, terminal, display, appearance, local application paths, and login and screen lock settings."
+description: "Configure JumpServer Client language, character set, terminal, RDP display and redirection, appearance, local application paths, and login and screen lock settings."
 ---
 
 # Settings
@@ -53,11 +53,43 @@ The **General** page controls:
 - Character set
 - Character terminal behavior
 - Session resolution
+- Remote desktop display and redirection options
 
 These defaults apply to new sessions opened from the client. A session can still
 have its own protocol-specific options.
 
 ![Figure 1: Client general settings](/images/v5/jumpserver/client_setting_02.png)
+
+### Remote desktop
+
+<VersionBadge version="5.2.0" kind="changed" />
+
+The **Remote desktop** group applies to new local RDP desktop connections. It
+does not change web sessions or RemoteApp.
+
+| Setting                        | Description                                                                                                                                                                                        |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Apply Windows key combinations | Choose **On the local computer**, **On the remote computer**, or **Only when using full screen**. The setting applies to new local RDP desktop connections, not web sessions or RemoteApp.         |
+| Printer redirection            | Redirects local printers into RDP sessions. When disabled, printers are not redirected. For web sessions, printed documents are downloaded as PDFs instead.                                        |
+| Resolution and display quality | The same group also sets the default resolution, color quality, and smart sizing. A selection in an individual connection applies only to that connection and does not change the general setting. |
+
+## RDP connection security
+
+<VersionBadge version="5.2.0" kind="changed" />
+
+For an RDP connection opened with the built-in RDP connector, open **Advanced**
+in the connection dialog and choose a **Security layer**:
+
+| Option                | Description                                                                                   |
+| --------------------- | --------------------------------------------------------------------------------------------- |
+| Platform default      | Uses the security layer configured on the asset platform; the option shows the current value. |
+| Automatic negotiation | Lets the client negotiate the security layer with the server.                                 |
+| RDP                   | Uses the RDP security layer.                                                                  |
+| TLS                   | Uses TLS for the connection.                                                                  |
+| NLA                   | Uses Network Level Authentication.                                                            |
+
+The security layer applies to the current connection only. It does not change the
+default settings on the **General** page.
 
 ## Appearance
 
@@ -97,7 +129,8 @@ return and set the path.
 
 ## Version history
 
-| Version | Change                                                                                         |
-| ------- | ---------------------------------------------------------------------------------------------- |
-| v5.2.0  | Added security status, login information, and Login and screen lock settings to the User page. |
-| v5.1.0  | DBX replaces DBeaver as the default remote database application.                               |
+| Version | Change                                                                                                                                   |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added security status, login information, and Login and screen lock settings to the User page.                                           |
+| v5.2.0  | Added printer redirection and Windows key combination settings for local RDP connections and a per-connection RDP security layer option. |
+| v5.1.0  | DBX replaces DBeaver as the default remote database application.                                                                         |
