@@ -51,22 +51,23 @@ JumpServer Client uses the same connection methods as the Web terminal, but runs
 them from the desktop. A connection still requires an authorization and an
 available account; the client does not bypass JumpServer access control.
 
-## Codex assistant and session security
+## Local AI and session security
 
 <VersionBadge version="5.2.0" />
 
-V5.2.0 adds a local **Codex** assistant to JumpServer Client and strengthens
-session handling on the desktop:
+V5.2.0 adds a **Local AI** assistant to JumpServer Client and strengthens session
+handling on the desktop:
 
-- **Codex assistant** works from the client window and is separate from the
+- **Local AI (Codex)** works from the client window and is separate from the
   server-side AI Assistant; use it for local assistance while you work in the
   client.
-- **Maximum login lifetime** limits how long a client session can stay signed in.
-  The limit is not extended by user activity.
-- **Reauthentication** is required when the login lifetime expires, and can also
-  be required after you fully exit and reopen the client.
-- **Idle lock** locks the client after a period of inactivity and unlocks it with
-  your password.
+- **Login and screen lock** settings are on **Connection Settings > User**. They
+  include the sign-in-again-after-exit option, maximum client login lifetime, and
+  idle screen lock. The login lifetime is not extended by user activity, and idle
+  lock unlocks with the lock password.
+
+See [Connection Settings](/features/client/connection-settings#user) for the
+fields.
 
 ## In this section
 
@@ -95,5 +96,5 @@ session handling on the desktop:
 
 | Version | Change                                                                                                                                        |
 | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| v5.2.0  | Added a local Codex assistant, maximum login lifetime, reauthentication on expiry, and idle lock with password unlock.                        |
+| v5.2.0  | Added the Local AI (Codex) assistant and login and screen lock settings on the User page.                                                     |
 | v5.0.0  | Introduced the refreshed client workspace with unified connections, split views, file workspace, script library, and SFTP Server connections. |

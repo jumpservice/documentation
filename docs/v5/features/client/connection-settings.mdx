@@ -1,6 +1,6 @@
 ---
 title: "Connection Settings"
-description: "Configure JumpServer Client language, character set, terminal, display, appearance, and local application paths."
+description: "Configure JumpServer Client language, character set, terminal, display, appearance, local application paths, and login and screen lock settings."
 ---
 
 # Connection Settings
@@ -8,12 +8,41 @@ description: "Configure JumpServer Client language, character set, terminal, dis
 Client settings are local to the desktop application. Open the file menu at the
 top-left and select **Connection Settings**.
 
-## User information
+## User
 
-The user information page shows the account currently signed in to the client and
-the associated account details.
+Open **Connection Settings**, then select **User** in the left navigation. The
+page shows the security state of the signed-in account and controls how the
+client login and screen lock behave.
 
-![Figure 1: Client user information](/images/v5/jumpserver/client_setting_01.png)
+### Security status
+
+| Field                       | Description                                                                                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Account status              | Whether the signed-in account is valid. When the account is not valid, sign in again or ask an administrator to check the account. |
+| Multi-factor authentication | Whether MFA is enabled for the signed-in account. The client does not change the server-side MFA policy.                           |
+
+### Login information
+
+| Field           | Description                                                                |
+| --------------- | -------------------------------------------------------------------------- |
+| Login time      | When the current client session signed in to the current site.             |
+| Expiration time | When the current client login expires. `Unlimited` means no expiry is set. |
+
+### Login and screen lock
+
+<VersionBadge version="5.2.0" />
+
+| Setting                                | Description                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sign in again after exiting the client | Requires a new login after you exit and restart the client. Minimizing or hiding the client does not count as exiting.                                                                                                                                                                                                                                                                             |
+| Maximum client login lifetime (min)    | Counted from login. The client asks you to sign in again when the lifetime expires; activity does not extend it. `0` means unlimited. Clear the field to restore the default.                                                                                                                                                                                                                      |
+| Idle screen lock (min)                 | Locks the client after the configured idle period. All accounts share the last activity time but lock after their own idle timeout; when the current account locks, all other accounts also lock, and each account must be unlocked separately. External application windows are not protected. The value cannot exceed the limit set by the administrator; leave it empty to restore the default. |
+| Manage lock password                   | Opens the dialog for setting or changing the password used to unlock the client.                                                                                                                                                                                                                                                                                                                   |
+| Reset to default                       | Restores the login and screen lock settings to their defaults.                                                                                                                                                                                                                                                                                                                                     |
+
+The settings apply to the current site and account on this client. They do not
+change the server-side security policy; see [Security](/features/system-settings/security/security#web-session-security)
+for the administrator-controlled web session policy.
 
 ## General
 
@@ -27,7 +56,7 @@ The **General** page controls:
 These defaults apply to new sessions opened from the client. A session can still
 have its own protocol-specific options.
 
-![Figure 2: Client general settings](/images/v5/jumpserver/client_setting_02.png)
+![Figure 1: Client general settings](/images/v5/jumpserver/client_setting_02.png)
 
 ## Appearance
 
@@ -37,9 +66,9 @@ The **Appearance** page controls the client's visual theme:
 - Primary color
 - Font
 
-![Figure 3: Client appearance settings](/images/v5/jumpserver/client_setting_03.png)
+![Figure 2: Client appearance settings](/images/v5/jumpserver/client_setting_03.png)
 
-## Application configuration
+## Application settings
 
 <VersionBadge version="5.1.0" kind="changed" />
 
@@ -48,7 +77,7 @@ the executable path for each application you use. DBX
 replaces DBeaver as the default remote database application, so database sessions
 open in DBX unless another application is configured for that database type.
 
-1. Open **Application Configuration**.
+1. Open **Application Settings**.
 2. Select the application or database type.
 3. Download and install the application if needed.
 4. Select **Select Path** and choose the installed executable.
@@ -56,24 +85,7 @@ open in DBX unless another application is configured for that database type.
 If an application is not installed, use the download link shown in the client, then
 return and set the path.
 
-![Figure 4: Client application configuration](/images/v5/jumpserver/client_setting_04.png)
-
-## Session security
-
-<VersionBadge version="5.2.0" />
-
-The client manages the lifetime and lock behavior of signed-in sessions:
-
-- **Maximum login lifetime** sets the longest time a session stays signed in.
-  Activity does not extend it.
-- **Reauthentication** is required after the lifetime expires, and optionally
-  after you fully exit and reopen the client. Reauthenticate with your JumpServer
-  account.
-- **Idle lock** locks the client after the configured inactivity period. Enter
-  your password to unlock it and continue the current work.
-
-Site security settings are described in
-[Asset connection](/features/client/asset-connection#site-security).
+![Figure 3: Client application configuration](/images/v5/jumpserver/client_setting_04.png)
 
 ## Notes
 
@@ -84,7 +96,7 @@ Site security settings are described in
 
 ## Version history
 
-| Version | Change                                                                            |
-| ------- | --------------------------------------------------------------------------------- |
-| v5.2.0  | Added maximum login lifetime, reauthentication on expiry, and idle lock settings. |
-| v5.1.0  | DBX replaces DBeaver as the default remote database application.                  |
+| Version | Change                                                                                         |
+| ------- | ---------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added security status, login information, and Login and screen lock settings to the User page. |
+| v5.1.0  | DBX replaces DBeaver as the default remote database application.                               |
