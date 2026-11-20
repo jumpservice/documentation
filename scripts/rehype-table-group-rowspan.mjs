@@ -15,7 +15,7 @@ const textOf = (node) => {
 const isElement = (node, tagName) =>
   node?.type === "element" && node.tagName === tagName;
 
-const GROUP_HEADERS = ["group", "分组", "protocol", "source type"];
+const GROUP_HEADERS = ["group", "分组", "protocol", "source type", "stage"];
 
 const isGroupTable = (table) => {
   const head = table.children?.find((child) => isElement(child, "thead"));

@@ -68,16 +68,16 @@ The **Allow** action can apply one or more connection controls. Select the contr
 in the create or edit drawer; they are cumulative for the request and cover the
 period before, during, and after the connection.
 
-| Control           | Stage          | What it does                                                                                                                                                |
-| ----------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connection reason | Before connect | Requires the user to enter a reason (request justification) before the connection starts. The reason is kept with the request and approval.                 |
-| MFA verification  | Before connect | Requires an enrolled code-based MFA method. The connection is blocked when no code-based MFA method is enrolled.                                            |
-| Face verification | Before connect | Verifies the user's face before connecting. Requires system face recognition and an enrolled face.                                                          |
-| Require approval  | Before connect | Requires approval through the selected workflow or reviewers. The approval exemption period can skip repeat approval for the same user, asset, and account. |
-| Push account      | Before connect | Provisions a same-name account before its first connection. Requires account provisioning support on the asset platform.                                    |
-| Send notification | Before connect | Notifies the selected recipients when the user requests a connection. A notification does not approve or block the request.                                 |
-| Face online       | During connect | Web Terminal only. Verifies the face before connecting and monitors the session. Requires system face recognition and an enrolled face.                     |
-| Rotate password   | After connect  | Rotates the connected account's secret after the session ends. Requires automatic rotation after session end and an active account.                         |
+| Stage          | Control           | What it does                                                                                                                                                |
+| -------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Before connect | Connection reason | Requires the user to enter a reason (request justification) before the connection starts. The reason is kept with the request and approval.                 |
+| Before connect | MFA verification  | Requires an enrolled code-based MFA method. The connection is blocked when no code-based MFA method is enrolled.                                            |
+| Before connect | Face verification | Verifies the user's face before connecting. Requires system face recognition and an enrolled face.                                                          |
+| Before connect | Require approval  | Requires approval through the selected workflow or reviewers. The approval exemption period can skip repeat approval for the same user, asset, and account. |
+| Before connect | Push account      | Provisions a same-name account before its first connection. Requires account provisioning support on the asset platform.                                    |
+| Before connect | Send notification | Notifies the selected recipients when the user requests a connection. A notification does not approve or block the request.                                 |
+| During connect | Face online       | Web Terminal only. Verifies the face before connecting and monitors the session. Requires system face recognition and an enrolled face.                     |
+| After connect  | Rotate password   | Rotates the connected account's secret after the session ends. Requires automatic rotation after session end and an active account.                         |
 
 Controls can be combined, for example connection reason + MFA + approval + rotate
 password. Requirements can apply before, during, or after the connection; failing
