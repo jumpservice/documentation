@@ -6,9 +6,11 @@ description: "Choose an asset type, protocol, and connection method in the Web T
 # Connect Assets
 
 <Alert type="xpack">
-  **Desktop database, RDP, VNC, RemoteApp, and VirtualApp connection methods**
-  require JumpServer Enterprise Edition. Web-based built-in terminal, Remote
-  Desktop, and database access are included in Community Edition.
+  **Oracle, SQL Server, ClickHouse, Dameng, and OceanBase database assets**
+  require JumpServer Enterprise Edition. **Desktop database, RDP, VNC,
+  RemoteApp, and VirtualApp connection methods** also require Enterprise
+  Edition. Web-based built-in terminal, Remote Desktop, and Community-supported
+  database access are included in Community Edition.
 </Alert>
 
 The Web Terminal connects to assets authorized for your account. A connection is
@@ -68,10 +70,6 @@ the browser; the next section covers methods that use a local application.
 | Remote Desktop     | RDP, VNC                                                                                               | Graphical remote desktop                                                                                    | -                                                                                                                                                                                                       |
 | Kubernetes         | k8s, kubernetes                                                                                        | Kubernetes resource browser and terminal                                                                    | -                                                                                                                                                                                                       |
 | Built-in Browser   | HTTP, HTTPS                                                                                            | Web application through the KoKo web proxy on `5001/tcp`; the Web Terminal uses WebLite for a Website asset | Web Terminal uses the published WebLite application for Website assets.                                                                                                                                 |
-
-<Alert type="xpack">
-  **OceanBase database assets** require JumpServer Enterprise Edition.
-</Alert>
 
 Windows assets with WinRM open a PowerShell session in the built-in terminal.
 WinRM sessions use the same command auditing, access control, and recording
