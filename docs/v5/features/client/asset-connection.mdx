@@ -31,15 +31,15 @@ application with the **Client** option.
 The asset platform determines which protocols and methods are available. The
 client uses the same asset catalog as the Web Terminal.
 
-| Asset type        | Common protocols                                                                                   | What the client can open                                                   |
-| ----------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Linux and Unix    | SSH, SFTP, VNC                                                                                     | Built-in terminal, file manager, local SSH/SFTP/VNC applications           |
-| Windows           | RDP, VNC, SSH, SFTP, WinRM                                                                         | Remote Desktop, built-in terminal, local RDP/VNC clients                   |
-| Kubernetes        | k8s                                                                                                | Kubernetes resource browser and terminal                                   |
-| Database          | MySQL, MariaDB, PostgreSQL, Oracle, SQL Server, DB2, Dameng, OceanBase, ClickHouse, MongoDB, Redis | Database Workbench, local database client, published database applications |
-| Web               | HTTP, HTTPS                                                                                        | Built-in browser in the client                                             |
-| Directory service | SSH, RDP, VNC, WinRM                                                                               | Built-in terminal, Remote Desktop                                          |
-| Published apps    | RemoteApp and VirtualApp application protocols                                                     | Published RemoteApp or VirtualApp application in the client window         |
+| Asset type        | Common protocols                                                                                   | What the client can open                                                                 |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Linux and Unix    | SSH, SFTP, VNC                                                                                     | Built-in terminal, file manager, local SSH/SFTP/VNC applications                         |
+| Windows           | RDP, VNC, SSH, SFTP, WinRM                                                                         | Remote Desktop, built-in terminal including PowerShell over WinRM, local RDP/VNC clients |
+| Kubernetes        | k8s                                                                                                | Kubernetes resource browser and terminal                                                 |
+| Database          | MySQL, MariaDB, PostgreSQL, Oracle, SQL Server, DB2, Dameng, OceanBase, ClickHouse, MongoDB, Redis | Database Workbench, local database client, published database applications               |
+| Web               | HTTP, HTTPS                                                                                        | Built-in browser in the client                                                           |
+| Directory service | SSH, RDP, VNC, WinRM                                                                               | Built-in terminal, Remote Desktop                                                        |
+| Published apps    | RemoteApp and VirtualApp application protocols                                                     | Published RemoteApp or VirtualApp application in the client window                       |
 
 The same platform rules as the Web Terminal apply: a protocol must be enabled on
 the platform, and the component, license, and authorization must allow it. See
@@ -133,6 +133,12 @@ Database assets can open in Database Workbench or in a configured local database
 client. To use a local client, configure its executable path in
 [Settings > Application Settings](/features/client/connection-settings#application-settings)
 first, then choose the Application method for that database asset.
+
+The database platforms support the same options as in the Web Terminal: DB2 and
+ClickHouse open in Database Workbench, ClickHouse can enable both HTTP and Native,
+Redis Cluster connects through a single endpoint, OceanBase provides
+MySQL-compatible and Oracle-compatible tenant platforms, and SQL Server domain
+accounts authenticate with NTLMv2 or Kerberos.
 
 ![Figure 4: Database connection dialog for a PostgreSQL asset.](/images/v5/jumpserver/v5_client_database_connection_01.png)
 

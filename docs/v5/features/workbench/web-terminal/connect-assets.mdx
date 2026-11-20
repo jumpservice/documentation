@@ -59,15 +59,26 @@ same type can therefore show different choices.
 The built-in method is selected from the protocol. This table shows what opens in
 the browser; the next section covers methods that use a local application.
 
-| Built-in workspace | Protocols                                                                                              | What opens                                                                                                  |
-| ------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| Built-in terminal  | SSH, Telnet, WinRM, ClickHouse, Dameng, MariaDB, MongoDB, MySQL, Oracle, PostgreSQL, Redis, SQL Server | Character terminal; database commands are sent through the terminal                                         |
-| Database Workbench | ClickHouse, Dameng, DB2, MariaDB, MongoDB, MySQL, OceanBase, Oracle, PostgreSQL, Redis, SQL Server     | Database resource tree, SQL editor, and result views                                                        |
-| File Manager       | SFTP                                                                                                   | SFTP file browser and transfer center                                                                       |
-| File Editor        | SFTP                                                                                                   | In-browser text editor over SFTP                                                                            |
-| Remote Desktop     | RDP, VNC                                                                                               | Graphical remote desktop                                                                                    |
-| Kubernetes         | k8s, kubernetes                                                                                        | Kubernetes resource browser and terminal                                                                    |
-| Built-in Browser   | HTTP, HTTPS                                                                                            | Web application through the KoKo web proxy on `5001/tcp`; the Web Terminal uses WebLite for a Website asset |
+| Built-in workspace | Protocols                                                                                              | What opens                                                                                                  | Notes                                                                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Built-in terminal  | SSH, Telnet, WinRM, ClickHouse, Dameng, MariaDB, MongoDB, MySQL, Oracle, PostgreSQL, Redis, SQL Server | Character terminal; database commands are sent through the terminal                                         | WinRM opens PowerShell; Dameng assets can also use Web CLI.                                                                                                                                             |
+| Database Workbench | ClickHouse, Dameng, DB2, MariaDB, MongoDB, MySQL, OceanBase, Oracle, PostgreSQL, Redis, SQL Server     | Database resource tree, SQL editor, and result views                                                        | DB2 and ClickHouse open here; ClickHouse supports HTTP and Native; Redis Cluster uses one endpoint; OceanBase has MySQL and Oracle tenant platforms; SQL Server domain accounts use NTLMv2 or Kerberos. |
+| File Manager       | SFTP                                                                                                   | SFTP file browser and transfer center                                                                       | -                                                                                                                                                                                                       |
+| File Editor        | SFTP                                                                                                   | In-browser text editor over SFTP                                                                            | -                                                                                                                                                                                                       |
+| Remote Desktop     | RDP, VNC                                                                                               | Graphical remote desktop                                                                                    | -                                                                                                                                                                                                       |
+| Kubernetes         | k8s, kubernetes                                                                                        | Kubernetes resource browser and terminal                                                                    | -                                                                                                                                                                                                       |
+| Built-in Browser   | HTTP, HTTPS                                                                                            | Web application through the KoKo web proxy on `5001/tcp`; the Web Terminal uses WebLite for a Website asset | Web Terminal uses the published WebLite application for Website assets.                                                                                                                                 |
+
+<Alert type="xpack">
+  **OceanBase database assets** require JumpServer Enterprise Edition.
+</Alert>
+
+Windows assets with WinRM open a PowerShell session in the built-in terminal.
+WinRM sessions use the same command auditing, access control, and recording
+pipeline as other terminal sessions. For a Dameng asset, choose **Web CLI** as the
+connection method to open the browser-based command line.
+
+![Figure 2: Windows PowerShell over WinRM in the built-in terminal.](/images/v5/jumpserver/v5_user_wb_winrm_session_01.png)
 
 ## Connection methods
 
@@ -81,7 +92,7 @@ the methods assigned to your account.
 | **Remote Application**  | In a published application, in the browser or in JumpServer Client when the **Client** option is chosen       | DBX, Navicat, WebLite, and other published applications                                                | The application is published on a RemoteApp machine; the account is authorized                        |
 | **Virtual Application** | In a published Linux application, in the browser or in JumpServer Client when the **Client** option is chosen | VirtualApp images published by the Panda application provider                                          | VirtualApp is enabled, a provider is registered, and the application is published                     |
 
-![Figure 2: Connection method categories](/images/v5/jumpserver/v5_user_wb_luna_15.png)
+![Figure 3: Connection method categories](/images/v5/jumpserver/v5_user_wb_luna_15.png)
 
 ### Built-in
 
@@ -149,50 +160,6 @@ A **Website** asset in the browser Web Terminal opens through a published
 separate client-only path: it needs no RemoteApp publisher, Windows Server, or RDS
 license, and it is included in Community Edition. See
 [Web assets](/features/console/assets/web-assets) for both paths.
-
-## Database options
-
-<VersionBadge version="5.2.0" />
-
-The database asset types add these protocol-specific options:
-
-- **DB2** uses the `db2` protocol and opens in Database Workbench or through the
-  native database client proxy.
-- **ClickHouse** can enable both HTTP and Native. Both protocols appear as
-  separate choices in the connection dialog, so one asset can serve either
-  client.
-- **Redis Cluster** uses the Redis protocol with the cluster option enabled.
-  JumpServer exposes a single endpoint and routes commands to the right node.
-- **OceanBase** assets are created from **OceanBase-MySQL** or
-  **OceanBase-Oracle**; the tenant mode is part of the platform protocol settings.
-- **SQL Server domain accounts** authenticate with NTLMv2 or Kerberos. Bind the
-  managed domain account to the asset and select it in the connection dialog.
-
-<Alert type="xpack">
-  **OceanBase database assets** require JumpServer Enterprise Edition.
-</Alert>
-
-## Protocol-specific notes
-
-### Windows PowerShell over WinRM
-
-<VersionBadge version="5.1.0" />
-
-When a Windows asset platform enables the WinRM protocol, the asset can open a
-PowerShell session in the built-in terminal. WinRM sessions use the same command
-auditing, access control, and recording pipeline as other built-in terminal
-sessions, and the AI Assistant can work beside the session.
-
-![Figure 3: Windows PowerShell session over WinRM in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_winrm_session_01.png)
-
-### Dameng Database Web CLI
-
-<VersionBadge version="5.1.0" />
-
-A Dameng database asset can open a browser-based command-line session. Select the
-Dameng asset, choose **Web CLI** as the connection method, select the authorized
-account, and connect. The session opens in the session area like other terminal
-sessions.
 
 ## Session management
 
