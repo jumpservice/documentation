@@ -11,12 +11,14 @@ apply while a user is connected to an asset.
 
 ## Overview
 
-| Tab               | Controls                                                                                     |
-| ----------------- | -------------------------------------------------------------------------------------------- |
-| Auth security     | Login verification, inactive-user handling, and MFA behavior.                                |
-| Login restriction | Lockout policy for users and IP addresses, allow and deny lists, and concurrent-login rules. |
-| User password     | Password lifetime, history, and complexity rules.                                            |
-| Asset session     | Session sharing, idle and maximum duration limits, and watermarking.                         |
+| Tab               | Controls                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| Auth security     | Login verification, inactive-user handling, and MFA behavior.                                  |
+| Login restriction | Lockout policy for users and IP addresses, allow and deny lists, and concurrent-login rules.   |
+| User password     | Password lifetime, history, and complexity rules.                                              |
+| Asset session     | Session sharing, idle and maximum duration limits, and watermarking.                           |
+| Web               | Browser session lifetime, renewal on request, browser-close behavior, and idle screen lock.    |
+| Client            | Client login lifetime, sign-in-after-exit behavior, and idle screen lock; defaults and limits. |
 
 ## Auth security
 
@@ -71,31 +73,45 @@ also used during account risk detection.
 | Field                                         | Description                                                                                                                                                                                                  |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Session share                                 | Lets users share an active session link with other users for collaborative troubleshooting.                                                                                                                  |
-| Session expire at browser close               | Terminates the session when the browser is fully closed.                                                                                                                                                     |
 | Allow users to view asset session information | Shows the number of active sessions on the asset selection dialog for RDP assets.                                                                                                                            |
 | Max idle time (minute)                        | Disconnects a session that has been idle for longer than this value.                                                                                                                                         |
 | Max online time (hour)                        | Disconnects a session after it has been open for this long.                                                                                                                                                  |
 | Watermark                                     | Overlays the signed-in user's details on the console, sessions, and recordings. Content, color, size, and rotation are configurable with an Enterprise license; RDP client sessions do not show a watermark. |
 
-### Web session lifetime and idle lock
+## Web
 
 <VersionBadge version="5.2.0" />
 
-The **Asset session** tab also controls how long a signed-in web session stays
-valid and when it locks:
+The **Web** tab controls browser session lifetime and locking for the Web UI.
 
-- **Login lifetime** limits how long a web session can stay signed in. Requests
-  made while the user works renew the session automatically, so an active session
-  is not ended by the idle limit.
-- **Sign-out after the last page closes** ends the web session when the user closes
-  every JumpServer page instead of leaving it valid in the background.
-- **Idle lock** locks the web session after the configured idle period. The user
-  unlocks it with their password; unlocking does not bypass authorization or
-  access control.
+| Field                                | Description                                                                                      |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| Log in again when the browser closes | Ends the web session when the browser is fully closed.                                           |
+| Web session lifetime (second)        | Maximum lifetime of a web session. The default is 86400 seconds (24 hours).                      |
+| Renew session on request             | When enabled, requests made while the user works renew the session instead of letting it expire. |
+| Web idle screen lock (min)           | Locks the web session after the configured idle period. The user unlocks it with their password. |
 
-Client sessions have separate lifetime and idle-lock settings on the
+![Figure 3: Web session settings](/images/v5/jumpserver/v5_settings_security_web_01.png)
+
+## Client
+
+<VersionBadge version="5.2.0" />
+
+The **Client** tab sets the administrator defaults and limits for JumpServer
+Client sessions. Users may choose stricter settings; otherwise they follow the
+administrator values.
+
+| Field                                  | Description                                                                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Sign in again after exiting the client | Requires a new login after exiting and restarting the client. Minimizing or hiding the client does not count as exiting.        |
+| Maximum client login lifetime (min)    | Maximum client login lifetime counted from login. Activity does not extend it; `0` means unlimited.                             |
+| Client idle screen lock (min)          | Locks the client after the configured idle period. Users can choose a stricter value but cannot exceed the administrator limit. |
+
+User-level lifetime, reauthentication, and lock settings are on the
 **Settings > User** page of JumpServer Client. See
 [Settings](/features/client/connection-settings#user).
+
+![Figure 4: Client session settings](/images/v5/jumpserver/v5_settings_security_client_01.png)
 
 <Alert type="note">
   Global MFA and password policy apply to every organization. If MFA is enforced
@@ -107,6 +123,7 @@ Client sessions have separate lifetime and idle-lock settings on the
 
 ## Version history
 
-| Version | Change                                                                                                                                   |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| v5.2.0  | Added configurable web login lifetime with renewal on requests, sign-out after the last page closes, and idle lock with password unlock. |
+| Version | Change                                                                                                             |
+| ------- | ------------------------------------------------------------------------------------------------------------------ |
+| v5.2.0  | Added the Web tab with browser session lifetime, renewal on request, browser-close behavior, and idle screen lock. |
+| v5.2.0  | Added the Client tab with client login lifetime, sign-in-after-exit behavior, and idle screen lock defaults.       |
