@@ -227,29 +227,6 @@ Start the services.
 
 These notes describe the behavior changes and fixes in each target version. They do not change the upgrade commands in the preceding sections.
 
-### JumpServer v5.1.0
-
-<VersionBadge version="5.1.0" kind="changed" />
-
-| Change                                                                                                 | What to check after the upgrade                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| OpenBao enables HTTPS by default                                                                       | Verify the OpenBao certificate and CA configuration, and update clients that connect to OpenBao directly. See [Security hardening](/operations/security-hardening). |
-| DBX replaces DBeaver as the default remote database application                                        | Confirm that database sessions in Luna Workspace open with DBX. See [Settings](/features/client/connection-settings).                                               |
-| Tinker provides standalone RDP desktops through the Windows authentication plugin instead of RemoteApp | Review published Windows applications and the Tinker hosts that serve them. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                   |
-| MFA user settings follow the system configuration by default                                           | Confirm the system-level MFA policy before users sign in. See [Authentication](/features/system-settings/security/authentication).                                  |
-| KoKo TUI restores the plain-text connection mode                                                       | Review terminal access for direct SSH connections. See [SSH Terminal](/features/workbench/ssh-terminal).                                                            |
-
-### JumpServer v5.1.1
-
-<VersionBadge version="5.1.1" kind="changed" />
-
-| Change                                                                                                                                               | What to check after the upgrade                                                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| High availability deployments apply stronger persistent write protection to databases and Redis                                                      | Confirm that databases and Redis keep working after container restarts, re-creation, and failure recovery. See [Deployment topologies](/operations/deployment-topologies). |
-| Redeployment and switchover checks tolerate normal replication lag                                                                                   | Confirm that redeployment and switchover finish without false failure reports. See [Deployment topologies](/operations/deployment-topologies).                             |
-| Access Token format validation preserves fallback compatibility with other Bearer Token authentication methods                                       | Verify API clients that authenticate with Bearer tokens. See [Access keys](/features/general/account/access-keys).                                                         |
-| Tinker applet host deployment checks Group Policy, disables listener NLA before installation, and stops with guidance when Group Policy requires NLA | Review the deployment result for Tinker hosts. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                                                       |
-
 ### JumpServer v5.2.0
 
 <VersionBadge version="5.2.0" kind="changed" />
@@ -263,6 +240,29 @@ These notes describe the behavior changes and fixes in each target version. They
 | High availability upgrades coordinate PostgreSQL and Redis migrations on both nodes through JDMC, and both JDMC instances must support the process | In an Enterprise HA deployment, verify JDMC connectivity and that both nodes are on a JDMC version that supports the migration before you start.                           |
 | JDMC uses a new socket discovery mechanism and environments using the PROXY protocol must configure trusted proxy networks                         | Confirm that JDMC, Core, and Xpack versions match, and update the trusted proxy configuration when the deployment uses the PROXY protocol.                                 |
 | Legacy tickets and workflows are migrated automatically; complex approver rules may be disabled pending review                                     | Review [Ticket flow](/features/workbench/tickets/ticket-flow) and re-enable or rebuild approval rules that the migration disabled.                                         |
+
+### JumpServer v5.1.1
+
+<VersionBadge version="5.1.1" kind="changed" />
+
+| Change                                                                                                                                               | What to check after the upgrade                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| High availability deployments apply stronger persistent write protection to databases and Redis                                                      | Confirm that databases and Redis keep working after container restarts, re-creation, and failure recovery. See [Deployment topologies](/operations/deployment-topologies). |
+| Redeployment and switchover checks tolerate normal replication lag                                                                                   | Confirm that redeployment and switchover finish without false failure reports. See [Deployment topologies](/operations/deployment-topologies).                             |
+| Access Token format validation preserves fallback compatibility with other Bearer Token authentication methods                                       | Verify API clients that authenticate with Bearer tokens. See [Access keys](/features/general/account/access-keys).                                                         |
+| Tinker applet host deployment checks Group Policy, disables listener NLA before installation, and stops with guidance when Group Policy requires NLA | Review the deployment result for Tinker hosts. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                                                       |
+
+### JumpServer v5.1.0
+
+<VersionBadge version="5.1.0" kind="changed" />
+
+| Change                                                                                                 | What to check after the upgrade                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OpenBao enables HTTPS by default                                                                       | Verify the OpenBao certificate and CA configuration, and update clients that connect to OpenBao directly. See [Security hardening](/operations/security-hardening). |
+| DBX replaces DBeaver as the default remote database application                                        | Confirm that database sessions in Luna Workspace open with DBX. See [Settings](/features/client/connection-settings).                                               |
+| Tinker provides standalone RDP desktops through the Windows authentication plugin instead of RemoteApp | Review published Windows applications and the Tinker hosts that serve them. See [RemoteApp](/features/system-settings/infrastructure/remote-app).                   |
+| MFA user settings follow the system configuration by default                                           | Confirm the system-level MFA policy before users sign in. See [Authentication](/features/system-settings/security/authentication).                                  |
+| KoKo TUI restores the plain-text connection mode                                                       | Review terminal access for direct SSH connections. See [SSH Terminal](/features/workbench/ssh-terminal).                                                            |
 
 ## Next steps
 
