@@ -64,21 +64,29 @@ have its own protocol-specific options.
 
 <VersionBadge version="5.2.0" kind="changed" />
 
-The **Remote desktop** group applies to new local RDP desktop connections. It
-does not change web sessions or RemoteApp.
+The **Remote Desktop** group applies to new local RDP desktop connections. It
+does not change web sessions or RemoteApp. The full screen, multiple screens, and
+drive redirection options require JumpServer Enterprise Edition.
 
-| Setting                        | Description                                                                                                                                                                                        |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Apply Windows key combinations | Choose **On the local computer**, **On the remote computer**, or **Only when using full screen**. The setting applies to new local RDP desktop connections, not web sessions or RemoteApp.         |
-| Printer redirection            | Redirects local printers into RDP sessions. When disabled, printers are not redirected. For web sessions, printed documents are downloaded as PDFs instead.                                        |
-| Resolution and display quality | The same group also sets the default resolution, color quality, and smart sizing. A selection in an individual connection applies only to that connection and does not change the general setting. |
+| Setting                        | Description                                                                                                                                                                                      |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Keyboard layout                | Keyboard layout used by local RDP sessions. The default is **US English (QWERTY)**; other layouts depend on the client.                                                                          |
+| Resolution                     | Default resolution for future Windows connections. **Auto** follows the client window; a selection in an individual connection applies only to that connection and does not change this setting. |
+| RDP color quality              | Color depth for the local RDP client: 8-bit, 16-bit, 24-bit, or True color (32-bit). Applies only to the local RDP client, not the web remote desktop.                                           |
+| RDP smart sizing               | Scales the remote desktop to fit the client window. Applies only to the local RDP client, not the web remote desktop.                                                                            |
+| Apply Windows key combinations | Choose **On the local computer**, **On the remote computer**, or **Only when using full screen**. Applies to new local RDP desktop connections, not web sessions or RemoteApp.                   |
+| Printer redirection            | Redirects local printers into RDP sessions. When disabled, printers are not redirected. For web sessions, printed documents are downloaded as PDFs instead.                                      |
+| Full screen                    | Opens local RDP sessions full screen. Applies only to the local RDP client and requires JumpServer Enterprise Edition.                                                                           |
+| Multiple screens               | Uses multiple local monitors for RDP sessions. Applies only to the local RDP client and requires JumpServer Enterprise Edition.                                                                  |
+| Redirect drives                | Makes local drives available inside RDP sessions. Applies only to the local RDP client and requires JumpServer Enterprise Edition.                                                               |
 
 ## RDP connection security
 
 <VersionBadge version="5.2.0" kind="changed" />
 
-For an RDP connection opened with the built-in RDP connector, open **Advanced**
-in the connection dialog and choose a **Security layer**:
+This setting is in the connection dialog, not in **Settings > General**. For an RDP
+connection opened with the built-in RDP connector, open **Advanced** and choose a
+**Security layer**:
 
 | Option                | Description                                                                                   |
 | --------------------- | --------------------------------------------------------------------------------------------- |
