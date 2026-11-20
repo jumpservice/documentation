@@ -91,12 +91,12 @@ and access control policies.
 Available methods depend on the asset protocol, enabled components, license, and
 the methods assigned to your account.
 
-| Method                  | Where the session runs                                                                                        | Common examples                                                                                        | Requirements                                                                                          |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| **Built-in**            | In the browser, rendered by JumpServer                                                                        | Terminal, Web CLI, Database Workbench, Remote Desktop, VNC, File Manager, Kubernetes, Built-in Browser | The component for the protocol is enabled; no local client is needed                                  |
-| **Application**         | In a local application launched by JumpServer Client                                                          | SSH Client, SFTP Client, DB Client, Remote Desktop, VNC Client, and Connection Wizard                  | JumpServer Client installed; the local application path configured in Settings > Application Settings |
-| **Remote Application**  | In a published application, in the browser or in JumpServer Client when the **Client** option is chosen       | DBX, Navicat, WebLite, and other published applications                                                | The application is published on a RemoteApp machine; the account is authorized                        |
-| **Virtual Application** | In a published Linux application, in the browser or in JumpServer Client when the **Client** option is chosen | VirtualApp images published by the Panda application provider                                          | VirtualApp is enabled, a provider is registered, and the application is published                     |
+| Method                  | Where the session runs                                                                                         | Common examples                                                                                        | Requirements                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| **Built-in**            | In the browser, rendered by JumpServer                                                                         | Terminal, Web CLI, Database Workbench, Remote Desktop, VNC, File Manager, Kubernetes, Built-in Browser | The component for the protocol is enabled; no local client is needed                            |
+| **Application**         | In a local application launched by JumpServer Client, or shown as connection details for **Connection Wizard** | SSH Client, SFTP Client, DB Client, Remote Desktop, VNC Client, and Connection Wizard                  | JumpServer Client and local application path for direct launch; Connection Wizard needs neither |
+| **Remote Application**  | In a published application, in the browser or in JumpServer Client when the **Client** option is chosen        | DBX, Navicat, WebLite, and other published applications                                                | The application is published on a RemoteApp machine; the account is authorized                  |
+| **Virtual Application** | In a published Linux application, in the browser or in JumpServer Client when the **Client** option is chosen  | VirtualApp images published by the Panda application provider                                          | VirtualApp is enabled, a provider is registered, and the application is published               |
 
 ![Figure 2: Connection method categories](/images/v5/jumpserver/v5_user_wb_luna_15.png)
 
@@ -104,8 +104,8 @@ the methods assigned to your account.
 
 JumpServer renders the session in the browser. Use a built-in method when you do
 not need a local tool, when the client is unavailable, or when an access control
-policy restricts client methods. See
-The protocol table above shows what each protocol opens in the browser.
+policy restricts client methods. See the protocol table above for what each
+protocol opens in the browser.
 
 ### Application
 
@@ -120,6 +120,27 @@ path for the protocol in
 [Settings > Application Settings](/features/client/connection-settings#application-settings).
 Desktop database, RDP, and VNC application methods require JumpServer Enterprise
 Edition.
+
+### Connection Wizard
+
+The **Connection Wizard** is an Application method that returns the connection
+details instead of launching a local program. After you select the asset, the
+account, and **Connection Wizard**, JumpServer displays:
+
+- the JumpServer proxy address and port to connect to;
+- a temporary username and password for this connection;
+- the ready-to-copy connection information for the selected protocol.
+
+Use these details in any compatible SSH, database, RDP, or VNC client on your
+computer. The client connects to the JumpServer proxy rather than directly to the
+asset, so authorization, access control, and auditing still apply. The temporary
+credentials and the proxy endpoint expire with the connection; do not save or
+share them.
+
+Use Connection Wizard when no local application is configured, when you prefer a
+different client, or when you need to pass the connection details to another tool.
+This method does not open JumpServer Client; use the returned details in the client
+of your choice.
 
 ### Remote Application and Virtual Application
 
@@ -142,13 +163,13 @@ required.
 
 The browser Web Terminal starts JumpServer Client in these cases:
 
-1. **Application method** — any native method, such as **SSH Client**,
-   **SFTP Client**, **DB Client**, **Remote Desktop**, or **VNC Client**. The
-   primary button reads **Open in client**, and the session runs in the local
-   application.
+1. **Application method** — a native method that launches a local application, such as **SSH Client**, **SFTP Client**, **DB Client**, **Remote Desktop**, or **VNC Client**. The primary button reads **Open in client**, and the session runs in the local application.
 2. **Remote Application or Virtual Application with the Client option** — open
    **Advanced options**, select **Client**, and connect. The published
    application opens in JumpServer Client instead of the browser.
+
+**Connection Wizard** is not one of these cases: it returns connection details and
+does not launch JumpServer Client.
 
 The client must be installed, running, and able to reach JumpServer. For
 Application methods, the matching local application must also be configured in
