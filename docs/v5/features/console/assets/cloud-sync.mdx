@@ -51,17 +51,44 @@ by the current deployment.
 
 ### Hosts
 
-| Source type   | Providers                                                                                                                                                                                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Public cloud  | Alibaba Cloud, Tencent Cloud, Tencent Cloud (Lighthouse), Huawei Cloud, Baidu Cloud, JD Cloud, Kingsoft Cloud, AWS (China), AWS (International), Azure (China), Azure (International), Google Cloud, UCloud UHost, Volcengine, SmartX CloudTower, State Cloud |
-| Private cloud | VMware, QingCloud private cloud, Huawei private cloud, State Cloud (Private), OpenStack, ZStack, Nutanix, FusionCompute, SANGFOR cloud platform, Alibaba private cloud, SmartX CloudTower, Proxmox                                                            |
-| LAN           | Scan a specified subnet and port range                                                                                                                                                                                                                        |
+| Source type   | Provider                               |
+| ------------- | -------------------------------------- |
+| Public cloud  | Alibaba Cloud                          |
+| Public cloud  | Tencent Cloud                          |
+| Public cloud  | Tencent Cloud (Lighthouse)             |
+| Public cloud  | Huawei Cloud                           |
+| Public cloud  | Baidu Cloud                            |
+| Public cloud  | JD Cloud                               |
+| Public cloud  | Kingsoft Cloud                         |
+| Public cloud  | AWS (China)                            |
+| Public cloud  | AWS (International)                    |
+| Public cloud  | Azure (China)                          |
+| Public cloud  | Azure (International)                  |
+| Public cloud  | Google Cloud                           |
+| Public cloud  | UCloud UHost                           |
+| Public cloud  | Volcengine                             |
+| Public cloud  | SmartX CloudTower                      |
+| Public cloud  | State Cloud                            |
+| Private cloud | VMware                                 |
+| Private cloud | QingCloud private cloud                |
+| Private cloud | Huawei private cloud                   |
+| Private cloud | State Cloud (Private)                  |
+| Private cloud | OpenStack                              |
+| Private cloud | ZStack                                 |
+| Private cloud | Nutanix                                |
+| Private cloud | FusionCompute                          |
+| Private cloud | SANGFOR cloud platform                 |
+| Private cloud | Alibaba private cloud                  |
+| Private cloud | SmartX CloudTower                      |
+| Private cloud | Proxmox                                |
+| LAN           | Scan a specified subnet and port range |
 
 ### Databases
 
-| Source type  | Providers                    |
-| ------------ | ---------------------------- |
-| Public cloud | Alibaba Cloud, Tencent Cloud |
+| Source type  | Provider      |
+| ------------ | ------------- |
+| Public cloud | Alibaba Cloud |
+| Public cloud | Tencent Cloud |
 
 <Alert type="note">
   Provider availability can vary by JumpServer version and license. The Cloud
@@ -141,16 +168,6 @@ Synced assets behave like manually created assets: they can be added to nodes,
 bound to accounts, and authorized. If an asset does not appear, check the policy
 rules first, then the account's connection state, and finally whether the
 instance already exists under a different address.
-
-## Database synchronization
-
-<VersionBadge version="5.2.0" />
-
-Tencent Cloud database synchronization imports MySQL, PostgreSQL, and SQL Server
-database instances. Create the cloud account from the **Database** category,
-select the Tencent Cloud provider, and choose the instances to import. Synced
-instances become database assets that can be authorized like manually created
-assets.
 
 ## Pending review
 
