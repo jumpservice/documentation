@@ -11,6 +11,11 @@
   },
   {
     "type": "file",
+    "name": "keyboard-shortcuts",
+    "label": "Keyboard Shortcuts"
+  },
+  {
+    "type": "file",
     "name": "asset-connection",
     "label": "Asset Connection"
   },

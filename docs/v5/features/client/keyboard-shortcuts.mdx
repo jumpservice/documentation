@@ -1,0 +1,54 @@
+---
+title: "Keyboard Shortcuts"
+description: "Reference the keyboard shortcuts for JumpServer Client, including Settings, clean and fullscreen mode, session switching, lock, and window actions."
+---
+
+# Keyboard Shortcuts
+
+JumpServer Client provides shortcuts for sessions, settings, and window actions.
+The menus and the empty workspace show the current binding next to the action, so
+you can confirm a shortcut without leaving the client.
+
+![Figure 1: Session shortcut hints in the client workspace and the profile menu with Settings, My tools, and Lock shortcuts.](/images/v5/jumpserver/v5_client_shortcuts_01.png)
+
+## Session shortcuts
+
+| Action             | Shortcut                    | Notes                                                                             |
+| ------------------ | --------------------------- | --------------------------------------------------------------------------------- |
+| Reset connection   | Right-click asset → Connect | Reopens the connection dialog to select the method again.                         |
+| Clean mode         | `Ctrl + Shift + P`          | Hides panels for a focused session view; also called focus mode in the View menu. |
+| Fullscreen mode    | `Ctrl + Shift + F`          | Toggles the focused session or window into fullscreen mode.                       |
+| Exit clean mode    | Hold `Esc`                  | Restores the normal workspace layout.                                             |
+| Switch session     | `Alt + Shift + ←` / `→`     | Moves to the previous or next session tab.                                        |
+| Send batch command | `Ctrl + Enter`              | Sends the command from the batch command bar to the selected sessions.            |
+
+## Client shortcuts
+
+| Action   | Shortcut           | Notes                                                 |
+| -------- | ------------------ | ----------------------------------------------------- |
+| Settings | `Ctrl + ,`         | Opens the client Settings window; `Cmd + ,` on macOS. |
+| My tools | `Ctrl + Shift + ,` | Opens the client tools from the profile menu.         |
+| Lock     | `Ctrl + L`         | Locks the client; unlock with the lock password.      |
+
+**Settings** can be opened with `Ctrl + ,` (`Cmd + ,` on macOS) from anywhere in
+the client. The profile menu shows the same shortcut next to the **Settings**
+entry.
+
+## Window shortcuts
+
+| Action              | Shortcut   | Notes                                   |
+| ------------------- | ---------- | --------------------------------------- |
+| New local shell     | `Ctrl + T` | Opens a local shell from the File menu. |
+| Close tab or window | `Ctrl + W` | Closes the current tab or window.       |
+| Minimize            | `Ctrl + M` | Minimizes the client window.            |
+| Quit                | `Ctrl + Q` | Quits JumpServer Client.                |
+
+On macOS, use `Cmd` instead of `Ctrl` for the menu shortcuts. The File, View, and
+profile menus also show the current shortcut next to each action.
+
+## Related topics
+
+- [Client Overview](/features/client/)
+- [Settings](/features/client/connection-settings)
+- [Workspace, Files, and Scripts](/features/client/workspace)
+- [Asset Connection](/features/client/asset-connection)
