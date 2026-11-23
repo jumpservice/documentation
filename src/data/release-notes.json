@@ -1,5 +1,24 @@
 [
   {
+    "version": "v5.2.1",
+    "date": "2026-11-20",
+    "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.2.1",
+    "summary": "Bug-fix release for LDAP matching, HTTPS reverse-proxy asset pagination, SFTP token exchange, Celery timezone alignment, Compose failure handling, and PostgreSQL upgrade recovery.",
+    "sections": [
+      {
+        "title": "Bug fixes",
+        "items": [
+          "Fixed LDAP and LDAP HA login failures caused by username case differences during existing-user checks, and aligned user matching and authentication source checks",
+          "Fixed asset tree pagination failures caused by inconsistent links behind HTTPS reverse proxies",
+          "Fixed connection token exchange errors that prevented SFTP file management from opening",
+          "Fixed inconsistent timezone settings between Celery and Core to prevent scheduled task timing discrepancies",
+          "Fixed operations continuing after Compose command generation failed, and improved error reporting and failure handling",
+          "Fixed Compose configuration path resolution failures and interrupted PostgreSQL upgrade recovery, ensuring the database and Redis are ready before restoring application services"
+        ]
+      }
+    ]
+  },
+  {
     "version": "v5.2.0",
     "date": "2026-11-19",
     "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.2.0",

@@ -27,6 +27,24 @@ example, <VersionBadge version="5.1.0" /> marks a section introduced in that
 release, and <VersionBadge version="5.1.0" kind="changed" /> marks a section
 whose behavior changed in that release.
 
+## v5.2.1
+
+Released November 20, 2026. This patch release fixes LDAP and LDAP HA username
+matching, asset tree pagination behind HTTPS reverse proxies, SFTP token
+exchange, Celery/Core timezone alignment, Compose failure handling, and
+PostgreSQL upgrade recovery.
+
+### Bug fixes
+
+| Fix                                                                | Where to check                                                        |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| LDAP and LDAP HA username case matching                            | [Authentication](/features/system-settings/security/authentication)   |
+| Asset tree pagination behind HTTPS reverse proxies                 | [Assets](/features/console/assets/)                                   |
+| SFTP file management token exchange                                | [File Transfer](/features/workbench/my-assets/file-transfer)          |
+| Celery and Core timezone alignment                                 | [System Tasks](/features/system-settings/infrastructure/system-tasks) |
+| Compose command failure handling and configuration path resolution | [Upgrade](/upgrade)                                                   |
+| PostgreSQL upgrade recovery and database/Redis readiness           | [Upgrade](/upgrade)                                                   |
+
 ## v5.2.0
 
 Released November 19, 2026. The release expands database connectivity and
