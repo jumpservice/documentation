@@ -35,22 +35,22 @@ workflows and report tooling.
 
 ### New capabilities
 
-| Capability                                                                                                                 | Where to read more                                                                                  |
-| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| DB2 database support in the Web Terminal and through the native client proxy                                               | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
-| ClickHouse assets with both HTTP and Native protocols                                                                      | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
-| Redis Cluster access through a single endpoint, with node routing and redirection                                          | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
-| SQL Server domain account authentication with NTLMv2 or Kerberos                                                           | [Accounts](/features/console/accounts/)                                                             |
-| Job execution for Oracle, Dameng, OceanBase, DB2, ClickHouse, and other databases                                          | [Ad hoc jobs](/features/workbench/job-center/adhoc)                                                 |
-| Account automation for Dameng, OceanBase MySQL tenants, and ClickHouse                                                     | [Automation](/features/pam/automation/)                                                             |
-| Local AI (Codex) assistant in JumpServer Client                                                                            | [Client](/features/client/)                                                                         |
-| Web session lifetime, automatic renewal, sign-out after the last page closes, and idle lock with password                  | [Security settings](/features/system-settings/security/security#web-session-lifetime-and-idle-lock) |
-| Client login and screen lock settings on the User page: sign-in-again after exit, maximum login lifetime, idle screen lock | [Settings](/features/client/connection-settings#user)                                               |
-| Tencent Cloud database synchronization for MySQL, PostgreSQL, and SQL Server (Enterprise Edition)                          | [Cloud Sync](/features/console/assets/cloud-sync)                                                   |
-| Visual approval workflows with conditions, all/any-approver modes, reassignment, and timeouts (Enterprise)                 | [Ticket flow](/features/workbench/tickets/ticket-flow)                                              |
-| Ticket approvals for password viewing, password changes, file transfers, and recording downloads (Enterprise)              | [Tickets](/features/workbench/tickets/my-tickets)                                                   |
-| Application credential rotation with primary and standby accounts (Enterprise Edition)                                     | [Change Secrets](/features/pam/security/change-secrets)                                             |
-| OceanBase MySQL-compatible and Oracle-compatible tenants (Enterprise Edition)                                              | [Connect assets](/features/workbench/web-terminal/connect-assets)                                   |
+| Capability                                                                                                                 | Where to read more                                                   |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| DB2 database support in the Web Terminal and through the native client proxy                                               | [Connect assets](/features/workbench/web-terminal/asset-connection)  |
+| ClickHouse assets with both HTTP and Native protocols                                                                      | [Connect assets](/features/workbench/web-terminal/asset-connection)  |
+| Redis Cluster access through a single endpoint, with node routing and redirection                                          | [Connect assets](/features/workbench/web-terminal/asset-connection)  |
+| SQL Server domain account authentication with NTLMv2 or Kerberos                                                           | [Accounts](/features/console/accounts/)                              |
+| Job execution for Oracle, Dameng, OceanBase, DB2, ClickHouse, and other databases                                          | [Ad hoc jobs](/features/workbench/job-center/adhoc)                  |
+| Account automation for Dameng, OceanBase MySQL tenants, and ClickHouse                                                     | [Automation](/features/pam/automation/)                              |
+| Local AI (Codex) assistant in JumpServer Client                                                                            | [Client](/features/client/)                                          |
+| Web session lifetime, automatic renewal, sign-out after the last page closes, and idle lock with password                  | [Security settings](/features/system-settings/security/security#web) |
+| Client login and screen lock settings on the User page: sign-in-again after exit, maximum login lifetime, idle screen lock | [Settings](/features/client/connection-settings#user)                |
+| Tencent Cloud database synchronization for MySQL, PostgreSQL, and SQL Server (Enterprise Edition)                          | [Cloud Sync](/features/console/assets/cloud-sync)                    |
+| Visual approval workflows with conditions, all/any-approver modes, reassignment, and timeouts (Enterprise)                 | [Approval workflows](/features/workbench/tickets/ticket-flow)        |
+| Ticket approvals for password viewing, password changes, file transfers, and recording downloads (Enterprise)              | [Tickets](/features/workbench/tickets/my-tickets)                    |
+| Application credential rotation with primary and standby accounts (Enterprise Edition)                                     | [Change Secrets](/features/pam/security/change-secrets)              |
+| OceanBase MySQL-compatible and Oracle-compatible tenants (Enterprise Edition)                                              | [Connect assets](/features/workbench/web-terminal/asset-connection)  |
 
 ### Security and improvements
 
@@ -60,11 +60,12 @@ workflows and report tooling.
 | Jobs enforce access control policies at execution time                                                            | [Job Center](/features/workbench/job-center/)                         |
 | Client site security enables HTTPS certificate validation by default, with certificate details and exceptions     | [Asset connection](/features/client/asset-connection)                 |
 | Automation execution uses a dedicated SSH Ansible executor and restricts playbook paths, links, and plugins       | [Automation](/features/pam/automation/)                               |
-| Database workbench uses Monaco, supports manual commit and rollback, relationship diagrams, and paginated exports | [Connect assets](/features/workbench/web-terminal/connect-assets)     |
+| Database workbench uses Monaco, supports manual commit and rollback, relationship diagrams, and paginated exports | [Connect assets](/features/workbench/web-terminal/asset-connection)   |
 | Audit report center supports configurable sections, previews, and PDF export                                      | [Reports](/features/audits/reports/)                                  |
 | Recording search by window title navigates to the matching point in a recording                                   | [Asset sessions](/features/audits/sessions/asset-sessions)            |
 | Task management shows queues and workers and supports canceling pending tasks and terminating running tasks       | [System tasks](/features/system-settings/infrastructure/system-tasks) |
 | Cloud Sync shows progress, changes, and errors, with a pending-review state before assets are released (EE)       | [Cloud Sync](/features/console/assets/cloud-sync)                     |
+| Unified asset and account connection tests with detailed results and execution history                            | [Connection tests](/features/pam/automation/connection-tests)         |
 | Asset connection ACLs combine justification, MFA, facial verification, approval, and account operations (EE)      | [Asset connect ACL](/features/console/policies/acls/asset-connect)    |
 
 ### Installation and upgrade
@@ -99,7 +100,7 @@ conveniences.
 | Capability                                                                   | Where to read more                                                         |
 | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | KoKo TUI with asset tree, search, mouse controls, and multiple sessions      | [SSH Terminal](/features/workbench/ssh-terminal)                           |
-| Windows PowerShell over WinRM, with auditing, ACL enforcement, and recording | [Connect assets](/features/workbench/web-terminal/connect-assets)          |
+| Windows PowerShell over WinRM, with auditing, ACL enforcement, and recording | [Connect assets](/features/workbench/web-terminal/asset-connection)        |
 | Dameng Database Web CLI and Dameng connections through Magnus                | [Supported platforms](/features/system-settings/general/platforms)         |
 | Standalone RDP desktops through Tinker and the Windows authentication plugin | [Remote app](/features/system-settings/infrastructure/remote-app)          |
 | DBX as the default remote database application                               | [Settings](/features/client/connection-settings)                           |
@@ -126,7 +127,7 @@ conveniences.
 | LDAP user group mapping through `distinguishedName`                            | [Authentication](/features/system-settings/security/authentication)     |
 | Paginated unread in-app notifications                                          | [Notifications](/features/general/workspace/notifications)              |
 | Consolidated Celery logs                                                       | [System tasks](/features/system-settings/infrastructure/system-tasks)   |
-| Chen SQL execution plan summary view                                           | [Connect assets](/features/workbench/web-terminal/connect-assets)       |
+| Chen SQL execution plan summary view                                           | [Connect assets](/features/workbench/web-terminal/asset-connection)     |
 
 ## v5.0.0
 

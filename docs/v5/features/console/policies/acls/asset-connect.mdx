@@ -9,7 +9,7 @@ description: "Restrict asset connections by user, asset, account, source IP, and
   **Asset connection control** requires JumpServer Enterprise Edition.
 </Alert>
 
-**Asset Connect** audits connections to assets against the source IP address and
+**Asset Connect** controls asset connections based on the source IP address and
 time of day. An authorization decides whether a user may reach an asset at all;
 an asset connect control adds a second gate that can reject the connection when
 the request comes from an unexpected network or outside an allowed window.
@@ -22,6 +22,8 @@ Each rule matches a user, an asset, an account, and a time/IP condition. Rules a
 evaluated by priority: the lower the number, the earlier the rule is matched, and
 the first matching rule supplies the action. Rules are scoped to the current
 organization.
+
+![Figure 1: Asset connect ACLs list with name, priority, active state, and actions.](/images/v5/jumpserver/v5_admin_acls_06.png)
 
 ## Before you begin
 
@@ -38,14 +40,14 @@ organization.
 Click **Create**.
 </div>
 
-<div>In the **Create asset connect** drawer, fill in the fields below.</div>
+<div>
+  In the **Create asset connect ACLs** drawer, fill in the fields below.
+</div>
 
 <div>
 Click **Submit**.
 </div>
 </Steps>
-
-![Figure 1: Create asset connect drawer with users, assets, accounts, IP, time period, and action.](/images/v5/jumpserver/v5_admin_acls_06.png)
 
 ### Field reference
 
@@ -58,27 +60,60 @@ Click **Submit**.
 | Accounts | Accounts    | **All accounts** or **Specified accounts**.                                                                                                   |
 | Rule     | IP          | Source IP restriction. `*` matches all. Single addresses, CIDR ranges, address ranges, and IPv6 are supported; press Enter to add each entry. |
 | Rule     | Time period | Drag to select weekdays and hours. No selection means all day, every day.                                                                     |
-| Action   | Action      | Behavior when the rule matches. Defaults to **Reject**.                                                                                       |
+| Action   | Action      | **Allow** applies the enabled connection controls; **Reject** blocks the connection. Defaults to **Reject**.                                  |
 | Other    | Active      | When selected, the rule takes effect.                                                                                                         |
 | Other    | Comment     | Optional.                                                                                                                                     |
 
+## Connection controls
+
+The **Allow** action can apply one or more connection controls. Select the controls
+in the create or edit drawer; they are cumulative for the request and cover the
+period before, during, and after the connection.
+
+| Stage          | Control           | What it does                                                                                                                                                                                                                                           |
+| -------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Before connect | Connection reason | Requires the user to enter a reason (request justification) before the connection starts. The reason is kept with the request and approval.                                                                                                            |
+| Before connect | MFA verification  | Requires an enrolled code-based MFA method. The connection is blocked when no code-based MFA method is enrolled.                                                                                                                                       |
+| Before connect | Face verification | Verifies the user's face before connecting. Requires system face recognition and an enrolled face.                                                                                                                                                     |
+| Before connect | Require approval  | Requires approval through the selected workflow or approvers. See [Approval Workflows](/features/workbench/tickets/ticket-flow) to configure a workflow. The approval exemption period can skip repeat approval for the same user, asset, and account. |
+| Before connect | Push account      | Provisions a same-name account before its first connection. Requires account provisioning support on the asset platform.                                                                                                                               |
+| Before connect | Send notification | Notifies the selected recipients when the user requests a connection. A notification does not approve or block the request.                                                                                                                            |
+| During connect | Face online       | Web Terminal only. Verifies the face before connecting and monitors the session. Requires system face recognition and an enrolled face.                                                                                                                |
+| After connect  | Rotate password   | Rotates the connected account's secret after the session ends. Requires automatic rotation after session end and an active account.                                                                                                                    |
+
+Controls can be combined, for example connection reason + MFA + approval + rotate
+password. Requirements can apply before, during, or after the connection; failing
+any required check blocks the connection. Approval and notification recipients,
+face recognition, and post-session rotation also need their system settings and
+license to be enabled.
+
 ## Approval exemption period
 
-<VersionBadge version="5.1.0" kind="new" />
+When **Require approval** is enabled, choose how connections are approved and
+whether an approved connection can be reused without another approval.
 
-<Alert type="xpack">
-  **Approval exemption periods** require JumpServer Enterprise Edition.
-</Alert>
+### Approval mode
 
-When a control uses an action that requires
-approval, configure an approval exemption period so the same user can reconnect to
-the same asset with the same account without another approval during that period.
+| Mode              | Configuration                                                                                     |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| Simple approval   | Select one or more **Approvers**. The connection is blocked when no approver is available.        |
+| Workflow approval | Select an enabled asset connection workflow. The workflow defines the approval path and handlers. |
+
+### Exemption period
+
+The **Exemption period** is measured in hours. `0` requires approval for every
+connection. After an approval, the same user can reconnect to the same asset with
+the same account without another approval until the period ends.
 
 The exemption is tied to the specific user, asset, and account combination. A
-different asset, account, or user still goes through approval, and when the period
-ends the next matching connection goes through approval again.
+different user, asset, or account still goes through approval, and the next
+connection after the period ends requires approval again. Changing the exemption
+period does not affect exemptions that were already granted.
 
-![Figure 2: Configure an asset connect ACL](/images/v5/jumpserver/v5_console_acl_asset_connect_create.png)
+Use `0` for sensitive assets that must be approved every time, and a short period
+for troubleshooting sessions that may reconnect several times.
+
+![Figure 2: Approval mode, approvers, and exemption period in the asset connect drawer.](/images/v5/jumpserver/v5_console_acl_asset_connect_approval.png)
 
 ## Test before enabling
 
@@ -96,16 +131,19 @@ ends the next matching connection goes through approval again.
 </Alert>
 
 <Alert type="note">
-  The action list depends on the edition and enabled features. **Reject** and
-  **Accept** are always available; additional actions such as review require an
-  Enterprise license and the related configuration.
+  The **Allow** and **Reject** actions are always available. The connection
+  controls on an **Allow** rule depend on the edition, license, and enabled
+  system features; for example, face verification requires face recognition and
+  post-session rotation requires automatic rotation after session end.
 </Alert>
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.0 | Added the approval exemption period. |
+| Version | Change                                                                                                                                                                  |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added Simple approval and Workflow approval modes to the approval control.                                                                                              |
+| v5.2.0  | Added combinable connection controls: connection reason, MFA, face verification, approval, account push, notification, face online, and post-session password rotation. |
+| v5.1.0  | Added the approval exemption period.                                                                                                                                    |
 
 ## Related topics
 

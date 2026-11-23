@@ -6,30 +6,30 @@ description: "Import hosts and database instances from cloud platforms into Jump
 # Cloud Sync
 
 <Alert type="xpack">
-**Cloud Sync** requires JumpServer Enterprise Edition. The menu entry is hidden when the license is missing or the account lacks cloud sync permissions.
+  **Cloud sync** requires JumpServer Enterprise Edition. The menu entry is
+  hidden when the license is missing or the account lacks cloud sync
+  permissions.
 </Alert>
 
-**Cloud Sync** imports hosts and database instances from cloud platforms and
-keeps the JumpServer asset inventory in step with the instances that actually
-exist. A cloud account stores the platform credentials and the sync task settings,
-a sync policy decides which instances are imported, and the synchronize instance
-tab shows what the last run produced.
+**Cloud sync** imports hosts and database instances from cloud platforms and
+keeps the JumpServer asset inventory aligned with the instances that actually
+exist. A cloud account stores the platform credentials and sync task settings, a
+sync policy decides which instances are imported, and the **Synchronize
+instance** tab shows what the last run produced.
 
-Open the page from **Console > Assets > Hosts > Cloud Sync**. The page title is
-**Host - Cloud sync**; the same feature is available for database instances with
-the **Database** category.
+Cloud sync is available from the host and database asset lists. Open the asset
+category you need and select **Cloud sync**.
 
-![Figure 1: Hosts tab with the Cloud Sync entry point.](/images/v5/jumpserver/v5_admin_assets_06.png)
+![Figure 1: Cloud sync entry in the asset list.](/images/v5/jumpserver/v5_cloud_sync_entry_01.png)
 
 ## Overview
 
-The page has three tabs:
-
-| Tab | Purpose |
-| --- | --- |
-| Accounts | Cloud platform accounts: provider, credentials, region, and the sync task settings for each account. |
-| Sync policy | Ordered rules that decide which instances are imported or skipped and which actions apply. A built-in default policy exists and cannot be deleted. |
-| Synchronize instance | The result of sync runs: instances that were discovered, imported, or skipped. |
+Cloud sync is organized around a cloud account and the policy that controls it.
+The **Accounts** tab stores the provider credentials, region, and sync settings.
+The **Sync policy** tab defines the ordered rules that decide which instances are
+imported or skipped and which actions apply; a built-in default policy exists and
+cannot be deleted. After a run, the **Synchronize instance** tab shows which
+instances were discovered, imported, or skipped.
 
 ## Before you begin
 
@@ -40,8 +40,59 @@ The page has three tabs:
   asset tree should receive them.
 
 <Alert type="note">
-Until a cloud account is configured, the **Synchronize instance** tab stays
-empty. Create the account first, then review the policy, then run the sync.
+  Until a cloud account is configured, the **Synchronize instance** tab stays
+  empty. Create the account first, then review the policy, then run the sync.
+</Alert>
+
+## Supported providers
+
+The provider list depends on the asset category and the cloud platforms supported
+by the current deployment.
+
+### Hosts
+
+| Source type   | Provider                               |
+| ------------- | -------------------------------------- |
+| Public cloud  | Alibaba Cloud                          |
+| Public cloud  | Tencent Cloud                          |
+| Public cloud  | Tencent Cloud (Lighthouse)             |
+| Public cloud  | Huawei Cloud                           |
+| Public cloud  | Baidu Cloud                            |
+| Public cloud  | JD Cloud                               |
+| Public cloud  | Kingsoft Cloud                         |
+| Public cloud  | AWS (China)                            |
+| Public cloud  | AWS (International)                    |
+| Public cloud  | Azure (China)                          |
+| Public cloud  | Azure (International)                  |
+| Public cloud  | Google Cloud                           |
+| Public cloud  | UCloud UHost                           |
+| Public cloud  | Volcengine                             |
+| Public cloud  | SmartX CloudTower                      |
+| Public cloud  | State Cloud                            |
+| Private cloud | VMware                                 |
+| Private cloud | QingCloud private cloud                |
+| Private cloud | Huawei private cloud                   |
+| Private cloud | State Cloud (Private)                  |
+| Private cloud | OpenStack                              |
+| Private cloud | ZStack                                 |
+| Private cloud | Nutanix                                |
+| Private cloud | FusionCompute                          |
+| Private cloud | SANGFOR cloud platform                 |
+| Private cloud | Alibaba private cloud                  |
+| Private cloud | SmartX CloudTower                      |
+| Private cloud | Proxmox                                |
+| LAN           | Scan a specified subnet and port range |
+
+### Databases
+
+| Source type  | Provider      |
+| ------------ | ------------- |
+| Public cloud | Alibaba Cloud |
+| Public cloud | Tencent Cloud |
+
+<Alert type="note">
+  Provider availability can vary by JumpServer version and license. The Cloud
+  sync wizard shows the providers available to the current deployment.
 </Alert>
 
 ## Create a cloud account
@@ -51,12 +102,10 @@ empty. Create the account first, then review the policy, then run the sync.
 Open the **Accounts** tab and click **Create**.
 </div>
 
-<div>
-Select the provider in the wizard and click **Next**.
-</div>
+<div>Select the provider in the wizard and click **Next**.</div>
 
 <div>
-In the **Authentication** step, enter the credentials and region details.
+  In the **Authentication** step, enter the credentials and region details.
 </div>
 
 <div>
@@ -65,34 +114,37 @@ receive them, then review the **Result** step and submit.
 </div>
 </Steps>
 
-![Figure 2: Create cloud account for a cloud platform.](/images/v5/jumpserver/v5_admin_assets_07.png)
+![Figure 2: Cloud sync provider selection.](/images/v5/jumpserver/v5_cloud_sync_provider_01.png)
 
-After the account is created, open it to adjust the sync task: the source IP type
-(public or private), whether released instances are removed from the inventory,
-whether existing assets are always updated, and the sync **Timer** (periodic
-interval or crontab). The account detail also shows the sync policy relation.
+After the account is created, use its detail page to adjust the sync task:
+
+- the source IP type, public or private;
+- whether released instances are removed from the inventory;
+- whether existing assets are always updated;
+- the sync **Timer**, either a periodic interval or a crontab;
+- the sync policy relation.
 
 ## Work with sync policies
 
 A sync policy is an ordered set of rules. Each policy has a name, a priority,
 rules that match instances, actions applied to matched instances, and a rule
-relation (all or any). Lower priority values are evaluated earlier. Keep
-policies narrow: one policy per platform or region is easier to troubleshoot than
-a single policy that spans many environments.
+relation (all or any). Lower priority values are evaluated earlier. Keep policies
+narrow: one policy per platform or region is easier to troubleshoot than a single
+policy that spans many environments.
 
 <Steps>
 <div>
 Open the **Sync policy** tab and click **Create**.
 </div>
 
-<div>
-In **Create sync policy**, enter a **Name** and **Priority**.
-</div>
+<div>In **Create sync policy**, enter a **Name** and **Priority**.</div>
 
 <div>
 Add the rules and actions, choose the rule relation, then click **Submit**.
 </div>
 </Steps>
+
+![Figure 3: Create sync policy drawer with conditions and actions.](/images/v5/jumpserver/v5_cloud_sync_policy_01.png)
 
 ## Review sync results
 
@@ -102,20 +154,36 @@ Run the sync, or wait for the scheduled run to start.
 </div>
 
 <div>
-Open the **Synchronize instance** tab to review the discovered instances and
-their status.
+  Open the **Synchronize instance** tab to review the discovered instances and
+  their status.
 </div>
 
 <div>
-Return to the **Hosts** tab of the asset list and confirm that the expected hosts
-now appear.
+Return to the asset category that owns the instances and confirm that the
+expected assets now appear.
 </div>
 </Steps>
 
-Synced hosts become normal assets: they can be added to nodes, bound to accounts,
-and authorized like manually created assets. If a host does not appear, check the
-policy rules first, then the account's connection state, and finally whether the
+Synced assets behave like manually created assets: they can be added to nodes,
+bound to accounts, and authorized. If an asset does not appear, check the policy
+rules first, then the account's connection state, and finally whether the
 instance already exists under a different address.
+
+## Pending review
+
+<VersionBadge version="5.2.0" />
+
+Each sync run reports its progress, discovered changes, and errors. When a scan is
+incomplete, affected assets enter a **pending review** state instead of being
+released immediately. This prevents an incomplete scan from removing assets that
+still exist in the cloud account.
+
+## Version history
+
+| Version | Change                                                                                                   |
+| ------- | -------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added Tencent Cloud database synchronization for MySQL, PostgreSQL, and SQL Server (Enterprise Edition). |
+| v5.2.0  | Added sync progress, change, and error details and a pending-review state before assets are released.    |
 
 ## Related topics
 

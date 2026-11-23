@@ -1,41 +1,43 @@
 ---
 title: "Security"
-description: "Harden user sign-in, passwords, and asset sessions with authentication limits, MFA policy, password rules, and session controls."
+description: "Harden user sign-in, passwords, asset, web, and client sessions with authentication limits, MFA policy, password rules, and session controls."
 ---
 
 # Security
 
-Security defines the guardrails around identity and sessions. It is where you
-set brute-force protection, MFA policy, password complexity, and the limits that
-apply while a user is connected to an asset.
+Security defines the guardrails around identity, passwords, and sessions. It is
+where you set brute-force protection, MFA policy, password complexity, and the
+limits that apply to asset, web, and client sessions.
 
 ## Overview
 
-| Tab | Controls |
-| --- | --- |
-| Auth security | Login verification, inactive-user handling, and MFA behavior. |
-| Login restriction | Lockout policy for users and IP addresses, allow and deny lists, and concurrent-login rules. |
-| User password | Password lifetime, history, and complexity rules. |
-| Asset session | Session sharing, idle and maximum duration limits, and watermarking. |
+| Tab               | Controls                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| Auth security     | Login verification, inactive-user handling, and MFA behavior.                                  |
+| Login restriction | Lockout policy for users and IP addresses, allow and deny lists, and concurrent-login rules.   |
+| User password     | Password lifetime, history, and complexity rules.                                              |
+| Asset session     | Session sharing, idle and maximum duration limits, and watermarking.                           |
+| Web               | Browser session lifetime, renewal on request, browser-close behavior, and idle screen lock.    |
+| Client            | Client login lifetime, sign-in-after-exit behavior, and idle screen lock; defaults and limits. |
 
 ## Auth security
 
-| Field | Description |
-| --- | --- |
-| Login CAPTCHA | Adds a CAPTCHA after failed sign-in attempts to slow down automated attacks. |
-| Login additional code | Sends the password together with a short additional code to third-party authentication services that expect password plus code. |
-| Auto disable threshold (days) | Disables users who have not signed in for the configured number of days. |
-| Suspicious login verification | Sends a remote-login alert when a user signs in from an unfamiliar city. |
-| Global MFA | `Disabled`, `All users`, or `Only admin users`. When enabled globally, users cannot turn MFA off by themselves. |
-| MFA methods | Selects the verification methods offered to users. |
-| MFA in login page | Lets users enter an MFA code together with the password. Requires an Enterprise license. |
-| MFA via email | Allows email to be used as an MFA method. Requires the email service. |
-| Third-party MFA | Enforces MFA for users who sign in through CAS, OIDC, SAML2, OAuth2, WeCom, DingTalk, Feishu, Lark, or Slack. |
-| MFA verify TTL (seconds) | How long an MFA verification remains valid, for example when an administrator views an account secret. |
-| OTP issuer name | Display name shown in the authenticator application for generated codes. |
-| OTP valid window | Number of adjacent time steps accepted for a one-time password. `0` accepts the current step only. |
+| Field                         | Description                                                                                                                     |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Login CAPTCHA                 | Adds a CAPTCHA after failed sign-in attempts to slow down automated attacks.                                                    |
+| Login additional code         | Sends the password together with a short additional code to third-party authentication services that expect password plus code. |
+| Auto disable threshold (days) | Disables users who have not signed in for the configured number of days.                                                        |
+| Suspicious login verification | Sends a remote-login alert when a user signs in from an unfamiliar city.                                                        |
+| Global MFA                    | `Disabled`, `All users`, or `Only admin users`. When enabled globally, users cannot turn MFA off by themselves.                 |
+| MFA methods                   | Selects the verification methods offered to users.                                                                              |
+| MFA in login page             | Lets users enter an MFA code together with the password. Requires an Enterprise license.                                        |
+| MFA via email                 | Allows email to be used as an MFA method. Requires the email service.                                                           |
+| Third-party MFA               | Enforces MFA for users who sign in through CAS, OIDC, SAML2, OAuth2, WeCom, DingTalk, Feishu, Lark, or Slack.                   |
+| MFA verify TTL (seconds)      | How long an MFA verification remains valid, for example when an administrator views an account secret.                          |
+| OTP issuer name               | Display name shown in the authenticator application for generated codes.                                                        |
+| OTP valid window              | Number of adjacent time steps accepted for a one-time password. `0` accepts the current step only.                              |
 
-![Figure 1: Auth security settings](/images/v5/jumpserver/v5_settings_security_auth_01.png)
+![Figure 1: Auth security settings.](/images/v5/jumpserver/v5_settings_security_auth_01.png)
 
 ## Login restriction
 
@@ -53,7 +55,7 @@ apply while a user is connected to an asset.
 - **Only from the user's source** requires users to authenticate through the
   source recorded on their user profile.
 
-![Figure 2: Login restriction settings](/images/v5/jumpserver/v5_settings_security_login_restriction_01.png)
+![Figure 2: Login restriction settings.](/images/v5/jumpserver/v5_settings_security_login_restriction_01.png)
 
 ## User password
 
@@ -68,18 +70,60 @@ also used during account risk detection.
 
 ## Asset session
 
-| Field | Description |
-| --- | --- |
-| Session share | Lets users share an active session link with other users for collaborative troubleshooting. |
-| Session expire at browser close | Terminates the session when the browser is fully closed. |
-| Allow users to view asset session information | Shows the number of active sessions on the asset selection dialog for RDP assets. |
-| Max idle time (minute) | Disconnects a session that has been idle for longer than this value. |
-| Max online time (hour) | Disconnects a session after it has been open for this long. |
-| Watermark | Overlays the signed-in user's details on the console, sessions, and recordings. Content, color, size, and rotation are configurable with an Enterprise license; RDP client sessions do not show a watermark. |
+| Field                                         | Description                                                                                                                                                                                                  |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Session share                                 | Lets users share an active session link with other users for collaborative troubleshooting.                                                                                                                  |
+| Allow users to view asset session information | Shows the number of active sessions on the asset selection dialog for RDP assets.                                                                                                                            |
+| Max idle time (minute)                        | Disconnects a session that has been idle for longer than this value.                                                                                                                                         |
+| Max online time (hour)                        | Disconnects a session after it has been open for this long.                                                                                                                                                  |
+| Watermark                                     | Overlays the signed-in user's details on the console, sessions, and recordings. Content, color, size, and rotation are configurable with an Enterprise license; RDP client sessions do not show a watermark. |
+
+## Web
+
+<VersionBadge version="5.2.0" />
+
+The **Web** tab controls browser session lifetime and locking for the Web UI.
+
+| Field                                | Description                                                                                      |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| Log in again when the browser closes | Ends the web session when the browser is fully closed.                                           |
+| Web session lifetime (second)        | Maximum lifetime of a web session. The default is 86400 seconds (24 hours).                      |
+| Renew session on request             | When enabled, requests made while the user works renew the session instead of letting it expire. |
+| Web idle screen lock (min)           | Locks the web session after the configured idle period. The user unlocks it with their password. |
+
+![Figure 3: Web session settings.](/images/v5/jumpserver/v5_settings_security_web_01.png)
+
+## Client
+
+<VersionBadge version="5.2.0" />
+
+The **Client** tab sets the administrator defaults and limits for JumpServer
+Client sessions. Users may choose stricter settings; otherwise they follow the
+administrator values.
+
+| Field                                  | Description                                                                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Sign in again after exiting the client | Requires a new login after exiting and restarting the client. Minimizing or hiding the client does not count as exiting.        |
+| Maximum client login lifetime (min)    | Maximum client login lifetime counted from login. Activity does not extend it; `0` means unlimited.                             |
+| Client idle screen lock (min)          | Locks the client after the configured idle period. Users can choose a stricter value but cannot exceed the administrator limit. |
+
+User-level sign-in, lifetime, and lock settings are on the
+**Settings > User** page of JumpServer Client. See
+[Settings](/features/client/connection-settings#user).
+
+![Figure 4: Client session settings.](/images/v5/jumpserver/v5_settings_security_client_01.png)
 
 <Alert type="note">
-Global MFA and password policy apply to every organization. If MFA is enforced
-and administrators cannot sign in, use the documented recovery procedure before
-changing the policy. See [Authentication](/features/system-settings/security/authentication)
-and [Passkeys](/features/general/account/passkeys) for method-specific behavior.
+  Global MFA and password policy apply to every organization. If MFA is enforced
+  and administrators cannot sign in, use the documented recovery procedure
+  before changing the policy. See
+  [Authentication](/features/system-settings/security/authentication) and
+  [Passkeys](/features/general/account/passkeys) for method-specific behavior.
 </Alert>
+
+## Version history
+
+| Version | Change                                                                                                             |
+| ------- | ------------------------------------------------------------------------------------------------------------------ |
+| v5.2.0  | Added the Web tab with browser session lifetime, renewal on request, browser-close behavior, and idle screen lock. |
+| v5.2.0  | Added the Client tab with client login lifetime, sign-in-after-exit behavior, and idle screen lock defaults.       |

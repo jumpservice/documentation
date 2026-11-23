@@ -28,10 +28,14 @@ The detailed step-by-step upgrade for both installation types is in the
 
 1. Read the release notes of the target version for behavior changes and new
    requirements; pay attention to the database and Redis version requirements.
+   V5.2.0 bundles PostgreSQL 18.7 and Redis 8.10.3, and migrates a bundled
+   PostgreSQL 10 to 17 installation automatically during a standard upgrade.
 2. Schedule a maintenance window. Upgrading stops the services and interrupts
    active sessions.
 3. Back up the database and static files. See
-   [Backup & Restore](/operations/backup-restore).
+   [Backup & Restore](/operations/backup-restore). A routine database backup
+   failure shows a 30-second confirmation prompt during the upgrade; a backup
+   required for a PostgreSQL major version migration is still mandatory.
 4. Confirm that `DOMAINS` contains the domain or IP address users open in the
    browser. A missing trusted host is the usual cause of 400 and 403 responses after
    an upgrade.
@@ -83,17 +87,18 @@ Verify the deployment in this order before you declare the upgrade complete. Eac
 check validates a different layer, so do not skip one because the previous check
 passed.
 
-| #   | Check                  | Where                                             | Pass condition                                                          |
-| --- | ---------------------- | ------------------------------------------------- | ----------------------------------------------------------------------- |
-| 1   | Service state          | `./jmsctl.sh status`                              | Every expected container is running                                     |
-| 2   | Component registration | **System Settings > Components**                  | Each enabled component instance registers and reports a normal state    |
-| 3   | Core health            | `curl -s http://127.0.0.1/api/health/`            | The health endpoint reports the expected state                          |
-| 4   | Sign-in                | Web UI                                            | A normal user and an administrator can both sign in                     |
-| 5   | Protocol connectivity  | **Workbench** or a test authorization             | One session per protocol you use opens end to end                       |
-| 6   | Recording playback     | **Audits > Asset sessions > Historical sessions** | A recording made after the upgrade plays, and an older one still plays  |
-| 7   | Audit continuity       | **Audits**                                        | Login, operation, and session records from before and after are present |
-| 8   | Enterprise license     | **System Settings > License**                     | The license is valid and licensed features remain available             |
-| 9   | Scheduled tasks        | **Job Center** or **System Tasks**                | A scheduled task runs after the upgrade                                 |
+| #   | Check                  | Where                                             | Pass condition                                                             |
+| --- | ---------------------- | ------------------------------------------------- | -------------------------------------------------------------------------- |
+| 1   | Service state          | `./jmsctl.sh status`                              | Every expected container is running                                        |
+| 2   | Component registration | **System Settings > Components**                  | Each enabled component instance registers and reports a normal state       |
+| 3   | Core health            | `curl -s http://127.0.0.1/api/health/`            | The health endpoint reports the expected state                             |
+| 4   | Sign-in                | Web UI                                            | A normal user and an administrator can both sign in                        |
+| 5   | Protocol connectivity  | **Workbench** or a test authorization             | One session per protocol you use opens end to end                          |
+| 6   | Recording playback     | **Audits > Asset sessions > Historical sessions** | A recording made after the upgrade plays, and an older one still plays     |
+| 7   | Audit continuity       | **Audits**                                        | Login, operation, and session records from before and after are present    |
+| 8   | Enterprise license     | **System Settings > License**                     | The license is valid and licensed features remain available                |
+| 9   | Scheduled tasks        | **Job Center** or **System Tasks**                | A scheduled task runs after the upgrade                                    |
+| 10  | User email uniqueness  | **Console > Users**                               | No duplicate email addresses remain; `.invalid` placeholders are corrected |
 
 See [Components](/features/system-settings/infrastructure/components) for the
 component states and [Asset sessions](/features/audits/sessions/asset-sessions)

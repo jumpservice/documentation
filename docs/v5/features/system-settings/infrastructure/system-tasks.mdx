@@ -23,20 +23,19 @@ The page has two tabs:
 | Column              | Description                                                                |
 | ------------------- | -------------------------------------------------------------------------- |
 | Name                | Task name. For scheduled tasks, the subtitle describes what the task does. |
-| Queue               | Celery queue that executes the task.                                       |
 | Success / Total     | Number of successful executions against the total.                         |
-| State               | Health indicator for the task: green, yellow, or red.                      |
-| Last published      | When the task was last dispatched.                                         |
-| Execution cycle     | Cron expression or interval for periodic tasks.                            |
+| Status              | Current task health indicator.                                             |
+| Release date        | When the task was last dispatched.                                         |
+| Periodic executor   | Cron expression or interval for periodic tasks.                            |
 | Next execution time | Planned time of the next run.                                              |
-| Enabled             | Switch that enables or disables a periodic task.                           |
+| Enable              | Switch that enables or disables a periodic task.                           |
 
 Typical entries include account backup plans, account pushes, connectivity
 checks, email delivery, directory synchronization, and cloud synchronization.
 Click a task name to open its detail page with the full execution history and
 logs.
 
-![Figure 1: System task list](/images/v5/jumpserver/v5_settings_system_tasks_list_01.png)
+![Figure 1: System task list.](/images/v5/jumpserver/v5_settings_system_tasks_list_01.png)
 
 ## Inspect and control tasks
 
@@ -49,7 +48,7 @@ logs.
 <div>In the left menu, click **System Tasks**.</div>
 
 <div>
-  Open the **Tasks** tab. Use the **Enabled** switch on a periodic task to pause
+  Open the **Tasks** tab. Use the **Enable** switch on a periodic task to pause
   or resume it.
 </div>
 
@@ -59,8 +58,8 @@ logs.
 </div>
 
 <div>
-  Click **Task monitor** to open the Celery monitoring page in a new tab and
-  check worker queues and workload.
+  On the **Tasks** tab, click **Monitoring** to inspect current workers, queue
+  backlog, and worker tasks.
 </div>
 
 </Steps>
@@ -72,6 +71,56 @@ logs.
 Celery logs are consolidated into a single window with separate tabs. Switch
 between the tabs to read the logs of different tasks instead of opening one
 window per task.
+
+### Manage task execution
+
+<VersionBadge version="5.2.0" kind="new" />
+
+From the task list, cancel a pending task that no longer needs to run, or terminate
+an eligible running task when it must stop. For current worker and queue state,
+see [Monitoring](#monitoring). Terminating a running task
+can leave part of its work unfinished; review the task log and rerun the task if
+needed.
+
+## Monitoring
+
+<VersionBadge version="5.2.0" kind="new" />
+
+Open **Monitoring** from the **Tasks** toolbar. The page shows the Celery workers
+and queues that execute background work and has its own **Workers** and **Tasks**
+tabs. The page refreshes every 10 seconds while it is visible; if a
+sample is old, the page marks it as stale. The **Tasks** tab returns to the task
+list.
+
+### Workers
+
+The summary cards show **Responding workers**, **Active**, **Reserved**,
+**Scheduled**, and **Queued** counts. The worker table shows each worker's status,
+processed, success, failure, and retry counts, current task states, load average,
+concurrency, and queues.
+
+- **No response** means the worker did not reply to this sample; it does not prove
+  that the worker is offline.
+- Processed, success, failure, and retry counts accumulate since the worker
+  started and reset when it restarts.
+- A dash means the value is unavailable. Load average covers the last 1, 5, and
+  15 minutes.
+
+### Queue backlog
+
+The queue backlog shows how many tasks are waiting in each queue. Queued tasks
+are waiting in the broker and cannot be canceled from this page; reserved tasks
+are held by workers, and scheduled tasks are waiting for their ETA.
+
+### Worker tasks
+
+Select a worker to inspect its **Active**, **Reserved**, and **Scheduled** tasks.
+The list shows the task ID, name, start time, and acknowledgment state. Depending
+on permissions, **Output** opens the task output and **Execution History** opens
+the related execution history. The page shows up to the configured sample limit
+per worker and state.
+
+![Figure 2: Monitoring page with worker summary, worker table, and queue backlog.](/images/v5/jumpserver/v5_settings_system_tasks_monitor_01.png)
 
 ## Regular clean-up
 
@@ -92,7 +141,7 @@ when audit requirements demand it.
 | Cloud sync task execution   | History of asset cloud synchronization runs.            |
 | Change secret / push record | Account secret changes and account pushes.              |
 
-![Figure 2: Regular clean-up settings](/images/v5/jumpserver/v5_settings_system_tasks_cleanup_01.png)
+![Figure 3: Regular clean-up settings.](/images/v5/jumpserver/v5_settings_system_tasks_cleanup_01.png)
 
 <Alert type="warning">
   Clean-up settings control local records only. Recordings or command logs that
@@ -103,6 +152,8 @@ when audit requirements demand it.
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.0 | Consolidated Celery logs into one window with separate tabs. |
+| Version | Change                                                                                       |
+| ------- | -------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added the Monitoring page with worker, queue, and worker-task status.                        |
+| v5.2.0  | Added queues and worker visibility, pending-task cancellation, and running-task termination. |
+| v5.1.0  | Consolidated Celery logs into one window with separate tabs.                                 |

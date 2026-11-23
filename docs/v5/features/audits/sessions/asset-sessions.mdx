@@ -69,15 +69,24 @@ You can download several session recordings at the same time instead of download
   </div>
 </Steps>
 
-![Figure 3: Historical sessions](/images/v5/jumpserver/v5_audits_historical_sessions.png)
+![Figure 2: Historical sessions.](/images/v5/jumpserver/v5_audits_historical_sessions.png)
 
 ## Customize columns and export
 
 Open **List preferences** from the column settings icon, select the extra columns you need, and click **Confirm**. **Restore defaults** returns to the standard column set. Extra columns include the remote address, duration, replay availability, login source, and session lock state.
 
-![Figure 2: List preferences for the session list.](/images/v5/jumpserver/v5_admin_session_04.png)
+![Figure 3: List preferences for the session list.](/images/v5/jumpserver/v5_admin_session_04.png)
 
 Click **Export**, choose **CSV** or **Excel**, then select **Export all**, **Export selected**, or **Export search results**, and click **Confirm**.
+
+## Search recordings by window title
+
+<VersionBadge version="5.2.0" kind="new" />
+
+Session recordings can be searched by window title. In the replay view, enter a
+window title in the search box and select a result to jump to the matching point
+in the recording. This shortens review when the recording contains several windows
+and only one of them is relevant.
 
 ## Field reference
 
@@ -97,9 +106,10 @@ Click **Export**, choose **CSV** or **Excel**, then select **Export all**, **Exp
 
 ## Version history
 
-| Version | Change                                                  |
-| ------- | ------------------------------------------------------- |
-| v5.1.0  | Added batch download for historical session recordings. |
+| Version | Change                                                                        |
+| ------- | ----------------------------------------------------------------------------- |
+| v5.2.0  | Added recording search by window title with navigation to the matching point. |
+| v5.1.0  | Added batch download for historical session recordings.                       |
 
 ## Related topics
 

@@ -7,11 +7,11 @@
   {
     "type": "file",
     "name": "awaiting-approval",
-    "label": "Assigned"
+    "label": "Related to me"
   },
   {
     "type": "file",
     "name": "ticket-flow",
-    "label": "Flow Setup"
+    "label": "Approval workflows"
   }
 ]

@@ -6,7 +6,9 @@ description: "Enable and configure optional platform capabilities: announcements
 # Features
 
 <Alert type="xpack">
-**Ticket, Account storage, and VirtualApp** require JumpServer Enterprise Edition. Announcement, Job center, OpenBao SSH CA, and Chat AI are included in Community Edition, subject to their deployment requirements.
+  **Ticket, Account storage, and VirtualApp** require JumpServer Enterprise
+  Edition. Announcement, Job center, OpenBao SSH CA, and Chat AI are included in
+  Community Edition, subject to their deployment requirements.
 </Alert>
 
 Features is a collection of switches and settings for optional capabilities. Each
@@ -15,15 +17,15 @@ are hidden when the required license or permission is missing.
 
 ## Overview
 
-| Tab | What it controls | Requirement |
-| --- | --- | --- |
-| Announcement | Global banner displayed to every signed-in user. | None |
-| Ticket | Access-request workflow and approval behavior. | Enterprise license |
-| Job center | Batch command execution and its command blacklist. | None |
+| Tab             | What it controls                                     | Requirement        |
+| --------------- | ---------------------------------------------------- | ------------------ |
+| Announcement    | Global banner displayed to every signed-in user.     | None               |
+| Ticket          | Access-request workflow and approval behavior.       | Enterprise license |
+| Job center      | Batch command execution and its command blacklist.   | None               |
 | Account storage | External secret vault for asset account credentials. | Enterprise license |
-| OpenBao SSH CA | Short-lived SSH certificates issued through OpenBao. | OpenBao deployment |
-| Chat AI | AI assistant model connection and integration mode. | None |
-| VirtualApp | Linux-based application publishing through Panda. | Enterprise license |
+| OpenBao SSH CA  | Short-lived SSH certificates issued through OpenBao. | OpenBao deployment |
+| Chat AI         | AI assistant model connection and integration mode.  | None               |
+| VirtualApp      | Linux-based application publishing through Panda.    | Enterprise license |
 
 ## Announcement
 
@@ -32,13 +34,9 @@ are hidden when the required license or permission is missing.
 Open the **Announcement** tab and select **Enable announcement**.
 </div>
 
-<div>
-Enter a subject and content. The content field supports Markdown.
-</div>
+<div>Enter a subject and content. The content field supports Markdown.</div>
 
-<div>
-Optionally set a start and end date, and a more-information link.
-</div>
+<div>Optionally set a start and end date, and a more-information link.</div>
 
 <div>
 Click **Submit**.
@@ -57,7 +55,7 @@ Enable the **Ticket** tab to let users request asset authorization through a
 workflow. Configurable fields include approval without login and the default
 authorization period and unit. Approval rules themselves are maintained in the
 ticket module under **Flow settings**; see
-[Ticket flow](/features/workbench/tickets/ticket-flow).
+[Approval workflows](/features/workbench/tickets/ticket-flow).
 
 ## Job center
 
@@ -84,8 +82,8 @@ storage engine you use, then restart JumpServer.
 </div>
 
 <div>
-Open the **Account storage** tab, enter the provider connection details, and
-click **Submit**.
+  Open the **Account storage** tab, enter the provider connection details, and
+  click **Submit**.
 </div>
 
 <div>
@@ -96,9 +94,9 @@ secrets back into the local database when you need to roll back.
 </Steps>
 
 <Alert type="warning">
-After secrets are synchronized, the local database no longer stores the
-passwords. Back up the database first, and note that changing the vault
-configuration again requires a service restart.
+  After secrets are synchronized, the local database no longer stores the
+  passwords. Back up the database first, and note that changing the vault
+  configuration again requires a service restart.
 </Alert>
 
 ![Figure 2: Account storage settings](/images/v5/jumpserver/v5_settings_features_account_storage_01.png)

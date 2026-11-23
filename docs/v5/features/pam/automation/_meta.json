@@ -1,6 +1,11 @@
 [
   {
     "type": "file",
+    "name": "connection-tests",
+    "label": "Connection Tests"
+  },
+  {
+    "type": "file",
     "name": "discover-accounts",
     "label": "Discover Accounts"
   },

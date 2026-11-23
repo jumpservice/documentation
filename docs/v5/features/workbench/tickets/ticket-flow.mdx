@@ -1,82 +1,103 @@
 ---
-title: "Ticket Flow"
-description: Configure the approval flows that tickets use, including approval levels, handlers, and CC users.
+title: "Approval Workflows"
+description: "Configure the approval workflows that tickets use, including approval nodes, handlers, and CC users."
 ---
 
-# Ticket Flow
+# Approval Workflows
 
 <Alert type="xpack">
-**Tickets & Approvals** requires JumpServer Enterprise Edition. Ticket entries, approval cards, and flow settings are hidden without a license.
+  **Tickets & Approvals** requires JumpServer Enterprise Edition. Ticket
+  entries, approval cards, and flow settings are hidden without a license.
 </Alert>
 
-**Flow Setup** is the administrative configuration view for ticket approval. It
-defines who approves a request, how many approval levels a request passes through,
-and who is copied on the ticket. It is not where access is requested: applicants
+**Approval workflows** is the administrative configuration view for ticket approval. It
+defines the approval path a request follows, who approves at each node, and who is
+copied on the ticket. It is not where access is requested: applicants
 create requests from [Submitted](/features/workbench/tickets/my-tickets), and
-approvers act on them from [Assigned](/features/workbench/tickets/awaiting-approval).
+approvers act on them from [Related to me](/features/workbench/tickets/awaiting-approval).
 
-![Figure 1: The approval flow list and create drawer](/images/v5/jumpserver/ticket_flow_setting.png)
+![Figure 1: Approval workflows list.](/images/v5/jumpserver/v5_ticket_flow_list_01.png)
 
 ## Prerequisites
 
-* The Tickets feature is enabled and licensed. The **Tickets & Approvals** area
+- The Tickets feature is enabled and licensed. The **Tickets & Approvals** area
   requires an enterprise license.
-* Your role grants the ticket flow permissions needed to view, create, update, or
-  delete flows. Managing flows is an administrative or operator task, not part of
-  the normal applicant workflow.
+- Your role grants the ticket flow permissions needed to view, create, update, or
+  delete flows. Managing flows is an administrative task, not part of the normal
+  applicant workflow.
 
 ## Review existing flows
 
 The list shows the flows available in the current organization, including flows
 inherited from the global organization.
 
-| Column | Description |
-| --- | --- |
-| Name | Flow name |
-| Approval level | Number of approval levels the flow uses |
-| Created by | Account that created the flow |
-| Organization | Organization the flow belongs to |
-| Created, Updated | Creation and last modification times |
-| Actions | Edit or delete the flow, subject to permissions and organization |
+| Column       | Description                         |
+| ------------ | ----------------------------------- |
+| Name         | Flow name                           |
+| Type         | Ticket type the flow applies to     |
+| Organization | Organization that owns the flow     |
+| Version      | Published workflow version          |
+| Enabled      | Whether the flow is enabled         |
+| Update date  | Last modification time              |
+| Actions      | Edit, duplicate, or delete the flow |
 
 ## Create a flow
 
 <Steps>
 
+<div>Open **Approval workflows** and click **Create**.</div>
+
 <div>
-Open **Flow Setup** and click **Create**.
+  In **Basic information**, enter a **Workflow name**, select the **Request
+  type**, and optionally add a **Description**.
 </div>
 
 <div>
-In **Basic**, enter a **name** and optionally select **CC users** who should be
-copied on every ticket that uses the flow.
+  Build the **Workflow** canvas. A flow starts at **Start** and ends at **End**.
+  Add **Approval**, **Condition**, and **CC** nodes and connect them in the
+  order the request should follow.
 </div>
 
 <div>
-In **Approval level**, choose how many levels the request must pass, from one to
-five.
+  Select a node to edit **Node settings**. For an **Approval** node, set the
+  **Node name**, **Approver source**, **Approval strategy**, timeout and
+  approval actions, and the **Next node**.
 </div>
 
 <div>
-For each level, define the handlers. You can include all users, select specific
-users, or use an attribute filter such as a system role equal to
-**System administrator**.
-</div>
-
-<div>
-Click **Submit**. The flow becomes selectable when applicants create a ticket for
-the matching organization and ticket type.
+  Click **Publish workflow** to make the flow available for the request type. A
+  flow stays in **Draft** until it is published.
 </div>
 
 </Steps>
 
-| Field | Description |
-| --- | --- |
-| Name | Flow name. Required, and unique for the ticket type in the organization |
-| CC users | Users who receive ticket updates but do not approve |
-| Approval level | Number of approval levels, 1 to 5 |
-| Approval process | Handler rule for each level: all users, specified users, or attribute matching |
-| Attribute filter | Matches handlers by user attributes, for example system role, department, or another user field |
+| Area              | Setting                      | Description                                                               |
+| ----------------- | ---------------------------- | ------------------------------------------------------------------------- |
+| Basic information | Workflow name                | Required name of the flow.                                                |
+| Basic information | Request type                 | Ticket type that uses the flow, for example **Apply for assets**.         |
+| Basic information | Description                  | Optional explanation of when to use the flow.                             |
+| Workflow          | Start and End                | Fixed entry and exit nodes; every path ends at **End**.                   |
+| Workflow          | Approval                     | Waits for a decision from the configured approvers.                       |
+| Workflow          | Condition                    | Branches to a different path based on ticket data.                        |
+| Workflow          | CC                           | Adds users who receive updates but do not approve.                        |
+| Node settings     | Node name                    | Name shown on the selected node.                                          |
+| Node settings     | Approver source              | Organization administrators, specified users, or an attribute-based rule. |
+| Node settings     | Approval strategy            | Whether any one approver or all approvers must agree.                     |
+| Node settings     | Timeout and approval actions | What happens when the node is not decided within the configured time.     |
+| Node settings     | Next node                    | Node that follows the current node on this path.                          |
+
+![Figure 2: Workflow designer with basic information, approval canvas, and node settings.](/images/v5/jumpserver/v5_ticket_flow_designer_01.png)
+
+### Approval modes and conditions
+
+<VersionBadge version="5.2.0" />
+
+A flow can combine approval nodes with conditional branches and choose how each node reaches a decision:
+
+- **Approval modes** â€?an approval node can require all approvers or any one approver.
+- **Conditions** â€?branch to different approval paths based on the ticket data.
+- **Reassignment and additional approvers** â€?move a pending approval to another handler or add approvers while the ticket is in progress.
+- **Timeout handling** â€?define what happens when a node is not approved within the configured time.
 
 ## How a flow is selected
 
@@ -86,20 +107,23 @@ in automatically; when several match, the applicant can choose from the availabl
 flows. The chosen flow determines the number of approval steps, the handlers at
 each step, and the CC list shown on the ticket.
 
-Flows defined in the global (root) organization act as defaults for all
-organizations. A flow with the same ticket type and name defined in a specific
-organization overrides the global flow, while differently named flows remain
-available.
-
-<Alert type="warning">
-Every approval level must resolve to at least one handler. If an attribute rule
-matches nobody, saving the flow fails with an error asking you to update the
-approval rule. Check role and attribute values before changing a flow that is
-already in use.
-</Alert>
+Ticket approvals cover asset authorization, login review, command review, asset
+connect review, account password viewing and changes, file uploads and downloads,
+and session recording downloads. See
+[Ticket types](/features/workbench/tickets/my-tickets#ticket-types) for the full
+list. Approved authorization tickets can request an authorization renewal with a
+new authorization period.
 
 <Alert type="note">
-Changing a flow affects tickets created afterwards. Tickets already in progress
-keep the approval steps that were created with them. Auditors can review ticket
-history from [Ticket Audits](/features/audits/tickets).
+  Legacy tickets and workflows are migrated automatically. Complex approver
+  rules may be disabled during migration and require review before they are used
+  again.
 </Alert>
+
+## Version history
+
+| Version | Change                                                                                                                     |
+| ------- | -------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added visual approval workflows with conditions, all/any-approver modes, reassignment, additional approvers, and timeouts. |
+| v5.2.0  | Expanded ticket approvals to password viewing and changes, file transfers, and recording downloads.                        |
+| v5.2.0  | Added authorization renewal requests from approved authorization tickets.                                                  |

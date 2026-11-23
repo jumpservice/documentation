@@ -1,8 +1,8 @@
 [
   {
     "type": "file",
-    "name": "connect-assets",
-    "label": "Connect Assets"
+    "name": "asset-connection",
+    "label": "Asset Connection"
   },
   {
     "type": "file",

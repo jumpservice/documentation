@@ -1,19 +1,49 @@
 ---
-title: "Connection Settings"
-description: "Configure JumpServer Client language, character set, terminal, display, appearance, and local application paths."
+title: "Settings"
+description: "Configure JumpServer Client language, terminal, RDP display, appearance, local applications, and login and screen lock settings."
 ---
 
-# Connection Settings
+# Settings
 
-Client settings are local to the desktop application. Open the file menu at the
-top-left and select **Connection Settings**.
+Client settings are local to the desktop application. Open **Settings** from the
+file menu, or press `Ctrl + ,` (`Cmd + ,` on macOS). See
+[Keyboard Shortcuts](/features/client/keyboard-shortcuts) for the complete list.
 
-## User information
+## User
 
-The user information page shows the account currently signed in to the client and
-the associated account details.
+Open **Settings**, then select **User** in the left navigation. The
+page shows the security state of the signed-in account and controls how the
+client login and screen lock behave.
 
-![Figure 1: Client user information](/images/v5/jumpserver/client_setting_01.png)
+### Security status
+
+| Field                       | Description                                                                                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Account status              | Whether the signed-in account is valid. When the account is not valid, sign in again or ask an administrator to check the account. |
+| Multi-factor authentication | Whether MFA is enabled for the signed-in account. The client does not change the server-side MFA policy.                           |
+
+### Login information
+
+| Field           | Description                                                                |
+| --------------- | -------------------------------------------------------------------------- |
+| Login time      | When the current client session signed in to the current site.             |
+| Expiration time | When the current client login expires. `Unlimited` means no expiry is set. |
+
+### Login and screen lock
+
+<VersionBadge version="5.2.0" />
+
+| Setting                                | Description                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sign in again after exiting the client | Requires a new login after you exit and restart the client. Minimizing or hiding the client does not count as exiting.                                                                                                                                                                                                                                                                             |
+| Maximum client login lifetime (min)    | Counted from login. The client asks you to sign in again when the lifetime expires; activity does not extend it. `0` means unlimited. Clear the field to restore the default.                                                                                                                                                                                                                      |
+| Idle screen lock (min)                 | Locks the client after the configured idle period. All accounts share the last activity time but lock after their own idle timeout; when the current account locks, all other accounts also lock, and each account must be unlocked separately. External application windows are not protected. The value cannot exceed the limit set by the administrator; leave it empty to restore the default. |
+| Manage lock password                   | Opens the dialog for setting or changing the password used to unlock the client.                                                                                                                                                                                                                                                                                                                   |
+| Reset to default                       | Restores the login and screen lock settings to their defaults.                                                                                                                                                                                                                                                                                                                                     |
+
+The settings apply to the current site and account on this client. They do not
+change the server-side security policy; see [Security](/features/system-settings/security/security#client)
+for the administrator-controlled client session policy.
 
 ## General
 
@@ -23,11 +53,39 @@ The **General** page controls:
 - Character set
 - Character terminal behavior
 - Session resolution
+- Remote desktop display and redirection options
 
 These defaults apply to new sessions opened from the client. A session can still
 have its own protocol-specific options.
 
-![Figure 2: Client general settings](/images/v5/jumpserver/client_setting_02.png)
+![Figure 1: Client general settings.](/images/v5/jumpserver/v5_client_setting_general_01.png)
+
+### Remote desktop
+
+<VersionBadge version="5.2.0" kind="changed" />
+
+The **Remote Desktop** group applies to new local RDP desktop connections. It
+does not change web sessions or RemoteApp. The full screen, multiple screens, and
+drive redirection options require JumpServer Enterprise Edition.
+
+| Setting                        | Description                                                                                                                                                                                      |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Keyboard layout                | Keyboard layout used by local RDP sessions.                                                                                                                                                      |
+| Resolution                     | Default resolution for future Windows connections. **Auto** follows the client window; a selection in an individual connection applies only to that connection and does not change this setting. |
+| RDP color quality              | Color depth for the local RDP client: 8-bit, 16-bit, 24-bit, or True color (32-bit). Applies only to the local RDP client, not the web remote desktop.                                           |
+| RDP smart sizing               | Scales the remote desktop to fit the client window. Applies only to the local RDP client, not the web remote desktop.                                                                            |
+| Apply Windows key combinations | Choose **On the local computer**, **On the remote computer**, or **Only when using full screen**. Applies to new local RDP desktop connections, not web sessions or RemoteApp.                   |
+| Printer redirection            | Redirects local printers into RDP sessions. When disabled, printers are not redirected. For web sessions, printed documents are downloaded as PDFs instead.                                      |
+| Full screen                    | Opens local RDP sessions full screen. Applies only to the local RDP client and requires JumpServer Enterprise Edition.                                                                           |
+| Multiple screens               | Uses multiple local monitors for RDP sessions. Applies only to the local RDP client and requires JumpServer Enterprise Edition.                                                                  |
+| Redirect drives                | Makes local drives available inside RDP sessions. Applies only to the local RDP client and requires JumpServer Enterprise Edition.                                                               |
+
+### RDP connection security
+
+The security layer is a per-connection option. It is configured in the connection
+dialog, not on the General page, and does not change the General defaults. See
+[RDP connection security](/features/client/asset-connection#rdp-connection-security)
+for the available options.
 
 ## Appearance
 
@@ -37,9 +95,9 @@ The **Appearance** page controls the client's visual theme:
 - Primary color
 - Font
 
-![Figure 3: Client appearance settings](/images/v5/jumpserver/client_setting_03.png)
+![Figure 2: Client appearance settings.](/images/v5/jumpserver/v5_client_setting_appearance_01.png)
 
-## Application configuration
+## Application settings
 
 <VersionBadge version="5.1.0" kind="changed" />
 
@@ -48,7 +106,7 @@ the executable path for each application you use. DBX
 replaces DBeaver as the default remote database application, so database sessions
 open in DBX unless another application is configured for that database type.
 
-1. Open **Application Configuration**.
+1. Open **Application Settings**.
 2. Select the application or database type.
 3. Download and install the application if needed.
 4. Select **Select Path** and choose the installed executable.
@@ -56,7 +114,7 @@ open in DBX unless another application is configured for that database type.
 If an application is not installed, use the download link shown in the client, then
 return and set the path.
 
-![Figure 4: Client application configuration](/images/v5/jumpserver/client_setting_04.png)
+![Figure 3: Client application configuration.](/images/v5/jumpserver/v5_client_setting_application_01.png)
 
 ## Notes
 
@@ -67,6 +125,8 @@ return and set the path.
 
 ## Version history
 
-| Version | Change |
-| --- | --- |
-| v5.1.0 | DBX replaces DBeaver as the default remote database application. |
+| Version | Change                                                                                                                                   |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Added security status, login information, and Login and screen lock settings to the User page.                                           |
+| v5.2.0  | Added printer redirection and Windows key combination settings for local RDP connections and a per-connection RDP security layer option. |
+| v5.1.0  | DBX replaces DBeaver as the default remote database application.                                                                         |

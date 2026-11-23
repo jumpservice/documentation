@@ -12,16 +12,16 @@ a connection from the Workbench.
 Open it from the **Workbench** entry or the Web Terminal icon in the top
 navigation.
 
-![Figure 1: Web Terminal workspace](/images/v5/jumpserver/v5_user_wb_luna_01.png)
+![Figure 1: Web Terminal workspace.](/images/v5/jumpserver/v5_user_wb_luna_01.png)
 
 ## Workspace layout
 
-| Area | What it contains |
-| --- | --- |
-| Top toolbar | **My Assets**, **File Manager**, sidebar toggle, **New Connection**; on the right: [AI Assistant](/features/general/support/ai-assistant), user menu, and session panel |
-| Left sidebar | Assets authorized in the current organization, with organization switch, search, favorites, and scripts |
-| Session area | Open sessions as tabs; drag, switch, and split panes |
-| Bottom status bar | Login status, session count, and the **Transfer Center** entry |
+| Area              | What it contains                                                                                                                                                        |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Top toolbar       | **My Assets**, **File Manager**, sidebar toggle, **New Connection**; on the right: [AI Assistant](/features/general/support/ai-assistant), user menu, and session panel |
+| Left sidebar      | Assets authorized in the current organization, with organization switch, search, favorites, and scripts                                                                 |
+| Session area      | Open sessions as tabs; drag, switch, and split panes                                                                                                                    |
+| Bottom status bar | Login status, session count, and the **Transfer Center** entry                                                                                                          |
 
 ## My Assets
 
@@ -38,8 +38,26 @@ account inspection, and favorites.
 Select an asset in the sidebar, choose a protocol, account, and connection method,
 then select **Connect**. The connection opens as a tab in the session area.
 
-See [Connect Assets](/features/workbench/web-terminal/connect-assets) for the full
+See [Asset Connection](/features/workbench/web-terminal/asset-connection) for the full
 connection flow, available methods, and session shortcuts.
+
+### Split views, input broadcasting, and shortcuts
+
+<VersionBadge version="5.2.0" />
+
+- **Split views** — arrange sessions in vertical or horizontal splits and resize the panes to fit the task.
+- **SSH input broadcasting** — send input from one terminal to the other terminal sessions in the current layout, for example to run the same command on several assets.
+- **Keyboard shortcuts** — switch sessions, split panes, and open common actions from the keyboard; review the shortcut list in the Workbench and customize bindings where available.
+
+Drag the divider between panes to resize them. To place a session beside another,
+drag a session tab toward the edge of the session area and release when the drop
+target appears. The client workspace shows the same drop target in
+[Split views](/features/client/workspace#split-views).
+
+![Figure 2: Dragging a session to the right edge splits the workspace in JumpServer Client.](/images/v5/jumpserver/v5_client_split_drag_01.png)
+
+Broadcasting sends input to the selected sessions only. Access control and command
+auditing still apply to each session independently.
 
 ## AI Assistant
 
@@ -57,7 +75,7 @@ to another organization, or choose **All organizations**. The asset list reloads
 for the selected organization, so an authorization created in one organization is
 not visible in another.
 
-![Figure 2: Organization switcher in the Web Terminal](/images/v5/jumpserver/v5_user_wb_luna_17.png)
+![Figure 3: Organization switcher in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_luna_17.png)
 
 ## File Manager
 
@@ -84,8 +102,14 @@ Select your avatar in the top-right to open the personal menu:
 See [Web Terminal Settings](/features/workbench/web-terminal/settings) for the
 settings pages.
 
+## Version history
+
 <Alert type="note">
-The Web Terminal shows only assets authorized for your account in the active
-organization. If a connection method is missing, the protocol, enabled components,
-license, or your assigned connection methods may not allow it.
+  The Web Terminal shows only assets authorized for your account in the active
+  organization. If a connection method is missing, the protocol, enabled
+  components, license, or your assigned connection methods may not allow it.
 </Alert>
+
+| Version | Change                                                                                   |
+| ------- | ---------------------------------------------------------------------------------------- |
+| v5.2.0  | Added flexible split views, SSH input broadcasting, and customizable keyboard shortcuts. |

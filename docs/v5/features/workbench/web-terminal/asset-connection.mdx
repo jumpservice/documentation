@@ -1,0 +1,248 @@
+---
+title: "Asset Connection"
+description: "Choose an asset type, protocol, and connection method in the Web Terminal, and know when a connection opens in JumpServer Client."
+---
+
+# Asset Connection
+
+<Alert type="xpack">
+  **Oracle, SQL Server, DB2, ClickHouse, Dameng, and OceanBase database assets**
+  require JumpServer Enterprise Edition. **Desktop database, RDP, VNC, and
+  VirtualApp methods** also require Enterprise Edition. Built-in Web Terminal
+  access, WebLite remote applications, and Community-supported database
+  platforms are included in Community Edition.
+</Alert>
+
+The Web Terminal connects to assets authorized for your account. A connection is
+defined by three choices: the **asset type**, the **protocol**, and the
+**connection method**. The method decides whether the session runs in the browser
+or in JumpServer Client on your computer.
+
+## Connection flow
+
+1. Select the target asset in the left sidebar. The connection dialog opens.
+2. Choose a **Protocol** tab. Assets with multiple protocols, such as SSH and
+   SFTP, show one tab per protocol.
+3. Choose an **Account** authorized for the asset. **Manual input** lets you enter
+   an account and password yourself.
+4. Choose a **Connection method**. Methods are grouped as built-in, application,
+   and remote application.
+5. Open **Advanced options** when you need to change the character set, terminal
+   behavior, resolution, application, or the way a remote application opens.
+6. Select **Connect**, or **Open in client** for a method that runs in JumpServer
+   Client.
+
+![Figure 1: Connection dialog in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_luna_04.png)
+
+## Supported asset types and protocols
+
+The platform of an asset determines which protocols it can enable. This section
+maps asset types to protocols and protocols to connection methods; the next
+section explains each method and when it runs in the browser or in JumpServer
+Client.
+
+### Asset types and protocols
+
+| Asset type                      | Common platforms                                       | Supported protocols                                                                                             | Enterprise? |
+| ------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| Host                            | Linux, Unix, macOS, BSD, AIX, Other                    | SSH, SFTP, Telnet, VNC, RDP                                                                                     | No          |
+| Windows host                    | Windows, Windows-TLS, Windows-RDP                      | RDP, SSH, SFTP, VNC, WinRM                                                                                      | No          |
+| Network device                  | General, Cisco, Huawei, H3C, Switch, Router, Firewall  | SSH, Telnet, SFTP                                                                                               | No          |
+| Database (community platforms)  | MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | `mysql`, `mariadb`, `postgresql`, `mongodb`, `redis`                                                            | No          |
+| Database (enterprise platforms) | Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | `oracle`, `sqlserver`, `db2`, `clickhouse`, `dameng`; OceanBase uses `mysql` with a MySQL or Oracle tenant mode | Yes         |
+| Cloud service                   | Kubernetes                                             | `k8s`                                                                                                           | No          |
+| Web                             | Website                                                | HTTP, HTTPS                                                                                                     | No          |
+| Directory service               | General, Windows Active Directory                      | SSH, RDP, VNC, WinRM                                                                                            | No          |
+| Custom type                     | Administrator-defined                                  | Custom protocol                                                                                                 | Depends     |
+
+### Protocols and connection methods
+
+| Protocol                                               | Connect Method                               | Enterprise? |
+| ------------------------------------------------------ | -------------------------------------------- | ----------- |
+| SSH                                                    | Built-in terminal                            | No          |
+| SSH                                                    | Application: SSH Client or Connection Wizard | No          |
+| SFTP                                                   | Built-in File Manager or File Editor         | No          |
+| SFTP                                                   | Application: SFTP Client                     | No          |
+| Telnet                                                 | Built-in terminal                            | No          |
+| Telnet                                                 | Application: SSH Client                      | No          |
+| WinRM                                                  | Built-in terminal with PowerShell            | No          |
+| RDP                                                    | Built-in Remote Desktop                      | No          |
+| RDP                                                    | Application: Remote Desktop                  | Yes         |
+| VNC                                                    | Built-in Remote Desktop                      | No          |
+| VNC                                                    | Application: VNC Client                      | Yes         |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Built-in terminal or Database Workbench      | No          |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Application: DB Client or Connection Wizard  | Yes         |
+| MySQL, MariaDB, PostgreSQL, MongoDB, Redis             | Remote Application: DBX or Navicat           | Yes         |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Built-in terminal or Database Workbench      | Yes         |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Application: DB Client or Connection Wizard  | Yes         |
+| Oracle, SQL Server, DB2, ClickHouse, Dameng, OceanBase | Remote Application: DBX or Navicat           | Yes         |
+| Kubernetes                                             | Built-in Kubernetes workspace                | No          |
+| HTTP, HTTPS                                            | Remote Application: WebLite                  | No          |
+| Custom protocol                                        | Depends on the configured protocol handler   | Depends     |
+
+**Built-in** runs in the browser, **Application** launches a local program through
+JumpServer Client, and **Remote Application** opens a published RemoteApp or
+VirtualApp. Available methods still depend on the enabled components, license,
+and access control policies.
+
+## Connection methods
+
+Available methods depend on the asset protocol, enabled components, license, and
+the methods assigned to your account.
+
+| Method                  | Where the session runs                                                                                         | Common examples                                                                          | Requirements                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Built-in**            | In the browser, rendered by JumpServer                                                                         | Terminal, Web CLI, Database Workbench, Remote Desktop, VNC, File Manager, and Kubernetes | The component for the protocol is enabled; no local client is needed                            |
+| **Application**         | In a local application launched by JumpServer Client, or shown as connection details for **Connection Wizard** | SSH Client, SFTP Client, DB Client, Remote Desktop, VNC Client, and Connection Wizard    | JumpServer Client and local application path for direct launch; Connection Wizard needs neither |
+| **Remote Application**  | In a published application, in the browser or in JumpServer Client when the **Client** option is chosen        | DBX, Navicat, WebLite, and other published applications                                  | The application is published on a RemoteApp machine; the account is authorized                  |
+| **Virtual Application** | In a published Linux application, in the browser or in JumpServer Client when the **Client** option is chosen  | VirtualApp images published by the Panda application provider                            | VirtualApp is enabled, a provider is registered, and the application is published               |
+
+### Built-in
+
+JumpServer renders the session in the browser. Use a built-in method when you do
+not need a local tool, when the client is unavailable, or when an access control
+policy restricts client methods. See the protocol table above for what each
+protocol opens in the browser.
+
+### Application
+
+The Application method hands the connection to a local program through
+JumpServer Client. Select a native method such as **SSH Client**, **SFTP Client**,
+**DB Client**, **Remote Desktop**, or **VNC Client**, then select **Open in
+client**. The client starts or focuses the configured application and passes the
+asset, account, and connection details to it.
+
+Before using this method, install JumpServer Client and configure the application
+path for the protocol in
+[Settings > Application Settings](/features/client/connection-settings#application-settings).
+Desktop database, RDP, and VNC application methods require JumpServer Enterprise
+Edition.
+
+### Connection Wizard
+
+The **Connection Wizard** is an Application method that returns the connection
+details instead of launching a local program. After you select the asset, the
+account, and **Connection Wizard**, JumpServer displays:
+
+- the JumpServer proxy address and port to connect to;
+- a temporary username and password for this connection;
+- the ready-to-copy connection information for the selected protocol.
+
+Use these details in any compatible SSH, database, RDP, or VNC client on your
+computer. Your chosen client connects to the JumpServer proxy rather than directly to the
+asset, so authorization, access control, and auditing still apply. The temporary
+credentials and the proxy endpoint expire with the connection; do not save or
+share them.
+
+Use Connection Wizard when no local application is configured, when you prefer a
+different client, or when you need to pass the connection details to another tool.
+This method does not open JumpServer Client; use the returned details in the client
+of your choice.
+
+### Remote Application and Virtual Application
+
+Remote Application and Virtual Application open an application published by an
+administrator instead of a raw protocol session. They are the normal path for
+Windows applications on a RemoteApp machine and for Linux applications in a
+Panda-provided VirtualApp environment.
+
+RemoteApp and VirtualApp both appear under the **Remote Application** method
+group. Select the published application, then use **Advanced options** to choose
+the browser path or the **Client** path.
+
+By default the published application opens in the browser. When the connection
+dialog offers a **Client** option under **Advanced options**, select **Client** to
+open the published application in JumpServer Client instead. This is useful when
+the local application window, local input devices, or a client-only integration is
+required.
+
+## Database Workbench
+
+<VersionBadge version="5.2.0" kind="changed" />
+
+Database assets can open in the built-in Database Workbench instead of a local
+database client. The Workbench provides a SQL editor and query results in the
+browser:
+
+- Edit result rows, run paginated exports, and inspect execution plans.
+- Open relationship diagrams to understand table relationships.
+- Commit or roll back a transaction manually.
+- Search AI context by table name, column name, or comment.
+
+Database Workbench availability depends on the asset platform and the enabled
+database component.
+
+## When JumpServer Client opens
+
+The browser Web Terminal starts JumpServer Client in these cases:
+
+1. **Application method** — a native method that launches a local application, such as **SSH Client**, **SFTP Client**, **DB Client**, **Remote Desktop**, or **VNC Client**. The primary button reads **Open in client**, and the session runs in the local application.
+2. **Remote Application or Virtual Application with the Client option** — open
+   **Advanced options**, select **Client**, and connect. The published
+   application opens in JumpServer Client instead of the browser.
+
+**Connection Wizard** is not one of these cases: it returns connection details and
+does not launch JumpServer Client.
+
+The client must be installed, running, and able to reach JumpServer. For
+Application methods, the matching local application must also be configured in
+Settings. If the client is missing or the application path is not configured, the
+launch fails; select a built-in method or configure the client first.
+
+If an access control policy disables client connection methods, the connection
+dialog offers only built-in methods, and the client cannot be used for that asset.
+
+## Web assets and the built-in browser
+
+A **Website** asset in the browser Web Terminal opens through a published
+**WebLite** remote application. The JumpServer Client built-in browser is a
+separate client-only path: it needs no RemoteApp publisher, Windows Server, or RDS
+license, and it is included in Community Edition. See
+[Web assets](/features/console/assets/web-assets) for both paths.
+
+## Session management
+
+Sessions open as tabs in the session area.
+
+- Switch sessions with `Alt + Shift + ← / →` or `Ctrl + 1–9`.
+- Drag tabs to reorder them.
+- Drop one tab onto another to group them; grouped tabs can be restored in a future
+  session. See
+  [Web Terminal Settings](/features/workbench/web-terminal/settings).
+- Right-click a tab for pure mode, full screen, duplicate window, reconnect,
+  rename, vertical split, horizontal split, and close actions.
+- Use **New Connection** to reopen a recent asset, or **Transfer Center** to review
+  file transfers.
+
+![Figure 2: Session tabs in the Web Terminal.](/images/v5/jumpserver/v5_user_wb_luna_16.png)
+
+## Notes
+
+- If the connection dialog reports no available account, ask an administrator to
+  check the account authorization.
+- If a protocol is missing, the asset platform may not support it or the asset was
+  not created with that protocol enabled.
+- If an application method is missing, install JumpServer Client and configure the
+  local application path. If a client method is disabled, an access control policy
+  may be blocking it.
+
+## Version history
+
+| Version | Change                                                                                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v5.2.0  | Refactored Database Workbench with a SQL editor, manual transaction control, result editing, paginated exports, execution plans, and relationship diagrams. |
+| v5.2.0  | Added DB2 database support in the Web Terminal and native client proxy.                                                                                     |
+| v5.2.0  | Added ClickHouse HTTP and Native protocol connectivity.                                                                                                     |
+| v5.2.0  | Added a single-endpoint proxy for Redis Cluster.                                                                                                            |
+| v5.2.0  | Added OceanBase MySQL-compatible and Oracle-compatible tenants.                                                                                             |
+| v5.2.0  | Added SQL Server domain account authentication with NTLMv2 or Kerberos.                                                                                     |
+| v5.1.0  | Added a summary view and quick-access actions for SQL execution plans.                                                                                      |
+| v5.1.0  | Added Windows PowerShell over WinRM.                                                                                                                        |
+| v5.1.0  | Added the Dameng Database Web CLI.                                                                                                                          |
+
+## Related topics
+
+- [Client Asset Connection](/features/client/asset-connection)
+- [Web assets](/features/console/assets/web-assets)
+- [RemoteApp](/features/system-settings/infrastructure/remote-app)
+- [Settings](/features/client/connection-settings)
