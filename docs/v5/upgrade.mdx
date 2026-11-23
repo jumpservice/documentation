@@ -227,6 +227,19 @@ Start the services.
 
 These notes describe the behavior changes and fixes in each target version. They do not change the upgrade commands in the preceding sections.
 
+### JumpServer v5.2.1
+
+<VersionBadge version="5.2.1" kind="changed" />
+
+| Change                                                                            | What to check after the upgrade                                                                                                                                 |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| LDAP and LDAP HA login failures caused by username case differences are fixed     | Verify usernames that differ only by case, and confirm the matching user and authentication source after sign-in.                                               |
+| Asset tree pagination behind HTTPS reverse proxies is fixed                       | Open the asset tree through the reverse proxy and page through the results; check forwarded scheme and host headers if pagination still fails.                  |
+| SFTP file management no longer fails during connection token exchange             | Open SFTP from an asset and verify directory listing and file transfer.                                                                                         |
+| Celery and Core now use consistent timezone settings                              | Confirm the deployment time zone and the next run times of scheduled tasks.                                                                                     |
+| Compose command generation failures now stop the operation and report the error   | Review the upgrade output for failed Compose commands instead of assuming the step completed.                                                                   |
+| Compose configuration paths and interrupted PostgreSQL upgrade recovery are fixed | Confirm the Compose configuration path; after an interrupted PostgreSQL upgrade, verify the database and Redis are ready before restoring application services. |
+
 ### JumpServer v5.2.0
 
 <VersionBadge version="5.2.0" kind="changed" />
